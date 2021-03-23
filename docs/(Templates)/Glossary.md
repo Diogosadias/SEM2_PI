@@ -4,14 +4,14 @@
 
 (To complete according the provided example)
 
-| **_TEA_** (EN)  | **_TEA_** (PT) | **_Description_** (EN)                                           |                                       
+| **_Term_** (EN)  | **_Termo_** (PT) | **_Description_** (EN)                                           |                                       
 |:------------------------|:-----------------|:--------------------------------------------|
-| **Clerk** | **Administrativo** | Person responsible for carrying out various business supporting activities on the system. |
-| **CLK** | **ADM** | Acronym for _Clerk_.|
-| **...** | **...** | ...|
-
-
-
+| **Client** | **Cliente** | The person who requests the clinical analyses. |
+| **Recepcionist** | **Rececionista** | The person who asks the client his personal info and registers the client into the system.|
+| **MLT** | **TML** | An achronym for Medical Lab Technician|
+| **Specialist Doctor** | **Doutor Especializado** | The person who does the diagnosis|
+| **CCT** | **TCC** | An achronym for clininical chemistry technologist, they're the ones who receive the samples and perform the chemical analyzed.|
+| **Laboratory Coordinator**| Validates
 
 
 
