@@ -30,7 +30,6 @@ documentation; consistency and standards.
 | **SVG** | Records all images/figures produced in SVG format.|
 
 
-(fill in here )
 
 ## Reliability
 _Refers to the integrity, compliance and interoperability of the software. The requirements to be considered are: frequency and severity of failure, possibility of recovery, possibility of prediction, accuracy, average time between failures._
@@ -40,7 +39,6 @@ _Refers to the integrity, compliance and interoperability of the software. The r
 | **User Manual** |  Analyzes the accuaracy of the prediction models| 
 | **Object Serialization**|  Ensures data persistence between two runs of the application |
 
-(fill in here )
 
 ## Performance
 _Evaluates the performance requirements of the software, namely: response time, start-up time, recovery time, memory consumption, CPU usage, load capacity and application availability._
@@ -49,7 +47,6 @@ _Evaluates the performance requirements of the software, namely: response time, 
 |:------------------------|:-----------------|
 | **Configuration File** |  Configures the parameters and initial settings of the algorithms|
 
-(fill in here )
 
 ## Supportability
 _The supportability requirements gathers several characteristics, such as:
@@ -62,17 +59,25 @@ configurability, installability, scalability and more._
 |**External Code Compatability**| Detects and analyzes external codes into the system|
 |**External Software**| Lets the System cooperate with external systems
 
-(fill in here )
 
 
 ## +
 
 ### Design Constraints
 
-_Specifies or constraints the system design process. Examples may include: programming languages, software process, mandatory standards/patterns, use of development tools, class library, etc._
+### Design Constraints
+_Specifies or constraints the system design process. Examples may include: programming languages,
+software process, mandatory standards/patterns, use of development tools, class library, etc._
 
+- **Development of a graphical interface using JavaFX 11**
 
-(fill in here )
+- **Adopt good practices when identifying requirements and for OO software analysis and design**
+
+- **Adopt recognized coding standards**
+
+- **Usage of Javadoc to generate useful documentation for Java code**
+
+***
 
 
 ### Implementation Constraints
@@ -81,17 +86,17 @@ _Specifies or constraints the code or construction of a system such
 such as: mandatory standards/patterns, implementation languages,
 database integrity, resource limits, operating system._
 
+- **Develop the project in Java programming language**
 
-(fill in here )
+- **Adopt recognized coding standards**
+
 
 
 ### Interface Constraints
 
+- **Development of a graphical interface using JavaFX 11**
 
-(fill in here )
 
 ### Physical Constraints
 
 _Specifies a limitation or physical requirement regarding the hardware used to house the system, as for example: material, shape, size or weight._
-
-(fill in here )
