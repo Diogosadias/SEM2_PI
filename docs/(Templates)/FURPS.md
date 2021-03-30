@@ -1,3 +1,4 @@
+
 # Supplementary Specification (FURPS+)
 
 ## Functionality
@@ -9,6 +10,9 @@
 |**Authentication**| Ensures that only certain people are able to get into the system |
 |**Ordering**|Orders the clients by name and TIF|
 |**Registering**| Registers a person into the system
+|**Validation**| Validates analysis and reports|
+|**Record** | Records the samples tests results and reports|
+
 
 
 
