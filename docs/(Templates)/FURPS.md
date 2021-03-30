@@ -9,13 +9,14 @@
 | **SMS** | Existence of SMS services to inform the client. |
 |**Authentication**| Ensures that only certain people are able to get into the system |
 |**Ordering**|Orders the clients by name and TIF|
-|**Registering**| Registers a person into the system
+|**Registering**| Registers a new client into the system
 |**Validation**| Validates analysis and reports|
 |**Record** | Records the samples tests results and reports|
-
-
-
-
+|**Associating**|Connecting the samples with the client/test |
+|**Identifying Sample**|Give sample an identifying barcode provide by an external API|
+|**Tracking**|Allows workers to know where a sample is located or if it is in travel|
+|**Notify**|Sending notification via Email or SMS to client to inform results are available|
+|**Generate Daily Reports**|Generate reports to be send to the NHS|
 
 ## Usability
 
@@ -27,12 +28,12 @@ documentation; consistency and standards.
 |:------------------------|:-----------------|
 | **JavaFX 11** |  Graphical Interface
 |**JavaDoc**| Generates a documentation for the Java code|
-| **Acessability**| Some users have more premitions than others to manipulate the system data|
+| **Accessibility**| Some users have more permissions than others to manipulate the system data|
 |**CamelCase**| Adopts recognized coding standards
 |**Alphanumeric Confirmation** | Makes sure the inputted alphanumerics  follow the requirements to be accepted|
 | **JaCoCo** | Generates the coverage report|
 | **SVG** | Records all images/figures produced in SVG format.|
-
+|**Search client**|Allows lab workers to find results and access them easier|
 
 
 ## Reliability
@@ -40,9 +41,9 @@ _Refers to the integrity, compliance and interoperability of the software. The r
 
 | **_Function_**   | Description                         |                                       
 |:------------------------|:-----------------|
-| **User Manual** |  Analyzes the accuaracy of the prediction models| 
+| **User Manual** |  Analyzes the accuracy of the prediction models| 
 | **Object Serialization**|  Ensures data persistence between two runs of the application |
-
+|**Barcode Uniqueness**|One sample must have an unique barcode|
 
 ## Performance
 _Evaluates the performance requirements of the software, namely: response time, start-up time, recovery time, memory consumption, CPU usage, load capacity and application availability._
@@ -50,12 +51,13 @@ _Evaluates the performance requirements of the software, namely: response time, 
 | **_Function_**   | Description                         |                                       
 |:------------------------|:-----------------|
 | **Configuration File** |  Configures the parameters and initial settings of the algorithms|
+|**Daily tests algorithm**|Adaptive software that allows program to run faster Algorithm |
 
 
 ## Supportability
 _The supportability requirements gathers several characteristics, such as:
 testability, adaptability, maintainability, compatibility,
-configurability, installability, scalability and more._
+configurability, instability, scalability and more._
 
 | **_Function_**   | Description                         |                                       
 |:------------------------|:-----------------|
@@ -67,7 +69,6 @@ configurability, installability, scalability and more._
 
 ## +
 
-### Design Constraints
 
 ### Design Constraints
 _Specifies or constraints the system design process. Examples may include: programming languages,
@@ -104,3 +105,5 @@ database integrity, resource limits, operating system._
 ### Physical Constraints
 
 _Specifies a limitation or physical requirement regarding the hardware used to house the system, as for example: material, shape, size or weight._
+
+- **Application must run on the hardware and software available in the current facilities of the Many Labs Company**
