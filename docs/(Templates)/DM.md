@@ -10,33 +10,39 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Business Transactions**
 
-*
+* Test
 
 ---
 
-**Transaction Line Itemss**
+**Transaction Line Items**
 
-*
+* Sample
 
 ---
 
 **Product/Service related to a Transaction or Transaction Line Item**
 
-*  
+* Parameter  
 
 ---
 
 
 **Transaction Records**
 
-*  
+*  Reports
 
 ---  
 
 
 **Roles of People or Organizations**
 
-* 
+* Client
+* Recepcionist
+* Medical Lab Technicians
+* Chemistry Technologist
+* Specialist Doctor
+* Laboratory Coordinator
+* Adminstrator
 
 
 ---
@@ -44,27 +50,31 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Places**
 
-*  
+* Clinical Analysis Laboratory
+* Chemical Laboratory
+* Company's Headquarters
 
 ---
 
-** Noteworthy Events**
+**Noteworthy Events**
 
-* 
-
+* Chemical Analysis
+* Diagnosis
+* Automatic Validation
 ---
 
 
 **Physical Objects**
 
-*
+* Lab Order
 
 ---
 
 
 **Descriptions of Things**
 
-*  
+*  Type of Test
+* Category
 
 
 ---
@@ -93,13 +103,15 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Organizations**
 
-*  
+* Company  
+* NHS
 
 ---
 
 **Other External/Collaborating Systems**
 
-*  
+*  External Module
+*  SVG
 
 
 ---
@@ -142,8 +154,19 @@ An association is a relationship between instances of objects that indicates a r
 
 | Concept (A) 		|  Association   	|  Concept (B) |
 |----------	   		|:-------------:		|------:       |
-| C1  	| verb1    		 	| C2  |
-| ...  	| ...    		 	| ...  |
+| Company 	| performs| Tests|
+|Company | conducts | TestType
+| Parameter 	| presented under  | Category  |
+| Category | created by | Adminstrator
+| Test | requested by | Client
+| Test | is of | TestType
+| Recepcionist | receives | Lab Order
+| Recepcionist | registers | Client
+| Specialist Doctor | makes a | Diagnosis|
+| MLT | records | Sample
+| Chemistry Technologist | performs | Chemical Analyzes
+
+
 
 
 
