@@ -73,7 +73,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Descriptions of Things**
 
-*  Type of Test
+* Type of Test
 * Category
 
 
@@ -82,7 +82,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Catalogs**
 
-*  
+*  Type of Test
 
 ---
 
@@ -119,7 +119,9 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Records of finance, work, contracts, legal matters**
 
-* 
+* Chemical Analysis
+* Diagnosis
+* Reports
 
 ---
 
@@ -133,7 +135,8 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Documents mentioned/used to perform some work/**
 
-* 
+* Lab Order
+* Reports
 ---
 
 
