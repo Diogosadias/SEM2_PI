@@ -32,7 +32,7 @@ documentation; consistency and standards.
 |**CamelCase**| Adopts recognized coding standards
 |**Alphanumeric Confirmation** | Makes sure the inputted alphanumerics  follow the requirements to be accepted|
 | **JaCoCo** | Generates the coverage report|
-| **SVG** | Records all images/figures produced in SVG format.|
+| **SVG format** | Records all images/figures produced in SVG format.|
 |**Search client**|Allows lab workers to find results and access them easier|
 
 
