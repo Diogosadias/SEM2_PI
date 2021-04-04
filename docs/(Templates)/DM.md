@@ -165,9 +165,13 @@ An association is a relationship between instances of objects that indicates a r
 | Test | is of | TestType
 | Recepcionist | receives | Lab Order
 | Recepcionist | registers | Client
-| Specialist Doctor | makes a | Diagnosis|
+| Specialist Doctor | writes | Diagnosis|
 | MLT | records | Sample
 | Chemistry Technologist | performs | Chemical Analyzes
+| Chemistry Technologist | receives | Sample
+| Clinical Analysis Laboratory 	| collects | Sample|
+| Chemical Laboratory 	| receives | Sample|
+| Laboratory Coordinator 	| validates | Diagnosis|
 
 
 
