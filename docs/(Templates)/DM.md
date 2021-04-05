@@ -159,20 +159,29 @@ An association is a relationship between instances of objects that indicates a r
 | Concept (A) 		|  Association   	|  Concept (B) |
 |----------	   		|:-------------:		|------:       |
 | Company 	| performs| Tests|
-|Company | conducts | TestType
+|Company | conducts | TestType|
+|Company | owns | Chemical Laboratory|
+|Company| owns | Clinical Analysis Laboratory|
+|Company| owns | Company's Headquarters|
 | Parameter 	| presented under  | Category  |
 | Category | created by | Adminstrator
 | Test | requested by | Client
 | Test | is of | TestType
+|Test | resquests analysis of | Parameter|
 | Recepcionist | receives | Lab Order
 | Recepcionist | registers | Client
+| Recepcionist | works for | Company
 | Specialist Doctor | writes | Diagnosis|
-| MLT | records | Sample
+| Specialist Doctor | works for| Company|
+| MLT | records | Sample|
+|MLT | works for | Company
 | Chemistry Technologist | performs | Chemical Analyzes
 | Chemistry Technologist | receives | Sample
+|Chemistry Technologist | works for| Company
 | Clinical Analysis Laboratory 	| collects | Sample|
 | Chemical Laboratory 	| receives | Sample|
 | Laboratory Coordinator 	| validates | Diagnosis|
+| Laboratory Coordinator | works for | Company
 
 
 
