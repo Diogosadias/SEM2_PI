@@ -82,7 +82,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Catalogs**
 
-*  Type of Test
+*  
 
 ---
 
@@ -103,8 +103,9 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Organizations**
 
-* Company  
+* Company
 * NHS
+* 
 
 ---
 
@@ -128,7 +129,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Financial Instruments**
 
-*  
+* 
 
 ---
 
