@@ -8,137 +8,26 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 ### _Conceptual Class Category List_ ###
 
-**Business Transactions**
-
-* Test
-
----
-
-**Transaction Line Items**
-
-* Sample
-
----
-
-**Product/Service related to a Transaction or Transaction Line Item**
-
-* Parameter  
-
----
-
-
-**Transaction Records**
-
-*  Reports
-
----  
-
-
-**Roles of People or Organizations**
-
-* Client
-* Recepcionist
-* Medical Lab Technicians
-* Chemistry Technologist
-* Specialist Doctor
-* Laboratory Coordinator
-* Adminstrator
-
-
----
-
-
-**Places**
-
-* Clinical Analysis Laboratory
-* Chemical Laboratory
-* Company's Headquarters
-
----
-
-**Noteworthy Events**
-
-* Chemical Analysis
-* Diagnosis
-* Automatic Validation
----
-
-
-**Physical Objects**
-
-* Lab Order
-
----
-
-
-**Descriptions of Things**
-
-* Type of Test
-* Category
-
-
----
-
-
-**Catalogs**
-
-*  
-
----
-
-
-**Containers**
-
-*  
-
----
-
-
-**Elements of Containers**
-
-*  
-
----
-
-
-**Organizations**
-
-* Company
-* NHS
-* 
-
----
-
-**Other External/Collaborating Systems**
-
-*  External Module
-*  SVG
-
-
----
-
-
-**Records of finance, work, contracts, legal matters**
-
-* Chemical Analysis
-* Diagnosis
-* Reports
-
----
-
-
-**Financial Instruments**
-
-* 
-
----
-
-
-**Documents mentioned/used to perform some work/**
-
-* Lab Order
-* Reports
----
+| **Category** 		|  **Candidate Classes** |
+|------------  				|---------      |
+| **Business Transactions** 	| Test|
+|**Transaction Line Items**| Sample|
+|**Product/Service related to a Transaction or Transaction Line Item**| Parameter  |
+|**Transaction Records**|  Reports|
+|**Roles of People or Organizations**|Client, Receptionist, Medical Lab Technicians, Chemistry Technologist, Specialist Doctor, Laboratory Coordinator, Adminstrator|
+|**Places**|Clinical Analysis Laboratory, Chemical Laboratory, Company's Headquarters|
+|**Noteworthy Events**|Chemical Analysis, Diagnosis, Automatic Validation|
+|**Physical Objects**| Lab Order|
+|**Descriptions of Things**| Type of Test, Category|
+|**Catalogs**||
+|**Containers**||
+|**Elements of Containers**||
+|**Organizations**|Company, NHS|
+|**Other External/Collaborating Systems**| External Module,  SVG|
+|**Records of finance, work, contracts, legal matters**|Chemical Analysis, Diagnosis, Reports|
+|**Financial Instruments**||
+|**Documents mentioned/used to perform some work/**| Lab Order, Reports|
+|**etc.**||
 
 
 
