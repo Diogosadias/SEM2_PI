@@ -14,20 +14,20 @@ To identify domain conceptual classes, start by making a list of candidate conce
 |**Transaction Line Items**| Sample|
 |**Product/Service related to a Transaction or Transaction Line Item**| Parameter  |
 |**Transaction Records**|  Reports|
-|**Roles of People or Organizations**|Client, Receptionist, Medical Lab Technicians, Chemistry Technologist, Specialist Doctor, Laboratory Coordinator, Adminstrator|
+|**Roles of People or Organizations**|External Doctor, Client, Receptionist, Medical Lab Technicians, Chemistry Technologist, Courier, Specialist Doctor, Laboratory Coordinator, Adminstrator|
 |**Places**|Clinical Analysis Laboratory, Chemical Laboratory, Company's Headquarters|
-|**Noteworthy Events**|Chemical Analysis, Diagnosis, Automatic Validation|
+|**Noteworthy Events**|Chemical Analysis, Diagnosis, Automatic Validation, Notification|
 |**Physical Objects**| Lab Order|
 |**Descriptions of Things**| Type of Test, Category|
 |**Catalogs**||
-|**Containers**||
+|**Containers**|Client's Information, Test's Information|
 |**Elements of Containers**||
 |**Organizations**|Company, NHS|
 |**Other External/Collaborating Systems**| External Module,  SVG|
-|**Records of finance, work, contracts, legal matters**|Chemical Analysis, Diagnosis, Reports|
+|**Records of finance, work, contracts, legal matters**|Chemical Analysis, Diagnosis, Reports, barcode|
 |**Financial Instruments**||
-|**Documents mentioned/used to perform some work/**| Lab Order, Reports|
-|**etc.**||
+|**Documents mentioned/used to perform some work**| Lab Order, Reports|
+|**etc.**|Password|
 
 
 
