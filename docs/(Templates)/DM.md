@@ -21,7 +21,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 |**Descriptions of Things**| Type of Test, Category|
 |**Catalogs**||
 |**Containers**|Client's Information, Test's Information|
-|**Elements of Containers**|Client’s citizen card number, National Healthcare Service number, birth date, sex, Tax Identification number, phone number, email, name, internal code, an NHS code , description identifying the sample collection method, the date and time when the sample was collected, the date and time of the chemical analysis, the date and time of the diagnosis made by the specialist doctor, the date and time when the laboratory coordinator validated the test, test type |
+|**Elements of Containers**| |
 |**Organizations**|Company, NHS|
 |**Other External/Collaborating Systems**| External Module,  SVG|
 |**Records of finance, work, contracts, legal matters**|Chemical Analysis, Diagnosis, Reports, barcode|
