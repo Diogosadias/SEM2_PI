@@ -11,7 +11,7 @@
 |**Localisation**|_"The application must support the English language only."_|
 |**Persistence**|_"The application should use object serialization to ensure data persistence between two runs of the application."_|
 |**Printing**|_"...informing that he/she must access the application to view (test) those results..."_|
-|**Reporting**|_"...requires Many Labs to summarize and report Covid-19 data,..."_|
+|**Reporting**|_"...requires Many Labs to summarize and report Covid-19 data,..." / "The JaCoCo plugin should be used to generate the coverage report._|
 |**Scheduling**|_"The company is also required to generate daily (automatic) reports..."_|
 |**Security**|_"All those who wish to use the application must be authenticated with a password..."_ / _"Only the specialist doctor is allowed to access all client data."_|
 |**Transaction management**|(*) - Persistence??|
@@ -20,24 +20,13 @@
 
 ## Usability
 
-_Evaluates the user interface. It has several subcategories,
-among them: error prevention; interface aesthetics and design; help and
-documentation; consistency and standards.
+
 
 | **_Function_**   | **_Description_** |                                 
 |:------------------------|:-----------------|
-|**Accessibility**||
-|**Aesthetics**||
-|**Consistency**|(*) Not a specific requirement|
-
-
-
-| **JavaFX 11** |  Graphical Interface
-| **Accessibility**| Some users have more permissions than others to manipulate the system data|
-|**CamelCase**| Adopts recognized coding standards
-|**Alphanumeric Confirmation** | Makes sure the inputted alphanumerics  follow the requirements to be accepted|
-| **SVG format** | Records all images/figures produced in SVG format.|
-|**Search client**|Allows lab workers to find results and access them easier|
+|**Accessibility**|_" All those who wish to use the application must be authenticated with a password" / "To facilitate the access to the results, the application must allow ordering the clients by TIF and by name."_|
+|**Aesthetics**|_"The application graphical interface is to be developed in JavaFX 11" / "All the images/figures produced during the software development process should be recorded in SVG format"_|
+|**Consistency**|_" Adopt recognized coding standards (e.g., CamelCase)..." / " Must be authenticated with a password holding seven alphanumeric characters, including three capital letters and two digits."_|
 
 
 ## Reliability
@@ -45,28 +34,19 @@ _Refers to the integrity, compliance and interoperability of the software. The r
 
 | **_Function_**   | Description                         |                                       
 |:------------------------|:-----------------|
-|**Accuracy**||
-|**Availability**||
-|**Recoverability**||
+|**Accuracy**|_"The accuracy of the prediction models should be analysed and documented in the application user manual" / "...identifying each sample with a barcode that is automatically generated using an external API._|
+|**Recoverability**|_"The application should use object serialization to ensure data persistence between two runs of the application."_|
 
-
-| **User Manual** |  Analyzes the accuracy of the prediction models| 
-| **Object Serialization**|  Ensures data persistence between two runs of the application |
-|**Barcode Uniqueness**|One sample must have an unique barcode|
 
 ## Performance
 _Evaluates the performance requirements of the software, namely: response time, start-up time, recovery time, memory consumption, CPU usage, load capacity and application availability._
 
 | **_Function_**   | Description                         |                                       
 |:------------------------|:-----------------|
-|**Recovery time**||
-|**Response time**||
-|**Shutdown time**||
-|**Start-up time**||
-|**Throughput**||
 
-| **Configuration File** |  Configures the parameters and initial settings of the algorithms|
-|**Daily tests algorithm**|Adaptive software that allows program to run faster Algorithm |
+|**Response time**|_"...both simple linear and multiple linear regression algorithms should be evaluated to select the best model"_|
+|**Throughput**|_"To facilitate the access to the results, the application must allow ordering the clients by TIF and by name. The ordering algorithm to be used by the application must be defined through a configuration file."_|
+
 
 
 ## Supportability
@@ -76,21 +56,10 @@ configurability, instability, scalability and more._
 
 | **_Function_**   | Description                         |                                       
 |:------------------------|:-----------------|
-|**Adaptability**||
-|**Auditing**||
-|**Compatibility**||
-|**Configurability**||
-|**Instability**||
-|**Maintainability**||
-|**Localisation**||
-|**Scalability**||
-|**Testability**||
+|**Adaptability**|_"the application uses an external module that is responsible for doing an automatic validation using test reference values. " / " identifying each sample with a barcode that is automatically generated using an external API_|
+|**Testability**| _"...the system should be developed having in mind the need to easily support other kinds of tests (e.g., urine)."_|
 
 
-| **Test Flexiblity** |  Ensures that the system easily supports other kind of tests|
-|**External Code Compatability**| Detects and analyzes external codes into the system|
-|**External Software**| Lets the System cooperate with external systems
-| **JaCoCo** | Generates the coverage report|
 
 
 
@@ -103,29 +72,13 @@ software process, mandatory standards/patterns, use of development tools, class 
 
 | **_Function_**   | Description                         |                                       
 |:------------------------|:-----------------|
-|**Auditing**||
-|**Authentication**||
-|**Communication**||
-|**Error management**||
-|**Event management**||
-|**Licensing**||
-|**Localisation**||
-|**Online help**||
-|**Persistence**||
-|**Printing**||
-|**Reporting**||
-|**Scheduling**||
-|**Security**||
-|**Transaction management**||
-|**Workflow**||
+|**Auditing**|_"adopt recognized coding standards (e.g., CamelCase)"_|
+|**Reporting**|_"use Javadoc to generate useful documentation for Java code."_|
+|**Workflow**|_"...adopt best practices for identifying requirements and for OO software analysis and design"_|
 
-- **Adopt good practices when identifying requirements and for OO software analysis and design**
 
-- **Adopt recognized coding standards**
 
-- **Usage of Javadoc to generate useful documentation for Java code**
 
-- **JavaDoc Generates a documentation for the Java code**
 ***
 
 
@@ -137,15 +90,9 @@ database integrity, resource limits, operating system._
 
 | **_Function_**   | Description                         |                                       
 |:------------------------|:-----------------|
-|**3rd party components**||
-|**Implementation languages**||
-|**Platform support**||
-|**Resource limits**||
-|**Standards-compliance**||
+|**Implementation languages**|_"The application must be developed in Java language using the IntelliJ IDE or Netbeans"_|
+|**Platform support**|_"All the images/figures produced during the software development process should be recorded in SVG format."_|
 
-- **Develop the project in Java programming language**
-
-- **Adopt recognized coding standards**
 
 
 
@@ -154,10 +101,8 @@ database integrity, resource limits, operating system._
 
 | **_Function_**   | Description                         |                                       
 |:------------------------|:-----------------|
-|**External systems**||
-|**Interface formats**||
-
-- **Development of a graphical interface using JavaFX 11**
+|**External systems**|_"...the application uses an external module that is responsible for doing an automatic validation using test reference values." / "identifying each sample with a barcode that is automatically generated using an external API._ |
+|**Interface formats**|_"The application graphical interface is to be developed in JavaFX 11."_|
 
 
 ### Physical Requirements
@@ -171,4 +116,3 @@ _Specifies a limitation or physical requirement regarding the hardware used to h
 |**Weight**||
 
 
-- **Application must run on the hardware and software available in the current facilities of the Many Labs Company**
