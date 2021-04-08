@@ -20,14 +20,14 @@ To identify domain conceptual classes, start by making a list of candidate conce
 |**Physical Objects**| Lab Order|
 |**Descriptions of Things**| Type of Test, Category|
 |**Catalogs**||
-|**Containers**|Client's Information, Test's Information|
+|**Containers**||
 |**Elements of Containers**| |
 |**Organizations**|Company, NHS|
 |**Other External/Collaborating Systems**| External Module,  SVG|
 |**Records of finance, work, contracts, legal matters**|Chemical Analysis, Diagnosis, Reports, barcode|
 |**Financial Instruments**||
 |**Documents mentioned/used to perform some work**| Lab Order, Reports|
-|**etc.**|Password|
+
 
 
 
