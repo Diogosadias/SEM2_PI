@@ -9,3 +9,5 @@
 [NHS](Glossary.md) - https://dictionary.cambridge.org/dictionary/english/national-health-service
 
 [User Manual](Glossary.md) - https://www.lexico.com/definition/user_guide
+
+[Brute Force Algorithm](Glossary.md) - https://www.freecodecamp.org/news/brute-force-algorithms-explained/
