@@ -27,11 +27,9 @@ documentation; consistency and standards.
 | **_Function_**   | **_Description_** |                                 
 |:------------------------|:-----------------|
 | **JavaFX 11** |  Graphical Interface
-|**JavaDoc**| Generates a documentation for the Java code|
 | **Accessibility**| Some users have more permissions than others to manipulate the system data|
 |**CamelCase**| Adopts recognized coding standards
 |**Alphanumeric Confirmation** | Makes sure the inputted alphanumerics  follow the requirements to be accepted|
-| **JaCoCo** | Generates the coverage report|
 | **SVG format** | Records all images/figures produced in SVG format.|
 |**Search client**|Allows lab workers to find results and access them easier|
 
@@ -64,6 +62,7 @@ configurability, instability, scalability and more._
 | **Test Flexiblity** |  Ensures that the system easily supports other kind of tests|
 |**External Code Compatability**| Detects and analyzes external codes into the system|
 |**External Software**| Lets the System cooperate with external systems
+| **JaCoCo** | Generates the coverage report|
 
 
 
@@ -74,7 +73,7 @@ configurability, instability, scalability and more._
 _Specifies or constraints the system design process. Examples may include: programming languages,
 software process, mandatory standards/patterns, use of development tools, class library, etc._
 
-- **Development of a graphical interface using JavaFX 11**
+
 
 - **Adopt good practices when identifying requirements and for OO software analysis and design**
 
@@ -82,6 +81,7 @@ software process, mandatory standards/patterns, use of development tools, class 
 
 - **Usage of Javadoc to generate useful documentation for Java code**
 
+- **JavaDoc Generates a documentation for the Java code**
 ***
 
 
