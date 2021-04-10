@@ -66,11 +66,14 @@ An association is a relationship between instances of objects that indicates a r
 |MLT | works for | Company
 | Chemistry Technologist | performs | Chemical Analyzes
 | Chemistry Technologist | receives | Sample
+|Chemistry Technologist | works at | Chemical Laboratory
 |Chemistry Technologist | works for| Company
 | Clinical Analysis Laboratory 	| collects | Sample|
 | Chemical Laboratory 	| receives | Sample|
 | Laboratory Coordinator 	| validates | Diagnosis|
 | Laboratory Coordinator | works for | Company
+|Company| sends| Report
+|NHS | receives| Report
 
 
 
