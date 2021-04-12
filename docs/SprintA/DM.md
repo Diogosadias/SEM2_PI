@@ -10,7 +10,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 | **Category** 		|  **Candidate Classes** |
 |------------  				|---------      |
-| **Business Transactions** 	| Test|
+| **Business Transactions** 	| Test, Blood Tests, Covid Tests|
 |**Transaction Line Items**| Sample|
 |**Product/Service related to a Transaction or Transaction Line Item**| Parameter  |
 |**Transaction Records**|  Reports|
@@ -74,6 +74,8 @@ An association is a relationship between instances of objects that indicates a r
 | Laboratory Coordinator | works for | Company
 |Company| sends| Report
 |NHS | receives| Report
+|Blood Tests| is of| Tests
+|Covid Tests| is of | Tests
 
 
 
