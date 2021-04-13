@@ -60,10 +60,12 @@ An association is a relationship between instances of objects that indicates a r
 | Receptionist | receives | Lab Order
 | Receptionist | registers | Client
 | Receptionist | works for | Company
+| Receptionist | works at | Clinical Analysis
 | Specialist Doctor | writes | Diagnosis|
 | Specialist Doctor | works for| Company|
 | MLT | records | Sample|
 |MLT | works for | Company
+|MLT | works at | Clinical Analysis
 | Chemistry Technologist | performs | Chemical Analyzes
 | Chemistry Technologist | receives | Sample
 |Chemistry Technologist | works at | Chemical Laboratory
