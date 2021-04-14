@@ -8,6 +8,7 @@ The teams consists of students identified in the following table.
 |--------------|----------------------------|
 | **1161605**  | Diogo Sá Oliveira Pereira Dias        |
 | **1200601**  | Tiago Ferreira       |
+| **1191454**  | Bruno Miguel Moreira Pereira      |
 
 
 
