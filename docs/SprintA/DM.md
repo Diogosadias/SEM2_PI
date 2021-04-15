@@ -23,7 +23,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 |**Containers**||
 |**Elements of Containers**| |
 |**Organizations**|Company, NHS|
-|**Other External/Collaborating Systems**| External Module,External API, Application|
+|**Other External/Collaborating Systems**| External Module,External API, NHS API, Application|
 |**Records of finance, work, contracts, legal matters**|Chemical Analysis, Diagnosis, Covid-19 Report, Report, barcode|
 |**Financial Instruments**||
 |**Documents mentioned/used to perform some work**| Lab Order, Reports|
@@ -50,92 +50,39 @@ An association is a relationship between instances of objects that indicates a r
 |Administrator|Creates|Category|
 |Administrator|access|Application|
 |Automatic Validation|done by |External Module|
-|Barcode|associated with|Client
-|Barcode|associated with|Sample
-|Barcode|associated with|Test
-|Barcode|given by|External API
 |Blood Test| is of| Test
-|Category | created by | Administrator
-|Chemical Analysis|performed at|Chemical Laboratory|
-|Chemical Analysis|performed by|Chemistry Technologist|
 |Chemical Analysis|results in|Results|
-|Chemical Laboratory	| has | Chemistry Technologist|
-|Chemical Laboratory	| owned | Company|
 |Chemical Laboratory 	| receives | Sample|
-|Chemistry Technologist | performs | Chemical Analysis
 |Chemistry Technologist | receives | Sample
-|Chemistry Technologist | records| results
 |Chemistry Technologist | works at | Chemical Laboratory
 |Chemistry Technologist | works for| Company
-|Chemistry Technologist|access|Application|
-|Client|access|Application|
-|Client|is associated with|Sample|
-|Client|owns|Lab Order|
-|Client|performs |Test|
-|Client|receives|Notification|
-|Client|views |results|
-|Clinical Analysis Laboratory 	| belongs | Company|
-|Clinical Analysis Laboratory 	| collects | Sample|
-|Clinical Analysis Laboratory 	| has | MLT|
-|Clinical Analysis Laboratory 	| has | Receptionist|
+|Client|requests |Test|
 |Clinical Analysis Laboratory 	| performs | Test|
 |Company 	| performs| Tests|
 |Company | conducts | TestType|
 |Company | owns | Chemical Laboratory|
-|Company| has| Administrator
-|Company| has| Lab Coordinator
-|Company| has| Specialist Doctor
 |Company| owns | Clinical Analysis Laboratory|
 |Company| owns | Company's Headquarters|
-|Company| sends| Report
 |Covid-19 Test| is of | Test
-|Covid-19 Test| must be| Reported
-|Diagnosis|Validated by |External Module|
-|Diagnosis|written by |Specialist Doctor|
-|External Doctor|prescribes|Lab Order|
-|External Module|Validates|Diagnosis
-|Lab Order|owned by|Client|
-|Lab Order|prescribed by|External Doctor|
-|Lab Order|required by|Test|
-|Laboratory Coordinator 	| validates | Diagnosis|
-|Laboratory Coordinator 	| validates | Report|
-|Laboratory Coordinator 	| validates | Results|
 |Laboratory Coordinator | works for | Company
 |Laboratory Coordinator |access|Application|
 |MLT | identifies | Sample
-|MLT | records | Sample|
 |MLT | works at | Clinical Analysis Laboratory|
 |MLT | works for | Company
-|MLT|access|Application|
-|NHS | receives| Report
-|Notification|sent to |Client|
-|Parameter 	| measured by | Test  |
+|NHS API | sends to | NHS
 |Parameter 	| presented under  | Category  |
 |Receptionist | receives | Lab Order
 |Receptionist | registers | Client
 |Receptionist | works at | Clinical Analysis Laboratory|
 |Receptionist | works for | Company
-|Receptionist |access|Application|
-|Report|Validated|Lab Coordinator|
-|Report|delivered to|Client|
-|Report|made by|Specialist Doctor|
-|Report|owned by|Diagnosis|
-|Report|result of|Chemical Analysis|
-|Sample|Collected in |Clinical Analysis Laboratory|
-|Sample|associates with|Client|
 |Sample|associates with|Test|
-|Sample|identify with|Barcode|
-|Sample|results in |results|
-|Sample|results of |Test|
-|Specialist Doctor | analyzes | results|
+|Sample|identified by|API|
 |Specialist Doctor | works for| Company|
 |Specialist Doctor | writes | Diagnosis|
-|Specialist Doctor | writes | Report|
 |Test | is of | TestType
 |Test | requested by | Client
 |Test | requests analysis of | Parameter|
-|Test|associates with|Sample|
-|Test|needs|Lab Order|
+|Test|collects|Sample|
 |Test|performed at|Clinical Analysis Laboratory|
 |Test|results in|Sample|
 
