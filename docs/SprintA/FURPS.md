@@ -8,9 +8,7 @@
 |**Auditing**|_"To validate the work done, the laboratory coordinator checks the chemical test/result and associated diagnosis made and confirms that everything was done correctly."_|
 |**Authentication**|_"All those who wish to use the application must be authenticated with a password..."_|
 |**Communication**|_"...the client receives a notification alerting that the results are already available in the central application..."_|
-|**Localisation**|_"The application must support the English language only."_|
 |**Persistence**|_"The application should use object serialization to ensure data persistence between two runs of the application."_|
-|**Printing**|_"...informing that he/she must access the application to view (test) those results..."_|
 |**Reporting**|_"...requires Many Labs to summarize and report Covid-19 data,..." / "The JaCoCo plugin should be used to generate the coverage report._|
 |**Scheduling**|_"The company is also required to generate daily (automatic) reports..."_|
 |**Security**|_"All those who wish to use the application must be authenticated with a password..."_ / _"Only the specialist doctor is allowed to access all client data."_|
@@ -54,6 +52,7 @@ configurability, instability, scalability and more._
 | **_Function_**   | Description                         |                                       
 |:------------------------|:-----------------|
 |**Configurability**|_"The ordering algorithm to be used by the application must be defined through a configuration file."_|
+|**Localizability**|_"The application must support the English language only."_|
 |**Testability**| _"The development team must implement unit tests for all methods except methods that implement Input/Output operations. The unit tests should be implemented using the JUnit 4 framework. "_|
 
 
