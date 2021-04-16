@@ -23,8 +23,7 @@
 |**Covid-19 Test** |**Teste Covid-19**| Test performed in order to verify if a client is infected with Covid-19 
 |**Daily Report**|**Relatório Diário**|Report required from NHS and made by Many Labs with a summary of the Covid-19 data for that given day
 |**Headquarters**|**Sede**|Location where the samples are analysed 
-|**Hemogram**| **Hemograma** | A blood testing exam
-|**Hemogram**|**Hemograma**| A systematic report of the findings from a blood examination|
+|**Hemogram**|**Hemograma**| A blood testing exam; A systematic report of the findings from a blood examination|
 |**IntelIJ**| **IntelIJ**| A special programming enviroment largely meant for Java|
 |**JUnit**| **JUnit**| Is a unit testing framework|
 |**Java**| **Java** | A computer prograaming language designed to produce programs|

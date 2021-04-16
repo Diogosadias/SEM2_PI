@@ -11,3 +11,5 @@
 [User Manual](Glossary.md) - https://www.lexico.com/definition/user_guide
 
 [Brute Force Algorithm](Glossary.md) - https://www.freecodecamp.org/news/brute-force-algorithms-explained/
+
+[Client's Email : Performance, compatibility, and reliability of the system](FURPS.md) -  Performance, compatibility, and reliability of the system (Consult Outlook)

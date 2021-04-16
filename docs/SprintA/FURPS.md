@@ -8,7 +8,7 @@
 |**Auditing**|_"To validate the work done, the laboratory coordinator checks the chemical test/result and associated diagnosis made and confirms that everything was done correctly."_|
 |**Authentication**|_"All those who wish to use the application must be authenticated with a password..."_|
 |**Communication**|_"...the client receives a notification alerting that the results are already available in the central application..."_|
-|**Persistence**|_"The application should use object serialization to ensure data persistence between two runs of the application."_|
+|**Persistence**|_"The application should use object serialization to ensure data persistence between two runs of the application." / [Client's Email](References.md) :  "Whenever the system fails, there should be no data loss."_|
 |**Reporting**|_"...requires Many Labs to summarize and report Covid-19 data,..." / "The JaCoCo plugin should be used to generate the coverage report._|
 |**Scheduling**|_"The company is also required to generate daily (automatic) reports..."_|
 |**Security**|_"All those who wish to use the application must be authenticated with a password..."_ / _"Only the specialist doctor is allowed to access all client data."_|
@@ -22,8 +22,8 @@
 | **_Function_**   | **_Description_** |                                 
 |:------------------------|:-----------------|
 |**Accessibility**|_"To facilitate the access to the results, the application must allow ordering the clients by TIF and by name."_|
-|**Aesthetics**|_"The application graphical interface is to be developed in JavaFX 11" / "All the images/figures produced during the software development process should be recorded in SVG format"_|
-|**Consistency**|_" Must be authenticated with a password holding seven alphanumeric characters, including three capital letters and two digits."_|
+|**Aesthetics**|_"The application graphical interface is to be developed in JavaFX 11" / "All the images/figures produced during the software development process should be recorded in SVG format" / [Client's Email](References.md) :"The user interface must be simple, intuitive and consistent."_|
+|**Consistency**|_" Must be authenticated with a password holding seven alphanumeric characters, including three capital letters and two digits." / [Client's Email](References.md) : "The user interface must be simple, intuitive and consistent."_|
 
 
 ## Reliability
@@ -32,7 +32,7 @@ _Refers to the integrity, compliance and interoperability of the software. The r
 | **_Function_**   | Description                         |                                       
 |:------------------------|:-----------------|
 |**Accuracy**|_"The accuracy of the prediction models should be analysed and documented in the application user manual"_|
-|**Recoverability**|_"The application should use object serialization to ensure data persistence between two runs of the application."_|
+|**Recoverability**|_"The application should use object serialization to ensure data persistence between two runs of the application." / [Client's Email](References.md) :"The system should not fail more than 5 days in one year."_|
 
 
 ## Performance
@@ -40,8 +40,8 @@ _Evaluates the performance requirements of the software, namely: response time, 
 
 | **_Function_**   | Description                         |                                       
 |:------------------------|:-----------------|
-|**Response time**|_"...both simple linear and multiple linear regression algorithms should be evaluated to select the best model"_|
-
+|**Response time**|_"...both simple linear and multiple linear regression algorithms should be evaluated to select the best model" / [Client's Email](References.md) :"Any interface between a user and the system shall have a maximum response time of 3 seconds."_|
+|**Start-up time**|_[Client's Email](References.md) :"The system should start up in less than 10 seconds."_|
 
 
 ## Supportability
@@ -87,7 +87,8 @@ database integrity, resource limits, operating system._
 |:------------------------|:-----------------|
 |**Implementation languages**|_"The application must be developed in Java language using the IntelliJ IDE or Netbeans"_|
 |**Standards-compliance**|_"(i) adopt best practices for identifying requirements and for OO software analysis and design; (ii) adopt recognized coding standards (e.g., CamelCase); (iii) use Javadoc to generate useful documentation for Java code."_
-
+|**Platform support**|_[Client's Email](References.md) : "The application should run on all platforms for which there exists a Java Virtual Machine."_|
+|**Resource limits**|_[Client's Email](References.md) :"The application will be deployed to a machine with 8GB of RAM."_
 
 
 ### Interface Requirements
