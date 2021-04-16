@@ -57,6 +57,7 @@ An association is a relationship between instances of objects that indicates a r
 |Chemistry Technologist | works at | Chemical Laboratory
 |Chemistry Technologist | works for| Company
 |Client|requests |Test|
+|Client| has | Lab Order|
 |Clinical Analysis Laboratory 	| performs | Test|
 |Company 	| performs| Tests|
 |Company | conducts | TestType|
