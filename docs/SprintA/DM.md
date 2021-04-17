@@ -19,13 +19,9 @@ To identify domain conceptual classes, start by making a list of candidate conce
 |**Noteworthy Events**|Chemical Analysis, Diagnosis, Automatic Validation, Notification|
 |**Physical Objects**| Lab Order|
 |**Descriptions of Things**| Type of Test, Category|
-|**Catalogs**||
-|**Containers**||
-|**Elements of Containers**| |
 |**Organizations**|Company, NHS|
 |**Other External/Collaborating Systems**| External Module,External API, NHS API, Application|
-|**Records of finance, work, contracts, legal matters**|Chemical Analysis, Diagnosis, Covid-19 Report, Report, barcode|
-|**Financial Instruments**||
+|**Records of finance, work, contracts, legal matters**|Chemical Analysis, Diagnosis, Covid-19 Report, Report, barcode, Results|
 |**Documents mentioned/used to perform some work**| Lab Order, Reports|
 
 
@@ -33,60 +29,78 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 ### **Rationale to identify associations between conceptual classes**
 
-An association is a relationship between instances of objects that indicates a relevant connection and that is worth of remembering, or it is derivable from the List of Common Associations: 
 
-+ **_A_** is physically or logically part of **_B_**
-+ **_A_** is physically or logically contained in/on **_B_**
-+ **_A_** is a description for **_B_**
-+ **_A_** known/logged/recorded/reported/captured in **_B_**
-+ **_A_** uses or manages or owns **_B_**
-+ **_A_** is related with a transaction (item) of **_B_**
-+ etc.
+
 
 
 
 | Concept (A) 		|  Association   	|  Concept (B) |
 |----------	   		|:-------------:		|------:       |
-|Administrator|Creates|Category|
-|Administrator|access|Application|
-|Automatic Validation|done by |External Module|
-|Blood Test| is of| Test
-|Chemical Analysis|results in|Results|
+|Administrator|creates|Category|
+|Admnistrator| creates| Test Type|
+| API |identifies | Sample|
+|Blood Test| is of| Test|
+|Category| presents | Parameter
+|Category| created by| Administrator|
 |Chemical Laboratory 	| receives | Sample|
+|Chemical Laboratory| has | Chemistry Techologist|
+|Chemical Laboratory| is owned by| Company|
 |Chemistry Technologist | receives | Sample
 |Chemistry Technologist | works at | Chemical Laboratory
 |Chemistry Technologist | works for| Company
 |Client|requests |Test|
 |Client| has | Lab Order|
+|Client | registered by | Recepcionist|
 |Clinical Analysis Laboratory 	| performs | Test|
-|Company 	| performs| Tests|
+|Clinical Analysis Laboratory | has | Recepcionist|
+|Clinical Analysis Laboratory | has | MLT |
+|Clinical Analysis Laboratory| is owned by| Company|
+|Company 	| performs| Test|
 |Company | conducts | TestType|
 |Company | owns | Chemical Laboratory|
 |Company| owns | Clinical Analysis Laboratory|
 |Company| owns | Company's Headquarters|
-|Covid-19 Test| is of | Test
+|Company | has | Specialist Doctor|
+|Company| has | Recepcionist|
+|Company | has | Chemistry Technologist|
+|Company's Headquarters| is owned by| Company|
+|Company | has | MLT
+|Covid-19 Test| is of | Test|
+| Diagnosis | is written by | Specialist Doctor|
 |Laboratory Coordinator | works for | Company
 |Laboratory Coordinator |access|Application|
+| Lab Order| is received by | Receptionist
+|Lab Order| is owned by | Client|
 |MLT | identifies | Sample
 |MLT | works at | Clinical Analysis Laboratory|
-|MLT | works for | Company
+|MLT | works for | Company|
+|NHS | receives | NHS API|
 |NHS API | sends to | NHS
 |Parameter 	| presented under  | Category  |
+|Parameter | is requested analysis by | Test|
 |Receptionist | receives | Lab Order
 |Receptionist | registers | Client
 |Receptionist | works at | Clinical Analysis Laboratory|
 |Receptionist | works for | Company
 |Sample|associates with|Test|
 |Sample|identified by|API|
+| Sample| received by| Chemistry Technologist|
+| Sample | identified by | MLT|
+|Sample |  identified by| API|
 |Specialist Doctor | works for| Company|
 |Specialist Doctor | writes | Diagnosis|
+|Test| is associated with | Sample|
 |Test | is of | TestType
 |Test | requested by | Client
 |Test | requests analysis of | Parameter|
 |Test|collects|Sample|
 |Test|performed at|Clinical Analysis Laboratory|
 |Test|results in|Sample|
-
+|Test| is performed by| Company|
+| Test| has | Blood Test|
+|Test| has | Covid-19 Test|
+|Test Type | has | Test|
+|Test Type | created by | Administrator|
 
 
 ## Domain Model
