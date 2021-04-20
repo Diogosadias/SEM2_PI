@@ -1,4 +1,4 @@
-# US XXX - XXXX XXXX
+# US 3 - Register a Client
 
 ## 1. Requirements Engineering
 
@@ -7,7 +7,7 @@
 
 ### 1.1. User Story Description
 
-*Insert here the User Story as described by the client.*
+*As a receptionist of the laboratory, I want to register a client.*
 
 ### 1.2. Customer Specifications and Clarifications 
 

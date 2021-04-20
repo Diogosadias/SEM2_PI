@@ -1,4 +1,4 @@
-# US XXX - XXXX XXXX
+# US 8 - Register new clinical analysis laboratory and specify tests done there
 
 ## 1. Requirements Engineering
 
@@ -7,7 +7,7 @@
 
 ### 1.1. User Story Description
 
-*Insert here the User Story as described by the client.*
+*As an administrator, I want to register a new clinical analysis laboratory stating which kind of test(s) it operates.*
 
 ### 1.2. Customer Specifications and Clarifications 
 
