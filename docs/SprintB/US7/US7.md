@@ -1,4 +1,4 @@
-# US XXX - XXXX XXXX
+# US 7 - Register a new Employee
 
 ## 1. Requirements Engineering
 
@@ -7,24 +7,36 @@
 
 ### 1.1. User Story Description
 
-*Insert here the User Story as described by the client.*
+*As an administrator, I want to register a new employee.*
 
 ### 1.2. Customer Specifications and Clarifications 
 
-*Insert here any related specification and/or clarification provided by the client together with **your interpretation**. When possible, provide a link to such specifications/clarifications.*
+**From the client clarifications:**
+All the roles that exist in the Many Labs company are characterized by the following attributes:
+Employee ID;
+Organization Role;
+Name;
+Address;
+Phone Number;
+E-Mail;
+Standard Occupational Classification (SOC) code.
+
+The Specialist Doctor has an additional attribute:
+Doctor Index Number.
 
 ### 1.3. Acceptance Criteria
 
-*Insert here the client acceptance criteria.*
+* AC1: : Each user must have a single role defined in the system. 
 
 ### 1.4. Found out Dependencies
 
-*Identify here any found out dependency to other US and/or requirements.*
+No dependencies were found.
 
 ### 1.5 Input and Output Data
 
-*Identity here the data to be inputted by the system actor as well as the output data that the system have/needs to present in order to properly support the actor actions. Regarding the inputted data, it is suggested to distinguish between typed data and selected data (e.g. from a list)*
+**Input Data:** Organization Role, name, address, phone number, email, soc code
 
+**Output Data:** (in)sucess of the operation 
 
 ### 1.6. System Sequence Diagram (SSD)
 
@@ -35,8 +47,7 @@
 
 ### 1.7 Other Relevant Remarks
 
-*Use this section to capture other relevant information that is related with this US such as (i) special requirements ; (ii) data and/or technology variations; (iii) how often this US is held.* 
-
+* Employee attributes "Employee ID" and "Doctor Index Number"(in case of Specialist Doctor) are incremented by the system during the creation.
 
 ## 2. OO Analysis
 
@@ -59,12 +70,15 @@
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1  		 |							 |             |                              |
-| Step 2  		 |							 |             |                              |
-| Step 3  		 |							 |             |                              |
-| Step 4  		 |							 |             |                              |
-| Step 5  		 |							 |             |                              |
-| Step 6  		 |							 |             |                              |              
+| Step 1: asks to Create new Employee   		 |	...instantiating a new Client?						 |   Company          |  Creator: R1/2                            |
+| Step 2: requests data ( Organization Role, name, address, phone number, email, soc code) 		 |	n/a						 |             |                              |
+| Step 3: types requested data  		 |	...saving the input data?						 |  Employee           |  IE: The Object created in step 1 has its own data.                            |
+| Step 4: validates and shows the data, asking for confirmation  		 |	...validating the data locally(eg.: mandatory vs non-mandatory data)?						 |    Employee         |    IE: knows its own data.                          |
+|   		 |	...validating the data globally(eg.: duplicated)?					 |    Company         |                              |
+|   		 |	...generating the attribute Employee Id?						 |             |                              |
+|   		 |	...generating the attribute Doctor Index Number, when creating a new Specialist Doctor?						 |             |                              |
+| Step 5: confirms all the data  		 |	...saving the created Employee						 |   Company          |    IE: adopts/records all the Employee**?????*** objects                          |
+| Step 6: informs employee created sucessfully  		 |	...informing operation success?						 |   UI          |    IE: responsible for user interaction                          |              
 
 ### Systematization ##
 
