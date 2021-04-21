@@ -141,6 +141,65 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 *It is also recommended to organize this content by subsections.* 
 
+* Company
+
+
+    public class Company {
+    private String designation;
+    private List<CLA> claList;
+    
+    public CLA registerNewCLA(String LabName,String Address,int PhoneNumber,int TINNumber){
+      return new CLA(LabName,Address,PhoneNumber,TINNumber);
+    }
+
+    public boolean validateCLA(CLA CLA){
+      if(CLA == null)
+      return false;
+      return ! this.claList.contains(CLA);
+    }
+
+    public boolean saveCLA(CLA CLA){
+      if(!validateCLA(CLA))
+      return false;
+      return this.claList.add(CLA);
+    }
+
+    private void addCLA(CLA CLA){
+      if(!validateCLA(CLA))
+      return false;
+      return this.claList.add(CLA); //???
+    }
+    }
+
+
+* CLA
+
+
+    public class CLA {
+    private String LabName;
+    private String Address;
+    private int PhoneNumber;
+    private int TINNumber;
+    private int LaboratoryID;
+    private boolean performsCovidTest;
+    
+    public register(String LabName,String Address,int PhoneNumber,int TINNumber){
+      this.LabName = LabName;
+      this.Address = Address;
+      this.PhoneNumber = PhoneNumber;
+      this.TINNumber = TINNumber;
+      this.LaboratoryID = Company.getLastID() + 1;
+      this.performsCovidTest = False;
+    }
+
+    public void performsCovidTest(boolean value){
+      if(value == null)
+      return false;
+      this.performsCovidTest = value;
+      return value;
+    }    
+    }
+
 # 6. Integration and Demo 
 
 *In this section, it is suggested to describe the efforts made to integrate this functionality with the other features of the system.*
