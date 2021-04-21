@@ -107,8 +107,8 @@ According to the taken rationale, the conceptual classes promoted to software cl
  * CLA
 
 Other software classes (i.e. Pure Fabrication) identified: 
- * RegisterNewCLAUI  
- * RegisterNewCLAController
+ * RegisterNewCLAUI  (applying the "pure fabrication" pattern)
+ * RegisterNewCLAController (applying the "Controller" pattern)
 
 ## 3.2. Sequence Diagram (SD)
 
