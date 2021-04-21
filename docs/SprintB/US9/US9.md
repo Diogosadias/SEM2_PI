@@ -7,24 +7,29 @@
 
 ### 1.1. User Story Description
 
-*As a receptionist of the laboratory, I want to register a client.*
+*As an administrator, I want to specify a new type of test and its collecting methods*
 
 ### 1.2. Customer Specifications and Clarifications 
 
-*Insert here any related specification and/or clarification provided by the client together with **your interpretation**. When possible, provide a link to such specifications/clarifications.*
+**From the Specification Document:**
+* "Despite being out of scope, the system should be developed having in mind the need to
+  easily support other kinds of tests (e.g., urine). Regardless, such tests rely on measuring one
+  or more parameters that can be grouped/organized by categories."
 
 ### 1.3. Acceptance Criteria
 
-*Insert here the client acceptance criteria.*
+* AC1: A new test type must at least have one parameter
+
 
 ### 1.4. Found out Dependencies
 
-*Identify here any found out dependency to other US and/or requirements.*
+*No dependencies were found.*
 
 ### 1.5 Input and Output Data
 
-*Identity here the data to be inputted by the system actor as well as the output data that the system have/needs to present in order to properly support the actor actions. Regarding the inputted data, it is suggested to distinguish between typed data and selected data (e.g. from a list)*
-
+**Input Data**
+* **Typed Data:** designation, collecting methods
+* **Selected Data:** (none) 
 
 ### 1.6. System Sequence Diagram (SSD)
 
