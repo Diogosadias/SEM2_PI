@@ -11,31 +11,62 @@
 
 ### 1.2. Customer Specifications and Clarifications 
 
-*Insert here any related specification and/or clarification provided by the client together with **your interpretation**. When possible, provide a link to such specifications/clarifications.*
+
+**From the Specifications Document:**
+
+* "Many Labs is a company that operates in the English market, it has headquarters in London and has
+  a network of clinical analysis laboratories in England where analysis of blood (samples are
+  collected) are performed, as well as Covid-19 tests."
+  
+  
+* "All Many Labs clinical analysis laboratories perform clinical blood tests and a subset of
+  these laboratories also performs Covid-19 tests."
+
+**From the client clarifications:**
+
+* Q1: "And what about the Clinical Analysis Laboratory and Chemical Laboratory? Do they have common attributes like an identification number, number of employees who work there, location, etc.?"
+* A1: "Each Clinical Analysis Laboratory is characterized by the following attributes:
+  Laboratory ID;
+  Name;
+  Address;
+  Phone Number;
+  TIN number."
+  
+
+* Q2: " it is possible for a given employee to work at more than one lab? "
+* A2: "Each Receptionist and each Medical Lab Technician can work in any Clinical Analysis Laboratory of the Many Labs network."
+
 
 ### 1.3. Acceptance Criteria
 
-*Insert here the client acceptance criteria.*
+* AC1: New CLAs cannot be registered without the necessary employees (a Receptionist and Medical Lab Technician)
+* AC2: A CLA's must have an attribute specifying the type of tests it performs
+* AC3: A CLA's must always perform blood tests.
+* AC4: A CLA cannot be registered without Laboratory ID, Name, Address, Phone Number, TIN number and the type of tests it performs.
 
 ### 1.4. Found out Dependencies
 
-*Identify here any found out dependency to other US and/or requirements.*
+No dependencies were found.
 
 ### 1.5 Input and Output Data
 
-*Identity here the data to be inputted by the system actor as well as the output data that the system have/needs to present in order to properly support the actor actions. Regarding the inputted data, it is suggested to distinguish between typed data and selected data (e.g. from a list)*
+**Input Data**
 
+* Typed data: Lab Name, Address, Phone Number and TIN number.
+
+* Selected data: Performs Covid-19 Test (Yes or No).
+
+**Output Data**
+* (In)Success of the operation
 
 ### 1.6. System Sequence Diagram (SSD)
 
-*Insert here a SSD depicting the envisioned Actor-System interactions and throughout which data is inputted and outputted to fulfill the requirement. All interactions must be numbered.*
 
-![USXX-SSD](USXX-SSD.svg)
+![US8-SSD](US8-SSD.svg)
 
 
 ### 1.7 Other Relevant Remarks
 
-*Use this section to capture other relevant information that is related with this US such as (i) special requirements ; (ii) data and/or technology variations; (iii) how often this US is held.* 
 
 
 ## 2. OO Analysis
@@ -82,7 +113,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 *In this section, it is suggested to present an UML dynamic view stating the sequence of domain related software objects' interactions that allows to fulfill the requirement.* 
 
-![USXX-SD](USXX-SD.svg)
+![US8-SD](US8-SD.svg)
 
 ## 3.3. Class Diagram (CD)
 
@@ -117,8 +148,11 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 # 7. Observations
 
-*In this section, it is suggested to present a critical perspective on the developed work, pointing, for example, to other alternatives and or future related work.*
+* Questions posed to client and waiting 
 
+* Reservations regarding the registration of the new CLA
+
+* Registration of employees
 
 
 

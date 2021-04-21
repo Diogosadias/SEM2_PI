@@ -16,7 +16,7 @@ However, be aware, this is a pedagogical simplification. On further projects and
 |:----|:------------------------------------------------------------------------|
 | US1 | [ShortNameOfUS1](US1.md)   |
 | US2 | [ShortNameOfUS2](US2.md)  |
-| US3 | [ShortNameOfUS3](US3.md)|
+| US3 | [ShortNameOfUS3](US3/US3.md)|
 | US4 | [ShortNameOfUS4](US4.md)|
 | ... | ...|
 | US326 | [ShortNameOfUS4](US326.md)|
