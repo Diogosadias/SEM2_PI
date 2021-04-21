@@ -67,19 +67,18 @@ No dependencies were found.
 
 ### 1.7 Other Relevant Remarks
 
+Employees may need to be registered when lab is registered
 
 
 ## 2. OO Analysis
 
 ### 2.1. Relevant Domain Model Excerpt 
-*In this section, it is suggested to present an excerpt of the domain model that is seen as relevant to fulfill this requirement.* 
 
-![USXX-MD](USXX-MD.svg)
+![US8-MD](US8-MD.svg)
 
 ### 2.2. Other Remarks
 
-*Use this section to capture some aditional notes/remarks that must be taken into consideration into the design activity. In some case, it might be usefull to add other analysis artifacts (e.g. activity or state diagrams).* 
-
+Attributes may need to be fulfilled 
 
 
 ## 3. Design - User Story Realization 
@@ -90,28 +89,29 @@ No dependencies were found.
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1  		 |							 |             |                              |
-| Step 2  		 |							 |             |                              |
-| Step 3  		 |							 |             |                              |
-| Step 4  		 |							 |             |                              |
-| Step 5  		 |							 |             |                              |
-| Step 6  		 |							 |             |                              |              
+| Step 1  : starts new CLA	 |		...creating a new CLA?   |  Company           |             Creator                 |
+| Step 2  : requests data(Lab Name, Address, Phone Number, TIN Number)		 |			n/a				 |             |                              |
+| Step 3  : types requested data		 |			...saving the input data? 				 |     CLA        | IE: the object created in the first step has its own data.                             |
+| Step 4  : show the data and request data(performs covid-19 tests)		 |		...validate that the data is according AC?					 |   CLA          |   IE: Know its own creation rules                           |
+| Step 4  : show the data and request data(performs covid-19 tests)		 |		...validate the data persistence?					 |        Company     |      IE: Knows all the CLA objects                        |
+| Step 5  : types requested data	 |				...saving the input	data?		 |       CLA      | IE: the object created in the first step has its own data.                            |
+| Step 6  : shows the data and requests confirmation		 |			...validate the input data?				 |    CLA         |    IE: Know its own creation rules                           |              
+| Step 7  : confirms data		 |				...saving the CLA registered?			 |      Company       |     IE:Records information about all objects of CLA                         |              
+| Step 7  : informs operation success		 |			...informing operation success?				 |      UI       |    IE:Responsible for user interaction                           |              
 
 ### Systematization ##
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
- * Class1
- * Class2
- * Class3
+ * Company
+ * CLA
 
 Other software classes (i.e. Pure Fabrication) identified: 
- * xxxxUI  
- * xxxxController
+ * RegisterNewCLAUI  
+ * RegisterNewCLAController
 
 ## 3.2. Sequence Diagram (SD)
 
-*In this section, it is suggested to present an UML dynamic view stating the sequence of domain related software objects' interactions that allows to fulfill the requirement.* 
 
 ![US8-SD](US8-SD.svg)
 
@@ -119,7 +119,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 *In this section, it is suggested to present an UML static view representing the main domain related software classes that are involved in fulfilling the requirement as well as and their relations, attributes and methods.*
 
-![USXX-CD](USXX-CD.svg)
+![US8-CD](US8-CD.svg)
 
 # 4. Tests 
 *In this section, it is suggested to systematize how the tests were designed to allow a correct measurement of requirements fulfilling.* 
