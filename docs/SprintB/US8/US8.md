@@ -200,6 +200,31 @@ Other software classes (i.e. Pure Fabrication) identified:
     }    
     }
 
+* RegisterNewCLAUI
+
+    
+    public class RegisterNewCLAUI{
+    }
+
+
+* RegisterNewCLAController
+
+
+    public class RegisterNewCLAController{
+    
+    public void registerNewCLA(String LabName,String Address,int PhoneNumber,int TINNumber){
+    Company.registerNewCLA(LabName,Address,PhoneNumber,TINNumber);
+    }
+    
+    public void performsCovidTest(boolean value){
+    Company.performsCovidTest(value);
+    }
+
+    public void saveCLA(){
+    Company.saveCLA(CLA);
+    }
+    }
+
 # 6. Integration and Demo 
 
 *In this section, it is suggested to describe the efforts made to integrate this functionality with the other features of the system.*
