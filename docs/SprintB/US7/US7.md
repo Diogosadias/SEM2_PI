@@ -13,12 +13,12 @@
 
 **From the client clarifications:**
 All the roles that exist in the Many Labs company are characterized by the following attributes:
-Employee ID;
-Organization Role;
-Name;
-Address;
-Phone Number;
-E-Mail;
+Employee ID,
+Organization Role,
+Name,
+Address,
+Phone Number,
+E-Mail,
 Standard Occupational Classification (SOC) code.
 
 The Specialist Doctor has an additional attribute:
@@ -70,39 +70,41 @@ No dependencies were found.
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1: asks to Create new Employee   		 |	...instantiating a new Client?						 |   Company          |  Creator: R1/2                            |
+| Step 1: asks to create a new Employee   		 |	...instantiating a new Employee?						 |   Company          |  Creator: R1/2                            |
 | Step 2: requests data ( Organization Role, name, address, phone number, email, soc code) 		 |	n/a						 |             |                              |
 | Step 3: types requested data  		 |	...saving the input data?						 |  Employee           |  IE: The Object created in step 1 has its own data.                            |
 | Step 4: validates and shows the data, asking for confirmation  		 |	...validating the data locally(eg.: mandatory vs non-mandatory data)?						 |    Employee         |    IE: knows its own data.                          |
-|   		 |	...validating the data globally(eg.: duplicated)?					 |    Company         |                              |
-|   		 |	...generating the attribute Employee Id?						 |             |                              |
-|   		 |	...generating the attribute Doctor Index Number, when creating a new Specialist Doctor?						 |             |                              |
-| Step 5: confirms all the data  		 |	...saving the created Employee						 |   Company          |    IE: adopts/records all the Employee**?????*** objects                          |
+|   		 |	...validating the data globally(eg.: duplicated)?					 |    Company         |    IE: knows all the Employee objects.                          |
+|   		 |	...incrementing the attribute Employee Id?						 | Company            |     IE: has the information of all Employee Id.                         |
+|   		 |	...incrementing the attribute Doctor Index Number, when creating a new Specialist Doctor?						 | Company            |   IE: has the information of all Doctor Index Number.|
+| Step 5: confirms all the data  		 |	...saving the created Employee						 |   Company          |    IE: adopts/records all the Employee objects                          |
 | Step 6: informs employee created sucessfully  		 |	...informing operation success?						 |   UI          |    IE: responsible for user interaction                          |              
 
 ### Systematization ##
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
- * Class1
- * Class2
- * Class3
+ Employee
+ 
+ Company
 
 Other software classes (i.e. Pure Fabrication) identified: 
- * xxxxUI  
- * xxxxController
+
+registerEmployeeUI (applying the "pure fabrication" pattern),
+
+registerEmployeeController (applying the "controller" pattern)
 
 ## 3.2. Sequence Diagram (SD)
 
 *In this section, it is suggested to present an UML dynamic view stating the sequence of domain related software objects' interactions that allows to fulfill the requirement.* 
 
-![USXX-SD](USXX-SD.svg)
+![US7-SD](US7-SD.svg)
 
 ## 3.3. Class Diagram (CD)
 
 *In this section, it is suggested to present an UML static view representing the main domain related software classes that are involved in fulfilling the requirement as well as and their relations, attributes and methods.*
 
-![USXX-CD](USXX-CD.svg)
+![US7-CD](US7-CD.svg)
 
 # 4. Tests 
 *In this section, it is suggested to systematize how the tests were designed to allow a correct measurement of requirements fulfilling.* 
