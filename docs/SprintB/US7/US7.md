@@ -42,7 +42,7 @@ No dependencies were found.
 
 *Insert here a SSD depicting the envisioned Actor-System interactions and throughout which data is inputted and outputted to fulfill the requirement. All interactions must be numbered.*
 
-![USXX-SSD](USXX-SSD.svg)
+![US7-SSD](US7-SSD.svg)
 
 
 ### 1.7 Other Relevant Remarks
@@ -54,7 +54,7 @@ No dependencies were found.
 ### 2.1. Relevant Domain Model Excerpt 
 *In this section, it is suggested to present an excerpt of the domain model that is seen as relevant to fulfill this requirement.* 
 
-![USXX-MD](USXX-MD.svg)
+![US7-MD](US7-MD.svg)
 
 ### 2.2. Other Remarks
 
@@ -85,13 +85,11 @@ No dependencies were found.
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
  Employee
- 
  Company
 
 Other software classes (i.e. Pure Fabrication) identified: 
 
 registerEmployeeUI (applying the "pure fabrication" pattern),
-
 registerEmployeeController (applying the "controller" pattern)
 
 ## 3.2. Sequence Diagram (SD)
