@@ -211,6 +211,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 
     public class RegisterNewCLAController{
+    public CLA CLA;
     
     public void registerNewCLA(String LabName,String Address,int PhoneNumber,int TINNumber){
     Company.registerNewCLA(LabName,Address,PhoneNumber,TINNumber);
