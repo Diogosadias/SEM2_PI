@@ -70,7 +70,7 @@ No dependencies were found.
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1: asks to create a new Employee   		 |	...instantiating a new Employee?						 |   Company          |  Creator: R1/2                            |
+| Step 1: asks to register a new Employee   		 |	...instantiating a new Employee?						 |   Company          |  Creator: R1/2                            |
 | Step 2: requests data ( Organization Role, name, address, phone number, email, soc code) 		 |	n/a						 |             |                              |
 | Step 3: types requested data  		 |	...saving the input data?						 |  Employee           |  IE: The Object created in step 1 has its own data.                            |
 | Step 4: validates and shows the data, asking for confirmation  		 |	...validating the data locally(eg.: mandatory vs non-mandatory data)?						 |    Employee         |    IE: knows its own data.                          |
