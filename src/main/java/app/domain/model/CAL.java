@@ -5,15 +5,15 @@ package app.domain.model;
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  */
 public class CAL {
-    private String name;
+    private String labname;
     private String address;
     private int phone_number;
     private int tin_number;
     private boolean performs_covid_test;
     private int laboratory_id;
 
-    public CAL(String name, String address, int phone_number, int tin_number, boolean performs_covid_test, int laboratory_id){
-        this.name=name;
+    public CAL(String labname, String address, int phone_number, int tin_number, boolean performs_covid_test, int laboratory_id){
+        this.labname=labname;
         this.address=address;
         this.phone_number=phone_number;
         this.tin_number=tin_number;
@@ -23,8 +23,8 @@ public class CAL {
 
     //gets:
 
-    public String getName(){
-        return name;
+    public String getLabname(){
+        return labname;
     }
     public String getAddress(){
         return address;
@@ -44,8 +44,8 @@ public class CAL {
 
     //sets:
 
-    public void setName(String name){
-        this.name=name;
+    public void setName(String labname){
+        this.labname=labname;
     }
     public void setAddress(String address){
         this.address=address;
