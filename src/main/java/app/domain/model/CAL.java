@@ -12,12 +12,12 @@ public class CAL {
     private boolean performs_covid_test;
     private int laboratory_id;
 
-    public CAL(String labname, String address, int phone_number, int tin_number, boolean performs_covid_test, int laboratory_id){
+    public CAL(String labname, String address, int phone_number, int tin_number,int laboratory_id){
         this.labname=labname;
         this.address=address;
         this.phone_number=phone_number;
         this.tin_number=tin_number;
-        this.performs_covid_test=performs_covid_test;
+        performs_covid_test=false;
         this.laboratory_id=laboratory_id;
     }
 
@@ -44,7 +44,7 @@ public class CAL {
 
     //sets:
 
-    public void setName(String labname){
+    public void setLabname(String labname){
         this.labname=labname;
     }
     public void setAddress(String address){

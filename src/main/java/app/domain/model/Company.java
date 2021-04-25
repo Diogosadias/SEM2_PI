@@ -18,7 +18,7 @@ public class Company {
      * * list of CAL
      */
     //O QUE ESTIVER COMENTADO AINDA NÃO ESTÁ TERMINADO
-    //private List<CAL> calList;
+    private List<CAL> calList;
 
     public Company(String designation)
     {
@@ -38,6 +38,7 @@ public class Company {
     }
 
 
+    //Márcio está a trabalhar no seguinte:
     /*public CAL registerNewCAL(String LabName,String Address,int PhoneNumber,int TINNumber){
         return new CAL(LabName,Address,PhoneNumber,TINNumber);
     }
@@ -46,12 +47,12 @@ public class Company {
             return false;
         return ! this.calList.contains(CAL);
     }
-    public boolean saveCLA(CAL CAL){
+    public boolean saveCAL(CAL CAL){
         if(!validateCLA(CAL))
             return false;
         return this.calList.add(CAL);
     }
-    private boolean addCLA(CAL CAL){
+    private boolean addCAL(CAL CAL){
         if(!validateCLA(CAL))
             return false;
         return this.calList.add(CAL); //???
