@@ -38,6 +38,7 @@ public class Company {
     }
 
 
+    //Márcio está a trabalhar no seguinte:
     /*public CAL registerNewCAL(String LabName,String Address,int PhoneNumber,int TINNumber){
         return new CAL(LabName,Address,PhoneNumber,TINNumber);
     }
@@ -46,14 +47,16 @@ public class Company {
             return false;
         return ! this.calList.contains(CAL);
     }
-    public boolean saveCLA(CAL CAL){
+    public boolean saveCAL(CAL CAL){
         if(!validateCLA(CAL))
             return false;
         return this.calList.add(CAL);
     }
-    private boolean addCLA(CAL CAL){
+    private boolean addCAL(CAL CAL){
         if(!validateCLA(CAL))
             return false;
         return this.calList.add(CAL); //???
-    }*/
+    }
+*/
+
 }

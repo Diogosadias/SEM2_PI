@@ -39,10 +39,10 @@
 
 ### 1.3. Acceptance Criteria
 
-* AC1: New CLAs cannot be registered without the necessary employees (a Receptionist and Medical Lab Technician)
-* AC2: A CLA's must have an attribute specifying the type of tests it performs
-* AC3: A CLA's must always perform blood tests.
-* AC4: A CLA cannot be registered without Laboratory ID, Name, Address, Phone Number, TIN number and the type of tests it performs.
+* AC1: New CALs cannot be registered without the necessary employees (a Receptionist and Medical Lab Technician)
+* AC2: A CAL's must have an attribute specifying the type of tests it performs
+* AC3: A CAL's must always perform blood tests.
+* AC4: A CAL cannot be registered without Laboratory ID, Name, Address, Phone Number, TIN number and the type of tests it performs.
 
 ### 1.4. Found out Dependencies
 
@@ -89,26 +89,26 @@ Attributes may need to be fulfilled
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1  : starts new CLA	 |		...creating a new CLA?   |  Company           |             Creator                 |
+| Step 1  : starts new CAL	 |		...creating a new CAL?   |  Company           |             Creator                 |
 | Step 2  : requests data(Lab Name, Address, Phone Number, TIN Number)		 |			n/a				 |             |                              |
-| Step 3  : types requested data		 |			...saving the input data? 				 |     CLA        | IE: the object created in the first step has its own data.                             |
-| Step 4  : show the data and request data(performs covid-19 tests)		 |		...validate that the data is according AC?					 |   CLA          |   IE: Know its own creation rules                           |
-| Step 4  : show the data and request data(performs covid-19 tests)		 |		...validate the data persistence?					 |        Company     |      IE: Knows all the CLA objects                        |
-| Step 5  : types requested data	 |				...saving the input	data?		 |       CLA      | IE: the object created in the first step has its own data.                            |
-| Step 6  : shows the data and requests confirmation		 |			...validate the input data?				 |    CLA         |    IE: Know its own creation rules                           |              
-| Step 7  : confirms data		 |				...saving the CLA registered?			 |      Company       |     IE:Records information about all objects of CLA                         |              
-| Step 7  : informs operation success		 |			...informing operation success?				 |      UI       |    IE:Responsible for user interaction                           |              
+| Step 3  : types requested data		 |			...saving the input data? 				 |    CAL       | IE: the object created in the first step has its own data.                             |
+| Step 4  : show the data and request data(performs covid-19 tests)		 |		...validate that the data is according AC?					 |  CAL         |   IE: Know its own creation rules                           |
+| Step 4  : show the data and request data(performs covid-19 tests)		 |		...validate the data persistence?					 |        Company     |      IE: Knows all the CAL objects                        |
+| Step 5  : types requested data	 |				...saving the input	data?		 |      CAL     | IE: the object created in the first step has its own data.                            |
+| Step 6  : shows the data and requests confirmation		 |			...validate the input data?				 |   CAL        |    IE: Know its own creation rules                           |              
+| Step 7  : confirms data		 |				...saving theCALregistered?			 |      Company       |     IE:Records information about all objects of CAL                        |              
+| Step 8  : informs operation success		 |			...informing operation success?				 |      UI       |    IE:Responsible for user interaction                           |              
 
 ### Systematization ##
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
  * Company
- * CLA
+ * CAL
 
 Other software classes (i.e. Pure Fabrication) identified: 
- * RegisterNewCLAUI  (applying the "pure fabrication" pattern)
- * RegisterNewCLAController (applying the "Controller" pattern)
+ * RegisterNewCALUI  (applying the "pure fabrication" pattern)
+ * RegisterNewCALController (applying the "Controller" pattern)
 
 ## 3.2. Sequence Diagram (SD)
 
@@ -146,36 +146,36 @@ Other software classes (i.e. Pure Fabrication) identified:
 
     public class Company {
     private String designation;
-    private List<CLA> claList;
+    private List<CAL> calList;
     
-    public CLA registerNewCLA(String LabName,String Address,int PhoneNumber,int TINNumber){
-      return new CLA(LabName,Address,PhoneNumber,TINNumber);
+    publicCALregisterNewCLA(String LabName,String Address,int PhoneNumber,int TINNumber){
+      return new CAL(LabName,Address,PhoneNumber,TINNumber);
     }
 
-    public boolean validateCLA(CLA CLA){
+    public boolean validateCAL(CAL CAL){
       if(CLA == null)
       return false;
-      return ! this.claList.contains(CLA);
+      return ! this.calList.contains(CAL);
     }
 
-    public boolean saveCLA(CLA CLA){
-      if(!validateCLA(CLA))
+    public boolean saveCAL(CAL CAL){
+      if(!validateCAL(CAL))
       return false;
-      return this.claList.add(CLA);
+      return this.calList.add(CAL);
     }
 
-    private void addCLA(CLA CLA){
-      if(!validateCLA(CLA))
+    private void addCAL(CAL CAL){
+      if(!validateCAL(CAL))
       return false;
-      return this.claList.add(CLA); //???
+      return this.calList.add(CAL); 
     }
     }
 
 
-* CLA
+* CAL
 
 
-    public class CLA {
+    public class CAL{
     private String LabName;
     private String Address;
     private int PhoneNumber;
@@ -200,29 +200,29 @@ Other software classes (i.e. Pure Fabrication) identified:
     }    
     }
 
-* RegisterNewCLAUI
+* RegisterNewCALUI
 
     
-    public class RegisterNewCLAUI{
+    public class RegisterNewCALUI{
     }
 
 
-* RegisterNewCLAController
+* RegisterNewCALController
 
 
-    public class RegisterNewCLAController{
-    public CLA CLA;
+    public class RegisterNewCALController{
+    public CAL CAL;
     
-    public void registerNewCLA(String LabName,String Address,int PhoneNumber,int TINNumber){
-    Company.registerNewCLA(LabName,Address,PhoneNumber,TINNumber);
+    public void registerNewCAL(String LabName,String Address,int PhoneNumber,int TINNumber){
+    Company.registerNewCAL(LabName,Address,PhoneNumber,TINNumber);
     }
     
     public void performsCovidTest(boolean value){
     Company.performsCovidTest(value);
     }
 
-    public void saveCLA(){
-    Company.saveCLA(CLA);
+    public void saveCAL(){
+    Company.saveCAL(CAL);
     }
     }
 
@@ -235,7 +235,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 * Questions posed to client and waiting 
 
-* Reservations regarding the registration of the new CLA
+* Reservations regarding the registration of the new CAL
 
 * Registration of employees
 

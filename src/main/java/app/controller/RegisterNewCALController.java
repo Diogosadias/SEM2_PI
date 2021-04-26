@@ -11,15 +11,15 @@ public class RegisterNewCALController {
     //O QUE ESTIVER COMENTADO AINDA NÃO ESTÁ TERMINADO
     /*public CAL CAL;
 
-    public void registerNewCLA(String LabName,String Address,int PhoneNumber,int TINNumber){
-        Company.registerNewCLA(LabName,Address,PhoneNumber,TINNumber);
+    public CAL registerNewCAL(String LabName,String Address,int PhoneNumber,int TINNumber){
+        return new Company.registerNewCAL(LabName,Address,PhoneNumber,TINNumber);
     }
 
     public void performsCovidTest(boolean value){
         Company.performsCovidTest(value);
     }
 
-    public void saveCLA(){
-        Company.saveCLA(CLA);
+    public void saveCAL(){
+        Company.saveCAL(CAL);
     }*/
 }

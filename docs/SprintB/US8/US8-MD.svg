@@ -179,13 +179,13 @@
     ><text x="16" xml:space="preserve" y="24" clip-path="url(#clipPath11)" stroke="none"
       >1</text
     ></g
-    ><g font-size="11px" transform="translate(224,24)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
-    ><text x="17" xml:space="preserve" y="24" clip-path="url(#clipPath11)" stroke="none"
-      >*</text
-    ></g
     ><g font-size="11px" transform="translate(470,159)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
     ><text x="16" xml:space="preserve" y="24" clip-path="url(#clipPath11)" stroke="none"
       >1</text
+    ></g
+    ><g font-size="11px" transform="translate(224,24)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
+    ><text x="17" xml:space="preserve" y="24" clip-path="url(#clipPath11)" stroke="none"
+      >*</text
     ></g
     ><g stroke-linecap="butt" font-size="11px" transform="translate(104,53)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke-linejoin="round" stroke="black" stroke-opacity="1"
     ><line y2="50" fill="none" x1="50" clip-path="url(#clipPath13)" x2="50" y1="120"
@@ -198,7 +198,7 @@
       /><line y2="50" fill="none" x1="323" clip-path="url(#clipPath17)" x2="50" y1="50"
     /></g
     ><g font-size="11px" transform="translate(416,64)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
-    ><path d="M1.5 6.5 L14.5 1.5 L14.5 11.5 Z" stroke="none" clip-path="url(#clipPath19)"
+    ><path d="M8 0 L13 13 L3 13 Z" stroke="none" clip-path="url(#clipPath19)"
       /><text x="28" xml:space="preserve" y="12" clip-path="url(#clipPath18)" transform="translate(-10,0)" stroke="none"
       >register new</text
     ></g
