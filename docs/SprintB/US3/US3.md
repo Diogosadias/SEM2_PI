@@ -59,12 +59,12 @@
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1  		 |							 |             |                              |
-| Step 2  		 |							 |             |                              |
-| Step 3  		 |							 |             |                              |
-| Step 4  		 |							 |             |                              |
-| Step 5  		 |							 |             |                              |
-| Step 6  		 |							 |             |                              |              
+| Step 1: Starts new client registration  		 |			...creating a new client?				 |   Company          | Creator.                             |
+| Step 2: requests data(name,NHS,citizenCard,TIN,birthDate,sex,phoneNumber)  		 |				n/a			 |             |                              |
+| Step 3: types requested data 		 |	...saving input data?						 |    Client         | IE: The Object has its own data                             |
+| Step 4: shows the data and requested information 		 |	...validating the data globally?						 |  Client           |    IE:Knows its own data                          |
+| Step 5:confirms the data		 |		...saving the client?					 |       Company     |           IE: adopts/records all the Client objects                   |
+| Step 6:informs operation success  		 |	...informing operation success?						 |      UI       |     IE: responsible for user interaction                         |              
 
 ### Systematization ##
 
@@ -108,7 +108,98 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 *In this section, it is suggested to provide, if necessary, some evidence that the construction/implementation is in accordance with the previously carried out design. Furthermore, it is recommeded to mention/describe the existence of other relevant (e.g. configuration) files and highlight relevant commits.*
 
-*It is also recommended to organize this content by subsections.* 
+*It is also recommended to organize this content by subsections.*
+
+**Client Class:**
+        
+        public class Client(){
+        
+        private String name;
+        private int nhs;
+        private int citizenCard;
+        private int tin;
+        private String birthDate;
+        private String sex;
+        private int pNumber;
+
+        public Client(String name, int nhs, int citizenCard, int tin, String birthDate,String sex, int pNumber){
+        this.name = name;
+        this.nhs = nhs;
+        this.citizenCard = citizenCard;
+        this.tin = tin;
+        this.birthDate = birthDate;
+        this.sex = sex;
+        this.pNumber = pNumber;
+        }
+        
+        public void checkNHS(nhs){
+        String check = String.valueOf(nhs);
+        if(check.length != 10)
+        throw new IllegalArgumentException("NHS number must have 10 chars");
+        }
+
+        public void checkCitizenNumber(citizenCard){
+        String check = String.valueOf(citizenCard);
+        if(check.length != 16)
+        throw new IllegalArgumentException("Citizen number must have 16 chars");
+        }
+
+        public void checkTIN(tin){
+        String check = String.valueOf(tin);
+        if(check.length != 12)
+        throw new IllegalArgumentException("TIN must have 12 chars");
+        }
+
+        public void checkPNumber(pNumber){
+        String check = String.valueOf(pNumber);
+        if(check.length != 12)
+        throw new IllegalArgumentException("TIN must have 12 chars");
+        }
+    
+        public void checkSex(sex){
+        if(! sex.equals("Masculino) || ! sex.equals("Feminino"))
+        throw new IllegalArgumentException("Não existe esse género!");
+        }
+        }
+
+**Company Class:**
+
+        private List<Client> clientList;
+
+        public Client createClient(String name, int nhs, int citizenCard, int tin, String birthDate,String sex, int pNumber){
+            return new Client(name, nhs, citizenCard; int tin, birthDate, String sex, int pNumber);
+        }
+        
+        public boolean validateClient(Client rc){
+        if(rc == null){
+            return false;
+        return ! this.clientList.add(rc);
+        }
+        }
+        }
+
+**ClientController Class:**
+
+        private Company company;
+        private Client rc;
+
+        public CreateClient(){
+            this(App.getInstance().getCompany());
+        }
+        
+        public CreateClient(Company company){
+            this.company = company;
+            this.rc = null;
+        }
+
+        public boolean createClient(String name, int nhs, int citizenCard, int tin, String birthDate, String sex, int pNumber){
+            this.rc = this.company.createClient(name, nhs, citizenCard,  tin, birthDate,sex,pNumber);
+            return this.company.Client(rc);
+        }
+
+        public boolean saveClient(){
+            return this.company.saveClient(rc);
+        }
 
 # 6. Integration and Demo 
 
