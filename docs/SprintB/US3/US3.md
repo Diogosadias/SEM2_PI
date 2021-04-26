@@ -31,10 +31,29 @@
 
 **From the client clarifications:**
 
+ * Q: "To register a client the receptionist needs the client’s citizen card number, National Healthcare Service (NHS) number, birth date, sex, Tax Identification number (TIF), phone number, e-mail and name. Which type/format they should have?"
+
+* A: "Citizen Card" - 16 digit number  
+"NHS" - 10 digit number  
+"TIN"  - 10 digit number  
+"Birth day - in which format?"  - DD/MM/YY  
+Sex - should only be Male/Female or include more options. - Male/Female  
+Phone number: which lenght/format?  - 11 digit number"  
+  
+
+* Q: "Also, are all the fields required/mandatory?"
+* A: "The phone number is opcional. All other fields are required."
+
+* Q: "Does the receptionist need to be logged in the app to preform the regist."
+* A: "Yes."
+
 
 ### 1.3. Acceptance Criteria
 
-*Insert here the client acceptance criteria.*
+* AC1 : When registering a client, all fields except phone number must be fulfilled.
+* AC2 : When registering a client, the receptionist needs to be logged in.
+* AC3 : No client can be created with the same Citizen Card, NHS or TIN number.
+* AC4 : The user story ends sucessfully when a client is registered and associated with a test.
 
 ### 1.4. Found out Dependencies
 
