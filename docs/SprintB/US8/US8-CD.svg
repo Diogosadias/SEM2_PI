@@ -97,19 +97,19 @@
     /></g
     ><g font-size="11px" transform="matrix(1,0,0,1,4,22)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
     ><text x="2" xml:space="preserve" y="33" clip-path="url(#clipPath2)" stroke="none"
-      >+registeNewCLA(Lab Name, Address, Phone Number, TIN Number)</text
+      >+registeNewCAL(Lab Name, Address, Phone Number, TIN Number)</text
     ></g
     ><g font-size="11px" transform="matrix(1,0,0,1,4,22)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
     ><text x="2" xml:space="preserve" y="48" clip-path="url(#clipPath2)" stroke="none"
-      >+validateCLA(CLA)</text
+      >+validateCAL(CAL)</text
     ></g
     ><g font-size="11px" transform="matrix(1,0,0,1,4,22)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
     ><text x="2" xml:space="preserve" y="63" clip-path="url(#clipPath2)" stroke="none"
-      >+saveCLA(CLA)</text
+      >+saveCAL(CAL)</text
     ></g
     ><g font-size="11px" transform="matrix(1,0,0,1,4,22)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
     ><text x="2" xml:space="preserve" y="78" clip-path="url(#clipPath2)" stroke="none"
-      >-addCLA(CLA)</text
+      >-addCAL(CAL)</text
     ></g
     ><g font-size="11px" transform="translate(4,7)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" font-weight="bold" stroke-opacity="1"
     ><text x="144" xml:space="preserve" y="12" clip-path="url(#clipPath3)" stroke="none"
@@ -157,7 +157,7 @@
     ></g
     ><g font-size="11px" transform="translate(473,2)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" font-weight="bold" stroke-opacity="1"
     ><text x="139" xml:space="preserve" y="12" clip-path="url(#clipPath6)" stroke="none"
-      >CLA</text
+      >CAL</text
     ></g
     ><g font-size="11px" transform="translate(117,405)" fill-opacity="1" fill="rgb(122,207,245)" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="rgb(122,207,245)" font-weight="bold" stroke-opacity="1"
     ><rect x="0" width="114" height="40" y="0" clip-path="url(#clipPath7)" stroke="none"
@@ -168,7 +168,7 @@
     /></g
     ><g font-size="11px" transform="translate(117,405)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" font-weight="bold" stroke-opacity="1"
     ><text x="6" xml:space="preserve" y="12" clip-path="url(#clipPath9)" stroke="none"
-      >RegisterNewCLAUI</text
+      >RegisterNewCALUI</text
     ></g
     ><g font-size="11px" transform="translate(2,241)" fill-opacity="1" fill="rgb(122,207,245)" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="rgb(122,207,245)" font-weight="bold" stroke-opacity="1"
     ><rect x="0" width="344" height="68" y="0" clip-path="url(#clipPath10)" stroke="none"
@@ -179,7 +179,7 @@
     /></g
     ><g font-size="11px" transform="matrix(1,0,0,1,2,256)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
     ><text x="2" xml:space="preserve" y="14" clip-path="url(#clipPath11)" stroke="none"
-      >+registerNewCLA(Lab Name, Address, Phone Number, TIN Number)</text
+      >+registerNewCAL(Lab Name, Address, Phone Number, TIN Number)</text
     ></g
     ><g font-size="11px" transform="matrix(1,0,0,1,2,256)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
     ><text x="2" xml:space="preserve" y="29" clip-path="url(#clipPath11)" stroke="none"
@@ -187,19 +187,19 @@
     ></g
     ><g font-size="11px" transform="matrix(1,0,0,1,2,256)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
     ><text x="2" xml:space="preserve" y="44" clip-path="url(#clipPath11)" stroke="none"
-      >+saveCLA()</text
+      >+saveCAL()</text
     ></g
     ><g font-size="11px" transform="translate(2,241)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" font-weight="bold" stroke-opacity="1"
     ><text x="101" xml:space="preserve" y="12" clip-path="url(#clipPath12)" stroke="none"
-      >RegisterNewCLAController</text
-    ></g
-    ><g font-size="11px" transform="translate(440,63)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
-    ><text x="17" xml:space="preserve" y="24" clip-path="url(#clipPath14)" stroke="none"
-      >*</text
+      >RegisterNewCALController</text
     ></g
     ><g font-size="11px" transform="translate(339,47)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
     ><text x="16" xml:space="preserve" y="24" clip-path="url(#clipPath14)" stroke="none"
       >1</text
+    ></g
+    ><g font-size="11px" transform="translate(440,63)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
+    ><text x="17" xml:space="preserve" y="24" clip-path="url(#clipPath14)" stroke="none"
+      >*</text
     ></g
     ><g stroke-linecap="butt" font-size="11px" transform="translate(295,25)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke-linejoin="round" stroke="black" stroke-opacity="1"
     ><line y2="50" fill="none" x1="50" clip-path="url(#clipPath16)" x2="177" y1="50"

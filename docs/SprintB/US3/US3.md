@@ -11,7 +11,26 @@
 
 ### 1.2. Customer Specifications and Clarifications 
 
-*Insert here any related specification and/or clarification provided by the client together with **your interpretation**. When possible, provide a link to such specifications/clarifications.*
+**From the Specifications Document:**
+
+* "The  set of Many Labs clinical analysis laboratories form a network that covers all England and it is
+  responsible for collect ing samples and interact ing with clients ."
+  
+
+* "Typically,  the client arrives at one of the clinical analysis laboratories with a lab order prescribed by
+  a doctor . Once there a receptionist asks the client ’s citizen card number, the lab order which
+  contains the type of test and parameters to be measure d and registers in the application the test to
+  be performed to that client Then, the client should wait until a medical lab technician calls him /her
+  to collect the samples required to perform a given test."
+  
+
+* "In case of  a new client , the receptionist register s the client in the application. To register a client the
+  receptionist needs the client’s citizen c ard number, National Healthcare Service ( number,
+  birth date, sex, Tax Identification n umber ( TIF) phone number, e-mail and name"
+
+
+**From the client clarifications:**
+
 
 ### 1.3. Acceptance Criteria
 
@@ -30,7 +49,7 @@
 
 *Insert here a SSD depicting the envisioned Actor-System interactions and throughout which data is inputted and outputted to fulfill the requirement. All interactions must be numbered.*
 
-![USXX-SSD](USXX-SSD.svg)
+![US3-SSD](US3-SSD.svg)
 
 
 ### 1.7 Other Relevant Remarks
@@ -43,7 +62,7 @@
 ### 2.1. Relevant Domain Model Excerpt 
 *In this section, it is suggested to present an excerpt of the domain model that is seen as relevant to fulfill this requirement.* 
 
-![USXX-MD](USXX-MD.svg)
+![US3-MD](US3-MD.svg)
 
 ### 2.2. Other Remarks
 
@@ -82,13 +101,13 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 *In this section, it is suggested to present an UML dynamic view stating the sequence of domain related software objects' interactions that allows to fulfill the requirement.* 
 
-![USXX-SD](USXX-SD.svg)
+![US3-SD](US3-SD.svg)
 
 ## 3.3. Class Diagram (CD)
 
 *In this section, it is suggested to present an UML static view representing the main domain related software classes that are involved in fulfilling the requirement as well as and their relations, attributes and methods.*
 
-![USXX-CD](USXX-CD.svg)
+![US3-CD](US3-CD.svg)
 
 # 4. Tests 
 *In this section, it is suggested to systematize how the tests were designed to allow a correct measurement of requirements fulfilling.* 
