@@ -12,13 +12,13 @@ public class CAL {
     private boolean performs_covid_test;
     private int laboratory_id;
 
-    public CAL(String labname, String address, int phone_number, int tin_number,int laboratory_id){
+    public CAL(String labname, String address, int phone_number, int tin_number){
         this.labname=labname;
         this.address=address;
         this.phone_number=phone_number;
         this.tin_number=tin_number;
         performs_covid_test=false;
-        this.laboratory_id=laboratory_id;
+        //laboratory_id=laboratory_id;
     }
 
     //gets:

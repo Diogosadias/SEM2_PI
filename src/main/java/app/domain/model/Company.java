@@ -18,7 +18,7 @@ public class Company {
      * * list of CAL
      */
     //O QUE ESTIVER COMENTADO AINDA NÃO ESTÁ TERMINADO
-    private List<CAL> calList;
+    //private List<CAL> calList;
 
     public Company(String designation)
     {
@@ -56,5 +56,7 @@ public class Company {
         if(!validateCLA(CAL))
             return false;
         return this.calList.add(CAL); //???
-    }*/
+    }
+*/
+
 }
