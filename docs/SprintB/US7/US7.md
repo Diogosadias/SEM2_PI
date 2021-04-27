@@ -26,9 +26,7 @@ Doctor Index Number.
 
 ### 1.3. Acceptance Criteria
 
-* AC1: Each user must have a single role defined in the system. 
-* AC2: Name and email cannot be empty.
-* AC3: Phone number must be 9 digits and unique. 
+* AC1: Each user must have a single role defined in the system.
 
 ### 1.4. Found out Dependencies
 
