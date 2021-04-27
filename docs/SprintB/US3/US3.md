@@ -97,11 +97,11 @@ Phone number: which lenght/format?  - 11 digit number"
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1: Starts new client registration  		 |			...creating a new client?				 |   Company          | Creator.                             |
+| Step 1: Starts new client registration  		 |			...creating a new client?				 |   ClientStore          | HC + LC.                             |
 | Step 2: requests data(name,NHS,citizenCard,TIN,birthDate,sex,phoneNumber)  		 |				n/a			 |             |                              |
 | Step 3: types requested data 		 |	...saving input data?						 |    Client         | IE: The Object has its own data                             |
 | Step 4: shows the data and requested information 		 |	...validating the data globally?						 |  Client           |    IE:Knows its own data                          |
-| Step 5:confirms the data		 |		...saving the client?					 |       Company     |           IE: adopts/records all the Client objects                   |
+| Step 5:confirms the data		 |		...saving the client?					 |       ClientStore     |           IE: adopts/records all the Client objects                   |
 | Step 6:informs operation success  		 |	...informing operation success?						 |      UI       |     IE: responsible for user interaction                         |              
 
 ### Systematization ##
@@ -115,6 +115,7 @@ According to the taken rationale, the conceptual classes promoted to software cl
 Other software classes (i.e. Pure Fabrication) identified: 
  * xxxxUI  
  * xxxxController
+ * ClientStore (HC+LC)
 
 ## 3.2. Sequence Diagram (SD)
 
