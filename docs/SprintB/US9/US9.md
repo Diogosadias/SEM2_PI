@@ -64,13 +64,13 @@
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1: Starts a new type of test 		 |	...creating a type of test?						 |      Company     |    Creator.                        |
+| Step 1: Starts a new type of test 		 |	...creating a type of test?						 |      TestTypeStore     |    HC+LC.                        |
 | Step 2: Requests designation		 |	...n/a						 |             |                              |
 | Step 3: Types designation 		 |	...saving input data?						 |     TestType        |         IE: The Object created has its own data.                     |
 | Step 4: requests the collecting methods 		 |		n/a					 |     |                      |
 | Step 5: types the collecting methods		 |				...saving input data?			 |   TestType          |    IE: The Object created in step 3 has its own data.                       |
-| Step 6: shows the data and requests confirmation 		 |		...validating the data globally?			 |      TestType       |         IE: knows its own data                     |       
-| Step 7: confirms the data |  ...saving the created test type? | TestType | IE: adopts/records all the TestType objects
+| Step 6: shows the data and requests confirmation 		 |		...validating the data globally?			 |      TestTypeStore       |         IE: knows its own data                     |       
+| Step 7: confirms the data |  ...saving the created test type? | TestTypeStore | IE: adopts/records all the TestType objects
 | Step8: informs operation success | ...informing operation success? | UI | IE: responsible for user interaction|
 
 ### Systematization ##
@@ -84,6 +84,7 @@ According to the taken rationale, the conceptual classes promoted to software cl
 Other software classes (i.e. Pure Fabrication) identified: 
  * xxxxUI  
  * xxxxController
+ * TestTypeStore (HC+LC)
 
 ## 3.2. Sequence Diagram (SD)
 
