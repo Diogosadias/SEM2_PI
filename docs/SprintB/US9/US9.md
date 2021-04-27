@@ -120,7 +120,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 **TestType Class:**
 
-    public class TestType{
+    public class TestType extends SpecifyNewTestStore{
     
     private String designationName;
     private int TestTypeId;
@@ -138,11 +138,15 @@ Other software classes (i.e. Pure Fabrication) identified:
     }
     }
 
-**Company Class:**
+**Company SpecifyNewTypeTestStore:**
 
-    public class Company{
+    public class SpecifyNewTypeTestStore extends Company{
     
     private ArrayList <TestType> TestTypeList;
+
+    public SpecifyNewTypeTestStore(){
+      TestTypeList = new ArrayList<>();
+    }
 
      public TestType createNewTestType(String designationName, int TestTypeId, ArrayList <String> collectMethods){
             return new TestType(designation, TestTypeId, collectMethods);
@@ -158,6 +162,7 @@ Other software classes (i.e. Pure Fabrication) identified:
             return false
         return this.TestTypeList.add(tp);
         }
+
         
     }
 
@@ -185,6 +190,16 @@ Other software classes (i.e. Pure Fabrication) identified:
         public boolean saveTestType(){
             return this.company.saveTestType(tp);
         }
+    }
+
+**Company Class:**
+
+    public TestType{
+    
+    public SpecifyNewTypeTestStore getSpecifyNewTypeTestStore(SpecifyNewTypeTestStore tpl){
+    return tpl;
+    }
+
     }
 # 6. Integration and Demo 
 

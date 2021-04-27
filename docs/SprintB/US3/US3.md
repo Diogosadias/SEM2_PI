@@ -201,8 +201,9 @@ Other software classes (i.e. Pure Fabrication) identified:
         }
         }
 
-**Company Class:**
+**CreateClientStore Class:**
 
+        public classCreateClientStore extends Company{
         private List<Client> clientList;
 
         public Client createClient(String name, int nhs, int citizenCard, int tin, String birthDate,String sex, int pNumber){
@@ -215,6 +216,20 @@ Other software classes (i.e. Pure Fabrication) identified:
         return ! this.clientList.add(rc);
         }
         }
+        
+        public boolean saveClient(Client tp){
+        if(!validateClient(rc))
+            return false
+        return this.clientList.add(rc);
+        }
+        
+       public Client getClientByCitizenCard(int citizenCard){
+          for(Client c : clientList){
+          if(citizenCard == c.getClientCard)
+          return c;}
+          return null;
+        }
+
         }
 
 **ClientController Class:**
@@ -240,6 +255,15 @@ Other software classes (i.e. Pure Fabrication) identified:
             return this.company.saveClient(rc);
         }
 
+**Company Class**
+
+    public class Company{
+    
+      public CreateClientStore getCreateClientStore(CreateClientStore ccs){
+      return ccs;
+      }
+      
+      }
 # 6. Integration and Demo 
 
 *In this section, it is suggested to describe the efforts made to integrate this functionality with the other features of the system.*
