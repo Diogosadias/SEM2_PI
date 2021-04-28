@@ -36,7 +36,7 @@
 * A: "Citizen Card" - 16 digit number  
 "NHS" - 10 digit number  
 "TIN"  - 10 digit number  
-"Birth day - in which format?"  - DD/MM/YY  
+"Birth date - in which format?"  - DD/MM/YY  
 Sex - should only be Male/Female or include more options. - Male/Female  
 Phone number: which lenght/format?  - 11 digit number"  
   
@@ -50,10 +50,11 @@ Phone number: which lenght/format?  - 11 digit number"
 
 ### 1.3. Acceptance Criteria
 
-* AC1 : When registering a client, all fields except phone number must be fulfilled.
+* AC1 : When registering a client, all fields except phone number need to be fulfilled.
 * AC2 : When registering a client, the receptionist needs to be logged in.
 * AC3 : No client can be created with the same Citizen Card, NHS or TIN number.
-* AC4 : The user story ends successfully when a client is registered and associated with a test.
+* AC4 : When the Client is registered, a ten digit alphanumeric password should be randomly generated. 
+* ACX : The user story ends successfully when a client is registered and associated with a test.
 
 ### 1.4. Found out Dependencies
 
@@ -61,7 +62,14 @@ Phone number: which lenght/format?  - 11 digit number"
 
 ### 1.5 Input and Output Data
 
-*Identity here the data to be inputted by the system actor as well as the output data that the system have/needs to present in order to properly support the actor actions. Regarding the inputted data, it is suggested to distinguish between typed data and selected data (e.g. from a list)*
+**Input Data**
+
+* Typed data: Name, Citizen Card, Nhs number, TIN, Birth date, Phone Number, Name and Email
+
+* Selected data: gender(male/female)
+
+**Output Data**
+* (In)Success of the operation
 
 
 ### 1.6. System Sequence Diagram (SSD)
