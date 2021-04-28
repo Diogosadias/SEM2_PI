@@ -53,7 +53,7 @@ Phone number: which lenght/format?  - 11 digit number"
 * AC1 : When registering a client, all fields except phone number must be fulfilled.
 * AC2 : When registering a client, the receptionist needs to be logged in.
 * AC3 : No client can be created with the same Citizen Card, NHS or TIN number.
-* AC4 : The user story ends sucessfully when a client is registered and associated with a test.
+* AC4 : The user story ends successfully when a client is registered and associated with a test.
 
 ### 1.4. Found out Dependencies
 
