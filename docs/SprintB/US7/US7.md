@@ -21,12 +21,17 @@ Phone Number,
 E-Mail,
 Standard Occupational Classification (SOC) code.
 
+Only the employee ID should be generated from the initials of the employee name and should include a number. The number has 5 digits and is increases automatically when a new employee is registered in the system. For instance, if the company has 20 employees and wants to register a specialist doctor having the name Ana Maria Santos Moura, then the the employee ID for this specialist doctor should be AMSM00021.
+
 The Specialist Doctor has an additional attribute:
-Doctor Index Number.
+Doctor Index Number, that should be introduced by the administrator.
+
 
 ### 1.3. Acceptance Criteria
 
 * AC1: Each user must have a single role defined in the system.
+* AC2: All atributtes can not be empty.
+* AC3: Phone number must be unique.
 
 ### 1.4. Found out Dependencies
 
@@ -34,7 +39,9 @@ No dependencies were found.
 
 ### 1.5 Input and Output Data
 
-**Input Data:** Organization Role, name, address, phone number, email, soc code
+**Selected Data:** organization role
+
+**Input Data:** name, email, address, phone number, soc code, doctor index number
 
 **Output Data:** (in)sucess of the operation 
 
@@ -71,13 +78,14 @@ No dependencies were found.
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
 | Step 1: asks to register a new Employee   		 |	...instantiating a new Employee?						 |   EmployeeStore          |  HC + LC                            |
-| Step 2: requests data ( Organization Role, name, address, phone number, email, soc code) 		 |	n/a						 |             |                              |
-| Step 3: types requested data  		 |	...saving the input data?						 |  Employee           |  IE: The Object created in step 1 has its own data.                            |
-| Step 4: validates and shows the data, asking for confirmation  		 |	...validating the data locally(eg.: mandatory vs non-mandatory data)?						 |    Employee         |    IE: knows its own data.                          |
+| Step 2:  shows list of Organization Roles and asks to choose one 		 |	n/a						 |             |                              |
+| Step 3: selects the role  		 |	...saving the role selected?						 |  Employee           |  IE: Employee acts as User.User play as Role.                           |
+| Step 4: requests data ( name, address, phoneNumber, socCode, doctorIndexNumber) 		 |	n/a						 |             |                              |
+| Step 5: types requested data  		 |	...saving the input data?						 |  Employee           |  IE: The Object created in step 1 has its own data.                            |
+| Step 6: validates and shows the data, asking for confirmation  		 |	...validating the data locally(eg.: mandatory vs non-mandatory data)?						 |    Employee         |    IE: knows its own data.                          |
 |   		 |	...validating the data globally(eg.: duplicated)?					 |    EmployeeStore         |    IE: knows all the Employee objects.                          |
-|   		 |	...generating employee Id and doctor index Number?					 |    EmployeeStore         |    IE: knows the number of employees/Specialist Doctor registered in the system.                          |
-| Step 5: confirms all the data  		 |	...saving the created Employee						 |   EmployeeStore          |    IE: adopts/records all the Employee objects                          |
-| Step 6: informs employee created sucessfully  		 |	...informing operation success?						 |   UI          |    IE: responsible for user interaction                          |              
+| Step 7: confirms all the data  		 |	...saving the created Employee						 |   EmployeeStore          |    IE: adopts/records all the Employee objects                          |
+| Step 8: informs employee created sucessfully  		 |	...informing operation success?						 |   UI          |    IE: responsible for user interaction                          |              
 
 ### Systematization ##
 
@@ -85,12 +93,15 @@ According to the taken rationale, the conceptual classes promoted to software cl
 
  Employee
  Company
+ User
 
 Other software classes (i.e. Pure Fabrication) identified: 
 
 registerEmployeeUI (applying the "pure fabrication" pattern)
 registerEmployeeController (applying the "controller" pattern)
 EmployeeStore (HC+LC)
+UserRoleStore (HC+LC)
+UserStore (HC+LC)
 
 ## 3.2. Sequence Diagram (SD)
 
