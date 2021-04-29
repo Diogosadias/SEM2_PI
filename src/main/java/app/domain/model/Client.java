@@ -30,7 +30,7 @@ public class Client {
         this.tin = tin;
         this.birthDate = birthDate;
         this.sex = sex;
-        pNumber = 000000000000;
+        pNumber = Integer.parseInt(null);
     }
 
     //gets:
