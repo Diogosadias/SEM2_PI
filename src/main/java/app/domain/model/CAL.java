@@ -18,7 +18,7 @@ public class CAL {
         this.phone_number=phone_number;
         this.tin_number=tin_number;
         performs_covid_test=false;
-        //laboratory_id=laboratory_id;
+        //laboratory_id=laboratory_id+1;
     }
 
     //gets:

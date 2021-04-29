@@ -38,7 +38,7 @@ public class Company {
     }
 
 
-    //Márcio está a trabalhar no seguinte:
+
     /*public CAL registerNewCAL(String LabName,String Address,int PhoneNumber,int TINNumber){
         return new CAL(LabName,Address,PhoneNumber,TINNumber);
     }

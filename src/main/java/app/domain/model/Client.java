@@ -13,7 +13,16 @@ public class Client {
     private String sex;
     private int pNumber;
 
-
+    /**
+     * Constructor Client
+     * @param name
+     * @param nhs
+     * @param citizenCard
+     * @param tin
+     * @param birthDate
+     * @param sex
+     * @param pNumber
+     */
     public Client(String name, int nhs, int citizenCard, int tin, String birthDate,String sex, int pNumber){
         this.name = name;
         this.nhs = nhs;
