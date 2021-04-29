@@ -26,8 +26,11 @@
 
 * "In case of  a new client , the receptionist register s the client in the application. To register a client the
   receptionist needs the client’s citizen c ard number, National Healthcare Service ( number,
-  birth date, sex, Tax Identification n umber ( TIF) phone number, e-mail and name"
+  birth date, sex, Tax Identification number ( TIF) phone number, e-mail and name"
 
+
+* Acceptance Criteria: The client must become a system user. The "auth" component
+  available on the repository must be reused (without modifications).
 
 **From the client clarifications:**
 
@@ -54,6 +57,7 @@ Phone number: which lenght/format?  - 11 digit number"
 * AC2 : When registering a client, the receptionist needs to be logged in.
 * AC3 : No client can be created with the same Citizen Card, NHS or TIN number.
 * AC4 : When the Client is registered, a ten digit alphanumeric password should be randomly generated. 
+* AC5 : The Client must become a system user.
 * ACX : The user story ends successfully when a client is registered and associated with a test.
 
 ### 1.4. Found out Dependencies
