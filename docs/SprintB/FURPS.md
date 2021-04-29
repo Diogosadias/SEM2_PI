@@ -24,7 +24,7 @@
 |**Accessibility**|_"To facilitate the access to the results, the application must allow ordering the clients by TIF and by name."_|
 |**Aesthetics**|_"The application graphical interface is to be developed in JavaFX 11" / "All the images/figures produced during the software development process should be recorded in SVG format" / [Client's Email](References.md) :"The user interface must be simple, intuitive and consistent."_|
 |**Consistency**|_" Must be authenticated with a password holding seven alphanumeric characters, including three capital letters and two digits." / [Client's Email](References.md) : "The user interface must be simple, intuitive and consistent."_|
-
+|**Performace**|
 
 ## Reliability
 _Refers to the integrity, compliance and interoperability of the software. The requirements to be considered are: frequency and severity of failure, possibility of recovery, possibility of prediction, accuracy, average time between failures._
@@ -32,7 +32,8 @@ _Refers to the integrity, compliance and interoperability of the software. The r
 | **_Function_**   | Description                         |                                       
 |:------------------------|:-----------------|
 |**Accuracy**|_"The accuracy of the prediction models should be analysed and documented in the application user manual"_|
-|**Recoverability**|_"The application should use object serialization to ensure data persistence between two runs of the application." / [Client's Email](References.md) :"The system should not fail more than 5 days in one year."_|
+|**Availability**|[Client's Email](References.md) :_"The system should not fail more than 5 days in one year."_
+|**Recoverability**|_"The application should use object serialization to ensure data persistence between two runs of the application."_ |
 
 
 ## Performance
@@ -88,7 +89,7 @@ database integrity, resource limits, operating system._
 |**Implementation languages**|_"The application must be developed in Java language using the IntelliJ IDE or Netbeans"_|
 |**Standards-compliance**|_"(i) adopt best practices for identifying requirements and for OO software analysis and design; (ii) adopt recognized coding standards (e.g., CamelCase); (iii) use Javadoc to generate useful documentation for Java code."_
 |**Platform support**|_[Client's Email](References.md) : "The application should run on all platforms for which there exists a Java Virtual Machine."_|
-|**Resource limits**|_[Client's Email](References.md) :"The application will be deployed to a machine with 8GB of RAM."_
+
 
 
 ### Interface Requirements

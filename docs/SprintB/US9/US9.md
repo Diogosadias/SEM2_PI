@@ -18,7 +18,9 @@
 
 ### 1.3. Acceptance Criteria
 
-* AC1: A new test type must at least have one parameter
+* AC1: A new test type must at least have one category
+* AC2: String should have no more than 15 characters
+* AC3: Collecting method should no more than 20 characters
 
 
 ### 1.4. Found out Dependencies
@@ -28,8 +30,8 @@
 ### 1.5 Input and Output Data
 
 **Input Data**
-* **Typed Data:** designation name, test type  Id, collecting methods
-* **Selected Data:** (none) 
+* **Typed Data:** description, code, collectionx method
+* **Selected Data:** category
 
 ### 1.6. System Sequence Diagram (SSD)
 
@@ -77,13 +79,13 @@
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
- * Class1
- * Class2
- * Class3
+ * TestType
+ * Category
+ *Company
 
 Other software classes (i.e. Pure Fabrication) identified: 
- * xxxxUI  
- * xxxxController
+ * TestTypeUI  
+ * TestTypeController
  * TestTypeStore (HC+LC)
 
 ## 3.2. Sequence Diagram (SD)
@@ -122,23 +124,44 @@ Other software classes (i.e. Pure Fabrication) identified:
 
     public class TestType extends SpecifyNewTestStore{
     
-    private String designationName;
-    private int TestTypeId;
-    private ArrayList <String> collectMethods = new ArrayList<>();
+    private String code;
+    private String description;
+    private String collectingMethod;
+    private ArrayList <Category> category;
 
-    public TestType(String designationName, int TestTypeId, ArrayList <String> collectMethods){
-      this.designationName = designationName;
-      this.TestTypeId = TestTypeId;
-      this.collectMethods = collectMethods;
+    public TestType(String code, String description,String collectingMethod){
+      this.code = code;
+      this.description = description;
+      this.collectMethod = collectMethod;
+      category = new ArrayList<>;
     }
 
-    private void checkMethods(ArrayList <String> collectMethods){
-    if(collectMethods.size == 0)
+
+    private void checkMethod(String collectingMethod){
+    if(collectMethod.size == 0)
       throw new IllegalArgumentException("Test type must at least have one collecting method");
     }
+
+    private void checkCode(String code){
+    if(code.length == 0 || code.length != 5 )
+      thorw new IllegalArgumentException("Code doesn't exist or doesn't have 5 alphanumeric numbers");
     }
 
-**Company SpecifyNewTypeTestStore:**
+    private void checkDescription(String description){
+    if(description.length > 15 || description.length == 0)
+      throw new IllegalArgumentException("Description doesn't exist or surpasses the 15 characters rule!");
+    }
+
+    private void checkCollectingMethod(String collectingMethod){
+    if(collectingMethod.length > 20 || collectingMethod.length == 0)
+      throw new IllegalArgumentException("Collecting Method doesn't exist or surpasses the 20 characters rule!");
+    }
+    public void setCateory(Category category){
+    category.add(category);
+    }
+    }
+
+**SpecifyNewTypeTestStore Class:**
 
     public class SpecifyNewTypeTestStore extends Company{
     
@@ -194,13 +217,56 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 **Company Class:**
 
-    public TestType{
+    public class Company{
     
     public SpecifyNewTypeTestStore getSpecifyNewTypeTestStore(SpecifyNewTypeTestStore tpl){
     return tpl;
     }
 
     }
+
+**Category Class:**
+
+    public class Category{
+      private String name;
+      private String code;
+
+    public Category(String name, String code){
+    this.name = name;
+    this.code = code;
+    }
+
+    public String getName(){
+      return name;
+    }
+
+    public String getCode(){
+    return code;
+    }
+    
+    }
+
+**CategoryStore Class:**
+  
+    public class CategoryStore{
+    
+    private ArrayList <Category> categoryList;
+
+    public CategoryStore(){
+    categoryList = new ArrayList<>();
+    }
+
+    public void addCategory(Category category){
+    add.categoryList(category);
+    }
+
+    public void write(){
+      for(Category n : categoryList)
+      System.out.println("Name:"+get.Name()+" Code:"+get.Code());
+    }
+    
+    }
+
 # 6. Integration and Demo 
 
 *In this section, it is suggested to describe the efforts made to integrate this functionality with the other features of the system.*
