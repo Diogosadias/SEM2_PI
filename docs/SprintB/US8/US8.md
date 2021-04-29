@@ -90,14 +90,14 @@ Attributes may need to be fulfilled
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1  : starts new CAL	 |		...creating a new CAL?   |  CALStore           |HC + LC|
+| Step 1  : starts new CAL	 |		...creating a new CAL?   |  Company -> CALStore           |Based on the Creator standard (Company used to store the list of all CAL ) on the MD, the responsibility is attributed to the Company. By application of HC + LC in Company the responsibility is delegated to CALStore|
 | Step 2  : requests data(Lab Name, Address, Phone Number, TIN Number)		 |			n/a				 |             |                              |
 | Step 3  : types requested data		 |			...saving the input data? 				 |    CAL       | IE: the object created in the first step has its own data.                             |
 | Step 4  : show the data and request data(performs covid-19 tests)		 |		...validate that the data is according AC?					 |  CAL         |   IE: Know its own creation rules                           |
-| Step 4  : show the data and request data(performs covid-19 tests)		 |		...validate the data persistence?					 |        CALStore     |      IE: Knows all the CAL objects                        |
+| Step 4  : show the data and request data(performs covid-19 tests)		 |		...validate the data persistence?					 |        Company -> CALStore     |  Based on the IE (Company used to know all the CAL Objects ) but, with the application of HC+LC in Company, the responsibility it's know delegated to CALStore|
 | Step 5  : types requested data	 |				...saving the input	data?		 |      CAL     | IE: the object created in the first step has its own data.                            |
 | Step 6  : shows the data and requests confirmation		 |			...validate the input data?				 |   CAL        |    IE: Know its own creation rules                           |              
-| Step 7  : confirms data		 |				...saving the CAL registered?			 |      CalStore       |     IE:Records information about all objects of CAL                        |              
+| Step 7  : confirms data		 |				...saving the CAL registered?			 |      Company -> CALStore         | Based on the IE standard on the MD, the responsibility is attributed to the Company. By application of HC + LC in Company the responsibility is delegated to CALStore, as previously stated. |              
 | Step 8  : informs operation success		 |			...informing operation success?				 |      UI       |    IE:Responsible for user interaction                           |              
 
 ### Systematization ##
@@ -106,11 +106,12 @@ According to the taken rationale, the conceptual classes promoted to software cl
 
  * Company
  * CAL
- * CALStore
 
 Other software classes (i.e. Pure Fabrication) identified: 
  * RegisterNewCALUI  (applying the "pure fabrication" pattern)
  * RegisterNewCALController (applying the "Controller" pattern)
+ * CALStore (applying the "HC+LC" pattern)
+
 
 ## 3.2. Sequence Diagram (SD)
 
