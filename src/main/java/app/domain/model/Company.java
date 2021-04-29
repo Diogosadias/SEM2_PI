@@ -38,6 +38,10 @@ public class Company {
     }
 
 
+    public SpecifyNewTypeTestStore getSpecifyNewTypeTestStore(SpecifyNewTypeTestStore tpl){
+        return tpl;
+        }
+
 
     /*public CAL registerNewCAL(String LabName,String Address,int PhoneNumber,int TINNumber){
         return new CAL(LabName,Address,PhoneNumber,TINNumber);
