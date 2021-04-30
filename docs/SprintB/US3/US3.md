@@ -125,8 +125,8 @@ According to the taken rationale, the conceptual classes promoted to software cl
  * Class3
 
 Other software classes (i.e. Pure Fabrication) identified: 
- * xxxxUI  
- * xxxxController
+ * ClientUI  
+ * ClientController
  * ClientStore (HC+LC)
 
 ## 3.2. Sequence Diagram (SD)

@@ -25,7 +25,7 @@
 
 ### 1.4. Found out Dependencies
 
-*No dependencies were found.*
+*US11*
 
 ### 1.5 Input and Output Data
 
@@ -92,13 +92,13 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 *In this section, it is suggested to present an UML dynamic view stating the sequence of domain related software objects' interactions that allows to fulfill the requirement.* 
 
-![US9-SD](US9-LD.svg)
+![US9-SD](US9-SD.svg)
 
 ## 3.3. Class Diagram (CD)
 
 *In this section, it is suggested to present an UML static view representing the main domain related software classes that are involved in fulfilling the requirement as well as and their relations, attributes and methods.*
 
-![US9-CD](US9-CD.svg)
+![US9-CD](US9-DC.svg)
 
 # 4. Tests 
 *In this section, it is suggested to systematize how the tests were designed to allow a correct measurement of requirements fulfilling.* 
@@ -131,13 +131,13 @@ Other software classes (i.e. Pure Fabrication) identified:
     private String code;
     private String description;
     private String collectingMethod;
-    private ArrayList<Category> categoryList;
+    private ArrayList<ParameterCategory> parameterList;
 
     public TestType(String code, String description,String collectingMethod){
         this.code = code;
         this.description = description;
         this.collectingMethod = collectingMethod;
-        categoryList = new ArrayList<Category>();
+        categoryList = new ArrayList<ParameterCategory>();
     }
 
 
@@ -160,8 +160,8 @@ Other software classes (i.e. Pure Fabrication) identified:
         if(collectingMethod.length() > 20 || collectingMethod.length() == 0)
             throw new IllegalArgumentException("Collecting Method doesn't exist or surpasses the 20 characters rule!");
     }
-    public void setCateory(Category category){
-        categoryList.add(category);
+    public void setCateory(ParameterCategory Parameter){
+        parameterList.add(parameter);
     }
     }
 
@@ -233,46 +233,70 @@ Other software classes (i.e. Pure Fabrication) identified:
 
     }
 
-**Category Class:**
+**Parameter Class:**
 
-    public class Category{
-      private String name;
-      private String code;
+    public class ParameterCategory extendes ParameterCaregoryStore{
+    
+    private String code;
+    private String description;
+    private String nhsId;
 
-    public Category(String name, String code){
-    this.name = name;
+    public ParameterCategory(String code, String description, String nhsId){
+    checkCodeRules(code);
+    checkDescriptionRules(description);
     this.code = code;
+    this.description = description;
+    this.nhsId = nhsId;
     }
 
-    public String getName(){
-      return name;
-    }
-
-    public String getCode(){
-    return code;
+    private void checkCodeRules(String code){
+    if(StringUtils.isBlank(code))
+        throw new IllegalArgumentException("Code cannot be blank");
+    if((code.length()<4) || (code.length()> 8)
+        throw new IllegalArgumentException("Code must have 4 to 8 characters.");
     }
     
-    }
-
-**CategoryStore Class:**
-  
-    public class CategoryStore{
-
-    private ArrayList<Category> categoryList;
-
-    public CategoryStore(){
-        categoryList = new ArrayList<>();
-    }
-
-    public void addCategory(Category category){
-        categoryList.add(category);
-    }
-
-    public void write(){
-        for(Category n : categoryList)
-            System.out.println("Name:"+n.getName()+" Code:"+n.getCode());
+    private void checkDescriptionRules(String description)i{
+    if(StringUtils.isBlank(description))
+        throw new IllegalArgumentException("Code cannot be blank");
+    if((code.length() > 40 )
+     throw new IllegalArgumentException("Code must not exceed 40 chars.");
     }
     }
+
+**ParameterCategoryStore Class:**
+
+        public class ParameterCategoryStore extends Company{
+        
+        private List<ParameterCategory> parameterCategoryList;
+
+        public ParameterCategory createParameterCategory(String code, String description, String nhsId){
+            return new ParameterCategory(code, description, nhsId);
+        }
+
+
+        
+        public getParameterCategoryByCode(int code){
+            for( ParameterCategory f : parameterCategoryList){
+                if(code == f.getCode)
+                    return f;
+            }
+            return null;
+        }
+
+        public boolean validateParameterCategory(ParameterCategory pc){
+        if(pc == null)
+            return false;
+        return ! this.parameterCategoryList.contains(pc);
+        }
+
+        public boolean saveParameterCategory(ParameterCategory pc){
+        if(!validateParameterCategory(pc))
+            return false
+        return this.parameterCategoryList.add(pc);
+        }
+        
+        }
 
 
 # 6. Integration and Demo 
