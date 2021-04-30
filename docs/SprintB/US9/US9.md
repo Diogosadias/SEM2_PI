@@ -122,72 +122,80 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 **TestType Class:**
 
-    public class TestType extends SpecifyNewTestStore{
-    
+    package app.domain.model;
+
+    import java.util.ArrayList;
+
+    public class TestType extends SpecifyNewTypeTestStore{
+
     private String code;
     private String description;
     private String collectingMethod;
-    private ArrayList <Category> category;
+    private ArrayList<Category> categoryList;
 
     public TestType(String code, String description,String collectingMethod){
-      this.code = code;
-      this.description = description;
-      this.collectMethod = collectMethod;
-      category = new ArrayList<>;
+        this.code = code;
+        this.description = description;
+        this.collectingMethod = collectingMethod;
+        categoryList = new ArrayList<Category>();
     }
 
 
     private void checkMethod(String collectingMethod){
-    if(collectMethod.size == 0)
-      throw new IllegalArgumentException("Test type must at least have one collecting method");
+        if(collectingMethod.length() == 0)
+            throw new IllegalArgumentException("Test type must at least have one collecting method");
     }
 
     private void checkCode(String code){
-    if(code.length == 0 || code.length != 5 )
-      thorw new IllegalArgumentException("Code doesn't exist or doesn't have 5 alphanumeric numbers");
+        if(code.length() == 0 || code.length() != 5 )
+            throw new IllegalArgumentException("Code doesn't exist or doesn't have 5 alphanumeric numbers");
     }
 
     private void checkDescription(String description){
-    if(description.length > 15 || description.length == 0)
-      throw new IllegalArgumentException("Description doesn't exist or surpasses the 15 characters rule!");
+        if(description.length() > 15 || description.length() == 0)
+            throw new IllegalArgumentException("Description doesn't exist or surpasses the 15 characters rule!");
     }
 
     private void checkCollectingMethod(String collectingMethod){
-    if(collectingMethod.length > 20 || collectingMethod.length == 0)
-      throw new IllegalArgumentException("Collecting Method doesn't exist or surpasses the 20 characters rule!");
+        if(collectingMethod.length() > 20 || collectingMethod.length() == 0)
+            throw new IllegalArgumentException("Collecting Method doesn't exist or surpasses the 20 characters rule!");
     }
     public void setCateory(Category category){
-    category.add(category);
+        categoryList.add(category);
     }
     }
+
 
 **SpecifyNewTypeTestStore Class:**
 
-    public class SpecifyNewTypeTestStore extends Company{
-    
+    package app.domain.model;
+
+    import java.util.ArrayList;
+
+    class SpecifyNewTypeTestStore {
+
     private ArrayList <TestType> TestTypeList;
 
     public SpecifyNewTypeTestStore(){
-      TestTypeList = new ArrayList<>();
+        TestTypeList = new ArrayList<>();
     }
 
-     public TestType createNewTestType(String designationName, int TestTypeId, ArrayList <String> collectMethods){
-            return new TestType(designation, TestTypeId, collectMethods);
-        }
+    public TestType createNewTestType(String code, String description, String collectingMethod ){
+        return new TestType(code,description,collectingMethod );
+    }
     public boolean validateTestType(TestType tp){
-      if(tp == null)
-        return false;
-      return ! this.TestTypeList.contains(tp);
+        if(tp == null)
+            return false;
+        return ! this.TestTypeList.contains(tp);
     }
 
     public boolean saveTestType(TestType tp){
         if(!validateTestType(tp))
-            return false
+            return false;
         return this.TestTypeList.add(tp);
         }
-
-        
     }
+
 
 **SpecifyNewTypeTestController Class:**
 
@@ -249,23 +257,23 @@ Other software classes (i.e. Pure Fabrication) identified:
 **CategoryStore Class:**
   
     public class CategoryStore{
-    
-    private ArrayList <Category> categoryList;
+
+    private ArrayList<Category> categoryList;
 
     public CategoryStore(){
-    categoryList = new ArrayList<>();
+        categoryList = new ArrayList<>();
     }
 
     public void addCategory(Category category){
-    add.categoryList(category);
+        categoryList.add(category);
     }
 
     public void write(){
-      for(Category n : categoryList)
-      System.out.println("Name:"+get.Name()+" Code:"+get.Code());
+        for(Category n : categoryList)
+            System.out.println("Name:"+n.getName()+" Code:"+n.getCode());
     }
-    
     }
+
 
 # 6. Integration and Demo 
 
