@@ -32,6 +32,16 @@ public class Client {
         this.sex = sex;
         this.pNumber = pNumber;
     }
+
+    /**
+     *
+     * @param name
+     * @param nhs
+     * @param citizenCard
+     * @param tin
+     * @param birthDate
+     * @param sex
+     */
     public Client(String name, int nhs, int citizenCard, int tin, String birthDate,String sex){
         this.name = name;
         this.nhs = nhs;
@@ -39,7 +49,7 @@ public class Client {
         this.tin = tin;
         this.birthDate = birthDate;
         this.sex = sex;
-        pNumber = Integer.parseInt(null);
+        pNumber = 0;
     }
 
     //gets:
@@ -80,9 +90,11 @@ public class Client {
     }
 
     public void checkPNumber(){
-        String check = String.valueOf(pNumber);
-        if(check.length() != 12)
-            throw new IllegalArgumentException("TIN must have 12 chars");
+        if(pNumber!=0) {
+            String check = String.valueOf(pNumber);
+            if (check.length() != 12)
+                throw new IllegalArgumentException("TIN must have 12 chars");
+        }
     }
 
     public void checkSex(){
