@@ -22,7 +22,6 @@
 * AC2: String should have no more than 15 characters
 * AC3: Collecting method should no more than 20 characters
 
-
 ### 1.4. Found out Dependencies
 
 *US11*
@@ -30,8 +29,8 @@
 ### 1.5 Input and Output Data
 
 **Input Data**
-* **Typed Data:** description, code, collectionx method
-* **Selected Data:** category
+* **Typed Data:** description, code, collecting methods
+* **Selected Data:** ParameterCategory
 
 ### 1.6. System Sequence Diagram (SSD)
 
@@ -67,26 +66,27 @@
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
 | Step 1: Starts a new type of test 		 |	...creating a type of test?						 |      TestTypeStore     |    HC+LC.                        |
-| Step 2: Requests designation		 |	...n/a						 |             |                              |
-| Step 3: Types designation 		 |	...saving input data?						 |     TestType        |         IE: The Object created has its own data.                     |
-| Step 4: requests the collecting methods 		 |		n/a					 |     |                      |
-| Step 5: types the collecting methods		 |				...saving input data?			 |   TestType          |    IE: The Object created in step 3 has its own data.                       |
-| Step 6: shows the data and requests confirmation 		 |		...validating the data globally?			 |      TestTypeStore       |         IE: knows its own data                     |       
-| Step 7: confirms the data |  ...saving the created test type? | TestTypeStore | IE: adopts/records all the TestType objects
-| Step8: informs operation success | ...informing operation success? | UI | IE: responsible for user interaction|
+| Step 2: Requests data		 |	...n/a						 |             |                              |
+| Step 3: Types data(description,code,collecting method,category 		 |	...saving input data?						 |     TestType        |         IE: The Object created has its own data.                     |
+|-|...showing the existed categories?|ParameterCategoryStore|HC+LC|
+| Step 4: shows the data and requests confirmation 		 |		...validating the data globally?			 |      TestTypeStore       |         IE: knows its own data                     |       
+| Step 5: confirms the data |  ...saving the created test type? | TestTypeStore | IE: adopts/records all the TestType objects
+| Step 6: informs operation success | ...informing operation success? | UI | IE: responsible for user interaction|
 
 ### Systematization ##
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
  * TestType
- * Category
+ * ParameterCategory
  *Company
+   
 
 Other software classes (i.e. Pure Fabrication) identified: 
  * TestTypeUI  
  * TestTypeController
  * TestTypeStore (HC+LC)
+*ParameterCategoryStore (HC+LC)
 
 ## 3.2. Sequence Diagram (SD)
 
@@ -98,7 +98,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 *In this section, it is suggested to present an UML static view representing the main domain related software classes that are involved in fulfilling the requirement as well as and their relations, attributes and methods.*
 
-![US9-CD](US9-DC.svg)
+![US9-CD](US9-CD.svg)
 
 # 4. Tests 
 *In this section, it is suggested to systematize how the tests were designed to allow a correct measurement of requirements fulfilling.* 

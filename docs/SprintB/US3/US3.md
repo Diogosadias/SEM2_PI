@@ -109,21 +109,21 @@ Phone number: which lenght/format?  - 11 digit number"
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1: Starts new client registration  		 |			...creating a new client?				 |   ClientStore          | HC + LC.                             |
+| Step 1: Starts new client registration  		 |			...creating a new client?				 |   Recepcionist         | Creator                             |
 |Step 2: Requests user data(name, email, pswd) | ...creating a new user? | User | IE:The Object has its own data
-| Step 2: requests data(NHS,citizenCard,TIN,birthDate,sex,phoneNumber)  		 |				n/a			 |             |                              |
-| Step 3: types requested data 		 |	...saving input data?						 |    Client         | IE: The Object has its own data                             |
-| Step 4: shows the data and requested information 		 |	...validating the data globally?						 |  Client           |    IE:Knows its own data                          |
-| Step 5:confirms the data		 |		...saving the client?					 |       ClientStore     |           IE: adopts/records all the Client objects                   |
-| Step 6:informs operation success  		 |	...informing operation success?						 |      UI       |     IE: responsible for user interaction                         |              
+| Step 3: requests data(NHS,citizenCard,TIN,birthDate,sex,phoneNumber)  		 |				n/a			 |             |                              |
+| Step 4: types requested data 		 |	...saving input data?						 |    Client         | IE: The Object has its own data                             |
+| Step 5: shows the data and requested information 		 |	...validating the data globally?						 |  Client           |    IE:Knows its own data                          |
+| Step 6:confirms the data		 |		...saving the client?					 |       ClientStore     |           IE: adopts/records all the Client objects                   |
+| Step 7:informs operation success  		 |	...informing operation success?						 |      UI       |     IE: responsible for user interaction                         |              
 
 ### Systematization ##
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
- * Class1
- * Class2
- * Class3
+ * User
+ * Client
+*Recepcionist
 
 Other software classes (i.e. Pure Fabrication) identified: 
  * ClientUI  
