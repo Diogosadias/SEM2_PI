@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3429ddba-14ee-4735-956e-2b3523a888bc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../docs/SprintB/US3/CD 3.vpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../docs/SprintB/US3/CD 3.vpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../docs/SprintB/US3/US3 SD.vpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../docs/SprintB/US3/US3 SD.vpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../docs/SprintB/US3/US3 SD.vpp.bak_001d" beforeDir="false" afterPath="$PROJECT_DIR$/../../docs/SprintB/US3/US3 SD.vpp.bak_001d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../docs/SprintB/US7/US7-CD.vpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../docs/SprintB/US7/US7-CD.vpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../docs/SprintB/US9/DC 9.vpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../docs/SprintB/US9/DC 9.vpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="3429ddba-14ee-4735-956e-2b3523a888bc" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

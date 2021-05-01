@@ -8,7 +8,7 @@ import auth.domain.model.User;
 import java.util.HashSet;
 import java.util.Set;
 
-import static app.domain.shared.Constants.SUFIX_EMAIL;
+
 
 public class EmployeeStore {
 
@@ -35,7 +35,7 @@ public class EmployeeStore {
 
     public Employee create(String role, String name, String address, int phoneNumber, String socCode, int doctorIndexNumber) {
         String employeeId = generateEmployeeId(name.trim());
-        String email = employeeId + "" + SUFIX_EMAIL;
+        String email = employeeId + "" ;
         return new Employee(email, employeeId, role, name.trim(), address, phoneNumber, socCode, doctorIndexNumber);
     }
 

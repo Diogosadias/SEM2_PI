@@ -1,6 +1,8 @@
 package app.ui.console;
 
 import app.controller.ReceptionistController;
+import app.domain.model.Client;
+import app.domain.model.CreateClientStore;
 import app.ui.console.utils.Utils;
 import auth.domain.model.Email;
 import auth.domain.model.Password;
@@ -13,6 +15,7 @@ import java.util.Scanner;
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  */
 public class ReceptionistUI implements Runnable {
+
     public ReceptionistUI() {
     }
 
@@ -20,7 +23,7 @@ public class ReceptionistUI implements Runnable {
 
         List<MenuItem> options = new ArrayList<>();
         options.add(new MenuItem("Create Client", new CreateClientUI()));
-        //options.add(new MenuItem("List Clients"))   TO DO
+        options.add(new MenuItem("List Clients", new CreateClientUI()));
         //options.add(new MenuItem("Find Client"))    TO DO
         //options.add(new MenuItem("Remove Client"))  TO DO
         //options.add(new MenuItem("Edit Client"))    TO DO
@@ -40,9 +43,19 @@ public class ReceptionistUI implements Runnable {
     }
 
 
+
+
+
     public static class CreateClientUI implements Runnable{
+
+
+
         public CreateClientUI()
         {
+
+        }
+
+        public void listClients(){
 
         }
         public void run() {
@@ -92,9 +105,10 @@ public class ReceptionistUI implements Runnable {
         System.out.print("\nPhone Number: ");
         pNumber=read.nextLong();
 
-        ReceptionistController awd = new ReceptionistController();
-        awd.createClient(id,password, name, nhs, citizenCard, tin, birthDate, sex, pNumber);
+        ReceptionistController controllerClient = new ReceptionistController();
+        controllerClient.createClient(id,password, name, nhs, citizenCard, tin, birthDate, sex, pNumber);
 
+        System.out.println("Succesfully Registered the Client");
 
     }
     }

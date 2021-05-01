@@ -26,10 +26,19 @@ public class CreateClientStore {
         return ! this.clientList.contains(rc);
     }
 
+    public void addClient(Client rc){
+        clientList.add(rc);
+    }
+
     public boolean saveClient(Client rc){
         if(!validateClient(rc))
             return false;
         return this.clientList.add(rc);
+    }
+
+    public void writeClients(){
+        for(Client f : clientList)
+            System.out.println(f);
     }
 
 }

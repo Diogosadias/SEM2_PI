@@ -18,7 +18,7 @@ public class Client {//if needed use //extends User
     private String birthDate;
     private String sex;
     private long pNumber;
-    private AuthFacade authFacade;
+    private AuthFacade authFacade = new AuthFacade();
 
     /**
      * Constructor Client
@@ -30,16 +30,12 @@ public class Client {//if needed use //extends User
      * @param pNumber
      */
     public Client(String id, String pwd, String name, long nhs, long citizenCard, long tin, String birthDate, String sex, long pNumber){
-        //super(id,pwd,name);
-
         this.authFacade.addUserWithRole(name, id, pwd, Constants.ROLE_CLIENT);
 
-        //if (!checkNHS(nhs))
-          //  throw new IllegalArgumentException("Invalid NHS!");
         checkNHS(nhs);
         checkCitizenNumber(citizenCard);
         checkTIN(tin);
-        checkSex(sex);
+
         checkPNumber(pNumber);
 
         this.nhs = nhs;
@@ -118,9 +114,19 @@ public class Client {//if needed use //extends User
     }
 
     public void checkSex(String sex){
-        if(! sex.equals("Masculine") || ! sex.equals("Feminine"))
+        if(! sex.equals("Masculine") || ! sex.equals("Feminine") || ! sex.equals("M"))
             throw new IllegalArgumentException("This genre does not exist!");
     }
 
-
+    @Override
+    public String toString() {
+        return "Client{" +
+                "nhs=" + nhs +
+                ", citizenCard=" + citizenCard +
+                ", tin=" + tin +
+                ", birthDate='" + birthDate + '\'' +
+                ", sex='" + sex + '\'' +
+                ", pNumber=" + pNumber +
+                '}';
+    }
 }

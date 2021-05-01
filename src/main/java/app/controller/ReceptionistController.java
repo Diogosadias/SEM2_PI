@@ -14,7 +14,7 @@ public class ReceptionistController {
 
     private Company company;
     private Client rc;
-    private CreateClientStore clientStore;
+    private CreateClientStore clientStore =  new CreateClientStore();
 
     public ReceptionistController(){
         this(App.getInstance().getCompany());
@@ -26,7 +26,8 @@ public class ReceptionistController {
     }
 
     public boolean createClient(String id, String pwd, String name, long nhs, long citizenCard, long tin, String birthDate, String sex, long pNumber){
-        this.rc = this.clientStore.createClient(id,pwd,name,nhs,citizenCard,tin,birthDate,sex,pNumber);
+        this.rc = new Client(id,pwd,name,nhs,citizenCard,tin,birthDate,sex,pNumber);
+
         return this.clientStore.validateClient(rc);
     }
 
