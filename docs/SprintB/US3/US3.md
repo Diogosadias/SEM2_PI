@@ -245,7 +245,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
         }
 
-**ClientController Class:**
+**RecepcionistController Class:**
 
         private Company company;
         private Client rc;
