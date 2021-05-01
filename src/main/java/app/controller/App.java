@@ -5,6 +5,7 @@ import app.domain.shared.Constants;
 import auth.AuthFacade;
 import auth.UserSession;
 
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -74,8 +75,15 @@ public class App {
     private void bootstrap()
     {
         this.authFacade.addUserRole(Constants.ROLE_ADMIN,Constants.ROLE_ADMIN);
+        this.authFacade.addUserRole(Constants.ROLE_RECEP,Constants.ROLE_RECEP);
+        this.authFacade.addUserRole(Constants.ROLE_CLIENT,Constants.ROLE_CLIENT);
+        /*String[] rolesadmin = new String[2];
+        rolesadmin[0]= Constants.ROLE_ADMIN;
+        rolesadmin[1]=Constants.ROLE_RECEP;
+        rolesadmin[2]= Constants.ROLE_CLIENT;*/
 
         this.authFacade.addUserWithRole("Main Administrator", "admin@lei.sem2.pt", "123456",Constants.ROLE_ADMIN);
+        this.authFacade.addUserWithRole("Client", "client@lei.sem2.pt", "123",Constants.ROLE_RECEP);
     }
 
     // Extracted from https://www.javaworld.com/article/2073352/core-java/core-java-simply-singleton.html?page=2

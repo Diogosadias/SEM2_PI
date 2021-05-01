@@ -14,7 +14,7 @@ public class CreateClientStore {
         clientList = new ArrayList<>();
     }
 
-    public Client createClient(Email id, Password pwd, String name, int nhs, int citizenCard, int tin, String birthDate, String sex, int pNumber ){
+    public Client createClient(String id, String pwd, String name, long nhs, long citizenCard, long tin, String birthDate, String sex, long pNumber ){
         return new Client(id,pwd,name,nhs,citizenCard,tin,birthDate,sex,pNumber );
     }
     public boolean validateClient(Client rc){

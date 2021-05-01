@@ -43,7 +43,7 @@ public class Company {
         return new TestType(code, description, collectionMethod);
     }
 
-    public Client createNewClient(Email id, Password pwd, String name, int nhs, int citizenCard, int tin, String birthDate, String sex, int pNumber)  {
+    public Client createNewClient(String id, String pwd, String name, int nhs, int citizenCard, int tin, String birthDate, String sex, int pNumber)  {
         return  new Client(id,pwd,name,nhs,citizenCard,tin,birthDate,sex,pNumber);
          }
 
