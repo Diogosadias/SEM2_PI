@@ -110,7 +110,8 @@ Phone number: which lenght/format?  - 11 digit number"
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
 | Step 1: Starts new client registration  		 |			...creating a new client?				 |   ClientStore          | HC + LC.                             |
-| Step 2: requests data(name,NHS,citizenCard,TIN,birthDate,sex,phoneNumber)  		 |				n/a			 |             |                              |
+|Step 2: Requests user data(name, email, pswd) | ...creating a new user? | User | IE:The Object has its own data
+| Step 2: requests data(NHS,citizenCard,TIN,birthDate,sex,phoneNumber)  		 |				n/a			 |             |                              |
 | Step 3: types requested data 		 |	...saving input data?						 |    Client         | IE: The Object has its own data                             |
 | Step 4: shows the data and requested information 		 |	...validating the data globally?						 |  Client           |    IE:Knows its own data                          |
 | Step 5:confirms the data		 |		...saving the client?					 |       ClientStore     |           IE: adopts/records all the Client objects                   |
@@ -163,9 +164,9 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 **Client Class:**
         
-        public class Client(){
+        public class Client extends User{
         
-        private String name;
+        
         private int nhs;
         private int citizenCard;
         private int tin;
@@ -173,8 +174,8 @@ Other software classes (i.e. Pure Fabrication) identified:
         private String sex;
         private int pNumber;
 
-        public Client(String name, int nhs, int citizenCard, int tin, String birthDate,String sex, int pNumber){
-        this.name = name;
+        public Client(String name, String email, String pswd, int nhs, int citizenCard, int tin, String birthDate,String sex, int pNumber){
+        super(name,email,pswd);
         this.nhs = nhs;
         this.citizenCard = citizenCard;
         this.tin = tin;
@@ -219,7 +220,7 @@ Other software classes (i.e. Pure Fabrication) identified:
         private List<Client> clientList;
 
         public Client createClient(String name, int nhs, int citizenCard, int tin, String birthDate,String sex, int pNumber){
-            return new Client(name, nhs, citizenCard; int tin, birthDate, String sex, int pNumber);
+            return new Client(name,email,pswd, nhs, citizenCard; int tin, birthDate, String sex, int pNumber);
         }
         
         public boolean validateClient(Client rc){
@@ -259,7 +260,7 @@ Other software classes (i.e. Pure Fabrication) identified:
         }
 
         public boolean createClient(String name, int nhs, int citizenCard, int tin, String birthDate, String sex, int pNumber){
-            this.rc = this.company.createClient(name, nhs, citizenCard,  tin, birthDate,sex,pNumber);
+            this.rc = this.company.createClient(name,pswd,email, nhs, citizenCard,  tin, birthDate,sex,pNumber);
             return this.company.Client(rc);
         }
 
