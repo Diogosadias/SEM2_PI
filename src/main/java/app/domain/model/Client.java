@@ -37,29 +37,15 @@ public class Client extends User {
         this.sex = sex;
         this.pNumber = pNumber;
     }
-<<<<<<< HEAD
-
-    /**
-     *
-     * @param name
-     * @param nhs
-     * @param citizenCard
-     * @param tin
-     * @param birthDate
-     * @param sex
-     */
-    public Client(String name, int nhs, int citizenCard, int tin, String birthDate,String sex){
-=======
     public Client(Email id, Password pwd, String name, int nhs, int citizenCard, int tin, String birthDate,String sex){
         super(id,pwd,name);
->>>>>>> 7b75d21dd674f76490752ecda537619e6e2809e3
         this.name = name;
         this.nhs = nhs;
         this.citizenCard = citizenCard;
         this.tin = tin;
         this.birthDate = birthDate;
         this.sex = sex;
-        pNumber = 0;
+        pNumber = Integer.parseInt(null);
     }
 
     //gets:
@@ -100,15 +86,13 @@ public class Client extends User {
     }
 
     public void checkPNumber(){
-        if(pNumber!=0) {
-            String check = String.valueOf(pNumber);
-            if (check.length() != 12)
-                throw new IllegalArgumentException("TIN must have 12 chars");
-        }
+        String check = String.valueOf(pNumber);
+        if(check.length() != 12)
+            throw new IllegalArgumentException("TIN must have 12 chars");
     }
 
     public void checkSex(){
         if(! sex.equals("Masculine") || ! sex.equals("Feminine"))
-        throw new IllegalArgumentException("This genre does not exist!");
+            throw new IllegalArgumentException("This genre does not exist!");
     }
 }
