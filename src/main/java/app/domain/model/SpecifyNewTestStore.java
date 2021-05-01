@@ -2,11 +2,11 @@ package app.domain.model;
 
 import java.util.ArrayList;
 
-class SpecifyNewTypeTestStore {
+public class SpecifyNewTestStore {
 
     private ArrayList <TestType> TestTypeList;
 
-    public SpecifyNewTypeTestStore(){
+    public SpecifyNewTestStore(){
         TestTypeList = new ArrayList<>();
     }
 

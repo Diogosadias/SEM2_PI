@@ -2,7 +2,7 @@ package app.domain.model;
 
 import java.util.ArrayList;
 
-public class TestType extends SpecifyNewTypeTestStore{
+public class TestType extends SpecifyNewTestStore {
 
     private String code;
     private String description;
