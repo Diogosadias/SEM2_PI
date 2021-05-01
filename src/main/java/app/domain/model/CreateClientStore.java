@@ -4,7 +4,10 @@ import auth.domain.model.Email;
 import auth.domain.model.Password;
 
 import java.util.ArrayList;
-
+/**
+ *
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
+ */
 public class CreateClientStore {
     private ArrayList<Client> clientList;
 

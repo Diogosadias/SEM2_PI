@@ -5,7 +5,10 @@ import auth.domain.model.Email;
 import auth.domain.model.Password;
 
 import java.util.Scanner;
-
+/**
+ *
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
+ */
 public class ReceptionistController {
 
 
