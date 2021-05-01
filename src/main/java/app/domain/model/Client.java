@@ -1,10 +1,14 @@
 package app.domain.model;
 
+import auth.domain.model.Email;
+import auth.domain.model.Password;
+import auth.domain.model.User;
+
 /**
  *
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  */
-public class Client {
+public class Client extends User {
     private String name;
     private int nhs;
     private int citizenCard;
@@ -23,7 +27,8 @@ public class Client {
      * @param sex
      * @param pNumber
      */
-    public Client(String name, int nhs, int citizenCard, int tin, String birthDate,String sex, int pNumber){
+    public Client(Email id, Password pwd, String name, int nhs, int citizenCard, int tin, String birthDate, String sex, int pNumber){
+        super(id,pwd,name);
         this.name = name;
         this.nhs = nhs;
         this.citizenCard = citizenCard;
@@ -32,6 +37,7 @@ public class Client {
         this.sex = sex;
         this.pNumber = pNumber;
     }
+<<<<<<< HEAD
 
     /**
      *
@@ -43,6 +49,10 @@ public class Client {
      * @param sex
      */
     public Client(String name, int nhs, int citizenCard, int tin, String birthDate,String sex){
+=======
+    public Client(Email id, Password pwd, String name, int nhs, int citizenCard, int tin, String birthDate,String sex){
+        super(id,pwd,name);
+>>>>>>> 7b75d21dd674f76490752ecda537619e6e2809e3
         this.name = name;
         this.nhs = nhs;
         this.citizenCard = citizenCard;
