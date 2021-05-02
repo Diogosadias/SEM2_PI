@@ -40,11 +40,15 @@ public class AuthFacade {
     public boolean addUserWithRole(String name, String email, String pwd, String roleId)
     {
         Optional<UserRole> roleResult = this.roles.getById(roleId);
-        if (!roleResult.isPresent())
+
+        if (!roleResult.isPresent()) {
+
             return false;
+        }
 
         User user = this.users.create(name,email,pwd);
         user.addRole(roleResult.get());
+
         return this.users.add(user);
     }
 

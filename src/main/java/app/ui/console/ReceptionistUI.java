@@ -23,7 +23,7 @@ public class ReceptionistUI implements Runnable {
 
         List<MenuItem> options = new ArrayList<>();
         options.add(new MenuItem("Create Client", new CreateClientUI()));
-        options.add(new MenuItem("List Clients", new CreateClientUI()));
+        options.add(new MenuItem("List Clients", new ListClientsUI()));
         //options.add(new MenuItem("Find Client"))    TO DO
         //options.add(new MenuItem("Remove Client"))  TO DO
         //options.add(new MenuItem("Edit Client"))    TO DO
@@ -58,6 +58,15 @@ public class ReceptionistUI implements Runnable {
         public void listClients(){
 
         }
+        public boolean answer(){
+            Scanner read = new Scanner(System.in);
+            System.out.println("Are you sure you want to create this client?");
+            String answer = read.next();
+            if(answer.equals("Yes")){
+                return true;
+            }
+            return false;
+        }
         public void run() {
 
         String name;
@@ -71,6 +80,7 @@ public class ReceptionistUI implements Runnable {
         String birthDate;
         String sex;
         long pNumber;
+
 
         Scanner read = new Scanner(System.in);
 
@@ -106,10 +116,29 @@ public class ReceptionistUI implements Runnable {
         pNumber=read.nextLong();
 
         ReceptionistController controllerClient = new ReceptionistController();
-        controllerClient.createClient(id,password, name, nhs, citizenCard, tin, birthDate, sex, pNumber);
 
-        System.out.println("Succesfully Registered the Client");
 
+        boolean validate = controllerClient.createClient(id,password, name, nhs, citizenCard, tin, birthDate, sex, pNumber);
+        if(validate)
+            System.out.println("Succesfully Registered the Client");
+        //listar info
+            //perguntar confirmar
+            //se sim, save
+
+
+        }
     }
+    public static class ListClientsUI implements Runnable {
+        public ListClientsUI(){
+
+        }
+
+        public void run() {
+            CreateClientStore clientStore = new CreateClientStore();
+            clientStore.writeClients();
+        }
+
+
+
     }
 }

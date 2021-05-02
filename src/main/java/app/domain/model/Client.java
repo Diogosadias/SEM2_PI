@@ -11,14 +11,14 @@ import org.apache.commons.lang3.StringUtils;
  *
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  */
-public class Client {//if needed use //extends User
+public class Client extends User{//if needed use //extends User
     private long nhs;
     private long citizenCard;
     private long tin;
     private String birthDate;
     private String sex;
     private long pNumber;
-    private AuthFacade authFacade = new AuthFacade();
+   // private AuthFacade authFacade = new AuthFacade();
 
     /**
      * Constructor Client
@@ -29,14 +29,16 @@ public class Client {//if needed use //extends User
      * @param sex
      * @param pNumber
      */
-    public Client(String id, String pwd, String name, long nhs, long citizenCard, long tin, String birthDate, String sex, long pNumber){
-        this.authFacade.addUserWithRole(name, id, pwd, Constants.ROLE_CLIENT);
+    public Client(Email id, Password pwd, String name, long nhs, long citizenCard, long tin, String birthDate, String sex, long pNumber){
+        super(id,pwd,name);
 
-        checkNHS(nhs);
+        //this.authFacade.addUserWithRole(name, id, pwd, Constants.ROLE_CLIENT);
+
+       /* checkNHS(nhs);
         checkCitizenNumber(citizenCard);
         checkTIN(tin);
 
-        checkPNumber(pNumber);
+        checkPNumber(pNumber);*/
 
         this.nhs = nhs;
         this.citizenCard = citizenCard;
@@ -45,8 +47,9 @@ public class Client {//if needed use //extends User
         this.sex = sex;
         this.pNumber = pNumber;
     }
-    public Client(String id, String pwd, String name, long nhs, long citizenCard, long tin, String birthDate,String sex){
-        this.authFacade.addUserWithRole(name, id, pwd, Constants.ROLE_CLIENT);
+    public Client(Email id, Password pwd, String name, long nhs, long citizenCard, long tin, String birthDate,String sex){
+        //this.authFacade.addUserWithRole(name, id, pwd, Constants.ROLE_CLIENT);
+        super(id,pwd,name);
         this.nhs = nhs;
         this.citizenCard = citizenCard;
         this.tin = tin;

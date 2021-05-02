@@ -44,7 +44,9 @@ public class Company {
     }
 
     public Client createNewClient(String id, String pwd, String name, int nhs, int citizenCard, int tin, String birthDate, String sex, int pNumber)  {
-        return  new Client(id,pwd,name,nhs,citizenCard,tin,birthDate,sex,pNumber);
+        Email email = new Email(id);
+        Password password = new Password(pwd);
+            return  new Client(email,password,name,nhs,citizenCard,tin,birthDate,sex,pNumber);
          }
 
     public CAL createNewCAL(String labname, String address, int phone_number, int tin_number){

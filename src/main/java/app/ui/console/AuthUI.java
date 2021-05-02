@@ -3,7 +3,6 @@ package app.ui.console;
 import app.controller.AuthController;
 import app.domain.shared.Constants;
 import app.ui.console.utils.Utils;
-import auth.domain.model.UserRole;
 import auth.mappers.dto.UserRoleDTO;
 
 import java.util.ArrayList;
@@ -57,6 +56,7 @@ public class AuthUI implements Runnable{
         List<MenuItem> rolesUI = new ArrayList<>();
         rolesUI.add(new MenuItem(Constants.ROLE_ADMIN, new AdminUI()));
         rolesUI.add(new MenuItem(Constants.ROLE_RECEP, new ReceptionistUI()));
+        rolesUI.add(new MenuItem(Constants.ROLE_CLIENT, new ClientUI()));
         // To complete with other user roles and related RoleUI
 
         //

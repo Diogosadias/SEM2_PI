@@ -1,7 +1,6 @@
-package app.domain.model;
+package app.ui.console;
 
-import app.ui.console.MenuItem;
-import app.ui.console.ReceptionistUI;
+
 import app.ui.console.utils.Utils;
 
 import java.util.ArrayList;
