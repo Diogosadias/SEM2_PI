@@ -116,7 +116,7 @@ public class ReceptionistUI implements Runnable {
         pNumber=read.nextLong();
 
         ReceptionistController controllerClient = new ReceptionistController();
-      
+
 
         boolean validate = controllerClient.createClient(id,password, name, nhs, citizenCard, tin, birthDate, sex, pNumber);
         if(validate)
