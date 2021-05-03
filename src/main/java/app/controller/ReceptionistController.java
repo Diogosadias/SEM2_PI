@@ -16,17 +16,19 @@ import java.util.Scanner;
 /**
  *
  * @author Márcio Ramos <1201682@isep.ipp.pt>
+ * @author Gil <1180838@isep.ipp.pt>
  */
 public class ReceptionistController {
 
 
     private Company company;
     private AuthFacade authFacade;
-
-    private Client rc;
-    private CreateClientStore clientStore =  new CreateClientStore();
-    private ReceptionistUI.CreateClientUI recep = new ReceptionistUI.CreateClientUI();
     private App app;
+
+    private CreateClientStore clientStore;
+    Client rc;
+    //private ReceptionistUI.CreateClientUI recep = new ReceptionistUI.CreateClientUI();
+
 
 
     //public ReceptionistController()
@@ -38,34 +40,24 @@ public class ReceptionistController {
 
     public ReceptionistController(Company company){
         this.company = company;
-        this.rc = rc;
         this.authFacade = this.company.getAuthFacade();
+        this.clientStore = this.company.getCreateClientStore();
     }
 
-    public boolean createClient(String id, String pwd, String name, long nhs, long citizenCard, long tin, String birthDate, String sex, long pNumber){
+    public boolean createClient(String id, String name, long nhs, long citizenCard, long tin, String birthDate, String sex, long pNumber){
         /*String email = String.valueOf(id);
         String password = String.valueOf(pwd);*/
 
+        this.rc = this.clientStore.createClient(id,name,nhs,citizenCard,tin,birthDate,sex,pNumber);
 
-        this.rc = this.clientStore.createClient(id,pwd,name,nhs,citizenCard,tin,birthDate,sex,pNumber);
+        if(!this.clientStore.validateClient(this.rc)){return false;}
 
-        if(this.clientStore.validateClient(rc)){
+        return true;
 
-            if(recep.answer()){//NAO FUNCIONA
-
-                clientStore.saveClient(rc);
-                return this.authFacade.addUserWithRole(name, id, pwd, Constants.ROLE_CLIENT);
-            }else{
-                return false;
-            }
-
-        }else{
-            return false;
-        }
     }
 
-    public boolean saveClient(Client rc){
-        return this.clientStore.saveClient(rc);
+    public boolean saveClient(String pwd){
+        return this.clientStore.saveClient(this.rc, pwd);
     }
 
     public void writeClient(){

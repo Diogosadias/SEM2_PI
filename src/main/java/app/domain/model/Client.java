@@ -7,18 +7,24 @@ import auth.domain.model.Password;
 import auth.domain.model.User;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.Date;
+
 /**
  *
  * @author Márcio Ramos <1201682@isep.ipp.pt>
+ * @author Gil <1180838@isep.ipp.pt>
  */
-public class Client extends User{//if needed use //extends User
+public class Client {//if needed use //extends User
+    private String name;
+    private Email id;
     private long nhs;
     private long citizenCard;
     private long tin;
-    private String birthDate;
+    private Date birthDate;
     private String sex;
     private long pNumber;
    // private AuthFacade authFacade = new AuthFacade();
+
 
     /**
      * Constructor Client
@@ -29,8 +35,8 @@ public class Client extends User{//if needed use //extends User
      * @param sex
      * @param pNumber
      */
-    public Client(Email id, Password pwd, String name, long nhs, long citizenCard, long tin, String birthDate, String sex, long pNumber){
-        super(id,pwd,name);
+    public Client(Email id, String name, long nhs, long citizenCard, long tin, Date birthDate, String sex, long pNumber){
+
 
         //this.authFacade.addUserWithRole(name, id, pwd, Constants.ROLE_CLIENT);
 
@@ -39,7 +45,8 @@ public class Client extends User{//if needed use //extends User
         checkTIN(tin);
 
         checkPNumber(pNumber);*/
-
+        this.name=name;
+        this.id=id;
         this.nhs = nhs;
         this.citizenCard = citizenCard;
         this.tin = tin;
@@ -47,9 +54,10 @@ public class Client extends User{//if needed use //extends User
         this.sex = sex;
         this.pNumber = pNumber;
     }
-    public Client(Email id, Password pwd, String name, long nhs, long citizenCard, long tin, String birthDate,String sex){
+    public Client(Email id, String name, long nhs, long citizenCard, long tin, Date birthDate,String sex){
         //this.authFacade.addUserWithRole(name, id, pwd, Constants.ROLE_CLIENT);
-        super(id,pwd,name);
+        this.name=name;
+        this.id=id;
         this.nhs = nhs;
         this.citizenCard = citizenCard;
         this.tin = tin;
@@ -63,15 +71,32 @@ public class Client extends User{//if needed use //extends User
     public long getNhs(){return nhs;}
     public long getCitizenCard(){return citizenCard;}
     public long getTin(){return tin;}
-    public String getBirthDate(){return birthDate;}
+    public Date getBirthDate(){return birthDate;}
     public String getSex(){return sex;}
     public long getPNumber(){return pNumber;}
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Email getId() {
+        return id;
+    }
+
+    public void setId(Email id) {
+        this.id = id;
+    }
+
 
     //sets:
     public void setNhs(long nhs){this.nhs=nhs;}
     public void setCitizenCard(long citizenCard){this.citizenCard=citizenCard;}
     public void setTin(long tin){this.tin=tin;}
-    public void setBirthDate(String birthDate){this.birthDate=birthDate;}
+    public void setBirthDate(Date birthDate){this.birthDate=birthDate;}
     public void setSex(String sex){this.sex=sex;}
     public void setPNumber(long pNumber){this.pNumber=pNumber;}
 

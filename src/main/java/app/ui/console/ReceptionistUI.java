@@ -7,12 +7,15 @@ import app.ui.console.utils.Utils;
 import auth.domain.model.Email;
 import auth.domain.model.Password;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 /**
  *
  * @author Márcio Ramos <1201682@isep.ipp.pt>
+ * @author Gil <1180838@isep.ipp.pt>
  */
 public class ReceptionistUI implements Runnable {
 
@@ -73,7 +76,7 @@ public class ReceptionistUI implements Runnable {
         //String stringID;
         String id;
        // String stringpwd;
-        String password;
+        String password = null;
         long nhs;
         long citizenCard;
         long tin;
@@ -86,46 +89,48 @@ public class ReceptionistUI implements Runnable {
 
         System.out.println("\n\nCreate New Client:");
 
-        System.out.print("\nName: ");
-        name = read.next();
+        try {
+            System.out.print("Name: ");
+            name = read.next();
 
-        System.out.print("\nEmail: ");
-        id = read.next();
+            System.out.print("Email: ");
+            id = read.next();
 
+            System.out.print("Password: ");
+            password = read.next();
 
-        System.out.print("\nPassword: ");
-        password= read.next();
+            System.out.print("National Health Service: ");
+            nhs = read.nextLong();
 
+            System.out.print("Citizen Card: ");
+            citizenCard = read.nextLong();
 
-        System.out.print("\nNational Health Service: ");
-        nhs= read.nextLong();
+            System.out.print("TIN: ");
+            tin = read.nextLong();
 
-        System.out.print("\nCitizen Card: ");
-        citizenCard=read.nextLong();
+            System.out.print("Birth Date: ");
+            birthDate = read.next();
 
-        System.out.print("\nTIN: ");
-        tin=read.nextLong();
+            System.out.print("Sex: ");
+            sex = read.next();
 
-        System.out.print("\nBirth Date: ");
-        birthDate= read.next();
+            System.out.print("Phone Number: ");
+            pNumber = read.nextLong();
 
-        System.out.print("\nSex: ");
-        sex= read.next();
+            ReceptionistController controllerClient = new ReceptionistController();
 
-        System.out.print("\nPhone Number: ");
-        pNumber=read.nextLong();
-
-        ReceptionistController controllerClient = new ReceptionistController();
-      
-
-        boolean validate = controllerClient.createClient(id,password, name, nhs, citizenCard, tin, birthDate, sex, pNumber);
-        if(validate)
-            System.out.println("Succesfully Registered the Client");
-
-        //listar info
+            boolean validate = controllerClient.createClient(id, name, nhs, citizenCard, tin, birthDate, sex, pNumber);
+            //listar info
             //perguntar confirmar
             //se sim, save
-
+            if(validate)
+                //save client aqui
+                System.out.println("Succesfully Registered the Client");
+        }catch (InputMismatchException ex){
+            System.out.println("Data input error");
+        }catch (IllegalArgumentException ex){
+            System.out.println("Invalid data input");
+        }
 
         }
     }
