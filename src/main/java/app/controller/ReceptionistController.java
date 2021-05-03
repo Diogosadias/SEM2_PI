@@ -38,7 +38,7 @@ public class ReceptionistController {
 
     public ReceptionistController(Company company){
         this.company = company;
-        this.rc = null;
+        this.rc = rc;
         this.authFacade = this.company.getAuthFacade();
     }
 
@@ -48,11 +48,12 @@ public class ReceptionistController {
 
 
         this.rc = this.clientStore.createClient(id,pwd,name,nhs,citizenCard,tin,birthDate,sex,pNumber);
+
         if(this.clientStore.validateClient(rc)){
 
             if(recep.answer()){//NAO FUNCIONA
 
-                saveClient(rc);
+                clientStore.saveClient(rc);
                 return this.authFacade.addUserWithRole(name, id, pwd, Constants.ROLE_CLIENT);
             }else{
                 return false;
@@ -66,6 +67,14 @@ public class ReceptionistController {
     public boolean saveClient(Client rc){
         return this.clientStore.saveClient(rc);
     }
+
+    public void writeClient(){
+        System.out.println(clientStore.getClientList().size());
+        for(Client c : clientStore.getClientList())
+            System.out.println(c);
+    }
+
+
 
 
 

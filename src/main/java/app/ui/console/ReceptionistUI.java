@@ -116,11 +116,12 @@ public class ReceptionistUI implements Runnable {
         pNumber=read.nextLong();
 
         ReceptionistController controllerClient = new ReceptionistController();
-
+      
 
         boolean validate = controllerClient.createClient(id,password, name, nhs, citizenCard, tin, birthDate, sex, pNumber);
         if(validate)
             System.out.println("Succesfully Registered the Client");
+
         //listar info
             //perguntar confirmar
             //se sim, save
@@ -129,13 +130,12 @@ public class ReceptionistUI implements Runnable {
         }
     }
     public static class ListClientsUI implements Runnable {
-        public ListClientsUI(){
 
-        }
 
         public void run() {
-            CreateClientStore clientStore = new CreateClientStore();
-            clientStore.writeClients();
+            ReceptionistController rp = new ReceptionistController();
+            rp.writeClient();
+
         }
 
 

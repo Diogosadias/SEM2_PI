@@ -6,20 +6,19 @@ import auth.domain.model.Email;
 import auth.domain.model.Password;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author Márcio Ramos <1201682@isep.ipp.pt>
+ * @author Tiago Ferreira <1200601@isep.ipp.pt>
  */
 public class CreateClientStore {
-    private final ArrayList<Client> clientList;
+    private final List<Client> clientList = new ArrayList<>();
 
     //private final AuthFacade authFacade = new AuthFacade();
 
-    public CreateClientStore(){
 
-        clientList = new ArrayList<>();
-    }
 
     public Client createClient(String id, String pwd, String name, long nhs, long citizenCard, long tin, String birthDate, String sex, long pNumber ){
         Email email = new Email(id);
@@ -45,12 +44,9 @@ public class CreateClientStore {
         return this.clientList.add(rc);
     }
 
-    public void writeClients(){
-
-        for(Client f : this.clientList) {
-            System.out.println("awd");
-            System.out.println(f);
-        }
+    public List<Client> getClientList() {
+        return clientList;
     }
+
 
 }

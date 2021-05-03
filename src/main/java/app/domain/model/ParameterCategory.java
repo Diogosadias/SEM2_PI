@@ -27,7 +27,7 @@ public class ParameterCategory {
     private void checkDescriptionRules(String description){
         if(StringUtils.isBlank(description))
             throw new IllegalArgumentException("Code cannot be blank");
-        if(code.length() > 40 )
+        if(description.length() > 40 )
         throw new IllegalArgumentException("Code must not exceed 40 chars.");
     }
 
@@ -41,5 +41,26 @@ public class ParameterCategory {
 
     public String getNhsId() {
         return nhsId;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setNhsId(String nhsId) {
+        this.nhsId = nhsId;
+    }
+
+    @Override
+    public String toString() {
+        return "ParameterCategory{" +
+                "code='" + code + '\'' +
+                ", description='" + description + '\'' +
+                ", nhsId='" + nhsId + '\'' +
+                '}';
     }
 }

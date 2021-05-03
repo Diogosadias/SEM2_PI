@@ -1,10 +1,12 @@
 package app.domain.model;
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class ParameterCategoryStore {
 
-    private List<ParameterCategory> parameterCategoryList;
+    private List<ParameterCategory> parameterCategoryList = new ArrayList<>();
+
+
 
     public ParameterCategory createParameterCategory(String code, String description, String nhsId){
         return new ParameterCategory(code, description, nhsId);
@@ -32,4 +34,7 @@ public class ParameterCategoryStore {
         return this.parameterCategoryList.add(pc);
     }
 
+    public List<ParameterCategory> getParameterCategoryList() {
+        return parameterCategoryList;
+    }
 }
