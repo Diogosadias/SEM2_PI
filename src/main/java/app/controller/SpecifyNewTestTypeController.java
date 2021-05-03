@@ -21,7 +21,7 @@ public class SpecifyNewTestTypeController {
     }
 
     public boolean createTestType(String code, String description, String collectingMethods){
-        this.tp = this.company.createTestType(code,description,collectingMethods);
+        //this.tp = this.company.createTestType(code,description,collectingMethods);
         return this.storeTestType.validateTestType(tp);
     }
 

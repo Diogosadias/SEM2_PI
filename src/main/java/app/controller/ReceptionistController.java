@@ -44,19 +44,18 @@ public class ReceptionistController {
         this.clientStore = this.company.getCreateClientStore();
     }
 
-    public boolean createClient(String id, String name, long nhs, long citizenCard, long tin, String birthDate, String sex, long pNumber){
-        /*String email = String.valueOf(id);
-        String password = String.valueOf(pwd);*/
+    public boolean createClient(String id, String name, long nhs, long citizenCard, long tin, String birthDate, String sex, long pNumber,String testpass){
 
         this.rc = this.clientStore.createClient(id,name,nhs,citizenCard,tin,birthDate,sex,pNumber);
 
         if(!this.clientStore.validateClient(this.rc)){return false;}
 
+        saveClient(this.rc,testpass);
         return true;
 
     }
 
-    public boolean saveClient(String pwd){
+    public boolean saveClient(Client rc,String pwd){
         return this.clientStore.saveClient(this.rc, pwd);
     }
 

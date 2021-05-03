@@ -117,34 +117,30 @@ public class ReceptionistUI implements Runnable {
             System.out.print("Phone Number: ");
             pNumber = read.nextLong();
 
-            ReceptionistController controllerClient = new ReceptionistController();
 
-<<<<<<< HEAD
-        System.out.print("\nPhone Number: ");
-        pNumber=read.nextLong();
+
+  
 
         ReceptionistController controllerClient = new ReceptionistController();
 
 
-        boolean validate = controllerClient.createClient(id,password, name, nhs, citizenCard, tin, birthDate, sex, pNumber);
+        boolean validate = controllerClient.createClient(id,name,nhs,citizenCard,tin,birthDate,sex,pNumber,password);
         if(validate)
             System.out.println("Succesfully Registered the Client");
 
-        //listar info
-=======
-            boolean validate = controllerClient.createClient(id, name, nhs, citizenCard, tin, birthDate, sex, pNumber);
+
             //listar info
->>>>>>> 049e4fb01dd4d2e6b7e619ffa3ddfd99caabfd6b
+
             //perguntar confirmar
             //se sim, save
-            if(validate)
-                //save client aqui
-                System.out.println("Succesfully Registered the Client");
+
         }catch (InputMismatchException ex){
             System.out.println("Data input error");
         }catch (IllegalArgumentException ex){
             System.out.println("Invalid data input");
         }
+
+
 
         }
     }
