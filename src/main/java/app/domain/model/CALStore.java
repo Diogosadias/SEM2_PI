@@ -1,28 +1,64 @@
 package app.domain.model;
 
-import auth.domain.model.Email;
-import auth.domain.model.Password;
-
 import java.util.ArrayList;
 
+/**
+ * CALStore - Class responsible for managing CALs
+ *
+ * @author Gil <1180838@isep.ipp.pt>
+ */
 public class CALStore {
 
-    private ArrayList<CAL> calList = new ArrayList<>();
+    private ArrayList<CAL> calList;
 
+    /**
+     * Create Store instance with empty array.
+     */
     public CALStore(){
         calList = new ArrayList<>();
     }
 
-
-    public CAL createCAL(String labname, String address, int phone_number, int tin_number ){
-        return new CAL(labname,address,phone_number,tin_number);
+    /**
+     * Creates a CAL instance and returns it.
+     * @param labId
+     * @param labName
+     * @param phoneNumber
+     * @param address
+     * @param tin
+     * @param answer
+     * @return CAL
+     */
+    public CAL createCAL(int labId, String labName, int phoneNumber, String address, int tin, boolean answer ){
+        return new CAL(labId, labName, phoneNumber, address, tin, answer);
     }
+
+    /**
+     * Validates CAL attributes for business model rules
+     * @param cal
+     * @return boolean
+     */
     public boolean validateCAL(CAL cal){
         if(cal == null)
             return false;
-        return ! this.calList.contains(cal);
+        for (CAL cal1: this.calList) {
+            if(cal1.getLaboratoryId()==cal.getLaboratoryId() || cal1.getPhoneNumber()==cal.getPhoneNumber() ||
+                cal1.getTinNumber()==cal.getTinNumber() || cal1.getAddress().equalsIgnoreCase(cal.getAddress())){
+                return false;
+            }
+            int length = String.valueOf(cal.getPhoneNumber()).length();
+            length += String.valueOf(cal.getTinNumber()).length();
+            length += String.valueOf(cal.getLaboratoryId()).length();
+            //phone number- 10 nº tin-10nº labID-?
+            if(length!=20) return false;
+        }
+        return true;
     }
 
+    /**
+     * Saves the new CAL
+     * @param cal
+     * @return boolean
+     */
     public boolean saveCAL(CAL cal){
         if(!validateCAL(cal))
             return false;

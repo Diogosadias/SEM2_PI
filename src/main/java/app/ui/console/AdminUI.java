@@ -1,16 +1,14 @@
 package app.ui.console;
 
-import app.controller.ParameterCategoryController;
 import app.ui.console.utils.Utils;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 /**
  *
  * @author Paulo Maio <pam@isep.ipp.pt>
  * @author Tom�s Pinto <1181835@isep.ipp.pt>
+ * @author Gil <1180838@isep.ipp.pt>
  */
 
 public class AdminUI implements Runnable{
@@ -29,6 +27,7 @@ public class AdminUI implements Runnable{
         options.add(new MenuItem("New Parameter", new SpecifyNewParameterUI()));
         options.add(new MenuItem("New Parameter Category", new CreateNewParameterUI()));
         options.add(new MenuItem("Register employee", new RegisterEmployeeUI()));
+        options.add(new MenuItem("Register new Clinical Analysis Laboratory", new RegisterNewCALUI()));
 
         boolean success = false;
 

@@ -1,66 +1,81 @@
 package app.domain.model;
 
+import java.util.List;
+
 /**
+ *  CAL - Domain class representing a Clinical Analysis Laboratory
  *
  * @author Márcio Ramos <1201682@isep.ipp.pt>
+ * @author Gil <1180838@isep.ipp.pt>
  */
 public class CAL {
-    private String labname;
-    private String address;
-    private int phone_number;
-    private int tin_number;
-    private boolean performs_covid_test;
-    private int laboratory_id;
 
-    public CAL(String labname, String address, int phone_number, int tin_number){
-        this.labname=labname;
-        this.address=address;
-        this.phone_number=phone_number;
-        this.tin_number=tin_number;
-        performs_covid_test=false;
-        //laboratory_id=laboratory_id+1;
+    private String labName;
+    private String address;
+    private int phoneNumber;
+    private int tinNumber;
+    private boolean performsCovidTest;
+    private int laboratoryId;
+    private List<TestType> testsAvailable;
+
+    /**
+     * CAL Constructor with all attributes (TestTypes not available yet)
+     * @param labId
+     * @param labName
+     * @param phoneNumber
+     * @param address
+     * @param tin
+     * @param answer
+     */
+    public CAL(int labId, String labName, int phoneNumber, String address, int tin, boolean answer){
+        this.laboratoryId=labId;
+        this.labName = labName;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.tinNumber = tin;
+        this.performsCovidTest = answer;
     }
 
     //gets:
 
-    public String getLabname(){
-        return labname;
+    public String getLabName(){
+        return labName;
     }
     public String getAddress(){
         return address;
     }
-    public int getPhone_number(){
-        return phone_number;
+    public int getPhoneNumber(){
+        return phoneNumber;
     }
-    public int getTin_number(){
-        return tin_number;
+    public int getTinNumber(){
+        return tinNumber;
     }
-    public boolean getPerforms_covid_test(){
-        return performs_covid_test;
+    public boolean getPerformsCovidTest(){
+        return performsCovidTest;
     }
-    public int getLaboratory_id(){
-        return laboratory_id;
+    public int getLaboratoryId(){
+        return laboratoryId;
     }
 
     //sets:
 
-    public void setLabname(String labname){
-        this.labname=labname;
+    public void setLabName(String labName){
+        this.labName = labName;
     }
     public void setAddress(String address){
         this.address=address;
     }
-    public void setPhone_number(int phone_number){
-        this.phone_number=phone_number;
+    public void setPhoneNumber(int phoneNumber){
+        this.phoneNumber = phoneNumber;
     }
-    public void setTin_number(int tin_number){
-        this.tin_number=tin_number;
+    public void setTinNumber(int tinNumber){
+        this.tinNumber = tinNumber;
     }
-    public void setPerforms_covid_test(boolean performs_covid_test){
-        this.performs_covid_test=performs_covid_test;
+    public void setPerformsCovidTest(boolean performsCovidTest){
+        this.performsCovidTest = performsCovidTest;
     }
-    public void setLaboratory_id(int laboratory_id){
-        this.laboratory_id=laboratory_id;
+    public void setLaboratoryId(int laboratoryId){
+        this.laboratoryId = laboratoryId;
     }
 
 
