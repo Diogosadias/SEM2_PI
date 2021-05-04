@@ -78,10 +78,10 @@ No dependencies were found.
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
 | Step 1: asks to register a new Employee   		 |	...instantiating a new Employee?						 |   EmployeeStore          |  HC + LC                            |
-| Step 2: shows list of Organization Roles and asks to choose one 		 |	...knowing all OrganizationRoles?					 |    EmployeeStore         |        HC + LC                   |
-| Step 3: selects the role  		 |	...saving the role selected?						 |  Employee           |  IE: Employee play OrganizationRole.                           |
+| Step 2: shows list of Organization Roles and asks to choose one 		 |	...listing all OrgRoles?					 |    EmployeeStore + RolesMapper         |        HC + LC: EmployeeStore knows all OrgRoles. Dto: RolesMapper creates list of OrgRolesDto.                   |
+| Step 3: selects the role  		 |	...saving the role selected?						 |  EmployeeDto           |  DTO: EmployeeDto has the information of the new Employee and the role selected.                            |
 | Step 4: requests data ( name, address, phoneNumber, socCode, doctorIndexNumber) 		 |	n/a						 |             |                              |
-| Step 5: types requested data  		 |	...saving the input data?						 |  Employee           |  IE: The Object created in step 1 has its own data.                            |
+| Step 5: types requested data  		 |	...saving the input data?						 |  EmployeeDto           |  DTO: Same as step 3.                           |
 | Step 6: validates and shows the data, asking for confirmation  		 |	...validating the data locally(eg.: mandatory vs non-mandatory data)?						 |    Employee         |    IE: knows its own data.                          |
 |   		 |	...validating the data globally(eg.: duplicated)?					 |    EmployeeStore         |    IE: knows all the Employee objects.                          |
 | Step 7: confirms all the data  		 |	...saving the created Employee						 |   EmployeeStore          |    IE: adopts/records all the Employee objects                          |
@@ -92,7 +92,7 @@ No dependencies were found.
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
  Employee
- OrganizationRole
+ OrgRole
  Company
  User
 
@@ -101,17 +101,21 @@ Other software classes (i.e. Pure Fabrication) identified:
 registerEmployeeUI (applying the "pure fabrication" pattern)
 registerEmployeeController (applying the "controller" pattern)
 EmployeeStore (HC+LC)
-UserStore (HC+LC)
+RolesMapper ("DTO" pattern)
+EmployeeDTO ("DTO" pattern) 
+OrgRoleDto ("DTO" pattern)
 AuthFacade
 
 ## 3.2. Sequence Diagram (SD)
 
 *In this section, it is suggested to present an UML dynamic view stating the sequence of domain related software objects' interactions that allows to fulfill the requirement.* 
-Main Diagram
+
+Main Diagram:
 
 ![US7-SD](US7-SD.svg)
 
-Secondary Diagram
+
+Secondary Diagram:
 
 ![RolesMapper_toDto](US7-SD_RolesMapper_toDto.svg)
 
