@@ -1,6 +1,6 @@
 package app.ui;
 
-import app.controller.ReceptionistController;
+
 import app.ui.console.MainMenuUI;
 import app.ui.console.ReceptionistUI;
 import auth.domain.model.Email;

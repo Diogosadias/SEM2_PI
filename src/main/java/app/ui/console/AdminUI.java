@@ -1,13 +1,8 @@
 package app.ui.console;
 
-import app.controller.AdminController;
 import app.controller.ParameterCategoryController;
-import app.domain.model.ParameterCategory;
-import app.domain.model.ParameterCategoryStore;
 import app.ui.console.utils.Utils;
 
-import java.awt.*;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;

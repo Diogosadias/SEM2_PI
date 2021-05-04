@@ -3,6 +3,7 @@ package app.ui.console;
 
 import app.ui.console.utils.Utils;
 
+import javax.swing.plaf.TextUI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,8 +13,8 @@ public class ClientUI implements Runnable{
     public void run() {
 
         List<MenuItem> options = new ArrayList<>();
-        options.add(new MenuItem("NothingCreate Client", new ReceptionistUI.CreateClientUI()));
-        options.add(new MenuItem("List Clients", new ReceptionistUI.CreateClientUI()));
+        options.add(new MenuItem("NothingCreate Client", new ShowTextUI("Hello")));
+        options.add(new MenuItem("List Clients", new ShowTextUI("Hello")));
         //options.add(new MenuItem("Find Client"))    TO DO
         //options.add(new MenuItem("Remove Client"))  TO DO
         //options.add(new MenuItem("Edit Client"))    TO DO
