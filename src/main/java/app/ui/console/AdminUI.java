@@ -48,7 +48,6 @@ public class AdminUI implements Runnable{
 
 
         public void run() {
-            AdminController adc;
             String code;
             String description;
             String collectingMethod;

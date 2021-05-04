@@ -9,10 +9,10 @@ public class Employee {
     private OrganizationRole role;
     private String name;
     private String address;
-    private int phoneNumber;
+    private String phoneNumber;
     private String socCode;
 
-    public Employee(String email, String employeeId, String role, String name, String address, int phoneNumber, String socCode, int doctorIndexNumber) {
+    public Employee(String email, String employeeId, String role, String name, String address, String phoneNumber, String socCode, int doctorIndexNumber) {
         this.email = email;
         this.employeeId = employeeId;
         this.role = new OrganizationRole(role,doctorIndexNumber);
@@ -21,6 +21,9 @@ public class Employee {
         this.phoneNumber = phoneNumber;
         this.socCode = socCode;
 
+    }
+
+    public Employee() {
     }
 
         //get
@@ -36,7 +39,7 @@ public class Employee {
     public String getAddress() {
         return address;
     }
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
     public String getSocCode() {
@@ -50,16 +53,16 @@ public class Employee {
     public void setEmployeeId(String employeeId) {
         this.employeeId = employeeId;
     }
-  //  public void setRole(String role) {
-   //     this.role = role;
-    //}
+    public void setRole(OrganizationRole role) {
+        this.role = role;
+    }    
     public void setName(String name) {
         this.name = name;
     }
     public void setAddress(String address) {
         this.address = address;
     }
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
     public void setSocCode(String socCode) {
