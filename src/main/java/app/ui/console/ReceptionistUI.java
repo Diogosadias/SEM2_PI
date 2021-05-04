@@ -96,6 +96,7 @@ public class ReceptionistUI implements Runnable {
             System.out.print("Email: ");
             id = read.next();
 
+
             System.out.print("Password: ");
             password = read.next();
 
@@ -119,7 +120,7 @@ public class ReceptionistUI implements Runnable {
 
 
 
-  
+
 
         ReceptionistController controllerClient = new ReceptionistController();
 

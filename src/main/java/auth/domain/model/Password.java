@@ -3,6 +3,7 @@ package auth.domain.model;
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import org.apache.commons.lang3.StringUtils;
 
+import java.security.SecureRandom;
 import java.util.Objects;
 
 /**
@@ -41,6 +42,7 @@ public class Password {
         BCrypt.Result result = BCrypt.verifyer().verify(pwd.toCharArray(),this.password.toCharArray());
         return result.verified;
     }
+
 
     @Override
     public int hashCode()

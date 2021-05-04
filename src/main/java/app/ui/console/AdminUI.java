@@ -1,6 +1,7 @@
 package app.ui.console;
 
 import app.controller.AdminController;
+import app.controller.ParameterCategoryController;
 import app.domain.model.ParameterCategory;
 import app.domain.model.ParameterCategoryStore;
 import app.ui.console.utils.Utils;
@@ -14,7 +15,7 @@ import java.util.Scanner;
 /**
  *
  * @author Paulo Maio <pam@isep.ipp.pt>
- * @author Tom s Pinto <1181835@isep.ipp.pt>
+ * @author Tomï¿½s Pinto <1181835@isep.ipp.pt>
  */
 
 public class AdminUI implements Runnable{
@@ -51,9 +52,11 @@ public class AdminUI implements Runnable{
 
 
         public void run() {
+            AdminController adc = new AdminController();
             String code;
             String description;
             String collectingMethod;
+            String [] parameterArray = new String[100];
             Scanner read = new Scanner(System.in);
             System.out.println("New code:");
             code = read.next();
@@ -61,6 +64,16 @@ public class AdminUI implements Runnable{
             description = read.next();
             System.out.println("Collecting Method:");
             collectingMethod = read.next();
+
+            String parameter = "";
+            while( ! parameter.equals("Finish")) {
+                int i = 0;
+                System.out.println("Add new parameter to the test (Type Finish to end:");
+                parameter = read.next();
+                parameterArray[i++] = parameter;
+            }
+
+
 
 
 
@@ -74,7 +87,8 @@ public class AdminUI implements Runnable{
             String code;
             String description;
             String nhsId;
-            AdminController adc = new AdminController();
+
+            ParameterCategoryController pc = new ParameterCategoryController();
             Scanner read = new Scanner(System.in);
             System.out.println("New code:");
             code = read.next();
@@ -83,11 +97,11 @@ public class AdminUI implements Runnable{
             System.out.println("NHSID:");
             nhsId= read.next();
 
-           boolean created = adc.createParameterCategory(code,description,nhsId);
+           boolean created = pc.createParameterCategory(code,description,nhsId);
 
            if(created ){
                System.out.println("Parameter Category Created!");
-               adc.writeParameters();
+               pc.writeParameters();
            }
 
            else

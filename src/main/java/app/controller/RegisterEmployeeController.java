@@ -21,7 +21,7 @@ public class RegisterEmployeeController {
 
     public RegisterEmployeeController() {
          if (!App.getInstance().getCurrentUserSession().isLoggedInWithRole(Constants.PARAMS_COMPANY_DESIGNATION)) {
-            throw new IllegalStateException("Utilizador não Autorizado");
+            throw new IllegalStateException("Utilizador nï¿½o Autorizado");
         }
         this.company = App.getInstance().getCompany();
         this.estore = company.getEmployeeStore();
