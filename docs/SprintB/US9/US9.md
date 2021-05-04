@@ -120,6 +120,42 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 *It is also recommended to organize this content by subsections.* 
 
+**CreateTestTypeUI Class:**
+
+
+public class CreateTestTypeUI implements Runnable {
+
+
+    public void run() {
+        CreateTestTypeController tc = new CreateTestTypeController();
+        ParameterCategoryController pc = new ParameterCategoryController();
+        ParameterCategoryStore pcs = new ParameterCategoryStore();
+
+        String code;
+        String description;
+        String collectingMethod;
+        ArrayList<ParameterCategory> ParameterList = new ArrayList<>();
+        Scanner read = new Scanner(System.in);
+
+
+
+
+        System.out.println("New code:");
+        code = read.next();
+        System.out.println("Description:");
+        description = read.next();
+        System.out.println("Collecting Method:");
+        collectingMethod = read.next();
+
+        pc.writeParameters();
+        tc.createTestType(code,description,collectingMethod);
+
+     
+    }
+    }
+    }
+
+
 **TestType Class:**
 
     package app.domain.model;
@@ -226,63 +262,88 @@ Other software classes (i.e. Pure Fabrication) identified:
 **Company Class:**
 
     public class Company{
-    
-    public SpecifyNewTypeTestStore getSpecifyNewTypeTestStore(SpecifyNewTypeTestStore tpl){
-    return tpl;
+
+    private CreateTestTypeStore testTypeStore;
+    public Company(String designation)
+    {
+    this.testTypeStore = new CreateTestTypeStore();
     }
 
+    public CreateTestTypeStore getTestTypeStore() {
+        return testTypeStore;
+    }
     }
 
-**Parameter Class:**
-
-    public class ParameterCategory extendes ParameterCaregoryStore{
+**TestType Class:**
     
+    public class TestType extends SpecifyNewTestStore {
+
     private String code;
     private String description;
-    private String nhsId;
+    private String collectingMethod;
+    private ArrayList<ParameterCategory> parameterList;
 
-    public ParameterCategory(String code, String description, String nhsId){
-    checkCodeRules(code);
-    checkDescriptionRules(description);
-    this.code = code;
-    this.description = description;
-    this.nhsId = nhsId;
+    public TestType(String code, String description,String collectingMethod){
+        this.code = code;
+        this.description = description;
+        this.collectingMethod = collectingMethod;
+        parameterList = new ArrayList<ParameterCategory>();
     }
 
-    private void checkCodeRules(String code){
-    if(StringUtils.isBlank(code))
-        throw new IllegalArgumentException("Code cannot be blank");
-    if((code.length()<4) || (code.length()> 8)
-        throw new IllegalArgumentException("Code must have 4 to 8 characters.");
-    }
-    
-    private void checkDescriptionRules(String description)i{
-    if(StringUtils.isBlank(description))
-        throw new IllegalArgumentException("Code cannot be blank");
-    if((code.length() > 40 )
-     throw new IllegalArgumentException("Code must not exceed 40 chars.");
-    }
+
+    private void checkMethod(String collectingMethod){
+        if(collectingMethod.length() == 0)
+            throw new IllegalArgumentException("Test type must at least have one collecting method");
     }
 
-**ParameterCategoryStore Class:**
+    private void checkCode(String code){
+        if(code.length() == 0 || code.length() != 5 )
+            throw new IllegalArgumentException("Code doesn't exist or doesn't have 5 alphanumeric numbers");
+    }
 
-        public class ParameterCategoryStore extends Company{
-        
-        private List<ParameterCategory> parameterCategoryList;
+    private void checkDescription(String description){
+        if(description.length() > 15 || description.length() == 0)
+            throw new IllegalArgumentException("Description doesn't exist or surpasses the 15 characters rule!");
+    }
 
-        public ParameterCategory createParameterCategory(String code, String description, String nhsId){
-            return new ParameterCategory(code, description, nhsId);
-        }
+    private void checkCollectingMethod(String collectingMethod){
+        if(collectingMethod.length() > 20 || collectingMethod.length() == 0)
+            throw new IllegalArgumentException("Collecting Method doesn't exist or surpasses the 20 characters rule!");
+    }
+    public void setCateory(ParameterCategory parameter){
+        parameterList.add(parameter);
+    }
+    }
 
 
-        
-        public getParameterCategoryByCode(int code){
-            for( ParameterCategory f : parameterCategoryList){
-                if(code == f.getCode)
-                    return f;
-            }
-            return null;
-        }
+**CreateTestTypeStore Class:**
+
+    private final ArrayList<TestType> testTypeList = new ArrayList<>();
+
+
+
+    public TestType createTestType(String code, String description, String collectingMethod){
+        return new TestType(code,description,collectingMethod);
+    }
+
+
+    public boolean validateTestType(TestType tt){
+        if(tt == null)
+            return false;
+        return ! this.testTypeList.contains(tt);
+    }
+
+    public boolean saveTestType(TestType tt){
+        if(!validateTestType(tt))
+            return false;
+        return this.testTypeList.add(tt);
+    }
+
+    public ArrayList<TestType> getTestTypeList(){
+        return testTypeList;
+    }
+    }
+
 
         public boolean validateParameterCategory(ParameterCategory pc){
         if(pc == null)

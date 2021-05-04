@@ -30,9 +30,8 @@ public class CreateClientUI implements Runnable{
     public void run() {
 
         String name;
-        //String stringID;
         String id;
-        // String stringpwd;
+
         String password = null;
         long nhs;
         long citizenCard;
@@ -86,11 +85,6 @@ public class CreateClientUI implements Runnable{
             if(validate)
                 System.out.println("Succesfully Registered the Client");
 
-
-            //listar info
-
-            //perguntar confirmar
-            //se sim, save
 
         }catch (InputMismatchException ex){
             System.out.println("Data input error");

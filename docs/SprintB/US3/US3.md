@@ -112,9 +112,9 @@ Phone number: which lenght/format?  - 11 digit number"
 | Step 1: Starts new client registration  		 |			...creating a new client?				 |   Recepcionist         | Creator                             |
 |Step 2: Requests user data(name, email, pswd) | ...creating a new user? | User | IE:The Object has its own data
 | Step 3: requests data(NHS,citizenCard,TIN,birthDate,sex,phoneNumber)  		 |				n/a			 |             |                              |
-| Step 4: types requested data 		 |	...saving input data?						 |    Client         | IE: The Object has its own data                             |
-| Step 5: shows the data and requested information 		 |	...validating the data globally?						 |  Client           |    IE:Knows its own data                          |
-| Step 6:confirms the data		 |		...saving the client?					 |       ClientStore     |           IE: adopts/records all the Client objects                   |
+| Step 4: types requested data 		 |	...validating input data?						 |    CreateClientStore         | Store: The class saves and validates the data                           |
+| Step 5: shows the data and requested information 		 |	...saving the data globally?						 |  CreateClientStore          |   IE: responsible for user interaction                    |
+| Step 6:confirms the data		 |		n/a				 |        |                           |
 | Step 7:informs operation success  		 |	...informing operation success?						 |      UI       |     IE: responsible for user interaction                         |              
 
 ### Systematization ##
@@ -162,8 +162,92 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 *It is also recommended to organize this content by subsections.*
 
+**CreateClientUI:**
+
+In this class, the UI will ask the user information about the client, with that done, it will send it to the controller, so it can get the information to warn the user if the Client got successfully into the system.
+
+
+    public class CreateClientUI implements Runnable{
+    
+    public CreateClientUI()
+    {}
+
+    
+    public void run() {
+
+        String name;
+        String id;
+    
+        String password = null;
+        long nhs;
+        long citizenCard;
+        long tin;
+        String birthDate;
+        String sex;
+        long pNumber;
+
+
+        Scanner read = new Scanner(System.in);
+
+        System.out.println("\n\nCreate New Client:");
+
+        try {
+            System.out.print("Name: ");
+            name = read.next();
+
+            System.out.print("Email: ");
+            id = read.next();
+
+
+            System.out.print("Password: ");
+            password = read.next();
+
+            System.out.print("National Health Service: ");
+            nhs = read.nextLong();
+
+            System.out.print("Citizen Card: ");
+            citizenCard = read.nextLong();
+
+            System.out.print("TIN: ");
+            tin = read.nextLong();
+
+            System.out.print("Birth Date: ");
+            birthDate = read.next();
+
+            System.out.print("Sex: ");
+            sex = read.next();
+
+            System.out.print("Phone Number: ");
+            pNumber = read.nextLong();
+
+
+
+
+
+            CreateClientController controllerClient = new CreateClientController();
+
+
+            boolean validate = controllerClient.createClient(id,name,nhs,citizenCard,tin,birthDate,sex,pNumber,password);
+            if(validate)
+                System.out.println("Succesfully Registered the Client");
+
+
+        }catch (InputMismatchException ex){
+            System.out.println("Data input error");
+        }catch (IllegalArgumentException ex){
+            System.out.println("Invalid data input");
+        }
+
+
+
+    }
+
+
 **Client Class:**
-        
+
+This class is the Client, object maker, it has the Client attributes, and it has the methods to validate those attributes.
+
+    
         public class Client extends User{
         
         
@@ -216,6 +300,8 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 **CreateClientStore Class:**
 
+The CreateClientStore class, will save the Clients in an ArrayList so they can be called anytime when they're needed, the class will also validate and save clients into the system.
+
         public classCreateClientStore extends Company{
         private List<Client> clientList;
 
@@ -245,38 +331,67 @@ Other software classes (i.e. Pure Fabrication) identified:
 
         }
 
-**RecepcionistController Class:**
+**CreateClientController Class:**
 
-        private Company company;
-        private Client rc;
+The CreateClienttController is the communicator between the CreateClientUI and the rest of the system, this class will send the Client data, sent by the user, to some CreateClientStore methods, so it can be validated.
 
-        public CreateClient(){
-            this(App.getInstance().getCompany());
-        }
-        
-        public CreateClient(Company company){
-            this.company = company;
-            this.rc = null;
-        }
+public class CreateClientController {
 
-        public boolean createClient(String name, int nhs, int citizenCard, int tin, String birthDate, String sex, int pNumber){
-            this.rc = this.company.createClient(name,pswd,email, nhs, citizenCard,  tin, birthDate,sex,pNumber);
-            return this.company.Client(rc);
-        }
+    private Company company;
+    private AuthFacade authFacade;
+    private App app;
 
-        public boolean saveClient(){
-            return this.company.saveClient(rc);
-        }
+    private CreateClientStore clientStore;
+    Client rc;
+
+    public CreateClientController(){this(App.getInstance().getCompany());}
+
+    public CreateClientController(app.domain.model.Company company){
+        this.company = company;
+        this.authFacade = this.company.getAuthFacade();
+        this.clientStore = this.company.getCreateClientStore();
+    }
+
+
+    public boolean createClient(String id, String name, long nhs, long citizenCard, long tin, String birthDate, String sex, long pNumber,String testpass){
+
+        this.rc = this.clientStore.createClient(id,name,nhs,citizenCard,tin,birthDate,sex,pNumber);
+
+        if(!this.clientStore.validateClient(this.rc)){return false;}
+
+        saveClient(this.rc,testpass);
+        return true;
+
+    }
+
+
+    public boolean saveClient(Client rc,String pwd){
+        return this.clientStore.saveClient(this.rc, pwd);
+    }
+
 
 **Company Class**
 
-    public class Company{
+
     
-      public CreateClientStore getCreateClientStore(CreateClientStore ccs){
-      return ccs;
-      }
+    public class Company{
+    private CreateClientStore createClientStore;
+    private String designation;
+    private AuthFacade authFacade;    
+
+    public Company(String designation){
+           this.designation = designation;
+            this.authFacade = new AuthFacade();
+          this.createClientStore = new CreateClientStore(this.authFacade);
       
-      }
+    }
+    
+       public CreateClientStore getCreateClientStore() {
+        return createClientStore;
+    }
+    }
+      
+
 # 6. Integration and Demo 
 
 *In this section, it is suggested to describe the efforts made to integrate this functionality with the other features of the system.*

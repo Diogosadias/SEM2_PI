@@ -66,16 +66,16 @@
       ><path d="M0 0 L0 176 L104 176 L104 0 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath21"
-      ><path d="M0 0 L251 0 L251 175 L0 175 L0 0 Z"
-      /></clipPath
-      ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath22"
-      ><path d="M0 0 L0 175 L251 175 L251 0 Z"
-      /></clipPath
-      ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath23"
       ><path d="M0 0 L862 0 L862 431 L0 431 L0 0 Z"
       /></clipPath
-      ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath24"
+      ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath22"
       ><path d="M507 75 L507 90 L463 90 L463 75 ZM668 196 L668 211 L603 211 L603 196 ZM0 0 L0 431 L862 431 L862 0 Z"
+      /></clipPath
+      ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath23"
+      ><path d="M0 0 L263 0 L263 252 L0 252 L0 0 Z"
+      /></clipPath
+      ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath24"
+      ><path d="M0 0 L0 252 L263 252 L263 0 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath25"
       ><path d="M-44 -15 L88 -15 L88 30 L-44 30 L-44 -15 Z"
@@ -213,19 +213,18 @@
       /><line clip-path="url(#clipPath20)" stroke-dashoffset="0" fill="none" x1="50" x2="56" y1="122" y2="110" stroke-dasharray="none"
       /><line clip-path="url(#clipPath20)" stroke-dashoffset="0" fill="none" x1="50" x2="44" y1="122" y2="110" stroke-dasharray="none"
     /></g
-    ><g fill-opacity="1" text-rendering="geometricPrecision" stroke="black" stroke-linecap="butt" transform="translate(220,15)" stroke-opacity="1" fill="black" stroke-dasharray="5" font-family="sans-serif" stroke-linejoin="round" font-size="11px" stroke-dashoffset="1" image-rendering="optimizeQuality"
-    ><line y2="121" fill="none" x1="50" clip-path="url(#clipPath22)" x2="95" y1="121"
-      /><line y2="50" fill="none" x1="95" clip-path="url(#clipPath22)" x2="95" y1="121"
-      /><line y2="50" fill="none" x1="95" clip-path="url(#clipPath22)" x2="197" y1="50"
-      /><line clip-path="url(#clipPath22)" stroke-dashoffset="0" fill="none" x1="197" x2="185" y1="50" y2="44" stroke-dasharray="none"
-      /><line clip-path="url(#clipPath22)" stroke-dashoffset="0" fill="none" x1="197" x2="185" y1="50" y2="56" stroke-dasharray="none"
-    /></g
     ><g fill-opacity="1" text-rendering="geometricPrecision" stroke="black" stroke-linecap="butt" transform="translate(85,120)" stroke-opacity="1" fill="black" stroke-dasharray="5" font-family="sans-serif" stroke-linejoin="round" font-size="11px" stroke-dashoffset="1" image-rendering="optimizeQuality"
-    ><line y2="377" fill="none" x1="50" clip-path="url(#clipPath24)" x2="50" y1="50"
-      /><line y2="377" fill="none" x1="50" clip-path="url(#clipPath24)" x2="808" y1="377"
-      /><line y2="259" fill="none" x1="808" clip-path="url(#clipPath24)" x2="808" y1="377"
-      /><line clip-path="url(#clipPath24)" stroke-dashoffset="0" fill="none" x1="808" x2="802" y1="259" y2="271" stroke-dasharray="none"
-      /><line clip-path="url(#clipPath24)" stroke-dashoffset="0" fill="none" x1="808" x2="814" y1="259" y2="271" stroke-dasharray="none"
+    ><line y2="377" fill="none" x1="50" clip-path="url(#clipPath22)" x2="50" y1="50"
+      /><line y2="377" fill="none" x1="50" clip-path="url(#clipPath22)" x2="808" y1="377"
+      /><line y2="259" fill="none" x1="808" clip-path="url(#clipPath22)" x2="808" y1="377"
+      /><line clip-path="url(#clipPath22)" stroke-dashoffset="0" fill="none" x1="808" x2="802" y1="259" y2="271" stroke-dasharray="none"
+      /><line clip-path="url(#clipPath22)" stroke-dashoffset="0" fill="none" x1="808" x2="814" y1="259" y2="271" stroke-dasharray="none"
+    /></g
+    ><g fill-opacity="1" text-rendering="geometricPrecision" stroke="black" stroke-linecap="butt" transform="translate(220,92)" stroke-opacity="1" fill="black" stroke-dasharray="5" font-family="sans-serif" stroke-linejoin="round" font-size="11px" stroke-dashoffset="1" image-rendering="optimizeQuality"
+    ><line y2="50" fill="none" x1="50" clip-path="url(#clipPath24)" x2="209" y1="50"
+      /><line y2="198" fill="none" x1="209" clip-path="url(#clipPath24)" x2="209" y1="50"
+      /><line clip-path="url(#clipPath24)" stroke-dashoffset="0" fill="none" x1="209" x2="215" y1="198" y2="186" stroke-dasharray="none"
+      /><line clip-path="url(#clipPath24)" stroke-dashoffset="0" fill="none" x1="209" x2="203" y1="198" y2="186" stroke-dasharray="none"
     /></g
     ><g font-size="11px" transform="translate(548,195)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
     ><text x="9" xml:space="preserve" y="12" clip-path="url(#clipPath25)" stroke="none"

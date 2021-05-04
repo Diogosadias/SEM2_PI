@@ -48,7 +48,7 @@ public class CreateTestTypeUI implements Runnable {
 
             tc.writeTestType();
 
-        
+
 
     }
     }
