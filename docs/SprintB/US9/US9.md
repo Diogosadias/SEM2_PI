@@ -92,7 +92,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 *In this section, it is suggested to present an UML dynamic view stating the sequence of domain related software objects' interactions that allows to fulfill the requirement.* 
 
-![US9-SD](US9-SD.svg)
+![US9-SD](US09-SD.svg)
 
 ## 3.3. Class Diagram (CD)
 

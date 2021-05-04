@@ -21,6 +21,7 @@ public class Company {
     private CreateClientStore createClientStore;
     private ParameterCategoryStore parameterCategoryStore;
     private SpecifyNewTestStore specifyNewTestStore;
+    private EmployeeStore employeeStore;
 
 
     public Company(String designation)
@@ -35,6 +36,7 @@ public class Company {
         this.calStore = new CALStore();
         this.createClientStore = new CreateClientStore(this.authFacade);
         this.parameterCategoryStore = new ParameterCategoryStore();
+        this.employeeStore = new EmployeeStore();
     }
 
     public String getDesignation() {
@@ -75,6 +77,14 @@ public class Company {
 
     public void setSpecifyNewTestStore(SpecifyNewTestStore specifyNewTestStore) {
         this.specifyNewTestStore = specifyNewTestStore;
+    }
+
+    public EmployeeStore getEmployeeStore() {
+        return employeeStore;
+    }
+
+    public void setEmployeeStore(EmployeeStore employeeStore) {
+        this.employeeStore = employeeStore;
     }
 
 

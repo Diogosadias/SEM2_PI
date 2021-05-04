@@ -8,6 +8,7 @@ public class ParameterCategoryController {
     private Company company;
     private ParameterCategory pc;
     private ParameterCategoryStore parameterStore;
+    private ParameterCategoryStore pcs = new ParameterCategoryStore();
 
     public ParameterCategoryController(){
         this(App.getInstance().getCompany());
@@ -18,10 +19,24 @@ public class ParameterCategoryController {
         this.pc = null;
     }
 
-    public boolean createParameterCagegory(String code, String description, String nhsId){
-        this.pc = this.parameterStore.createParameterCategory(code,description,nhsId);
-        return this.parameterStore.validateParameterCategory(pc);
+    public boolean createParameterCategory(String code, String description, String nhsid){
+
+
+        this.pc = this.pcs.createParameterCategory(code,description,nhsid);
+        if(this.pcs.validateParameterCategory(pc)){
+            pcs.saveParameterCategory(pc);
+            return true;
+        }
+        else {
+            return false;
+        }
+
     }
+
+    public void writeParameters(){
+
+        for(ParameterCategory f : pcs.getParameterCategoryList())
+            System.out.println(f); }
 
     public boolean saveParameterCategory(){
         return this.parameterStore.saveParameterCategory(pc);

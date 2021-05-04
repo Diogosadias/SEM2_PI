@@ -1,9 +1,4 @@
-package auth.domain.store;
-
-import app.domain.model.Employee;
-import auth.domain.model.Email;
-import auth.domain.model.Password;
-import auth.domain.model.User;
+package app.domain.model;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -13,7 +8,7 @@ import java.util.Set;
 public class EmployeeStore {
 
     private Set<String> lor;
-    private Set<Employee> store = new HashSet<Employee>();
+    private Set<Employee> store;
     private int numEmployees=0;
     public final String SPECIALIST_DOCTOR = "Specialist Doctor";
     public final String LABORATORY_COORDINATOR = "Laboratory Coordinator";
@@ -22,6 +17,7 @@ public class EmployeeStore {
 
     public EmployeeStore () {
         this.lor = addOrganizationRoles();
+        this.store = new HashSet<Employee>();
     }
 
     public Set<String> addOrganizationRoles () {
@@ -39,14 +35,22 @@ public class EmployeeStore {
         return new Employee(email, employeeId, role, name.trim(), address, phoneNumber, socCode, doctorIndexNumber);
     }
 
-    public void validateEmployee(Employee employee) {
-
+    public boolean validateEmployee(Employee employee) {
+        
+        if(employee == null)
+            return false;
+        return ! this.store.contains(employee);
+        
     }
 
     public boolean addEmployee(Employee employee) {
         return store.add(employee);
     }
-
+    
+    public Set<String> getRoles() {
+            return lor;
+        }
+    
     private String generateEmployeeId(String name) {
         // acrescentar +1 ao numero de employees
         int id = newEmployeeNumber();
@@ -71,6 +75,9 @@ public class EmployeeStore {
     private int  newEmployeeNumber() {
         return numEmployees++;
     }
+
+    
+
 
 
 }
