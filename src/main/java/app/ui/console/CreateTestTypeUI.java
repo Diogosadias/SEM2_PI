@@ -22,8 +22,7 @@ public class CreateTestTypeUI implements Runnable {
         ArrayList<ParameterCategory> ParameterList = new ArrayList<>();
         Scanner read = new Scanner(System.in);
 
-
-
+        System.out.println("Create New Type Test:");
 
         System.out.println("New code:");
         code = read.next();

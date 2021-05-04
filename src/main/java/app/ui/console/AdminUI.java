@@ -20,8 +20,8 @@ public class AdminUI implements Runnable{
     {
         List<MenuItem> options = new ArrayList<MenuItem>();
         options.add(new MenuItem("Create type of test", new CreateTestTypeUI()));
-        options.add(new MenuItem("Edit type test", new ShowTextUI("You have chosen Option B.")));
-        options.add(new MenuItem("List types of test", new ShowTextUI("You have chosen Option C.")));
+        options.add(new MenuItem("Edit type test", new EditTestTypeUI()));
+        options.add(new MenuItem("List types of test", new ListTypeTestUI()));
         options.add(new MenuItem("Search types of test", new ShowTextUI("You have chosen option D")));
         options.add(new MenuItem("Delete type of test", new ShowTextUI("You have chosen option E")));
         options.add(new MenuItem("New Parameter", new SpecifyNewParameterUI()));

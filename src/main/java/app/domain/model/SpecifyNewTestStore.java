@@ -2,6 +2,11 @@ package app.domain.model;
 
 import java.util.ArrayList;
 
+/**
+ *
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
+ */
+
 public class SpecifyNewTestStore {
 
     private ArrayList <TestType> TestTypeList;
@@ -10,9 +15,10 @@ public class SpecifyNewTestStore {
         TestTypeList = new ArrayList<>();
     }
 
-    public TestType createNewTestType(String code, String description, String collectingMethod ){
+    public TestType createNewTestType(String code, String description, String collectingMethod) {
         return new TestType(code,description,collectingMethod );
     }
+
     public boolean validateTestType(TestType tp){
         if(tp == null)
             return false;

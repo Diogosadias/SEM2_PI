@@ -11,7 +11,7 @@ public class CreateTestTypeStore {
 
 
 
-    public TestType createTestType(String code, String description, String collectingMethod){
+    public TestType createTestType(String code, String description, String collectingMethod) {
         return new TestType(code,description,collectingMethod);
     }
 

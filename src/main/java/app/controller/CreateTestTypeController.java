@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class CreateTestTypeController {
     private Company company;
     private CreateTestTypeStore ts = new CreateTestTypeStore();
-   private TestType tt;
+    private TestType tt;
 
 
     public CreateTestTypeController(){
@@ -19,7 +19,7 @@ public class CreateTestTypeController {
         this.company = company;
     }
 
-    public boolean createTestType(String code, String description, String collectingMethod){
+    public boolean createTestType(String code, String description, String collectingMethod) {
         this.tt = this.ts.createTestType(code,description,collectingMethod);
         if(this.ts.validateTestType(tt)){
             ts.saveTestType(tt);
