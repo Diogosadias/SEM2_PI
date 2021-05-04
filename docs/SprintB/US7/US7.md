@@ -107,8 +107,13 @@ AuthFacade
 ## 3.2. Sequence Diagram (SD)
 
 *In this section, it is suggested to present an UML dynamic view stating the sequence of domain related software objects' interactions that allows to fulfill the requirement.* 
+Main Diagram
 
 ![US7-SD](US7-SD.svg)
+
+Secondary Diagram
+
+![RolesMapper_toDto](US7-SD_RolesMapper_toDto.svg)
 
 ## 3.3. Class Diagram (CD)
 
