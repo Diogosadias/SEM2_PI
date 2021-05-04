@@ -14,14 +14,19 @@ public class AdminController {
     private App app;
 
 
+    public AdminController(){this(App.getInstance().getCompany());}
+
+
+    public AdminController(Company company){
+        this.company = company;
+        this.authfacade= this.company.getAuthFacade();
+    }
+
 
     private ParameterCategory pc;
 
-    public AdminController(){
-        this.company = company;
-        this.pc = pc;
 
-    }
+
 
 
 

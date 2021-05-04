@@ -34,8 +34,9 @@ public class AdminUI implements Runnable{
         options.add(new MenuItem("New Parameter Category", new CreateNewParameterUI()));
         options.add(new MenuItem("Register employee", new RegisterEmployeeUI()));
 
+        boolean success = false;
 
-        int option = 0;
+        int option;
         do
         {
             option = Utils.showAndSelectIndex(options, "\n\nAdmin Menu:");
@@ -52,7 +53,7 @@ public class AdminUI implements Runnable{
 
 
         public void run() {
-            AdminController adc = new AdminController();
+            AdminController adc;
             String code;
             String description;
             String collectingMethod;
