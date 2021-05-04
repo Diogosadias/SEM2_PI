@@ -8,6 +8,7 @@ package app.controller;
 import app.domain.model.*;
 import app.domain.shared.Constants;
 import auth.AuthFacade;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -28,8 +29,8 @@ public class RegisterEmployeeController {
         
     }
     
-    public Set<String> getOrganizationRoles(){
-        return this.estore.getRoles();
+    public List<String> getOrganizationRoles(){
+        return this.estore.getOrganizationRoles();
     }
     
     public EmployeeStore getEmployees() {
@@ -37,6 +38,29 @@ public class RegisterEmployeeController {
     }
 
     public boolean registerEmployee(Employee employee) {
-        return this.company.getEmployeeStore().addEmployee(employee);
+        //generate id
+        employee.setEmployeeId(this.estore.generateEmployeeId(employee.getName()));
+        
+        //generate email
+        employee.setEmail(this.estore.generateEmail(employee.getEmployeeId()));
+        
+        //register employee
+        return this.estore.registerEmployee(employee);
+    }
+    
+    public boolean saveEmployee(Employee emp) {
+        //validates and saves employee
+        this.estore.saveEmployee(emp); 
+        //saves employee user - password é o id????
+        return this.company.getAuthFacade().addUserWithRole(emp.getName(), emp.getEmail(), emp.getEmployeeId(), emp.getRole().getDesignation());
+
+    }
+    
+    //not done
+    public String getEmployeeToString(Employee emp)
+    {
+        return ("[name: " + emp.getName() + "]\n" + "[adress: " + emp.getAddress()+ "]\n" +
+                "[email: " + emp.getEmail()+ "]\n" + "[id: " + emp.getEmployeeId()+ "]\n" +
+                "[phone number: " + emp.getPhoneNumber()+ "]\n" + "[soc code: " + emp.getSocCode()+ "]\n" );
     }
 }

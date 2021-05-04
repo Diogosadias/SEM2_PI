@@ -26,6 +26,7 @@ public class AdminUI implements Runnable{
         options.add(new MenuItem("List types of test", new ShowTextUI("You have chosen Option C.")));
         options.add(new MenuItem("Search types of test", new ShowTextUI("You have chosen option D")));
         options.add(new MenuItem("Delete type of test", new ShowTextUI("You have chosen option E")));
+        options.add(new MenuItem("New Parameter", new SpecifyNewParameterUI()));
         options.add(new MenuItem("New Parameter Category", new CreateNewParameterUI()));
         options.add(new MenuItem("Register employee", new RegisterEmployeeUI()));
 
@@ -46,6 +47,37 @@ public class AdminUI implements Runnable{
 
 
 
+<<<<<<< HEAD
+=======
+        public void run() {
+            String code;
+            String description;
+            String collectingMethod;
+            String [] parameterArray = new String[100];
+            Scanner read = new Scanner(System.in);
+            System.out.println("New code:");
+            code = read.next();
+            System.out.println("Description:");
+            description = read.next();
+            System.out.println("Collecting Method:");
+            collectingMethod = read.next();
+
+            String parameter = "";
+            while( ! parameter.equals("Finish")) {
+                int i = 0;
+                System.out.println("Add new parameter to the test (Type Finish to end:");
+                parameter = read.next();
+                parameterArray[i++] = parameter;
+            }
+
+
+
+
+
+        }
+    }
+
+>>>>>>> 8bafc429028031e69d80abc3848af0cee984505c
     public static class CreateNewParameterUI implements Runnable{
 
         public void run(){

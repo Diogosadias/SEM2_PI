@@ -12,6 +12,10 @@ public class OrganizationRole {
         this.doctorIndexNumber = doctorIndexNumber;
     }
 
+    public OrganizationRole() {
+        
+    }
+
     public String getDesignation() {
         return designation;
     }
