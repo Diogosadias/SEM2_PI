@@ -47,63 +47,12 @@ public class AdminUI implements Runnable{
 
 
 
-<<<<<<< HEAD
-=======
-        public void run() {
-            String code;
-            String description;
-            String collectingMethod;
-            String [] parameterArray = new String[100];
-            Scanner read = new Scanner(System.in);
-            System.out.println("New code:");
-            code = read.next();
-            System.out.println("Description:");
-            description = read.next();
-            System.out.println("Collecting Method:");
-            collectingMethod = read.next();
-
-            String parameter = "";
-            while( ! parameter.equals("Finish")) {
-                int i = 0;
-                System.out.println("Add new parameter to the test (Type Finish to end:");
-                parameter = read.next();
-                parameterArray[i++] = parameter;
-            }
-
-
 
 
 
         }
-    }
 
->>>>>>> 8bafc429028031e69d80abc3848af0cee984505c
-    public static class CreateNewParameterUI implements Runnable{
 
-        public void run(){
 
-            String code;
-            String description;
-            String nhsId;
 
-            ParameterCategoryController pc = new ParameterCategoryController();
-            Scanner read = new Scanner(System.in);
-            System.out.println("New code:");
-            code = read.next();
-            System.out.println("Description:");
-            description = read.next();
-            System.out.println("NHSID:");
-            nhsId= read.next();
 
-           boolean created = pc.createParameterCategory(code,description,nhsId);
-
-           if(created ){
-               System.out.println("Parameter Category Created!");
-               pc.writeParameters();
-           }
-
-           else
-               System.out.println("Unsuccesfully created the Parameter Category");
-        }
-    }
-}

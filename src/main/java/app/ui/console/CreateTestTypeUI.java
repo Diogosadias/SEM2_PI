@@ -24,9 +24,7 @@ public class CreateTestTypeUI implements Runnable {
 
 
 
-        if(pcs.getParameterCategoryList().size() == 0)
-            System.out.println("Can't create TestType without categories!");
-        else{
+
         System.out.println("New code:");
         code = read.next();
         System.out.println("Description:");
@@ -34,6 +32,7 @@ public class CreateTestTypeUI implements Runnable {
         System.out.println("Collecting Method:");
         collectingMethod = read.next();
 
+        pc.writeParameters();
         tc.createTestType(code,description,collectingMethod);
 
         String codep = "";
@@ -49,7 +48,7 @@ public class CreateTestTypeUI implements Runnable {
 
             tc.writeTestType();
 
-        }
+        
 
     }
     }
