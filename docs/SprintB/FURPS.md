@@ -24,7 +24,7 @@
 |**Accessibility**|_"To facilitate the access to the results, the application must allow ordering the clients by TIF and by name."_|
 |**Aesthetics**|_"The application graphical interface is to be developed in JavaFX 11" / "All the images/figures produced during the software development process should be recorded in SVG format" / [Client's Email](References.md) :"The user interface must be simple, intuitive and consistent."_|
 |**Consistency**|_" Must be authenticated with a password holding seven alphanumeric characters, including three capital letters and two digits." / [Client's Email](References.md) : "The user interface must be simple, intuitive and consistent."_|
-|**Performace**|
+|**Performace**||
 
 ## Reliability
 _Refers to the integrity, compliance and interoperability of the software. The requirements to be considered are: frequency and severity of failure, possibility of recovery, possibility of prediction, accuracy, average time between failures._
