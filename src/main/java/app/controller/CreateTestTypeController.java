@@ -36,7 +36,7 @@ public class CreateTestTypeController {
             System.out.println(t); }
 
     public void addParameterToTest(ParameterCategory pc){
-        this.tt.setCateory(pc);
+        this.tt.setCategory(company.getParameterCategoryStore());
     }
 
 

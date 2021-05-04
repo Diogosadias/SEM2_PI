@@ -7,9 +7,9 @@ public class TestType extends SpecifyNewTestStore {
     private String code;
     private String description;
     private String collectingMethod;
-    private ArrayList<ParameterCategory> parameterList;
+    private ArrayList<ParameterCategoryStore> parameterList;
 
-    public TestType(String code, String description,String collectingMethod) {
+    public TestType(String code, String description, String collectingMethod) {
         try {
             checkCode(code);
         } catch (Exception e) {
@@ -22,9 +22,20 @@ public class TestType extends SpecifyNewTestStore {
         this.code = code;
         this.description = description;
         this.collectingMethod = collectingMethod;
-        parameterList = new ArrayList<ParameterCategory>();
+        parameterList = new ArrayList<ParameterCategoryStore>();
     }
 
+    public String getCode() { return code; }
+
+    public void setCode(String code) { this.code = code; }
+
+    public String getDescription() { return description; }
+
+    public void setDescription(String description) { this.description = description; }
+
+    public String getCollectingMethod() { return collectingMethod; }
+
+    public void setCollectingMethod(String collectingMethod) { this.collectingMethod = collectingMethod; }
 
     private void checkCode(String code) {
         if(code.length() != 5 )
@@ -40,7 +51,7 @@ public class TestType extends SpecifyNewTestStore {
         if(collectingMethod.length() > 20 || collectingMethod.length() == 0)
             throw new IllegalArgumentException("Collecting Method doesn't exist or surpasses the 20 characters rule!");
     }
-    public void setCateory(ParameterCategory parameter){
+    public void setCategory(ParameterCategoryStore parameter){
         parameterList.add(parameter);
     }
 
