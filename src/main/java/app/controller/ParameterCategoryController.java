@@ -38,6 +38,15 @@ public class ParameterCategoryController {
         for(ParameterCategory f : pcs.getParameterCategoryList())
             System.out.println(f); }
 
+    public ParameterCategory getParameterCategory(String code){
+
+        for(ParameterCategory f : pcs.getParameterCategoryList()){
+            if(f.getCode().equals(code))
+                return f;
+        }
+        return null;
+    }
+
     public boolean saveParameterCategory(){
         return this.parameterStore.saveParameterCategory(pc);
     }

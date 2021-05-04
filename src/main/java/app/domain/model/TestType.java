@@ -39,4 +39,15 @@ public class TestType extends SpecifyNewTestStore {
     public void setCateory(ParameterCategory parameter){
         parameterList.add(parameter);
     }
+
+
+    @Override
+    public String toString() {
+        return "TestType{" +
+                "code='" + code + '\'' +
+                ", description='" + description + '\'' +
+                ", collectingMethod='" + collectingMethod + '\'' +
+                ", parameterList=" + parameterList +
+                '}';
+    }
 }
