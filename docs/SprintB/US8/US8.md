@@ -42,12 +42,11 @@
 * AC1: A CAL's must have an attribute specifying if it performs Covid-19 Test.
 * AC2: A CAL's must always perform blood tests.
 * AC3: A CAL cannot be registered without Laboratory ID, Name, Address, Phone Number, TIN number and the information if it performs Covid-19 Tests.
-* ACX: New CALs cannot be registered without the necessary employees (a Receptionist and Medical Lab Technician)
 
 
 ### 1.4. Found out Dependencies
 
-No dependencies were found.
+This user story will be dependent on the US7 - register new Employees. 
 
 ### 1.5 Input and Output Data
 
@@ -68,8 +67,7 @@ No dependencies were found.
 
 ### 1.7 Other Relevant Remarks
 
-Employees may need to be registered when lab is registered
-
+US7 may be needed to add employees to the CAL created.
 
 ## 2. OO Analysis
 
@@ -79,8 +77,7 @@ Employees may need to be registered when lab is registered
 
 ### 2.2. Other Remarks
 
-Attributes may need to be fulfilled 
-
+Some Classes needed may not be represented in the Domain Model Excerpt presented, because they may not be represented in the main Domain Model.
 
 ## 3. Design - User Story Realization 
 
@@ -91,14 +88,12 @@ Attributes may need to be fulfilled
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
 | Step 1  : starts new CAL	 |		...creating a new CAL?   |  Company -> CALStore           |Based on the Creator standard (Company used to store the list of all CAL ) on the MD, the responsibility is attributed to the Company. By application of HC + LC in Company the responsibility is delegated to CALStore|
-| Step 2  : requests data(Lab Name, Address, Phone Number, TIN Number)		 |			n/a				 |             |                              |
-| Step 3  : types requested data		 |			...saving the input data? 				 |    CAL       | IE: the object created in the first step has its own data.                             |
-| Step 4  : show the data and request data(performs covid-19 tests)		 |		...validate that the data is according AC?					 |  CAL         |   IE: Know its own creation rules                           |
-| Step 4  : show the data and request data(performs covid-19 tests)		 |		...validate the data persistence?					 |        Company -> CALStore     |  Based on the IE (Company used to know all the CAL Objects ) but, with the application of HC+LC in Company, the responsibility it's know delegated to CALStore|
-| Step 5  : types requested data	 |				...saving the input	data?		 |      CAL     | IE: the object created in the first step has its own data.                            |
-| Step 6  : shows the data and requests confirmation		 |			...validate the input data?				 |   CAL        |    IE: Know its own creation rules                           |              
-| Step 7  : confirms data		 |				...saving the CAL registered?			 |      Company -> CALStore         | Based on the IE standard on the MD, the responsibility is attributed to the Company. By application of HC + LC in Company the responsibility is delegated to CALStore, as previously stated. |              
-| Step 8  : informs operation success		 |			...informing operation success?				 |      UI       |    IE:Responsible for user interaction                           |              
+| Step 2  : requests data(i.e., Lab ID, Lab Name, Address, Phone Number, TIN Number, performs covid-19 tests)		 |			n/a				 |             |                              |
+| Step 3  : types requested data		 |			...saving the input data? 				 |    CAL       | IE: the object created in the first step has knowledge of its own data.                             |
+| Step 4  : shows the data and requests confirmation	 |		...validate that the data is according to AC?					 |  CAL         |   IE: Know its own creation rules.                           |
+| Step 4  : shows the data and requests confirmation		 |		...validate the data persistence?					 |        Company -> CALStore     |  Based on the IE (Company used to know all the CAL Objects ) but, with the application of HC+LC in Company, the responsibility it's know delegated to CALStore| |              
+| Step 5  : confirms data		 |				...saving the CAL registered?			 |      Company -> CALStore         | Based on the IE standard on the MD, the responsibility is attributed to the Company. By application of HC + LC in Company the responsibility is delegated to CALStore, as previously stated. |              
+| Step 6  : informs operation success		 |			...informing operation success?				 |      UI       |    IE:Responsible for user interaction.                          |              
 
 ### Systematization ##
 
@@ -120,7 +115,6 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 ## 3.3. Class Diagram (CD)
 
-*In this section, it is suggested to present an UML static view representing the main domain related software classes that are involved in fulfilling the requirement as well as and their relations, attributes and methods.*
 
 ![US8-CD](US8-CD.svg)
 
@@ -129,12 +123,21 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 **_DO NOT COPY ALL DEVELOPED TESTS HERE_**
 
+* **Creation**
+
 **Test 1:** Check that it is not possible to create an instance of the Example class with null values. 
 
 	@Test(expected = IllegalArgumentException.class)
 		public void ensureNullIsNotAllowed() {
 		Exemplo instance = new Exemplo(null, null);
 	}
+
+
+* **Validation**
+
+* **Adding**
+
+* **Getting Store**
 
 *It is also recommended to organize this content by subsections.* 
 
@@ -149,9 +152,11 @@ Other software classes (i.e. Pure Fabrication) identified:
 
     public class Company {
     private String designation;
+    private CALStore calStore;
 
     
-    public CALStore getCALStore(){
+    public CALStore getCalStore() {
+        return calStore;
     }
     }
 
@@ -160,65 +165,70 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 
     public class CALStore {
-    private List<CAL> calstore;
-
-    publicCALregisterNewCAL(String LabName,String Address,int PhoneNumber,int TINNumber){
-      return new CAL(LabName,Address,PhoneNumber,TINNumber);
+    private ArrayList<CAL> calList;
+    public CALStore(){
+        calList = new ArrayList<>();
     }
 
-    public boolean validateCAL(CAL CAL){
-      if(CLA == null)
-      return false;
-      return ! this.calList.contains(CAL);
+    public CAL createCAL(int labId, String labName, int phoneNumber, String address, int tin, boolean answer ){
+        return new CAL(labId, labName, phoneNumber, address, tin, answer);
     }
 
-    public boolean saveCAL(CAL CAL){
-      if(!validateCAL(CAL))
-      return false;
-      return this.calList.add(CAL);
+    public boolean validateCAL(CAL cal){
+        if(cal == null)
+            return false;
+        for (CAL cal1: this.calList) {
+            if(cal1.getLaboratoryId()==cal.getLaboratoryId() || cal1.getPhoneNumber()==cal.getPhoneNumber() ||
+                cal1.getTinNumber()==cal.getTinNumber() || cal1.getAddress().equalsIgnoreCase(cal.getAddress())){
+                return false;
+            }
+            int length = String.valueOf(cal.getPhoneNumber()).length();
+            length += String.valueOf(cal.getTinNumber()).length();
+            length += String.valueOf(cal.getLaboratoryId()).length();
+            //phone number- 10 nº tin-10nº labID-?
+            if(length!=20) return false;
+        }
+        return true;
     }
 
-    private void addCAL(CAL CAL){
-      if(!validateCAL(CAL))
-      return false;
-      return this.calList.add(CAL); 
+    public boolean saveCAL(CAL cal){
+        if(!validateCAL(cal))
+            return false;
+        return this.calList.add(cal);
     }
     }
-
+    
 
 
 * CAL
 
 
     public class CAL{
-    private String LabName;
-    private String Address;
-    private int PhoneNumber;
-    private int TINNumber;
-    private int LaboratoryID;
+    private String labName;
+    private String address;
+    private int phoneNumber;
+    private int tinNumber;
     private boolean performsCovidTest;
+    private int laboratoryId;
+
     
-    public register(String LabName,String Address,int PhoneNumber,int TINNumber){
-      this.LabName = LabName;
-      this.Address = Address;
-      this.PhoneNumber = PhoneNumber;
-      this.TINNumber = TINNumber;
-      this.LaboratoryID = Company.getLastID() + 1;
-      this.performsCovidTest = False;
+    public CAL(int labId, String labName, int phoneNumber, String address, int tin, boolean answer){
+        this.laboratoryId=labId;
+        this.labName = labName;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.tinNumber = tin;
+        this.performsCovidTest = answer;
     }
 
-    public void performsCovidTest(boolean value){
-      if(value == null)
-      return false;
-      this.performsCovidTest = value;
-      return value;
-    }    
+       
     }
 
 * RegisterNewCALUI
 
     
     public class RegisterNewCALUI{
+
     }
 
 
@@ -226,31 +236,34 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 
     public class RegisterNewCALController{
-    public CAL CAL;
+    private Company company;
+    private CAL cal;
+    private CALStore calStore;
     
-    public void registerNewCAL(String LabName,String Address,int PhoneNumber,int TINNumber){
-    registerNewCAL(LabName,Address,PhoneNumber,TINNumber);
+    public RegisterNewCALController(Company company){
+        this.company = company;
+        this.calStore = company.getCalStore();
     }
     
-    public void performsCovidTest(boolean value){
-    performsCovidTest(value);
+    public boolean createCAL(int labId, String labName, int phoneNumber, String address, int tin, boolean answer){
+        this.cal = this.calStore.createCAL(labId, labName, phoneNumber, address, tin, answer);
+        return this.calStore.validateCAL(this.cal);
     }
 
-    public void saveCAL(){
-    saveCAL(CAL);
+    public boolean saveCAL(){
+        return this.calStore.saveCAL(cal);
     }
     }
 
 # 6. Integration and Demo 
 
-*In this section, it is suggested to describe the efforts made to integrate this functionality with the other features of the system.*
-
+In relation with the US7, the team assumed it was better that the worker knew where he worked than to the CAL to know all it's employees.
 
 # 7. Observations
 
-* Questions posed to client and waiting 
 
-
+In this US it's assumed that the administrator is logged in the System with validated access. 
+Because of this the team didn't felt the need to add information about these steps in this US.
 
 
 
