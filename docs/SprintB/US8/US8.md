@@ -138,9 +138,74 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 * **Validation**
 
+  * CALStore 
+  
+
+      @Test
+      public void testValidateCAL() {
+      //preparations
+      CAL cal1 = new CAL("11asd","labNams",12345678524L,"Adress",1234567891,true);
+      CAL cal2 = new CAL("11a85","labNams",12345678523L,"Adress",1234567891,true);
+
+        CALStore calList = new CALStore();
+
+
+        boolean b = calList.validateCAL(cal1);
+
+        //testing
+        assertEquals(true,b);
+        calList.saveCAL(cal1);
+        assertEquals(false,calList.validateCAL(cal2));
+
+       }
+
 * **Adding**
 
-* **Getting Store**
+  * CALStore
+
+
+        @Test
+        public void saveCAL() {
+        CAL cal1 = new CAL("11asd","labNams",12345678524L,"Adress",1234567891L,true);
+        CAL cal2 = new CAL("11a85","labNams",12345678523L,"Adress",1234567891L,true);
+        CAL cal3 = new CAL("11aqw","labNams",12345688523L,"Route X",2234567891L,false);
+
+        CALStore calList = new CALStore();
+
+
+        boolean b = calList.saveCAL(cal1);
+
+        //testing
+        assertEquals(false,calList.validateCAL(cal1));
+        assertEquals(false,calList.validateCAL(cal2));
+        assertEquals(true,calList.validateCAL(cal3));
+        }
+
+* **Getting**
+  * Company
+
+
+        @Test
+        public void testGetCalStore() {
+        //preparations
+        CAL cal1 = new CAL("11asd","labNams",12345678524L,"Adress",1234567891,true);
+        CAL cal2 = new CAL("11asd","labNams",12345678524L,"Adress",1234567891,true);
+        CALStore calList = new CALStore();
+        Company comp1 = new Company("asd");
+        Company comp2 = new Company("qwe");
+        calList.saveCAL(cal1);
+        comp1.setCalStore(calList);
+        comp2.setCalStore(calList);
+        CALStore calList2 = calList;
+
+        //testing
+        assertEquals(comp1.getCalStore(),comp2.getCalStore());
+        calList2.saveCAL(cal2);
+        comp2.setCalStore(calList2);
+        assertEquals(comp1.getCalStore(),comp2.getCalStore());
+        calList.saveCAL(cal2);
+        assertEquals(comp1.getCalStore(),(comp2.getCalStore()));
+        }
 
 *It is also recommended to organize this content by subsections.* 
 

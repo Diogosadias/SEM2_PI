@@ -50,7 +50,7 @@ public class Company {
     }
 
     public CALStore getCalStore() {
-        return calStore;
+        return this.calStore;
     }
 
     public void setCalStore(CALStore calStore) {
