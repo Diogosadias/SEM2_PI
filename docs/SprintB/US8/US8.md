@@ -298,42 +298,43 @@ Other software classes (i.e. Pure Fabrication) identified:
     }
 
 
-    private void checkLabIDrules(String labId) {
-    if (labId.length() == 0)
-    throw new IllegalArgumentException("Laboratory Id cannot be blank.");
-    if ( labId.length() != 5)
-    throw new IllegalArgumentException("Lab Id must have 5 chars.");
+     public void checkLabIDrules(String labId) {
+        if (labId.length() == 0)
+            throw new IllegalArgumentException("Laboratory Id cannot be blank.");
+        if ( labId.length() != 5)
+            throw new IllegalArgumentException("Lab Id must have 5 chars.");
     }
 
-    private void checkaddressrules(String address) {
-    if (address.length() == 0)
-    throw new IllegalArgumentException("Address cannot be blank.");
-    if ( address.length() > 30)
-    throw new IllegalArgumentException("Address must have no more than 30 characters.");
+    public void checkaddressrules(String address) {
+        if (address.length() == 0)
+            throw new IllegalArgumentException("Address cannot be blank.");
+        if ( address.length() > 30)
+            throw new IllegalArgumentException("Address must have no more than 30 characters.");
     }
 
-    private void checkphoneNumberrules(int phoneNumber) {
-    String temp = String.valueOf(phoneNumber);
-    if (temp.length() == 0)
-    throw new IllegalArgumentException("Phone Number cannot be blank.");
-    if ( temp.length() != 11)
-    throw new IllegalArgumentException("Phone Number must have 11 chars.");
+    public void checkphoneNumberrules(long phoneNumber) {
+        String temp = String.valueOf(phoneNumber);
+        if (temp.length() == 0)
+            throw new IllegalArgumentException("Phone Number cannot be blank.");
+        if ( temp.length() != 11)
+            throw new IllegalArgumentException("Phone Number must have 11 chars.");
     }
-       
-    private void checkTINrules(int tin) {
-    String temp = String.valueOf(tin);
-    if (temp.length() == 0)
-    throw new IllegalArgumentException("TIN cannot be blank.");
-    if ( temp.length() != 10)
-    throw new IllegalArgumentException("TIN must have 10 chars.");
+
+    public void checkTINrules(long tin) {
+        String temp = String.valueOf(tin);
+        if (temp.length() == 0)
+            throw new IllegalArgumentException("TIN cannot be blank.");
+        if ( temp.length() != 10)
+            throw new IllegalArgumentException("TIN must have 10 chars.");
     }
-    
-    private void checkNamerules(String labName) {
-    if (labName.length() == 0)
-    throw new IllegalArgumentException("Laboratory Name cannot be blank.");
-    if ( labName.length() > 20)
-    throw new IllegalArgumentException("Laboratory Name must have no more than 20 characters.");
+
+    public void checkNamerules(String labName) {
+        if (labName.length() == 0)
+            throw new IllegalArgumentException("Laboratory Name cannot be blank.");
+        if ( labName.length() > 20)
+            throw new IllegalArgumentException("Laboratory Name must have no more than 20 characters.");
     }
+
 
     }
 
