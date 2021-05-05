@@ -9,6 +9,7 @@ import java.util.List;
  * @author Paulo Maio <pam@isep.ipp.pt>
  * @author Tom�s Pinto <1181835@isep.ipp.pt>
  * @author Gil <1180838@isep.ipp.pt>
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
  */
 
 public class AdminUI implements Runnable{
@@ -26,6 +27,7 @@ public class AdminUI implements Runnable{
         options.add(new MenuItem("Delete type of test", new ShowTextUI("You have chosen option E")));
         options.add(new MenuItem("New Parameter", new SpecifyNewParameterUI()));
         options.add(new MenuItem("New Parameter Category", new CreateNewParameterUI()));
+        options.add(new MenuItem("List Parameter Categories", new ListParameterCategoryUI()));
         options.add(new MenuItem("Register employee", new RegisterEmployeeUI()));
         options.add(new MenuItem("Register new Clinical Analysis Laboratory", new RegisterNewCALUI()));
 
