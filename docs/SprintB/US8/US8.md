@@ -125,20 +125,35 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 ### **Creation**
 
+* RegisterNewCALController
+
+
+      @Test
+      public void testRegisterNewCAL() {
+        //arrange
+        RegisterNewCALController controller = new RegisterNewCALController();
+        //preparing
+        boolean b1 = controller.registerNewCAL("11asd","labNams",12345678524L,"Adress",1234567891,true);
+
+
+        //testing
+        assertEquals(true,b1);
+        try{
+            controller.registerNewCAL("11as","labNams",12345678524L,"Adress",1234567891,true);
+            fail();
+        }catch(IllegalArgumentException ex){
+            assertEquals("Lab Id must have 5 chars.",ex.getMessage());
+        }
 
 
 
-**Test 1:** Check that it is not possible to create an instance of the Example class with null values. 
 
-	@Test(expected = IllegalArgumentException.class)
-		public void ensureNullIsNotAllowed() {
-		Exemplo instance = new Exemplo(null, null);
-	}
+	
 
 
-* **Validation**
+### **Validation**
 
-  * CALStore 
+* CALStore 
   
 
       @Test
@@ -159,7 +174,118 @@ Other software classes (i.e. Pure Fabrication) identified:
 
        }
 
-* **Adding**
+
+
+
+
+  * CAL
+
+
+        @Test
+       public void testCheckLabIDrules() {
+        //arrange
+        //testing
+
+        try{
+            CAL cal = new CAL("11as","labName",12345678524L,"Adress",1234567891,true);
+            fail();
+        }catch(IllegalArgumentException ex){
+            assertEquals("Lab Id must have 5 chars.",ex.getMessage());
+        }
+        try{
+            CAL cal = new CAL("11as12","labName",12345678524L,"Adress",1234567891,true);
+            fail();
+        }catch(IllegalArgumentException ex){
+            assertEquals("Lab Id must have 5 chars.",ex.getMessage());
+        }
+        try{
+            CAL cal = new CAL("","labName",12345678524L,"Adress",1234567891,true);
+            fail();
+        }catch(IllegalArgumentException ex){
+            assertEquals("Laboratory Id cannot be blank.",ex.getMessage());
+        }
+        }
+
+        @Test
+        public void testCheckaddressrules() {
+        //arrange
+        //testing
+
+        try{
+            CAL cal = new CAL("11asa","labName",12345678524L,"",1234567891,true);
+            fail();
+        }catch(IllegalArgumentException ex){
+            assertEquals("Address cannot be blank.",ex.getMessage());
+        }
+        try{
+            CAL cal = new CAL("11as1","labName",12345678524L,"Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",1234567891,true);
+            fail();
+        }catch(IllegalArgumentException ex){
+            assertEquals("Address must have no more than 30 characters.",ex.getMessage());
+        }
+
+        }
+
+        @Test
+        public void testCheckphoneNumberrules() {
+        //arrange
+        //testing
+
+        try{
+            CAL cal = new CAL("11asa","labName",0,"asasa",1234567891,true);
+            fail();
+        }catch(IllegalArgumentException ex){
+            assertEquals("Phone Number must have 11 chars.",ex.getMessage());
+        }
+        try{
+            CAL cal = new CAL("11as1","labName",2345678524L,"asasa ",1234567891,true);
+            fail();
+        }catch(IllegalArgumentException ex){
+            assertEquals("Phone Number must have 11 chars.",ex.getMessage());
+        }
+        try{
+            CAL cal = new CAL("11as1","labName",234567238524L,"asasa ",1234567891,true);
+            fail();
+        }catch(IllegalArgumentException ex){
+            assertEquals("Phone Number must have 11 chars.",ex.getMessage());
+        }
+        }
+
+        @Test
+        public void testCheckTINrules() {
+        //arrange
+
+        //testing
+
+        try{
+            CAL cal = new CAL("11as1","labName",23672318524L,"asasa ",123467891,true);
+            fail();
+        }catch(IllegalArgumentException ex){
+            assertEquals("TIN must have 10 chars.",ex.getMessage());
+        }
+        }
+
+        @Test
+        public void testCheckNamerules() {
+        //arrange
+        //testing
+        try{
+        CAL cal = new CAL("11as1","",23672318524L,"asasa ",1231467891,true);
+        fail();
+        }catch(IllegalArgumentException ex){
+        assertEquals("Laboratory Name cannot be blank.",ex.getMessage());
+        }
+        try{
+        CAL cal = new CAL("11as1","Lorem Ipsum is simply dummy text of the printing and typesetting industry.",23672318524L,"asasa ",1231467891,true);
+        fail();
+        }catch(IllegalArgumentException ex){
+        assertEquals("Laboratory Name must have no more than 20 characters.",ex.getMessage());
+        }
+        }
+
+
+
+###**Adding**
 
   * CALStore
 
@@ -181,7 +307,29 @@ Other software classes (i.e. Pure Fabrication) identified:
         assertEquals(true,calList.validateCAL(cal3));
         }
 
-* **Getting**
+* RegisterNewCALController
+
+      
+        @Test
+        public void testSaveCAL() {
+        //arrange
+        RegisterNewCALController controller = new RegisterNewCALController();
+        CAL cal = new CAL("11as2","labName",23672118524L,"wsasa ",1334678921,true);
+        controller.registerNewCAL("11as1","labName",23672318524L,"asasa ",1234678921,true);
+        //preparing
+        boolean b1 = controller.saveCAL();
+
+        //testing
+        assertEquals(true,b1);
+        controller.registerNewCAL("11as2","labName",23672118524L,"wsasa ",1334678921,true);
+        assertEquals(true,controller.saveCAL());
+        controller.registerNewCAL("11as2","labName",23672118524L,"wsasa ",1334678921,true);
+        assertEquals(false,controller.saveCAL());
+
+        }
+
+
+### **Getting**
   * Company
 
 
