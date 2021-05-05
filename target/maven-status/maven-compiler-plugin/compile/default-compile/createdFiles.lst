@@ -1,5 +1,0 @@
-app\domain\model\EmployeeStore.class
-app\controller\RegisterEmployeeController.class
-app\ui\console\RegisterEmployeeUI.class
-app\controller\CreateClientController.class
-app\ui\console\CreateClientUI.class
