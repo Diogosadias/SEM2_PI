@@ -37,19 +37,19 @@ public class CreateClientController {
 
         if(!this.clientStore.validateClient(this.rc)){return false;}
 
-        saveClient(this.rc,testpass);
+        saveClient(testpass);
         return true;
 
     }
 
 
-    public boolean saveClient(Client rc,String pwd){
+    public boolean saveClient(String pwd){
         return this.clientStore.saveClient(this.rc, pwd);
     }
 
     public void writeClient(){
-        System.out.println(clientStore.getClientList().size());
+
         for(Client c : clientStore.getClientList())
-            System.out.println(c);
+            System.err.println(c);
     }
 }

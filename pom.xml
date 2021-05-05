@@ -122,4 +122,5 @@
 	    <scope>test</scope>
         </dependency>
     </dependencies>
+    <name>LAPR2_G44</name>
 </project>

@@ -53,16 +53,14 @@ Phone number: which lenght/format?  - 11 digit number"
 
 ### 1.3. Acceptance Criteria
 
-* AC1 : When registering a client, all fields except phone number need to be fulfilled.
-* AC2 : When registering a client, the receptionist needs to be logged in.
-* AC3 : No client can be created with the same Citizen Card, NHS or TIN number.
-* AC4 : When the Client is registered, a ten digit alphanumeric password should be randomly generated. 
-* AC5 : The Client must become a system user.
-* ACX : The user story ends successfully when a client is registered and associated with a test.
+* AC1 : All attributes can not be empty.
+* AC2 : No client can be created with the same Citizen Card, NHS or TIN number.
+* AC3 : When the Client is registered, a ten digit alphanumeric password should be randomly generated. 
+* AC4 : The Client must become a system user.
 
 ### 1.4. Found out Dependencies
 
-*Identify here any found out dependency to other US and/or requirements.*
+This US needs to use the methods and facilities of the Authentication System to Work.
 
 ### 1.5 Input and Output Data
 
@@ -109,13 +107,14 @@ Phone number: which lenght/format?  - 11 digit number"
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1: Starts new client registration  		 |			...creating a new client?				 |   Recepcionist         | Creator                             |
-|Step 2: Requests user data(name, email, pswd) | ...creating a new user? | User | IE:The Object has its own data
-| Step 3: requests data(NHS,citizenCard,TIN,birthDate,sex,phoneNumber)  		 |				n/a			 |             |                              |
-| Step 4: types requested data 		 |	...validating input data?						 |    CreateClientStore         | Store: The class saves and validates the data                           |
-| Step 5: shows the data and requested information 		 |	...saving the data globally?						 |  CreateClientStore          |   IE: responsible for user interaction                    |
-| Step 6:confirms the data		 |		n/a				 |        |                           |
-| Step 7:informs operation success  		 |	...informing operation success?						 |      UI       |     IE: responsible for user interaction                         |              
+| Step 1: registers new Client 		 |			...creating a new client?				 |   Receptionist -> CreateClientStore        | Based on the Creator standard (Receptionist used to store the list of all Client ) on the MD, the responsibility is attributed to the Receptionist. By application of HC + LC in Receptionist the responsibility is delegated to CreateClientStore                           |
+| Step 2: requests data(i.e., Name, citizenCard, NHS number,TIN,birthDate,gender,phoneNumber)  		 |				n/a			 |             |                              |
+| Step 3: types requested data 		 |	...saving input data?						 |    Client         | IE:the object created in the first step has knowledge of its own data.                      |
+| Step 4: shows the data and requested confirmation 		 |	...validating the data according to AC?						 |  Client          |   IE: Know its own creation rules.                  |
+| Step 4: shows the data and requested confirmation 		 |	...validating the data persistence?						 |  Receptionist -> CreateClientStore          |   Based on the IE (Receptionist used to know all the Client Objects ) but, with the application of HC+LC in Receptionist, the responsibility it's know delegated to CreateClientStore                  |
+| Step 5: confirms the data		 |		...saving the Client registered?				 |  Receptionist -> CreateClientStore      |        Based on the IE standard on the MD, the responsibility is attributed to the Receptionist. By application of HC + LC in Receptionist the responsibility is delegated to CreateClientStore, as previously stated.                   |
+| Step 5: confirms the data		 |		...create Client as a User of the System?				 |   AuthFacade     |    IE:As the information regarding this procedure                       |
+| Step 6: informs operation success  		 |	...informing operation success?						 |      CreateClientUI       |     IE: responsible for user interaction                         |              
 
 ### Systematization ##
 
@@ -123,12 +122,15 @@ According to the taken rationale, the conceptual classes promoted to software cl
 
  * User
  * Client
-*Recepcionist
+ * Receptionist
+ * Company
 
 Other software classes (i.e. Pure Fabrication) identified: 
- * ClientUI  
- * ClientController
- * ClientStore (HC+LC)
+ * ClientUI  (UI)
+ * ClientController (Controller)
+ * CreateClientStore (HC+LC)
+ * AuthFacade
+
 
 ## 3.2. Sequence Diagram (SD)
 
@@ -160,87 +162,16 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 *In this section, it is suggested to provide, if necessary, some evidence that the construction/implementation is in accordance with the previously carried out design. Furthermore, it is recommeded to mention/describe the existence of other relevant (e.g. configuration) files and highlight relevant commits.*
 
-*It is also recommended to organize this content by subsections.*
+_In order to have a more coherent and faster application, the coding team proposed some changes to our Designs. Most of them are related with the storage of Client information. Instead of being stored in association with the Receptionist, they suggest it should be stored in a higher level (Company)._
+
 
 **CreateClientUI:**
 
 In this class, the UI will ask the user information about the client, with that done, it will send it to the controller, so it can get the information to warn the user if the Client got successfully into the system.
 
 
-    public class CreateClientUI implements Runnable{
-    
-    public CreateClientUI()
-    {}
-
-    
-    public void run() {
-
-        String name;
-        String id;
-    
-        String password = null;
-        long nhs;
-        long citizenCard;
-        long tin;
-        String birthDate;
-        String sex;
-        long pNumber;
-
-
-        Scanner read = new Scanner(System.in);
-
-        System.out.println("\n\nCreate New Client:");
-
-        try {
-            System.out.print("Name: ");
-            name = read.next();
-
-            System.out.print("Email: ");
-            id = read.next();
-
-
-            System.out.print("Password: ");
-            password = read.next();
-
-            System.out.print("National Health Service: ");
-            nhs = read.nextLong();
-
-            System.out.print("Citizen Card: ");
-            citizenCard = read.nextLong();
-
-            System.out.print("TIN: ");
-            tin = read.nextLong();
-
-            System.out.print("Birth Date: ");
-            birthDate = read.next();
-
-            System.out.print("Sex: ");
-            sex = read.next();
-
-            System.out.print("Phone Number: ");
-            pNumber = read.nextLong();
-
-
-
-
-
-            CreateClientController controllerClient = new CreateClientController();
-
-
-            boolean validate = controllerClient.createClient(id,name,nhs,citizenCard,tin,birthDate,sex,pNumber,password);
-            if(validate)
-                System.out.println("Succesfully Registered the Client");
-
-
-        }catch (InputMismatchException ex){
-            System.out.println("Data input error");
-        }catch (IllegalArgumentException ex){
-            System.out.println("Invalid data input");
-        }
-
-
-
-    }
+      public class CreateClientUI {
+      }
 
 
 **Client Class:**
@@ -248,53 +179,27 @@ In this class, the UI will ask the user information about the client, with that 
 This class is the Client, object maker, it has the Client attributes, and it has the methods to validate those attributes.
 
     
-        public class Client extends User{
-        
-        
-        private int nhs;
-        private int citizenCard;
-        private int tin;
-        private String birthDate;
+        public class Client {
+               
+        private String name;
+        private Email id;
+        private long nhs;
+        private long citizenCard;
+        private long tin;
+        private Date birthDate;
         private String sex;
-        private int pNumber;
+        private long pNumber;
 
-        public Client(String name, String email, String pswd, int nhs, int citizenCard, int tin, String birthDate,String sex, int pNumber){
-        super(name,email,pswd);
+        public Client(Email id, String name, long nhs, long citizenCard, long tin, Date birthDate, String sex, long pNumber){
+
+        this.name=name;
+        this.id=id;
         this.nhs = nhs;
         this.citizenCard = citizenCard;
         this.tin = tin;
-        this.birthDate = birthDate;
+        this.birthDate = birthDate; //fazer check birthdate
         this.sex = sex;
         this.pNumber = pNumber;
-        }
-        
-        public void checkNHS(nhs){
-        String check = String.valueOf(nhs);
-        if(check.length != 10)
-        throw new IllegalArgumentException("NHS number must have 10 chars");
-        }
-
-        public void checkCitizenNumber(citizenCard){
-        String check = String.valueOf(citizenCard);
-        if(check.length != 16)
-        throw new IllegalArgumentException("Citizen number must have 16 chars");
-        }
-
-        public void checkTIN(tin){
-        String check = String.valueOf(tin);
-        if(check.length != 12)
-        throw new IllegalArgumentException("TIN must have 12 chars");
-        }
-
-        public void checkPNumber(pNumber){
-        String check = String.valueOf(pNumber);
-        if(check.length != 12)
-        throw new IllegalArgumentException("TIN must have 12 chars");
-        }
-    
-        public void checkSex(sex){
-        if(! sex.equals("Masculino) || ! sex.equals("Feminino"))
-        throw new IllegalArgumentException("Não existe esse género!");
         }
         }
 
@@ -302,11 +207,12 @@ This class is the Client, object maker, it has the Client attributes, and it has
 
 The CreateClientStore class, will save the Clients in an ArrayList so they can be called anytime when they're needed, the class will also validate and save clients into the system.
 
-        public classCreateClientStore extends Company{
+        public classCreateClientStore {
         private List<Client> clientList;
 
-        public Client createClient(String name, int nhs, int citizenCard, int tin, String birthDate,String sex, int pNumber){
-            return new Client(name,email,pswd, nhs, citizenCard; int tin, birthDate, String sex, int pNumber);
+        public Client createClient(String id, String name, long nhs, long citizenCard, long tin, String birthDate, String sex, long pNumber ){
+        Email email = new Email(id);
+        return new Client(email, name, nhs, citizenCard, tin, birthDateFormat, sex, pNumber);
         }
         
         public boolean validateClient(Client rc){
@@ -321,41 +227,21 @@ The CreateClientStore class, will save the Clients in an ArrayList so they can b
             return false
         return this.clientList.add(rc);
         }
-        
-       public Client getClientByCitizenCard(int citizenCard){
-          for(Client c : clientList){
-          if(citizenCard == c.getClientCard)
-          return c;}
-          return null;
-        }
-
         }
 
 **CreateClientController Class:**
 
 The CreateClienttController is the communicator between the CreateClientUI and the rest of the system, this class will send the Client data, sent by the user, to some CreateClientStore methods, so it can be validated.
 
-public class CreateClientController {
+    public class CreateClientController {
 
     private Company company;
-    private AuthFacade authFacade;
-    private App app;
-
     private CreateClientStore clientStore;
     Client rc;
 
-    public CreateClientController(){this(App.getInstance().getCompany());}
-
-    public CreateClientController(app.domain.model.Company company){
-        this.company = company;
-        this.authFacade = this.company.getAuthFacade();
-        this.clientStore = this.company.getCreateClientStore();
-    }
-
-
     public boolean createClient(String id, String name, long nhs, long citizenCard, long tin, String birthDate, String sex, long pNumber,String testpass){
 
-        this.rc = this.clientStore.createClient(id,name,nhs,citizenCard,tin,birthDate,sex,pNumber);
+        this.rc = this.CreateClientStore.createClient(id,name,nhs,citizenCard,tin,birthDate,sex,pNumber);
 
         if(!this.clientStore.validateClient(this.rc)){return false;}
 
@@ -365,8 +251,8 @@ public class CreateClientController {
     }
 
 
-    public boolean saveClient(Client rc,String pwd){
-        return this.clientStore.saveClient(this.rc, pwd);
+    public boolean saveClient(){
+        return this.CreateClientStore.saveClient(this.rc);
     }
 
 
@@ -375,22 +261,65 @@ public class CreateClientController {
 
     
     public class Company{
-    private CreateClientStore createClientStore;
     private String designation;
     private AuthFacade authFacade;    
 
-    public Company(String designation){
-           this.designation = designation;
-            this.authFacade = new AuthFacade();
-          this.createClientStore = new CreateClientStore(this.authFacade);
-      
+    public void getAuthFacade(){
+           return Company.authFacade;      
+    }  
     }
-    
-       public CreateClientStore getCreateClientStore() {
-        return createClientStore;
+
+**Receptionist Class**
+
+
+
+    public class Receptionist{
+    private String email;
+    private String employeeId;
+    private String name;
+    private String address;
+    private String phoneNumber;
+    private String socCode;   
+    private CreateClientStore createClientStore;
+
+
+    public void getClientStore(){
+           return createClientStore;      
+    }  
+    }
+
+**User Class**
+
+
+
+    public class User{
+    private String email;
+    private String password;
+    private String name;   
+
+    public User(String email, String password, String name){
+
+        this.name=name;
+        this.password=password; 
+        this.email=email;
     }
     }
-      
+
+**AuthFacade Class**
+
+
+
+    public class AuthFacade{   
+
+    public bollean addUser(rc){
+        String name = this.rc.name;
+        String email = this.rc.email;
+        String password = "XXXXXXXXXX"
+        User user = this.users.create(name, email,password );
+        return this.users.add(user);
+    } 
+    }
+
 
 # 6. Integration and Demo 
 
@@ -399,7 +328,9 @@ public class CreateClientController {
 
 # 7. Observations
 
-*In this section, it is suggested to present a critical perspective on the developed work, pointing, for example, to other alternatives and or future related work.*
+In this US it's assumed that the receptionist is logged in the System with validated access.
+Because of this the team didn't felt the need to add information about these steps in this US.
+
 
 
 

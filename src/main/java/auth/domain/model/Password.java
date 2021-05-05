@@ -69,4 +69,5 @@ public class Password {
         Password obj = (Password) o;
         return Objects.equals(this.password, obj.password);
     }
+
 }

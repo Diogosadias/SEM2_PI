@@ -34,7 +34,7 @@ public class EmployeeStore {
 
     public Employee create(String role, String name, String address, String phoneNumber, String socCode, int doctorIndexNumber) {
         String employeeId = generateEmployeeId(name.trim());
-        String email = employeeId + "" ;
+        String email = generateEmail(employeeId);
         return new Employee(email, employeeId, role, name.trim(), address, phoneNumber, socCode, doctorIndexNumber);
     }
 
@@ -94,18 +94,13 @@ public class EmployeeStore {
         return numEmployees++;
     }
     
-    public boolean registerEmployee(Employee emp) {
-        return this.store.add(emp);
-    }
-    
-    //save esta a fazer o mesmo que register??
     public boolean saveEmployee(Employee emp){
-//        if (validateEmployee(emp)) {
+        if (validateEmployee(emp)) {
             return this.store.add(emp);
-//        } else {
-//            System.out.println("Employee " + emp.toString() + " already exists");
-//            return false;
-//        }
+        } else {
+            System.out.println("Employee " + emp.toString() + " already exists");
+            return false;
+        }
         
     }
         

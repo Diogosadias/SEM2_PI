@@ -136,14 +136,15 @@ public class Client {//if needed use //extends User
         if (pNumber != 0) {
             String check = String.valueOf(pNumber);
             if (check.length() != 12) {
-                throw new IllegalArgumentException("TIN must have 12 chars");
+                throw new IllegalArgumentException("Phone Number must have 12 chars");
             }
         }
     }
 
     public void checkSex(String sex){
-        if(! sex.equals("Masculine") || ! sex.equals("Feminine") || ! sex.equals("M"))
-            throw new IllegalArgumentException("This genre does not exist!");
+
+        if( sex != "Masculine" &&  sex != "Feminine" && sex != "M")
+            throw new IllegalArgumentException("This gender does not exist!");
     }
 
     @Override

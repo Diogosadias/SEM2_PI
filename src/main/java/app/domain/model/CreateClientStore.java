@@ -1,5 +1,6 @@
 package app.domain.model;
 
+import app.controller.App;
 import app.domain.shared.Constants;
 import auth.AuthFacade;
 import auth.domain.model.Email;
@@ -19,11 +20,14 @@ public class CreateClientStore {
     private final List<Client> clientList;
 
     private final AuthFacade authFacade;
+    private Company company ;
 
     public CreateClientStore(AuthFacade authFacade){
         this.clientList = new ArrayList<>();
         this.authFacade = authFacade;
     }
+
+
 
     public Client createClient(String id, String name, long nhs, long citizenCard, long tin, String birthDate, String sex, long pNumber ){
         Email email = new Email(id);
@@ -50,9 +54,15 @@ public class CreateClientStore {
     }
 
 
+    public void setClientList(Client rc){
+        clientList.add(rc);
+    }
+
     public List<Client> getClientList() {
         return clientList;
     }
+
+
 
 
 }
