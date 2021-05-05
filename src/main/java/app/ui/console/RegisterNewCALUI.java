@@ -89,7 +89,7 @@ public class RegisterNewCALUI implements Runnable{
                 }
             }
 
-            if(this.registerNewCALController.createCAL(labId, labName, phoneNumber, address, tin, covidTestFlag)){
+            if(this.registerNewCALController.registerNewCAL(labId, labName, phoneNumber, address, tin, covidTestFlag)){
                 this.registerNewCALController.saveCAL();
                 System.out.println("Clinical Analysis Lab registered successfully!");
             }else{

@@ -1,7 +1,6 @@
 package app.domain.model;
 
 import java.util.List;
-import java.lang.Long;
 
 /**
  *  CAL - Domain class representing a Clinical Analysis Laboratory
@@ -14,7 +13,7 @@ public class CAL {
     private String labName;
     private String address;
     private long phoneNumber;
-    private int tinNumber;
+    private long tinNumber;
     private boolean performsCovidTest;
     private String laboratoryId;
     private List<TestType> testsAvailable;
@@ -28,7 +27,7 @@ public class CAL {
      * @param tin
      * @param answer
      */
-    public CAL(String labId, String labName, long phoneNumber, String address, int tin, boolean answer){
+    public CAL(String labId, String labName, long  phoneNumber, String address, long tin, boolean answer){
         checkLabIDrules(labId);
         checkaddressrules(address);
         checkphoneNumberrules(phoneNumber);
@@ -66,7 +65,7 @@ public class CAL {
             throw new IllegalArgumentException("Phone Number must have 11 chars.");
     }
 
-    private void checkTINrules(int tin) {
+    private void checkTINrules(long tin) {
         String temp = String.valueOf(tin);
         if (temp.length() == 0)
             throw new IllegalArgumentException("TIN cannot be blank.");
@@ -94,7 +93,7 @@ public class CAL {
     public long getPhoneNumber(){
         return phoneNumber;
     }
-    public int getTinNumber(){
+    public long getTinNumber(){
         return tinNumber;
     }
     public boolean getPerformsCovidTest(){

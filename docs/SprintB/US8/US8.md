@@ -123,7 +123,10 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 **_DO NOT COPY ALL DEVELOPED TESTS HERE_**
 
-* **Creation**
+### **Creation**
+
+
+
 
 **Test 1:** Check that it is not possible to create an instance of the Example class with null values. 
 
@@ -158,6 +161,10 @@ Other software classes (i.e. Pure Fabrication) identified:
     public CALStore getCalStore() {
         return calStore;
     }
+
+    public void setCalStore(CALStore calStore) {
+        this.calStore = calStore;
+    }
     }
 
 
@@ -166,11 +173,13 @@ Other software classes (i.e. Pure Fabrication) identified:
 
     public class CALStore {
     private ArrayList<CAL> calList;
+
+
     public CALStore(){
-        calList = new ArrayList<>();
+        calList = new ArrayList<CAL>();
     }
 
-    public CAL registerNewCAL(String labId, String labName, int phoneNumber, String address, int tin, boolean answer ){
+    public CAL registerNewCAL(String labId, String labName, long phoneNumber, String address, int tin, boolean answer ){
         return new CAL(labId, labName, phoneNumber, address, tin, answer);
     }
 
@@ -201,18 +210,19 @@ Other software classes (i.e. Pure Fabrication) identified:
     public class CAL{
     private String labName;
     private String address;
-    private int phoneNumber;
+    private long phoneNumber;
     private int tinNumber;
     private boolean performsCovidTest;
     private String laboratoryId;
+    private List<TestType> testsAvailable;
 
     
-    public CAL(String labId, String labName, int phoneNumber, String address, int tin, boolean answer){
+    public CAL(String labId, String labName, long phoneNumber, String address, int tin, boolean answer){
         checkLabIDrules(labId);
         checkaddressrules(address);
         checkphoneNumberrules(phoneNumber);
         checkTINrules(tin);
-        checkNamerules(labname);
+        checkNamerules(labName);
         
         this.laboratoryId=labId;
         this.labName = labName;
@@ -279,7 +289,7 @@ Other software classes (i.e. Pure Fabrication) identified:
     private CALStore calStore;
     
         
-    public boolean registerNewCAL(String labId, String labName, int phoneNumber, String address, int tin, boolean answer){
+    public boolean registerNewCAL(String labId, String labName, long phoneNumber, String address, int tin, boolean answer){
         this.cal = this.calStore.registerNewCAL(labId, labName, phoneNumber, address, tin, answer);
         return this.calStore.validateCAL(this.cal);
     }

@@ -15,26 +15,26 @@ public class CALStore {
      * Create Store instance with empty array.
      */
     public CALStore(){
-        calList = new ArrayList<CAL>();
+        calList = new ArrayList<>();
     }
 
     /**
      * Creates a CAL instance and returns it.
-     * @param labId
-     * @param labName
-     * @param phoneNumber
-     * @param address
-     * @param tin
-     * @param answer
+     * @param labId - Laboratory Id
+     * @param labName - Laboratory Name
+     * @param phoneNumber - Laboratory Phone Number
+     * @param address - Laboratory address
+     * @param tin - Laboratory TIN
+     * @param answer - Answer if Laboratory performs Covid-19 tests
      * @return CAL
      */
-    public CAL registerNewCAL(String labId, String labName, long phoneNumber, String address, int tin, boolean answer ){
+    public  CAL registerNewCAL(String labId, String labName, long phoneNumber, String address, int tin, boolean answer){
         return new CAL(labId, labName, phoneNumber, address, tin, answer);
     }
 
     /**
      * Validates CAL attributes for business model rules
-     * @param cal
+     * @param cal - Clinical Analysis Laboratory
      * @return boolean
      */
     public boolean validateCAL(CAL cal){
@@ -51,7 +51,7 @@ public class CALStore {
 
     /**
      * Saves the new CAL
-     * @param cal
+     * @param cal - Clinical Analysis Laboratory
      * @return boolean
      */
     public boolean saveCAL(CAL cal){
