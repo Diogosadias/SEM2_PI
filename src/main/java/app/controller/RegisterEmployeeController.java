@@ -19,6 +19,7 @@ public class RegisterEmployeeController {
 
     private Company company;
     private EmployeeStore estore;
+    private Employee emp;
 
     public RegisterEmployeeController() {
          if (!App.getInstance().getCurrentUserSession().isLoggedInWithRole(Constants.ROLE_ADMIN)) {
@@ -37,30 +38,35 @@ public class RegisterEmployeeController {
         return this.estore;
     }
 
-    public boolean registerEmployee(Employee employee) {
-        //generate id
-        employee.setEmployeeId(this.estore.generateEmployeeId(employee.getName()));
+    public boolean registerEmployee(String orgRole, String name, String adress, String phoneNumber, String socCode, int doctorIndexNumber) {
         
-        //generate email
-        employee.setEmail(this.estore.generateEmail(employee.getEmployeeId()));
-        
-        //register employee
-        return this.estore.registerEmployee(employee);
+        this.emp = this.estore.create(orgRole, name, adress, phoneNumber, socCode, doctorIndexNumber);        
+        return this.estore.validateEmployee(this.emp);        
     }
     
-    public boolean saveEmployee(Employee emp) {
+    public boolean saveEmployee() {
         //validates and saves employee
-        this.estore.saveEmployee(emp); 
+        this.estore.saveEmployee(this.emp); 
+        System.out.println("AQUIIIIIIIIIIIII");
         //saves employee user - password é o id????
         return this.company.getAuthFacade().addUserWithRole(emp.getName(), emp.getEmail(), emp.getEmployeeId(), emp.getRole().getDesignation());
 
     }
+
+    public Employee getEmployee() {
+        return this.emp;
+    }
     
-    //not done
-    public String getEmployeeToString(Employee emp)
+    
+    public String getEmployeeToString()
     {
-        return ("[name: " + emp.getName() + "]\n" + "[adress: " + emp.getAddress()+ "]\n" +
-                "[email: " + emp.getEmail()+ "]\n" + "[id: " + emp.getEmployeeId()+ "]\n" +
-                "[phone number: " + emp.getPhoneNumber()+ "]\n" + "[soc code: " + emp.getSocCode()+ "]\n" );
+        return ("[name: " + this.emp.getName() + "]\n" + "[adress: " + this.emp.getAddress()+ "]\n" +
+                "[email: " + this.emp.getEmail()+ "]\n" + "[id: " + this.emp.getEmployeeId()+ "]\n" +
+                "[phone number: " + this.emp.getPhoneNumber()+ "]\n" + "[soc code: " + this.emp.getSocCode()+ "]\n" +
+                "[doctor index code: " + getEmployeeDoctorIndexCode() + "]\n");
+    }
+    
+    public int getEmployeeDoctorIndexCode(){
+        return this.emp.getRole().getDoctorIndexNumber();
     }
 }
