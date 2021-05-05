@@ -2,12 +2,24 @@ package app.domain.model;
 
 import java.util.ArrayList;
 
+/**
+ *
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
+ */
+
 public class TestType extends SpecifyNewTestStore {
 
     private String code;
     private String description;
     private String collectingMethod;
     private ArrayList<ParameterCategoryStore> parameterList;
+
+    /**
+     * Constructor TestType
+     * @param code
+     * @param description
+     * @param collectingMethod
+     */
 
     public TestType(String code, String description, String collectingMethod) {
         try {
