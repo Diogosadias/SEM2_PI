@@ -32,19 +32,80 @@ public class CALTest {
     }
 
     @Test
-    public void checkaddressrules() {
+    public void testCheckaddressrules() {
+        //arrange
+        //testing
+
+        try{
+            CAL cal = new CAL("11asa","labName",12345678524L,"",1234567891,true);
+            fail();
+        }catch(IllegalArgumentException ex){
+            assertEquals("Address cannot be blank.",ex.getMessage());
+        }
+        try{
+            CAL cal = new CAL("11as1","labName",12345678524L,"Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",1234567891,true);
+            fail();
+        }catch(IllegalArgumentException ex){
+            assertEquals("Address must have no more than 30 characters.",ex.getMessage());
+        }
+
     }
 
     @Test
-    public void checkphoneNumberrules() {
+    public void testCheckphoneNumberrules() {
+        //arrange
+        //testing
+
+        try{
+            CAL cal = new CAL("11asa","labName",0,"asasa",1234567891,true);
+            fail();
+        }catch(IllegalArgumentException ex){
+            assertEquals("Phone Number must have 11 chars.",ex.getMessage());
+        }
+        try{
+            CAL cal = new CAL("11as1","labName",2345678524L,"asasa ",1234567891,true);
+            fail();
+        }catch(IllegalArgumentException ex){
+            assertEquals("Phone Number must have 11 chars.",ex.getMessage());
+        }
+        try{
+            CAL cal = new CAL("11as1","labName",234567238524L,"asasa ",1234567891,true);
+            fail();
+        }catch(IllegalArgumentException ex){
+            assertEquals("Phone Number must have 11 chars.",ex.getMessage());
+        }
     }
 
     @Test
-    public void checkTINrules() {
+    public void testCheckTINrules() {
+        //arrange
+
+        //testing
+
+        try{
+            CAL cal = new CAL("11as1","labName",23672318524L,"asasa ",123467891,true);
+            fail();
+        }catch(IllegalArgumentException ex){
+            assertEquals("TIN must have 10 chars.",ex.getMessage());
+        }
     }
 
     @Test
-    public void checkNamerules() {
+    public void testCheckNamerules() {
+        //arrange
+        //testing
+        try{
+            CAL cal = new CAL("11as1","",23672318524L,"asasa ",1231467891,true);
+            fail();
+        }catch(IllegalArgumentException ex){
+            assertEquals("Laboratory Name cannot be blank.",ex.getMessage());
+        }
+        try{
+            CAL cal = new CAL("11as1","Lorem Ipsum is simply dummy text of the printing and typesetting industry.",23672318524L,"asasa ",1231467891,true);
+            fail();
+        }catch(IllegalArgumentException ex){
+            assertEquals("Laboratory Name must have no more than 20 characters.",ex.getMessage());
+        }
     }
 
     @Test

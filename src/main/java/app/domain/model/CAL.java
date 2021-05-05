@@ -43,6 +43,9 @@ public class CAL {
     }
 
     //rulecheckers:
+    /*
+    This checker may need to be private
+     */
     public void checkLabIDrules(String labId) {
         if (labId.length() == 0)
             throw new IllegalArgumentException("Laboratory Id cannot be blank.");
@@ -59,8 +62,6 @@ public class CAL {
 
     public void checkphoneNumberrules(long phoneNumber) {
         String temp = String.valueOf(phoneNumber);
-        if (temp.length() == 0)
-            throw new IllegalArgumentException("Phone Number cannot be blank.");
         if ( temp.length() != 11)
             throw new IllegalArgumentException("Phone Number must have 11 chars.");
     }
