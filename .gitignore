@@ -11,7 +11,7 @@ Sem2App.iml
 .idea/libraries/Maven__junit_junit_4_12.xml
 .idea/libraries/Maven__org_apache_commons_commons_lang3_3_5.xml
 .idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml
-target
+target/
 docs/SprintA/DUC.vpp.bak_000f
 docs/SprintB/US3/US3 SD.vpp.bak_000f
 docs/SprintB/DUC.vpp.bak_001d
