@@ -6,7 +6,10 @@ import app.ui.console.utils.Utils;
 import javax.swing.plaf.TextUI;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ *
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
+ */
 public class ClientUI implements Runnable{
 
 

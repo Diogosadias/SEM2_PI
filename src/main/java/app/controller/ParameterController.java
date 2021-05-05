@@ -2,6 +2,10 @@ package app.controller;
 
 import app.domain.model.*;
 
+/**
+ *
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
+ */
 public class ParameterController {
 
     private Company company;

@@ -5,6 +5,10 @@ import app.domain.model.Company;
 import app.domain.model.CreateClientStore;
 import auth.AuthFacade;
 
+/**
+ *
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
+ */
 public class CreateClientController {
 
     private Company company;

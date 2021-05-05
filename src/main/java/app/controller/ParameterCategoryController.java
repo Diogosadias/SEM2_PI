@@ -2,6 +2,10 @@ package app.controller;
 
 import app.domain.model.*;
 
+/**
+ *
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
+ */
 public class ParameterCategoryController {
 
 
@@ -34,7 +38,7 @@ public class ParameterCategoryController {
 
     }
 
-    public void writeParameters(){
+    public void writeParameterCategories(){
         System.out.println(pcs.toString());
 
     }

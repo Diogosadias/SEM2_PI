@@ -1,5 +1,9 @@
 package app.domain.model;
 
+/**
+ *
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
+ */
 public class Parameter {
     private String code;
     private String name;

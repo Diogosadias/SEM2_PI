@@ -3,6 +3,11 @@ package app.domain.model;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ *
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
+ */
 public class ParameterStore {
     private List<Parameter> parameterList = new ArrayList<>();
 

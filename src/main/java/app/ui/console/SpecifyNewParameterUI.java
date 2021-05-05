@@ -6,6 +6,10 @@ import app.domain.model.Parameter;
 
 import java.util.Scanner;
 
+/**
+ *
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
+ */
 public class SpecifyNewParameterUI implements Runnable{
     public SpecifyNewParameterUI() {
 
@@ -33,9 +37,10 @@ public class SpecifyNewParameterUI implements Runnable{
 
         //fazer trim() dos nomes, e tambem verificar se name tem numeros ou se code tem caracteres especiais....(extras)
 
+
         System.out.println("\nSelect parameter category: ");
         ParameterCategoryController pc = new ParameterCategoryController();
-        pc.writeParameters();
+        pc.writeParameterCategories();
 
 
         System.out.print("\n->");
@@ -46,10 +51,9 @@ public class SpecifyNewParameterUI implements Runnable{
 
         if(created){
             System.out.println("Parameter Created!");
-            p.writeParameters();
         }
         else {
-            System.out.println("Unsuccesfully created the Parameter Category");
+            System.out.println("Unsuccesfully created the Parameter");
         }
     }
 }

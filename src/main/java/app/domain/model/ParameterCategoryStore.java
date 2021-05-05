@@ -3,6 +3,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ *
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
+ */
 public class ParameterCategoryStore {
 
     private List<ParameterCategory> parameterCategoryList = new ArrayList<>();
