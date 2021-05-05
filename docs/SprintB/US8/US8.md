@@ -145,7 +145,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 *In this section, it is suggested to provide, if necessary, some evidence that the construction/implementation is in accordance with the previously carried out design. Furthermore, it is recommeded to mention/describe the existence of other relevant (e.g. configuration) files and highlight relevant commits.*
 
-*It is also recommended to organize this content by subsections.* 
+*It is also recommended organizing this content by subsections.* 
 
 * Company
 
@@ -170,7 +170,7 @@ Other software classes (i.e. Pure Fabrication) identified:
         calList = new ArrayList<>();
     }
 
-    public CAL createCAL(int labId, String labName, int phoneNumber, String address, int tin, boolean answer ){
+    public CAL registerNewCAL(String labId, String labName, int phoneNumber, String address, int tin, boolean answer ){
         return new CAL(labId, labName, phoneNumber, address, tin, answer);
     }
 
@@ -178,15 +178,10 @@ Other software classes (i.e. Pure Fabrication) identified:
         if(cal == null)
             return false;
         for (CAL cal1: this.calList) {
-            if(cal1.getLaboratoryId()==cal.getLaboratoryId() || cal1.getPhoneNumber()==cal.getPhoneNumber() ||
-                cal1.getTinNumber()==cal.getTinNumber() || cal1.getAddress().equalsIgnoreCase(cal.getAddress())){
+            if(cal1.getLaboratoryId().equals(cal.getLaboratoryId()) || cal1.getPhoneNumber()==cal.getPhoneNumber() ||
+                cal1.getTinNumber()==cal.getTinNumber() || cal1.getAddress().equals(cal.getAddress())){
                 return false;
             }
-            int length = String.valueOf(cal.getPhoneNumber()).length();
-            length += String.valueOf(cal.getTinNumber()).length();
-            length += String.valueOf(cal.getLaboratoryId()).length();
-            //phone number- 10 nº tin-10nº labID-?
-            if(length!=20) return false;
         }
         return true;
     }
@@ -209,10 +204,16 @@ Other software classes (i.e. Pure Fabrication) identified:
     private int phoneNumber;
     private int tinNumber;
     private boolean performsCovidTest;
-    private int laboratoryId;
+    private String laboratoryId;
 
     
-    public CAL(int labId, String labName, int phoneNumber, String address, int tin, boolean answer){
+    public CAL(String labId, String labName, int phoneNumber, String address, int tin, boolean answer){
+        checkLabIDrules(labId);
+        checkaddressrules(address);
+        checkphoneNumberrules(phoneNumber);
+        checkTINrules(tin);
+        checkNamerules(labname);
+        
         this.laboratoryId=labId;
         this.labName = labName;
         this.address = address;
@@ -221,14 +222,51 @@ Other software classes (i.e. Pure Fabrication) identified:
         this.performsCovidTest = answer;
     }
 
+
+    private void checkLabIDrules(String labId) {
+    if (labId.length() == 0)
+    throw new IllegalArgumentException("Laboratory Id cannot be blank.");
+    if ( labId.length() != 5)
+    throw new IllegalArgumentException("Lab Id must have 5 chars.");
+    }
+
+    private void checkaddressrules(String address) {
+    if (address.length() == 0)
+    throw new IllegalArgumentException("Address cannot be blank.");
+    if ( address.length() > 30)
+    throw new IllegalArgumentException("Address must have no more than 30 characters.");
+    }
+
+    private void checkphoneNumberrules(int phoneNumber) {
+    String temp = String.valueOf(phoneNumber);
+    if (temp.length() == 0)
+    throw new IllegalArgumentException("Phone Number cannot be blank.");
+    if ( temp.length() != 11)
+    throw new IllegalArgumentException("Phone Number must have 11 chars.");
+    }
        
+    private void checkTINrules(int tin) {
+    String temp = String.valueOf(tin);
+    if (temp.length() == 0)
+    throw new IllegalArgumentException("TIN cannot be blank.");
+    if ( temp.length() != 10)
+    throw new IllegalArgumentException("TIN must have 10 chars.");
+    }
+    
+    private void checkNamerules(String labName) {
+    if (labName.length() == 0)
+    throw new IllegalArgumentException("Laboratory Name cannot be blank.");
+    if ( labName.length() > 20)
+    throw new IllegalArgumentException("Laboratory Name must have no more than 20 characters.");
+    }
+
     }
 
 * RegisterNewCALUI
 
     
     public class RegisterNewCALUI{
-
+    public RegisterNewCALUI();
     }
 
 
@@ -240,13 +278,9 @@ Other software classes (i.e. Pure Fabrication) identified:
     private CAL cal;
     private CALStore calStore;
     
-    public RegisterNewCALController(Company company){
-        this.company = company;
-        this.calStore = company.getCalStore();
-    }
-    
-    public boolean createCAL(int labId, String labName, int phoneNumber, String address, int tin, boolean answer){
-        this.cal = this.calStore.createCAL(labId, labName, phoneNumber, address, tin, answer);
+        
+    public boolean registerNewCAL(String labId, String labName, int phoneNumber, String address, int tin, boolean answer){
+        this.cal = this.calStore.registerNewCAL(labId, labName, phoneNumber, address, tin, answer);
         return this.calStore.validateCAL(this.cal);
     }
 
