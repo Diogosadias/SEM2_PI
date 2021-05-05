@@ -15,7 +15,7 @@ public class CALStore {
      * Create Store instance with empty array.
      */
     public CALStore(){
-        calList = new ArrayList<>();
+        calList = new ArrayList<CAL>();
     }
 
     /**
@@ -28,7 +28,7 @@ public class CALStore {
      * @param answer
      * @return CAL
      */
-    public CAL createCAL(int labId, String labName, int phoneNumber, String address, int tin, boolean answer ){
+    public CAL registerNewCAL(String labId, String labName, long phoneNumber, String address, int tin, boolean answer ){
         return new CAL(labId, labName, phoneNumber, address, tin, answer);
     }
 
@@ -41,15 +41,10 @@ public class CALStore {
         if(cal == null)
             return false;
         for (CAL cal1: this.calList) {
-            if(cal1.getLaboratoryId()==cal.getLaboratoryId() || cal1.getPhoneNumber()==cal.getPhoneNumber() ||
-                cal1.getTinNumber()==cal.getTinNumber() || cal1.getAddress().equalsIgnoreCase(cal.getAddress())){
+            if(cal1.getLaboratoryId().equals(cal.getLaboratoryId()) || cal1.getPhoneNumber()==cal.getPhoneNumber() ||
+                    cal1.getTinNumber()==cal.getTinNumber() || cal1.getAddress().equals(cal.getAddress())){
                 return false;
             }
-            int length = String.valueOf(cal.getPhoneNumber()).length();
-            length += String.valueOf(cal.getTinNumber()).length();
-            length += String.valueOf(cal.getLaboratoryId()).length();
-            //phone number- 10 nº tin-10nº labID-?
-            if(length!=20) return false;
         }
         return true;
     }

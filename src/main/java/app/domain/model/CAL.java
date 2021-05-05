@@ -1,6 +1,7 @@
 package app.domain.model;
 
 import java.util.List;
+import java.lang.Long;
 
 /**
  *  CAL - Domain class representing a Clinical Analysis Laboratory
@@ -12,10 +13,10 @@ public class CAL {
 
     private String labName;
     private String address;
-    private int phoneNumber;
+    private long phoneNumber;
     private int tinNumber;
     private boolean performsCovidTest;
-    private int laboratoryId;
+    private String laboratoryId;
     private List<TestType> testsAvailable;
 
     /**
@@ -27,7 +28,7 @@ public class CAL {
      * @param tin
      * @param answer
      */
-    public CAL(int labId, String labName, int phoneNumber, String address, int tin, boolean answer){
+    public CAL(String labId, String labName, long phoneNumber, String address, int tin, boolean answer){
         this.laboratoryId=labId;
         this.labName = labName;
         this.address = address;
@@ -44,7 +45,7 @@ public class CAL {
     public String getAddress(){
         return address;
     }
-    public int getPhoneNumber(){
+    public long getPhoneNumber(){
         return phoneNumber;
     }
     public int getTinNumber(){
@@ -53,7 +54,7 @@ public class CAL {
     public boolean getPerformsCovidTest(){
         return performsCovidTest;
     }
-    public int getLaboratoryId(){
+    public String getLaboratoryId(){
         return laboratoryId;
     }
 
@@ -65,7 +66,7 @@ public class CAL {
     public void setAddress(String address){
         this.address=address;
     }
-    public void setPhoneNumber(int phoneNumber){
+    public void setPhoneNumber(long phoneNumber){
         this.phoneNumber = phoneNumber;
     }
     public void setTinNumber(int tinNumber){
@@ -74,7 +75,7 @@ public class CAL {
     public void setPerformsCovidTest(boolean performsCovidTest){
         this.performsCovidTest = performsCovidTest;
     }
-    public void setLaboratoryId(int laboratoryId){
+    public void setLaboratoryId(String laboratoryId){
         this.laboratoryId = laboratoryId;
     }
 

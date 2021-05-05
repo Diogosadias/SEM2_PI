@@ -40,7 +40,7 @@ public class RegisterNewCALUI implements Runnable{
 
             System.out.println("ID:");
 
-            int labId = reader.nextInt();//reader.read();
+            String labId = reader.nextLine();//reader.read();
 
             System.out.println("Laboratory Name:");
             reader.nextLine();
