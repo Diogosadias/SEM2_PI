@@ -57,11 +57,15 @@ public class OrganizationRoleTest {
 
         //arrange
         OrganizationRole role = new OrganizationRole("ADMINISTRATOR",11);
+        OrganizationRole rolew = new OrganizationRole("Role",14);
         Parameter parameter = new Parameter("code","parameter","description","category");
         boolean b = role.equals(new OrganizationRole("ADMINISTRATOR",12));
+        boolean b2 = rolew.equals(role);
 
         //asserts
+        assertEquals(false,role.equals(rolew));
         assertEquals(false,b);
+        assertEquals(false,b2);
         assertEquals(false,equals(parameter));
         assertEquals(true,role.equals(role));
         assertEquals(false,equals(role));
@@ -85,6 +89,8 @@ public class OrganizationRoleTest {
         else
             f = false;
         assertEquals(true, f);
+        assertEquals(true,role.hashCode() != 0);
+
 
 
     }
