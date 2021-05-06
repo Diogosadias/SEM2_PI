@@ -28,11 +28,13 @@ public class CAL {
      * @param answer
      */
     public CAL(String labId, String labName, long  phoneNumber, String address, long tin, boolean answer){
+        /*
         checkLabIDrules(labId);
         checkaddressrules(address);
         checkphoneNumberrules(phoneNumber);
         checkTINrules(tin);
         checkNamerules(labName);
+        */
 
         this.laboratoryId=labId;
         this.labName = labName;

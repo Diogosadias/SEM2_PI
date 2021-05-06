@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 public class CALTest {
-    /*
+
 
     @Test
     public void testCheckLabIDrules() {
@@ -216,5 +216,5 @@ public class CALTest {
         //assert
         assertEquals("22",cal.getLaboratoryId());
     }
-    */
+
 }
