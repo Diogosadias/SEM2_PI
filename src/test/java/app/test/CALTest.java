@@ -49,8 +49,8 @@ public class CALTest {
         assertEquals(true,cal.getPerformsCovidTest());
     }
 
-
-
+ 
+    
 
     @Test
     public void testSetLabName() {
@@ -102,6 +102,6 @@ public class CALTest {
         assertEquals(false,cal.getPerformsCovidTest());
     }
 
-
+    
 
 }
