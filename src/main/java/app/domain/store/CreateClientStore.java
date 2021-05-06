@@ -1,6 +1,8 @@
-package app.domain.model;
+package app.domain.store;
 
 import app.controller.App;
+import app.domain.model.Client;
+import app.domain.model.Company;
 import app.domain.shared.Constants;
 import auth.AuthFacade;
 import auth.domain.model.Email;
