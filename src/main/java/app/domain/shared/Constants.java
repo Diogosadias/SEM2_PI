@@ -12,4 +12,10 @@ public class Constants {
 
     public static final String PARAMS_FILENAME = "config.properties";
     public static final String PARAMS_COMPANY_DESIGNATION = "Company.Designation";
+
+    public static final String SPECIALIST_DOCTOR = "SpecialistDoctor";
+    public static final String LABORATORY_COORDINATOR = "LaboratoryCoordinator";
+    public static final String CHEMISTRY_TECHNOLOGIST = "ChemistryTechnologist";
+    public static final String MEDICAL_LAB_TECHNICIAN = "MedicalLabTechnicians";
+    public static final String RECEPTIONIST = "Receptionist";
 }
