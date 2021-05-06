@@ -41,7 +41,7 @@ public class CALStore {
         if(cal == null)
             return false;
         for (CAL cal1: this.calList) {
-            if(cal1.getLaboratoryId().equals(cal.getLaboratoryId()) || cal1.getPhoneNumber()==cal.getPhoneNumber() ||
+            if(cal1.getLaboratoryId().equals(cal.getLaboratoryId())|| cal1.getPhoneNumber()==cal.getPhoneNumber() ||
                     cal1.getTinNumber()==cal.getTinNumber() || cal1.getAddress().equals(cal.getAddress())){
                 return false;
             }
