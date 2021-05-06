@@ -48,7 +48,7 @@ public class RegisterEmployeeController {
         //validates and saves employee
         this.estore.saveEmployee(this.emp); 
         System.out.println("AQUIIIIIIIIIIIII");
-        //saves employee user - password é o id????
+        //saves employee user - password  o id????
         return this.company.getAuthFacade().addUserWithRole(emp.getName(), emp.getEmail(), emp.getEmployeeId(), emp.getRole().getDesignation());
 
     }
