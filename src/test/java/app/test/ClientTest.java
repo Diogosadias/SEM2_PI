@@ -67,18 +67,25 @@ public class ClientTest extends TestCase {
     @Test
     public void testCheckPNumber() {
         //preparations
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
+        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 1111111111111111111l);
         Client c2 = new Client(new Email("user2@gmail.com"), "Mari", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 1111111);
 
         //testing
-        c1.checkPNumber(c1.getPNumber());
 
         try{
-            c1.checkPNumber(c2.getPNumber());
+            c2.checkPNumber(c2.getPNumber());
             fail();
         }catch (IllegalArgumentException ex){
             assertEquals("Phone Number must have 12 chars", ex.getMessage());
         }
+
+        try{
+            c1.checkPNumber(c1.getPNumber());
+            fail();
+        }catch(IllegalArgumentException ex){
+            assertEquals("Phone Number must have 12 chars", ex.getMessage());
+        }
+
     }
 
     @Test
@@ -165,6 +172,11 @@ public class ClientTest extends TestCase {
         //preparations
         Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
 
+        //calculations
+        c1.setNhs(1234567891);
+
+        //assert
+        assertEquals(1234567891, c1.getNhs());
     }
 
     @Test
@@ -172,6 +184,11 @@ public class ClientTest extends TestCase {
         //preparations
         Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
 
+        //calculations
+        c1.setCitizenCard(1231231231231231l);
+
+        //aserts
+        assertEquals(1231231231231231l, c1.getCitizenCard());
     }
 
     @Test
@@ -179,17 +196,15 @@ public class ClientTest extends TestCase {
         //preparations
         Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
 
+        //calculations
+        c1.setTin(222222222222l);
+        //assert
+        assertEquals(222222222222l,c1.getTin());
+
+
     }
 
-    @Test
-    public void testSetBirthDate() {
-        //preparations
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
 
-        //testing
-        c1.setBirthDate(new Date(21/21/2021));
-        assertEquals(new Date(21/21/2021), c1.getBirthDate());
-    }
 
     @Test
     public void testSetSex() {

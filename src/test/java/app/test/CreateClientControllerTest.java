@@ -1,5 +1,6 @@
-package app.controller;
+package app.test;
 
+import app.controller.CreateClientController;
 import app.domain.model.Client;
 import app.domain.model.CreateClientStore;
 import auth.AuthFacade;
