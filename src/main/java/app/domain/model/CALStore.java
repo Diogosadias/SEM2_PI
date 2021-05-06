@@ -28,7 +28,7 @@ public class CALStore {
      * @param answer - Answer if Laboratory performs Covid-19 tests
      * @return CAL
      */
-    public  CAL registerNewCAL(String labId, String labName, long phoneNumber, String address, int tin, boolean answer){
+    public  CAL registerNewCAL(String labId, String labName, long phoneNumber, String address, long tin, boolean answer){
         return new CAL(labId, labName, phoneNumber, address, tin, answer);
     }
 
@@ -41,7 +41,7 @@ public class CALStore {
         if(cal == null)
             return false;
         for (CAL cal1: this.calList) {
-            if( cal1.getPhoneNumber()==cal.getPhoneNumber() ||
+            if(cal1.getLaboratoryId().equals(cal.getLaboratoryId())|| cal1.getPhoneNumber()==cal.getPhoneNumber() ||
                     cal1.getTinNumber()==cal.getTinNumber() || cal1.getAddress().equals(cal.getAddress())){
                 return false;
             }
