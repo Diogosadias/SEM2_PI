@@ -14,7 +14,7 @@ public class ClientTest extends TestCase {
     public void testCheckNHS() {
 
         //preparations
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
+        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111L, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
         Client c2 = new Client(new Email("user2@gmail.com"), "Mari", 111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
 
         //testing
@@ -203,7 +203,6 @@ public class ClientTest extends TestCase {
 
 
     }
-
 
 
     @Test
