@@ -106,9 +106,7 @@ public class CAL {
         return performsCovidTest;
     }
 
-    public String getLaboratoryId(){
-        return laboratoryId;
-    }
+
 
     //sets:
 
@@ -128,9 +126,7 @@ public class CAL {
         this.performsCovidTest = performsCovidTest;
     }
 
-    public void setLaboratoryId(String laboratoryId){
-        this.laboratoryId = laboratoryId;
-    }
+    
 
 
 
