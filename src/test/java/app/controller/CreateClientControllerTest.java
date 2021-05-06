@@ -1,11 +1,12 @@
 package app.controller;
 
 import app.domain.model.Client;
-import app.domain.store.CreateClientStore;
+import app.domain.model.CreateClientStore;
 import auth.AuthFacade;
 import auth.domain.model.Email;
 import junit.framework.TestCase;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class CreateClientControllerTest extends TestCase {

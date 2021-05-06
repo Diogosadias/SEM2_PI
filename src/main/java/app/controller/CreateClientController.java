@@ -2,7 +2,7 @@ package app.controller;
 
 import app.domain.model.Client;
 import app.domain.model.Company;
-import app.domain.store.CreateClientStore;
+import app.domain.model.CreateClientStore;
 import auth.AuthFacade;
 
 /**

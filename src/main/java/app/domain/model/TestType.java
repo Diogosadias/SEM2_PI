@@ -1,8 +1,5 @@
 package app.domain.model;
 
-import app.domain.store.ParameterCategoryStore;
-import app.domain.store.SpecifyNewTestStore;
-
 import java.util.ArrayList;
 
 public class TestType extends SpecifyNewTestStore {

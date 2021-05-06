@@ -1,7 +1,8 @@
 package app.controller;
 
 import app.domain.model.*;
-import app.domain.store.CreateTestTypeStore;
+
+import java.util.ArrayList;
 
 public class CreateTestTypeController {
     private Company company;
