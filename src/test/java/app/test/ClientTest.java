@@ -88,6 +88,7 @@ public class ClientTest extends TestCase {
         }
 
         Client c3 = new Client(new Email("user2@gmail.com"), "Mari", 111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 0);
+        Client c4 = new Client(new Email("user2@gmail.com"), "Mari", 111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 123123123123l);
         try{
             c3.checkPNumber(c3.getPNumber());
 
@@ -95,12 +96,20 @@ public class ClientTest extends TestCase {
             assertEquals("Phone Number must have 12 chars", ex.getMessage());
         }
 
+
+
+            assertEquals(0, c3.getPNumber());
+
+
         try{
-            c3.checkPNumber(c3.getPNumber());
+            c4.checkPNumber(c4.getPNumber());
+
         }catch(IllegalArgumentException ex){
-            String pn = String.valueOf(c3.getPNumber());
-            assertEquals(12, pn.length());
+            assertEquals("Phone Number must have 12 chars", ex.getMessage());
         }
+
+            String pn = String.valueOf(c4.getPNumber());
+            assertEquals(12, pn.length());
 
 
 
@@ -110,6 +119,9 @@ public class ClientTest extends TestCase {
     public void testCheckSex() {
         //preparations
         Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "Masculine", 111111111111l);
+        Client c3 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "Feminine", 111111111111l);
+        Client c4 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
+        Client c5 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "F", 111111111111l);
         Client c2 = new Client(new Email("user2@gmail.com"), "Mari", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "Hello", 111111111111l);
 
         //testing
@@ -125,6 +137,12 @@ public class ClientTest extends TestCase {
         }catch(IllegalArgumentException ex){
             assertEquals("This gender does not exist!",ex.getMessage());
         }
+
+        assertEquals("Masculine",c1.getSex());
+        assertEquals("Feminine",c3.getSex());
+        assertEquals("M",c4.getSex());
+        assertEquals("F",c5.getSex());
+
     }
 
     @Test
