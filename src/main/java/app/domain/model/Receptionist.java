@@ -1,7 +1,5 @@
 package app.domain.model;
 
-import app.domain.store.CreateClientStore;
-
 public class Receptionist {
     private String email;
     private String employeeId;

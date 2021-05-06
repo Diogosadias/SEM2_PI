@@ -1,7 +1,7 @@
 package app.controller;
 
 import app.domain.model.Company;
-import app.domain.store.SpecifyNewTestStore;
+import app.domain.model.SpecifyNewTestStore;
 import app.domain.model.TestType;
 
 public class SpecifyNewTestTypeController {

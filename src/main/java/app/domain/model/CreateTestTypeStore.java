@@ -1,6 +1,5 @@
-package app.domain.store;
+package app.domain.model;
 
-import app.domain.model.TestType;
 import auth.AuthFacade;
 
 
