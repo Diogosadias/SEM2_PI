@@ -105,10 +105,11 @@ public class CAL {
     public boolean getPerformsCovidTest(){
         return performsCovidTest;
     }
+    /*
     public String getLaboratoryId(){
         return laboratoryId;
     }
-
+*/
     //sets:
 
     public void setLabName(String labName){
@@ -126,10 +127,11 @@ public class CAL {
     public void setPerformsCovidTest(boolean performsCovidTest){
         this.performsCovidTest = performsCovidTest;
     }
+    /*
     public void setLaboratoryId(String laboratoryId){
         this.laboratoryId = laboratoryId;
     }
 
-
+*/
 
 }
