@@ -80,6 +80,12 @@ public class ClientTest extends TestCase {
         }catch (IllegalArgumentException ex){
             assertEquals("Phone Number must have 12 chars", ex.getMessage());
         }
+        try{
+            c1.checkPNumber(c1.getPNumber());
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("Phone Number must have 12 chars", ex.getMessage());
+        }
 
         Client c3 = new Client(new Email("user2@gmail.com"), "Mari", 111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 0);
         try{
@@ -88,6 +94,14 @@ public class ClientTest extends TestCase {
         }catch(IllegalArgumentException ex){
             assertEquals("Phone Number must have 12 chars", ex.getMessage());
         }
+
+        try{
+            c3.checkPNumber(c3.getPNumber());
+        }catch(IllegalArgumentException ex){
+            String pn = String.valueOf(c3.getPNumber());
+            assertEquals(12, pn.length());
+        }
+       
 
     }
 
@@ -98,7 +112,12 @@ public class ClientTest extends TestCase {
         Client c2 = new Client(new Email("user2@gmail.com"), "Mari", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "Hello", 111111111111l);
 
         //testing
-        c1.checkSex(c1.getSex());
+        try{
+            c1.checkSex(c1.getSex());
+            fail();
+        }catch(IllegalArgumentException ex){
+            assertEquals("This gender does not exist!",ex.getMessage());
+        }
 
         try{
             c2.checkSex(c2.getSex());
