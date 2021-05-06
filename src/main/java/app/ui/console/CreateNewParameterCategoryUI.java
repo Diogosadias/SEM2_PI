@@ -1,10 +1,11 @@
 package app.ui.console;
 
 import app.controller.ParameterCategoryController;
+import app.ui.console.utils.Utils;
 
 import java.util.Scanner;
 
-public class CreateNewParameterUI implements Runnable{
+public class CreateNewParameterCategoryUI implements Runnable{
 
     public void run(){
 
@@ -14,12 +15,9 @@ public class CreateNewParameterUI implements Runnable{
 
         ParameterCategoryController pc = new ParameterCategoryController();
         Scanner read = new Scanner(System.in);
-        System.out.println("New code:");
-        code = read.next();
-        System.out.println("Description:");
-        description = read.next();
-        System.out.println("NHSID:");
-        nhsId= read.next();
+        code = Utils.readLineFromConsole("New code: ");
+        description = Utils.readLineFromConsole("Description: ");
+        nhsId = Utils.readLineFromConsole("NHSID: ");
 
         boolean created = pc.createParameterCategory(code,description,nhsId);
 

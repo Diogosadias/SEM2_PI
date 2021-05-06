@@ -86,6 +86,12 @@ App {
         this.authFacade.addUserWithRole("Client", "client@lei.sem2.pt", "123",Constants.ROLE_RECEP);
         this.authFacade.addUserWithRole("Client1","clei@sd.pt","123",Constants.ROLE_CLIENT);
         this.authFacade.addUserWithRoles("SuperUser", "superuser@super.user", "123456", new String[] { Constants.ROLE_CLIENT,Constants.ROLE_ADMIN, Constants.ROLE_RECEP });
+        
+        this.company.getParameterCategoryStore().createParameterCategory("11111", "Category1", "11111");
+        this.company.getParameterCategoryStore().createParameterCategory("22222", "Category2", "22222");
+        this.company.getParameterCategoryStore().createParameterCategory("33333", "Category3", "33333");
+        
+        this.company.getSpecifyNewTestStore().createTestType("11111", "Test1", "Method1");
     }
 
     // Extracted from https://www.javaworld.com/article/2073352/core-java/core-java-simply-singleton.html?page=2

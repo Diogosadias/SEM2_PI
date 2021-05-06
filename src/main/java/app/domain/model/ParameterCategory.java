@@ -16,6 +16,10 @@ public class ParameterCategory {
         this.description = description;
         this.nhsId = nhsId;
     }
+    
+    public ParameterCategory() {
+    }
+
 
     private void checkCodeRules(String code){
         if(StringUtils.isBlank(code))

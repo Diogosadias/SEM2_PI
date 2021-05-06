@@ -14,12 +14,10 @@ public class CreateTestTypeUI implements Runnable {
     public void run() {
         SpecifyNewTestTypeController tc = new SpecifyNewTestTypeController();
         ParameterCategoryController pc = new ParameterCategoryController();
-        ParameterCategoryStore pcs = new ParameterCategoryStore();
 
         String code;
         String description;
         String collectingMethod;
-        ArrayList<ParameterCategory> ParameterList = new ArrayList<>();
         Scanner read = new Scanner(System.in);
 
         System.out.println("Create New Type Test:");
@@ -35,7 +33,7 @@ public class CreateTestTypeUI implements Runnable {
         tc.createTestType(code,description,collectingMethod);
 
         String codep = "";
-        while( ! codep.equals("Finish")) {
+        while( ! codep.equalsIgnoreCase("Finish")) {
             pc.writeParameterCategories();
             System.out.println("Type parameter's code(Type Finish to end:");
             codep = read.next();

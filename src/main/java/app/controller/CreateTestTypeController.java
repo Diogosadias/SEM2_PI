@@ -33,10 +33,12 @@ public class CreateTestTypeController {
     public void writeTestType(){
 
         for(TestType t : ts.getTestTypeList())
-            System.out.println(t); }
+            System.out.println(t); 
+            System.out.println("hello");
+    }
 
     public void addParameterToTest(ParameterCategory pc){
-        this.tt.setCategory(company.getParameterCategoryStore());
+        this.tt.setCategory(pc);
     }
 
 

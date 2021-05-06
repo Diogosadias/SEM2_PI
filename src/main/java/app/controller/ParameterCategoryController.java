@@ -15,12 +15,8 @@ public class ParameterCategoryController {
     private ParameterCategoryStore pcs;
 
     public ParameterCategoryController(){
-        this(App.getInstance().getCompany());
-    }
-
-    public ParameterCategoryController(Company company){
-        this.company = company;
-        this.pc = null;
+        this.company = App.getInstance().getCompany();
+        this.pc = new ParameterCategory();
         this.pcs = company.getParameterCategoryStore();
     }
 

@@ -12,7 +12,7 @@ public class TestType extends SpecifyNewTestStore {
     private String code;
     private String description;
     private String collectingMethod;
-    private ArrayList<ParameterCategoryStore> parameterList;
+    private final ArrayList<ParameterCategory> parameterList = new ArrayList<ParameterCategory>();
 
     /**
      *
@@ -25,7 +25,9 @@ public class TestType extends SpecifyNewTestStore {
         this.code = code;
         this.description = description;
         this.collectingMethod = collectingMethod;
-        parameterList = new ArrayList<ParameterCategoryStore>();
+    }
+
+    public TestType() {
     }
 
     public String getCode() { return code; }
@@ -54,7 +56,7 @@ public class TestType extends SpecifyNewTestStore {
         if(collectingMethod.length() > 20 || collectingMethod.length() == 0)
             throw new IllegalArgumentException("Collecting Method doesn't exist or surpasses the 20 characters rule!");
     }
-    public void setCategory(ParameterCategoryStore parameter){
+    public void setCategory(ParameterCategory parameter){
         parameterList.add(parameter);
     }
 

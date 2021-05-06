@@ -10,7 +10,7 @@ public class SpecifyNewTestTypeController {
 
     private Company company;
     private TestType tt;
-    private SpecifyNewTestStore storeTestType = new SpecifyNewTestStore();
+    private SpecifyNewTestStore storeTestType;
 
     public SpecifyNewTestTypeController(){
         this(App.getInstance().getCompany());
@@ -18,7 +18,8 @@ public class SpecifyNewTestTypeController {
 
     public SpecifyNewTestTypeController(Company company){
         this.company = company;
-        this.tt = null;
+        this.storeTestType = this.company.getSpecifyNewTestStore();
+        this.tt = new TestType();
     }
 
     public boolean createTestType(String code, String description, String collectingMethods){
@@ -37,6 +38,6 @@ public class SpecifyNewTestTypeController {
     }
 
     public void addParameterToTest(ParameterCategory pc){
-        this.tt.setCategory(company.getParameterCategoryStore());
+        this.tt.setCategory(pc);
     }
 }
