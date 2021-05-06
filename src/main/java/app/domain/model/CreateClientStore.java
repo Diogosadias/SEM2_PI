@@ -19,7 +19,7 @@ import java.util.List;
 public class CreateClientStore {
     private final List<Client> clientList;
 
-    private final AuthFacade authFacade;
+    private  AuthFacade authFacade;
     private Company company ;
 
     public CreateClientStore(AuthFacade authFacade){
