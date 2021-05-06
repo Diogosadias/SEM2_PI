@@ -12,6 +12,7 @@ import static org.junit.Assert.assertEquals;
 
 public class ClientTest extends TestCase {
 
+
     @Test
     public void testCheckNHS() {
 
@@ -88,6 +89,7 @@ public class ClientTest extends TestCase {
         }
 
         Client c3 = new Client(new Email("user2@gmail.com"), "Mari", 111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 0);
+        Client c0 = new Client(new Email("user2@gmail.com"), "Mari", 111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M");
         Client c4 = new Client(new Email("user2@gmail.com"), "Mari", 111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 123123123123l);
         try{
             c3.checkPNumber(c3.getPNumber());
@@ -96,9 +98,12 @@ public class ClientTest extends TestCase {
             assertEquals("Phone Number must have 12 chars", ex.getMessage());
         }
 
+        try{
+            c0.checkPNumber(c0.getPNumber());
 
-
-            assertEquals(0, c3.getPNumber());
+        }catch(IllegalArgumentException ex){
+            assertEquals("Phone Number must have 12 chars", ex.getMessage());
+        }
 
 
         try{
