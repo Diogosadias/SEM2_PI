@@ -192,6 +192,21 @@ public class ClientTest extends TestCase {
     }
 
     @Test
+    public void testSetBirthDate() {
+        //preparations
+        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
+
+        //calculations
+        c1.setBirthDate(new Date ("20/08/1997"));
+        //assert
+        assertEquals(new Date("20/08/1997"),c1.getBirthDate());
+
+
+    }
+
+
+
+    @Test
     public void testSetTin() {
         //preparations
         Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);

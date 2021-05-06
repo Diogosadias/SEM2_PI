@@ -87,6 +87,7 @@ public class Client {//if needed use //extends User
     //sets:
     public void setNhs(long nhs){this.nhs=nhs;}
     public void setCitizenCard(long citizenCard){this.citizenCard=citizenCard;}
+    public void setBirthDate(Date birthDate){this.birthDate=birthDate;}
     public void setTin(long tin){this.tin=tin;}
     public void setSex(String sex){this.sex=sex;}
     public void setPNumber(long pNumber){this.pNumber=pNumber;}
