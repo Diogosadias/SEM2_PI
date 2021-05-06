@@ -1,6 +1,9 @@
 package app.controller;
 
 import app.domain.model.Company;
+import app.domain.model.Parameter;
+import app.domain.model.ParameterCategory;
+import app.domain.model.TestType;
 import app.domain.shared.Constants;
 import auth.AuthFacade;
 import auth.UserSession;
@@ -87,11 +90,13 @@ App {
         this.authFacade.addUserWithRole("Client1","clei@sd.pt","123",Constants.ROLE_CLIENT);
         this.authFacade.addUserWithRoles("SuperUser", "superuser@super.user", "123456", new String[] { Constants.ROLE_CLIENT,Constants.ROLE_ADMIN, Constants.ROLE_RECEP });
         
-        this.company.getParameterCategoryStore().createParameterCategory("11111", "Category1", "11111");
-        this.company.getParameterCategoryStore().createParameterCategory("22222", "Category2", "22222");
-        this.company.getParameterCategoryStore().createParameterCategory("33333", "Category3", "33333");
+        this.company.getParameterStore().saveParameter(new Parameter("11111", "Parameter1", "teste", "Category1"));
         
-        this.company.getSpecifyNewTestStore().createTestType("11111", "Test1", "Method1");
+        this.company.getParameterCategoryStore().saveParameterCategory(new ParameterCategory("11111", "Category1", "11111"));
+        this.company.getParameterCategoryStore().saveParameterCategory(new ParameterCategory("22222", "Category2", "22222"));
+        this.company.getParameterCategoryStore().saveParameterCategory(new ParameterCategory("33333", "Category3", "33333"));
+        
+        this.company.getSpecifyNewTestStore().saveTestType(new TestType("11111", "Test1", "Method1"));
     }
 
     // Extracted from https://www.javaworld.com/article/2073352/core-java/core-java-simply-singleton.html?page=2

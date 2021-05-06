@@ -6,17 +6,13 @@ import java.util.ArrayList;
 
 public class CreateTestTypeController {
     private Company company;
-    private CreateTestTypeStore ts = new CreateTestTypeStore();
+    private CreateTestTypeStore ts;
     private TestType tt;
 
 
     public CreateTestTypeController(){
-        this(App.getInstance().getCompany());
-    }
-
-
-    public CreateTestTypeController(Company company){
-        this.company = company;
+        this.company = App.getInstance().getCompany();
+        this.ts = company.getTestTypeStore();
     }
 
     public boolean createTestType(String code, String description, String collectingMethod) {
@@ -31,10 +27,8 @@ public class CreateTestTypeController {
     }
 
     public void writeTestType(){
-
         for(TestType t : ts.getTestTypeList())
             System.out.println(t); 
-            System.out.println("hello");
     }
 
     public void addParameterToTest(ParameterCategory pc){
