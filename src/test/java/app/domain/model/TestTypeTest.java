@@ -6,11 +6,11 @@ import static org.junit.Assert.*;
 
 public class TestTypeTest {
 
-    TestType test = new TestType("code","description","collectingMethod");
     @Test
     public void getCode() {
 
-
+        //arrange
+        TestType test = new TestType("code","description","collectingMethod");
         //assert
         assertEquals("code",test.getCode());
         assertEquals(false,test.getCode().equals("Codex"));
@@ -23,8 +23,8 @@ public class TestTypeTest {
 
     @Test
     public void getDescription() {
-
-
+        //arrange
+        TestType test = new TestType("code","description","collectingMethod");
         //assert
         assertEquals("description",test.getDescription());
         assertEquals(false,test.getDescription().equals("ddddd"));
@@ -33,7 +33,7 @@ public class TestTypeTest {
     @Test
     public void setDescription() {
         //arrange
-
+        TestType test = new TestType("code","description","collectingMethod");
 
         //calculations
         test.setDescription("newDescription");
@@ -45,7 +45,7 @@ public class TestTypeTest {
     @Test
     public void getCollectingMethod() {
         //arrange
-
+        TestType test = new TestType("code","description","collectingMethod");
         //assert
         assertEquals("collectingMethod",test.getCollectingMethod());
         assertEquals(false,test.getCollectingMethod().equals("aaaaa"));
@@ -54,6 +54,7 @@ public class TestTypeTest {
     @Test
     public void setCollectingMethod() {
         //arrange
+        TestType test = new TestType("code","description","collectingMethod");
 
         //calculations
         test.setCollectingMethod("newCollect");
@@ -62,27 +63,7 @@ public class TestTypeTest {
         assertEquals(false,test.getCollectingMethod().equals("collectingMethod"));
     }
 
-
-    @Test
-    public void checkDescription(){
-
-
-
-    }
-
-    @Test
-    public void checkCode(){}
-
-    @Test
-    public void checkCollectingMethods(){}
-
-    @Test
-    public void TesttoString(){
-
-    }
-
-
-
+ 
 
     @Test
     public void testToString() {
