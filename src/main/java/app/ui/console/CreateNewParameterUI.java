@@ -25,6 +25,7 @@ public class CreateNewParameterUI implements Runnable{
 
         if(created ){
             System.out.println("Parameter Category Created!");
+            pc.writeParameters();
         }
 
         else

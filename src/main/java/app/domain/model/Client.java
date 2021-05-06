@@ -3,6 +3,7 @@ package app.domain.model;
 import app.domain.shared.Constants;
 import auth.AuthFacade;
 import auth.domain.model.Email;
+import auth.domain.model.Password;
 import auth.domain.model.User;
 import org.apache.commons.lang3.StringUtils;
 
@@ -22,7 +23,7 @@ public class Client {//if needed use //extends User
     private Date birthDate;
     private String sex;
     private long pNumber;
-
+   // private AuthFacade authFacade = new AuthFacade();
 
 
     /**
@@ -37,7 +38,13 @@ public class Client {//if needed use //extends User
     public Client(Email id, String name, long nhs, long citizenCard, long tin, Date birthDate, String sex, long pNumber){
 
 
+        //this.authFacade.addUserWithRole(name, id, pwd, Constants.ROLE_CLIENT);
 
+       /* checkNHS(nhs);
+        checkCitizenNumber(citizenCard);
+        checkTIN(tin);
+
+        checkPNumber(pNumber);*/
         this.name=name;
         this.id=id;
         this.nhs = nhs;
@@ -54,6 +61,7 @@ public class Client {//if needed use //extends User
         this.nhs = nhs;
         this.citizenCard = citizenCard;
         this.tin = tin;
+        this.birthDate = birthDate;
         this.sex = sex;
         pNumber = 0;
     }
@@ -87,10 +95,23 @@ public class Client {//if needed use //extends User
     //sets:
     public void setNhs(long nhs){this.nhs=nhs;}
     public void setCitizenCard(long citizenCard){this.citizenCard=citizenCard;}
-    public void setBirthDate(Date birthDate){this.birthDate=birthDate;}
     public void setTin(long tin){this.tin=tin;}
+    public void setBirthDate(Date birthDate){this.birthDate=birthDate;}
     public void setSex(String sex){this.sex=sex;}
     public void setPNumber(long pNumber){this.pNumber=pNumber;}
+
+    /*
+    private boolean checkNHS(int nhs) {
+        String check = String.valueOf(nhs);
+        if (StringUtils.isBlank(check))
+            return false;
+        // Check for other invalid criteria here
+
+        //
+        if(check.length() != 10)
+            return false;
+        return true;
+    }*/
 
 
     public void checkNHS(long nhs){

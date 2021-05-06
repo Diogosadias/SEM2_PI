@@ -39,10 +39,8 @@ public class RegisterNewCALUI implements Runnable{
             System.out.println("REGISTER NEW CLINICAL ANALYSIS LABORATORY");
 
             System.out.println("ID:");
-            reader.nextLine();
 
-
-            String labId = reader.nextLine();//reader.read();
+            int labId = reader.nextInt();//reader.read();
 
             System.out.println("Laboratory Name:");
             reader.nextLine();
@@ -91,7 +89,7 @@ public class RegisterNewCALUI implements Runnable{
                 }
             }
 
-            if(this.registerNewCALController.registerNewCAL(labId, labName, phoneNumber, address, tin, covidTestFlag)){
+            if(this.registerNewCALController.createCAL(labId, labName, phoneNumber, address, tin, covidTestFlag)){
                 this.registerNewCALController.saveCAL();
                 System.out.println("Clinical Analysis Lab registered successfully!");
             }else{

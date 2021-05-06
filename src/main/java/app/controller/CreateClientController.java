@@ -5,10 +5,6 @@ import app.domain.model.Company;
 import app.domain.model.CreateClientStore;
 import auth.AuthFacade;
 
-/**
- *
- * @author Márcio Ramos <1201682@isep.ipp.pt>
- */
 public class CreateClientController {
 
     private Company company;
@@ -41,19 +37,19 @@ public class CreateClientController {
 
         if(!this.clientStore.validateClient(this.rc)){return false;}
 
-        saveClient(this.rc,testpass);
+        saveClient(testpass);
         return true;
 
     }
 
 
-    public boolean saveClient(Client rc,String pwd){
+    public boolean saveClient(String pwd){
         return this.clientStore.saveClient(this.rc, pwd);
     }
 
     public void writeClient(){
-        System.out.println(clientStore.getClientList().size());
+
         for(Client c : clientStore.getClientList())
-            System.out.println(c);
+            System.err.println(c);
     }
 }
