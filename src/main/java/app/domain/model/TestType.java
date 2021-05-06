@@ -2,6 +2,11 @@ package app.domain.model;
 
 import java.util.ArrayList;
 
+/**
+ *
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
+ */
+
 public class TestType extends SpecifyNewTestStore {
 
     private String code;
@@ -9,16 +14,14 @@ public class TestType extends SpecifyNewTestStore {
     private String collectingMethod;
     private ArrayList<ParameterCategoryStore> parameterList;
 
+    /**
+     *
+     * @param code
+     * @param description
+     * @param collectingMethod
+     */
+
     public TestType(String code, String description, String collectingMethod) {
-        try {
-            checkCode(code);
-        } catch (Exception e) {
-            e.printStackTrace();
-            String message = e.getMessage();
-            System.out.println(message);
-        }
-        checkDescription(description);
-        checkCollectingMethod(collectingMethod);
         this.code = code;
         this.description = description;
         this.collectingMethod = collectingMethod;
@@ -54,7 +57,6 @@ public class TestType extends SpecifyNewTestStore {
     public void setCategory(ParameterCategoryStore parameter){
         parameterList.add(parameter);
     }
-
 
     @Override
     public String toString() {

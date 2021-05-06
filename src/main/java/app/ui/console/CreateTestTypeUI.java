@@ -1,7 +1,7 @@
 package app.ui.console;
 
-import app.controller.CreateTestTypeController;
 import app.controller.ParameterCategoryController;
+import app.controller.SpecifyNewTestTypeController;
 import app.domain.model.ParameterCategory;
 import app.domain.model.ParameterCategoryStore;
 
@@ -12,7 +12,7 @@ public class CreateTestTypeUI implements Runnable {
 
 
     public void run() {
-        CreateTestTypeController tc = new CreateTestTypeController();
+        SpecifyNewTestTypeController tc = new SpecifyNewTestTypeController();
         ParameterCategoryController pc = new ParameterCategoryController();
         ParameterCategoryStore pcs = new ParameterCategoryStore();
 

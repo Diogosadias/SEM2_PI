@@ -15,21 +15,25 @@ public class SpecifyNewTestStore {
         TestTypeList = new ArrayList<>();
     }
 
-    public TestType createNewTestType(String code, String description, String collectingMethod) {
+    public TestType createTestType(String code, String description, String collectingMethod) {
         return new TestType(code,description,collectingMethod );
     }
 
-    public boolean validateTestType(TestType tp){
-        if(tp == null)
-            return false;
-        return ! this.TestTypeList.contains(tp);
-    }
 
-    public boolean saveTestType(TestType tp){
-        if(!validateTestType(tp))
+    public boolean validateTestType(TestType tt){
+        if(tt == null)
             return false;
-        return this.TestTypeList.add(tp);
+        return ! this.TestTypeList.contains(tt);
     }
 
 
+    public boolean saveTestType(TestType tt){
+        if(!validateTestType(tt))
+            return false;
+        return this.TestTypeList.add(tt);
+    }
+
+    public ArrayList<TestType> getTestTypeList(){
+        return TestTypeList;
+    }
 }
