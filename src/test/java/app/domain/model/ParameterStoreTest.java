@@ -31,15 +31,6 @@ public class ParameterStoreTest {
 
 
     @Test
-    public void testGetParameterByCode1() {
-
-    }
-    @Test
-    public void testGetParameterByCode2() {
-
-    }
-
-    @Test
     public void testValidateParameter1() {
         //calculations
         boolean b = storetest.validateParameter(p1);

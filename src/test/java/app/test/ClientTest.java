@@ -8,6 +8,8 @@ import org.junit.Test;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import static org.junit.Assert.assertEquals;
+
 public class ClientTest extends TestCase {
 
     @Test
@@ -79,9 +81,10 @@ public class ClientTest extends TestCase {
             assertEquals("Phone Number must have 12 chars", ex.getMessage());
         }
 
+        Client c3 = new Client(new Email("user2@gmail.com"), "Mari", 111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 11111111111l);
         try{
-            c1.checkPNumber(c1.getPNumber());
-            fail();
+            c3.checkPNumber(c3.getPNumber());
+
         }catch(IllegalArgumentException ex){
             assertEquals("Phone Number must have 12 chars", ex.getMessage());
         }
