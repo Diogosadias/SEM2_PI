@@ -28,7 +28,7 @@ public class CALStore {
      * @param answer - Answer if Laboratory performs Covid-19 tests
      * @return CAL
      */
-    public  CAL registerNewCAL(String labId, String labName, long phoneNumber, String address, long tin, boolean answer){
+    public  CAL registerNewCAL(String labId, String labName, long phoneNumber, String address, int tin, boolean answer){
         return new CAL(labId, labName, phoneNumber, address, tin, answer);
     }
 
