@@ -372,7 +372,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
     
     public CALStore getCalStore() {
-        return calStore;
+        return this.calStore;
     }
 
     public void setCalStore(CALStore calStore) {
@@ -392,7 +392,7 @@ Other software classes (i.e. Pure Fabrication) identified:
         calList = new ArrayList<CAL>();
     }
 
-    public CAL registerNewCAL(String labId, String labName, long phoneNumber, String address, int tin, boolean answer ){
+    public CAL registerNewCAL(String labId, String labName, long phoneNumber, String address, long tin, boolean answer ){
         return new CAL(labId, labName, phoneNumber, address, tin, answer);
     }
 
@@ -504,7 +504,7 @@ Other software classes (i.e. Pure Fabrication) identified:
     private CALStore calStore;
     
         
-    public boolean registerNewCAL(String labId, String labName, long phoneNumber, String address, int tin, boolean answer){
+    public boolean registerNewCAL(String labId, String labName, long phoneNumber, String address, long tin, boolean answer){
         this.cal = this.calStore.registerNewCAL(labId, labName, phoneNumber, address, tin, answer);
         return this.calStore.validateCAL(this.cal);
     }

@@ -24,7 +24,6 @@ public class Company {
     private EmployeeStore employeeStore;
     private ParameterStore parameterStore;
 
-
     public Company(String designation)
     {
         if (StringUtils.isBlank(designation))
