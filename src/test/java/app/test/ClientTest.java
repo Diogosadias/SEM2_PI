@@ -81,7 +81,7 @@ public class ClientTest extends TestCase {
             assertEquals("Phone Number must have 12 chars", ex.getMessage());
         }
 
-        Client c3 = new Client(new Email("user2@gmail.com"), "Mari", 111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 11111111111l);
+        Client c3 = new Client(new Email("user2@gmail.com"), "Mari", 111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 0);
         try{
             c3.checkPNumber(c3.getPNumber());
 
