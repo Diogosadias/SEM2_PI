@@ -23,7 +23,7 @@ public class CALStoreTest {
 
         assertEquals(false,cal2.getTinNumber()== cal1.getTinNumber());
         assertEquals(true,cal2.getAddress().equals(cal1.getAddress()));
-        assertEquals(false,cal2.getLaboratoryId().equals(cal1.getLaboratoryId()));
+        //assertEquals(false,cal2.getLaboratoryId().equals(cal1.getLaboratoryId()));
 
     }
 
