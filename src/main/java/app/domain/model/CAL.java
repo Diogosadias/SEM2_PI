@@ -51,18 +51,15 @@ public class CAL {
     public void checkLabIDrules(String labId) {
         if (labId.length() == 0)
             throw new IllegalArgumentException("Laboratory Id cannot be blank.");
-        /*
-        if (!(labId.length() == 5))
-
+        if (labId.trim().length() != 5)
             throw new IllegalArgumentException("Lab Id must have 5 chars.");
-            
-         */
+
     }
 
     public void checkaddressrules(String address) {
         if (address.length() == 0)
             throw new IllegalArgumentException("Address cannot be blank.");
-        if ( address.length() > 30)
+        if ( address.trim().length() > 30)
             throw new IllegalArgumentException("Address must have no more than 30 characters.");
     }
 
