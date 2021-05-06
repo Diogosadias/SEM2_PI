@@ -48,7 +48,7 @@ public class CALTest {
         //assert
         assertEquals(true,cal.getPerformsCovidTest());
     }
-/*
+
     @Test
     public void testGetLaboratoryId() {
         //arrange
@@ -56,7 +56,7 @@ public class CALTest {
         //assert
         assertEquals(true,cal.getLaboratoryId().equals("11asd"));
     }
-*/
+
     @Test
     public void testSetLabName() {
         //arrange
@@ -106,15 +106,15 @@ public class CALTest {
         //assert
         assertEquals(false,cal.getPerformsCovidTest());
     }
-/*
+
     @Test
     public void testSetLaboratoryId() {
         //arrange
-        CAL cal = new CAL("11asd","labName",12345678524L,"Adress",1234567891,true);
+        CAL cal = new CAL("11asd","labName",12345678524L,"Adress",1234567891L,true);
         //Calculations
         cal.setLaboratoryId("22");
         //assert
         assertEquals(true,cal.getLaboratoryId().equals("22"));
     }
-*/
+
 }
