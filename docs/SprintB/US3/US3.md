@@ -297,7 +297,7 @@ The CreateClienttController is the communicator between the CreateClientUI and t
     private String password;
     private String name;   
 
-    public User(String email, String password, String name){
+    public User(Email email, Password password, String name){
 
         this.name=name;
         this.password=password; 

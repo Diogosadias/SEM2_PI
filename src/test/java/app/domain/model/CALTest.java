@@ -51,6 +51,7 @@ public class CALTest {
         //arrange
         CAL cal = new CAL("11","labName",1111,"Adress",1111,true);
         //assert
+        //problem getLaboratoryId - is Expecting an Integer when should expect String
         boolean b1 = true;
         assertEquals(b1,true);
 
