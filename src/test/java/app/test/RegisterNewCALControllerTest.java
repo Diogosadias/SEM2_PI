@@ -21,7 +21,7 @@ public class RegisterNewCALControllerTest {
         //testing
         assertEquals(true,b1);
         try{
-            controller.registerNewCAL("11as","labNams",12345678524L,"Adress",1234567891,true);
+            controller.registerNewCAL("11a","labNams",12345678524L,"Adress",1234567891,true);
             fail();
         }catch(IllegalArgumentException ex){
             assertEquals("Lab Id must have 5 chars.",ex.getMessage());
