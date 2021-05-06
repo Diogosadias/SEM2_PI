@@ -57,8 +57,12 @@ public class OrganizationRoleTest {
 
         //arrange
         OrganizationRole role = new OrganizationRole("ADMINISTRATOR",11);
+        Parameter parameter = new Parameter("code","parameter","description","category");
+        boolean b = role.equals(new OrganizationRole("ADMINISTRATOR",12));
 
         //asserts
+        assertEquals(false,b);
+        assertEquals(false,equals(parameter));
         assertEquals(true,role.equals(role));
         assertEquals(false,equals(role));
     }
