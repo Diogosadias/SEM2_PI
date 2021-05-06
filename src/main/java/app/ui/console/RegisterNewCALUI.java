@@ -39,6 +39,8 @@ public class RegisterNewCALUI implements Runnable{
             System.out.println("REGISTER NEW CLINICAL ANALYSIS LABORATORY");
 
             System.out.println("ID:");
+            reader.nextLine();
+
 
             String labId = reader.nextLine();//reader.read();
 
