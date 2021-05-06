@@ -109,7 +109,7 @@ public class CALTest {
     }
 
     @Test
-    public void getLabName() {
+    public void testGetLabName() {
         //arrange
         CAL cal = new CAL("11asd","labName",12345678524L,"Adress",1234567891,true);
         //asssert
@@ -117,7 +117,7 @@ public class CALTest {
     }
 
     @Test
-    public void getAddress() {
+    public void testGetAddress() {
         //arrange
         CAL cal = new CAL("11asd","labName",12345678524L,"Adress",1234567891,true);
         //assert
@@ -125,7 +125,7 @@ public class CALTest {
     }
 
     @Test
-    public void getPhoneNumber() {
+    public void testGetPhoneNumber() {
         //arrange
         CAL cal = new CAL("11asd","labName",12345678524L,"Adress",1234567891,true);
         //assert
@@ -133,7 +133,7 @@ public class CALTest {
     }
 
     @Test
-    public void getTinNumber() {
+    public void testGetTinNumber() {
         //arrange
         CAL cal = new CAL("11asd","labName",12345678524L,"Adress",1234567891,true);
         //assert
@@ -141,7 +141,7 @@ public class CALTest {
     }
 
     @Test
-    public void getPerformsCovidTest() {
+    public void testGetPerformsCovidTest() {
         //arrange
         CAL cal = new CAL("11asd","labName",12345678524L,"Adress",1234567891,true);
         //assert
@@ -149,7 +149,7 @@ public class CALTest {
     }
 
     @Test
-    public void getLaboratoryId() {
+    public void testGetLaboratoryId() {
         //arrange
         CAL cal = new CAL("11asd","labName",12345678524L,"Adress",1234567891,true);
         //assert
@@ -157,7 +157,7 @@ public class CALTest {
     }
 
     @Test
-    public void setLabName() {
+    public void testSetLabName() {
         //arrange
         CAL cal = new CAL("11asd","labName",12345678524L,"Adress",1234567891,true);
         //Calculations
@@ -167,7 +167,7 @@ public class CALTest {
     }
 
     @Test
-    public void setAddress() {
+    public void testSetAddress() {
         //arrange
         CAL cal = new CAL("11asd","labName",12345678524L,"Adress",1234567891,true);
         //Calculations
@@ -177,7 +177,7 @@ public class CALTest {
     }
 
     @Test
-    public void setPhoneNumber() {
+    public void testSetPhoneNumber() {
         //arrange
         CAL cal = new CAL("11asd","labName",12345678524L,"Adress",1234567891,true);
         //Calculations
@@ -197,7 +197,7 @@ public class CALTest {
     }
 
     @Test
-    public void setPerformsCovidTest() {
+    public void testSetPerformsCovidTest() {
         //arrange
         CAL cal = new CAL("11asd","labName",12345678524L,"Adress",1234567891,true);
         //Calculations
@@ -207,7 +207,7 @@ public class CALTest {
     }
 
     @Test
-    public void setLaboratoryId() {
+    public void testSetLaboratoryId() {
         //arrange
         CAL cal = new CAL("11asd","labName",12345678524L,"Adress",1234567891,true);
         //Calculations
