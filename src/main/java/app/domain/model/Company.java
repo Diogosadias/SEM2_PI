@@ -2,8 +2,6 @@ package app.domain.model;
 
 import app.domain.store.*;
 import auth.AuthFacade;
-import auth.domain.model.Email;
-import auth.domain.model.Password;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -12,6 +10,7 @@ import org.apache.commons.lang3.StringUtils;
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  * @author Tiago Ferreira <1200601@isep.ipp.pt>
  * @author Gil <1180838@isep.ipp.pt>
+ * @author Tiago Rocha <1181445@isep.ipp.pt>
  */
 public class Company {
 
