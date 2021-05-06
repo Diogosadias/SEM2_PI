@@ -53,6 +53,7 @@ public class CALTest {
         //assert
         boolean b1 = true;
         assertEquals(b1,true);
+
     }
 
     @Test
