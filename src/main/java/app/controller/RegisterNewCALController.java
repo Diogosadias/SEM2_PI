@@ -39,7 +39,7 @@ public class RegisterNewCALController {
      * @param answer
      * @return boolean
      */
-    public boolean createCAL(int labId, String labName, int phoneNumber, String address, int tin, boolean answer){
+    public boolean createCAL(String labId, String labName, int phoneNumber, String address, int tin, boolean answer){
         this.cal = this.calStore.createCAL(labId, labName, phoneNumber, address, tin, answer);
         return this.calStore.validateCAL(this.cal);
     }

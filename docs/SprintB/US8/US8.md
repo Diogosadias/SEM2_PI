@@ -418,13 +418,14 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 
 * CAL
+  
 
+    public class CAL {
 
-    public class CAL{
     private String labName;
     private String address;
     private long phoneNumber;
-    private int tinNumber;
+    private long tinNumber;
     private boolean performsCovidTest;
     private String laboratoryId;
     private List<TestType> testsAvailable;

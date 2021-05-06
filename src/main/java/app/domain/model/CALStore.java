@@ -28,7 +28,7 @@ public class CALStore {
      * @param answer
      * @return CAL
      */
-    public CAL createCAL(int labId, String labName, int phoneNumber, String address, int tin, boolean answer ){
+    public CAL createCAL(String labId, String labName, int phoneNumber, String address, int tin, boolean answer ){
         return new CAL(labId, labName, phoneNumber, address, tin, answer);
     }
 
