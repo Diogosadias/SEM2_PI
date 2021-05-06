@@ -6,6 +6,8 @@ import app.ui.console.utils.Utils;
 import auth.AuthFacade;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import app.domain.store.*;
+import app.domain.model.*;
 
 /**
  *  UI for the US8 realization - Register a new CAL
@@ -90,7 +92,7 @@ public class RegisterNewCALUI implements Runnable{
                 }
             }
 
-            if(this.registerNewCALController.createCAL(labId, labName, phoneNumber, address, tin, covidTestFlag)){
+            if(this.registerNewCALController.registerNewCAL(labId, labName, phoneNumber, address, tin, covidTestFlag)){
                 this.registerNewCALController.saveCAL();
                 System.out.println("Clinical Analysis Lab registered successfully!");
             }else{

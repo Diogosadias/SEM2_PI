@@ -1,6 +1,7 @@
 package app.domain.model;
 
 import java.util.ArrayList;
+import app.domain.store.*;
 
 public class TestType extends SpecifyNewTestStore {
 

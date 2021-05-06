@@ -1,7 +1,7 @@
 package app.test;
 
-import app.domain.model.Client;
-import app.domain.model.CreateClientStore;
+import app.domain.model.*;
+import app.domain.store.CreateClientStore;
 import auth.AuthFacade;
 import auth.domain.model.Email;
 import junit.framework.TestCase;

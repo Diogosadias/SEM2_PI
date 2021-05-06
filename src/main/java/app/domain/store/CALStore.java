@@ -1,8 +1,7 @@
 package app.domain.store;
 
-import app.domain.model.CAL;
-
 import java.util.ArrayList;
+import app.domain.model.*;
 
 /**
  * CALStore - Class responsible for managing CALs
@@ -30,11 +29,7 @@ public class CALStore {
      * @param answer - Answer if Laboratory performs Covid-19 tests
      * @return CAL
      */
-<<<<<<< HEAD:src/main/java/app/domain/model/CALStore.java
-    public CAL createCAL(String labId, String labName, int phoneNumber, String address, int tin, boolean answer ){
-=======
     public  CAL registerNewCAL(String labId, String labName, long phoneNumber, String address, int tin, boolean answer){
->>>>>>> 96f1c8dd4382361243aa424d3e7bd0127426c5ca:src/main/java/app/domain/store/CALStore.java
         return new CAL(labId, labName, phoneNumber, address, tin, answer);
     }
 

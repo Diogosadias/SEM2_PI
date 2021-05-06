@@ -1,6 +1,8 @@
 package app.controller;
 
 import app.domain.model.*;
+import app.domain.store.*;
+
 
 /**
  *  Controller for the US8 realization - Register a new CAL
@@ -39,8 +41,8 @@ public class RegisterNewCALController {
      * @param answer
      * @return boolean
      */
-    public boolean createCAL(String labId, String labName, int phoneNumber, String address, int tin, boolean answer){
-        this.cal = this.calStore.createCAL(labId, labName, phoneNumber, address, tin, answer);
+    public boolean registerNewCAL(String labId, String labName, int phoneNumber, String address, int tin, boolean answer){
+        this.cal = this.calStore.registerNewCAL(labId, labName, phoneNumber, address, tin, answer);
         return this.calStore.validateCAL(this.cal);
     }
 
