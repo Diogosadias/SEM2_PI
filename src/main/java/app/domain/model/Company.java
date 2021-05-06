@@ -22,6 +22,7 @@ public class Company {
     private ParameterCategoryStore parameterCategoryStore;
     private SpecifyNewTestStore specifyNewTestStore;
     private EmployeeStore employeeStore;
+    private ParameterStore parameterStore;
 
 
     public Company(String designation)
@@ -37,6 +38,7 @@ public class Company {
         this.createClientStore = new CreateClientStore(this.authFacade);
         this.parameterCategoryStore = new ParameterCategoryStore();
         this.employeeStore = new EmployeeStore();
+        this.parameterStore = new ParameterStore();
     }
 
     public String getDesignation() {
@@ -48,7 +50,7 @@ public class Company {
     }
 
     public CALStore getCalStore() {
-        return calStore;
+        return this.calStore;
     }
 
     public void setCalStore(CALStore calStore) {
@@ -87,5 +89,11 @@ public class Company {
         this.employeeStore = employeeStore;
     }
 
+    public ParameterStore getParameterStore() {
+        return parameterStore;
+    }
 
+    public void setParameterStore(ParameterStore parameterStore) {
+        this.parameterStore = parameterStore;
+    }
 }

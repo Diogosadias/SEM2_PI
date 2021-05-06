@@ -2,13 +2,17 @@ package app.controller;
 
 import app.domain.model.*;
 
+/**
+ *
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
+ */
 public class ParameterCategoryController {
 
 
     private Company company;
     private ParameterCategory pc;
-    private ParameterCategoryStore parameterStore;
-    private ParameterCategoryStore pcs = new ParameterCategoryStore();
+    private ParameterCategoryStore parametercategoryStore;
+    private ParameterCategoryStore pcs;
 
     public ParameterCategoryController(){
         this(App.getInstance().getCompany());
@@ -17,6 +21,7 @@ public class ParameterCategoryController {
     public ParameterCategoryController(Company company){
         this.company = company;
         this.pc = null;
+        this.pcs = company.getParameterCategoryStore();
     }
 
     public boolean createParameterCategory(String code, String description, String nhsid){
@@ -33,10 +38,10 @@ public class ParameterCategoryController {
 
     }
 
-    public void writeParameters(){
+    public void writeParameterCategories(){
+        System.out.println(pcs.toString());
 
-        for(ParameterCategory f : pcs.getParameterCategoryList())
-            System.out.println(f); }
+    }
 
     public ParameterCategory getParameterCategory(String code){
 
@@ -48,6 +53,6 @@ public class ParameterCategoryController {
     }
 
     public boolean saveParameterCategory(){
-        return this.parameterStore.saveParameterCategory(pc);
+        return this.parametercategoryStore.saveParameterCategory(pc);
     }
 }

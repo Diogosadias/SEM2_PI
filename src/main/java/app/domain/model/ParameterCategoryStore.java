@@ -1,7 +1,12 @@
 package app.domain.model;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
+/**
+ *
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
+ */
 public class ParameterCategoryStore {
 
     private List<ParameterCategory> parameterCategoryList = new ArrayList<>();
@@ -36,5 +41,20 @@ public class ParameterCategoryStore {
 
     public List<ParameterCategory> getParameterCategoryList() {
         return parameterCategoryList;
+    }
+
+    @Override
+    public String toString() {
+
+        List<ParameterCategory> copia = new ArrayList<>(parameterCategoryList);
+
+
+        StringBuilder s = new StringBuilder();
+        for (ParameterCategory param : copia) {
+            s.append(param);
+            s.append("\n");
+        }
+
+        return s.toString();
     }
 }
