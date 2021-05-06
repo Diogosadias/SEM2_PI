@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 public class ParameterStoreTest {
     ParameterStore storetest = new ParameterStore();
     Parameter p1 = new Parameter("1111t", "test", "this is a test", "11111");
-    Parameter p2 = storetest.createParameter("1111t","test","this is a test", "11111");
+    Parameter p2 = new Parameter("1111t","test","this is a test", "11111");
     @Test
     public void testCreateParameter() {
 
@@ -38,6 +38,8 @@ public class ParameterStoreTest {
         boolean b1 = storetest.validateParameter(p1);
         assertEquals(false,b1);
 
+
+
     }
 
 
@@ -56,6 +58,8 @@ public class ParameterStoreTest {
         storetest.saveParameter(p2);
         List<Parameter> storetest2 = storetest.getParameterList();
         assertEquals(storetest2,storetest.getParameterList());
+
+
     }
 
     @Test
