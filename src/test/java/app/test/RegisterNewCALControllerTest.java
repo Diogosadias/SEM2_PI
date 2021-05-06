@@ -9,7 +9,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class RegisterNewCALControllerTest {
-
+/*
     @Test
     public void testRegisterNewCAL() {
         //arrange
@@ -27,7 +27,7 @@ public class RegisterNewCALControllerTest {
             assertEquals("Lab Id must have 5 chars.",ex.getMessage());
         }
     }
-
+*/
     @Test
     public void testSaveCAL() {
         //arrange
