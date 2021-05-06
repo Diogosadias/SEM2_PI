@@ -116,7 +116,8 @@ public class CALTest {
         cal.setLaboratoryId("22876");
         //assert
         String test = "22876";
-        assertEquals(test,cal.getLaboratoryId());
+        String test1 = cal.getLaboratoryId();
+        assertEquals(test,test1);
     }
 
 }
