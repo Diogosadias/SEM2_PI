@@ -13,7 +13,7 @@ public class CALTest {
         //testing
 
         try{
-            CAL cal = new CAL("11as","labName",12345678524L,"Adress",1234567891,true);
+            CAL cal = new CAL("11a","labName",12345678524L,"Adress",1234567891,true);
             fail();
         }catch(IllegalArgumentException ex){
             assertEquals("Lab Id must have 5 chars.",ex.getMessage());
