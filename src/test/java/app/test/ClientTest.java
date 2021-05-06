@@ -127,28 +127,32 @@ public class ClientTest extends TestCase {
         //testing
         try{
             c1.checkSex(c1.getSex());
+            fail();
         }catch(IllegalArgumentException ex){
             assertEquals("This gender does not exist!",ex.getMessage());
         }
 
         try{
             c3.checkSex(c3.getSex());
+            fail();
         }catch(IllegalArgumentException ex){
             assertEquals("This gender does not exist!",ex.getMessage());
         }
         try{
             c4.checkSex(c4.getSex());
+            fail();
         }catch(IllegalArgumentException ex){
             assertEquals("This gender does not exist!",ex.getMessage());
         }
         try{
             c5.checkSex(c5.getSex());
+            fail();
         }catch(IllegalArgumentException ex){
             assertEquals("This gender does not exist!",ex.getMessage());
         }
         try{
             c2.checkSex(c2.getSex());
-            fail();
+            
         }catch(IllegalArgumentException ex){
             assertEquals("This gender does not exist!",ex.getMessage());
         }
