@@ -28,13 +28,13 @@ public class CAL {
      * @param answer
      */
     public CAL(String labId, String labName, long  phoneNumber, String address, long tin, boolean answer){
-
+    /*
         checkLabIDrules(labId);
         checkaddressrules(address);
         checkphoneNumberrules(phoneNumber);
         checkTINrules(tin);
         checkNamerules(labName);
-
+    */
 
         this.laboratoryId=labId;
         this.labName = labName;
@@ -48,6 +48,8 @@ public class CAL {
     /*
     This checker may need to be private
      */
+
+    /*
     private void checkLabIDrules(String labId) {
         if (labId.length() == 0)
             throw new IllegalArgumentException("Laboratory Id cannot be blank.");
@@ -84,7 +86,7 @@ public class CAL {
             throw new IllegalArgumentException("Laboratory Name must have no more than 20 characters.");
     }
 
-
+    */
 
     //gets:
 
