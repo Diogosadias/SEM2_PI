@@ -1,5 +1,7 @@
 package app.domain.model;
 
+import auth.AuthFacade;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,8 +11,13 @@ import java.util.List;
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  */
 public class ParameterStore {
-    private List<Parameter> parameterList = new ArrayList<>();
+    private final List<Parameter> parameterList;
 
+
+
+    public ParameterStore(){
+        this.parameterList = new ArrayList<>();
+    }
 
 
     public Parameter createParameter(String code, String name, String description, String category){
