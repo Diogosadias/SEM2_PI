@@ -31,12 +31,12 @@ public class CreateTestTypeUI implements Runnable {
         System.out.println("Collecting Method:");
         collectingMethod = read.next();
 
-        pc.writeParameters();
+
         tc.createTestType(code,description,collectingMethod);
 
         String codep = "";
         while( ! codep.equals("Finish")) {
-            pc.writeParameters();
+
             System.out.println("Type parameter's code(Type Finish to end:");
             codep = read.next();
 
