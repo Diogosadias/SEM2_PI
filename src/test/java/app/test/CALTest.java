@@ -54,7 +54,8 @@ public class CALTest {
         //arrange
         CAL cal = new CAL("11asd","labName",12345678524L,"Adress",1234567891,true);
         //assert
-        assertEquals(true,cal.getLaboratoryId().equals("11asd"));
+        String test = "11asd";
+        assertEquals(test,cal.getLaboratoryId());
     }
 
     @Test
@@ -112,9 +113,10 @@ public class CALTest {
         //arrange
         CAL cal = new CAL("11asd","labName",12345678524L,"Adress",1234567891L,true);
         //Calculations
-        cal.setLaboratoryId("22");
+        cal.setLaboratoryId("22876");
         //assert
-        assertEquals(true,cal.getLaboratoryId().equals("22"));
+        String test = "22876";
+        assertEquals(test,cal.getLaboratoryId());
     }
 
 }
