@@ -1,4 +1,6 @@
-package app.domain.model;
+package app.domain.store;
+
+import app.domain.model.CAL;
 
 import java.util.ArrayList;
 

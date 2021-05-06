@@ -3,7 +3,7 @@ package app.ui.console;
 import app.controller.CreateTestTypeController;
 import app.controller.ParameterCategoryController;
 import app.domain.model.ParameterCategory;
-import app.domain.model.ParameterCategoryStore;
+import app.domain.store.ParameterCategoryStore;
 
 import java.util.ArrayList;
 import java.util.Scanner;

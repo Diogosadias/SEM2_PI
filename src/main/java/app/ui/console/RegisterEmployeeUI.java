@@ -7,23 +7,24 @@ package app.ui.console;
 
 import app.controller.App;
 import app.controller.RegisterEmployeeController;
-import app.domain.model.Employee;
-import app.domain.model.OrganizationRole;
+import app.domain.dto.EmployeeDto;
+import app.domain.dto.OrgRoleDto;
 import app.ui.console.utils.Utils;
 import auth.AuthFacade;
-import java.util.ArrayList;
+
 import java.util.List;
-import java.util.Set;
+
+import static app.domain.shared.Constants.SPECIALIST_DOCTOR;
 
 /**
  *
- * @author Bruno Pereira
+ * @author Tiago Rocha
  */
 public class RegisterEmployeeUI implements Runnable{
     
     private RegisterEmployeeController m_controller;
     private AuthFacade authFacade;
-    
+
     public RegisterEmployeeUI()
     {
         this.m_controller = new RegisterEmployeeController();
@@ -40,11 +41,10 @@ public class RegisterEmployeeUI implements Runnable{
             presentsData();
 
             if (Utils.confirm("Do you confirm the data? (Y/N)")) {
-                if (this.m_controller.saveEmployee()) {
-                    System.out.println("Successful regist.");
-                } else {
-                    System.out.println("Not able to regist employee");
-                }
+                    System.out.println("Employee registered successfully!");
+            } else
+            {
+                System.out.println("Operation cancelled.");
             }
         }
         else
@@ -55,29 +55,28 @@ public class RegisterEmployeeUI implements Runnable{
     }
     
     private boolean registerData() {        
-        List<String> set = m_controller.getOrganizationRoles();
-        OrganizationRole orgRole = new OrganizationRole();
-        
-        String temp = (String)Utils.showAndSelectOne(set, "Select an organization role:\n");
-        if (temp != null)
-            orgRole.setDesignation(temp);
-        
-        
-        // Request data: name, address, phoneNumber,socCode, doctorIndexNumber        
-        String name = Utils.readLineFromConsole("Name: ");
-        String adress = Utils.readLineFromConsole("Adress: ");
-        String phoneNumber = Utils.readLineFromConsole("Phone number: ");
-        String socCode = Utils.readLineFromConsole("Soc Code: ");
-        int doctorIndexNumber = Utils.readIntegerFromConsole("Doctor Index Number: ");
-                
-        if(this.m_controller.registerEmployee(orgRole.getDesignation(), name, adress, phoneNumber, socCode, doctorIndexNumber)){
-                System.out.println("Employee registered successfully!");
-                return this.m_controller.getEmployees().validateEmployee(this.m_controller.getEmployee());
-            }else{
+        List<OrgRoleDto> set = m_controller.getOrgRoles();
+
+        OrgRoleDto temp = (OrgRoleDto)Utils.showAndSelectOne(set, "Select an organization role:\n");
+        if (temp != null) {
+            // Request data: name, address, phoneNumber,socCode, doctorIndexNumber
+            String name = Utils.readLineFromConsole("Name: ");
+            String address = Utils.readLineFromConsole("Address: ");
+            String phoneNumber = Utils.readLineFromConsole("Phone number: ");
+            String socCode = Utils.readLineFromConsole("Soc Code: ");
+            EmployeeDto eDto = new EmployeeDto(temp.getId(), name, address, phoneNumber, socCode);
+            if (temp.getDesignation().equals(SPECIALIST_DOCTOR)) {
+                int doctorIndexNumber = Utils.readIntegerFromConsole("Doctor Index Number: ");
+                eDto.setDoctorIndexNumber(doctorIndexNumber);
+            }
+            if (this.m_controller.registerEmployee(eDto)) {
+                return this.m_controller.saveEmployee();
+            } else {
                 System.out.println("Invalid Data was introduced! Returning to the menu.");
                 return false;
             }
-        
+        }
+        return false;
     }
     
     private void presentsData() 
