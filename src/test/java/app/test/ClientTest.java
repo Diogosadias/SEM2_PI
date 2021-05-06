@@ -101,20 +101,20 @@ public class ClientTest extends TestCase {
             String pn = String.valueOf(c3.getPNumber());
             assertEquals(12, pn.length());
         }
-       
+
+
 
     }
 
     @Test
     public void testCheckSex() {
         //preparations
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
+        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "Masculine", 111111111111l);
         Client c2 = new Client(new Email("user2@gmail.com"), "Mari", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "Hello", 111111111111l);
 
         //testing
         try{
             c1.checkSex(c1.getSex());
-            fail();
         }catch(IllegalArgumentException ex){
             assertEquals("This gender does not exist!",ex.getMessage());
         }
