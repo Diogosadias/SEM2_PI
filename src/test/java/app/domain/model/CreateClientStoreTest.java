@@ -17,7 +17,9 @@ public class CreateClientStoreTest {
     public void validateClient() {
         Client c = new Client(new Email("aaa@user.com"),"John",1111111111,123123123123123l,123123123123l,new Date("12/12/2012"),"M",123123123123l);
         Client c2 = null;
-        assertEquals(true,c.getName().equals("John"));
+
+
+        assertEquals(true,cr.validateClient(c));
 
     }
 }
