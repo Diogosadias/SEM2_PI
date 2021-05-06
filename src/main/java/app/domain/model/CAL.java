@@ -48,7 +48,7 @@ public class CAL {
     /*
     This checker may need to be private
      */
-    public void checkLabIDrules(String labId) {
+    private void checkLabIDrules(String labId) {
         if (labId.length() == 0)
             throw new IllegalArgumentException("Laboratory Id cannot be blank.");
         if (labId.length() != 5)
@@ -56,20 +56,20 @@ public class CAL {
 
     }
 
-    public void checkaddressrules(String address) {
+    private void checkaddressrules(String address) {
         if (address.length() == 0)
             throw new IllegalArgumentException("Address cannot be blank.");
         if ( address.trim().length() > 30)
             throw new IllegalArgumentException("Address must have no more than 30 characters.");
     }
 
-    public void checkphoneNumberrules(long phoneNumber) {
+    private void checkphoneNumberrules(long phoneNumber) {
         String temp = String.valueOf(phoneNumber);
         if ( temp.length() != 11)
             throw new IllegalArgumentException("Phone Number must have 11 chars.");
     }
 
-    public void checkTINrules(long tin) {
+    private void checkTINrules(long tin) {
         String temp = String.valueOf(tin);
         if (temp.length() == 0)
             throw new IllegalArgumentException("TIN cannot be blank.");
@@ -77,7 +77,7 @@ public class CAL {
             throw new IllegalArgumentException("TIN must have 10 chars.");
     }
 
-    public void checkNamerules(String labName) {
+    private void checkNamerules(String labName) {
         if (labName.length() == 0)
             throw new IllegalArgumentException("Laboratory Name cannot be blank.");
         if ( labName.length() > 20)
