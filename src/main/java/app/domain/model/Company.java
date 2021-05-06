@@ -1,5 +1,6 @@
 package app.domain.model;
 
+import app.domain.store.*;
 import auth.AuthFacade;
 import auth.domain.model.Email;
 import auth.domain.model.Password;
