@@ -19,7 +19,7 @@ public class Administrator extends User {
 
     //getters
     public String getAdress() {
-        return adress;
+        return this.adress;
     }
 
     public void setAdress(String adress) {
@@ -27,7 +27,7 @@ public class Administrator extends User {
     }
 
     public String getStandardOcuppationalCode() {
-        return standardOcuppationalCode;
+        return this.standardOcuppationalCode;
     }
 
     public void setStandardOcuppationalCode(String standardOcuppationalCode) {
@@ -35,7 +35,7 @@ public class Administrator extends User {
     }
 
     public String getEmployeeId() {
-        return employeeId;
+        return this.employeeId;
     }
 
     //setters
