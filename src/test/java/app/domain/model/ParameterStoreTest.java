@@ -66,7 +66,7 @@ public class ParameterStoreTest {
     public void testTestToString() {
         storetest.saveParameter(p1);
         storetest.saveParameter(p2);
-        String check = "ParameterCategory{code='1111t', name='test', description='this is a test', category='11111'}\nParameterCategory{code='1111t', name='test', description='this is a test', category='11111'}\n";
+        String check = "Parameter{code='1111t', name='test', description='this is a test', category='11111'}\nParameter{code='1111t', name='test', description='this is a test', category='11111'}\n";
         assertEquals(check,storetest.toString());
     }
 }
