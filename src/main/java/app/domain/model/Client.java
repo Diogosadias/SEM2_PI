@@ -36,11 +36,12 @@ public class Client {
      */
     public Client(Email id, String name, long nhs, long citizenCard, long tin, Date birthDate, String sex, long pNumber){
         checkNHS(nhs);
+        checkCitizenNumber(citizenCard);
         /*
         checkPNumber(pNumber);
         checkTIN(tin);
         checkSex(sex);
-        checkCitizenNumber(citizenCard);
+
 */
         this.name=name;
         this.id=id;
@@ -103,7 +104,10 @@ public class Client {
 
 
     }
-    public void checkCitizenNumber(long nhs){
+    public void checkCitizenNumber(long citizenCard){
+        String temp = String.valueOf(citizenCard);
+        if( temp.length() != 16)
+            throw new IllegalArgumentException("Citizen card must have 16");
 
     }
     public void checkSex(String sex){
