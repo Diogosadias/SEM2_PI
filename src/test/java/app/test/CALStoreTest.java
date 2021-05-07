@@ -25,51 +25,14 @@ public class CALStoreTest {
         CAL cal2 = calList.registerNewCAL("11a85", "labNams", 12345678523L, "Adress", 1214567891, true);
 
         //testing
-        /*
-        try {
-            CAL cal = calList.registerNewCAL(null, "labNams", 12345678524L, "Adress", 1234567891, true);
-            fail();
-        } catch (NullPointerException ex) {
-            assertEquals("The values input cannot be blank.", ex.getMessage());
-           }
-
-        try {
-            CAL cal = calList.registerNewCAL("11a85", null, 12345678524L, "Adress", 1234567891, true);
-            fail();
-        } catch (NullPointerException ex) {
-            assertEquals("The values input cannot be blank.", ex.getMessage());
-        }
-        try {
-            CAL cal = calList.registerNewCAL("11a85", "labNams", 12345678524L, null, 1234567891, true);
-            fail();
-        } catch (NullPointerException ex) {
-            assertEquals("The values input cannot be blank.", ex.getMessage());
-        }
-
-        try {
-            CAL cal = calList.registerNewCAL(null, "labNams", 12345678524L, null, 1234567891, true);
-            fail();
-        } catch (NullPointerException ex) {
-            assertEquals("The values input cannot be blank.", ex.getMessage());
-        }
-
-        try {
-            CAL cal = calList.registerNewCAL(null, null, 12345678524L, "Adress", 1234567891, true);
-            fail();
-        } catch (NullPointerException ex) {
-            assertEquals("The values input cannot be blank.", ex.getMessage());
-        }
-        try {
-            CAL cal = calList.registerNewCAL("11a85", null, 12345678524L, null, 1234567891, true);
-            fail();
-        } catch (NullPointerException ex) {
-            assertEquals("The values input cannot be blank.", ex.getMessage());
-        }
-        */
-        assertNull(calList.registerNewCAL(null, null, 12345678524L, null, 1234567891, true));
-
-
+        
         assertNull(calList.registerNewCAL(null,null,1234567891L,null,12345678912L,true));
+        assertNull(calList.registerNewCAL("11a85", null, 12345678524L, null, 1234567891, true));
+        assertNull(calList.registerNewCAL("11a85", null, 12345678524L, "Adress", 1234567891, true));
+        assertNull(calList.registerNewCAL("11a85", "labNams", 12345678524L, null, 1234567891, true));
+        assertNull(calList.registerNewCAL(null, null, 12345678524L, "Adress", 1234567891, true));
+        assertNull(calList.registerNewCAL(null, "labNams", 12345678524L, "Adress", 1234567891, true));
+        assertNull(calList.registerNewCAL(null, "labNams", 12345678524L, null, 1234567891, true));
 
         for(int i = 0;i<1;i++) {
             CAL cal = calList.registerNewCAL("11a85", "labNams", 12345678524L, "Adress", 1234567891, true);
