@@ -33,10 +33,11 @@ public class CALStore {
      */
     public CAL registerNewCAL(String labId, String labName, long phoneNumber, String address, long tin, boolean answer ){
 
-        if(labId==null && labName==null  && address==null  ){
-            throw new NullPointerException("The values input cannot be blank.");
+        if(labId!=null && labName!=null  && address!=null  ){
+            return new CAL(labId, labName, phoneNumber, address, tin, answer);
         }
-        return new CAL(labId, labName, phoneNumber, address, tin, answer);
+        throw new NullPointerException("The values input cannot be blank.");
+
     }
 
     /**
