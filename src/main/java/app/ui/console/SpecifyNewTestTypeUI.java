@@ -40,6 +40,7 @@ public class SpecifyNewTestTypeUI implements Runnable {
                 System.out.println("Parameter Category doesn't exist!");
             } else
                 tc.addParameterToTest(pc.getParameterCategory(codep));
+            System.out.print("\n");
             tc.writeTestType();
         } while( ! codep.equalsIgnoreCase("Finish"));
     }
