@@ -1,7 +1,5 @@
 package app.domain.model;
 
-import auth.AuthFacade;
-
 
 import java.util.ArrayList;
 

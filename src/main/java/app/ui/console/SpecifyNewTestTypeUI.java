@@ -3,12 +3,10 @@ package app.ui.console;
 import app.controller.ParameterCategoryController;
 import app.controller.SpecifyNewTestTypeController;
 import app.domain.model.ParameterCategory;
-import app.domain.model.ParameterCategoryStore;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
-public class CreateTestTypeUI implements Runnable {
+public class SpecifyNewTestTypeUI implements Runnable {
 
 
     public void run() {
@@ -28,25 +26,21 @@ public class CreateTestTypeUI implements Runnable {
         description = read.next();
         System.out.println("Collecting Method:");
         collectingMethod = read.next();
+        System.out.print("\n");
 
         pc.writeParameterCategories();
         tc.createTestType(code,description,collectingMethod);
 
-        String codep = "";
-        while( ! codep.equalsIgnoreCase("Finish")) {
-            pc.writeParameterCategories();
-            System.out.println("Type parameter's code(Type Finish to end:");
+         String codep;
+        do {
+            System.out.println("Type parameter's code: (Type Finish to end)");
             codep = read.next();
-
-            if(pc.getParameterCategory(codep) == null)
+            ParameterCategory codeparameter  = pc.getParameterCategory(codep);
+            if (codeparameter == null) {
                 System.out.println("Parameter doesn't exist!");
-            else
+            } else
                 tc.addParameterToTest(pc.getParameterCategory(codep));
-
             tc.writeTestType();
-
-
-
-    }
+        } while( ! codep.equalsIgnoreCase("Finish"));
     }
 }
