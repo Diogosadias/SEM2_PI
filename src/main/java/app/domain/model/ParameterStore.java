@@ -1,7 +1,5 @@
 package app.domain.model;
 
-import auth.AuthFacade;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +19,7 @@ public class ParameterStore {
 
 
     public Parameter createParameter(String code, String name, String description, String category){
+        if (code == null || name == null || description == null || category == null) return null;
         return new Parameter(code, name, description,category);
     }
 
