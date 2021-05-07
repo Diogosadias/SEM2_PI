@@ -33,10 +33,10 @@ public class CALStore {
      */
     public CAL registerNewCAL(String labId, String labName, long phoneNumber, String address, long tin, boolean answer ){
 
-        if(labId!=null && labName!=null  && address!=null  ){
-            return new CAL(labId, labName, phoneNumber, address, tin, answer);
+        if(labId==null && labName==null  && address==null  ){
+            return null;
         }
-        return null;
+        return new CAL(labId, labName, phoneNumber, address, tin, answer);
 
     }
 

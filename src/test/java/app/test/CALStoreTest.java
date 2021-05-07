@@ -25,7 +25,7 @@ public class CALStoreTest {
         CAL cal2 = calList.registerNewCAL("11a85", "labNams", 12345678523L, "Adress", 1214567891, true);
 
         //testing
-        
+
         assertNull(calList.registerNewCAL(null,null,1234567891L,null,12345678912L,true));
         assertNull(calList.registerNewCAL("11a85", null, 12345678524L, null, 1234567891, true));
         assertNull(calList.registerNewCAL("11a85", null, 12345678524L, "Adress", 1234567891, true));
