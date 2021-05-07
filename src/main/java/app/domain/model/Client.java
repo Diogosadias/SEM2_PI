@@ -1,10 +1,8 @@
 package app.domain.model;
 
 import app.domain.shared.Constants;
-import auth.AuthFacade;
 import auth.domain.model.Email;
 import auth.domain.model.User;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.Date;
 
@@ -15,7 +13,7 @@ import java.util.Date;
  * @author Gil <1180838@isep.ipp.pt>
  */
 
-public class Client {//if needed use //extends User
+public class Client {
     private String name;
     private Email id;
     private long nhs;
@@ -45,12 +43,12 @@ public class Client {//if needed use //extends User
         this.nhs = nhs;
         this.citizenCard = citizenCard;
         this.tin = tin;
-        this.birthDate = birthDate; //fazer check birthdate
+        this.birthDate = birthDate;
         this.sex = sex;
         this.pNumber = pNumber;
     }
     public Client(Email id, String name, long nhs, long citizenCard, long tin, Date birthDate,String sex){
-        //this.authFacade.addUserWithRole(name, id, pwd, Constants.ROLE_CLIENT);
+
         this.name=name;
         this.id=id;
         this.nhs = nhs;

@@ -35,10 +35,15 @@ public class ClientTest extends TestCase {
     public void testCheckCitizenNumber() {
         //preparations
         Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
-        Client c2 = new Client(new Email("user2@gmail.com"), "Mari", 1111111111, 11111, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
+        Client c2 = new Client  (new Email("user2@gmail.com"), "Mari", 1111111111, 11111, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
 
         //testing
+        try{
         c1.checkCitizenNumber(c1.getCitizenCard());
+ 
+        }catch (IllegalArgumentException ex){
+            assertEquals("Citizen number must have 16 chars",ex.getMessage());
+        }
 
         try{
             c2.checkCitizenNumber(c2.getCitizenCard());
@@ -153,7 +158,7 @@ public class ClientTest extends TestCase {
         }
         try{
             c2.checkSex(c2.getSex());
-     
+
         }catch(IllegalArgumentException ex){
             assertEquals("This gender does not exist!",ex.getMessage());
         }
