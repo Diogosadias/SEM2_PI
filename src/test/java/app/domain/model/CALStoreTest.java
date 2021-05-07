@@ -41,14 +41,10 @@ public class CALStoreTest {
         @Test
         public void testValidateCAL () {
             //preparations
-            CAL cal1 = new CAL("11asd", "labNams", 12345678524L, "Adress", 1234567891, true);
             CAL cal2 = new CAL("11a85", "labNams", 12345608523L, "Adress", 1234563891, true);
             CAL cal3 = new CAL("11asd", "labNams", 12345678524L, "Adress", 1234567891, true);
             CAL cal4 = new CAL("11a85", "labNams", 12345678524L, "Adress", 1234567891, true);
             CAL cal5 = new CAL("11a85", "labNams", 12345608523L, "Route Test", 1234567891, true);
-
-
-            CALStore calList = new CALStore();
 
 
             //testing
