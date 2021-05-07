@@ -52,7 +52,7 @@ public class TestType extends SpecifyNewTestStore {
     }
 
     private void checkDescription(String description) {
-        if(description.length() != 15 )
+        if(description.length() != 15 || description.length() == 0)
             throw new IllegalArgumentException("Description doesn't exist or surpasses the 15 characters rule!");
     }
 
