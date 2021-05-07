@@ -131,6 +131,18 @@ public class CALTest {
         }catch (IllegalArgumentException ex){
             assertEquals("Laboratory Id cannot be blank.",ex.getMessage());
         }
+        try{
+            CAL cal = new CAL("123as","labName",12345678910L,"",1234567891L,true);
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("Address cannot be blank.",ex.getMessage());
+        }
+        try{
+            CAL cal = new CAL("123as","labName",12345678910L,"Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",1234567891L,true);
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("Address must have no more than 30 characters.",ex.getMessage());
+        }
 
     }
 }
