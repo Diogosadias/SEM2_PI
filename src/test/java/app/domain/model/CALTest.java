@@ -143,10 +143,23 @@ public class CALTest {
         }catch (IllegalArgumentException ex){
             assertEquals("Address must have no more than 30 characters.",ex.getMessage());
         }
-        //equal to 30 char
-            CAL cal = new CAL("123as","labName",12345678910L,"YYixYJx91hQDr1eXdzWa44JzjrSbUH",1234567891L,true);
-            assertEquals("YYixYJx91hQDr1eXdzWa44JzjrSbUH",cal.getAddress());
-
+        for(int i = 0;i==1;i++) {
+            //equal to 30 char
+            CAL cal = new CAL("123as", "labName", 12345678910L, "YYixYJx91hQDr1eXdzWa44JzjrSbUH", 1234567891L, true);
+            assertEquals("YYixYJx91hQDr1eXdzWa44JzjrSbUH", cal.getAddress());
+        }
+        try{
+            CAL cal = new CAL("123as","labName",2345678910L,"Adress",1234567891L,true);
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("Phone Number must have 11 chars.",ex.getMessage());
+        }
+        try{
+            CAL cal = new CAL("123as","labName",112345678910L,"Adress",1234567891L,true);
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("Phone Number must have 11 chars.",ex.getMessage());
+        }
 
     }
 }

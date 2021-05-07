@@ -31,9 +31,9 @@ public class CAL {
 
         checkLabIDrules(labId);
         checkaddressrules(address);
+        checkphoneNumberrules(phoneNumber);
         /*
 
-        checkphoneNumberrules(phoneNumber);
         checkTINrules(tin);
         checkNamerules(labName);
     */
@@ -66,12 +66,13 @@ public class CAL {
         if ( address.trim().length() > 30)
             throw new IllegalArgumentException("Address must have no more than 30 characters.");
     }
-/*
+
     private void checkphoneNumberrules(long phoneNumber) {
         String temp = String.valueOf(phoneNumber);
         if ( temp.length() != 11)
             throw new IllegalArgumentException("Phone Number must have 11 chars.");
     }
+/*
 
     private void checkTINrules(long tin) {
         String temp = String.valueOf(tin);
