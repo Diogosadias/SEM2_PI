@@ -1,72 +1,100 @@
 package app.domain.model;
 
-import auth.AuthFacade;
-import auth.domain.model.Email;
 import org.junit.Test;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
 
 public class ParameterStoreTest {
-    ParameterStore storetest = new ParameterStore();
+    ParameterStore storeTest = new ParameterStore();
     Parameter p1 = new Parameter("1111t", "test", "this is a test", "11111");
-    Parameter p2 = new Parameter("1111t","test","this is a test", "11111");
+
     @Test
     public void testCreateParameter() {
-
-
+        Parameter p2 = storeTest.createParameter("1111t","test","this is a test", "11111");
         //assert
         assertEquals(p1.getCode(),p2.getCode());
         assertEquals(p1.getName(),p2.getName());
         assertEquals(p1.getDescription(),p2.getDescription());
         assertEquals(p1.getCategory(),p2.getCategory());
-
-
+        assertNull(storeTest.createParameter(null, null, null, null));
     }
-
 
     @Test
-    public void testValidateParameter1() {
-        //calculations
-        boolean b = storetest.validateParameter(p1);
-        assertEquals(true,b);
-
-        storetest.saveParameter(p1);
-        boolean b1 = storetest.validateParameter(p1);
-        assertEquals(false,b1);
-
-
-
+    public void testDeleteParameter(){
+        Parameter p2 = storeTest.createParameter("1111t","test","this is a test", "11111");
+        storeTest.saveParameter(p2);
+        boolean delete = storeTest.deleteParameter(p2.getCode());
+        boolean contains = storeTest.getParameterList().contains(p2);
+        assertTrue(delete && !contains);
     }
 
+    @Test
+    public void testGetParameterByCode(){
+        Parameter p2 = storeTest.createParameter("1111t","test","this is a test", "11111");
+        storeTest.saveParameter(p2);
+        assertTrue(p2.equals(storeTest.getParameterByCode(p2.getCode())));
+    }
+    @Test
+    public void testGetParameterByNullCode() {
+        assertNull(storeTest.getParameterByCode(null));
+    }
+    @Test
+    public void testGetParameterByNonExistantCode(){
+        assertNull(storeTest.getParameterByCode("DOESNT EXIST"));
+    }
+
+    @Test
+    public void testValidateParameter() {
+        //calculations
+        boolean b = storeTest.validateParameter(p1);
+        assertEquals(true,b);
+
+        storeTest.saveParameter(p1);
+        boolean b1 = storeTest.validateParameter(p1);
+        assertEquals(false,b1);
+
+        boolean b2 = storeTest.validateParameter(null);
+        assertFalse(b2);
+
+    }
 
     @Test
     public void testSaveParameter() {
-        boolean b = storetest.saveParameter(p1);
+        boolean b = storeTest.saveParameter(p1);
         assertEquals(true,b);
 
-        boolean b1 = storetest.saveParameter(p1);
+        boolean b1 = storeTest.saveParameter(p1);
         assertEquals(false,b1);
     }
 
     @Test
     public void testGetParameterList() {
-        storetest.saveParameter(p1);
-        storetest.saveParameter(p2);
-        List<Parameter> storetest2 = storetest.getParameterList();
-        assertEquals(storetest2,storetest.getParameterList());
+        Parameter p2 = storeTest.createParameter("1111t","test","this is a test", "11111");
+        storeTest.saveParameter(p1);
+        storeTest.saveParameter(p2);
+        List<Parameter> storeTestList = new ArrayList<>();
+        storeTestList.add(p1);
+        storeTestList.add(p2);
 
+        assertEquals(storeTestList, storeTest.getParameterList());
+    }
 
+    @Test
+    public void testGetNotNullParameterList() {
+        ParameterStore storetest2 = new ParameterStore();
+        assertNotNull(storetest2.getParameterList());
     }
 
     @Test
     public void testTestToString() {
-        storetest.saveParameter(p1);
-        storetest.saveParameter(p2);
+        Parameter p2 = storeTest.createParameter("1111t","test","this is a test", "11111");
+
+        storeTest.saveParameter(p1);
+        storeTest.saveParameter(p2);
         String check = "Parameter{code='1111t', name='test', description='this is a test', category='11111'}\nParameter{code='1111t', name='test', description='this is a test', category='11111'}\n";
-        assertEquals(check,storetest.toString());
+        assertEquals(check, storeTest.toString());
     }
 }
