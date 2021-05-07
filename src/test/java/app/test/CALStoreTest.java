@@ -35,7 +35,6 @@ public class CALStoreTest {
         CAL cal3 = new CAL("11asd","labNams",12345678524L,"Adress",1234567891,true);
         CAL cal4 = new CAL("11a85","labNams",12345678524L,"Adress",1234567891,true);
         CAL cal5 = new CAL("11a85","labNams",12345608523L,"Route Test",1234567891,true);
-        CAL cal6 = new CAL("11000","labNams",10045678524L,"Route Test",1034567891,true);
 
 
 
@@ -49,7 +48,6 @@ public class CALStoreTest {
         assertEquals(false, calList.validateCAL(cal4));
         assertEquals(false,calList.validateCAL(cal2));
         assertEquals(false,calList.validateCAL(cal5));
-        assertEquals(true,calList.validateCAL(cal6));
 
     }
 
