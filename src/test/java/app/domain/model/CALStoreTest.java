@@ -1,4 +1,4 @@
-package app.test;
+package app.domain.model;
 
 import app.domain.model.CAL;
 import app.domain.model.CALStore;

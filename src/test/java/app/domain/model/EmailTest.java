@@ -1,4 +1,4 @@
-package app.test;
+package app.domain.model;
 
 import auth.domain.model.Email;
 import junit.framework.TestCase;
