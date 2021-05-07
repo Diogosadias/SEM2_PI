@@ -32,11 +32,9 @@ public class CALStore {
      * @return CAL
      */
     public CAL registerNewCAL(String labId, String labName, long phoneNumber, String address, long tin, boolean answer ){
-        String temp = String.valueOf(phoneNumber);
-        String temp2 = String.valueOf(tin);
 
         if(labId==null || labName==null  || address==null  ){
-            throw new IllegalArgumentException("The values input cannot be blankk.");
+            throw new IllegalArgumentException("The values input cannot be blank.");
         }
         return new CAL(labId, labName, phoneNumber, address, tin, answer);
     }
