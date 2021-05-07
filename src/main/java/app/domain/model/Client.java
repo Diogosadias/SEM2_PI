@@ -128,8 +128,8 @@ public class Client {
             }
 
     }
-
 /*
+
     public void checkSex(String sex){
 
         if( !sex.equalsIgnoreCase("Masculine") && ! sex.equalsIgnoreCase("Femimnine") && ! sex.equalsIgnoreCase("M") && sex.equalsIgnoreCase("F"))
