@@ -37,12 +37,23 @@ public class ClientTest extends TestCase {
         catch (IllegalArgumentException ex){
             assertEquals("TIN must have 12 chars",ex.getMessage());
         }
+
+
         try{
-            Client c1 = new Client(new Email("user1@gmail.com"), "John", 1231231231, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111);
+            Client c1 = new Client(new Email("user1@gmail.com"), "John", 1231231231, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111L);
         }
         catch (IllegalArgumentException ex){
             assertEquals("Phone Number must have 12 chars",ex.getMessage());
         }
+        try{
+            Client c1 = new Client(new Email("user1@gmail.com"), "John", 1231231231, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111111111L);
+        }
+        catch (IllegalArgumentException ex){
+            assertEquals("Phone Number must have 12 chars",ex.getMessage());
+        }
+
+
+
         try{
             Client c1 = new Client(new Email("user1@gmail.com"), "John", 1231231231, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "Ah", 111111111111l);
         }
@@ -56,7 +67,7 @@ public class ClientTest extends TestCase {
     @Test
     public void testGetNhs() {
         //preparations
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
+        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
         //testing
         assertEquals(1111111111, c1.getNhs());
     }
@@ -64,22 +75,22 @@ public class ClientTest extends TestCase {
     @Test
     public void testGetCitizenCard() {
         //preparations
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
+        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
         //testing
-        assertEquals(1111111111111111l,c1.getCitizenCard());
+        assertEquals(1111111111111111L,c1.getCitizenCard());
     }
 
     @Test
     public void testGetTin() {
         //preparations
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
+        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
         //testing
-        assertEquals(111111111111l,c1.getTin());
+        assertEquals(111111111111L,c1.getTin());
     }
 
     @Test
     public void testGetBirthDate() {
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
+        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
         //testing
         assertEquals(new Date("12/12/2021"), c1.getBirthDate());
     }
@@ -87,7 +98,7 @@ public class ClientTest extends TestCase {
     @Test
     public void testGetSex() {
         //preparations
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
+        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
         //testing
         assertEquals("M",c1.getSex());
     }
@@ -95,15 +106,15 @@ public class ClientTest extends TestCase {
     @Test
     public void testGetPNumber() {
         //preparations
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
+        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
         //testing
-        assertEquals(111111111111l,c1.getPNumber());
+        assertEquals(111111111111L,c1.getPNumber());
     }
 
     @Test
     public void testTestGetName() {
         //preparations
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
+        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
         //testing
         assertEquals("John", c1.getName());
     }
@@ -111,38 +122,38 @@ public class ClientTest extends TestCase {
     @Test
     public void testSetId() {
         //preparations
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
+        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
 
     }
 
     @Test
     public void testSetNhs() {
         //preparations
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
+        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
 
         //calculations
-        c1.setNhs(1234567891);
+        c1.setNhs(1111111112L);
 
         //assert
-        assertEquals(1234567891, c1.getNhs());
+        assertEquals(1111111112L, c1.getNhs());
     }
 
     @Test
     public void testSetCitizenCard() {
         //preparations
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
+        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
 
         //calculations
-        c1.setCitizenCard(1231231231231231l);
+        c1.setCitizenCard(1111111111111112L);
 
         //aserts
-        assertEquals(1231231231231231l, c1.getCitizenCard());
+        assertEquals(1111111111111112L, c1.getCitizenCard());
     }
 
     @Test
     public void testSetBirthDate() {
         //preparations
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
+        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
 
         //calculations
         c1.setBirthDate(new Date ("20/08/1997"));
@@ -157,12 +168,12 @@ public class ClientTest extends TestCase {
     @Test
     public void testSetTin() {
         //preparations
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
+        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
 
         //calculations
-        c1.setTin(222222222222l);
+        c1.setTin(111111111112L);
         //assert
-        assertEquals(222222222222l,c1.getTin());
+        assertEquals(111111111112L,c1.getTin());
 
 
     }
@@ -171,7 +182,7 @@ public class ClientTest extends TestCase {
     @Test
     public void testSetSex() {
         //preparations
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
+        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
 
         //testing
         c1.setSex("Masculine");
@@ -181,12 +192,12 @@ public class ClientTest extends TestCase {
     @Test
     public void testSetPNumber() {
         //preparations
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
+        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
 
         //testing
-        c1.setPNumber(222222222222l);
+        c1.setPNumber(111111111112L);
 
-        assertEquals(222222222222l,c1.getPNumber());
+        assertEquals(111111111112L,c1.getPNumber());
 
     }
 
