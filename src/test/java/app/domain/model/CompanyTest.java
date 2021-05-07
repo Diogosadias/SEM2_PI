@@ -3,15 +3,14 @@ package app.domain.model;
 import junit.framework.TestCase;
 import org.junit.Test;
 
-import java.util.List;
 
 public class CompanyTest extends TestCase {
 
-    Company test = new Company("TESTE");
+    Company test = new Company("TEST");
 
     @Test
     public void testCompanyConstructor(){
-        Company test1 = new Company("TESTE");
+        Company test1 = new Company("TEST");
         assertNotNull(test1);
         assertEquals(test1.getDesignation(), test.getDesignation());
     }
@@ -31,48 +30,40 @@ public class CompanyTest extends TestCase {
         assertNotNull(testStore1);
     }
 
-    public void testSetTestTypeStore() {
-    }
-
+    @Test
     public void testGetDesignation() {
+        String designation = test.getDesignation();
+        assertEquals(designation, "TEST");
     }
 
-    public void testGetAuthFacade() {
-    }
-
+    @Test
     public void testGetCalStore() {
+        assertNotNull(test.getCalStore());
     }
 
-    public void testSetCalStore() {
-    }
-
+    @Test
     public void testGetCreateClientStore() {
+        assertNotNull(test.getCreateClientStore());
     }
 
-    public void testSetCreateClientStore() {
-    }
-
+    @Test
     public void testGetParameterCategoryStore() {
+        assertNotNull(test.getParameterCategoryStore());
     }
 
-    public void testSetParameterCategoryStore() {
-    }
-
+    @Test
     public void testGetSpecifyNewTestStore() {
+        assertNotNull(test.getSpecifyNewTestStore());
     }
 
-    public void testSetSpecifyNewTestStore() {
-    }
-
+    @Test
     public void testGetEmployeeStore() {
+        assertNotNull(test.getEmployeeStore());
     }
 
-    public void testSetEmployeeStore() {
-    }
-
+    @Test
     public void testGetParameterStore() {
+        assertNotNull(test.getParameterStore());
     }
 
-    public void testSetParameterStore() {
-    }
 }
