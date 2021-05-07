@@ -23,7 +23,7 @@ public class DeleteParameterUI implements Runnable{
         System.out.print("\n->");
         codedel= read.next();
         do {
-            System.out.println("\n Are you sure you want to dele this parameter?(Y/N)");
+            System.out.println("\n Are you sure you want to delete this parameter?(Y/N)");
             verific = read.next().trim();
         }while(!verific.equalsIgnoreCase(ANS_YES) && !verific.equalsIgnoreCase(ANS_NO));
         System.out.println();

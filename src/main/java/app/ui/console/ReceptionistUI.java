@@ -22,7 +22,7 @@ public class ReceptionistUI implements Runnable {
         options.add(new MenuItem("Create Client", new CreateClientUI()));
         options.add(new MenuItem("List Clients", new ListClientsUI()));
         //options.add(new MenuItem("Find Client"))    TO DO
-        //options.add(new MenuItem("Remove Client"))  TO DO
+        options.add(new MenuItem("Remove Client", new DeleteClientUI()));
         //options.add(new MenuItem("Edit Client"))    TO DO
         boolean success = false;
         int option;

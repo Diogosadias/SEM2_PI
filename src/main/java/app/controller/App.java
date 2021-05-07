@@ -86,7 +86,7 @@ App {
 
 
         this.authFacade.addUserWithRole("Admin", "admin@lei.pt", "495", Constants.ROLE_ADMIN);
-        this.authFacade.addUserWithRole("Client", "client@lei.sem2.pt", "123",Constants.ROLE_RECEP);
+        this.authFacade.addUserWithRole("Receptionist", "recep@lei.pt", "123",Constants.ROLE_RECEP);
         this.authFacade.addUserWithRole("Client1","clei@sd.pt","123",Constants.ROLE_CLIENT);
         this.authFacade.addUserWithRoles("SuperUser", "superuser@super.user", "123456", new String[] { Constants.ROLE_CLIENT,Constants.ROLE_ADMIN, Constants.ROLE_RECEP });
         
