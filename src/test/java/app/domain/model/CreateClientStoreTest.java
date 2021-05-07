@@ -15,11 +15,11 @@ public class CreateClientStoreTest {
 
     @Test
     public void validateClient() {
-        Client c = new Client(new Email("aaa@user.com"),"John",1111111111,123123123123123l,123123123123l,new Date("12/12/2012"),"M",123123123123l);
+        Client c1 = new Client(new Email("user1@gmail.com"), "John", 111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
         Client c2 = null;
 
 
-        assertEquals(true,cr.validateClient(c));
+        assertEquals(true,cr.validateClient(c1));
 
     }
 }

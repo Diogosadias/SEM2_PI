@@ -27,7 +27,7 @@ public class CALTest {
         //arrange
         CAL cal = new CAL("115a1","labName",12345678910L,"Adress",1234567891L,true);
         //assert
-        assertEquals(1111,cal.getPhoneNumber());
+        assertEquals(12345678910L,cal.getPhoneNumber());
     }
 
     @Test
@@ -35,7 +35,7 @@ public class CALTest {
         //arrange
         CAL cal = new CAL("115a1","labName",12345678910L,"Adress",1234567891L,true);
         //assert
-        assertEquals(1111,cal.getTinNumber());
+        assertEquals(1234567891L,cal.getTinNumber());
     }
 
     @Test
@@ -82,9 +82,9 @@ public class CALTest {
         //arrange
         CAL cal = new CAL("115a1","labName",12345678910L,"Adress",1234567891L,true);
         //Calculations
-        cal.setPhoneNumber(1112);
+        cal.setPhoneNumber(22345678910L);
         //assert
-        assertEquals(1112,cal.getPhoneNumber());
+        assertEquals(22345678910L,cal.getPhoneNumber());
     }
 
     @Test
@@ -92,9 +92,9 @@ public class CALTest {
         //arrange
         CAL cal = new CAL("115a1","labName",12345678910L,"Adress",1234567891L,true);
         //Calculations
-        cal.setTinNumber(2222);
+        cal.setTinNumber(2234567891L);
         //assert
-        assertEquals(2222,cal.getTinNumber());
+        assertEquals(2234567891L,cal.getTinNumber());
     }
 
     @Test
@@ -115,5 +115,80 @@ public class CALTest {
         cal.setLaboratoryId("22");
         //assert
         assertEquals("22",cal.getLaboratoryId());
+    }
+
+    @Test
+    public void CheckValidation(){
+        try{
+            CAL cal = new CAL("115a","labName",12345678910L,"Adress",1234567891L,true);
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("Lab Id must have 5 chars.",ex.getMessage());
+        }
+        try{
+            CAL cal = new CAL("","labName",12345678910L,"Adress",1234567891L,true);
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("Laboratory Id cannot be blank.",ex.getMessage());
+        }
+        try{
+            CAL cal = new CAL("123as","labName",12345678910L,"",1234567891L,true);
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("Address cannot be blank.",ex.getMessage());
+        }
+        try{
+            CAL cal = new CAL("123as","labName",12345678910L,"Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",1234567891L,true);
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("Address must have no more than 30 characters.",ex.getMessage());
+        }
+        for(int i = 0;i<1;i++) {
+            //equal to 30 char
+            CAL cal = new CAL("123as", "labName", 12345678910L, "YYixYJx91hQDr1eXdzWa44JzjrSbUH", 1234567891L, true);
+            assertEquals("YYixYJx91hQDr1eXdzWa44JzjrSbUH", cal.getAddress());
+        }
+        try{
+            CAL cal = new CAL("123as","labName",2345678910L,"Adress",1234567891L,true);
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("Phone Number must have 11 chars.",ex.getMessage());
+        }
+        try{
+            CAL cal = new CAL("123as","labName",112345678910L,"Adress",1234567891L,true);
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("Phone Number must have 11 chars.",ex.getMessage());
+        }
+        try{
+            CAL cal = new CAL("123as","labName",12345678910L,"Adress",234567891L,true);
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("TIN must have 10 chars.",ex.getMessage());
+        }
+        try{
+            CAL cal = new CAL("123as","labName",12345678910L,"Adress",12234567891L,true);
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("TIN must have 10 chars.",ex.getMessage());
+        }
+        try{
+            CAL cal = new CAL("123as","",12345678910L,"Adress",1234567891L,true);
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("Laboratory Name cannot be blank.",ex.getMessage());
+        }
+        try{
+            CAL cal = new CAL("123as","48Yd4DURqJYghc2XwrBPas",12345678910L,"Adress",1234567891L,true);
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("Laboratory Name must have no more than 20 characters.",ex.getMessage());
+        }
+        for(int i = 0;i<1;i++) {
+            //equal to 20 char
+            CAL cal = new CAL("123as", "48Yd4DURqJYghc2XwrBP", 12345678910L, "Adress", 1234567891L, true);
+            assertEquals("48Yd4DURqJYghc2XwrBP", cal.getLabName());
+        }
+
     }
 }

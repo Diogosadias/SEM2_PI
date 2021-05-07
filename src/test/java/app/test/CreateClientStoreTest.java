@@ -22,12 +22,12 @@ public class CreateClientStoreTest extends TestCase {
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("2021-12-12");
 
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
+        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
         CreateClientStore tccs = new CreateClientStore(auth);
 
 
         //calculations
-        Client c2 = tccs.createClient("user1@gmail.com", "John", 1111111111, 1111111111111111l, 111111111111l, "12/12/2021", "M", 111111111111l);
+        Client c2 = tccs.createClient("user1@gmail.com", "John", 1111111111L, 1111111111111111L, 111111111111L, "12/12/2021", "M", 111111111111L);
 
         //assert
         assertEquals(c1.getPNumber(),c2.getPNumber());
@@ -43,7 +43,7 @@ public class CreateClientStoreTest extends TestCase {
         //arrange
         AuthFacade auth = null;
         CreateClientStore ccs = new CreateClientStore(auth);
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
+        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
 
         //calculations
         boolean b = ccs.validateClient(c1);
@@ -59,7 +59,7 @@ public class CreateClientStoreTest extends TestCase {
         //arrange
         AuthFacade auth = new AuthFacade();
         CreateClientStore ccs = new CreateClientStore(auth);
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
+        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
 
         //calculations
         boolean b = ccs.saveClient(c1,"pwd");
@@ -72,7 +72,7 @@ public class CreateClientStoreTest extends TestCase {
     public void testGetClientList() {
         AuthFacade auth = null;
         CreateClientStore ccs = new CreateClientStore(auth);
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
+        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
         List<Client> testList = new ArrayList<>();
 
         //calculations

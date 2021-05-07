@@ -1,5 +1,8 @@
 package app.domain.model;
 
+import java.lang.Object;
+
+
 import java.util.ArrayList;
 
 /**
@@ -9,7 +12,7 @@ import java.util.ArrayList;
  */
 public class CALStore {
 
-    private ArrayList<CAL> calList;
+    private final ArrayList<CAL> calList;
 
     /**
      * Create Store instance with empty array.
@@ -29,6 +32,10 @@ public class CALStore {
      * @return CAL
      */
     public CAL registerNewCAL(String labId, String labName, long phoneNumber, String address, long tin, boolean answer ){
+
+        if(labId==null && labName==null  && address==null  ){
+            throw new IllegalArgumentException("The values input cannot be blank.");
+        }
         return new CAL(labId, labName, phoneNumber, address, tin, answer);
     }
 
@@ -38,8 +45,6 @@ public class CALStore {
      * @return boolean
      */
     public boolean validateCAL(CAL cal){
-        if(cal == null)
-            return false;
         for (CAL cal1: this.calList) {
             if(cal1.getLaboratoryId().equals(cal.getLaboratoryId()) || cal1.getPhoneNumber()==cal.getPhoneNumber() ||
                     cal1.getTinNumber()==cal.getTinNumber() || cal1.getAddress().equals(cal.getAddress())){
