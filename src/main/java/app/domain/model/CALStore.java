@@ -36,7 +36,7 @@ public class CALStore {
         if(labId!=null && labName!=null  && address!=null  ){
             return new CAL(labId, labName, phoneNumber, address, tin, answer);
         }
-        throw new NullPointerException("The values input cannot be blank.");
+        return null;
 
     }
 
