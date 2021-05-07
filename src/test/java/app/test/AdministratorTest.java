@@ -17,7 +17,8 @@ public class AdministratorTest {
     @Test
     public void getAdress() {
         //testing
-        Assert.assertEquals("Adress", admin.getAdress());
+        assertEquals("Adress", admin.getAdress());
+        assertNotNull(admin.getAdress());
     }
 
     @Test
