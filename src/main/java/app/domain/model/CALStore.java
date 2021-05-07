@@ -35,7 +35,7 @@ public class CALStore {
         String temp = String.valueOf(phoneNumber);
         String temp2 = String.valueOf(tin);
 
-        if(labId==null || labName==null || temp.equals(null) || address==null || temp2.equals(null)  ){
+        if(labId==null || labName==null  || address==null  ){
             throw new IllegalArgumentException("The values input cannot be blankk.");
         }
         return new CAL(labId, labName, phoneNumber, address, tin, answer);
