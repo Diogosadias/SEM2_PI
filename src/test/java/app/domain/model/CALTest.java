@@ -179,7 +179,7 @@ public class CALTest {
             assertEquals("Laboratory Name cannot be blank.",ex.getMessage());
         }
         try{
-            CAL cal = new CAL("123as","labName",12345678910L,"Adress",1234567891L,true);
+            CAL cal = new CAL("123as","48Yd4DURqJYghc2XwrBPas",12345678910L,"Adress",1234567891L,true);
             fail();
         }catch (IllegalArgumentException ex){
             assertEquals("Laboratory Name must have no more than 20 characters.",ex.getMessage());
