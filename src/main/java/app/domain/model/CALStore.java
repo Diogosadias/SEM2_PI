@@ -48,16 +48,7 @@ public class CALStore {
     public boolean validateCAL(CAL cal){
         if(cal!=null) {
             return ! this.calList.contains(cal);
-            /*
-            for (CAL cal1 : this.calList) {
-                if (cal1.getLaboratoryId().equals(cal.getLaboratoryId()) || cal1.getPhoneNumber() == cal.getPhoneNumber() ||
-                        cal1.getTinNumber() == cal.getTinNumber() || cal1.getAddress().equals(cal.getAddress())) {
-                    return false;
-                }
             }
-            return true;
-            */
-        }
         return false;
     }
 
