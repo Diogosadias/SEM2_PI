@@ -41,9 +41,10 @@ public class CreateClientStore {
     }
 
     public boolean validateClient(Client rc){
-        if(rc == null)
-            return false;
-        return ! this.clientList.contains(rc);
+        if(rc!=null) {
+            return ! this.clientList.contains(rc);
+        }
+        return false;
     }
 
     public boolean saveClient(Client rc, String pwd){

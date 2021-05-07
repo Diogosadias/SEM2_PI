@@ -12,18 +12,22 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+
 public class CreateClientStoreTest extends TestCase {
+    AuthFacade auth = new AuthFacade();
+    Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
+    CreateClientStore tccs = new CreateClientStore(auth);
 
 
     @Test
     public void testCreateClient() {
         //arrange
-        AuthFacade auth = null;
+
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("2021-12-12");
 
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
-        CreateClientStore tccs = new CreateClientStore(auth);
 
 
         //calculations
@@ -40,16 +44,14 @@ public class CreateClientStoreTest extends TestCase {
     @Test
     public void testValidateClient() {
 
-        //arrange
-        AuthFacade auth = null;
-        CreateClientStore ccs = new CreateClientStore(auth);
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
-
-        //calculations
-        boolean b = ccs.validateClient(c1);
-
-        //assert
+        //testing
+        boolean b = tccs.validateClient(c1);
         assertEquals(true,b);
+        tccs.saveClient(c1,"asdf");
+        boolean b1 = tccs.validateClient(c1);
+        assertEquals(false,b1);
+        boolean b2 = tccs.validateClient(null);
+        assertFalse(b2);
     }
 
 
