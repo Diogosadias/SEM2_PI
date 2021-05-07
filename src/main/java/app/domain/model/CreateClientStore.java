@@ -48,10 +48,13 @@ public class CreateClientStore {
     }
 
     public boolean saveClient(Client rc, String pwd){
-        if(!validateClient(rc))
+        if(validateClient(rc)){
+            this.authFacade.addUserWithRole(rc.getName(), rc.getId().getEmail(), pwd , Constants.ROLE_CLIENT);
+            return this.clientList.add(rc);
+        }
             return false;
-        this.authFacade.addUserWithRole(rc.getName(), rc.getId().getEmail(), pwd , Constants.ROLE_CLIENT);
-        return this.clientList.add(rc);
+
+
     }
 
 
