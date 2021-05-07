@@ -36,6 +36,12 @@ public class Client {
      */
     public Client(Email id, String name, long nhs, long citizenCard, long tin, Date birthDate, String sex, long pNumber){
 
+        checkPNumber(pNumber);
+        checkTIN(tin);
+        checkSex(sex);
+        checkCitizenNumber(citizenCard);
+        checkNHS(nhs);
+        checkPNumber(pNumber);
 
 
         this.name=name;
@@ -122,14 +128,6 @@ public class Client {
         }
     }
 
-    public void checkPNumberM(long pNumber){
-        if (pNumber == 0) {
-            String check = String.valueOf(pNumber);
-            if (check.length() == 12) {
-                throw new IllegalArgumentException("Phone Number must have 12 chars");
-            }
-        }
-    }
 
     public void checkSex(String sex){
 
@@ -149,11 +147,6 @@ public class Client {
                 '}';
     }
 
-    //Mutants
-    public void checkCitizenNumberM(long citizenCard){
-        String check = String.valueOf(citizenCard);
-        if(check.length() == 16)
-            throw new IllegalArgumentException("Citizen number must have 16 chars");
-    }
+
 
 }
