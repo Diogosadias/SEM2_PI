@@ -19,6 +19,9 @@ public class Administrator extends User {
 
     //getters
     public String getAdress() {
+        if(adress == null){
+            return null;
+        }
         return adress;
     }
 
