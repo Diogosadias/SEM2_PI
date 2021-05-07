@@ -139,12 +139,9 @@ public class Client {
             throw new IllegalArgumentException("NHS code must have 10 chars.");
     }
 
-/*
-    }
+
+
     public void checkCitizenNumber(long citizenCard){
-        String temp = String.valueOf(citizenCard);
-        if( temp.length() < 16 &&)
-            throw new IllegalArgumentException("Citizen card must have 16");
 
     }
 
@@ -159,7 +156,7 @@ public class Client {
 
     }
 
- */
+
 
     @Override
     public String toString() {
