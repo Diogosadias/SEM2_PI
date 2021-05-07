@@ -19,8 +19,7 @@ import java.util.List;
 public class CreateClientStore {
     private final List<Client> clientList;
 
-    private  AuthFacade authFacade;
-    private Company company ;
+    private final AuthFacade authFacade;
 
     public CreateClientStore(AuthFacade authFacade){
         this.clientList = new ArrayList<>();
@@ -31,9 +30,7 @@ public class CreateClientStore {
 
     public Client createClient(String id, String name, long nhs, long citizenCard, long tin, String birthDate, String sex, long pNumber ){
         Email email = new Email(id);
-        //boolean validateuser =  fazer try catch ou validateuser
-               // this.authFacade.addUserWithRole(name, id, pwd, Constants.ROLE_CLIENT);
-        //DATE FORMAT DD-MM-YYYY
+
         String[] date = birthDate.split("/");
         Date birthDateFormat = new Date(Integer.valueOf(date[0]),Integer.valueOf(date[1]),Integer.valueOf(date[2]));
 

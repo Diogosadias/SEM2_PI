@@ -57,17 +57,13 @@ public class CreateClientStoreTest extends TestCase {
 
     @Test
     public void testSaveClient() {
+        //testing
 
-        //arrange
-        AuthFacade auth = new AuthFacade();
-        CreateClientStore ccs = new CreateClientStore(auth);
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
-
-        //calculations
-        boolean b = ccs.saveClient(c1,"pwd");
-
-        //assert
+        boolean b = tccs.saveClient(c1,"asdf");
         assertEquals(true,b);
+
+        boolean b1 = tccs.saveClient(c1,"asdf");
+        assertEquals(false,b1);
     }
 
     @Test
