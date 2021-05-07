@@ -31,17 +31,23 @@ public class CALStoreTest {
     public void testValidateCAL() {
         //preparations
         CAL cal1 = new CAL("11asd","labNams",12345678524L,"Adress",1234567891,true);
-        CAL cal2 = new CAL("11a85","labNams",12345678523L,"Adress",1234567891,true);
+        CAL cal2 = new CAL("11a85","labNams",12345608523L,"Adress",1234563891,true);
+        CAL cal3 = new CAL("11asd","labNams",12345678524L,"Adress",1234567891,true);
+        CAL cal4 = new CAL("11a85","labNams",12345678524L,"Adress",1234567891,true);
+        CAL cal5 = new CAL("11a85","labNams",12345608523L,"Route Test",1234567891,true);
+
+
 
         CALStore calList = new CALStore();
 
 
-        boolean b = calList.validateCAL(cal1);
-
         //testing
-        assertEquals(true,b);
-        calList.saveCAL(cal1);
+        assertEquals(true,calList.validateCAL(cal1));
+        boolean b1 = calList.saveCAL(cal1);
+        assertEquals(false, calList.validateCAL(cal3));
+        assertEquals(false, calList.validateCAL(cal4));
         assertEquals(false,calList.validateCAL(cal2));
+        assertEquals(false,calList.validateCAL(cal5));
 
     }
 
