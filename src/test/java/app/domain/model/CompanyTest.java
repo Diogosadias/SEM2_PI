@@ -25,9 +25,13 @@ public class CompanyTest extends TestCase {
     }
 
     @Test
+    public void testGetAuthFacade(){
+        assertNotNull(test.getAuthFacade());
+    }
+
+    @Test
     public void testGetTestTypeStore() {
-        SpecifyNewTestStore testStore1 = test.getSpecifyNewTestStore();
-        assertNotNull(testStore1);
+        assertNotNull(test.getTestTypeStore());
     }
 
     @Test
