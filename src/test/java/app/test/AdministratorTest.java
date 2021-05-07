@@ -1,6 +1,7 @@
 package app.test;
 
 import app.domain.model.Administrator;
+import app.domain.model.CAL;
 import app.domain.model.Client;
 import auth.domain.model.Email;
 import auth.domain.model.Password;
@@ -16,9 +17,8 @@ public class AdministratorTest {
 
     @Test
     public void getAdress() {
-        //testing
-        assertEquals("Adress", admin.getAdress());
-        assertNotNull("Address is null.",admin.getAdress());
+        //assert
+        assertEquals("Adress",admin.getAdress());
     }
 
     @Test
