@@ -105,6 +105,8 @@ public class Client {
             throw new IllegalArgumentException("Citizen number must have 16 chars");
     }
 
+
+
     public void checkTIN(long tin){
         String check = String.valueOf(tin);
         if(check.length() != 12)
@@ -115,6 +117,15 @@ public class Client {
         if (pNumber != 0) {
             String check = String.valueOf(pNumber);
             if (check.length() != 12) {
+                throw new IllegalArgumentException("Phone Number must have 12 chars");
+            }
+        }
+    }
+
+    public void checkPNumberM(long pNumber){
+        if (pNumber == 0) {
+            String check = String.valueOf(pNumber);
+            if (check.length() == 12) {
                 throw new IllegalArgumentException("Phone Number must have 12 chars");
             }
         }
@@ -137,4 +148,12 @@ public class Client {
                 ", pNumber=" + pNumber +
                 '}';
     }
+
+    //Mutants
+    public void checkCitizenNumberM(long citizenCard){
+        String check = String.valueOf(citizenCard);
+        if(check.length() == 16)
+            throw new IllegalArgumentException("Citizen number must have 16 chars");
+    }
+
 }
