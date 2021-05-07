@@ -15,17 +15,20 @@ import static org.junit.Assert.*;
 import static org.junit.Assert.assertNull;
 
 public class CALStoreTest {
-
+    CAL cal1 = new CAL("11asd", "labNams", 12345678524L, "Adress", 1234567891, true);
+    CALStore calList = new CALStore();
 
     @Test
     public void testRegisterNewCAL() {
-        CAL cal1 = new CAL("11asd", "labNams", 12345678524L, "Adress", 1234567891, true);
-        CALStore calList = new CALStore();
-
-        CAL cal2 = calList.registerNewCAL("11a85", "labNams", 12345678523L, "Adress", 1214567891, true);
+        CAL cal2 = calList.registerNewCAL("11asd", "labNams", 12345678524L, "Adress", 1234567891, true);
+        assertEquals(cal1.getLaboratoryId(), cal2.getLaboratoryId());
+        assertEquals(cal1.getLabName(), cal2.getLabName());
+        assertEquals(cal1.getPhoneNumber(), cal2.getPhoneNumber());
+        assertEquals(cal1.getAddress(), cal2.getAddress());
+        assertEquals(cal1.getTinNumber(), cal2.getTinNumber());
 
         //testing
-        assertNull(calList.registerNewCAL(null,null,1234567891L,null,12345678912L,true));
+        assertNull(calList.registerNewCAL(null, null, 1234567891L, null, 12345678912L, true));
         assertNull(calList.registerNewCAL("11a85", null, 12345678524L, null, 1234567891, true));
         assertNull(calList.registerNewCAL("11a85", null, 12345678524L, "Adress", 1234567891, true));
         assertNull(calList.registerNewCAL("11a85", "labNams", 12345678524L, null, 1234567891, true));
@@ -33,18 +36,8 @@ public class CALStoreTest {
         assertNull(calList.registerNewCAL(null, "labNams", 12345678524L, "Adress", 1234567891, true));
         assertNull(calList.registerNewCAL(null, "labNams", 12345678524L, null, 1234567891, true));
 
-        for(int i = 0;i<1;i++) {
-            CAL cal = calList.registerNewCAL("11a85", "labNams", 12345678524L, "Adress", 1234567891, true);
-            assertEquals("11a85", cal.getLaboratoryId());
-            assertEquals("labNams", cal.getLabName());
-            assertEquals("Adress", cal.getAddress());
-        }
 
-        assertEquals(false, cal2.getTinNumber() == cal1.getTinNumber());
-        assertEquals(true, cal2.getAddress().equals(cal1.getAddress()));
-        assertEquals(false,cal2.getLaboratoryId().equals(cal1.getLaboratoryId()));
     }
-
         @Test
         public void testValidateCAL () {
             //preparations
