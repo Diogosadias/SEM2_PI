@@ -214,13 +214,13 @@ public class ClientTest {
     @Test
     public void checkNHS(){
         try{
-            Client c1 = new Client(new Email("user1@gmail.com"), "John", 111111121121L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
+            Client c1 = new Client(new Email("user1@gmail.com"), "John", 111111121L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
             fail();
         }catch (IllegalArgumentException ex){
             assertEquals("NHS code must have 10 chars.",ex.getMessage());
         }
         try{
-            Client c1 = new Client(new Email("user1@gmail.com"), "John", 111111111221L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
+            Client c1 = new Client(new Email("user1@gmail.com"), "John", 11111111121L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
             fail();
         }catch (IllegalArgumentException ex){
             assertEquals("NHS code must have 10 chars.",ex.getMessage());
