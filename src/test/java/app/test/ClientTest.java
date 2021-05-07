@@ -306,30 +306,6 @@ public class ClientTest extends TestCase {
 
 
 
-    //Mutant
 
-    @Test
-    public void testCheckCitizenNumberM() {
-        //preparations
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
-        Client c2 = new Client  (new Email("user2@gmail.com"), "Mari", 1111111111, 11111, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
 
-        //testing
-        try{
-            c1.checkCitizenNumberM(c1.getCitizenCard());
-            fail();
-
-        }catch (IllegalArgumentException ex){
-            assertEquals("Citizen number must have 16 chars",ex.getMessage());
-        }
-
-        try{
-            c2.checkCitizenNumberM(c2.getCitizenCard());
-            fail();
-
-        }catch (IllegalArgumentException ex){
-            assertEquals("Citizen number must have 16 chars",ex.getMessage());
-        }
-
-    }
 }
