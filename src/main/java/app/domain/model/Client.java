@@ -24,9 +24,9 @@ public class Client {
     private long pNumber;
 
 
-
     /**
      * Constructor Client
+     *
      * @param nhs
      * @param citizenCard
      * @param tin
@@ -34,17 +34,18 @@ public class Client {
      * @param sex
      * @param pNumber
      */
-    public Client(Email id, String name, long nhs, long citizenCard, long tin, Date birthDate, String sex, long pNumber){
+    public Client(Email id, String name, long nhs, long citizenCard, long tin, Date birthDate, String sex, long pNumber) {
         checkNHS(nhs);
-        checkCitizenNumber(citizenCard);
+
         /*
+          checkCitizenNumber(citizenCard);
         checkPNumber(pNumber);
         checkTIN(tin);
         checkSex(sex);
 
 */
-        this.name=name;
-        this.id=id;
+        this.name = name;
+        this.id = id;
         this.nhs = nhs;
         this.citizenCard = citizenCard;
         this.tin = tin;
@@ -52,10 +53,11 @@ public class Client {
         this.sex = sex;
         this.pNumber = pNumber;
     }
-    public Client(Email id, String name, long nhs, long citizenCard, long tin, Date birthDate,String sex){
 
-        this.name=name;
-        this.id=id;
+    public Client(Email id, String name, long nhs, long citizenCard, long tin, Date birthDate, String sex) {
+
+        this.name = name;
+        this.id = id;
         this.nhs = nhs;
         this.citizenCard = citizenCard;
         this.tin = tin;
@@ -65,12 +67,29 @@ public class Client {
 
     //gets:
 
-    public long getNhs(){return nhs;}
-    public long getCitizenCard(){return citizenCard;}
-    public long getTin(){return tin;}
-    public Date getBirthDate(){return birthDate;}
-    public String getSex(){return sex;}
-    public long getPNumber(){return pNumber;}
+    public long getNhs() {
+        return nhs;
+    }
+
+    public long getCitizenCard() {
+        return citizenCard;
+    }
+
+    public long getTin() {
+        return tin;
+    }
+
+    public Date getBirthDate() {
+        return birthDate;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public long getPNumber() {
+        return pNumber;
+    }
 
     public String getName() {
         return name;
@@ -90,28 +109,46 @@ public class Client {
 
 
     //sets:
-    public void setNhs(long nhs){this.nhs=nhs;}
-    public void setCitizenCard(long citizenCard){this.citizenCard=citizenCard;}
-    public void setBirthDate(Date birthDate){this.birthDate=birthDate;}
-    public void setTin(long tin){this.tin=tin;}
-    public void setSex(String sex){this.sex=sex;}
-    public void setPNumber(long pNumber){this.pNumber=pNumber;}
+    public void setNhs(long nhs) {
+        this.nhs = nhs;
+    }
 
-    public void checkNHS(long nhs){
+    public void setCitizenCard(long citizenCard) {
+        this.citizenCard = citizenCard;
+    }
+
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public void setTin(long tin) {
+        this.tin = tin;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public void setPNumber(long pNumber) {
+        this.pNumber = pNumber;
+    }
+
+    public void checkNHS(long nhs) {
         String temp = String.valueOf(nhs);
-        if ( temp.length() == 12)
+        if (temp.length() == 12)
             throw new IllegalArgumentException("NHS code must have 10 chars.");
+    }
 
-
+/*
     }
     public void checkCitizenNumber(long citizenCard){
         String temp = String.valueOf(citizenCard);
-        if( temp.length() < 16 || temp.length() > 16)
+        if( temp.length() < 16 &&)
             throw new IllegalArgumentException("Citizen card must have 16");
 
     }
 
-    /*
+
     public void checkSex(String sex){
 
     }
@@ -122,7 +159,7 @@ public class Client {
 
     }
 
-    */
+ */
 
     @Override
     public String toString() {
@@ -135,7 +172,6 @@ public class Client {
                 ", pNumber=" + pNumber +
                 '}';
     }
-
 
 
 }
