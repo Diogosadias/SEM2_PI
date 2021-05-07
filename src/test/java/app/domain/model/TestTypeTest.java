@@ -10,7 +10,7 @@ public class TestTypeTest {
     public void getCode() {
 
         //arrange
-        TestType test = new TestType("code","description","collectingMethod");
+        TestType test = new TestType("codex","description","collectingMethod");
         //assert
         assertEquals("code",test.getCode());
         assertEquals(false,test.getCode().equals("Codex"));
@@ -24,7 +24,7 @@ public class TestTypeTest {
     @Test
     public void getDescription() {
         //arrange
-        TestType test = new TestType("code","description","collectingMethod");
+        TestType test = new TestType("codex","description","collectingMethod");
         //assert
         assertEquals("description",test.getDescription());
         assertEquals(false,test.getDescription().equals("ddddd"));
@@ -33,7 +33,7 @@ public class TestTypeTest {
     @Test
     public void setDescription() {
         //arrange
-        TestType test = new TestType("code","description","collectingMethod");
+        TestType test = new TestType("codex","description","collectingMethod");
 
         //calculations
         test.setDescription("newDescription");
@@ -45,7 +45,7 @@ public class TestTypeTest {
     @Test
     public void getCollectingMethod() {
         //arrange
-        TestType test = new TestType("code","description","collectingMethod");
+        TestType test = new TestType("codex","description","collectingMethod");
         //assert
         assertEquals("collectingMethod",test.getCollectingMethod());
         assertEquals(false,test.getCollectingMethod().equals("aaaaa"));
@@ -54,7 +54,7 @@ public class TestTypeTest {
     @Test
     public void setCollectingMethod() {
         //arrange
-        TestType test = new TestType("code","description","collectingMethod");
+        TestType test = new TestType("codex","description","collectingMethod");
 
         //calculations
         test.setCollectingMethod("newCollect");
