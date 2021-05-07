@@ -23,7 +23,6 @@ public class Company {
     private SpecifyNewTestStore specifyNewTestStore;
     private EmployeeStore employeeStore;
     private ParameterStore parameterStore;
-    private CreateTestTypeStore testTypeStore;
 
     public Company(String designation)
     {
@@ -39,15 +38,14 @@ public class Company {
         this.parameterCategoryStore = new ParameterCategoryStore();
         this.employeeStore = new EmployeeStore();
         this.parameterStore = new ParameterStore();
-        this.testTypeStore = new CreateTestTypeStore();
     }
 
-    public CreateTestTypeStore getTestTypeStore() {
-        return testTypeStore;
+    public SpecifyNewTestStore getTestTypeStore() {
+        return specifyNewTestStore;
     }
 
-    public void setTestTypeStore(CreateTestTypeStore testTypeStore) {
-        this.testTypeStore = testTypeStore;
+    public void setTestTypeStore(SpecifyNewTestStore testTypeStore) {
+        this.specifyNewTestStore = testTypeStore;
     }
     
     public String getDesignation() {
