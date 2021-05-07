@@ -19,7 +19,14 @@ public class Administrator extends User {
 
     //getters
     public String getAdress() {
+<<<<<<< HEAD
         return this.adress;
+=======
+        if(adress == null){
+            return null;
+        }
+        return adress;
+>>>>>>> 27759c9963b15f22dd4e39de14b50a6f4c6c2d76
     }
 
     public void setAdress(String adress) {
