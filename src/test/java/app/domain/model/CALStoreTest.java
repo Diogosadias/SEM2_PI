@@ -63,18 +63,12 @@ public class CALStoreTest {
 
         @Test
         public void testSaveCAL () {
-            CAL cal1 = new CAL("11asd", "labNams", 12345678524L, "Adress", 1234567891L, true);
-            CAL cal2 = new CAL("11a85", "labNams", 12345678523L, "Adress", 1234567891L, true);
-            CAL cal3 = new CAL("11aqw", "labNams", 12345688523L, "Route X", 2234567891L, false);
-
-            CALStore calList = new CALStore();
-
+           //testing
 
             boolean b = calList.saveCAL(cal1);
+            assertEquals(true,b);
 
-            //testing
-            assertEquals(false, calList.validateCAL(cal1));
-            assertEquals(false, calList.validateCAL(cal2));
-            assertEquals(true, calList.validateCAL(cal3));
+            boolean b1 = calList.saveCAL(cal1);
+            assertEquals(false,b1);
         }
     }
