@@ -105,7 +105,7 @@ public class Client {
     public void checkCitizenNumber(long nhs){
 
     }
-    public void checkSex(long nhs){
+    public void checkSex(String sex){
 
     }
     public void checkTIN(long nhs){
