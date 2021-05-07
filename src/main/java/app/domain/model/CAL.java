@@ -55,7 +55,7 @@ public class CAL {
     private void checkLabIDrules(String labId) {
         if (labId.length() == 0)
             throw new IllegalArgumentException("Laboratory Id cannot be blank.");
-        if (!(labId.length() == 5))
+        if (labId.length() != 5)
             throw new IllegalArgumentException("Lab Id must have 5 chars.");
 
     }

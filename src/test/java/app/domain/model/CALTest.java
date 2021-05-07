@@ -116,4 +116,21 @@ public class CALTest {
         //assert
         assertEquals("22",cal.getLaboratoryId());
     }
+
+    @Test
+    public void CheckValidation(){
+        try{
+            CAL cal = new CAL("115a","labName",12345678910L,"Adress",1234567891L,true);
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("Lab Id must have 5 chars.",ex.getMessage());
+        }
+        try{
+            CAL cal = new CAL("","labName",12345678910L,"Adress",1234567891L,true);
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("Laboratory Id cannot be blank.",ex.getMessage());
+        }
+
+    }
 }
