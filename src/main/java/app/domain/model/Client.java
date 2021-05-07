@@ -35,18 +35,12 @@ public class Client {
      * @param pNumber
      */
     public Client(Email id, String name, long nhs, long citizenCard, long tin, Date birthDate, String sex, long pNumber){
-
-
         checkNHS(nhs);
-
         /*
-
         checkPNumber(pNumber);
         checkTIN(tin);
         checkSex(sex);
         checkCitizenNumber(citizenCard);
-
-
 */
         this.name=name;
         this.id=id;
@@ -104,8 +98,9 @@ public class Client {
 
     public void checkNHS(long nhs){
         String temp = String.valueOf(nhs);
-        if ( temp.length() != 10)
+        if ( temp.length() != 12)
             throw new IllegalArgumentException("NHS code must have 10 chars.");
+
 
     }
     public void checkCitizenNumber(long nhs){
