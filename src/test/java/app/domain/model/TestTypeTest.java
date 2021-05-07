@@ -63,6 +63,26 @@ public class TestTypeTest {
         assertEquals(false,test.getCollectingMethod().equals("collectingMethod"));
     }
 
+
+    @Test
+    public void testCheckCode(){
+
+        try{
+            TestType test = new TestType("code","description","collectingMethod");
+            fail();
+        }
+        catch (IllegalArgumentException ex){
+            assertEquals("Code doesn't exist or doesn't have 5 alphanumeric numbers",ex.getMessage());
+        }
+
+        try{
+            TestType test = new TestType("codess","description","collectingMethod");
+            fail();
+        }
+        catch (IllegalArgumentException ex){
+            assertEquals("Code doesn't exist or doesn't have 5 alphanumeric numbers",ex.getMessage());
+        }
+    }
  
 
     @Test

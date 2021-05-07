@@ -13,7 +13,11 @@ public class ReceptionistTest {
     @Test
     public void getClientStore() {
         CreateClientStore res;
+        
         res = rec.getClientStore();
         assertEquals(res, rec.getClientStore());
+        assertEquals(true, rec.getClientStore() != null );
+
+
     }
 }
