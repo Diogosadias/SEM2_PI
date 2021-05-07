@@ -28,6 +28,13 @@ public class SpecifyNewTestTypeController {
             return false;
     }
 
+    public void writeTestTypeByCode(String code) {
+        for( TestType f : ts.getTestTypeList()){
+            if(code.equals(f.getCode()))
+                System.out.println(f);
+        }
+    }
+
     public void writeTestType(){
 
         for(TestType t : ts.getTestTypeList())
@@ -37,6 +44,14 @@ public class SpecifyNewTestTypeController {
         if(ts.deleteTestType(code)){
             return true;
         }else{
+            return false;
+        }
+    }
+
+    public boolean searchTestType (String code) {
+        if(ts.searchTestType(code)) {
+            return true;
+        } else {
             return false;
         }
     }

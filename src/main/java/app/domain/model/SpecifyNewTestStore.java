@@ -48,6 +48,15 @@ public class SpecifyNewTestStore {
         }
     }
 
+    public boolean searchTestType(String code) {
+        TestType testType = getTestTypeByCode(code);
+        if (getTestTypeList().contains(testType)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public TestType getTestTypeByCode(String code){
         for( TestType f : getTestTypeList()){
             if(code.equals(f.getCode()))
