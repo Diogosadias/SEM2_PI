@@ -1,5 +1,8 @@
 package app.domain.model;
 
+import java.lang.Object;
+
+
 import java.util.ArrayList;
 
 /**
@@ -29,6 +32,12 @@ public class CALStore {
      * @return CAL
      */
     public CAL registerNewCAL(String labId, String labName, long phoneNumber, String address, long tin, boolean answer ){
+        String temp = String.valueOf(phoneNumber);
+        String temp2 = String.valueOf(tin);
+
+        if(labId==null || labName==null || temp.equals(null) || address==null || temp2.equals(null)  ){
+            throw new RuntimeException("The values input cannot be blankk.");
+        }
         return new CAL(labId, labName, phoneNumber, address, tin, answer);
     }
 
