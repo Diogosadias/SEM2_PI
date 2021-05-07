@@ -27,6 +27,7 @@ public class AdminUI implements Runnable{
         options.add(new MenuItem("Delete type of test", new ShowTextUI("You have chosen option E")));
         options.add(new MenuItem("New Parameter", new SpecifyNewParameterUI()));
         options.add(new MenuItem("List Parameters", new ListParametersUI()));
+        options.add(new MenuItem("Delete Parameter", new DeleteParameterUI()));
         options.add(new MenuItem("New Parameter Category", new CreateNewParameterCategoryUI()));
         options.add(new MenuItem("List Parameter Categories", new ListParameterCategoryUI()));
         options.add(new MenuItem("Register employee", new RegisterEmployeeUI()));

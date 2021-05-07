@@ -30,7 +30,7 @@ public class Parameter {
 
     @Override
     public String toString() {
-        return "ParameterCategory{" +
+        return "Parameter{" +
                 "code='" + code + '\'' +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +

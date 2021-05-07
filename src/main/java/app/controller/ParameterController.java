@@ -10,7 +10,6 @@ public class ParameterController {
 
     private Company company;
     private Parameter p;
-    private ParameterStore parameterStore;
     private ParameterStore ps;
 
     public ParameterController(){
@@ -36,6 +35,13 @@ public class ParameterController {
         }
 
     }
+    public boolean deleteParameter(String code){
+        if(ps.deleteParameter(code)){
+            return true;
+        }else{
+            return false;
+        }
+    }
     public void writeParameters(){
         System.out.println(ps.toString());
 
@@ -51,6 +57,7 @@ public class ParameterController {
     }
 
     public boolean saveParameter(){
-        return this.parameterStore.saveParameter(p);
+        return this.ps.saveParameter(p);
     }
+
 }

@@ -24,6 +24,17 @@ public class ParameterStore {
         return new Parameter(code, name, description,category);
     }
 
+    public boolean deleteParameter(String code){
+        Parameter param = getParameterByCode(code);
+        if(parameterList.contains(param)) {
+            parameterList.remove(param);
+            return true;
+        }
+        else{
+                return false;
+        }
+    }
+
 
 
     public Parameter getParameterByCode(String code){
