@@ -82,9 +82,9 @@ public class CALTest {
         //arrange
         CAL cal = new CAL("115a1","labName",12345678910L,"Adress",1234567891L,true);
         //Calculations
-        cal.setPhoneNumber(1112);
+        cal.setPhoneNumber(22345678910L);
         //assert
-        assertEquals(1112,cal.getPhoneNumber());
+        assertEquals(22345678910L,cal.getPhoneNumber());
     }
 
     @Test
@@ -92,7 +92,7 @@ public class CALTest {
         //arrange
         CAL cal = new CAL("115a1","labName",12345678910L,"Adress",1234567891L,true);
         //Calculations
-        cal.setTinNumber(2222);
+        cal.setTinNumber(2234567891L);
         //assert
         assertEquals(2222,cal.getTinNumber());
     }

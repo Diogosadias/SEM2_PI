@@ -124,7 +124,7 @@ public class CAL {
     public void setPhoneNumber(long phoneNumber){
         this.phoneNumber = phoneNumber;
     }
-    public void setTinNumber(int tinNumber){
+    public void setTinNumber(long tinNumber){
         this.tinNumber = tinNumber;
     }
     public void setPerformsCovidTest(boolean performsCovidTest){
