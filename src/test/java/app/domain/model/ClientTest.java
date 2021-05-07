@@ -239,4 +239,13 @@ public class ClientTest {
     @Test
     public void checkPNumber(){}
 
+    @Test
+    public void testToString() {
+        //arrange
+        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
+
+        //assert
+        assertEquals(false,c1.toString().equals(" "));
+
+    }
 }

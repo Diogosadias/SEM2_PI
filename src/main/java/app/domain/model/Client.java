@@ -161,10 +161,7 @@ public class Client {
 
     @Override
     public String toString() {
-        if(sex==null || birthDate==null){
-            return null;
-        }
-        return "Client{" +
+                return "Client{" +
                 "nhs=" + nhs +
                 ", citizenCard=" + citizenCard +
                 ", tin=" + tin +
