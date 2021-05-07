@@ -17,7 +17,7 @@ public class ClientTest extends TestCase {
 
     @Test
     public void testCheckValidation(){
-
+/*
         try{
             Client c1 = new Client(new Email("user1@gmail.com"), "John", 11, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
         }
@@ -37,22 +37,24 @@ public class ClientTest extends TestCase {
         catch (IllegalArgumentException ex){
             assertEquals("TIN must have 12 chars",ex.getMessage());
         }
-
+*/
 
         try{
             Client c1 = new Client(new Email("user1@gmail.com"), "John", 1231231231, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111L);
+            fail();
         }
         catch (IllegalArgumentException ex){
             assertEquals("Phone Number must have 12 chars",ex.getMessage());
         }
         try{
             Client c1 = new Client(new Email("user1@gmail.com"), "John", 1231231231, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111111111L);
+            fail();
         }
         catch (IllegalArgumentException ex){
             assertEquals("Phone Number must have 12 chars",ex.getMessage());
         }
 
-
+/*
 
         try{
             Client c1 = new Client(new Email("user1@gmail.com"), "John", 1231231231, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "Ah", 111111111111l);
@@ -61,7 +63,7 @@ public class ClientTest extends TestCase {
             assertEquals("This gender does not exist!",ex.getMessage());
         }
 
-
+*/
     }
 
     @Test
