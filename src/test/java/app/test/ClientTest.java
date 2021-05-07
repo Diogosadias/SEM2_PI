@@ -70,6 +70,11 @@ public class ClientTest extends TestCase {
     public void testGetNhs() {
         //preparations
         Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
+        System.out.println(c1.getCitizenCard());
+        String check = String.valueOf(c1.getCitizenCard());
+        System.out.println(check);
+        System.out.println(check.length());
+
         //testing
         assertEquals(1111111111, c1.getNhs());
     }
