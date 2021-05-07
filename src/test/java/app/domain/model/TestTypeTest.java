@@ -12,7 +12,7 @@ public class TestTypeTest {
         //arrange
         TestType test = new TestType("codex","description","collectingMethod");
         //assert
-        assertEquals("code",test.getCode());
+        assertEquals("codex",test.getCode());
         assertEquals(false,test.getCode().equals("Codex"));
 
     }
