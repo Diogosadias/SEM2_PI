@@ -203,6 +203,22 @@ public class ClientTest extends TestCase {
 
     }
 
+    @Test
+    public void checkCitizenNumber(){
+
+    }
+
+    @Test
+    public void checkNHS(){}
+
+    @Test
+    public void checkSex(){}
+
+    @Test
+    public void checkTIN(){}
+
+
+
 
 
 
