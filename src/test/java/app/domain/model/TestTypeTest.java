@@ -83,7 +83,23 @@ public class TestTypeTest {
             assertEquals("Code doesn't exist or doesn't have 5 alphanumeric numbers",ex.getMessage());
         }
     }
- 
+
+    @Test
+    public void testCheckDescription(){
+        try{
+        TestType test = new TestType("codex","","collectingMethod");
+        fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("Description doesn't exist or surpasses the 15 characters rule!", ex.getMessage());
+        }
+        try{
+            TestType test = new TestType("codex","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","collectingMethod");
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("Description doesn't exist or surpasses the 15 characters rule!",ex.getMessage());
+        }
+
+    }
 
     @Test
     public void testToString() {
