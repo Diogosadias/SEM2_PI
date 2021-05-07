@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class CALStore {
 
-    private ArrayList<CAL> calList;
+    private final ArrayList<CAL> calList;
 
     /**
      * Create Store instance with empty array.
