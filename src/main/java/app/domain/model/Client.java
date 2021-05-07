@@ -62,6 +62,7 @@ public class Client {
         this.citizenCard = citizenCard;
         this.tin = tin;
         this.sex = sex;
+        this.birthDate = birthDate;
         pNumber = 0;
     }
 
