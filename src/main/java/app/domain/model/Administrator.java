@@ -12,11 +12,37 @@ public class Administrator extends User {
 
     public Administrator(Email id, Password pwd, String name, String adress,String pNumber,String standardOcupationalCode,String employeeid) {
         super(id, pwd, name);
+
+        checkAdressrules(adress);
+        checkStandardOcuppationalCoderules(standardOcupationalCode);
+        checkEmployeeId(employeeid);
+
         this.adress = adress;
         this.standardOcuppationalCode = standardOcupationalCode;
         this.employeeId = employeeid;
     }
 
+    //checkers
+    private void checkAdressrules(String adress) {
+        if (adress.length() == 0)
+            throw new IllegalArgumentException("Address cannot be blank.");
+        if ( adress.length() > 30)
+            throw new IllegalArgumentException("Address must have no more than 30 characters.");
+    }
+
+    private void checkStandardOcuppationalCoderules(String standardOcupationalCode) {
+        if (standardOcupationalCode.length() == 0)
+            throw new IllegalArgumentException("SOC cannot be blank.");
+        if ( standardOcupationalCode.length() != 5)
+            throw new IllegalArgumentException("SOC must have 5 chars.");
+    }
+
+    private void checkEmployeeId(String employeeid) {
+        if (employeeid.length() == 0)
+            throw new IllegalArgumentException("Employee ID cannot be blank.");
+        if ( employeeid.length() != 5)
+            throw new IllegalArgumentException("Employee ID must have 5 chars.");
+    }
     //getters
     public String getAdress() {
         return adress;
