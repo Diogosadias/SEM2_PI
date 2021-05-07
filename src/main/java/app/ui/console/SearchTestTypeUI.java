@@ -1,7 +1,6 @@
 package app.ui.console;
 
 import app.controller.SpecifyNewTestTypeController;
-import app.domain.model.TestType;
 
 import java.util.Scanner;
 
@@ -14,7 +13,6 @@ public class SearchTestTypeUI implements Runnable{
     public void run() {
         Scanner read = new Scanner(System.in);
         SpecifyNewTestTypeController testTypeController = new SpecifyNewTestTypeController();
-        TestType testType = new TestType();
         String searchcode;
 
         System.out.println("Insert the code of the test type you want to search:");
