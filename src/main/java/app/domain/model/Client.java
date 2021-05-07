@@ -99,6 +99,22 @@ public class Client {
     public void setSex(String sex){this.sex=sex;}
     public void setPNumber(long pNumber){this.pNumber=pNumber;}
 
+    public void checkNHS(long nhs){
+
+    }
+    public void checkCitizenNumber(long nhs){
+
+    }
+    public void checkSex(long nhs){
+
+    }
+    public void checkTIN(long nhs){
+
+    }
+    public void checkPNumber(long nhs){
+
+    }
+
 /*
     public void checkNHS(long nhs){
         String check = String.valueOf(nhs);

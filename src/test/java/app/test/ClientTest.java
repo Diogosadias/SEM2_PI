@@ -3,6 +3,7 @@ package app.test;
 import app.domain.model.Client;
 import auth.domain.model.Email;
 import junit.framework.TestCase;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.text.SimpleDateFormat;
@@ -10,7 +11,7 @@ import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
 
-public class ClientTest extends TestCase {
+public class ClientTest {
 
 
 
@@ -76,7 +77,7 @@ public class ClientTest extends TestCase {
         System.out.println(check.length());
 
         //testing
-        assertEquals(1111111111, c1.getNhs());
+        Assert.assertEquals(1111111111, c1.getNhs());
     }
 
     @Test
@@ -84,7 +85,7 @@ public class ClientTest extends TestCase {
         //preparations
         Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
         //testing
-        assertEquals(1111111111111111L,c1.getCitizenCard());
+        Assert.assertEquals(1111111111111111L, c1.getCitizenCard());
     }
 
     @Test
@@ -92,14 +93,14 @@ public class ClientTest extends TestCase {
         //preparations
         Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
         //testing
-        assertEquals(111111111111L,c1.getTin());
+        Assert.assertEquals(111111111111L, c1.getTin());
     }
 
     @Test
     public void testGetBirthDate() {
         Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
         //testing
-        assertEquals(new Date("12/12/2021"), c1.getBirthDate());
+        Assert.assertEquals(new Date("12/12/2021"), c1.getBirthDate());
     }
 
     @Test
@@ -107,7 +108,7 @@ public class ClientTest extends TestCase {
         //preparations
         Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
         //testing
-        assertEquals("M",c1.getSex());
+        Assert.assertEquals("M", c1.getSex());
     }
 
     @Test
@@ -115,7 +116,7 @@ public class ClientTest extends TestCase {
         //preparations
         Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
         //testing
-        assertEquals(111111111111L,c1.getPNumber());
+        Assert.assertEquals(111111111111L, c1.getPNumber());
     }
 
     @Test
@@ -123,7 +124,7 @@ public class ClientTest extends TestCase {
         //preparations
         Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
         //testing
-        assertEquals("John", c1.getName());
+        Assert.assertEquals("John", c1.getName());
     }
 
     @Test
@@ -142,7 +143,7 @@ public class ClientTest extends TestCase {
         c1.setNhs(1111111112L);
 
         //assert
-        assertEquals(1111111112L, c1.getNhs());
+        Assert.assertEquals(1111111112L, c1.getNhs());
     }
 
     @Test
@@ -154,7 +155,7 @@ public class ClientTest extends TestCase {
         c1.setCitizenCard(1111111111111112L);
 
         //aserts
-        assertEquals(1111111111111112L, c1.getCitizenCard());
+        Assert.assertEquals(1111111111111112L, c1.getCitizenCard());
     }
 
     @Test
@@ -165,7 +166,7 @@ public class ClientTest extends TestCase {
         //calculations
         c1.setBirthDate(new Date ("20/08/1997"));
         //assert
-        assertEquals(new Date("20/08/1997"),c1.getBirthDate());
+        Assert.assertEquals(new Date("20/08/1997"), c1.getBirthDate());
 
 
     }
@@ -180,7 +181,7 @@ public class ClientTest extends TestCase {
         //calculations
         c1.setTin(111111111112L);
         //assert
-        assertEquals(111111111112L,c1.getTin());
+        Assert.assertEquals(111111111112L, c1.getTin());
 
 
     }
@@ -193,7 +194,7 @@ public class ClientTest extends TestCase {
 
         //testing
         c1.setSex("Masculine");
-        assertEquals("Masculine",c1.getSex());
+        Assert.assertEquals("Masculine", c1.getSex());
     }
 
     @Test
@@ -204,15 +205,24 @@ public class ClientTest extends TestCase {
         //testing
         c1.setPNumber(111111111112L);
 
-        assertEquals(111111111112L,c1.getPNumber());
+        Assert.assertEquals(111111111112L, c1.getPNumber());
 
     }
 
-    
+    @Test
+    public void checkCitizenNumber(){
 
+    }
 
+    @Test
+    public void checkNHS(){}
 
+    @Test
+    public void checkSex(){}
 
-
+    @Test
+    public void checkTIN(){}
+    @Test
+    public void checkPNumber(){}
 
 }
