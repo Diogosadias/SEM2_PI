@@ -35,13 +35,16 @@ public class Client {
      * @param pNumber
      */
     public Client(Email id, String name, long nhs, long citizenCard, long tin, Date birthDate, String sex, long pNumber){
-/*
-        checkPNumber(pNumber);
 
+
+        checkNHS(nhs);
+
+        /*
+
+        checkPNumber(pNumber);
         checkTIN(tin);
         checkSex(sex);
         checkCitizenNumber(citizenCard);
-        checkNHS(nhs);
 
 
 */
@@ -100,6 +103,9 @@ public class Client {
     public void setPNumber(long pNumber){this.pNumber=pNumber;}
 
     public void checkNHS(long nhs){
+        String temp = String.valueOf(nhs);
+        if ( temp.length() != 10)
+            throw new IllegalArgumentException("NHS code must have 10 chars.");
 
     }
     public void checkCitizenNumber(long nhs){
@@ -115,43 +121,7 @@ public class Client {
 
     }
 
-/*
-    public void checkNHS(long nhs){
-        String check = String.valueOf(nhs);
-        if(check.length() != 10)
-            throw new IllegalArgumentException("NHS number must have 10 chars");
-    }
 
-    public void checkCitizenNumber(long citizenCard){
-        String check = String.valueOf(citizenCard);
-        if(check.length() != 16)
-            throw new IllegalArgumentException("Citizen number must have 16 chars");
-    }
-
-
-
-    public void checkTIN(long tin){
-        String check = String.valueOf(tin);
-        if(check.length() != 12)
-            throw new IllegalArgumentException("TIN must have 12 chars");
-    }
-
-    public void checkPNumber(long pNumber){
-        String check = String.valueOf(pNumber);
-
-            if (check.length() != 12) {
-                throw new IllegalArgumentException("Phone Number must have 12 chars");
-            }
-
-    }
-
-
-    public void checkSex(String sex){
-
-        if( !sex.equalsIgnoreCase("Masculine") && ! sex.equalsIgnoreCase("Femimnine") && ! sex.equalsIgnoreCase("M") && sex.equalsIgnoreCase("F"))
-            throw new IllegalArgumentException("This gender does not exist!");
-    }
-*/
     @Override
     public String toString() {
         return "Client{" +

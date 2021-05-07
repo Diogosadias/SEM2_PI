@@ -1,5 +1,6 @@
 package app.test;
 
+import app.domain.model.CAL;
 import app.domain.model.Client;
 import auth.domain.model.Email;
 import junit.framework.TestCase;
@@ -10,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 public class ClientTest {
 
@@ -210,12 +212,27 @@ public class ClientTest {
     }
 
     @Test
+    public void checkNHS(){
+        try{
+            Client c1 = new Client(new Email("user1@gmail.com"), "John", 111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("NHS code must have 10 chars.",ex.getMessage());
+        }
+        try{
+            Client c1 = new Client(new Email("user1@gmail.com"), "John", 11111111121L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("NHS code must have 10 chars.",ex.getMessage());
+        }
+    }
+
+
+    @Test
     public void checkCitizenNumber(){
 
     }
 
-    @Test
-    public void checkNHS(){}
 
     @Test
     public void checkSex(){}
