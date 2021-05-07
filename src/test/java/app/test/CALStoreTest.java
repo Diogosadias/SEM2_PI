@@ -42,6 +42,13 @@ public class CALStoreTest {
         } catch (IllegalArgumentException ex) {
             assertEquals("The values input cannot be blank.", ex.getMessage());
         }
+        for(int i = 0;i<1;i++) {
+            //equal to 20 char
+            CAL cal = calList.registerNewCAL("11a85", "labNams", 12345678524L, "Adress", 1234567891, true);
+            assertEquals("11a85", cal.getLaboratoryId());
+            assertEquals("labNams", cal.getLabName());
+            assertEquals("Adress", cal.getAddress());
+        }
 
         assertEquals(false, cal2.getTinNumber() == cal1.getTinNumber());
         assertEquals(true, cal2.getAddress().equals(cal1.getAddress()));
