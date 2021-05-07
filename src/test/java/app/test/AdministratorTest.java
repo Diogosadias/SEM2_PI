@@ -1,22 +1,23 @@
 package app.test;
 
 import app.domain.model.Administrator;
+import app.domain.model.Client;
 import auth.domain.model.Email;
 import auth.domain.model.Password;
+import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.Date;
 
 import static org.junit.Assert.*;
 
 public class AdministratorTest {
+    Administrator admin = new Administrator(new Email("user@gmail.com"),new Password("aaaa"),"John", "Adress","111111111111","Admin","1111");
 
     @Test
     public void getAdress() {
-        //arrange
-        Administrator admin = new Administrator(new Email("user@gmail.com"),new Password("aaaa"),"John", "Adress","111111111111","Admin","1111");
-
-        //assert
-        assertEquals("Adress",admin.getAdress());
-
+        //testing
+        Assert.assertEquals("Adress", admin.getAdress());
     }
 
     @Test
@@ -32,11 +33,8 @@ public class AdministratorTest {
 
     @Test
     public void getStandardOcuppationalCode() {
-        //arrange
-        Administrator admin = new Administrator(new Email("user@gmail.com"),new Password("aaaa"),"John", "Adress","111111111111","Admin","1111");
-
-        //assert
-        assertEquals("Admin",admin.getStandardOcuppationalCode());
+        //testing
+        Assert.assertEquals("Admin", admin.getStandardOcuppationalCode());
 
     }
 
@@ -54,11 +52,9 @@ public class AdministratorTest {
 
     @Test
     public void getEmployeeId() {
-        //arrange
-        Administrator admin = new Administrator(new Email("user@gmail.com"),new Password("aaaa"),"John", "Adress","111111111111","Admin","1111");
 
-        //assert
-        assertEquals("1111",admin.getEmployeeId());
+        //testing
+        Assert.assertEquals("1111", admin.getEmployeeId());
 
     }
 
@@ -70,6 +66,14 @@ public class AdministratorTest {
         admin.setEmployeeId("2222");
         //assert
         assertEquals("2222",admin.getEmployeeId());
+    }
+
+    @Test
+    public void testToString() {
+
+        //assert
+        assertEquals(false,admin.toString().equals(" "));
+
     }
 
 }
