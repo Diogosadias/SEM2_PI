@@ -102,6 +102,24 @@ public class TestTypeTest {
     }
 
     @Test
+    public void testCheckCollectingMethod(){
+        try{
+            TestType test = new TestType("codex","aaaaaa","");
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("Collecting Method doesn't exist or surpasses the 20 characters rule!",ex.getMessage());
+        }
+        try{
+            TestType test = new TestType("codex","description","collectingMethodaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("Collecting Method doesn't exist or surpasses the 20 characters rule!",ex.getMessage());
+        }
+
+
+    }
+
+    @Test
     public void testToString() {
     }
 }

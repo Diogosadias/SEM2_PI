@@ -25,6 +25,7 @@ public class TestType extends SpecifyNewTestStore {
 
         checkCode(code);
         checkDescription(description);
+        checkCollectingMethod(collectingMethod);
         this.code = code;
         this.description = description;
         this.collectingMethod = collectingMethod;
