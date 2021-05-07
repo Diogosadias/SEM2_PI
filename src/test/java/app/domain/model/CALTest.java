@@ -143,6 +143,6 @@ public class CALTest {
         }catch (IllegalArgumentException ex){
             assertEquals("Address must have no more than 30 characters.",ex.getMessage());
         }
-
+        
     }
 }

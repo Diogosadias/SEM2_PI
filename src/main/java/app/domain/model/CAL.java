@@ -63,7 +63,7 @@ public class CAL {
     private void checkaddressrules(String address) {
         if (address.length() == 0)
             throw new IllegalArgumentException("Address cannot be blank.");
-        if ( address.trim().length() > 30)
+        if ( address.trim().length() >= 31)
             throw new IllegalArgumentException("Address must have no more than 30 characters.");
     }
 /*
