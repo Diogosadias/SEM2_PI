@@ -94,7 +94,7 @@ public class CALTest {
         //Calculations
         cal.setTinNumber(2234567891L);
         //assert
-        assertEquals(2222,cal.getTinNumber());
+        assertEquals(2234567891L,cal.getTinNumber());
     }
 
     @Test
