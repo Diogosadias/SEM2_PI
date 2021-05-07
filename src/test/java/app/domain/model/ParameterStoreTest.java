@@ -19,6 +19,10 @@ public class ParameterStoreTest {
         assertEquals(p1.getName(),p2.getName());
         assertEquals(p1.getDescription(),p2.getDescription());
         assertEquals(p1.getCategory(),p2.getCategory());
+    }
+
+    @Test
+    public void testCreateParameterWithNullValues(){
         assertNull(storeTest.createParameter(null, null, null, null));
     }
 
@@ -32,11 +36,30 @@ public class ParameterStoreTest {
     }
 
     @Test
+    public void testDeleteNullParameter(){
+        assertFalse(storeTest.deleteParameter(null));
+    }
+
+    @Test
+    public void testDeleteNonExistentParameter(){
+        assertFalse(storeTest.deleteParameter("DOESNT EXIST"));
+    }
+
+
+    @Test
     public void testGetParameterByCode(){
         Parameter p2 = storeTest.createParameter("1111t","test","this is a test", "11111");
         storeTest.saveParameter(p2);
-        assertTrue(p2.equals(storeTest.getParameterByCode(p2.getCode())));
+        assertEquals(p2 , storeTest.getParameterByCode(p2.getCode()));
     }
+
+    @Test
+    public void testGetParameterByCodeIsNotNull(){
+        Parameter p2 = storeTest.createParameter("1111t","test","this is a test", "11111");
+        storeTest.saveParameter(p2);
+        assertNotNull(storeTest.getParameterByCode(p2.getCode()));
+    }
+
     @Test
     public void testGetParameterByNullCode() {
         assertNull(storeTest.getParameterByCode(null));
@@ -51,15 +74,19 @@ public class ParameterStoreTest {
         //calculations
         boolean b = storeTest.validateParameter(p1);
         assertEquals(true,b);
-
+    }
+    @Test
+    public void testValidateExistentParameter() {
         storeTest.saveParameter(p1);
         boolean b1 = storeTest.validateParameter(p1);
         assertEquals(false,b1);
-
+    }
+    @Test
+    public void testValidateNullParameter() {
         boolean b2 = storeTest.validateParameter(null);
         assertFalse(b2);
-
     }
+
 
     @Test
     public void testSaveParameter() {
