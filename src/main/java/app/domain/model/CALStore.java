@@ -33,7 +33,7 @@ public class CALStore {
      */
     public CAL registerNewCAL(String labId, String labName, long phoneNumber, String address, long tin, boolean answer ){
 
-        if(labId==null || labName==null  || address==null  ){
+        if(labId==null && labName==null  && address==null  ){
             throw new IllegalArgumentException("The values input cannot be blank.");
         }
         return new CAL(labId, labName, phoneNumber, address, tin, answer);
