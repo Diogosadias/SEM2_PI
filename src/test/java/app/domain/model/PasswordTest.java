@@ -1,4 +1,4 @@
-package app.test;
+package app.domain.model;
 
 import auth.domain.model.Password;
 import junit.framework.TestCase;
