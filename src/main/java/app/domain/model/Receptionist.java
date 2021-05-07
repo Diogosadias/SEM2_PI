@@ -1,5 +1,7 @@
 package app.domain.model;
 
+import auth.AuthFacade;
+
 public class Receptionist {
     private String email;
     private String employeeId;
@@ -8,6 +10,16 @@ public class Receptionist {
     private String phoneNumber;
     private String socCode;
     private CreateClientStore createClientStore;
+
+    public Receptionist(String email, String employeeId, String name, String adress, String phoneNumber, String socCode){
+        this.email = email;
+        this.name = name;
+        this.employeeId = employeeId;
+        this.phoneNumber = phoneNumber;
+        this.address = adress;
+        this.socCode = socCode;
+        createClientStore = new CreateClientStore(new AuthFacade());
+    }
 
 
     public CreateClientStore getClientStore(){
