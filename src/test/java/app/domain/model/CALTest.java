@@ -160,6 +160,17 @@ public class CALTest {
         }catch (IllegalArgumentException ex){
             assertEquals("Phone Number must have 11 chars.",ex.getMessage());
         }
-
+        try{
+            CAL cal = new CAL("123as","labName",12345678910L,"Adress",234567891L,true);
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("TIN must have 10 chars.",ex.getMessage());
+        }
+        try{
+            CAL cal = new CAL("123as","labName",12345678910L,"Adress",12234567891L,true);
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("TIN must have 10 chars.",ex.getMessage());
+        }
     }
 }

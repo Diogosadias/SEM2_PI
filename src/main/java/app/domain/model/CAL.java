@@ -32,9 +32,9 @@ public class CAL {
         checkLabIDrules(labId);
         checkaddressrules(address);
         checkphoneNumberrules(phoneNumber);
+        checkTINrules(tin);
         /*
 
-        checkTINrules(tin);
         checkNamerules(labName);
     */
 
@@ -72,15 +72,13 @@ public class CAL {
         if ( temp.length() != 11)
             throw new IllegalArgumentException("Phone Number must have 11 chars.");
     }
-/*
 
     private void checkTINrules(long tin) {
         String temp = String.valueOf(tin);
-        if (temp.length() == 0)
-            throw new IllegalArgumentException("TIN cannot be blank.");
         if ( temp.length() != 10)
             throw new IllegalArgumentException("TIN must have 10 chars.");
     }
+/*
 
     private void checkNamerules(String labName) {
         if (labName.length() == 0)
