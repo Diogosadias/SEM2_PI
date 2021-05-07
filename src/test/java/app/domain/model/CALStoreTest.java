@@ -48,12 +48,12 @@ public class CALStoreTest {
 
 
             //testing
-            assertEquals(true, calList.validateCAL(cal1));
-            boolean b1 = calList.saveCAL(cal1);
-            assertEquals(false, calList.validateCAL(cal3));
-            assertEquals(false, calList.validateCAL(cal4));
-            assertEquals(false, calList.validateCAL(cal2));
-            assertEquals(false, calList.validateCAL(cal5));
+            boolean b = calList.validateCAL(cal1);
+            assertEquals(true,b);
+            calList.saveCAL(cal1);
+            boolean b1 = calList.validateCAL(cal1);
+            assertEquals(false,b1);
+
 
         }
 
