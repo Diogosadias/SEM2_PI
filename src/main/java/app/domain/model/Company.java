@@ -1,8 +1,6 @@
 package app.domain.model;
 
 import auth.AuthFacade;
-import auth.domain.model.Email;
-import auth.domain.model.Password;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -15,8 +13,8 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class Company {
 
-    private String designation;
-    private AuthFacade authFacade;
+    private final String designation;
+    private final AuthFacade authFacade;
     //STORES
     private CALStore calStore;
     private CreateClientStore createClientStore;
