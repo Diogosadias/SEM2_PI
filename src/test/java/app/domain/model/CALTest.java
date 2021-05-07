@@ -27,7 +27,7 @@ public class CALTest {
         //arrange
         CAL cal = new CAL("115a1","labName",12345678910L,"Adress",1234567891L,true);
         //assert
-        assertEquals(1111,cal.getPhoneNumber());
+        assertEquals(12345678910L,cal.getPhoneNumber());
     }
 
     @Test
@@ -35,7 +35,7 @@ public class CALTest {
         //arrange
         CAL cal = new CAL("115a1","labName",12345678910L,"Adress",1234567891L,true);
         //assert
-        assertEquals(1111,cal.getTinNumber());
+        assertEquals(1234567891L,cal.getTinNumber());
     }
 
     @Test
