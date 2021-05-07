@@ -124,7 +124,7 @@ public class Client {//if needed use //extends User
 
     public void checkSex(String sex){
 
-        if( sex != "Masculine" && sex != "Feminine" && sex != "M" && sex!="F")
+        if( !sex.equalsIgnoreCase("Masculine") && ! sex.equalsIgnoreCase("Femimnine") && ! sex.equalsIgnoreCase("M") && sex.equalsIgnoreCase("F"))
             throw new IllegalArgumentException("This gender does not exist!");
     }
 
