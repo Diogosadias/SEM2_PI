@@ -52,12 +52,12 @@ public class TestType extends SpecifyNewTestStore {
     }
 
     private void checkDescription(String description) {
-        if(description.length() != 15 )
+        if(description.length() > 15 || description.length() == 0)
             throw new IllegalArgumentException("Description doesn't exist or surpasses the 15 characters rule!");
     }
 
     private void checkCollectingMethod(String collectingMethod) {
-        if(collectingMethod.length() !=20 )
+        if(collectingMethod.length() > 20 || collectingMethod.length() == 0)
             throw new IllegalArgumentException("Collecting Method doesn't exist or surpasses the 20 characters rule!");
     }
     public void setCategory(ParameterCategory parameter){
