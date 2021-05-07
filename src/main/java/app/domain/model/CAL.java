@@ -28,9 +28,10 @@ public class CAL {
      * @param answer
      */
     public CAL(String labId, String labName, long  phoneNumber, String address, long tin, boolean answer){
-/*
+
         checkLabIDrules(labId);
-        
+/*
+
         checkaddressrules(address);
         checkphoneNumberrules(phoneNumber);
         checkTINrules(tin);
@@ -50,7 +51,7 @@ public class CAL {
     This checker may need to be private
      */
 
-/*
+
     private void checkLabIDrules(String labId) {
         if (labId.length() == 0)
             throw new IllegalArgumentException("Laboratory Id cannot be blank.");
@@ -58,6 +59,7 @@ public class CAL {
             throw new IllegalArgumentException("Lab Id must have 5 chars.");
 
     }
+/*
 
     private void checkaddressrules(String address) {
         if (address.length() == 0)

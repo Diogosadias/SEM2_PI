@@ -9,7 +9,7 @@ public class CALTest {
     @Test
     public void getLabName() {
         //arrange
-        CAL cal = new CAL("11","labName",1111,"Adress",1111,true);
+        CAL cal = new CAL("115a1","labName",12345678910L,"Adress",1234567891L,true);
         //asssert
         assertEquals("labName",cal.getLabName());
     }
@@ -17,7 +17,7 @@ public class CALTest {
     @Test
     public void getAddress() {
         //arrange
-        CAL cal = new CAL("11","labName",1111,"Adress",1111,true);
+        CAL cal = new CAL("115a1","labName",12345678910L,"Adress",1234567891L,true);
         //assert
         assertEquals("Adress",cal.getAddress());
     }
@@ -25,7 +25,7 @@ public class CALTest {
     @Test
     public void getPhoneNumber() {
         //arrange
-        CAL cal = new CAL("11","labName",1111,"Adress",1111,true);
+        CAL cal = new CAL("115a1","labName",12345678910L,"Adress",1234567891L,true);
         //assert
         assertEquals(1111,cal.getPhoneNumber());
     }
@@ -33,7 +33,7 @@ public class CALTest {
     @Test
     public void getTinNumber() {
         //arrange
-        CAL cal = new CAL("11","labName",1111,"Adress",1111,true);
+        CAL cal = new CAL("115a1","labName",12345678910L,"Adress",1234567891L,true);
         //assert
         assertEquals(1111,cal.getTinNumber());
     }
@@ -41,7 +41,7 @@ public class CALTest {
     @Test
     public void getPerformsCovidTest() {
         //arrange
-        CAL cal = new CAL("11","labName",1111,"Adress",1111,true);
+        CAL cal = new CAL("115a1","labName",12345678910L,"Adress",1234567891L,true);
         //assert
         assertEquals(true,cal.getPerformsCovidTest());
     }
@@ -49,7 +49,7 @@ public class CALTest {
     @Test
     public void getLaboratoryId() {
         //arrange
-        CAL cal = new CAL("11","labName",1111,"Adress",1111,true);
+        CAL cal = new CAL("115a1","labName",12345678910L,"Adress",1234567891L,true);
         //assert
         //problem getLaboratoryId - is Expecting an Integer when should expect String
         boolean b1 = true;
@@ -60,7 +60,7 @@ public class CALTest {
     @Test
     public void setLabName() {
         //arrange
-        CAL cal = new CAL("11","labName",1111,"Adress",1111,true);
+        CAL cal = new CAL("115a1","labName",12345678910L,"Adress",1234567891L,true);
         //Calculations
         cal.setLabName("newLab");
         //assert
@@ -70,7 +70,7 @@ public class CALTest {
     @Test
     public void setAddress() {
         //arrange
-        CAL cal = new CAL("11","labName",1111,"Adress",1111,true);
+        CAL cal = new CAL("115a1","labName",12345678910L,"Adress",1234567891L,true);
         //Calculations
         cal.setAddress("newAdress");
         //assert
@@ -80,7 +80,7 @@ public class CALTest {
     @Test
     public void setPhoneNumber() {
         //arrange
-        CAL cal = new CAL("11","labName",1111,"Adress",1111,true);
+        CAL cal = new CAL("115a1","labName",12345678910L,"Adress",1234567891L,true);
         //Calculations
         cal.setPhoneNumber(1112);
         //assert
@@ -90,7 +90,7 @@ public class CALTest {
     @Test
     public void setTinNumber() {
         //arrange
-        CAL cal = new CAL("11","labName",1111,"Adress",1111,true);
+        CAL cal = new CAL("115a1","labName",12345678910L,"Adress",1234567891L,true);
         //Calculations
         cal.setTinNumber(2222);
         //assert
@@ -100,7 +100,7 @@ public class CALTest {
     @Test
     public void setPerformsCovidTest() {
         //arrange
-        CAL cal = new CAL("11","labName",1111,"Adress",1111,true);
+        CAL cal = new CAL("115a1","labName",12345678910L,"Adress",1234567891L,true);
         //Calculations
         cal.setPerformsCovidTest(false);
         //assert
@@ -110,7 +110,7 @@ public class CALTest {
     @Test
     public void setLaboratoryId() {
         //arrange
-        CAL cal = new CAL("11","labName",1111,"Adress",1111,true);
+        CAL cal = new CAL("115a1","labName",12345678910L,"Adress",1234567891L,true);
         //Calculations
         cal.setLaboratoryId("22");
         //assert
