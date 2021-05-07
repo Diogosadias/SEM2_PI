@@ -98,7 +98,7 @@ public class Client {
 
     public void checkNHS(long nhs){
         String temp = String.valueOf(nhs);
-        if ( !(temp.length() == 10))
+        if ( temp.length() == 12)
             throw new IllegalArgumentException("NHS code must have 10 chars.");
 
 
