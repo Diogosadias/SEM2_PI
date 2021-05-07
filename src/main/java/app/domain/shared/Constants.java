@@ -6,6 +6,11 @@ package app.domain.shared;
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  */
 public class Constants {
+
+    private Constants() {
+        throw new IllegalStateException("Utility class");
+    }
+
     public static final String ROLE_ADMIN = "ADMINISTRATOR";
     public static final String ROLE_RECEP = "RECEPTIONIST";
     public static final String ROLE_CLIENT = "CLIENT";
