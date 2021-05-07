@@ -37,6 +37,25 @@ public class SpecifyNewTestStore {
         }
     }
 
+    public boolean deleteTestType(String code){
+        TestType testType = getTestTypeByCode(code);
+        if(getTestTypeList().contains(testType)) {
+            getTestTypeList().remove(testType);
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public TestType getTestTypeByCode(String code){
+        for( TestType f : getTestTypeList()){
+            if(code.equals(f.getCode()))
+                return f;
+        }
+        return null;
+    }
+
     public Set<TestType> getTestTypeList(){
         return this.store;
     }

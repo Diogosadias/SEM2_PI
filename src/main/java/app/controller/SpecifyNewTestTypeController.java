@@ -33,6 +33,13 @@ public class SpecifyNewTestTypeController {
         for(TestType t : ts.getTestTypeList())
             System.out.println(t); }
 
+    public boolean deleteTestType(String code){
+        if(ts.deleteTestType(code)){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
     public boolean saveTestType(){
         return this.ts.saveTestType(tt);
