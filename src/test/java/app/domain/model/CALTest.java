@@ -172,5 +172,23 @@ public class CALTest {
         }catch (IllegalArgumentException ex){
             assertEquals("TIN must have 10 chars.",ex.getMessage());
         }
+        try{
+            CAL cal = new CAL("123as","",12345678910L,"Adress",1234567891L,true);
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("Laboratory Name cannot be blank.",ex.getMessage());
+        }
+        try{
+            CAL cal = new CAL("123as","labName",12345678910L,"Adress",1234567891L,true);
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("Laboratory Name must have no more than 20 characters.",ex.getMessage());
+        }
+        for(int i = 0;i<1;i++) {
+            //equal to 20 char
+            CAL cal = new CAL("123as", "48Yd4DURqJYghc2XwrBP", 12345678910L, "Adress", 1234567891L, true);
+            assertEquals("48Yd4DURqJYghc2XwrBP", cal.getLabName());
+        }
+
     }
 }

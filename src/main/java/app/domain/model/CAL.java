@@ -33,10 +33,7 @@ public class CAL {
         checkaddressrules(address);
         checkphoneNumberrules(phoneNumber);
         checkTINrules(tin);
-        /*
-
         checkNamerules(labName);
-    */
 
         this.laboratoryId=labId;
         this.labName = labName;
@@ -78,8 +75,6 @@ public class CAL {
         if ( temp.length() != 10)
             throw new IllegalArgumentException("TIN must have 10 chars.");
     }
-/*
-
     private void checkNamerules(String labName) {
         if (labName.length() == 0)
             throw new IllegalArgumentException("Laboratory Name cannot be blank.");
@@ -87,7 +82,6 @@ public class CAL {
             throw new IllegalArgumentException("Laboratory Name must have no more than 20 characters.");
     }
 
-    */
 
     //gets:
 
