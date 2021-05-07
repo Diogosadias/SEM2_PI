@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import static org.junit.Assert.*;
+import static org.junit.Assert.assertNull;
 
 public class CALStoreTest {
 
@@ -64,13 +65,10 @@ public class CALStoreTest {
         } catch (NullPointerException ex) {
             assertEquals("The values input cannot be blank.", ex.getMessage());
         }
-        try {
-            CAL cal = calList.registerNewCAL(null, null, 12345678524L, null, 1234567891, true);
-            fail();
-        } catch (NullPointerException ex) {
-            assertEquals("The values input cannot be blank.", ex.getMessage());
-        }
-*/
+        */
+        assertNull(calList.registerNewCAL(null, null, 12345678524L, null, 1234567891, true));
+
+
         assertNull(calList.registerNewCAL(null,null,1234567891L,null,12345678912L,true));
 
         for(int i = 0;i<1;i++) {
