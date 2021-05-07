@@ -35,16 +35,16 @@ public class Client {
      * @param pNumber
      */
     public Client(Email id, String name, long nhs, long citizenCard, long tin, Date birthDate, String sex, long pNumber){
-
+/*
         checkPNumber(pNumber);
-        /*
+
         checkTIN(tin);
         checkSex(sex);
         checkCitizenNumber(citizenCard);
         checkNHS(nhs);
-        checkPNumber(pNumber);*/
 
 
+*/
         this.name=name;
         this.id=id;
         this.nhs = nhs;
@@ -119,7 +119,7 @@ public class Client {
         if(check.length() != 12)
             throw new IllegalArgumentException("TIN must have 12 chars");
     }
-*/
+
     public void checkPNumber(long pNumber){
         String check = String.valueOf(pNumber);
 
@@ -128,7 +128,7 @@ public class Client {
             }
 
     }
-/*
+
 
     public void checkSex(String sex){
 
