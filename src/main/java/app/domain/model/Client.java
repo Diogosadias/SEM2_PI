@@ -35,16 +35,16 @@ public class Client {
      * @param pNumber
      */
     public Client(Email id, String name, long nhs, long citizenCard, long tin, Date birthDate, String sex, long pNumber){
-
+/*
         checkPNumber(pNumber);
 
         checkTIN(tin);
         checkSex(sex);
         checkCitizenNumber(citizenCard);
         checkNHS(nhs);
-        checkPNumber(pNumber);
 
 
+*/
         this.name=name;
         this.id=id;
         this.nhs = nhs;
@@ -99,7 +99,7 @@ public class Client {
     public void setSex(String sex){this.sex=sex;}
     public void setPNumber(long pNumber){this.pNumber=pNumber;}
 
-
+/*
     public void checkNHS(long nhs){
         String check = String.valueOf(nhs);
         if(check.length() != 10)
@@ -135,7 +135,7 @@ public class Client {
         if( !sex.equalsIgnoreCase("Masculine") && ! sex.equalsIgnoreCase("Femimnine") && ! sex.equalsIgnoreCase("M") && sex.equalsIgnoreCase("F"))
             throw new IllegalArgumentException("This gender does not exist!");
     }
-
+*/
     @Override
     public String toString() {
         return "Client{" +
