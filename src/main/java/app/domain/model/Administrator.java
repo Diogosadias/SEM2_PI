@@ -19,6 +19,8 @@ public class Administrator extends User {
 
     //getters
     public String getAdress() {
+        if(adress==null)
+            throw new NullPointerException("Address is null.");
         return adress;
     }
 
