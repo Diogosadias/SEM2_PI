@@ -106,10 +106,12 @@ public class Client {
     }
     public void checkCitizenNumber(long citizenCard){
         String temp = String.valueOf(citizenCard);
-        if( temp.length() != 16)
+        if( temp.length() < 16 || temp.length() > 16)
             throw new IllegalArgumentException("Citizen card must have 16");
 
     }
+
+    /*
     public void checkSex(String sex){
 
     }
@@ -120,6 +122,7 @@ public class Client {
 
     }
 
+    */
 
     @Override
     public String toString() {
