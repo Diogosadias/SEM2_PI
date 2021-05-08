@@ -21,6 +21,8 @@ public class SpecifyNewTestStoreTest {
         TestType p2 = storeTest.createTestType("aaaaa", "aaaaaaaa", "aaaaa");
         //assert
         assertEquals(p1.toString(),p2.toString());
+        assertNotNull(storeTest.createTestType("aaaaa", "aaaaaaaa", "aaaaa"));
+
     }
     @Test
     public void createTestTypeWithNullValues() {
@@ -29,7 +31,6 @@ public class SpecifyNewTestStoreTest {
         assertNull(storeTest.createTestType("aaaaa", null, null));
         assertNull(storeTest.createTestType(null, "aaaaaaaa", null));
         assertNull(storeTest.createTestType(null, null, "aaaaa"));
-        assertNotNull(storeTest.createTestType("aaaaa", "aaaaaaaa", "aaaaa"));
 
 
     }

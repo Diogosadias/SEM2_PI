@@ -19,6 +19,15 @@ public class TestTypeTest {
 
     @Test
     public void setCode() {
+        //arrange
+        TestType test = new TestType("codex","description","collectingMethod");
+
+        //calculations
+        test.setCode("aaaaa");
+        //assert
+        assertEquals("aaaaa",test.getCode());
+        assertTrue(test.getCode().equals("aaaaa"));
+        assertFalse(test.getCode().equals("aaaab"));
     }
 
     @Test
@@ -88,10 +97,23 @@ public class TestTypeTest {
     public void testCheckDescription(){
         try{
         TestType test = new TestType("codex","","collectingMethod");
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("Description doesn't exist or surpasses the 15 characters rule!", ex.getMessage());
+        }
+        try{
+            TestType test = new TestType("codex","awd","collectingMethod");
 
         }catch (IllegalArgumentException ex){
             assertEquals("Description doesn't exist or surpasses the 15 characters rule!", ex.getMessage());
         }
+        try{
+            TestType test = new TestType("codex","awdawdawdawdawda","collectingMethod");
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("Description doesn't exist or surpasses the 15 characters rule!", ex.getMessage());
+        }
+
 
     }
 
