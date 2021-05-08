@@ -27,4 +27,47 @@ public class AdministratorTest {
 
     }
 
+    @Test
+    public void testcheckStandardOcuppationalCoderules(){
+
+        try{
+            Administrator admin = new Administrator(new Email("aaa@aaa.aaa"), new Password("12345"),"Name","adress","11111","","11111");
+        }catch (IllegalArgumentException ex){
+            assertEquals("SOC cannot be blank.", ex.getMessage());
+        }
+        try{
+            Administrator admin = new Administrator(new Email("aaa@aaa.aaa"), new Password("12345"),"Name","adress","11111","11","11111");
+        }catch (IllegalArgumentException ex){
+            assertEquals("SOC must have 5 chars.",ex.getMessage());
+        }
+        try {
+            Administrator admin = new Administrator(new Email("aaa@aaa.aaa"), new Password("12345"),"Name","adress","11111","11111111111","11111");
+        }catch (IllegalArgumentException ex){
+            assertEquals("SOC must have 5 chars.",ex.getMessage());
+        }
+    }
+
+    @Test
+    public void testcheckEmployeeId(){
+
+        try{
+
+            Administrator admin = new Administrator(new Email("aaa@aaa.aaa"), new Password("12345"),"Name","adress","11111","aaaaa","");
+        }catch (IllegalArgumentException ex){
+            assertEquals("Employee ID cannot be blank.", ex.getMessage());
+        }
+        try {
+
+            Administrator admin = new Administrator(new Email("aaa@aaa.aaa"), new Password("12345"),"Name","adress","11111","aaaaa","1");
+        }catch (IllegalArgumentException ex){
+            assertEquals("Employee ID must have 5 chars.",ex.getMessage());
+        }
+        try{
+
+            Administrator admin = new Administrator(new Email("aaa@aaa.aaa"), new Password("12345"),"Name","adress","11111","aaaaa","111111111111111");
+        }catch (IllegalArgumentException ex){
+            assertEquals("Employee ID must have 5 chars.",ex.getMessage());
+        }
+    }
+
 }
