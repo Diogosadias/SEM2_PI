@@ -6,6 +6,7 @@ import java.util.Set;
 /**
  *
  * @author Tomás Pinto <1181835@isep.ipp.pt>
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
  */
 
 public class SpecifyNewTestStore {

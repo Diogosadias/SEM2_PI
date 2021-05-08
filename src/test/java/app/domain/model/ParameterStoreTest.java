@@ -6,7 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
-
+/**
+ *
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
+ */
 public class ParameterStoreTest {
     ParameterStore storeTest = new ParameterStore();
     Parameter p1 = new Parameter("1111t", "test", "this is a test", "11111");

@@ -6,6 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
+
+/**
+ *
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
+ */
 public class SpecifyNewTestStoreTest {
     SpecifyNewTestStore storeTest = new SpecifyNewTestStore();
     TestType p1 = new TestType("aaaaa","aaaaaaaa","aaaaa");
