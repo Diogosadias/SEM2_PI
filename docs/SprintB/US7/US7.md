@@ -39,9 +39,7 @@ No dependencies were found.
 
 ### 1.5 Input and Output Data
 
-**Selected Data:** organization role
-
-**Input Data:** name, address, phone number, soc code, doctor index number
+**Input Data:** org role, name, address, phone number, soc code, doctor index number
 
 **Output Data:** (in)sucess of the operation 
 
