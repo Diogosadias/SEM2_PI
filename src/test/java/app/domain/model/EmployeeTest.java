@@ -1,6 +1,11 @@
 package app.domain.model;
 
+import auth.domain.model.Email;
+import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.Date;
+
 import static org.junit.Assert.*;
 
 
@@ -62,45 +67,73 @@ public class EmployeeTest {
     }
     @Test
     public void testGetEmployeeId() {
+        //testing
+        Assert.assertEquals("1111", e1.getEmployeeId());
     }
     @Test
     public void testGetRole() {
+        //testing
+        Assert.assertEquals(new OrgRole("12345","safdxfasf"), e1.getRole());
     }
     @Test
     public void testTestGetName() {
+        //testing
+        Assert.assertEquals("John", e1.getName());
     }
     @Test
     public void testGetAddress() {
+        //testing
+        Assert.assertEquals("Address", e1.getAddress());
     }
     @Test
     public void testGetPhoneNumber() {
+        //testing
+        Assert.assertEquals(12345678912L, e1.getPhoneNumber());
     }
     @Test
     public void testGetSocCode() {
+        //testing
+        Assert.assertEquals("12345", e1.getSocCode());
     }
     @Test
     public void testGetEmail() {
+        //testing
+        assertEquals("1111@lei.isep.pt",e1.getEmail());
     }
     @Test
     public void testSetEmployeeId() {
+        e1.setEmployeeId("123456789");
+        Assert.assertEquals("123456789", e1.getEmployeeId());
     }
     @Test
     public void testSetRole() {
+        e1.setRole(new OrgRole("1111","qwertyuiop"));
+        Assert.assertEquals(new OrgRole("1111","qwertyuiop"), e1.getRole());
     }
     @Test
     public void testTestSetName() {
+        e1.setName("Diogo");
+        Assert.assertEquals("Diogo", e1.getName());
     }
     @Test
     public void testSetAddress() {
+        e1.setAddress("Route 66");
+        Assert.assertEquals("Route 66", e1.getAddress());
     }
     @Test
     public void testSetPhoneNumber() {
+        e1.setPhoneNumber(11345678912L);
+        Assert.assertEquals(11345678912L, e1.getPhoneNumber());
     }
     @Test
     public void testSetSocCode() {
+        e1.setSocCode("123");
+        Assert.assertEquals("123", e1.getSocCode());
     }
     @Test
     public void testSetEmail() {
+        e1.setEmail("123@lei.isep.pt");
+        Assert.assertEquals("123@lei.isep.pt", e1.getEmail());
     }
     @Test
     public void testTestEquals() {
