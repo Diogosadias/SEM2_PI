@@ -1,77 +1,58 @@
 package app.domain.model;
 
-import app.domain.shared.Constants;
+import app.domain.dto.EmployeeDto;
+import app.domain.model.Employee;
+import app.domain.model.OrgRole;
+
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
+import static app.domain.shared.Constants.*;
 
-
+/**
+ *
+ * @author Tiago Rocha
+ */
 public class EmployeeStore {
 
-//    private Set<String> lor;
-    private Set<Employee> store;
+    private List<OrgRole> lor;
+    private List<Employee> le;
     private int numEmployees=0;
-    public final String SPECIALIST_DOCTOR = "Specialist Doctor";
-    public final String LABORATORY_COORDINATOR = "Laboratory Coordinator";
-    public final String CHEMISTRY_TECHNOLOGIST = "Chemistry Technologist";
-    public final String MEDICAL_LAB_TECHNICIAN = "Medical Lab Technicians";
+    private final int MAX_NUM_EMPLOYEES = 99999;
+
 
     public EmployeeStore () {
-//        this.lor = addOrganizationRoles();
-        this.store = new HashSet<Employee>();
+        this.lor = new ArrayList<>();
+        addOrgRoles();
+        this.le = new ArrayList<>();
     }
 
-//    public Set<String> addOrganizationRoles () {
-//        Set<String> roles = new HashSet<>();
-//        roles.add(SPECIALIST_DOCTOR);
-//        roles.add(LABORATORY_COORDINATOR);
-//        roles.add(CHEMISTRY_TECHNOLOGIST);
-//        roles.add(MEDICAL_LAB_TECHNICIAN);
-//        return roles;
-//    }
-
-    public Employee create(String role, String name, String address, String phoneNumber, String socCode, int doctorIndexNumber) {
-        String employeeId = generateEmployeeId(name.trim());
-        String email = generateEmail(employeeId);
-        return new Employee(email, employeeId, role, name.trim(), address, phoneNumber, socCode, doctorIndexNumber);
+    public void addOrgRoles () {
+        lor.add(new OrgRole("role_1",SPECIALIST_DOCTOR));
+        lor.add(new OrgRole("role_2",LABORATORY_COORDINATOR));
+        lor.add(new OrgRole("role_3",CHEMISTRY_TECHNOLOGIST));
+        lor.add(new OrgRole("role_4",MEDICAL_LAB_TECHNICIAN));
+        lor.add(new OrgRole("role_5",RECEPTIONIST));
+        lor.add(new OrgRole("role_6",ADMINISTRATOR));
     }
 
-    public boolean validateEmployee(Employee employee) {
-        boolean flag = true;
-        
-        if (this.store != null) {
-            for (Employee e : this.store) {
-                if (e.getEmployeeId().equalsIgnoreCase(employee.getEmployeeId())) {
-                    flag = false;
-                }
-            }
+    public List<OrgRole> getOrgRoles () {
+        if(lor.isEmpty()) { throw new IllegalArgumentException("Organization Roles list is empty.");}
+        return lor;
+    }
 
-        }
-        
-        return flag;
-        
+    public Employee registerEmployee(EmployeeDto eDto) {
+        String roleId = eDto.getRoleId();
+        OrgRole role = this.getRoleById(roleId);
+        eDto.setId(generateEmployeeId(eDto.getName()));
+        return role.createEmployee(eDto);
     }
-    
-    public List<String> getOrganizationRoles() {
-            List<String> temp = new ArrayList();
-            
-            temp.add(SPECIALIST_DOCTOR);
-            temp.add(LABORATORY_COORDINATOR);
-            temp.add(CHEMISTRY_TECHNOLOGIST);
-            temp.add(MEDICAL_LAB_TECHNICIAN);
-            
-            return temp;
-        }
-    
-    public String generateEmail(String id){
-        return id.concat("@manylabs.pt");        
-    }
-    
+
     public String generateEmployeeId(String name) {
+        int nEmp = getNumEmployees();
+        if (nEmp == MAX_NUM_EMPLOYEES) { throw new IllegalArgumentException("Maximum Employees reached."); };
         // acrescentar +1 ao numero de employees
-        int id = newEmployeeNumber();
+        int id = nEmp + 1;
         // gerar as inicias do nome
         String initials = "";
         String[] temp = name.split(" ");
@@ -87,21 +68,43 @@ public class EmployeeStore {
             }
             id = id / 10;
         }
-        return initials + fillZeros + "" + numEmployees;
+        return initials + fillZeros + "" + (nEmp + 1);
     }
 
-    public int  newEmployeeNumber() {
-        return numEmployees++;
+    public int  getNumEmployees() {
+        return numEmployees;
+    }
+
+    public OrgRole getRoleById(String id) {
+        for (OrgRole role : this.lor) {
+            if(role.getId().equals(id)) return role;
+        }
+        throw new IllegalArgumentException("There is no Organization Role with that Id.");
+    }
+
+    public boolean validateEmployee(Employee employee) {
+        if (!this.le.isEmpty()) {
+            for (Employee e : le) {
+                if (e.getPhoneNumber() == employee.getPhoneNumber()) {
+                    System.out.println("Employee already exists.");
+                    return false;
+                }
+            }
+        }
+        return true;
     }
     
-    public boolean saveEmployee(Employee emp){
-        if (validateEmployee(emp)) {
-            return this.store.add(emp);
-        } else {
-            System.out.println("Employee " + emp.toString() + " already exists");
-            return false;
+    public boolean saveEmployee(Employee employee){
+        if (employee == null) {
+            throw new IllegalArgumentException("Error: Employee is null.");
         }
-        
+        this.numEmployees++;
+        return this.le.add(employee);
+    }
+
+    public List<Employee> getEmployees () {
+        if(le.isEmpty()) { throw new IllegalArgumentException("Employee list is empty.");}
+        return this.le;
     }
         
     

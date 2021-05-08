@@ -5,67 +5,71 @@
  */
 package app.controller;
 
+import app.domain.dto.EmployeeDto;
+import app.domain.dto.OrgRoleDto;
+import app.domain.dto.RolesMapper;
 import app.domain.model.*;
 import app.domain.shared.Constants;
+import app.domain.model.EmployeeStore;
 import auth.AuthFacade;
 import java.util.List;
-import java.util.Set;
+
+import static app.domain.shared.Constants.ROLE_EMPLOYEE;
 
 /**
  *
- * @author Bruno Pereira
+ * @author Tiago Rocha
  */
 public class RegisterEmployeeController {
 
     private Company company;
     private EmployeeStore estore;
-    private Employee emp;
+    private Employee employee;
+    private AuthFacade auth;
 
     public RegisterEmployeeController() {
          if (!App.getInstance().getCurrentUserSession().isLoggedInWithRole(Constants.ROLE_ADMIN)) {
-            throw new IllegalStateException("Utilizador n�o Autorizado");
+            throw new IllegalStateException("Utilizador nï¿½o Autorizado");
         }
         this.company = App.getInstance().getCompany();
         this.estore = company.getEmployeeStore();
-        
+        this.auth = company.getAuthFacade();
     }
     
-    public List<String> getOrganizationRoles(){
-        return this.estore.getOrganizationRoles();
-    }
-    
-    public EmployeeStore getEmployees() {
-        return this.estore;
+    public List<OrgRoleDto> getOrgRoles(){
+        List<OrgRole> roles = this.estore.getOrgRoles();
+        RolesMapper mapper = new RolesMapper();
+        return mapper.toDto(roles);
     }
 
-    public boolean registerEmployee(String orgRole, String name, String adress, String phoneNumber, String socCode, int doctorIndexNumber) {
-        
-        this.emp = this.estore.create(orgRole, name, adress, phoneNumber, socCode, doctorIndexNumber);        
-        return this.estore.validateEmployee(this.emp);        
+
+
+    public boolean registerEmployee(EmployeeDto eDto) {
+        this.employee = this.estore.registerEmployee(eDto);
+        return !(employee == null);
     }
     
     public boolean saveEmployee() {
         //validates and saves employee
-        this.estore.saveEmployee(this.emp); 
-        //saves employee user - password  o id????
-        return this.company.getAuthFacade().addUserWithRole(emp.getName(), emp.getEmail(), emp.getEmployeeId(), emp.getRole().getDesignation());
-
+        this.estore.validateEmployee(this.employee);
+        this.estore.saveEmployee(this.employee);
+        return this.auth.addUserWithRole(employee.getName(), employee.getEmail(), employee.getEmployeeId(),ROLE_EMPLOYEE);
     }
 
     public Employee getEmployee() {
-        return this.emp;
+        return this.employee;
     }
     
     
     public String getEmployeeToString()
     {
-        return ("[name: " + this.emp.getName() + "]\n" + "[adress: " + this.emp.getAddress()+ "]\n" +
-                "[email: " + this.emp.getEmail()+ "]\n" + "[id: " + this.emp.getEmployeeId()+ "]\n" +
-                "[phone number: " + this.emp.getPhoneNumber()+ "]\n" + "[soc code: " + this.emp.getSocCode()+ "]\n" +
-                "[doctor index code: " + getEmployeeDoctorIndexCode() + "]\n");
+        return ("[name: " + this.employee.getName() + "]\n" + "[adress: " + this.employee.getAddress()+ "]\n" +
+                "[email: " + this.employee.getEmail()+ "]\n" + "[id: " + this.employee.getEmployeeId()+ "]\n" +
+                "[phone number: " + this.employee.getPhoneNumber()+ "]\n" + "[soc code: " + this.employee.getSocCode()+ "]\n");
     }
-    
-    public int getEmployeeDoctorIndexCode(){
-        return this.emp.getRole().getDoctorIndexNumber();
+
+    public Company getCompany() {
+        return this.company;
     }
+
 }

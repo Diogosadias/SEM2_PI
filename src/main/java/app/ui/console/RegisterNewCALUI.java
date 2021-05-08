@@ -72,7 +72,7 @@ public class RegisterNewCALUI implements Runnable{
             //int medLabTech = reader.read();
 
             //CONFIRMATION
-            System.out.printf("ID: %s \n Name: %s \n Phone Number: %d \n Address: %s \n TIN: %d \n Covid Tests: %s \n",
+            System.out.printf("ID: %d \n Name: %s \n Phone Number: %d \n Address: %s \n TIN: %d \n Covid Tests: %s \n",
                     labId, labName, phoneNumber, address, tin, answer);
             String confirmation;
             do{

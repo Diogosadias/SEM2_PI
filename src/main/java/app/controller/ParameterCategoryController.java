@@ -1,6 +1,7 @@
 package app.controller;
 
 import app.domain.model.*;
+import app.domain.model.ParameterCategoryStore;
 
 /**
  *
@@ -15,8 +16,12 @@ public class ParameterCategoryController {
     private ParameterCategoryStore pcs;
 
     public ParameterCategoryController(){
-        this.company = App.getInstance().getCompany();
-        this.pc = new ParameterCategory();
+        this(App.getInstance().getCompany());
+    }
+
+    public ParameterCategoryController(Company company){
+        this.company = company;
+        this.pc = null;
         this.pcs = company.getParameterCategoryStore();
     }
 

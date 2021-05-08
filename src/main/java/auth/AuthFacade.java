@@ -1,6 +1,5 @@
 package auth;
 
-import app.domain.model.Company;
 import auth.domain.model.User;
 import auth.domain.model.UserRole;
 import auth.domain.store.UserRoleStore;
@@ -65,7 +64,7 @@ public class AuthFacade {
 
         return this.users.add(user);
     }
-    
+
     public boolean existsUser(String email)
     {
         return this.users.exists(email);

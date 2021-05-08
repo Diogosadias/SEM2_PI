@@ -16,10 +16,6 @@ public class ParameterCategory {
         this.description = description;
         this.nhsId = nhsId;
     }
-    
-    public ParameterCategory() {
-    }
-
 
     private void checkCodeRules(String code){
         if(StringUtils.isBlank(code))
@@ -46,7 +42,6 @@ public class ParameterCategory {
     public String getNhsId() {
         return nhsId;
     }
-
 
     public void setCode(String code) {
         this.code = code;
