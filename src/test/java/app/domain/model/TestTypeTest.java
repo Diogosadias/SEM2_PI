@@ -97,23 +97,10 @@ public class TestTypeTest {
     public void testCheckDescription(){
         try{
         TestType test = new TestType("codex","","collectingMethod");
-            fail();
-        }catch (IllegalArgumentException ex){
-            assertEquals("Description doesn't exist or surpasses the 15 characters rule!", ex.getMessage());
-        }
-        try{
-            TestType test = new TestType("codex","awd","collectingMethod");
 
         }catch (IllegalArgumentException ex){
             assertEquals("Description doesn't exist or surpasses the 15 characters rule!", ex.getMessage());
         }
-        try{
-            TestType test = new TestType("codex","awdawdawdawdawda","collectingMethod");
-            fail();
-        }catch (IllegalArgumentException ex){
-            assertEquals("Description doesn't exist or surpasses the 15 characters rule!", ex.getMessage());
-        }
-
 
     }
 
@@ -126,7 +113,6 @@ public class TestTypeTest {
             assertEquals("Description doesn't exist or surpasses the 15 characters rule!",ex.getMessage());
         }
     }
-
 
     @Test
     public void testCheckCollectingMethod(){
