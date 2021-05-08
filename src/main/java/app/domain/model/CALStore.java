@@ -1,26 +1,19 @@
 package app.domain.model;
-
 import java.lang.Object;
-
-
 import java.util.ArrayList;
-
 /**
  * CALStore - Class responsible for managing CALs
  *
  * @author Gil <1180838@isep.ipp.pt>
  */
 public class CALStore {
-
     private final ArrayList<CAL> calList;
-
     /**
      * Create Store instance with empty array.
      */
     public CALStore(){
         calList = new ArrayList<>();
     }
-
     /**
      * Creates a CAL instance and returns it.
      * @param labId - Laboratory Id
@@ -32,14 +25,11 @@ public class CALStore {
      * @return CAL
      */
     public CAL registerNewCAL(String labId, String labName, long phoneNumber, String address, long tin, boolean answer ){
-
         if(labId==null || labName==null  || address==null  ){
             return null;
         }
         return new CAL(labId, labName, phoneNumber, address, tin, answer);
-
     }
-
     /**
      * Validates CAL attributes for business model rules
      * @param cal - Clinical Analysis Laboratory
@@ -48,10 +38,9 @@ public class CALStore {
     public boolean validateCAL(CAL cal){
         if(cal!=null) {
             return ! this.calList.contains(cal);
-            }
+        }
         return false;
     }
-
     /**
      * Saves the new CAL
      * @param cal - Clinical Analysis Laboratory

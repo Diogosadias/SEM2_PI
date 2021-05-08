@@ -38,28 +38,28 @@ public class CALStoreTest {
 
 
     }
-        @Test
-        public void testValidateCAL () {
-            //testing
-            boolean b = calList.validateCAL(cal1);
-            assertEquals(true,b);
-            calList.saveCAL(cal1);
-            boolean b1 = calList.validateCAL(cal1);
-            assertEquals(false,b1);
-            boolean b2 = calList.validateCAL(null);
-            assertFalse(b2);
+    @Test
+    public void testValidateCAL () {
+        //testing
+        boolean b = calList.validateCAL(cal1);
+        assertEquals(true,b);
+        calList.saveCAL(cal1);
+        boolean b1 = calList.validateCAL(cal1);
+        assertEquals(false,b1);
+        boolean b2 = calList.validateCAL(null);
+        assertFalse(b2);
 
 
-        }
-
-        @Test
-        public void testSaveCAL () {
-           //testing
-
-            boolean b = calList.saveCAL(cal1);
-            assertEquals(true,b);
-
-            boolean b1 = calList.saveCAL(cal1);
-            assertEquals(false,b1);
-        }
     }
+
+    @Test
+    public void testSaveCAL () {
+        //testing
+
+        boolean b = calList.saveCAL(cal1);
+        assertEquals(true,b);
+
+        boolean b1 = calList.saveCAL(cal1);
+        assertEquals(false,b1);
+    }
+}
