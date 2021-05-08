@@ -65,12 +65,14 @@ public class ParameterStore {
 
         List<Parameter> copia = new ArrayList<>(parameterList);
         StringBuilder s = new StringBuilder();
-
-        for (Parameter param : copia) {
-            s.append(param);
-            s.append("\n");
+        if(parameterList.isEmpty()){
+            System.out.println("There are no parameter categories created.");
+        }else {
+            for (Parameter param : copia) {
+                s.append(param);
+                s.append("\n");
+            }
         }
-
         return s.toString();
     }
 }
