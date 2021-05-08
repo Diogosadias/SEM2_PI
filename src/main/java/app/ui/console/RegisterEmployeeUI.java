@@ -42,10 +42,6 @@ public class RegisterEmployeeUI implements Runnable{
             presentsData();
 
             if (Utils.confirm("Do you confirm the data? (Y/N)")) {
-                List<Employee> l = m_controller.getCompany().getEmployeeStore().getEmployees();
-                for (Employee e : l ) {
-                    System.out.println(e);
-                }
                     System.out.println("Employee registered successfully!");
             } else
             {

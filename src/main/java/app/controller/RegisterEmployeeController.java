@@ -51,7 +51,7 @@ public class RegisterEmployeeController {
     
     public boolean saveEmployee() {
         //validates and saves employee
-        this.estore.validateEmployee(this.employee);
+        if (!this.estore.validateEmployee(this.employee)) {return false;}
         this.estore.saveEmployee(this.employee);
         return this.auth.addUserWithRole(employee.getName(), employee.getEmail(), employee.getEmployeeId(),ROLE_EMPLOYEE);
     }

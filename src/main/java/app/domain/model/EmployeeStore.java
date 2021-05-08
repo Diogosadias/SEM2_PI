@@ -95,9 +95,6 @@ public class EmployeeStore {
     }
     
     public boolean saveEmployee(Employee employee){
-        if (employee == null) {
-            throw new IllegalArgumentException("Error: Employee is null.");
-        }
         this.numEmployees++;
         return this.le.add(employee);
     }

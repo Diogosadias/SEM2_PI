@@ -103,14 +103,14 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "email: " + email +
-                ", employeeId: " + employeeId +
-                ", role: " + role.getDesignation() +
+        return
+                "\n" + role.getDesignation() +
+                " - employeeId: " + employeeId +
+                        ", email: " + email +
                 ", name: " + name +
                 ", address: " + address +
                 ", phoneNumber: " + phoneNumber +
                 ", socCode: " + socCode +
-                '}';
+                "";
     }
 }
