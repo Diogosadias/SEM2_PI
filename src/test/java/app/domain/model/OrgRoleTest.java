@@ -1,5 +1,6 @@
 package app.domain.model;
 
+import app.domain.dto.EmployeeDto;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -51,12 +52,23 @@ public class OrgRoleTest {
         or.setId("321");
         assertEquals("321",or.getId());
     }
-/*
     @Test
     public void createEmployee() {
+        OrgRole awd = new OrgRole("1","SpecialistDoctor");
+        EmployeeDto daw = new EmployeeDto("1","aowd","ajwdiajd",12313123123l,"ajwdi");
+        daw.setId("A00001");
+        Employee awdawd = awd.createEmployee(daw);
+        boolean a = awdawd.getRole().getId().equals(daw.getRoleId());
+        assertTrue(a);
+
+        OrgRole awd2 = new OrgRole("1","SpecialistDoctor");
+        EmployeeDto daw2 = new EmployeeDto("2","aowd","ajwdiajd",12313123123l,"ajwdi");
+        daw2.setId("A00001");
+        Employee awdawd2 = awd.createEmployee(daw2);
+        boolean a2 = awdawd.getRole().getId().equals(daw2.getRoleId());
+        assertFalse(a2);
 
     }
-*/
     @Test
     public void testEquals() {
         OrgRole or2 = new OrgRole("133","aaaba");

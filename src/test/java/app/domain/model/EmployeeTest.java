@@ -1,5 +1,6 @@
 package app.domain.model;
 
+import app.domain.dto.EmployeeDto;
 import auth.domain.model.Email;
 import org.junit.Assert;
 import org.junit.Test;
@@ -139,6 +140,9 @@ public class EmployeeTest {
         e1.setEmail("123@lei.isep.pt");
         Assert.assertEquals("123@lei.isep.pt", e1.getEmail());
     }
+
+
+
     @Test
     public void testTestEquals() {
 
