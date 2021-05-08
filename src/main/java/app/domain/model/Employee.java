@@ -19,7 +19,7 @@ public class Employee {
     private final String EMAIL_SUFIX = "@lei.isep.pt";
 
     public Employee(OrgRole role, String employeeId,  String name, String address, long phoneNumber, String socCode) {
-        if(role == null || employeeId == null || name == null || address == null || socCode == null ) {
+        if(role == null || employeeId.length() == 0 || name.length() == 0 || address.length() == 0 || socCode.length() == 0 ) {
             throw new IllegalArgumentException("Error: At least one Employee attribute is null.");
         }
         if(!checkNumDigits(phoneNumber)) {

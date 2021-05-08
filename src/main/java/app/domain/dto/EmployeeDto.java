@@ -1,5 +1,7 @@
 package app.domain.dto;
 
+import java.util.Locale;
+
 /**
  *
  * @author Tiago Rocha
@@ -15,8 +17,8 @@ public class EmployeeDto {
 
     public EmployeeDto(String role, String name, String address, long phoneNumber, String socCode) {
         this.roleId = role;
-        this.name = name;
-        this.address = address;
+        this.name = name.toUpperCase();
+        this.address = address.toUpperCase();
         this.phoneNumber = phoneNumber;
         this.socCode = socCode;
     }
