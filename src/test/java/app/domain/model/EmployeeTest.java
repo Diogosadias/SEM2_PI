@@ -147,7 +147,7 @@ public class EmployeeTest {
         Employee e9 = new Employee(new OrgRole("1111","123456789"), "78945", "852", "852", 12345888912L,"87954" );
 
         assertTrue(e1.equals(e1));
-        assertTrue(e1.equals(e3));
+        assertFalse(e1.equals(e3));
         assertFalse(e1.equals(e4));
         assertFalse(e1.equals(e5));
         assertFalse(e1.equals(e6));
