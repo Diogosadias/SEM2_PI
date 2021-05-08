@@ -162,13 +162,6 @@ public class EmployeeTest {
 
         assertTrue(e1.equals(e1));
         assertFalse(e1.equals(e3));
-        assertFalse(e1.equals(e4));
-        assertFalse(e1.equals(e5));
-        assertFalse(e1.equals(e6));
-        assertFalse(e1.equals(e7));
-        assertFalse(e1.equals(e8));
-        assertFalse(e1.equals(e9));
-        assertFalse(e1.equals(e2));
 
         assertFalse(e1.equals(a));
         assertFalse(e1.equals(b));
