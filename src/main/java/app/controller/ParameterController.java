@@ -48,12 +48,11 @@ public class ParameterController {
     }
 
     public Parameter getParameter(String code){
-
-        for(Parameter f : ps.getParameterList()){
-            if(f.getCode().equals(code))
-                return f;
-        }
-        return null;
+        Parameter x = ps.getParameterByCode(code);
+        if(x==null)
+            return null;
+        else
+            return x;
     }
 
     public boolean saveParameter(){
