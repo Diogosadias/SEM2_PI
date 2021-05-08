@@ -19,14 +19,22 @@ public class ParameterCategoryTest {
         }
         try{
             ParameterCategory pc = new ParameterCategory("aaaaaaaaa","aaaaaaaa","aaaaa");
-        }catch (IllegalArgumentException ex){
-            assertEquals("Code must have 4 to 8 characters.",ex.getMessage());
+        }catch (IllegalArgumentException ex1){
+            assertEquals("Code must have 4 to 8 characters.",ex1.getMessage());
         }
         try{
             ParameterCategory pc = new ParameterCategory("","aaaaaaaa","aaaaa");
-        }catch (IllegalArgumentException ex){
-            assertEquals("Code cannot be blank",ex.getMessage());
+        }catch (IllegalArgumentException ex2){
+            assertEquals("Code cannot be blank",ex2.getMessage());
         }
+        try{
+            ParameterCategory pc = new ParameterCategory("awdad","aaaaaaaa","aaaaa");
+        }catch (IllegalArgumentException ex3){
+            assertEquals("Code cannot be blank",ex3.getMessage());
+        }finally {
+            assertTrue(true);
+        }
+
     }
 
     @Test
