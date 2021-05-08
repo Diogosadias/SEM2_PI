@@ -61,7 +61,9 @@ public class Employee {
     }
 
     public String generateEmail(String id) {
+        if(id!=null)
         return id + "" + EMAILSUFIX;
+        return null;
     }
 
     //get
