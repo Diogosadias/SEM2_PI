@@ -46,8 +46,7 @@ public class CALStoreTest {
         calList.saveCAL(cal1);
         boolean b1 = calList.validateCAL(cal1);
         assertEquals(false,b1);
-        boolean b2 = calList.validateCAL(null);
-        assertFalse(b2);
+        assertFalse(calList.validateCAL(null));
 
 
     }
