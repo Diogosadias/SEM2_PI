@@ -16,15 +16,16 @@ public class Employee {
     private String address;
     private long phoneNumber;
     private String socCode;
-    private final String EMAIL_SUFIX = "@lei.isep.pt";
+    private static final String EMAILSUFIX = "@lei.isep.pt";
 
     public Employee(OrgRole role, String employeeId,  String name, String address, long phoneNumber, String socCode) {
-        if(role == null || employeeId.length() == 0 || name.length() == 0 || address.length() == 0 || socCode.length() == 0 ) {
-            throw new IllegalArgumentException("Error: At least one Employee attribute is null.");
-        }
-        if(!checkNumDigits(phoneNumber)) {
-            throw new IllegalArgumentException("Phone Number doesnt have 11 digits.");
-        }
+
+        checkEmployedID(employeeId);
+        checkName(name);
+        checkAddress(address);
+        checkSOCode(socCode);
+        checkNumDigits(phoneNumber);
+
         this.employeeId = employeeId;
         this.role = role;
         this.name = name;
@@ -34,15 +35,36 @@ public class Employee {
         this.email = generateEmail(employeeId);
     }
 
-    public boolean checkNumDigits (long num) {
-        return (Math.floor(Math.log10(Math.abs((double)num))) + 1) == 11;
+    private void checkNumDigits (long num) {
+        String temp = String.valueOf(num);
+        if ( temp.length() != 11)
+            throw new IllegalArgumentException("Phone Number must have 11 chars.");
+    }
+    private void checkEmployedID(String employeeId){
+        if (employeeId.length() == 0)
+            throw new IllegalArgumentException("Employee Id cannot be blank.");
+
+    }
+    private void checkName(String name){
+        if (name.length() == 0)
+            throw new IllegalArgumentException("Name cannot be blank.");
+
+    }
+    private void checkAddress(String address){
+        if (address.length() == 0)
+            throw new IllegalArgumentException("Address cannot be blank.");
+
+    }private void checkSOCode(String socCode){
+        if (socCode.length() == 0)
+            throw new IllegalArgumentException("SOC cannot be blank.");
+
     }
 
     public String generateEmail(String id) {
-        return id + "" + EMAIL_SUFIX;
+        return id + "" + EMAILSUFIX;
     }
 
-        //get
+    //get
     public String getEmployeeId() {
         return employeeId;
     }
@@ -64,14 +86,14 @@ public class Employee {
     public String getEmail() {
         return email;
     }
-    
-        //set
+
+    //set
     public void setEmployeeId(String employeeId) {
         this.employeeId = employeeId;
     }
     public void setRole(OrgRole role) {
         this.role = role;
-    }    
+    }
     public void setName(String name) {
         this.name = name;
     }
@@ -105,12 +127,13 @@ public class Employee {
     public String toString() {
         return
                 "\n" + role.getDesignation() +
-                " - employeeId: " + employeeId +
+                        " - employeeId: " + employeeId +
                         ", email: " + email +
-                ", name: " + name +
-                ", address: " + address +
-                ", phoneNumber: " + phoneNumber +
-                ", socCode: " + socCode +
-                "";
+                        ", name: " + name +
+                        ", address: " + address +
+                        ", phoneNumber: " + phoneNumber +
+                        ", socCode: " + socCode +
+                        "";
     }
 }
+
