@@ -31,7 +31,7 @@ Doctor Index Number, that should be introduced by the administrator.
 
 * AC1: Each user must have a single role defined in the system.
 * AC2: All atributtes can not be empty.
-* AC3: Phone number must be unique.
+* AC3: Phone number must be unique and 11 digits.
 
 ### 1.4. Found out Dependencies
 
