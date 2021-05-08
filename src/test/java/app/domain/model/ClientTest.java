@@ -14,7 +14,24 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 public class ClientTest {
+    //preparations
+    Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
+    Client c2 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M");
 
+        public void testClient(){
+            Email a = new Email("user1@gmail.com");
+            String b = "John";
+            long c = 1111111111L;
+            long d = 1111111111111111L;
+            Date e = new Date("12/12/2021");
+            String f = "M";
+            assertEquals(a,c2.getId());
+            assertEquals(b,c2.getName());
+            assertEquals(c,c2.getNhs());
+            assertEquals(d,c2.getCitizenCard());
+            assertEquals(e,c2.getBirthDate());
+            assertEquals(f,c2.getSex());
+        }
 
 
 /*
@@ -72,7 +89,6 @@ public class ClientTest {
     @Test
     public void testGetNhs() {
         //preparations
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
         String check = String.valueOf(c1.getCitizenCard());
 
 
@@ -82,62 +98,50 @@ public class ClientTest {
 
     @Test
     public void testGetCitizenCard() {
-        //preparations
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
         //testing
         Assert.assertEquals(1111111111111111L, c1.getCitizenCard());
     }
 
     @Test
     public void testGetTin() {
-        //preparations
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
+
         //testing
         Assert.assertEquals(111111111111L, c1.getTin());
     }
 
     @Test
     public void testGetBirthDate() {
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
         //testing
         Assert.assertEquals(new Date("12/12/2021"), c1.getBirthDate());
     }
 
     @Test
     public void testGetSex() {
-        //preparations
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
         //testing
         Assert.assertEquals("M", c1.getSex());
     }
 
     @Test
     public void testGetPNumber() {
-        //preparations
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
         //testing
         Assert.assertEquals(111111111111L, c1.getPNumber());
     }
 
     @Test
     public void testTestGetName() {
-        //preparations
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
         //testing
         Assert.assertEquals("John", c1.getName());
     }
 
     @Test
     public void testSetId() {
-        //preparations
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
+        c1.setId(new Email("antonio@gmail.com"));
+        Assert.assertEquals(new Email("antonio@gmail.com"), c1.getId());
 
     }
 
     @Test
     public void testSetNhs() {
-        //preparations
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
 
         //calculations
         c1.setNhs(1111111112L);
@@ -148,8 +152,6 @@ public class ClientTest {
 
     @Test
     public void testSetCitizenCard() {
-        //preparations
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
 
         //calculations
         c1.setCitizenCard(1111111111111112L);
@@ -160,8 +162,6 @@ public class ClientTest {
 
     @Test
     public void testSetBirthDate() {
-        //preparations
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
 
         //calculations
         c1.setBirthDate(new Date ("20/08/1997"));
@@ -175,8 +175,6 @@ public class ClientTest {
 
     @Test
     public void testSetTin() {
-        //preparations
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
 
         //calculations
         c1.setTin(111111111112L);
@@ -189,8 +187,7 @@ public class ClientTest {
 
     @Test
     public void testSetSex() {
-        //preparations
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
+
 
         //testing
         c1.setSex("Masculine");
@@ -199,14 +196,17 @@ public class ClientTest {
 
     @Test
     public void testSetPNumber() {
-        //preparations
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
 
         //testing
         c1.setPNumber(111111111112L);
 
         Assert.assertEquals(111111111112L, c1.getPNumber());
 
+    }
+    @Test
+    public void testSetName(){
+        c1.setName("Josef");
+        Assert.assertEquals("Josef", c1.getName());
     }
 
     @Test
@@ -241,8 +241,6 @@ public class ClientTest {
 
     @Test
     public void testToString() {
-        //arrange
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
 
         //assert
         assertEquals(false,c1.toString().equals(" "));
