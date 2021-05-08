@@ -7,6 +7,7 @@ import java.util.Objects;
 /**
  *
  * @author Tiago Rocha
+ *  @author Márcio Ramos <1201682@isep.ipp.pt>
  */
 public class OrgRole {
 
