@@ -141,16 +141,6 @@ public class EmployeeTest {
     }
     @Test
     public void testTestEquals() {
-        Employee e2 = new Employee(new OrgRole("1111","456789"), "12345", "Diogo", "Route cois", 12345678911L,"1111" );
-        Employee e3 = new Employee(new OrgRole("1111","safdxfasf"), "1111", "John", "Address", 12345678912L,"12345" );
-        Employee e4 = new Employee(new OrgRole("1111","12345"), "1111", "John", "Address", 12345678912L,"12345" );
-        Employee e5 = new Employee(new OrgRole("1111","123456789"), "78945", "John", "Address", 12345678912L,"12345" );
-        Employee e6 = new Employee(new OrgRole("1111","123456789"), "78945", "852", "Address", 12345678912L,"12345" );
-        Employee e7 = new Employee(new OrgRole("1111","123456789"), "78945", "852", "852", 12345678912L,"12345" );
-        Employee e8 = new Employee(new OrgRole("1111","123456789"), "78945", "852", "852", 12345888912L,"12345" );
-        Employee e9 = new Employee(new OrgRole("1111","123456789"), "78945", "852", "852", 12345888912L,"87954" );
-
-
 
         Employee a = new Employee(new OrgRole("11111","safdxfasf"), "1111", "John", "Address", 12345678912L,"12345" );
         Employee b = new Employee(new OrgRole("12345","safwadawdxfasf"), "1111", "John", "Address", 12345678912L,"12345" );
@@ -161,8 +151,6 @@ public class EmployeeTest {
         Employee g = new Employee(new OrgRole("12345","safdxfasf"), "1111", "John", "Address", 12345678912L,"12245" );
 
         assertTrue(e1.equals(e1));
-        assertFalse(e1.equals(e3));
-
         assertFalse(e1.equals(a));
         assertFalse(e1.equals(b));
         assertTrue(e1.equals(c));
