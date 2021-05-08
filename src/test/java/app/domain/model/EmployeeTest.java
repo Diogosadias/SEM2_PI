@@ -8,7 +8,11 @@ import java.util.Date;
 
 import static org.junit.Assert.*;
 
-
+/**
+ *
+ * @author Tiago Rocha
+ *  @author Márcio Ramos <1201682@isep.ipp.pt>
+ */
 public class EmployeeTest {
     Employee e1 = new Employee(new OrgRole("12345","safdxfasf"), "1111", "John", "Address", 12345678912L,"12345" );
 
@@ -147,7 +151,7 @@ public class EmployeeTest {
         Employee e9 = new Employee(new OrgRole("1111","123456789"), "78945", "852", "852", 12345888912L,"87954" );
 
         assertTrue(e1.equals(e1));
-        assertTrue(e1.equals(e3));
+        assertFalse(e1.equals(e3));
         assertFalse(e1.equals(e4));
         assertFalse(e1.equals(e5));
         assertFalse(e1.equals(e6));
@@ -161,6 +165,12 @@ public class EmployeeTest {
         }catch (NullPointerException ex){
             assertEquals("Object is null.",ex.getMessage());
         }
+
+        ParameterCategory pc = new ParameterCategory("aaaaa","aaaaaaaa","aaaaa");
+
+        boolean check = e1.equals(pc);
+        assertFalse(check);
+
     }
     @Test
     public void testTestHashCode() {

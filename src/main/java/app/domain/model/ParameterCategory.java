@@ -1,7 +1,10 @@
 package app.domain.model;
 
 import org.apache.commons.lang3.StringUtils;
-
+/**
+ *
+ *  @author Márcio Ramos <1201682@isep.ipp.pt>
+ */
 public class ParameterCategory {
 
 

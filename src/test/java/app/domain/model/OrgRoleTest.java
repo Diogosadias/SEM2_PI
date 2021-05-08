@@ -3,10 +3,33 @@ package app.domain.model;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
-
+/**
+ *
+ *  @author Márcio Ramos <1201682@isep.ipp.pt>
+ */
 public class OrgRoleTest {
     OrgRole or = new OrgRole("123","aaaaa");
-
+    @Test
+    public void testOrgRole(){
+        try{
+            OrgRole or2 = new OrgRole(null,null);
+            fail();
+        }catch(IllegalArgumentException ex){
+            assertEquals("Error: at least one of the attributes of OrgRole is null.", ex.getMessage());
+        }
+        try{
+            OrgRole or2 = new OrgRole(null,"aaaaa");
+            fail();
+        }catch(IllegalArgumentException ex){
+            assertEquals("Error: at least one of the attributes of OrgRole is null.", ex.getMessage());
+        }
+        try{
+            OrgRole or2 = new OrgRole("123",null);
+            fail();
+        }catch(IllegalArgumentException ex){
+            assertEquals("Error: at least one of the attributes of OrgRole is null.", ex.getMessage());
+        }
+    }
     @Test
     public void getDesignation() {
         assertEquals("aaaaa", or.getDesignation());
@@ -52,6 +75,14 @@ public class OrgRoleTest {
         assertTrue(b3);
         assertFalse(b4);
         assertFalse(b5);
+    }
+    @Test
+    public void testEqualsObject() {
+        ParameterCategory pc = new ParameterCategory("aaaaa","aaaaaaaa","aaaaa");
+
+        boolean check = or.equals(pc);
+        assertFalse(check);
+
     }
 /*
     @Test

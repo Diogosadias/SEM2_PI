@@ -53,11 +53,14 @@ public class ParameterCategoryStore {
 
 
         StringBuilder s = new StringBuilder();
-        for (ParameterCategory param : copia) {
-            s.append(param);
-            s.append("\n");
+        if(parameterCategoryList.isEmpty()){
+            System.out.println("There are no parameter categories created.");
+        }else {
+            for (ParameterCategory param : copia) {
+                s.append(param);
+                s.append("\n");
+            }
         }
-
         return s.toString();
     }
 }
