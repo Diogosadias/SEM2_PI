@@ -29,6 +29,7 @@ public class SpecifyNewTestStoreTest {
         assertNull(storeTest.createTestType("aaaaa", null, null));
         assertNull(storeTest.createTestType(null, "aaaaaaaa", null));
         assertNull(storeTest.createTestType(null, null, "aaaaa"));
+        assertNotNull(storeTest.createTestType("aaaaa", "aaaaaaaa", "aaaaa"));
 
 
     }
