@@ -13,10 +13,15 @@ public class ParameterCategoryStoreTest {
 
     @Test
     public void createParameterCategoryExistent() {
-        storeTest.saveParameterCategory(p1);
-        boolean b1 = storeTest.validateParameterCategory(p1);
-        assertEquals(false,b1);
+        ParameterCategory p2 = new ParameterCategory("aaaaa","aaaaaaaa","aaaaa");
+        //assert
+        assertEquals(p1.getCode(),p2.getCode());
+        assertEquals(p1.getDescription(),p2.getDescription());
+        assertEquals(p1.getNhsId(),p2.getNhsId());
     }
+
+
+
     @Test
     public void createParameterCategory() {
         //calculations
@@ -24,14 +29,41 @@ public class ParameterCategoryStoreTest {
         assertEquals(true,b);
     }
 
+
     @Test
     public void getParameterCategoryByCode() {
-        boolean b2 = storeTest.validateParameterCategory(null);
-        assertFalse(b2);
+        storeTest.saveParameterCategory(p1);
+        assertEquals(p1 , storeTest.getParameterCategoryByCode(p1.getCode()));
+    }
+    @Test
+    public void testGetParameterCategoryByCodeIsNotNull(){
+        storeTest.saveParameterCategory(p1);
+        assertNotNull(storeTest.getParameterCategoryByCode(p1.getCode()));
+    }
+    @Test
+    public void getParameterCategoryByCodeNull() {
+        assertNull(storeTest.getParameterCategoryByCode(null));
+    }
+    @Test
+    public void getParameterCategoryByCodeNonExistant() {
+        assertNull(storeTest.getParameterCategoryByCode("DOESNT EXIST"));
     }
 
     @Test
+    public void validateParameterCategoryNull() {
+        boolean b2 = storeTest.validateParameterCategory(null);
+        assertFalse(b2);
+    }
+    @Test
     public void validateParameterCategory() {
+        boolean b = storeTest.validateParameterCategory(p1);
+        assertEquals(true,b);
+    }
+    @Test
+    public void validateParameterCategoryExistent() {
+        storeTest.saveParameterCategory(p1);
+        boolean b1 = storeTest.validateParameterCategory(p1);
+        assertEquals(false,b1);
     }
 
     @Test
