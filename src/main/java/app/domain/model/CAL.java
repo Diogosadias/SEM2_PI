@@ -1,6 +1,7 @@
 package app.domain.model;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  *  CAL - Domain class representing a Clinical Analysis Laboratory
@@ -128,5 +129,14 @@ public class CAL {
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+        if(o!=null){
+            if (!(o instanceof CAL)) return false;
+            CAL cal = (CAL) o;
+            return phoneNumber == cal.phoneNumber || Objects.equals(laboratoryId, cal.laboratoryId) || Objects.equals(address, cal.address) || Objects.equals(tinNumber, cal.tinNumber) ;
+        }
+        throw new NullPointerException("Object is null.");
+    }
 
 }

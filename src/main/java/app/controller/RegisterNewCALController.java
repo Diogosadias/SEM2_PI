@@ -41,8 +41,8 @@ public class RegisterNewCALController {
      * @return boolean
      */
     public boolean registerNewCAL(String labId, String labName, long phoneNumber, String address, long tin, boolean answer){
-        this.cal = this.calStore.registerNewCAL(labId, labName, phoneNumber, address, tin, answer);
-        return this.calStore.validateCAL(this.cal);
+        cal = calStore.registerNewCAL(labId, labName, phoneNumber, address, tin, answer);
+        return calStore.validateCAL(cal);
     }
 
     /**

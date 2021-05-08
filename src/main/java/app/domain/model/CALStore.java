@@ -37,7 +37,15 @@ public class CALStore {
      */
     public boolean validateCAL(CAL cal){
         if(cal!=null) {
-            return ! this.calList.contains(cal);
+            if (!this.calList.isEmpty()) {
+                for (CAL temp : calList) {
+                    if (temp.equals(cal)) {
+                        System.out.println("Employee already exists.");
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
         return false;
     }
