@@ -17,6 +17,7 @@ public class SpecifyNewTestStore {
     }
 
     public TestType createTestType(String code, String description, String collectingMethod) {
+        if (code == null && description == null && collectingMethod == null) return null;
         return new TestType(code, description, collectingMethod);
     }
 

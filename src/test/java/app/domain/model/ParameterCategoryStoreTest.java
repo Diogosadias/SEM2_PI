@@ -12,21 +12,16 @@ public class ParameterCategoryStoreTest {
     ParameterCategory p1 = new ParameterCategory("aaaaa","aaaaaaaa","aaaaa");
 
     @Test
-    public void createParameterCategoryExistent() {
+    public void createParameterCategory() {
         ParameterCategory p2 = new ParameterCategory("aaaaa","aaaaaaaa","aaaaa");
         //assert
         assertEquals(p1.getCode(),p2.getCode());
         assertEquals(p1.getDescription(),p2.getDescription());
         assertEquals(p1.getNhsId(),p2.getNhsId());
     }
-
-
-
     @Test
-    public void createParameterCategory() {
-        //calculations
-        boolean b = storeTest.validateParameterCategory(p1);
-        assertEquals(true,b);
+    public void testCreateParameterWithNullValues(){
+        assertNull(storeTest.createParameterCategory(null, null, null));
     }
 
 

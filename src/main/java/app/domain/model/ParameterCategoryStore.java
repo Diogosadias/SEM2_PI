@@ -16,6 +16,7 @@ public class ParameterCategoryStore {
 
 
     public ParameterCategory createParameterCategory(String code, String description, String nhsId){
+        if (code == null && description == null && nhsId == null) return null;
         return new ParameterCategory(code, description, nhsId);
     }
 
