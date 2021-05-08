@@ -137,9 +137,12 @@ public class EmployeeTest {
     }
     @Test
     public void testTestEquals() {
+        assertNull("Object is null",null);
+        assertTrue(e1.equals(e1));
     }
     @Test
     public void testTestHashCode() {
+        assertEquals(318588947,e1.hashCode());
     }
     @Test
     public void testTestToString() {
