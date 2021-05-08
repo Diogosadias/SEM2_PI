@@ -39,4 +39,46 @@ public class ParameterCategoryTest {
         }
     }
 
+
+    @Test
+    public void testGetCode() {
+        assertEquals("aaaaa",pc.getCode());
+    }
+
+    @Test
+    public void testGetDescription() {
+
+        assertEquals("aaaaaaaa",pc.getDescription());
+    }
+
+    @Test
+    public void testGetNhsId() {
+        assertEquals("aaaaa",pc.getNhsId());
+
+    }
+
+
+
+    @Test
+    public void testSetCode() {
+        pc.setCode("codex");
+        assertEquals("codex",pc.getCode());
+        assertEquals(false,pc.getCode().equals("aaaaa"));
+    }
+
+    @Test
+    public void testSetDescription() {
+        pc.setDescription("desc");
+        assertEquals("desc",pc.getDescription());
+        assertEquals(false,pc.getDescription().equals("aaaaaaaa"));
+    }
+
+    @Test
+    public void setNhsId() {
+        pc.setNhsId("nhsid");
+        assertEquals("nhsid",pc.getNhsId());
+        assertEquals(false,pc.getNhsId().equals("aaaaa"));
+
+    }
+
 }
