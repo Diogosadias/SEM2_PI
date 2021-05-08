@@ -161,6 +161,12 @@ public class EmployeeTest {
         }catch (NullPointerException ex){
             assertEquals("Object is null.",ex.getMessage());
         }
+
+        ParameterCategory pc = new ParameterCategory("aaaaa","aaaaaaaa","aaaaa");
+
+        boolean check = e1.equals(pc);
+        assertFalse(check);
+
     }
     @Test
     public void testTestHashCode() {
