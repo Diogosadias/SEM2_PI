@@ -150,6 +150,16 @@ public class EmployeeTest {
         Employee e8 = new Employee(new OrgRole("1111","123456789"), "78945", "852", "852", 12345888912L,"12345" );
         Employee e9 = new Employee(new OrgRole("1111","123456789"), "78945", "852", "852", 12345888912L,"87954" );
 
+
+
+        Employee a = new Employee(new OrgRole("11111","safdxfasf"), "1111", "John", "Address", 12345678912L,"12345" );
+        Employee b = new Employee(new OrgRole("12345","safwadawdxfasf"), "1111", "John", "Address", 12345678912L,"12345" );
+        Employee c = new Employee(new OrgRole("12345","safdxfasf"), "1121", "John", "Address", 12345678912L,"12345" );
+        Employee d = new Employee(new OrgRole("12345","safdxfasf"), "1111", "Johnw", "Address", 12345678912L,"12345" );
+        Employee e = new Employee(new OrgRole("12345","safdxfasf"), "1111", "John", "Addressa", 12345678912L,"12345" );
+        Employee f = new Employee(new OrgRole("12345","safdxfasf"), "1111", "John", "Address", 12345678942L,"12345" );
+        Employee g = new Employee(new OrgRole("12345","safdxfasf"), "1111", "John", "Address", 12345678912L,"12245" );
+
         assertTrue(e1.equals(e1));
         assertFalse(e1.equals(e3));
         assertFalse(e1.equals(e4));
@@ -159,6 +169,14 @@ public class EmployeeTest {
         assertFalse(e1.equals(e8));
         assertFalse(e1.equals(e9));
         assertFalse(e1.equals(e2));
+
+        assertFalse(e1.equals(a));
+        assertFalse(e1.equals(b));
+        assertFalse(e1.equals(c));
+        assertFalse(e1.equals(d));
+        assertFalse(e1.equals(e));
+        assertFalse(e1.equals(f));
+        assertFalse(e1.equals(g));
         try{
         e1.equals(null);
         fail();
