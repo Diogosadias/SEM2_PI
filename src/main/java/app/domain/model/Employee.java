@@ -121,17 +121,11 @@ public class Employee {
             Employee employee = (Employee) o;
             return phoneNumber == employee.phoneNumber && Objects.equals(role, employee.role) && Objects.equals(name, employee.name) && Objects.equals(address, employee.address) && Objects.equals(socCode, employee.socCode);
         }
-        throw new NullPointerException("Object is null");
+        throw new NullPointerException("Object is null.");
     }
 
     @Override
     public int hashCode() {
-        checkEmployedID(employeeId);
-        checkName(name);
-        checkAddress(address);
-        checkSOCode(socCode);
-        checkNumDigits(phoneNumber);
-
         return Objects.hash(role, name, address, phoneNumber, socCode);
     }
 
