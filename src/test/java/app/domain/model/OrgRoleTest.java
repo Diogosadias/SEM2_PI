@@ -10,6 +10,19 @@ public class OrgRoleTest {
     public void testOrgRole(){
         try{
             OrgRole or2 = new OrgRole(null,null);
+            fail();
+        }catch(IllegalArgumentException ex){
+            assertEquals("Error: at least one of the attributes of OrgRole is null.", ex.getMessage());
+        }
+        try{
+            OrgRole or2 = new OrgRole(null,"aaaaa");
+            fail();
+        }catch(IllegalArgumentException ex){
+            assertEquals("Error: at least one of the attributes of OrgRole is null.", ex.getMessage());
+        }
+        try{
+            OrgRole or2 = new OrgRole("123",null);
+            fail();
         }catch(IllegalArgumentException ex){
             assertEquals("Error: at least one of the attributes of OrgRole is null.", ex.getMessage());
         }
