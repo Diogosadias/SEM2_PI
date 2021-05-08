@@ -48,26 +48,70 @@ public class AdministratorTest {
     }
 
     @Test
-    public void testcheckEmployeeId(){
+    public void testcheckEmployeeId() {
 
-        try{
+        try {
 
-            Administrator admin = new Administrator(new Email("aaa@aaa.aaa"), new Password("12345"),"Name","adress","11111","aaaaa","");
-        }catch (IllegalArgumentException ex){
+            Administrator admin = new Administrator(new Email("aaa@aaa.aaa"), new Password("12345"), "Name", "adress", "11111", "aaaaa", "");
+        } catch (IllegalArgumentException ex) {
             assertEquals("Employee ID cannot be blank.", ex.getMessage());
         }
         try {
 
-            Administrator admin = new Administrator(new Email("aaa@aaa.aaa"), new Password("12345"),"Name","adress","11111","aaaaa","1");
-        }catch (IllegalArgumentException ex){
-            assertEquals("Employee ID must have 5 chars.",ex.getMessage());
+            Administrator admin = new Administrator(new Email("aaa@aaa.aaa"), new Password("12345"), "Name", "adress", "11111", "aaaaa", "1");
+        } catch (IllegalArgumentException ex) {
+            assertEquals("Employee ID must have 5 chars.", ex.getMessage());
         }
-        try{
+        try {
 
-            Administrator admin = new Administrator(new Email("aaa@aaa.aaa"), new Password("12345"),"Name","adress","11111","aaaaa","111111111111111");
-        }catch (IllegalArgumentException ex){
-            assertEquals("Employee ID must have 5 chars.",ex.getMessage());
+            Administrator admin = new Administrator(new Email("aaa@aaa.aaa"), new Password("12345"), "Name", "adress", "11111", "aaaaa", "111111111111111");
+        } catch (IllegalArgumentException ex) {
+            assertEquals("Employee ID must have 5 chars.", ex.getMessage());
         }
     }
+
+        @Test
+        public void testsetStandardOcuppationalCode(){
+            admin.setStandardOcuppationalCode("fivex");
+            assertEquals("fivex",admin.getStandardOcuppationalCode());
+            assertEquals(false,admin.getStandardOcuppationalCode().equals("aaaaa"));
+
+        }
+
+        @Test
+        public void testsetEmployeeId(){
+
+        admin.setEmployeeId("22222");
+        assertEquals("22222",admin.getEmployeeId());
+        assertEquals(false,admin.getEmployeeId().equals("11111"));
+        }
+
+        @Test
+        public void testSetAdress(){
+
+        admin.setAdress("endereco");
+        assertEquals("endereco",admin.getAdress());
+        assertEquals(false,admin.getAdress().equals("adress"));
+        }
+
+        @Test
+        public void testGetAdress(){
+        assertEquals("adress",admin.getAdress());
+        }
+
+        @Test
+        public void testEmployeeId(){
+        assertEquals("11111",admin.getEmployeeId());
+        }
+
+        @Test
+        public void testgetStandardOcuppationalCode(){
+        assertEquals("aaaaa",admin.getStandardOcuppationalCode());
+        }
+
+        @Test
+        public void testToString(){
+        assertEquals(false,admin.toString().equals("false"));
+        }
 
 }

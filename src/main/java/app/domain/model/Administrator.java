@@ -56,6 +56,7 @@ public class Administrator extends User {
         return this.standardOcuppationalCode;
     }
 
+    //setters
     public void setStandardOcuppationalCode(String standardOcuppationalCode) {
         this.standardOcuppationalCode = standardOcuppationalCode;
     }
@@ -64,7 +65,7 @@ public class Administrator extends User {
         return this.employeeId;
     }
 
-    //setters
+
     public void setEmployeeId(String employeeId) {
         this.employeeId = employeeId;
     }
