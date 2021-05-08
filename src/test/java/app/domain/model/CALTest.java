@@ -191,4 +191,38 @@ public class CALTest {
         }
 
     }
+    @Test
+    public void testTestEquals() {
+        CAL cal1 = new CAL("115a1","labName",12345678910L,"Adress",1234567891L,true);
+        CAL cal2 = new CAL("12345","labName",12345178910L,"Adrss",1234167891L,true);
+        CAL cal3 = new CAL("78945","labName",12345678110L,"Adre12ss",1234561891L,true);
+        CAL cal4 = new CAL("sadfs","labName",12345698910L,"Adss",1234867891L,true);
+        CAL cal5 = new CAL("98765","labName",12347778910L,"Adreswss",1234127891L,true);
+        CAL cal6 = new CAL("qwea1","labName",12311178910L,"Adreqwess",1211167891L,true);
+        CAL cal7 = new CAL("poia1","labName",12322278910L,"Adrertess",1222267891L,true);
+        CAL cal8 = new CAL("lopa1","labName",12333378910L,"Adrtyress",1333567891L,true);
+        CAL cal9 = new CAL("lmja1","labName",12344478910L,"Adrtyuess",1444567891L,true);
+
+        assertTrue(cal1.equals(cal1));
+        assertFalse(cal1.equals(cal3));
+        assertFalse(cal1.equals(cal4));
+        assertFalse(cal1.equals(cal5));
+        assertFalse(cal1.equals(cal6));
+        assertFalse(cal1.equals(cal7));
+        assertFalse(cal1.equals(cal8));
+        assertFalse(cal1.equals(cal9));
+        assertFalse(cal1.equals(cal2));
+        try{
+            cal1.equals(null);
+            fail();
+        }catch (NullPointerException ex){
+            assertEquals("Object is null.",ex.getMessage());
+        }
+
+        ParameterCategory pc = new ParameterCategory("aaaaa","aaaaaaaa","aaaaa");
+
+        boolean check = cal1.equals(pc);
+        assertFalse(check);
+
+    }
 }
