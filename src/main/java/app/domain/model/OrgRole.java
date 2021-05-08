@@ -52,7 +52,7 @@ public class OrgRole {
         if (this == o) return true;
         if (!(o instanceof OrgRole)) return false;
         OrgRole that = (OrgRole) o;
-        return Objects.equals(id, that.id) || Objects.equals(designation, that.designation);
+        return Objects.equals(id, that.id) && Objects.equals(designation, that.designation);
     }
 
     @Override
