@@ -21,14 +21,14 @@ public class ParameterCategory {
         if(StringUtils.isBlank(code))
             throw new IllegalArgumentException("Code cannot be blank");
         if((code.length()<4) || (code.length()> 8))
-        throw new IllegalArgumentException("Code must have 4 to 8 characters.");
+            throw new IllegalArgumentException("Code must have 4 to 8 characters.");
     }
 
     private void checkDescriptionRules(String description){
         if(StringUtils.isBlank(description))
             throw new IllegalArgumentException("Code cannot be blank");
         if(description.length() > 40 )
-        throw new IllegalArgumentException("Code must not exceed 40 chars.");
+            throw new IllegalArgumentException("Code must not exceed 40 chars.");
     }
 
     public String getCode() {

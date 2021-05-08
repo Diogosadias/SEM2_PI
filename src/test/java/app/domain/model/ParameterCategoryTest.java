@@ -13,7 +13,12 @@ public class ParameterCategoryTest {
     public void testcheckCodeRules(){
 
         try{
-        ParameterCategory pc = new ParameterCategory("a","aaaaaaaa","aaaaa");
+            ParameterCategory pc = new ParameterCategory("a","aaaaaaaa","aaaaa");
+        }catch (IllegalArgumentException ex){
+            assertEquals("Code must have 4 to 8 characters.",ex.getMessage());
+        }
+        try{
+            ParameterCategory pc = new ParameterCategory("aaaaaaaaa","aaaaaaaa","aaaaa");
         }catch (IllegalArgumentException ex){
             assertEquals("Code must have 4 to 8 characters.",ex.getMessage());
         }
