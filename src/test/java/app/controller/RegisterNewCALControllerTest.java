@@ -20,6 +20,6 @@ public class RegisterNewCALControllerTest extends TestCase {
         boolean b1 = controller.saveCAL();
 
         //assert
-        assertEquals(true,b1);
+        assertEquals(false,b1);
     }
 }
