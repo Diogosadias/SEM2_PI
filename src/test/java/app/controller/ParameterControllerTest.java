@@ -8,7 +8,9 @@ import static org.junit.Assert.*;
 
 public class ParameterControllerTest {
     ParameterController controller = new ParameterController();
-    Parameter p1 = new Parameter("1111t", "test", "this is a test", "11111");
+    Parameter p1 = new Parameter("1111e", "test", "this is a test", "11111");
+    Parameter p2 = new Parameter("1111t", "test", "this is a test", "11111");
+
     @Test
     public void createParameter() {
         boolean test = controller.createParameter("1111e", "test", "this is a test", "11111");
@@ -24,17 +26,15 @@ public class ParameterControllerTest {
 
     @Test
     public void getParameter() {
-        Parameter test = controller.getParameter(p1.getCode());
+
+        Parameter test = controller.getParameter(p2.getCode());
         assertEquals(null,test);
 
+        controller.createParameter("1111e", "test", "this is a test", "11111");
 
-    }
-    @Test
-    public void getParameter2(){
-        controller.createParameter("1111t", "test", "this is a test", "11111");
+        Parameter test2 = controller.getParameter("1111e");
+        assertEquals(p1.toString(),test2.toString());
 
-        Parameter test = controller.getParameter("1111t");
-        assertEquals(p1.toString(),test.toString());
     }
 
     @Test
