@@ -15,7 +15,7 @@ import static app.domain.shared.Constants.*;
  */
 public class EmployeeStore {
 
-    private List<OrgRole> lor;
+    private  List<OrgRole> lor;
     private List<Employee> le;
     private int numEmployees=0;
     private final int MAX_NUM_EMPLOYEES = 99999;
@@ -23,7 +23,8 @@ public class EmployeeStore {
 
     public EmployeeStore () {
         this.lor = new ArrayList<>();
-        addOrgRoles();
+        if(lor!=null) addOrgRoles();
+        else throw new NullPointerException("lor is null!");
         this.le = new ArrayList<>();
     }
 
@@ -37,8 +38,13 @@ public class EmployeeStore {
     }
 
     public List<OrgRole> getOrgRoles () {
-        if(lor.isEmpty()) { throw new IllegalArgumentException("Organization Roles list is empty.");}
-        return lor;
+        if(lor!=null) {
+            if (lor.isEmpty()) {
+                throw new IllegalArgumentException("Organization Roles list is empty.");
+            }
+            return lor;
+        }
+        return null;
     }
 
     public Employee registerEmployee(EmployeeDto eDto) {
@@ -104,5 +110,7 @@ public class EmployeeStore {
         return this.le;
     }
         
-    
+    public void setLor(List<OrgRole> lor){
+        this.lor=lor;
+    }
 }
