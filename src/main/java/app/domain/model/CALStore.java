@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * @author Gil <1180838@isep.ipp.pt>
  */
 public class CALStore {
-    private final ArrayList<CAL> calList;
+    private  ArrayList<CAL> calList;
     /**
      * Create Store instance with empty array.
      */

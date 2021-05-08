@@ -39,16 +39,14 @@ public class RegisterNewCALUI implements Runnable{
             System.out.println("REGISTER NEW CLINICAL ANALYSIS LABORATORY");
 
             System.out.println("ID:");
-            reader.nextLine();
 
             String labId = reader.nextLine();//reader.readLine();
 
             System.out.println("Laboratory Name:");
-            reader.nextLine();
             String labName = reader.nextLine();//reader.readLine();
 
             System.out.println("Phone Number:");
-            int phoneNumber = reader.nextInt();//reader.read();
+            long phoneNumber = reader.nextLong();//reader.read();
 
             System.out.println("Address:");
             reader.nextLine();
@@ -56,7 +54,7 @@ public class RegisterNewCALUI implements Runnable{
 
             System.out.println("Tax Identification Number:");
 
-            int tin = reader.nextInt();//reader.read();
+            long tin = reader.nextLong();//reader.read();
 
             String answer;
             do{
@@ -72,7 +70,7 @@ public class RegisterNewCALUI implements Runnable{
             //int medLabTech = reader.read();
 
             //CONFIRMATION
-            System.out.printf("ID: %d \n Name: %s \n Phone Number: %d \n Address: %s \n TIN: %d \n Covid Tests: %s \n",
+            System.out.printf("ID: %s \n Name: %s \n Phone Number: %d \n Address: %s \n TIN: %d \n Covid Tests: %s \n",
                     labId, labName, phoneNumber, address, tin, answer);
             String confirmation;
             do{
