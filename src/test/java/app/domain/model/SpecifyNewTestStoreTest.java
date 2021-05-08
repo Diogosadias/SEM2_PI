@@ -3,7 +3,9 @@ package app.domain.model;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static org.junit.Assert.*;
 
@@ -72,7 +74,18 @@ public class SpecifyNewTestStoreTest {
 
 
     @Test
-    public void searchTestType() {
+    public void searchTestTypeExistent() {
+        TestType p2 = storeTest.createTestType("aaaaa","aaaaaaaa","aaaaa");
+        storeTest.saveTestType(p2);
+        boolean check = storeTest.searchTestType(p2.getCode());
+        assertEquals(true ,check );
+    }
+    @Test
+    public void searchTestTypeNonExistent() {
+        TestType p2 = storeTest.createTestType("aaaaa","aaaaaaaa","aaaaa");
+        storeTest.saveTestType(p2);
+        boolean check = storeTest.searchTestType("aaaab");
+        assertEquals(false ,check );
     }
 
     @Test
@@ -96,5 +109,15 @@ public class SpecifyNewTestStoreTest {
         assertNull(storeTest.getTestTypeByCode("DOESNT EXIST"));
     }
 
+    @Test
+    public void getTestTypeList() {
+        TestType p2 = storeTest.createTestType("aaaaa","aaaaaaaa","aaaaa");
+        storeTest.saveTestType(p1);
+        storeTest.saveTestType(p2);
+        Set<TestType> storeTestList = new HashSet<>();
+        storeTestList.add(p1);
+        storeTestList.add(p2);
 
+        assertEquals(storeTestList, storeTest.getTestTypeList());
+    }
 }
