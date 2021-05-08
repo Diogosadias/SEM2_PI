@@ -116,7 +116,6 @@ public class Employee {
     @Override
     public boolean equals(Object o) {
         if(o!=null){
-            if (this == o) return true;
             if (!(o instanceof Employee)) return false;
             Employee employee = (Employee) o;
             return phoneNumber == employee.phoneNumber && Objects.equals(role, employee.role) && Objects.equals(name, employee.name) && Objects.equals(address, employee.address) && Objects.equals(socCode, employee.socCode);

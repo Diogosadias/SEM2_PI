@@ -137,8 +137,11 @@ public class EmployeeTest {
     }
     @Test
     public void testTestEquals() {
+        Employee e2 = new Employee(new OrgRole("1111","456789"), "12345", "Diogo", "Route cois", 12345678911L,"1111" );
+
         assertNull("Object is null",null);
         assertTrue(e1.equals(e1));
+        assertFalse(e1.equals(e2));
     }
     @Test
     public void testTestHashCode() {
