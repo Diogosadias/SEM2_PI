@@ -5,7 +5,7 @@ import auth.domain.model.Password;
 import auth.domain.model.User;
 
 /**
- * This class allows to build an instance of administrator.
+ * This domain class allows to build an instance of administrator.
  *
  * @author Tomás Pinto
  */

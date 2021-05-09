@@ -8,32 +8,69 @@ import java.util.Date;
 
 
 /**
+ * This domain class allows to build an instance of client.
  *
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  * @author Gil <1180838@isep.ipp.pt>
  */
 
 public class Client {
+
+    /**
+     * The name of client.
+     */
     private String name;
+
+    /**
+     * The email of client.
+     */
     private Email id;
+
+    /**
+     * The nhs of client.
+     */
     private long nhs;
+
+    /**
+     * The citizen card of client.
+     */
     private long citizenCard;
+
+    /**
+     * The tin of client.
+     */
     private long tin;
+
+    /**
+     * The birth date of client.
+     */
     private Date birthDate;
+
+    /**
+     * The sex of client.
+     */
     private String sex;
+
+    /**
+     * The phone number of client.
+     */
     private long pNumber;
 
 
     /**
-     * Constructor Client
+     * Constructor Client with the email, name, nhs, citizen card, tin number, birth date, sex
+     * and phone number.
      *
-     * @param nhs
-     * @param citizenCard
-     * @param tin
-     * @param birthDate
-     * @param sex
-     * @param pNumber
+     * @param id client's email
+     * @param name client's name
+     * @param nhs client's nhs
+     * @param citizenCard client's citizen card
+     * @param tin client's tin number
+     * @param birthDate client's birth date
+     * @param sex client's sex
+     * @param pNumber client's phone number
      */
+
     public Client(Email id, String name, long nhs, long citizenCard, long tin, Date birthDate, String sex, long pNumber) {
         checkNHS(nhs);
 
@@ -54,6 +91,18 @@ public class Client {
         this.pNumber = pNumber;
     }
 
+    /**
+     * Constructor Client with the email, name, nhs, citizen card, tin number, birth date and sex.
+     *
+     * @param id client's email
+     * @param name client's name
+     * @param nhs client's nhs
+     * @param citizenCard client's citizen card
+     * @param tin client's tin number
+     * @param birthDate client's birth date
+     * @param sex client's sex
+     */
+
     public Client(Email id, String name, long nhs, long citizenCard, long tin, Date birthDate, String sex) {
 
         this.name = name;
@@ -66,74 +115,155 @@ public class Client {
         pNumber = 0;
     }
 
-    //gets:
-
+    /**
+     * Return the client's nhs.
+     *
+     * @return client's nhs
+     */
     public long getNhs() {
         return nhs;
     }
 
+    /**
+     * Return the client's citizen card.
+     *
+     * @return client's citizen card
+     */
     public long getCitizenCard() {
         return citizenCard;
     }
 
+    /**
+     * Return the client's tin.
+     *
+     * @return client's tin
+     */
     public long getTin() {
         return tin;
     }
 
+    /**
+     * Return the client's birth date.
+     *
+     * @return client's birth date
+     */
     public Date getBirthDate() {
         return birthDate;
     }
 
+    /**
+     * Return the client's sex.
+     *
+     * @return client's sex
+     */
     public String getSex() {
         return sex;
     }
 
+    /**
+     * Return the client's phone number.
+     *
+     * @return client's phone number
+     */
     public long getPNumber() {
         return pNumber;
     }
 
+    /**
+     * Return the client's name.
+     *
+     * @return client's name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Change the client's name.
+     *
+     * @param name client's name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Return the client's id.
+     *
+     * @return client's id
+     */
     public Email getId() {
         return id;
     }
 
+    /**
+     * Change the client's id.
+     *
+     * @param id client's id
+     */
     public void setId(Email id) {
         this.id = id;
     }
 
-
-    //sets:
+    /**
+     * Change the client's nhs.
+     *
+     * @param nhs client's nhs
+     */
     public void setNhs(long nhs) {
         this.nhs = nhs;
     }
 
+    /**
+     * Change the client's citizen card.
+     *
+     * @param citizenCard client's citizen card
+     */
     public void setCitizenCard(long citizenCard) {
         this.citizenCard = citizenCard;
     }
 
+    /**
+     * Change the client's birth date.
+     *
+     * @param birthDate client's birth date
+     */
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
 
+    /**
+     * Change the client's tin number.
+     *
+     * @param tin client's tin
+     */
     public void setTin(long tin) {
         this.tin = tin;
     }
 
+    /**
+     * Change the client's sex.
+     *
+     * @param sex client's sex
+     */
     public void setSex(String sex) {
         this.sex = sex;
     }
 
+    /**
+     * Change the client's phone number.
+     *
+     * @param pNumber client's phone number
+     */
     public void setPNumber(long pNumber) {
         this.pNumber = pNumber;
     }
 
+    /**
+     * Check if the nhs it's within the rules.
+     *
+     * @param nhs client's nhs
+     */
     public void checkNHS(long nhs) {
         String temp = String.valueOf(nhs);
         if (temp.length() == 12)
@@ -157,8 +287,11 @@ public class Client {
 
     }
 
-
-
+    /**
+     * Return the textual description of the client.
+     *
+     * @return client's features
+     */
     @Override
     public String toString() {
                 return "Client{" +
