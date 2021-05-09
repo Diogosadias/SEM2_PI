@@ -3,7 +3,6 @@ package app.controller;
 import app.domain.model.SpecifyNewTestStore;
 import app.domain.model.TestType;
 import org.junit.Test;
-
 import static org.junit.Assert.*;
 
 public class SpecifyNewTestTypeControllerTest {

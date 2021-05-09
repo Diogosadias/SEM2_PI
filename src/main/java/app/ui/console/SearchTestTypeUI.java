@@ -1,8 +1,11 @@
 package app.ui.console;
 
 import app.controller.SpecifyNewTestTypeController;
-
 import java.util.Scanner;
+
+/**
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
+ */
 
 public class SearchTestTypeUI implements Runnable{
     public SearchTestTypeUI() {
