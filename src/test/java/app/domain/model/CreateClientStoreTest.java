@@ -17,7 +17,7 @@ import static org.junit.Assert.assertFalse;
 
 public class CreateClientStoreTest extends TestCase {
     AuthFacade auth = new AuthFacade();
-    Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
+    Client c1 = new Client(new Email("usaer1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("2001/12/22"), "M", 111111111111L);
     CreateClientStore tccs = new CreateClientStore(auth);
 
 

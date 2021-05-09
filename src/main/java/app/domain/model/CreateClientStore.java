@@ -68,7 +68,7 @@ public class CreateClientStore {
      * @return boolean
      */
     public boolean validateClient(Client rc){
-
+        if(rc!=null) {
         for (Client client: this.clientList) {
             if(rc.getId().equals(client.getId())){
                 System.out.println("This email is already being used!");
@@ -96,7 +96,7 @@ public class CreateClientStore {
                 //throw new IllegalArgumentException("This tin is already being used!");
             }
         }
-        if(rc!=null) {
+
             return ! this.clientList.contains(rc);
         }
         return false;
