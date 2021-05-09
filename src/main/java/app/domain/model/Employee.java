@@ -4,6 +4,8 @@ import app.domain.dto.EmployeeDto;
 
 import java.util.Objects;
 
+import static app.domain.shared.Constants.EMAILSUFIX;
+
 
 /**
  *
@@ -18,7 +20,7 @@ public class Employee {
     private String address;
     private long phoneNumber;
     private String socCode;
-    private static final String EMAILSUFIX = "@lei.isep.pt";
+
 
     public Employee(OrgRole role, String employeeId,  String name, String address, long phoneNumber, String socCode) {
 

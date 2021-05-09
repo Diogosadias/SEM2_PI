@@ -12,6 +12,9 @@ import app.domain.model.*;
 import app.domain.shared.Constants;
 import app.domain.model.EmployeeStore;
 import auth.AuthFacade;
+
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 
 import static app.domain.shared.Constants.ROLE_EMPLOYEE;
@@ -53,7 +56,9 @@ public class RegisterEmployeeController {
         //validates and saves employee
         if (!this.estore.validateEmployee(this.employee)) {return false;}
         this.estore.saveEmployee(this.employee);
-        return this.auth.addUserWithRole(employee.getName(), employee.getEmail(), employee.getEmployeeId(),ROLE_EMPLOYEE);
+        String testpass = makerandompass();
+        sendPassEmail(testpass);
+        return this.auth.addUserWithRole(employee.getName(), employee.getEmail(), testpass,ROLE_EMPLOYEE);
     }
 
     public Employee getEmployee() {
@@ -72,4 +77,32 @@ public class RegisterEmployeeController {
         return this.company;
     }
 
+    private void sendPassEmail(String pass){
+        try{
+            FileWriter myWriter = new FileWriter(employee.getEmployeeId()+"Password.txt");
+            myWriter.write("Hello "+employee.getName()+",\nhere is your new password:\n\n");
+            myWriter.append("Email: " + employee.getEmail() + "\n");
+            myWriter.append("Password: " + pass + "\n");
+            myWriter.append("\nBest regards\n");
+            myWriter.append("ManyLabs team.");
+            System.out.println("Sending your new password to your email...");
+            myWriter.close();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+
+    private String makerandompass(){
+        String password = "";
+        for(int i= 0; i<10; i++){
+            password = password+randomCharacter("abcdefghijklmnopqrstuvwxyz0123456789");
+        }
+        return password;
+    }
+    private String randomCharacter(String chars){
+        int length = chars.length();
+        int position = (int)(length*Math.random());
+        return chars.substring(position,position+1);
+    }
 }
