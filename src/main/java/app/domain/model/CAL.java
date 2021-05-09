@@ -249,7 +249,7 @@ public class CAL {
      * This method compares the equality of the current object
      * with the object of same type.
      *
-     * @param o
+     * @param o object
      *
      * @return true or false
      */
