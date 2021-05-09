@@ -54,14 +54,19 @@ public class OrgRoleTest {
     }
     @Test
     public void createEmployee() {
-        OrgRole awd = new OrgRole("1","SpecialistDoctor");
-        EmployeeDto daw = new EmployeeDto("1","aowd","ajwdiajd",12313123123l,"ajwdi");
+        OrgRole awd = new OrgRole("1", "SpecialistDoctor");
+        EmployeeDto daw = new EmployeeDto("1", "aowd", "ajwdiajd", 12313123123l, "ajwdi");
         daw.setId("A00001");
         Employee awdawd = awd.createEmployee(daw);
         boolean a = awdawd.getRole().getId().equals(daw.getRoleId());
         assertTrue(a);
-        boolean ba = awdawd.getRole().getDesignation().equals("SpecialistDoctor");
-        assertTrue(ba);
+        boolean aa = false;
+        if (awd.createEmployee(daw) instanceof SpecialistDoctor)
+            aa= true;
+
+        assertTrue(aa);
+
+
 
         EmployeeDto daw2 = new EmployeeDto("2","aowd","ajwdiajd",12313123123l,"ajwdi");
         daw2.setId("A00001");
