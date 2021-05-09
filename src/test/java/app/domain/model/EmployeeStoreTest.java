@@ -3,6 +3,7 @@ package app.domain.model;
 import app.domain.dto.EmployeeDto;
 import static app.domain.shared.Constants.*;
 import auth.AuthFacade;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -30,8 +31,16 @@ public class EmployeeStoreTest  {
         expResult.add(new OrgRole("role_4",MEDICAL_LAB_TECHNICIAN));
         expResult.add(new OrgRole("role_5",ROLE_RECEP));
         expResult.add(new OrgRole("role_6",ROLE_ADMIN));
-        List<OrgRole> result = es.getOrgRoles();
-        assertEquals(expResult, result);      
+
+        es.addOrgRole(new OrgRole("role_1",SPECIALIST_DOCTOR));
+        es.addOrgRole(new OrgRole("role_2",LABORATORY_COORDINATOR));
+        es.addOrgRole(new OrgRole("role_3",CHEMISTRY_TECHNOLOGIST));
+        es.addOrgRole(new OrgRole("role_4",MEDICAL_LAB_TECHNICIAN));
+        es.addOrgRole(new OrgRole("role_5",ROLE_RECEP));
+        es.addOrgRole(new OrgRole("role_6",ROLE_ADMIN));
+        assertEquals(expResult, es.getOrgRoles());
+
+
 
 
     }
