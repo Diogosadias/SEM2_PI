@@ -40,12 +40,11 @@ public class OrgRole {
 
     public Employee createEmployee (EmployeeDto dto) {
         //Later changing to Reflection technique
-        Employee employee = new Employee(this, dto.getEmployeeId(), dto.getName(), dto.getAddress(), dto.getPhoneNumber(), dto.getSocCode());
-        if(this.getDesignation() == "SpecialistDoctor") {
-           return new SpecialistDoctor(this, dto.getEmployeeId(), dto.getName(), dto.getAddress(), dto.getPhoneNumber(), dto.getSocCode(), dto.getDoctorIndexNumber());
+        Employee employee = new Employee(this, dto);
+        if(this.getDesignation().equals("SpecialistDoctor")) {
+            return new SpecialistDoctor(employee, dto.getDoctorIndexNumber());
         }
         return employee;
-
     }
 
     @Override
