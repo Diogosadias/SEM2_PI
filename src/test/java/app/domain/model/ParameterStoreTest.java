@@ -102,7 +102,7 @@ public class ParameterStoreTest {
 
     @Test
     public void testGetParameterList() {
-        Parameter p2 = storeTest.createParameter("1111t","test","this is a test", "11111");
+        Parameter p2 = storeTest.createParameter("111at","teast","thias is a test", "11111");
         storeTest.saveParameter(p1);
         storeTest.saveParameter(p2);
         List<Parameter> storeTestList = new ArrayList<>();
@@ -120,11 +120,11 @@ public class ParameterStoreTest {
 
     @Test
     public void testTestToString() {
-        Parameter p2 = storeTest.createParameter("1111t","test","this is a test", "11111");
+        Parameter p2 = storeTest.createParameter("1131t","tast","tdhis is a test", "11111");
 
         storeTest.saveParameter(p1);
         storeTest.saveParameter(p2);
-        String check = "Parameter{code='1111t', name='test', description='this is a test', category='11111'}\nParameter{code='1111t', name='test', description='this is a test', category='11111'}\n";
+        String check = "Parameter{code='1111t', name='test', description='this is a test', category='11111'}\nParameter{code='1131t', name='tast', description='tdhis is a test', category='11111'}\n";
         assertEquals(check, storeTest.toString());
     }
 }
