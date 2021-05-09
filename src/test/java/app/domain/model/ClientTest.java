@@ -15,7 +15,7 @@ import static org.junit.Assert.fail;
 
 public class ClientTest {
     //preparations
-    Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
+    Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 11111111111L);
     Client c2 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M");
 
         public void testClient(){
@@ -124,7 +124,7 @@ public class ClientTest {
     @Test
     public void testGetPNumber() {
         //testing
-        Assert.assertEquals(111111111111L, c1.getPNumber());
+        Assert.assertEquals(11111111111L, c1.getPNumber());
     }
 
     @Test
@@ -198,9 +198,9 @@ public class ClientTest {
     public void testSetPNumber() {
 
         //testing
-        c1.setPNumber(111111111112L);
+        c1.setPNumber(11111111112L);
 
-        Assert.assertEquals(111111111112L, c1.getPNumber());
+        Assert.assertEquals(11111111112L, c1.getPNumber());
 
     }
     @Test
@@ -212,13 +212,13 @@ public class ClientTest {
     @Test
     public void checkNHS(){
         try{
-            Client c1 = new Client(new Email("user1@gmail.com"), "John", 111111121121L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
+            Client c1 = new Client(new Email("user1@gmail.com"), "John", 111111121121L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 11111111111L);
             fail();
         }catch (IllegalArgumentException ex){
             assertEquals("NHS code must have 10 chars.",ex.getMessage());
         }
         try{
-            Client c1 = new Client(new Email("user1@gmail.com"), "John", 111111111221L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 111111111111L);
+            Client c1 = new Client(new Email("user1@gmail.com"), "John", 111111111221L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 11111111111L);
             fail();
         }catch (IllegalArgumentException ex){
             assertEquals("NHS code must have 10 chars.",ex.getMessage());
