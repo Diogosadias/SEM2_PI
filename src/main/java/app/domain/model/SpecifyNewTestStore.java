@@ -10,26 +10,48 @@ import java.util.Set;
  */
 
 public class SpecifyNewTestStore {
-    
+
+    /**
+     * store - list of the test types available
+     */
     private final Set<TestType> store;
 
+    /**
+     * Constructor for the test type store.
+     * Initializes the list.
+     */
     public SpecifyNewTestStore(){
         store = new HashSet<TestType>();
     }
 
+    /**
+     * Method for creating a new test type without parameters.
+     * @param code - Test Type Code
+     * @param description - Test Type Description
+     * @param collectingMethod - Test Type Collection Method
+     * @return TestType
+     */
     public TestType createTestType(String code, String description, String collectingMethod) {
         if (code == null || description == null || collectingMethod == null) return null;
         return new TestType(code, description, collectingMethod);
     }
 
-
+    /**
+     * Method for the test type validation.
+     * @param tt - Test Type
+     * @return true/false
+     */
     public boolean validateTestType(TestType tt){
         if(tt == null)
             return false;
         return ! this.store.contains(tt);
     }
 
-
+    /**
+     * Method for saving a new test type upon validation.
+     * @param tt - Test Type
+     * @return true/false
+     */
     public boolean saveTestType(TestType tt){
         if (validateTestType(tt)) {
             return this.store.add(tt);
@@ -39,6 +61,11 @@ public class SpecifyNewTestStore {
         }
     }
 
+    /**
+     * Method for deleting an existing test type.
+     * @param code - Test Type Code
+     * @return true/false
+     */
     public boolean deleteTestType(String code){
         TestType testType = getTestTypeByCode(code);
         if(getTestTypeList().contains(testType)) {
@@ -50,6 +77,11 @@ public class SpecifyNewTestStore {
         }
     }
 
+    /**
+     * Method for checking if a test type exists.
+     * @param code - Test Type Code
+     * @return true/false
+     */
     public boolean searchTestType(String code) {
         TestType testType = getTestTypeByCode(code);
         if (getTestTypeList().contains(testType)) {
@@ -59,6 +91,11 @@ public class SpecifyNewTestStore {
         }
     }
 
+    /**
+     * Method for getting a test type by it's code.
+     * @param code - Test Type Code
+     * @return TestType/null
+     */
     public TestType getTestTypeByCode(String code){
         for( TestType f : getTestTypeList()){
             if(code.equals(f.getCode()))
@@ -67,6 +104,10 @@ public class SpecifyNewTestStore {
         return null;
     }
 
+    /**
+     * Method for getting the available test types.
+     * @return List<TestType>
+     */
     public Set<TestType> getTestTypeList(){
         return this.store;
     }
