@@ -11,17 +11,28 @@ import java.util.List;
  */
 public class ParameterCategoryStore {
 
+    /**
+     * parameterCategoryList - List containing Parameter Categories
+     */
     private List<ParameterCategory> parameterCategoryList = new ArrayList<>();
 
-
-
+    /**
+     * Method for creating a Parameter Category.
+     * @param code - Parameter Category Code
+     * @param description - Parameter Category Description
+     * @param nhsId - Parameter Category's NHS ID
+     * @return Parameter Category/null
+     */
     public ParameterCategory createParameterCategory(String code, String description, String nhsId){
         if (code == null && description == null && nhsId == null) return null;
         return new ParameterCategory(code, description, nhsId);
     }
 
-
-
+    /**
+     * Method for getting a Parameter Category by it's code.
+     * @param code - Parameter Category Code
+     * @return Parameter Category/null
+     */
     public ParameterCategory getParameterCategoryByCode(String code){
         for( ParameterCategory f : parameterCategoryList){
             if(code.equals(f.getCode()))
@@ -30,18 +41,32 @@ public class ParameterCategoryStore {
         return null;
     }
 
+    /**
+     * Method for validating the Parameter Category.
+     * @param pc - Parameter Category
+     * @return true/false
+     */
     public boolean validateParameterCategory(ParameterCategory pc){
         if(pc == null)
             return false;
         return ! this.parameterCategoryList.contains(pc);
     }
 
+    /**
+     * Method for saving a Parameter Category.
+     * @param pc - Parameter Category
+     * @return true/false
+     */
     public boolean saveParameterCategory(ParameterCategory pc){
         if(!validateParameterCategory(pc))
             return false;
         return this.parameterCategoryList.add(pc);
     }
 
+    /**
+     * Method for getting the Parameter Category List.
+     * @return parameterCategoryList
+     */
     public List<ParameterCategory> getParameterCategoryList() {
         return parameterCategoryList;
     }

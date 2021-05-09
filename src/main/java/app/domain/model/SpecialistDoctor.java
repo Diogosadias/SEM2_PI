@@ -44,7 +44,7 @@ public class SpecialistDoctor extends Employee{
 
     /**
      * Method for setting the Doctor´s Index Number.
-     * @param doctorIndexNumber
+     * @param doctorIndexNumber - Doctor´s Index Number
      */
     public void setDoctorIndexNumber(int doctorIndexNumber) {
         this.doctorIndexNumber = doctorIndexNumber;
@@ -52,8 +52,8 @@ public class SpecialistDoctor extends Employee{
 
     /**
      * Equal method override for Specialist Doctor.
-     * @param o
-     * @return
+     * @param o - Specialist Doctor
+     * @return true/false
      */
     @Override
     public boolean equals(Object o) {

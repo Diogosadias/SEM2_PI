@@ -9,20 +9,36 @@ import java.util.List;
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  */
 public class ParameterStore {
+    /**
+     * parameterList - List containing the Parameters
+     */
     private final List<Parameter> parameterList;
 
-
-
+    /**
+     * Constructor for the store, initializes the array.
+     */
     public ParameterStore(){
         this.parameterList = new ArrayList<>();
     }
 
-
+    /**
+     * Method for creating a Parameter
+     * @param code - Parameter Code
+     * @param name - Parameter Name
+     * @param description - Parameter Description
+     * @param category - Parameter Category
+     * @return Parameter
+     */
     public Parameter createParameter(String code, String name, String description, String category){
         if (code == null && name == null && description == null && category == null) return null;
         return new Parameter(code, name, description,category);
     }
 
+    /**
+     * Method for deleting a parameter.
+     * @param code - Code of the parameter to be deleted
+     * @return true/false
+     */
     public boolean deleteParameter(String code){
         Parameter param = getParameterByCode(code);
         if(parameterList.contains(param)) {
@@ -34,8 +50,11 @@ public class ParameterStore {
         }
     }
 
-
-
+    /**
+     * Method for getting a parameter by code.
+     * @param code - Parameter Code
+     * @return Parameter Category/null
+     */
     public Parameter getParameterByCode(String code){
         for( Parameter f : parameterList){
             if(code.equals(f.getCode()))
@@ -44,31 +63,44 @@ public class ParameterStore {
         return null;
     }
 
+    /**
+     * Method for parameter validation.
+     * @param p - Parameter
+     * @return true/false
+     */
     public boolean validateParameter(Parameter p){
         if(p == null)
             return false;
         return ! this.parameterList.contains(p);
     }
 
+    /**
+     * Method for saving a parameter
+     * @param p - Parameter
+     * @return true/false
+     */
     public boolean saveParameter(Parameter p){
         if(!validateParameter(p))
             return false;
         return this.parameterList.add(p);
     }
 
+    /**
+     * Method for getting the parameter list.
+     * @return parameterList
+     */
     public List<Parameter> getParameterList() {
         return parameterList;
     }
 
     @Override
     public String toString() {
-
-        List<Parameter> copia = new ArrayList<>(parameterList);
+        List<Parameter> copy = new ArrayList<>(parameterList);
         StringBuilder s = new StringBuilder();
         if(parameterList.isEmpty()){
             System.out.println("There are no parameter categories created.");
         }else {
-            for (Parameter param : copia) {
+            for (Parameter param : copy) {
                 s.append(param);
                 s.append("\n");
             }
