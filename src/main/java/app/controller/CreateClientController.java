@@ -5,6 +5,10 @@ import app.domain.model.Company;
 import app.domain.model.CreateClientStore;
 import auth.AuthFacade;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 /**
  *
  * @author Márcio Ramos <1201682@isep.ipp.pt>
@@ -42,6 +46,7 @@ public class CreateClientController {
         if(!this.clientStore.validateClient(this.rc)){return false;}
 
         saveClient(this.rc,testpass);
+
         return true;
 
     }
@@ -56,4 +61,12 @@ public class CreateClientController {
         for(Client c : clientStore.getClientList())
             System.out.println(c);
     }
+
+    public void createFile() throws IOException {
+        FileWriter myWriter = new FileWriter("emails/"+rc.getId()+"Password.txt");
+
+        myWriter.write("Email: " +rc.getId()+"\n");
+        myWriter.write("Password: ");
+    }
+
 }
