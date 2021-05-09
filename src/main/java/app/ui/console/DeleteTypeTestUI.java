@@ -5,6 +5,11 @@ import java.util.Scanner;
 import static app.domain.shared.Constants.ANS_NO;
 import static app.domain.shared.Constants.ANS_YES;
 
+/**
+ *
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
+ */
+
 public class DeleteTypeTestUI implements Runnable{
     @Override
     public void run() {

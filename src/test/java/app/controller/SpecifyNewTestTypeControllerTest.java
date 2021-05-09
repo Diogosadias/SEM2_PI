@@ -7,6 +7,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class SpecifyNewTestTypeControllerTest {
+    SpecifyNewTestTypeController specifyNewTestTypeController = new SpecifyNewTestTypeController();
+
 
     @Test
     public void createTestType() {
@@ -22,6 +24,17 @@ public class SpecifyNewTestTypeControllerTest {
 
     @Test
     public void writeTestTypeByCode() {
+        //arrange
+        SpecifyNewTestTypeController specifyNewTestTypeController = new SpecifyNewTestTypeController();
+        SpecifyNewTestStore specifyNewTestStore= new SpecifyNewTestStore();
+        TestType testType1 = new TestType("12345", "zxc", "zxcvb");
+
+
+        //calculations
+        /*String code = testType1.getTestTypeByCode();
+        specifyNewTestStore.getTestTypeByCode(code);
+
+        specifyNewTestTypeController.writeTestTypeByCode();*/
     }
 
     @Test
