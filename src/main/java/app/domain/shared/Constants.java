@@ -25,8 +25,6 @@ public class Constants {
     public static final String ANS_YES = "Y";
     public static final String ANS_NO = "N";
 
-	    private Constants() {
-        throw new IllegalStateException("Utility class");
-    }
+	
 
 }
