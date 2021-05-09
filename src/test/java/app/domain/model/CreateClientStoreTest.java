@@ -1,10 +1,7 @@
 package app.domain.model;
 
-import app.domain.model.Client;
-import app.domain.model.CreateClientStore;
 import auth.AuthFacade;
 import auth.domain.model.Email;
-import junit.framework.TestCase;
 import org.junit.Test;
 
 import java.text.SimpleDateFormat;
@@ -12,16 +9,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-/**
- *
- *  @author Márcio Ramos <1201682@isep.ipp.pt>
- */
+import static org.junit.Assert.*;
 
-public class CreateClientStoreTest extends TestCase {
+public class CreateClientStoreTest {
     AuthFacade auth = new AuthFacade();
-    Client c1 = new Client(new Email("usaer1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("2001/12/22"), "M", 11111111111L);
+    Client c1 = new Client(new Email("usedafr1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("2001/12/22"), "M", 11111111111L);
     CreateClientStore tccs = new CreateClientStore(auth);
 
     @Test
@@ -30,7 +22,7 @@ public class CreateClientStoreTest extends TestCase {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("2021-12-12");
 
         //calculations
-        Client c2 = tccs.createClient("user1@gmail.com", "John", 1111111111L, 1111111111111111L, 111111111111L, "12/12/2021", "M", 11111111111L);
+        Client c2 = tccs.createClient("usxedar1@gmail.com", "John", 1111111111L, 1111111111111111L, 111111111111L, "12/12/2021", "M", 11111111111L);
 
         //assert
         assertEquals(c1.getPNumber(),c2.getPNumber());
@@ -66,7 +58,7 @@ public class CreateClientStoreTest extends TestCase {
     public void testGetClientList() {
         AuthFacade auth = null;
         CreateClientStore ccs = new CreateClientStore(auth);
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 11111111111L);
+        Client c1 = new Client(new Email("usewdar1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 11111111111L);
         List<Client> testList = new ArrayList<>();
         //calculations
         ccs.setClientList(c1);
