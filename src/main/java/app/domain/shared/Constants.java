@@ -5,6 +5,7 @@ package app.domain.shared;
  * @author Paulo Maio <pam@isep.ipp.pt>
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  * @author Tiago Rocha <1181445@isep.ipp.pt>
+ * @author Tiago Ferreira <1200601@isep.ipp.pt>
  */
 public class Constants {
 

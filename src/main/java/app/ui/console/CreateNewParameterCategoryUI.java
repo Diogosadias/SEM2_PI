@@ -5,6 +5,10 @@ import app.ui.console.utils.Utils;
 
 import java.util.Scanner;
 
+/**
+ *
+ * @author Tiago Ferreira <1200601@isep.ipp.pt>
+ */
 public class CreateNewParameterCategoryUI implements Runnable{
 
     public void run(){

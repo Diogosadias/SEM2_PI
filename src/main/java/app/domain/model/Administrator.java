@@ -8,6 +8,7 @@ import auth.domain.model.User;
  * This domain class allows to build an instance of administrator.
  *
  * @author Tomás Pinto
+ * @author Tiago Ferreira <1200601@isep.ipp.pt>
  */
 public class Administrator extends User {
 

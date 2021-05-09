@@ -5,6 +5,7 @@ import org.apache.commons.lang3.StringUtils;
  * This domain class allows to build an instance of parameter category.
  *
  *  @author Márcio Ramos <1201682@isep.ipp.pt>
+ *  @author Tiago Ferreira <1200601@isep.ipp.pt>
  */
 public class ParameterCategory {
     /**

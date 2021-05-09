@@ -7,6 +7,7 @@ import app.domain.model.ParameterCategoryStore;
  * Controller for the US11 realization - Register a new Parameter Category
  *
  * @author Márcio Ramos <1201682@isep.ipp.pt>
+ * @author Tiago Ferreira <1200601@isep.ipp.pt>
  */
 public class ParameterCategoryController {
 
