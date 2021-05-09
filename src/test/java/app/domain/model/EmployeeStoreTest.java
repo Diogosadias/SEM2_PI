@@ -1,12 +1,7 @@
 package app.domain.model;
 
 import app.domain.dto.EmployeeDto;
-import static app.domain.shared.Constants.ADMINISTRATOR;
-import static app.domain.shared.Constants.CHEMISTRY_TECHNOLOGIST;
-import static app.domain.shared.Constants.LABORATORY_COORDINATOR;
-import static app.domain.shared.Constants.MEDICAL_LAB_TECHNICIAN;
-import static app.domain.shared.Constants.RECEPTIONIST;
-import static app.domain.shared.Constants.SPECIALIST_DOCTOR;
+import static app.domain.shared.Constants.*;
 import auth.AuthFacade;
 import org.junit.Test;
 
@@ -33,8 +28,8 @@ public class EmployeeStoreTest  {
         expResult.add(new OrgRole("role_2",LABORATORY_COORDINATOR));
         expResult.add(new OrgRole("role_3",CHEMISTRY_TECHNOLOGIST));
         expResult.add(new OrgRole("role_4",MEDICAL_LAB_TECHNICIAN));
-        expResult.add(new OrgRole("role_5",RECEPTIONIST));
-        expResult.add(new OrgRole("role_6",ADMINISTRATOR));
+        expResult.add(new OrgRole("role_5",ROLE_RECEP));
+        expResult.add(new OrgRole("role_6",ROLE_ADMIN));
         List<OrgRole> result = es.getOrgRoles();
         assertEquals(expResult, result);      
 
@@ -68,7 +63,7 @@ public class EmployeeStoreTest  {
     @Test
     public void testGetRoleById() {         
         System.out.println("GetRoleById");
-        OrgRole expResult = new OrgRole("role_5",RECEPTIONIST);
+        OrgRole expResult = new OrgRole("role_5",ROLE_RECEP);
         OrgRole result = es.getRoleById("role_5");        
         assertEquals(expResult , result);  
     }

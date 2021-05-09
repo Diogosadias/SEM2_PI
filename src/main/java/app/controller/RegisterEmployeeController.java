@@ -17,7 +17,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
+import static app.domain.shared.Constants.ROLE_ADMIN;
 import static app.domain.shared.Constants.ROLE_EMPLOYEE;
+
 
 /**
  *
@@ -31,7 +33,7 @@ public class RegisterEmployeeController {
     private AuthFacade auth;
 
     public RegisterEmployeeController() {
-         if (!App.getInstance().getCurrentUserSession().isLoggedInWithRole(Constants.ROLE_ADMIN)) {
+         if (!App.getInstance().getCurrentUserSession().isLoggedInWithRole(ROLE_ADMIN)) {
             throw new IllegalStateException("Utilizador nï¿½o Autorizado");
         }
         this.company = App.getInstance().getCompany();
@@ -58,7 +60,7 @@ public class RegisterEmployeeController {
         this.estore.saveEmployee(this.employee);
         String testpass = makerandompass();
         sendPassEmail(testpass);
-        return this.auth.addUserWithRole(employee.getName(), employee.getEmail(), testpass,ROLE_EMPLOYEE);
+        return this.auth.addUserWithRole(employee.getName(), employee.getEmail(), employee.getEmployeeId(),ROLE_EMPLOYEE);
     }
 
     public Employee getEmployee() {
@@ -77,7 +79,7 @@ public class RegisterEmployeeController {
         return this.company;
     }
 
-    private void sendPassEmail(String pass){
+    private void sendPassEmail (String pass){
         try{
             FileWriter myWriter = new FileWriter(employee.getEmployeeId()+"Password.txt");
             myWriter.write("Hello "+employee.getName()+",\nhere is your new password:\n\n");
@@ -91,8 +93,6 @@ public class RegisterEmployeeController {
             e.printStackTrace();
         }
     }
-
-
     private String makerandompass(){
         String password = "";
         for(int i= 0; i<10; i++){
@@ -105,4 +105,5 @@ public class RegisterEmployeeController {
         int position = (int)(length*Math.random());
         return chars.substring(position,position+1);
     }
+
 }

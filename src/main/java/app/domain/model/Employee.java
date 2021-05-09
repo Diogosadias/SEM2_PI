@@ -21,7 +21,6 @@ public class Employee {
     private long phoneNumber;
     private String socCode;
 
-
     public Employee(OrgRole role, String employeeId,  String name, String address, long phoneNumber, String socCode) {
 
         checkEmployedID(employeeId);
