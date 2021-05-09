@@ -3,12 +3,15 @@ package app.controller;
 import app.domain.model.Client;
 import app.domain.model.Company;
 import app.domain.model.CreateClientStore;
+import app.domain.shared.GeneratePassword;
 import auth.AuthFacade;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Random;
+
+import static app.domain.shared.GeneratePassword.makerandompass;
 
 /**
  *
@@ -22,14 +25,7 @@ public class CreateClientController {
 
     private CreateClientStore clientStore;
     Client rc;
-    //private ReceptionistUI.CreateClientUI recep = new ReceptionistUI.CreateClientUI();
 
-
-
-    //public ReceptionistController()
-    //{
-    //  this.app = App.getInstance();
-    // }
 
     public CreateClientController(){this(App.getInstance().getCompany());}
 
@@ -45,7 +41,7 @@ public class CreateClientController {
         this.rc = this.clientStore.createClient(id,name,nhs,citizenCard,tin,birthDate,sex,pNumber);
 
         if(!this.clientStore.validateClient(this.rc)){return false;}
-        String testpass = makerandompass();
+        String testpass = GeneratePassword.makerandompass();
         sendPassEmail(testpass);
 
         saveClient(this.rc,testpass);
@@ -80,16 +76,5 @@ public class CreateClientController {
     }
 
 
-    private String makerandompass(){
-        String password = "";
-        for(int i= 0; i<10; i++){
-            password = password+randomCharacter("abcdefghijklmnopqrstuvwxyz0123456789");
-        }
-        return password;
-    }
-    private String randomCharacter(String chars){
-        int length = chars.length();
-        int position = (int)(length*Math.random());
-        return chars.substring(position,position+1);
-    }
+
 }

@@ -11,6 +11,7 @@ import app.domain.dto.RolesMapper;
 import app.domain.model.*;
 import app.domain.shared.Constants;
 import app.domain.model.EmployeeStore;
+import app.domain.shared.GeneratePassword;
 import auth.AuthFacade;
 
 import java.io.FileWriter;
@@ -58,7 +59,7 @@ public class RegisterEmployeeController {
         //validates and saves employee
         if (!this.estore.validateEmployee(this.employee)) {return false;}
         this.estore.saveEmployee(this.employee);
-        String testpass = makerandompass();
+        String testpass = GeneratePassword.makerandompass();
         sendPassEmail(testpass);
         return this.auth.addUserWithRole(employee.getName(), employee.getEmail(), employee.getEmployeeId(),ROLE_EMPLOYEE);
     }
@@ -92,18 +93,6 @@ public class RegisterEmployeeController {
         }catch (IOException e){
             e.printStackTrace();
         }
-    }
-    private String makerandompass(){
-        String password = "";
-        for(int i= 0; i<10; i++){
-            password = password+randomCharacter("abcdefghijklmnopqrstuvwxyz0123456789");
-        }
-        return password;
-    }
-    private String randomCharacter(String chars){
-        int length = chars.length();
-        int position = (int)(length*Math.random());
-        return chars.substring(position,position+1);
     }
 
 }
