@@ -84,7 +84,7 @@ public class CreateClientController {
     }
 
     /**
-     * Method that send the password of the client to the email.
+     * Method that sends the password of the client to a file (that file is suposed to simulate an email).
      *
      * @param pass Client's password
      */

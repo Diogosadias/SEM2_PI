@@ -68,7 +68,7 @@ public class ParameterController {
     }
 
     /**
-     * Write the Parameter instance.
+     * Write the Parameters saved in the ParameterStore.
      */
     public void writeParameters(){
         System.out.println(ps.toString());
@@ -80,7 +80,7 @@ public class ParameterController {
      *
      * @param code Parameter's code
      *
-     * @return Parameter's code or null
+     * @return Parameter's or null
      */
     public Parameter getParameter(String code){
         Parameter x = ps.getParameterByCode(code);
@@ -91,7 +91,7 @@ public class ParameterController {
     }
 
     /**
-     * Saves the new Parameter instance.
+     * Saves the Parameter in the ParameterStore.
      *
      * @return boolean
      */
