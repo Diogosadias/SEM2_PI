@@ -19,6 +19,7 @@ import static app.domain.shared.Constants.SPECIALIST_DOCTOR;
 
 /**
  *
+ * @author Bruno Pereira <1191454@isep.ipp.pt>
  * @author Tiago Rocha
  */
 public class RegisterEmployeeUI implements Runnable{

@@ -11,6 +11,7 @@ import static app.domain.shared.Constants.EMAILSUFIX;
  * This domain class allows to build an instance of employee.
  *
  * @author Tiago Rocha
+ * @author Bruno Pereira <1191454@isep.ipp.pt>
  */
 public class Employee {
 

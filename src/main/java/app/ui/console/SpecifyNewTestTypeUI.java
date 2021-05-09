@@ -6,6 +6,12 @@ import app.domain.model.ParameterCategory;
 
 import java.util.Scanner;
 
+/**
+ *  Controller for the US9 realization - Register a new Test Type
+ *
+ * @author Bruno Pereira <1191454@isep.ipp.pt>
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
+ */
 public class SpecifyNewTestTypeUI implements Runnable {
 
 

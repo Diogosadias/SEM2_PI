@@ -8,6 +8,7 @@ import app.domain.model.TestType;
 /**
  *  Controller for the US9 realization - Register a new Test Type
  *
+ * @author Bruno Pereira <1191454@isep.ipp.pt>
  * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
 public class SpecifyNewTestTypeController {
