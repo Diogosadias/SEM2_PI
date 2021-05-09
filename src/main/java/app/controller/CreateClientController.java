@@ -8,6 +8,7 @@ import auth.AuthFacade;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Random;
 
 /**
  *
@@ -39,18 +40,18 @@ public class CreateClientController {
     }
 
 
-    public boolean createClient(String id, String name, long nhs, long citizenCard, long tin, String birthDate, String sex, long pNumber,String testpass){
+    public boolean createClient(String id, String name, long nhs, long citizenCard, long tin, String birthDate, String sex, long pNumber){
 
         this.rc = this.clientStore.createClient(id,name,nhs,citizenCard,tin,birthDate,sex,pNumber);
 
         if(!this.clientStore.validateClient(this.rc)){return false;}
+        String testpass = makerandompass();
+        sendPassEmail(testpass);
 
         saveClient(this.rc,testpass);
-
         return true;
 
     }
-
 
     public boolean saveClient(Client rc,String pwd){
         return this.clientStore.saveClient(this.rc, pwd);
@@ -62,11 +63,33 @@ public class CreateClientController {
             System.out.println(c);
     }
 
-    public void createFile() throws IOException {
-        FileWriter myWriter = new FileWriter("emails/"+rc.getId()+"Password.txt");
 
-        myWriter.write("Email: " +rc.getId()+"\n");
-        myWriter.write("Password: ");
+    private void sendPassEmail(String pass){
+        try{
+            FileWriter myWriter = new FileWriter(rc.getCitizenCard()+"Password.txt");
+            myWriter.write("Hello "+rc.getName()+",\nhere is your new password:\n\n");
+            myWriter.append("Email: " + rc.getId() + "\n");
+            myWriter.append("Password: " + pass + "\n");
+            myWriter.append("\nBest regards\n");
+            myWriter.append("ManyLabs team.");
+            System.out.println("Sending your new password to your email...");
+            myWriter.close();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
+
+    private String makerandompass(){
+        String password = "";
+        for(int i= 0; i<10; i++){
+            password = password+randomCharacter("abcdefghijklmnopqrstuvwxyz0123456789");
+        }
+        return password;
+    }
+    private String randomCharacter(String chars){
+        int length = chars.length();
+        int position = (int)(length*Math.random());
+        return chars.substring(position,position+1);
+    }
 }

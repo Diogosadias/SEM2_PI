@@ -57,8 +57,8 @@ public class CreateClientUI implements Runnable{
             id = read.next();
 
 
-            System.out.print("Password: ");
-            password = read.next();
+            /*System.out.print("Password: ");
+            password = read.next();*/
 
             System.out.print("National Health Service: ");
             nhs = read.nextLong();
@@ -85,7 +85,7 @@ public class CreateClientUI implements Runnable{
             CreateClientController controllerClient = new CreateClientController();
 
 
-            boolean validate = controllerClient.createClient(id,name,nhs,citizenCard,tin,birthDate,sex,pNumber,password);
+            boolean validate = controllerClient.createClient(id,name,nhs,citizenCard,tin,birthDate,sex,pNumber);
             if(validate)
                 System.out.println("Succesfully Registered the Client");
 

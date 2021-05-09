@@ -17,7 +17,7 @@ public class CreateClientControllerTest extends TestCase {
         CreateClientController ccr = new CreateClientController();
 
         //calculating
-        boolean b1 = ccr.createClient("user1@gmail.com", "John", 1111111111, 1111111111111111l, 111111111111l, "12/12/2021", "M", 111111111111l,"aa");
+        boolean b1 = ccr.createClient("user1@gmail.com", "John", 1111111111, 1111111111111111l, 111111111111l, "12/12/2021", "M", 111111111111l);
 
         //assert
         assertEquals(true,b1);
