@@ -9,7 +9,6 @@ import app.domain.dto.EmployeeDto;
 import app.domain.dto.OrgRoleDto;
 import app.domain.dto.RolesMapper;
 import app.domain.model.*;
-import app.domain.shared.Constants;
 import app.domain.model.EmployeeStore;
 import app.domain.shared.GeneratePassword;
 import auth.AuthFacade;
@@ -59,7 +58,7 @@ public class RegisterEmployeeController {
         //validates and saves employee
         if (!this.estore.validateEmployee(this.employee)) {return false;}
         this.estore.saveEmployee(this.employee);
-        String testpass = GeneratePassword.makerandompass();
+        String testpass = GeneratePassword.makeRandomPass();
         sendPassEmail(testpass);
         return this.auth.addUserWithRole(employee.getName(), employee.getEmail(), employee.getEmployeeId(),ROLE_EMPLOYEE);
     }

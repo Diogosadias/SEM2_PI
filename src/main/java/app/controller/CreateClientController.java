@@ -6,12 +6,8 @@ import app.domain.model.CreateClientStore;
 import app.domain.shared.GeneratePassword;
 import auth.AuthFacade;
 
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Random;
-
-import static app.domain.shared.GeneratePassword.makerandompass;
 
 /**
  *
@@ -41,7 +37,7 @@ public class CreateClientController {
         this.rc = this.clientStore.createClient(id,name,nhs,citizenCard,tin,birthDate,sex,pNumber);
 
         if(!this.clientStore.validateClient(this.rc)){return false;}
-        String testpass = GeneratePassword.makerandompass();
+        String testpass = GeneratePassword.makeRandomPass();
         sendPassEmail(testpass);
 
         saveClient(this.rc,testpass);

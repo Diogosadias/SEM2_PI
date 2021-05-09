@@ -1,7 +1,7 @@
 package app.domain.shared;
 
 public class GeneratePassword {
-    public static String makerandompass(){
+    public static String makeRandomPass(){
         String password = "";
         for(int i= 0; i<10; i++){
             password = password+randomCharacter("abcdefghijklmnopqrstuvwxyz0123456789");

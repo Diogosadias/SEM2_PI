@@ -68,6 +68,34 @@ public class CreateClientStore {
      * @return boolean
      */
     public boolean validateClient(Client rc){
+
+        for (Client client: this.clientList) {
+            if(rc.getId().equals(client.getId())){
+                System.out.println("This email is already being used!");
+                return false;
+                //throw new IllegalArgumentException("This email is already being used!");
+            }
+            if(rc.getCitizenCard()==client.getCitizenCard()){
+                System.out.println("This citizen card is already being used!");
+                return false;
+                //throw new IllegalArgumentException("This citizen card is already being used!");
+            }
+            if(rc.getNhs()==client.getNhs()){
+                System.out.println("This nhs is already being used!");
+                return false;
+                //throw new IllegalArgumentException("This nhs is already being used!");
+            }
+            if(rc.getPNumber()==client.getPNumber()){
+                System.out.println("This phone number is already being used!");
+                return false;
+                //throw new IllegalArgumentException("This phone number is already being used!");
+            }
+            if(rc.getTin()==client.getTin()){
+                System.out.println("This tin is already being used!");
+                return false;
+                //throw new IllegalArgumentException("This tin is already being used!");
+            }
+        }
         if(rc!=null) {
             return ! this.clientList.contains(rc);
         }
