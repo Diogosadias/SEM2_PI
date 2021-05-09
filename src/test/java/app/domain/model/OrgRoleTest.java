@@ -60,6 +60,8 @@ public class OrgRoleTest {
         Employee awdawd = awd.createEmployee(daw);
         boolean a = awdawd.getRole().getId().equals(daw.getRoleId());
         assertTrue(a);
+        boolean ba = awdawd.getRole().getDesignation().equals("SpecialistDoctor");
+        assertTrue(ba);
 
         EmployeeDto daw2 = new EmployeeDto("2","aowd","ajwdiajd",12313123123l,"ajwdi");
         daw2.setId("A00001");
