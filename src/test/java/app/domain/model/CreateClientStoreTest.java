@@ -15,10 +15,6 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
-/**
- *
- * @author Márcio Ramos <1201682@isep.ipp.pt>
- */
 public class CreateClientStoreTest extends TestCase {
     AuthFacade auth = new AuthFacade();
     Client c1 = new Client(new Email("usaer1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("2001/12/22"), "M", 11111111111L);
