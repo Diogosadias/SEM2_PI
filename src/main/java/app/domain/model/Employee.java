@@ -1,7 +1,5 @@
 package app.domain.model;
 
-import app.domain.dto.EmployeeDto;
-
 import java.util.Objects;
 
 
@@ -35,23 +33,6 @@ public class Employee {
         this.phoneNumber = phoneNumber;
         this.socCode = socCode;
         this.email = generateEmail(employeeId);
-    }
-
-    public Employee(OrgRole role, EmployeeDto dto) {
-
-        this.employeeId = dto.getEmployeeId();
-        checkEmployedID(employeeId);
-        this.name = dto.getName();
-        checkName(name);
-        this.address = dto.getAddress();
-        checkAddress(address);
-        this.phoneNumber = dto.getPhoneNumber();
-        checkNumDigits(phoneNumber);
-        this.socCode = dto.getSocCode();
-        checkSOCode(socCode);
-
-        this.email = generateEmail(employeeId);
-        this.role = role;
     }
 
     private void checkNumDigits (long num) {
