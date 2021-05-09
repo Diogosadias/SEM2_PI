@@ -1,6 +1,7 @@
 package app.controller;
 
 import app.domain.model.Company;
+import app.domain.model.OrgRole;
 import app.domain.shared.Constants;
 import auth.AuthFacade;
 import auth.UserSession;
@@ -10,6 +11,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+
+import static app.domain.shared.Constants.*;
+import static app.domain.shared.Constants.ADMINISTRATOR;
 
 /**
  *
@@ -81,6 +85,13 @@ App {
         this.authFacade.addUserRole(Constants.ROLE_RECEP,Constants.ROLE_RECEP);
         this.authFacade.addUserRole(Constants.ROLE_CLIENT,Constants.ROLE_CLIENT);
         this.authFacade.addUserRole(Constants.ROLE_EMPLOYEE,Constants.ROLE_EMPLOYEE);
+
+        this.company.getEmployeeStore().addOrgRole(new OrgRole("role_1",SPECIALIST_DOCTOR));
+        this.company.getEmployeeStore().addOrgRole(new OrgRole("role_2",LABORATORY_COORDINATOR));
+        this.company.getEmployeeStore().addOrgRole(new OrgRole("role_3",CHEMISTRY_TECHNOLOGIST));
+        this.company.getEmployeeStore().addOrgRole(new OrgRole("role_4",MEDICAL_LAB_TECHNICIAN));
+        this.company.getEmployeeStore().addOrgRole(new OrgRole("role_5",RECEPTIONIST));
+        this.company.getEmployeeStore().addOrgRole(new OrgRole("role_6",ADMINISTRATOR));
 
         this.authFacade.addUserWithRole("Admin", "admin@lei.pt", "495", Constants.ROLE_ADMIN);
         this.authFacade.addUserWithRole("Receptionist", "recep@lei.pt", "123",Constants.ROLE_RECEP);

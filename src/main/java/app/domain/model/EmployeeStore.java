@@ -23,18 +23,11 @@ public class EmployeeStore {
 
     public EmployeeStore () {
         this.lor = new ArrayList<>();
-        if(lor!=null) addOrgRoles();
-        else throw new NullPointerException("lor is null!");
         this.le = new ArrayList<>();
     }
 
-    public void addOrgRoles () {
-        lor.add(new OrgRole("role_1",SPECIALIST_DOCTOR));
-        lor.add(new OrgRole("role_2",LABORATORY_COORDINATOR));
-        lor.add(new OrgRole("role_3",CHEMISTRY_TECHNOLOGIST));
-        lor.add(new OrgRole("role_4",MEDICAL_LAB_TECHNICIAN));
-        lor.add(new OrgRole("role_5",RECEPTIONIST));
-        lor.add(new OrgRole("role_6",ADMINISTRATOR));
+    public void addOrgRole (OrgRole role) {
+        this.lor.add(role);
     }
 
     public List<OrgRole> getOrgRoles () {
