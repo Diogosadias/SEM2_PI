@@ -21,7 +21,7 @@ public class SpecifyNewTestTypeController {
     public boolean createTestType(String code, String description, String collectingMethods){
         this.tt = this.ts.createTestType(code, description, collectingMethods);
         if(this.ts.validateTestType(tt)){
-            ts.saveTestType(tt);
+            saveTestType();
             return true;
         }
         else
