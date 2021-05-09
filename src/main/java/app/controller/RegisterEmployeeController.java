@@ -22,6 +22,7 @@ import static app.domain.shared.Constants.ROLE_EMPLOYEE;
 
 
 /**
+ * Controller for the US7 realization - Register a new Employee
  *
  * @author Tiago Rocha
  */
@@ -32,6 +33,9 @@ public class RegisterEmployeeController {
     private Employee employee;
     private AuthFacade auth;
 
+    /**
+     * Constructor for a given Company instance.
+     */
     public RegisterEmployeeController() {
          if (!App.getInstance().getCurrentUserSession().isLoggedInWithRole(ROLE_ADMIN)) {
             throw new IllegalStateException("Utilizador nï¿½o Autorizado");
@@ -40,7 +44,12 @@ public class RegisterEmployeeController {
         this.estore = company.getEmployeeStore();
         this.auth = company.getAuthFacade();
     }
-    
+
+    /**
+     * Return List of Roles
+     *
+     * @return
+     */
     public List<OrgRoleDto> getOrgRoles(){
         List<OrgRole> roles = this.estore.getOrgRoles();
         RolesMapper mapper = new RolesMapper();

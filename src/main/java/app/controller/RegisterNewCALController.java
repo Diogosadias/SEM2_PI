@@ -32,12 +32,14 @@ public class RegisterNewCALController {
 
     /**
      * Creates a CAL instance and validates it.
-     * @param labId
-     * @param labName
-     * @param phoneNumber
-     * @param address
-     * @param tin
-     * @param answer
+     *
+     * @param labId Laboratory's id
+     * @param labName Laboratory's name
+     * @param phoneNumber Laboratory's phone number
+     * @param address Laboratory's address
+     * @param tin Laboratory's tin number
+     * @param answer Laboratory's answer
+     *
      * @return boolean
      */
     public boolean registerNewCAL(String labId, String labName, long phoneNumber, String address, long tin, boolean answer){
