@@ -6,18 +6,18 @@ import auth.domain.model.User;
 
 public class Administrator extends User {
 
-    private String adress;
+    private String address;
     private String standardOcuppationalCode;
     private String employeeId;
 
-    public Administrator(Email id, Password pwd, String name, String adress,String pNumber,String standardOcupationalCode,String employeeid) {
+    public Administrator(Email id, Password pwd, String name, String adress, String standardOcupationalCode, String employeeid) {
         super(id, pwd, name);
 
         checkAdressrules(adress);
         checkStandardOcuppationalCoderules(standardOcupationalCode);
         checkEmployeeId(employeeid);
 
-        this.adress = adress;
+        this.address = adress;
         this.standardOcuppationalCode = standardOcupationalCode;
         this.employeeId = employeeid;
     }
@@ -45,11 +45,11 @@ public class Administrator extends User {
     }
     //getters
     public String getAdress() {
-        return adress;
+        return address;
     }
 
     public void setAdress(String adress) {
-        this.adress = adress;
+        this.address = adress;
     }
 
     public String getStandardOcuppationalCode() {
@@ -73,7 +73,7 @@ public class Administrator extends User {
     @Override
     public String toString() {
         return "Administrator{" +
-                "adress='" + adress + '\'' +
+                "adress='" + address + '\'' +
                 ", standardOcuppationalCode='" + standardOcuppationalCode + '\'' +
                 ", employeeId='" + employeeId + '\'' +
                 '}';

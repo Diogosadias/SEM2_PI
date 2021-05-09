@@ -12,6 +12,11 @@ public class SpecialistDoctor extends Employee{
         this.doctorIndexNumber = doctorIndexNumber;
     }
 
+    public SpecialistDoctor(Employee employee, int doctorIndexNumber) {
+        super (employee.getRole(), employee.getEmployeeId(), employee.getName(), employee.getAddress(), employee.getPhoneNumber(), employee.getSocCode());
+        this.doctorIndexNumber = doctorIndexNumber;
+    }
+
     public int getDoctorIndexNumber() {
         return doctorIndexNumber;
     }
