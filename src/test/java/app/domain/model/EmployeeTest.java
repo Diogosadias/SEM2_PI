@@ -67,7 +67,7 @@ public class EmployeeTest {
 
     @Test
     public void testGenerateEmail() {
-        assertEquals("1111@lei.isep.pt",e1.getEmail());
+        assertEquals("1111@lei.pt",e1.getEmail());
         assertNull(e1.generateEmail(null) );
     }
     @Test
@@ -103,7 +103,7 @@ public class EmployeeTest {
     @Test
     public void testGetEmail() {
         //testing
-        assertEquals("1111@lei.isep.pt",e1.getEmail());
+        assertEquals("1111@lei.pt",e1.getEmail());
     }
     @Test
     public void testSetEmployeeId() {

@@ -20,7 +20,7 @@ public class EmployeeStoreTest  {
     Employee e1 = new Employee(new OrgRole("12345","safdxfasf"), "1111", "John", "Address", 12345678912L,"12345" );
     EmployeeDto dto = new EmployeeDto("teste", "teste", "teste", 12345678912L, "12335");
     EmployeeStore es = new EmployeeStore();  
-    
+
     @Test
     public void testGetOrgRoles() {        
         System.out.println("GetOrgRoles");
@@ -73,6 +73,7 @@ public class EmployeeStoreTest  {
     public void testGetRoleById() {         
         System.out.println("GetRoleById");
         OrgRole expResult = new OrgRole("role_5",ROLE_RECEP);
+        es.addOrgRole(new OrgRole("role_5",ROLE_RECEP));
         OrgRole result = es.getRoleById("role_5");        
         assertEquals(expResult , result);  
     }
