@@ -5,6 +5,7 @@ import java.util.List;
 
 
 /**
+ * ParameterStore - Class responsible for managing Parameters.
  *
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  */
@@ -93,6 +94,11 @@ public class ParameterStore {
         return parameterList;
     }
 
+    /**
+     * Return the textual description of the parameter.
+     *
+     * @return Parameter's features
+     */
     @Override
     public String toString() {
         List<Parameter> copy = new ArrayList<>(parameterList);

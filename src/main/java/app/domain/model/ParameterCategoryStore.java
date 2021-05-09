@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
+ * ParameterCategoryStore - Class responsible for managing ParameterCategories.
  *
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  */
@@ -71,6 +72,11 @@ public class ParameterCategoryStore {
         return parameterCategoryList;
     }
 
+    /**
+     * Return the textual description of the parameter category.
+     *
+     * @return ParameterCategory's features
+     */
     @Override
     public String toString() {
 

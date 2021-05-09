@@ -2,6 +2,7 @@ package app.domain.model;
 
 import org.apache.commons.lang3.StringUtils;
 /**
+ * This domain class allows to build an instance of parameter category.
  *
  *  @author Márcio Ramos <1201682@isep.ipp.pt>
  */
@@ -21,6 +22,7 @@ public class ParameterCategory {
 
     /**
      * Parameter Category Constructor.
+     *
      * @param code - Parameter Category Code
      * @param description - Parameter Category Description
      * @param nhsId - Parameter Category NHS ID
@@ -35,6 +37,7 @@ public class ParameterCategory {
 
     /**
      * Method for validating a Code.
+     *
      * @param code - Parameter Category Code
      */
     private void checkCodeRules(String code){
@@ -46,6 +49,7 @@ public class ParameterCategory {
 
     /**
      * Method for validating a Description.
+     *
      * @param description - Parameter Category Description
      */
     private void checkDescriptionRules(String description){
@@ -55,6 +59,11 @@ public class ParameterCategory {
             throw new IllegalArgumentException("Code must not exceed 40 chars.");
     }
 
+    /**
+     * Return the textual description of the parameter category.
+     *
+     * @return parameter category's features
+     */
     @Override
     public String toString() {
         return "ParameterCategory{" +
@@ -65,29 +74,55 @@ public class ParameterCategory {
     }
 
     /**
-     * Getters and Setters
+     * Return the ParameterCategory's code.
+     *
+     * @return ParameterCategory's code
      */
-
     public String getCode() {
         return code;
     }
 
+    /**
+     * Return the ParameterCategory's description.
+     *
+     * @return ParameterCategory's description
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     * Return the ParameterCategory's nhsid.
+     *
+     * @return ParameterCategory's nhsid
+     */
     public String getNhsId() {
         return nhsId;
     }
 
+    /**
+     * Change the ParameterCategory's code.
+     *
+     * @param code ParameterCategory's code
+     */
     public void setCode(String code) {
         this.code = code;
     }
 
+    /**
+     * Change the ParameterCategory's description.
+     *
+     * @param description ParameterCategory's description
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
+    /**
+     * Change the ParameterCategory's nhsid.
+     *
+     * @param nhsId ParameterCategory's nhsid
+     */
     public void setNhsId(String nhsId) {
         this.nhsId = nhsId;
     }

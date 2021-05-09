@@ -27,6 +27,7 @@ public class TestType extends SpecifyNewTestStore {
 
     /**
      * Constructor for a test type.
+     *
      * @param code - Test Type Code
      * @param description - Test Type Description
      * @param collectingMethod - Test Type Collection Method
@@ -44,23 +45,52 @@ public class TestType extends SpecifyNewTestStore {
     }
 
     /**
-     * Getters and setters for the attributes
+     * Return the TestType's code.
+     *
+     * @return TestType's code
      */
     public String getCode() { return code; }
 
+    /**
+     * Change the TestType's code.
+     *
+     * @param code TestType's code
+     */
     public void setCode(String code) { this.code = code; }
 
+    /**
+     * Return the TestType's description.
+     *
+     * @return TestType's description
+     */
     public String getDescription() { return description; }
 
+    /**
+     * Change the TestType's descrption.
+     *
+     * @param description TestType's description
+     */
     public void setDescription(String description) { this.description = description; }
 
+    /**
+     * Return the TestType's collection method.
+     *
+     * @return TestType's collection method
+     */
     public String getCollectingMethod() { return collectingMethod; }
 
+    /**
+     * Change the TestType's collection method.
+     *
+     * @param collectingMethod TestType's collection method
+     */
     public void setCollectingMethod(String collectingMethod) { this.collectingMethod = collectingMethod; }
 
     /**
      * Method for code validation.
+     *
      * @param code - Test Type Code
+     *
      * @throws IllegalArgumentException - Empty or not 5 characters.
      */
     private void checkCode(String code) {
@@ -70,7 +100,9 @@ public class TestType extends SpecifyNewTestStore {
 
     /**
      * Method for description validation.
+     *
      * @param description - Test Type Description
+     *
      * @throws IllegalArgumentException - Empty or 15+ characters.
      */
     private void checkDescription(String description) {
@@ -80,7 +112,9 @@ public class TestType extends SpecifyNewTestStore {
 
     /**
      * Method for the collectingMethod validation.
+     *
      * @param collectingMethod - Test Type Collection Method
+     *
      * @throws IllegalArgumentException - Empty or 20+ characters.
      */
     private void checkCollectingMethod(String collectingMethod) {
@@ -89,6 +123,7 @@ public class TestType extends SpecifyNewTestStore {
     }
     /**
      * Method for setting a new parameter category for the test type.
+     *
      * @param parameter - Test Type Parameter Category
      */
     public void setCategory(ParameterCategory parameter){
@@ -97,6 +132,7 @@ public class TestType extends SpecifyNewTestStore {
 
     /**
      * Returns a summary of the test type data.
+     *
      * @return String
      */
     @Override

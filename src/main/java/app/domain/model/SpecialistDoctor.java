@@ -11,6 +11,7 @@ public class SpecialistDoctor extends Employee{
 
     /**
      * Specialist Doctor Constructor, supers information to Employee except the Index number.
+     *
      * @param role - Organization Role
      * @param employeeId - Employee ID
      * @param name - Employee Name
@@ -26,6 +27,7 @@ public class SpecialistDoctor extends Employee{
 
     /**
      * Specialist Doctor's Constructor for an Employee.
+     *
      * @param employee - Employee instance
      * @param doctorIndexNumber - Index number
      */
@@ -36,6 +38,7 @@ public class SpecialistDoctor extends Employee{
 
     /**
      * Method for getting the doctor's Index number.
+     *
      * @return doctorIndexNumber
      */
     public int getDoctorIndexNumber() {
@@ -44,6 +47,7 @@ public class SpecialistDoctor extends Employee{
 
     /**
      * Method for setting the Doctor´s Index Number.
+     *
      * @param doctorIndexNumber - Doctor´s Index Number
      */
     public void setDoctorIndexNumber(int doctorIndexNumber) {
@@ -52,6 +56,7 @@ public class SpecialistDoctor extends Employee{
 
     /**
      * Equal method override for Specialist Doctor.
+     *
      * @param o - Specialist Doctor
      * @return true/false
      */
@@ -64,6 +69,11 @@ public class SpecialistDoctor extends Employee{
         return doctorIndexNumber == that.doctorIndexNumber;
     }
 
+    /**
+     * Returns a hash code value for the object.
+     *
+     * @return Object.hash
+     */
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), doctorIndexNumber);
