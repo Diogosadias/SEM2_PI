@@ -11,6 +11,7 @@ import org.apache.commons.lang3.StringUtils;
  * @author Tiago Ferreira <1200601@isep.ipp.pt>
  * @author Gil <1180838@isep.ipp.pt>
  * @author Tiago Rocha <1181445@isep.ipp.pt>
+ * @author Bruno Pereira <1191454@isep.ipp.pt>
  */
 public class Company {
 

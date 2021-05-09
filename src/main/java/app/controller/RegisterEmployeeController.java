@@ -26,6 +26,7 @@ import static app.domain.shared.Constants.ROLE_EMPLOYEE;
  *
  * @author Tiago Rocha
  * @author Márcio Ramos <1201682@isep.ipp.pt>
+ * @author Bruno Pereira <1191454@isep.ipp.pt>
  */
 public class RegisterEmployeeController {
 

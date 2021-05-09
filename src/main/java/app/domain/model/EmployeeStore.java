@@ -13,6 +13,7 @@ import static app.domain.shared.Constants.*;
  * EmployeeStore - Class responsible for managing Employers.
  *
  * @author Tiago Rocha
+ * @author Bruno Pereira <1191454@isep.ipp.pt>
  */
 public class EmployeeStore {
 
