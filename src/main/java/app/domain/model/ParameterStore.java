@@ -70,9 +70,26 @@ public class ParameterStore {
      * @return true/false
      */
     public boolean validateParameter(Parameter p){
-        if(p == null)
-            return false;
-        return ! this.parameterList.contains(p);
+        if(p!=null) {
+            for (Parameter param: this.parameterList) {
+                    if(p.getCode().equals(param.getCode())){
+                        System.out.println("This code is already being used!");
+                        return false;
+                    }
+                    if(p.getDescription()==param.getDescription()){
+                        System.out.println("This description card is already being used!");
+                        return false;
+                    }
+                    if(p.getName()==param.getName()){
+                        System.out.println("This name is already being used!");
+                        return false;
+                    }
+            }
+
+
+            return ! this.parameterList.contains(p);
+        }
+        return false;
     }
 
     /**
