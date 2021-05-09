@@ -35,8 +35,6 @@ public class CreateClientUI implements Runnable{
 
         String name;
         String id;
-
-        String password = null;
         long nhs;
         long citizenCard;
         long tin;
@@ -69,10 +67,10 @@ public class CreateClientUI implements Runnable{
             System.out.print("TIN: ");
             tin = read.nextLong();
 
-            System.out.print("Birth Date: ");
+            System.out.print("Birth Date (YYYY/MM/DD): ");
             birthDate = read.next();
 
-            System.out.print("Sex: ");
+            System.out.print("Sex (M/F): ");
             sex = read.next();
 
             System.out.print("Phone Number: ");
@@ -93,7 +91,7 @@ public class CreateClientUI implements Runnable{
         }catch (InputMismatchException ex){
             System.out.println("Data input error");
         }catch (IllegalArgumentException ex){
-            System.out.println("Invalid data input");
+            System.out.println("Invalid data input: "+ex);
         }
 
 

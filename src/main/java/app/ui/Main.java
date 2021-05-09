@@ -21,9 +21,13 @@ public class Main {
             MainMenuUI menu = new MainMenuUI();
 
             //for tests
-            //CreateClientController controllerClient = new CreateClientController();
-            //controllerClient.createClient("em2ail@ton.com","124", 1231231321, 1231231232, 123123113, "20/02/2002", "01/03/2001", 123423123, "1322");
-            //controllerClient.createClient("email@ton.com","123", 1231231321, 1231231231, 123123123, "20/02/2002", "01/02/2001", 123423123, "123");
+            /*CreateClientController controllerClient = new CreateClientController();
+            controllerClient.createClient("em2ail@ton.com","awd", 1231231321l, 1231231232123123l, 123123113123l, "2002/02/20", "F", 123423123123l);
+            controllerClient.createClient("em2ail@ton.com","awd", 1231231321l, 1231231232123123l, 123123113123l, "2002/02/20", "F", 123423123123l);
+*/
+
+
+
             menu.run();
         }
         catch( Exception e )

@@ -61,6 +61,7 @@ public class CreateClientController {
 
 
     private void sendPassEmail(String pass){
+
         try{
             FileWriter myWriter = new FileWriter(rc.getCitizenCard()+"Password.txt");
             myWriter.write("Hello "+rc.getName()+",\nhere is your new password:\n\n");

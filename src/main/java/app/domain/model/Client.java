@@ -72,15 +72,14 @@ public class Client {
      */
 
     public Client(Email id, String name, long nhs, long citizenCard, long tin, Date birthDate, String sex, long pNumber) {
-        checkNHS(nhs);
 
-        /*
-          checkCitizenNumber(citizenCard);
+        checkNHS(nhs);
+        checkCitizenNumber(citizenCard);
         checkPNumber(pNumber);
         checkTIN(tin);
         checkSex(sex);
 
-*/
+
         this.name = name;
         this.id = id;
         this.nhs = nhs;
@@ -266,25 +265,32 @@ public class Client {
      */
     public void checkNHS(long nhs) {
         String temp = String.valueOf(nhs);
-        if (temp.length() == 12)
+        if (temp.length() != 10)
             throw new IllegalArgumentException("NHS code must have 10 chars.");
     }
 
 
 
     public void checkCitizenNumber(long citizenCard){
-
+        String temp = String.valueOf(citizenCard);
+        if (temp.length() != 16)
+            throw new IllegalArgumentException("Citizen Card code must have 16 chars.");
     }
 
 
     public void checkSex(String sex){
-
+        if (!sex.equals("M") && !sex.equals("F"))
+            throw new IllegalArgumentException("You must define your sex as 'M' or 'F'.");
     }
-    public void checkTIN(long nhs){
-
+    public void checkTIN(long tin){
+        String temp = String.valueOf(tin);
+        if (temp.length() != 12)
+            throw new IllegalArgumentException("TIN code must have 12 chars.");
     }
-    public void checkPNumber(long nhs){
-
+    public void checkPNumber(long pn){
+        String temp = String.valueOf(pn);
+        if (temp.length() != 12)
+            throw new IllegalArgumentException("Phone Number code must have 12 chars.");
     }
 
     /**
