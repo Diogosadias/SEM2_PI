@@ -8,22 +8,27 @@ import java.util.ArrayList;
  */
 public class CALStore {
     private  ArrayList<CAL> calList;
+
     /**
      * Create Store instance with empty array.
      */
     public CALStore(){
         calList = new ArrayList<>();
     }
+
     /**
      * Creates a CAL instance and returns it.
+     *
      * @param labId - Laboratory Id
      * @param labName - Laboratory Name
      * @param phoneNumber - Laboratory Phone Number
      * @param address - Laboratory address
      * @param tin - Laboratory TIN
      * @param answer - Answer if Laboratory performs Covid-19 tests
+     *
      * @return CAL
      */
+
     public CAL registerNewCAL(String labId, String labName, long phoneNumber, String address, long tin, boolean answer ){
         if(labId==null || labName==null  || address==null  ){
             return null;
@@ -31,8 +36,10 @@ public class CALStore {
         return new CAL(labId, labName, phoneNumber, address, tin, answer);
     }
     /**
-     * Validates CAL attributes for business model rules
+     * Validates CAL attributes for business model rules.
+     *
      * @param cal - Clinical Analysis Laboratory
+     *
      * @return boolean
      */
     public boolean validateCAL(CAL cal){
@@ -50,8 +57,10 @@ public class CALStore {
         return false;
     }
     /**
-     * Saves the new CAL
+     * Saves the new CAL.
+     *
      * @param cal - Clinical Analysis Laboratory
+     *
      * @return boolean
      */
     public boolean saveCAL(CAL cal){
