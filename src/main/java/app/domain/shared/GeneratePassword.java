@@ -1,5 +1,9 @@
 package app.domain.shared;
 
+/**
+ *
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
+ */
 public class GeneratePassword {
     public static String makeRandomPass(){
         String password = "";
