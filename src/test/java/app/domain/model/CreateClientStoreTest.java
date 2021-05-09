@@ -24,7 +24,7 @@ public class CreateClientStoreTest {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("2021-12-12");
 
         //calculations
-        Client c2 = tccs.createClient("usxedar1@gmail.com", "John", 1111111111L, 1111111111111111L, 111111111111L, "12/12/2021", "M", 11111111111L);
+        Client c2 = tccs.createClient("usxedar1@gmail.com", "John", 1111111111L, 1111111111111111L, 111111111111L, "2001/12/22", "M", 11111111111L);
 
         //assert
         assertEquals(c1.getPNumber(),c2.getPNumber());
@@ -60,7 +60,7 @@ public class CreateClientStoreTest {
     public void testGetClientList() {
         AuthFacade auth = null;
         CreateClientStore ccs = new CreateClientStore(auth);
-        Client c1 = new Client(new Email("usewdar1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 11111111111L);
+        Client c1 = new Client(new Email("usewdar1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("2001/12/22"), "M", 11111111111L);
         List<Client> testList = new ArrayList<>();
         //calculations
         ccs.setClientList(c1);
