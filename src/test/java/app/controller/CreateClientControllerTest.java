@@ -9,6 +9,10 @@ import junit.framework.TestCase;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ *
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
+ */
 public class CreateClientControllerTest extends TestCase {
 
     public void testCreateClient() {

@@ -25,6 +25,7 @@ import static app.domain.shared.Constants.ROLE_EMPLOYEE;
  * Controller for the US7 realization - Register a new Employee
  *
  * @author Tiago Rocha
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
  */
 public class RegisterEmployeeController {
 

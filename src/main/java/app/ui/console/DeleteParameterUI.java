@@ -7,6 +7,10 @@ import java.util.Scanner;
 import static app.domain.shared.Constants.ANS_NO;
 import static app.domain.shared.Constants.ANS_YES;
 
+/**
+ *
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
+ */
 public class DeleteParameterUI implements Runnable{
     public DeleteParameterUI(){
 

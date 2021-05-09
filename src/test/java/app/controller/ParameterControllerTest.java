@@ -6,6 +6,10 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+/**
+ *
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
+ */
 public class ParameterControllerTest {
     ParameterController controller = new ParameterController();
     Parameter p1 = new Parameter("1111e", "test", "this is a test", "11111");

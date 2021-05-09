@@ -4,6 +4,10 @@ import app.controller.ParameterCategoryController;
 
 import java.util.Scanner;
 
+/**
+ *
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
+ */
 public class CreateNewParameterUI implements Runnable{
 
     public void run(){

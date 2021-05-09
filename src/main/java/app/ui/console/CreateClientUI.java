@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author MÃ¡rcio Ramos <1201682@isep.ipp.pt>
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
  */
 public class CreateClientUI implements Runnable{
 

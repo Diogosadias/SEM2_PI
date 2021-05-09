@@ -270,23 +270,43 @@ public class Client {
     }
 
 
-
+    /**
+     * Check if the citizen card it's within the rules.
+     *
+     * @param citizenCard
+     */
     public void checkCitizenNumber(long citizenCard){
         String temp = String.valueOf(citizenCard);
         if (temp.length() != 16)
             throw new IllegalArgumentException("Citizen Card code must have 16 chars.");
     }
 
-
+    /**
+     * Check if the sex it's within the rules.
+     *
+     * @param sex
+     */
     public void checkSex(String sex){
         if (!sex.equals("M") && !sex.equals("F"))
             throw new IllegalArgumentException("You must define your sex as 'M' or 'F'.");
     }
+
+    /**
+     * Check if the tin it's within the rules.
+     *
+     * @param tin
+     */
     public void checkTIN(long tin){
         String temp = String.valueOf(tin);
         if (temp.length() != 12)
             throw new IllegalArgumentException("TIN code must have 12 chars.");
     }
+
+    /**
+     * Check if the phone number it's within the rules.
+     *
+     * @param pn
+     */
     public void checkPNumber(long pn){
         String temp = String.valueOf(pn);
         if (temp.length() != 11)
