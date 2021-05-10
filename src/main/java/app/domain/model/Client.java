@@ -303,12 +303,13 @@ public class Client {
     }
 
     /**
-     * Check if the phone number it's within the rules.
+     * Check if the phone number it's within the rules
      *
-     * @param pn
+     * @param phonenumber
      */
-    public void checkPNumber(long pn){
-        String temp = String.valueOf(pn);
+    public void checkPNumber(long phonenumber){
+
+        String temp =  String.valueOf(phonenumber);
         if (temp.length() != 11)
             throw new IllegalArgumentException("Phone Number code must have 11 chars.");
     }
