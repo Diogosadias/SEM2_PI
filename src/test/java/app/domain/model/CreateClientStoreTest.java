@@ -20,7 +20,7 @@ public class CreateClientStoreTest {
 
     @Test
     public void testCreateClient() {
-        //arrange
+        //arrangee
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("2021-12-12");
 
         //calculations
