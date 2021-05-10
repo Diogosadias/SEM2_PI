@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 public class CreateClientStoreTest {
     AuthFacade auth = new AuthFacade();
 
-    Client c1 = new Client(new Email("usedafr1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("2001/12/22"), "M", 11111111111L);
+    Client c1 = new Client(new Email("usedafr1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("2001/12/22"), "M",11111111111L);
     CreateClientStore tccs = new CreateClientStore(auth);
 
 
@@ -60,7 +60,7 @@ public class CreateClientStoreTest {
     public void testGetClientList() {
         AuthFacade auth = null;
         CreateClientStore ccs = new CreateClientStore(auth);
-        Client c1 = new Client(new Email("usewdar1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("2001/12/22"), "M", 11111111111L);
+        Client c1 = new Client(new Email("usewdar1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("2001/12/22"), "M");
         List<Client> testList = new ArrayList<>();
         //calculations
         ccs.setClientList(c1);
