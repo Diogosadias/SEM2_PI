@@ -1,12 +1,12 @@
 package app.domain.model;
 
-public class Receptionist extends Employee{
+public class MedicalLabTechnician extends Employee{
 
-    public Receptionist(OrgRole role, String employeeId, String name, String address, long phoneNumber, String socCode){
+    public MedicalLabTechnician(OrgRole role, String employeeId, String name, String address, long phoneNumber, String socCode){
         super(role, employeeId, name, address, phoneNumber, socCode);
     }
 
-    public Receptionist(Employee employee) {
+    public MedicalLabTechnician(Employee employee) {
         super (employee.getRole(), employee.getEmployeeId(), employee.getName(), employee.getAddress(), employee.getPhoneNumber(), employee.getSocCode());
-  }
+    }
 }

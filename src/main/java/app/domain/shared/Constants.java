@@ -22,7 +22,9 @@ public class Constants {
     public static final String SPECIALIST_DOCTOR = "SpecialistDoctor";
     public static final String LABORATORY_COORDINATOR = "LaboratoryCoordinator";
     public static final String CHEMISTRY_TECHNOLOGIST = "ChemistryTechnologist";
-    public static final String MEDICAL_LAB_TECHNICIAN = "MedicalLabTechnicians";
+    public static final String MEDICAL_LAB_TECHNICIAN = "MedicalLabTechnician";
+    public static final String RECEPTIONIST = "Receptionist";
+    public static final String ADMINISTRATOR = "Administrator";
 
     public static final String ANS_YES = "Y";
     public static final String ANS_NO = "N";
