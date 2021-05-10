@@ -310,8 +310,9 @@ public class Client {
     public void checkPNumber(long phonenumber){
 
         String temp =  String.valueOf(phonenumber);
-        if (temp.length() != 11)
+        if (temp.length() != 11) {
             throw new IllegalArgumentException("Phone Number code must have 11 chars.");
+        }
     }
 
 
