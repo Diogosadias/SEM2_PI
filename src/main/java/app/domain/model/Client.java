@@ -102,17 +102,6 @@ public class Client {
      * @param sex client's sex
      */
 
-    public Client(Email id, String name, long nhs, long citizenCard, long tin, Date birthDate, String sex) {
-
-        this.name = name;
-        this.id = id;
-        this.nhs = nhs;
-        this.citizenCard = citizenCard;
-        this.tin = tin;
-        this.sex = sex;
-        this.birthDate = birthDate;
-        pNumber = 0;
-    }
 
     /**
      * Return the client's nhs.
@@ -309,7 +298,7 @@ public class Client {
      */
     public void checkPNumber(long phonenumber){
         String temp = String.valueOf(phonenumber);
-        if ( temp.length() < 11 || temp==null) {
+        if ( temp.length() !=11) {
             throw new IllegalArgumentException("Phone Number code must have 11 chars.");
         }
     }
