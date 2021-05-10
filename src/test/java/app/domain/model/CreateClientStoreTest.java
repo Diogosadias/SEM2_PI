@@ -20,14 +20,12 @@ public class CreateClientStoreTest {
 
     @Test
     public void testCreateClient() {
-        //arrangee
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("2021-12-12");
 
         //calculations
         Client c2 = tccs.createClient("usxedar1@gmail.com", "John", 1111111111L, 1111111111111111L, 111111111111L, "2001/12/22", "M", 11111111111L);
 
         //assert
-        assertEquals(c1.getPNumber(),c2.getPNumber());
+
         assertEquals(c1.getCitizenCard(),c2.getCitizenCard());
         assertEquals(c1.getNhs(),c2.getNhs());
         assertEquals(c1.getTin(),c2.getTin());
