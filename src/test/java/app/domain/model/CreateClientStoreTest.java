@@ -7,15 +7,15 @@ import static org.junit.Assert.*;
 public class CreateClientStoreTest {
 
     @Test
-    public void createClient() {
+    public void testCreateClient() {
     }
 
     @Test
-    public void validateClient() {
+    public void testValidateClient() {
     }
 
     @Test
-    public void saveClient() {
+    public void testSaveClient() {
     }
 
     @Test
@@ -23,6 +23,6 @@ public class CreateClientStoreTest {
     }
 
     @Test
-    public void getClientList() {
+    public void testGetClientList() {
     }
 }
