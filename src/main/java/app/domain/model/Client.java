@@ -309,8 +309,8 @@ public class Client {
      */
     public void checkPNumber(long pn){
         String temp = String.valueOf(pn);
-        if (temp.length() != 11)
-            throw new IllegalArgumentException("Phone Number code must have 11 caaaa.");
+        if (temp.length() == 13)
+            throw new IllegalArgumentException("Phone Number code must have 11 chars.");
     }
 
     /**
