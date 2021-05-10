@@ -92,7 +92,7 @@ public class CreateClientUI implements Runnable{
         }catch (InputMismatchException ex){
             System.out.println("Data input error");
         }catch (IllegalArgumentException ex){
-            System.out.println("Invalid data input: "+ex);
+            //System.out.println("Invalid data input: "+ex);
         }
 
 
