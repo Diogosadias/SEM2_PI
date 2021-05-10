@@ -2,7 +2,9 @@ package app.domain.model;
 
 import java.util.Objects;
 
-public class SpecialistDoctor extends Employee{
+import static app.domain.shared.Constants.ROLE_SPEC_DOCTOR;
+
+public class SpecialistDoctor extends Employee implements RoleExtra{
 
     /**
      * Specialist Doctor's Index number
@@ -77,5 +79,10 @@ public class SpecialistDoctor extends Employee{
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), doctorIndexNumber);
+    }
+
+    @Override
+    public String RegisteredUserRole() {
+        return ROLE_SPEC_DOCTOR;
     }
 }
