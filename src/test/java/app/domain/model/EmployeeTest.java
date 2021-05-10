@@ -27,7 +27,7 @@ public class EmployeeTest {
             assertEquals("Phone Number must have 11 chars.",ex.getMessage());
         }
         try{
-            Employee e = new Employee(new OrgRole("12345","safdxfasf"), "1111", "John", "Address", 123456178912L,"12345" );
+            Employee e = new Employee(new OrgRole("12345","safdxfasf"), "1111", "John", "Address", 1234561781231231912L,"12345" );
             fail();
         }catch (IllegalArgumentException ex){
             assertEquals("Phone Number must have 11 chars.",ex.getMessage());
