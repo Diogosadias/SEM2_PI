@@ -13,6 +13,7 @@ import app.domain.model.Employee;
 import app.ui.console.utils.Utils;
 import auth.AuthFacade;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 import static app.domain.shared.Constants.SPECIALIST_DOCTOR;
@@ -37,26 +38,38 @@ public class RegisterEmployeeUI implements Runnable{
     public void run()
     {
         System.out.println("\nRegister employee");
-        
-        if(registerData())
-        {
-            presentsData();
 
-            if (Utils.confirm("Do you confirm the data? (Y/N)")) {
-                    System.out.println("Employee registered successfully!");
-            } else
+        try {
+            if(registerData())
             {
-                System.out.println("Operation cancelled.");
+                presentsData();
+
+                if (Utils.confirm("Do you confirm the data? (Y/N)")) {
+                        System.out.println("Employee registered successfully!");
+                } else
+                {
+                    System.out.println("Operation cancelled.");
+                }
             }
+            else
+            {
+                System.out.println("Error. Operation cancelled.");
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
         }
-        else
-        {
-            System.out.println("Error. Operation cancelled.");
-        }
-          
+
     }
     
-    private boolean registerData() {        
+    private boolean registerData() throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
         List<OrgRoleDto> set = m_controller.getOrgRoles();
         OrgRoleDto temp = (OrgRoleDto)Utils.showAndSelectOne(set, "\nList of Organization Role\nNumber/id of role: \n");
         if (temp != null) {
@@ -66,7 +79,7 @@ public class RegisterEmployeeUI implements Runnable{
             double phoneNumber = Utils.readDoubleFromConsole("Phone number: ");
             String socCode = Utils.readLineFromConsole("Soc Code: ");
             EmployeeDto eDto = new EmployeeDto(temp.getId(), name, address, (long)phoneNumber, socCode);
-            if (temp.getDesignation().equals(SPECIALIST_DOCTOR)) {
+            if (temp.getId().equals(SPECIALIST_DOCTOR)) {
                 int doctorIndexNumber = Utils.readIntegerFromConsole("Doctor Index Number: ");
                 eDto.setDoctorIndexNumber(doctorIndexNumber);
             }

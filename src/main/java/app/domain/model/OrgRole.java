@@ -2,7 +2,11 @@ package app.domain.model;
 
 import app.domain.dto.EmployeeDto;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Objects;
+
+import static app.domain.shared.Constants.SPECIALIST_DOCTOR;
 
 /**
  * This domain class allows to build an instance of role.
@@ -79,13 +83,17 @@ public class OrgRole {
      *
      * @return Employee
      */
-    public Employee createEmployee (EmployeeDto dto) {
+    public Employee createEmployee (EmployeeDto dto) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
         //Later changing to Reflection technique
-        Employee employee = new Employee(this, dto);
-        if(this.getDesignation().equals("SpecialistDoctor")) {
-            return new SpecialistDoctor(employee, dto.getDoctorIndexNumber());
-        }
-        return employee;
+        Object employee = getEmployeeObject(dto);
+        return (Employee)employee;
+    }
+
+    private Object getEmployeeObject(EmployeeDto dto) throws ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
+        Class<?> c = Class.forName(this.designation);
+        Employee temp = new Employee(this,dto);
+        Constructor<?> constructor = c.getConstructor((Employee.class));
+        return constructor.newInstance(temp);
     }
 
     /**
@@ -126,4 +134,6 @@ public class OrgRole {
                 ", designation='" + designation + '\'' +
                 '}';
     }
+
+
 }

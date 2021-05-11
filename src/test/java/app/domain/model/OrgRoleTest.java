@@ -52,6 +52,7 @@ public class OrgRoleTest {
         or.setId("321");
         assertEquals("321",or.getId());
     }
+    /*
     @Test
     public void createEmployee() {
         OrgRole awd = new OrgRole("1", "SpecialistDoctor");

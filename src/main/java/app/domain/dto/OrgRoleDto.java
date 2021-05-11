@@ -32,6 +32,6 @@ public class OrgRoleDto {
 
     @Override
     public String toString() {
-        return "[ " + designation + " ]";
+        return "[ " + this.id + " ]";
     }
 }

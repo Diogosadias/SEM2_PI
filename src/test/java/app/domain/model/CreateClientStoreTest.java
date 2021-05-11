@@ -20,8 +20,6 @@ public class CreateClientStoreTest {
 
     @Test
     public void testCreateClient() {
-        //arrangee
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("2021-12-12");
 
         //calculations
         Client c2 = tccs.createClient("usxedar1@gmail.com", "John", 1111111111L, 1111111111111111L, 111111111111L, "2001/12/22", "M", 11111111111L);

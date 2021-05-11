@@ -20,7 +20,7 @@ import static org.junit.Assert.fail;
 public class ClientTest {
     //preparations
     Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 11111111111L);
-    Client c2 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M");
+    /*Client c2 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M");
 
         public void testClient(){
             Email a = new Email("user1@gmail.com");
@@ -36,7 +36,7 @@ public class ClientTest {
             assertEquals(e,c2.getBirthDate());
             assertEquals(f,c2.getSex());
         }
-
+*/
 
 /*
     @Test
@@ -241,7 +241,20 @@ public class ClientTest {
     @Test
     public void checkTIN(){}
     @Test
-    public void checkPNumber(){}
+    public void checkPNumber(){
+        try{
+            Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 1111111111L);
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("Phone Number must have 11 chars.",ex.getMessage());
+        }
+
+        try{
+            Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111112L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 11111111111L);
+        }catch (IllegalArgumentException ex){
+            assertEquals("Phone Number must have 11 chars.",ex.getMessage());
+        }
+    }
 
     @Test
     public void testToString() {
