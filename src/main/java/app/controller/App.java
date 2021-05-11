@@ -85,16 +85,17 @@ App {
         this.authFacade.addUserRole(Constants.ROLE_ADMIN,Constants.ROLE_ADMIN);
         this.authFacade.addUserRole(Constants.ROLE_RECEP,Constants.ROLE_RECEP);
         this.authFacade.addUserRole(Constants.ROLE_CLIENT,Constants.ROLE_CLIENT);
-        this.authFacade.addUserRole(Constants.SPECIALIST_DOCTOR,Constants.SPECIALIST_DOCTOR);
-        this.authFacade.addUserRole(Constants.LABORATORY_COORDINATOR,Constants.LABORATORY_COORDINATOR);
-        this.authFacade.addUserRole(Constants.CHEMISTRY_TECHNOLOGIST,Constants.CHEMISTRY_TECHNOLOGIST);
-        this.authFacade.addUserRole(Constants.MEDICAL_LAB_TECHNICIAN,Constants.MEDICAL_LAB_TECHNICIAN);
-        this.company.getEmployeeStore().addOrgRole(new OrgRole("1",SPECIALIST_DOCTOR));
-        this.company.getEmployeeStore().addOrgRole(new OrgRole("2",LABORATORY_COORDINATOR));
-        this.company.getEmployeeStore().addOrgRole(new OrgRole("3",CHEMISTRY_TECHNOLOGIST));
-        this.company.getEmployeeStore().addOrgRole(new OrgRole("4",MEDICAL_LAB_TECHNICIAN));
-        this.company.getEmployeeStore().addOrgRole(new OrgRole("5",ROLE_RECEP));
-        this.company.getEmployeeStore().addOrgRole(new OrgRole("6",ROLE_ADMIN));
+        this.authFacade.addUserRole(Constants.ROLE_SPEC_DOCTOR,Constants.SPECIALIST_DOCTOR);
+        this.authFacade.addUserRole(Constants.ROLE_LAB_COORDINATOR,Constants.LABORATORY_COORDINATOR);
+        this.authFacade.addUserRole(Constants.ROLE_CHEM_TECH,Constants.CHEMISTRY_TECHNOLOGIST);
+        this.authFacade.addUserRole(Constants.ROLE_MED_LAB_TECH,Constants.MEDICAL_LAB_TECHNICIAN);
+
+        this.company.getEmployeeStore().addOrgRole(new OrgRole(SPECIALIST_DOCTOR, MODEL_CLASS_PATH +"" + SPECIALIST_DOCTOR));
+        this.company.getEmployeeStore().addOrgRole(new OrgRole(LABORATORY_COORDINATOR,MODEL_CLASS_PATH +"" + LABORATORY_COORDINATOR));
+        this.company.getEmployeeStore().addOrgRole(new OrgRole(CHEMISTRY_TECHNOLOGIST, MODEL_CLASS_PATH +"" + CHEMISTRY_TECHNOLOGIST));
+        this.company.getEmployeeStore().addOrgRole(new OrgRole(MEDICAL_LAB_TECHNICIAN,MODEL_CLASS_PATH +"" + MEDICAL_LAB_TECHNICIAN));
+        this.company.getEmployeeStore().addOrgRole(new OrgRole(RECEPTIONIST,MODEL_CLASS_PATH +"" + RECEPTIONIST));
+        //this.company.getEmployeeStore().addOrgRole(new OrgRole(ADMINISTRATOR, MODEL_CLASS_PATH +"" + ADMINISTRATOR));
 
         this.authFacade.addUserWithRole("Admin", "admin@lei.pt", "495", Constants.ROLE_ADMIN);
         this.authFacade.addUserWithRole("Receptionist", "recep@lei.pt", "123",Constants.ROLE_RECEP);

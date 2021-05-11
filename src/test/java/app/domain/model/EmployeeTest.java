@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
  *
  * @author Tiago Rocha
  *  @author Márcio Ramos <1201682@isep.ipp.pt>
- */
+
 public class EmployeeTest {
     Employee e1 = new Employee(new OrgRole("12345","safdxfasf"), "1111", "John", "Address", 12345678912L,"12345" );
 
@@ -185,4 +185,6 @@ public class EmployeeTest {
         //assert
         assertEquals(false,e1.toString().equals(" "));
     }
+
 }
+ */

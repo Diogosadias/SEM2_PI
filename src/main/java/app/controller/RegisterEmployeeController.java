@@ -15,6 +15,7 @@ import auth.AuthFacade;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 import static app.domain.shared.Constants.ROLE_ADMIN;
@@ -60,7 +61,7 @@ public class RegisterEmployeeController {
 
 
 
-    public boolean registerEmployee(EmployeeDto eDto) {
+    public boolean registerEmployee(EmployeeDto eDto) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
         this.employee = this.estore.registerEmployee(eDto);
         return !(employee == null);
     }

@@ -2,7 +2,9 @@ package app.domain.model;
 
 import java.util.Objects;
 
-public class SpecialistDoctor extends Employee{
+import static app.domain.shared.Constants.ROLE_SPEC_DOCTOR;
+
+public class SpecialistDoctor extends Employee implements RoleExtra{
 
     /**
      * Specialist Doctor's Index number
@@ -22,18 +24,12 @@ public class SpecialistDoctor extends Employee{
      */
     public SpecialistDoctor(OrgRole role, String employeeId, String name, String address, long phoneNumber, String socCode,int doctorIndexNumber) {
         super (role, employeeId, name, address, phoneNumber, socCode);
-        this.doctorIndexNumber = doctorIndexNumber;
+        this.setDoctorIndexNumber(doctorIndexNumber);
     }
 
-    /**
-     * Specialist Doctor's Constructor for an Employee.
-     *
-     * @param employee - Employee instance
-     * @param doctorIndexNumber - Index number
-     */
-    public SpecialistDoctor(Employee employee, int doctorIndexNumber) {
+    public SpecialistDoctor(Employee employee) {
         super (employee.getRole(), employee.getEmployeeId(), employee.getName(), employee.getAddress(), employee.getPhoneNumber(), employee.getSocCode());
-        this.doctorIndexNumber = doctorIndexNumber;
+        this.setDoctorIndexNumber(doctorIndexNumber);
     }
 
     /**
@@ -42,7 +38,7 @@ public class SpecialistDoctor extends Employee{
      * @return doctorIndexNumber
      */
     public int getDoctorIndexNumber() {
-        return doctorIndexNumber;
+        return this.doctorIndexNumber;
     }
 
     /**
@@ -77,5 +73,10 @@ public class SpecialistDoctor extends Employee{
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), doctorIndexNumber);
+    }
+
+    @Override
+    public String RegisteredUserRole() {
+        return ROLE_SPEC_DOCTOR;
     }
 }

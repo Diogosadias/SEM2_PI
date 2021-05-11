@@ -4,7 +4,7 @@ import app.domain.dto.EmployeeDto;
 
 import java.util.Objects;
 
-import static app.domain.shared.Constants.EMAILSUFIX;
+import static app.domain.shared.Constants.EMAIL_SUFIX;
 
 
 /**
@@ -166,7 +166,7 @@ public class Employee {
      */
     public String generateEmail(String id) {
         if(id!=null) {
-            return id + "" + EMAILSUFIX;
+            return id + "" + EMAIL_SUFIX;
         }
         return null;
     }
@@ -333,7 +333,7 @@ public class Employee {
     @Override
     public String toString() {
         return
-                "\n" + role.getDesignation() +
+                "\n" + role.getId() +
                         " - employeeId: " + employeeId +
                         ", email: " + email +
                         ", name: " + name +

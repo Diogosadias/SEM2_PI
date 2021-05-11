@@ -4,6 +4,7 @@ import app.domain.dto.EmployeeDto;
 import app.domain.model.Employee;
 import app.domain.model.OrgRole;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -76,7 +77,7 @@ public class EmployeeStore {
      *
      * @return Employee
      */
-    public Employee registerEmployee(EmployeeDto eDto) {
+    public Employee registerEmployee(EmployeeDto eDto) throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
         String roleId = eDto.getRoleId();
         OrgRole role = this.getRoleById(roleId);
         eDto.setId(generateEmployeeId(eDto.getName()));
