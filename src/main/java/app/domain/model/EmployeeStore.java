@@ -123,6 +123,10 @@ public class EmployeeStore {
         return numEmployees;
     }
 
+    public void  setNumEmployees() {
+        this.numEmployees++;
+    }
+
     /**
      * Return the Role's by id.
      *
@@ -162,8 +166,11 @@ public class EmployeeStore {
      * @return boolean
      */
     public boolean saveEmployee(Employee employee){
-        this.numEmployees++;
         return this.le.add(employee);
+    }
+
+    public void removeEmployee (Employee e) {
+        le.remove(e);
     }
 
     /**

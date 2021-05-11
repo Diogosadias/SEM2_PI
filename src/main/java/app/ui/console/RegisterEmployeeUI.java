@@ -45,9 +45,11 @@ public class RegisterEmployeeUI implements Runnable{
                 presentsData();
 
                 if (Utils.confirm("Do you confirm the data? (Y/N)")) {
+                        m_controller.confirmEmployee();
                         System.out.println("Employee registered successfully!");
                 } else
                 {
+                    m_controller.cancelEmployee();
                     System.out.println("Operation cancelled.");
                 }
             }
@@ -97,6 +99,5 @@ public class RegisterEmployeeUI implements Runnable{
     {
         System.out.println("\nEmployee:\n" + m_controller.getEmployeeToString());
     }
-        
-    
+
 }

@@ -106,4 +106,12 @@ public class RegisterEmployeeController {
         }
     }
 
+    public void confirmEmployee () {
+        estore.setNumEmployees();
+    }
+
+    public void cancelEmployee() {
+        estore.removeEmployee(employee);
+    }
+
 }
