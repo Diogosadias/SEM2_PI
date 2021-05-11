@@ -41,7 +41,7 @@ measurement unit (e.g. "mg").
 
 *Insert here a SSD depicting the envisioned Actor-System interactions and throughout which data is inputted and outputted to fulfill the requirement. All interactions must be numbered.*
 
-![USXX-SSD](USXX-SSD.svg)
+![US12-SSD](US12-SSD.svg)
 
 
 ### 1.7 Other Relevant Remarks
@@ -54,7 +54,7 @@ measurement unit (e.g. "mg").
 ### 2.1. Relevant Domain Model Excerpt 
 *In this section, it is suggested to present an excerpt of the domain model that is seen as relevant to fulfill this requirement.* 
 
-![USXX-MD](USXX-MD.svg)
+![US12-MD](US12-MD.svg)
 
 ### 2.2. Other Remarks
 
@@ -93,13 +93,16 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 *In this section, it is suggested to present an UML dynamic view stating the sequence of domain related software objects' interactions that allows to fulfill the requirement.* 
 
-![USXX-SD](USXX-SD.svg)
+![US12-SD](US12-SD.svg)
+
+ref:
+![US12-SD](US12-SDref.svg)
 
 ## 3.3. Class Diagram (CD)
 
 *In this section, it is suggested to present an UML static view representing the main domain related software classes that are involved in fulfilling the requirement as well as and their relations, attributes and methods.*
 
-![USXX-CD](USXX-CD.svg)
+![US12-CD](US12-CD.svg)
 
 # 4. Tests 
 *In this section, it is suggested to systematize how the tests were designed to allow a correct measurement of requirements fulfilling.* 
@@ -120,6 +123,173 @@ Other software classes (i.e. Pure Fabrication) identified:
 *In this section, it is suggested to provide, if necessary, some evidence that the construction/implementation is in accordance with the previously carried out design. Furthermore, it is recommeded to mention/describe the existence of other relevant (e.g. configuration) files and highlight relevant commits.*
 
 *It is also recommended to organize this content by subsections.* 
+
+
+**Test Class**
+
+    public class Test{
+
+    private TestType tt;    
+    private TestParameter testP;
+
+    private String code;
+    private long NhsCode;
+    private String createdAt;
+    
+
+    public Test(String code, long NhsCode, String createdAt){
+        
+    this.code = code;
+    this.NhsCode = NhsCode;
+    this.createdAt = createdAt;
+    private long parameterCode;
+    private String result;
+    private String metric;
+    private TestParameter tp;
+    
+    }
+
+    
+    public boolean addTestResult(long parameterCode, String result, String metric){
+    
+    Parameter referenceValue;
+    long param = getParameter();
+    ExternalModule em = tt.getExternalModule();
+    Parameter referenceValue =  em.getReferenceValue(param);
+
+    testP.addResult(result,metric,referenceValue);
+    
+    
+    
+    }
+
+    public long getParameterFor(){
+    return parameterCode;
+    }
+    
+    public void addResult(String result, String metrinc, Parameter referenceValue){
+    this.tp = new TestParameter(result,metric,referenceValue);
+    }
+
+    public void setParameterFor(long parameterFor){
+    this.parameterCode = parameterFor;
+    }
+
+    }
+
+
+**TestParameter:**
+
+    public class TestParameter(){
+
+    private String result;
+    private String metric;
+    private Parameter refValue;
+
+    public TestParameter(String result, String metric, Parameter refValue){
+    this.result = result;
+    this.metric = metric;
+    this.refValue = refValue;
+    }
+
+    
+    
+    }
+
+**RecordTestResultController Class:**
+
+    public class RecordTestResultController{
+    
+    private Test test;
+
+    
+    public boolean addTestResult(long parameterCode, String result, String metric){
+    test.addTestResult(parameterCode,result,metric);
+    }
+
+    }
+
+
+
+**TestType Class:**
+
+    public class TestType extends SpecifyNewTestStore {
+
+    private String code;
+    private String description;
+    private String collectingMethod;
+    private ArrayList<ParameterCategory> parameterList;
+
+    public TestType(String code, String description,String collectingMethod){
+        this.code = code;
+        this.description = description;
+        this.collectingMethod = collectingMethod;
+        private ExternalModule;
+        parameterList = new ArrayList<ParameterCategory>();
+    }
+
+    public void setExternalModule(ExternalModule externalM){
+    this.externalM = externalM
+    }
+    
+    public ExternalModule getExternalMedule()    {
+    return externalM;
+    }
+
+    private void checkMethod(String collectingMethod){
+        if(collectingMethod.length() == 0)
+            throw new IllegalArgumentException("Test type must at least have one collecting method");
+    }
+
+    private void checkCode(String code){
+        if(code.length() == 0 || code.length() != 5 )
+            throw new IllegalArgumentException("Code doesn't exist or doesn't have 5 alphanumeric numbers");
+    }
+
+    private void checkDescription(String description){
+        if(description.length() > 15 || description.length() == 0)
+            throw new IllegalArgumentException("Description doesn't exist or surpasses the 15 characters rule!");
+    }
+
+    private void checkCollectingMethod(String collectingMethod){
+        if(collectingMethod.length() > 20 || collectingMethod.length() == 0)
+            throw new IllegalArgumentException("Collecting Method doesn't exist or surpasses the 20 characters rule!");
+    }
+    public void setCateory(ParameterCategory parameter){
+        parameterList.add(parameter);
+    }
+    }
+
+
+**Interface ExternalModule**
+    
+    
+    
+    interface ExternalModule{
+
+    public ReferenceValue getReferenceValue(Parameter param){
+    return param;
+    }
+
+    }
+
+**ExternalModuleAdapter1:**
+
+    public class ExternalModule1 implements ExternalModule{
+
+     public ReferenceValue getReferenceValue(Parameter param){
+    return param;
+    }
+    }
+
+**ExternalModuleAdapter2:**
+
+        public class ExternalModule2 implements ExternalModule{
+
+     public ReferenceValue getReferenceValue(Parameter param){
+    return param;
+    }
+    }
 
 # 6. Integration and Demo 
 
