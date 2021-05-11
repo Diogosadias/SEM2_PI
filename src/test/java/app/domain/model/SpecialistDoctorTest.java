@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class SpecialistDoctorTest extends TestCase {
 
-/*    OrgRole testRole = new OrgRole("testOrgRole_1", "TEST SUBJECT");
+    OrgRole testRole = new OrgRole("testOrgRole_1", "TEST SUBJECT");
     SpecialistDoctor testDoc = new SpecialistDoctor(testRole, "TT000001", "name", "address",
             12345678900L, "1234567890", 1234567890);
 
@@ -45,5 +45,4 @@ public class SpecialistDoctorTest extends TestCase {
         Employee test = new Employee(new OrgRole("12345","safdxfasf"), "1111", "John", "Address", 12345678912L,"12345" );
         assertFalse(testDoc.equals(test));
     }
-    */
 }
