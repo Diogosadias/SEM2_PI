@@ -69,18 +69,19 @@ Parameter of the test needs to be specified in US10.
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1: asks to register a test to be performed to a registered client   		 |	...instantiating a new *?						 |   *          |  HC + LC                            |
-| Step 2: requests Client citizen card number to associate the test 		 |	...listing all *?					 |    *         |        HC + LC: *.                   |
-| Step 3: types the citizen card number  		 |	...saving the input data?						 |  *           |  DTO: *.                            |
-| Step 4: shows Client Lab Order and lists all the TestType and asks to select one 		 |	n/a						 |             |                              |
-| Step 5: selects the TestType  		 |	...saving the * selected?						 |  *           |  DTO: *.                            |
-| Step 6: shows list of Parameters according to the TestType and asks to choose at least one 		 |	n/a						 |             |                              |
-| Step 7: selects the Parameter(s)  		 |	...saving the * selected?						 |  *           |  DTO: *.                            |
+| Step 1: asks to register a Test to be performed to a registered Client   		 |	...instantiating a new Test?						 |   TestStore          |  HC + LC                            |
+| Step 2: requests Client citizen card number to associate the test 		 |	n/a					 |             |                           |
+| Step 3: types the citizen card number  		 |	...saving the input data?						 |  TestStore           |  HC + LC: Test is requested by Client.                            |
+| Step 4: shows Client Lab Order and lists all the TestType and asks to select one 		 |	...knows Client LabOrder?						 |    TestMapper         |    DTO: ClientDto knows Client's Lab Order.                          |
+|   		 |	...listing all the TesType?					 |    TestMapper         |    DTO: TestTypeDto has the TestType list.                          |
+| Step 5: selects the TestType  		 |	...saving the TestType selected?						 |  TestStore           |  HC + LC: Test is of TestType.                            |
+| Step 6: shows list of Parameters according to the TestType and asks to choose at least one 		 |	...listing the Parameters?							 |   TestMapper          |   DTO: TestTypeDto has the list of the TestType's Parameters.                           |
+| Step 7: selects the Parameter(s)  		 |	...saving the list of Parameters selected?						 |  TestStore          |  HC + LC: Test requests analysis of TestType.                            |
 | Step 8: requests additional data ( nhsCode, description) 		 |	n/a						 |             |                              |
-| Step 9: types requested data  		 |	...saving the input data?						 |  *           |  DTO: *.                           |
-| Step 10: validates and shows all the data, asking for confirmation  		 |	...validating the data locally(eg.: mandatory vs non-mandatory data)?						 |    *         |    IE: knows its own data.                          |
-|   		 |	...validating the data globally(eg.: duplicated)?					 |    *         |    IE: *.                          |
-| Step 11: confirms all the data  		 |	...saving the created *						 |   *          |    IE: *                          |
+| Step 9: types requested data  		 |	...saving the input data?						 |  TestStore           |  IE: Object created in step 1.                          |
+| Step 10: validates and shows all the data, asking for confirmation  		 |	...validating the data locally(eg.: mandatory vs non-mandatory data)?						 |    Test         |    IE: knows its own data.                          |
+|   		 |	...validating the data globally(eg.: duplicated)?					 |    TestStore         |    HC+LC: knows all the Test objects.                         |
+| Step 11: confirms all the data  		 |	...saving the created Test						 |   TestStore          |    IE: adopts/records all the Test objects.                          |
 | Step 12: informs Test registered to Client sucessfully  		 |	...informing operation success?						 |   UI          |    IE: responsible for user interaction                          |              
 
 ### Systematization ##
@@ -91,10 +92,12 @@ Client, LabOrder, TestType, Parameter, Test
 
 Other software classes (i.e. Pure Fabrication) identified: 
 
-registerTestUI (applying the "pure fabrication" pattern)
-registerTestController (applying the "controller" pattern)
-TestStore (HC+LC)
-TestMapper ("DTO" pattern)
+registerTestUI (applying the "pure fabrication" pattern),
+registerTestController (applying the "controller" pattern),
+TestStore (HC+LC),
+ClientStore (HC+LC),
+TestMapper ("DTO" pattern),
+ClientDTO ("DTO" pattern),
 TestTypeDTO ("DTO" pattern) 
 
 ## 3.2. Sequence Diagram (SD)
