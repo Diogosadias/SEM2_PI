@@ -19,3 +19,5 @@ docs/SprintB/DUC.vpp.bak_001d
 /nbproject/
 docs/SprintB/DUC.vpp.bak_000f
 docs/SprintB/MD.vpp.bak_001d
+*.bak_000f
+*.bak_001d
