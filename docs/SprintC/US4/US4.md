@@ -31,7 +31,9 @@ Parameter of the test needs to be specified in US10.
 
 ### 1.5 Input and Output Data
 
-**Selected Data:** Client, Test, Parameter
+**Input Data:** CC number
+
+**Selected Data:** TestType, Parameter(s)
 
 **Output Data:** (in)sucess of the operation 
 
@@ -78,7 +80,7 @@ Parameter of the test needs to be specified in US10.
 | Step 5: selects the TestType  												 				|	...saving the TestType selected?						 				|  TestStore    	|  	HC + LC: Test is of TestType.                            |
 | Step 6: shows list of Parameters according to the TestType and asks to choose at least one	|	...listing the Parameters?							 					|  TestMapper  		|   DTO: TestTypeDto has the list of the TestType's Parameters.                           |
 | Step 7: selects the Parameter(s)  															|	...saving the list of Parameters selected?								|  TestStore    	|  	HC + LC: Test requests analysis of TestType.                            |
-| Step 8: requests additional data ( nhsCode, description) 										|	n/a						 												|               	|                              											|
+| Step 8: requests additional data ( nhsCode ) 										|	n/a						 												|               	|                              											|
 | Step 9: types requested data  		 														|	...saving the input data?						 						|  TestStore    	|  	IE: Object created in step 1.                       				   |
 | Step 10: validates and shows all the data, asking for confirmation  		 					|	...validating the data locally(eg.: mandatory vs non-mandatory data)?	|  Test		        |   IE: knows its own data.                         					 |
 |   		 																					|	...validating the data globally(eg.: duplicated)?					 	|  TestStore	    |   HC+LC: knows all the Test objects.                         |
