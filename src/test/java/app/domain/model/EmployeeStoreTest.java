@@ -18,8 +18,6 @@ import static org.junit.Assert.*;
  */
 public class EmployeeStoreTest  {
 
-}
-    /*
     Employee e1 = new Employee(new OrgRole("12345","safdxfasf"), "1111", "John", "Address", 12345678912L,"12345" );
     EmployeeDto dto = new EmployeeDto("teste", "teste", "teste", 12345678912L, "12335");
     EmployeeStore es = new EmployeeStore();  
@@ -111,4 +109,3 @@ public class EmployeeStoreTest  {
 //        assertEquals(expResult, result);
 //    }
 }
-*/
