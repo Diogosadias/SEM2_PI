@@ -66,36 +66,44 @@ Output data:
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1  		 |							 |             |                              |
-| Step 2  		 |							 |             |                              |
-| Step 3  		 |							 |             |                              |
-| Step 4  		 |							 |             |                              |
-| Step 5  		 |							 |             |                              |
-| Step 6  		 |							 |             |                              |              
-
+| Step 1: asks to register a new sample into a test  		 |		...asking the user the sample attributes?					 |     UI        |     UI: User Interface interacts with the user about an object information                         |
+|   |  ...creating a new Sample |  TestStore | HC LC   |
+| Step 2: shows list of Test  		 |	...showing the test  list?						 |    TestStore + TestMapper         |          IE: Knows the list of Test  DTO: Has the object list with its attributes                    |
+| Step 3: selects the Test 		 |	n/a						 |             |                              |
+| Step 4: requests sample data  		 |	n/a						 |             |                              |
+| Step 5: inputs the data  		 |		...saving input data?					 |     TestStore        |         IE: knows Sample Object data                     |
+| | ...generating sample's barcode? | API | Creator: generates an attribute for an Object | 
+| Step 6: validates and shows the data, asking for confirmation  		 |		...validating the data?					 |    Sample         |        IE: knows it's own data                      |              
+| Step 7: confirms all the data | ...saving the data? | TestStore | IE: records all the object data|
+|Step 8: informs the sample was created successfully | ...informing the operation success to the user? | UI | UI: User Interface interacts with the user informing him about the operation|
 ### Systematization ##
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
- * Class1
- * Class2
- * Class3
+ * API
+ * Test
+* TestStore
+ 
 
 Other software classes (i.e. Pure Fabrication) identified: 
- * xxxxUI  
- * xxxxController
+ * RecordSampleUI  
+ * RecordSamplesController
+ * TestMapper
 
 ## 3.2. Sequence Diagram (SD)
 
 *In this section, it is suggested to present an UML dynamic view stating the sequence of domain related software objects' interactions that allows to fulfill the requirement.* 
 
-![US05-SD](US05-SD.svg)
+![US5-SD](US05SD.svg)
 
+
+ref:
+![US5-SD](US05-SD2.svg)
 ## 3.3. Class Diagram (CD)
 
 *In this section, it is suggested to present an UML static view representing the main domain related software classes that are involved in fulfilling the requirement as well as and their relations, attributes and methods.*
 
-![USXX-CD](USXX-CD.svg)
+![US05-CD](US05-CD.svg)
 
 # 4. Tests 
 *In this section, it is suggested to systematize how the tests were designed to allow a correct measurement of requirements fulfilling.* 
