@@ -107,9 +107,20 @@ TestTypeDTO ("DTO" pattern)
 
 *In this section, it is suggested to present an UML dynamic view stating the sequence of domain related software objects' interactions that allows to fulfill the requirement.* 
 
-Main Diagram:
+*Main Diagram:*
 
 ![US4-SD](US4-SD.svg)
+
+
+*LabOrder_toDto Diagram:*
+
+![US4-SD2](US4-SD2.svg)
+
+
+*TypeTestList_toDto Diagram:*
+
+![US4-SD2](US4-SD2.svg)
+
 
 ## 3.3. Class Diagram (CD)
 
