@@ -119,7 +119,7 @@ TestTypeDTO ("DTO" pattern)
 
 *TypeTestList_toDto Diagram:*
 
-![US4-SD2](US4-SD2.svg)
+![US4-SD3](US4-SD3.svg)
 
 
 ## 3.3. Class Diagram (CD)
