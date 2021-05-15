@@ -84,16 +84,14 @@ public class OrgRole {
      * @return Employee
      */
     public Employee createEmployee (EmployeeDto dto) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
-        //Later changing to Reflection technique
-        Object employee = getEmployeeObject(dto);
-        return (Employee)employee;
+        return initiateEmployeeClass(dto);
     }
 
-    private Object getEmployeeObject(EmployeeDto dto) throws ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
+    private Employee initiateEmployeeClass(EmployeeDto dto) throws ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
         Class<?> c = Class.forName(this.designation);
         Employee temp = new Employee(this,dto);
         Constructor<?> constructor = c.getConstructor((Employee.class));
-        return constructor.newInstance(temp);
+        return (Employee)constructor.newInstance(temp);
     }
 
     /**

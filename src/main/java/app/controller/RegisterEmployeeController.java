@@ -33,7 +33,6 @@ public class RegisterEmployeeController {
 
     private Company company;
     private EmployeeStore estore;
-    private Employee employee;
     private AuthFacade auth;
 
     /**
@@ -54,7 +53,7 @@ public class RegisterEmployeeController {
      * @return
      */
     public List<OrgRoleDto> getOrgRoles(){
-        List<OrgRole> roles = this.estore.getOrgRoles();
+        List<OrgRole> roles = this.estore.getRoleStore().getOrgRoles();
         RolesMapper mapper = new RolesMapper();
         return mapper.toDto(roles);
     }
@@ -62,56 +61,33 @@ public class RegisterEmployeeController {
 
 
     public boolean registerEmployee(EmployeeDto eDto) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
-        this.employee = this.estore.registerEmployee(eDto);
-        return !(employee == null);
-    }
-    
-    public boolean saveEmployee() {
-        //validates and saves employee
-        if (!this.estore.validateEmployee(this.employee)) {return false;}
-        this.estore.saveEmployee(this.employee);
-        String testpass = GeneratePassword.makeRandomPass();
-        sendPassEmail(testpass);
-        return this.auth.addUserWithRole(employee.getName(), employee.getEmail(), employee.getEmployeeId(),ROLE_EMPLOYEE);
+        return (this.estore.registerEmployee(eDto));
     }
 
-    public Employee getEmployee() {
-        return this.employee;
+    public void setDoctorIndexNumber(int doctorIndexNumber) {
+        estore.setDoctorIndexNumber(doctorIndexNumber);
     }
-    
-    
-    public String getEmployeeToString()
-    {
-        return ("[name: " + this.employee.getName() + "]\n" + "[adress: " + this.employee.getAddress()+ "]\n" +
-                "[email: " + this.employee.getEmail()+ "]\n" + "[id: " + this.employee.getEmployeeId()+ "]\n" +
-                "[phone number: " + this.employee.getPhoneNumber()+ "]\n" + "[soc code: " + this.employee.getSocCode()+ "]\n");
+
+    public boolean saveEmployee() {
+        return this.estore.saveEmployee();
     }
 
     public Company getCompany() {
         return this.company;
     }
 
-    private void sendPassEmail (String pass){
-        try{
-            FileWriter myWriter = new FileWriter(employee.getEmployeeId()+"Password.txt");
-            myWriter.write("Hello "+employee.getName()+",\nhere is your new password:\n\n");
-            myWriter.append("Email: " + employee.getEmail() + "\n");
-            myWriter.append("Password: " + pass + "\n");
-            myWriter.append("\nBest regards\n");
-            myWriter.append("ManyLabs team.");
-            System.out.println("Sending your new password to your email...");
-            myWriter.close();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-    }
+
 
     public void confirmEmployee () {
         estore.setNumEmployees();
     }
 
     public void cancelEmployee() {
-        estore.removeEmployee(employee);
+        estore.removeEmployee();
+    }
+
+    public EmployeeStore getEmployeeStore () {
+        return this.estore;
     }
 
 }

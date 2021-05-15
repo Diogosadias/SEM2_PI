@@ -10,14 +10,14 @@ package app.domain.shared;
 public class Constants {
 
     //User roles
-    public static final String ROLE_ADMIN = "ADMINISTRATOR";
-    public static final String ROLE_RECEP = "RECEPTIONIST";
+    public static final String ROLE_ADMIN = "Administrator";
+    public static final String ROLE_RECEP = "Receptionist";
     public static final String ROLE_CLIENT = "CLIENT";
     public static final String ROLE_EMPLOYEE = "EMPLOYEE";
-    public static final String ROLE_SPEC_DOCTOR = "SPECIALIST DOCTOR";
-    public static final String ROLE_LAB_COORDINATOR = "LAB COORDINATOR";
-    public static final String ROLE_CHEM_TECH = "CHEMISTRY TECHNOLOGIST";
-    public static final String ROLE_MED_LAB_TECH = "MEDICAL LAB TECHNICIAN";
+    public static final String ROLE_SPEC_DOCTOR = "SpecialistDoctor";
+    public static final String ROLE_LAB_COORDINATOR = "LaboratoryCoordinator";
+    public static final String ROLE_CHEM_TECH = "ChemistryTechnologist";
+    public static final String ROLE_MED_LAB_TECH = "MedicalLabTechnician";
 
     public static final String PARAMS_FILENAME = "config.properties";
     public static final String PARAMS_COMPANY_DESIGNATION = "Company.Designation";

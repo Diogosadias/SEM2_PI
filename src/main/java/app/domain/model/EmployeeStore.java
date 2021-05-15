@@ -3,7 +3,12 @@ package app.domain.model;
 import app.domain.dto.EmployeeDto;
 import app.domain.model.Employee;
 import app.domain.model.OrgRole;
+import app.domain.shared.Constants;
+import app.domain.shared.GeneratePassword;
+import auth.AuthFacade;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,10 +23,8 @@ import static app.domain.shared.Constants.*;
  */
 public class EmployeeStore {
 
-    /**
-     * Initialize a list of roles.
-     */
-    private  List<OrgRole> lor;
+
+    private Employee employee;
 
     /**
      * Initialize a list of employers.
@@ -38,36 +41,17 @@ public class EmployeeStore {
      */
     private final int MAX_NUM_EMPLOYEES = 99999;
 
+    private OrgRoleStore rStore;
+
+    private AuthFacade auth;
+
     /**
      * Create Store instance with empties arrays.
      */
-    public EmployeeStore () {
-        this.lor = new ArrayList<>();
+    public EmployeeStore (OrgRoleStore rStore, AuthFacade auth) {
+        this.rStore = rStore;
+        this.auth = auth;
         this.le = new ArrayList<>();
-    }
-
-    /**
-     * Add a role in the organisation.
-     *
-     * @param role EmployeeStore's role
-     */
-    public void addOrgRole (OrgRole role) {
-        this.lor.add(role);
-    }
-
-    /**
-     * Return a list of roles.
-     *
-     * @return Role's list
-     */
-    public List<OrgRole> getOrgRoles () {
-        if(lor!=null) {
-            if (lor.isEmpty()) {
-                throw new IllegalArgumentException("Organization Roles list is empty.");
-            }
-            return lor;
-        }
-        return null;
     }
 
     /**
@@ -77,11 +61,30 @@ public class EmployeeStore {
      *
      * @return Employee
      */
-    public Employee registerEmployee(EmployeeDto eDto) throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
+    public boolean registerEmployee(EmployeeDto eDto) throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
         String roleId = eDto.getRoleId();
-        OrgRole role = this.getRoleById(roleId);
+        OrgRole role = this.rStore.getRoleById(roleId);
         eDto.setId(generateEmployeeId(eDto.getName()));
-        return role.createEmployee(eDto);
+        this.employee = role.createEmployee(eDto);
+        return (employee != null);
+    }
+
+    public boolean saveEmployee() {
+        //validates and saves employee
+        if (!this.validateEmployee(this.employee)) {
+            return false;
+        }
+        String email = employee.getEmail();
+        if (auth.existsUser(email)) {
+            return false;
+        }
+        String name = employee.getName();
+        String role = employee.getRole().getId();
+        this.addEmployee(this.employee);
+        String pwd = GeneratePassword.makeRandomPass();
+        boolean b = this.auth.addUserWithRole(name, email, pwd, role);
+        sendEmail(email,pwd);
+        return b;
     }
 
     /**
@@ -128,18 +131,6 @@ public class EmployeeStore {
     }
 
     /**
-     * Return the Role's by id.
-     *
-     * @return role's id
-     */
-    public OrgRole getRoleById(String id) {
-        for (OrgRole role : this.lor) {
-            if(role.getId().equals(id)) return role;
-        }
-        throw new IllegalArgumentException("There is no Organization Role with that Id.");
-    }
-
-    /**
      * Validates Employee attributes for business model rules.
      *
      * @param employee - Employee
@@ -158,19 +149,16 @@ public class EmployeeStore {
         return true;
     }
 
-    /**
-     * Saves the new Employee.
-     *
-     * @param employee - Employee
-     *
-     * @return boolean
-     */
-    public boolean saveEmployee(Employee employee){
+    public void setDoctorIndexNumber(int doctorIndexNumber) {
+        ((SpecialistDoctor) employee).setDoctorIndexNumber(doctorIndexNumber);
+    }
+
+    public boolean addEmployee(Employee employee){
         return this.le.add(employee);
     }
 
-    public void removeEmployee (Employee e) {
-        le.remove(e);
+    public void removeEmployee () {
+        le.remove(this.employee);
     }
 
     /**
@@ -183,12 +171,35 @@ public class EmployeeStore {
         return this.le;
     }
 
-    /**
-     * Change the Role's list.
-     * .
-     * @param lor Role's list
-     */
-    public void setLor(List<OrgRole> lor){
-        this.lor=lor;
+    public OrgRoleStore getRoleStore () {
+        return this.rStore;
     }
+
+    public String getEmployeeToString()
+    {
+        String s = "[Name: " + this.employee.getName() + "]\n" + "[Adress: " + this.employee.getAddress()+ "]\n" +
+                "[Email: " + this.employee.getEmail()+ "]\n" + "[id: " + this.employee.getEmployeeId()+ "]\n" +
+                "[Phone Number: " + this.employee.getPhoneNumber()+ "]\n" + "[Soc code: " + this.employee.getSocCode() + "]\n" ;
+        if(this.employee.getRole().getId().equals(SPECIALIST_DOCTOR)) {
+            SpecialistDoctor temp = (SpecialistDoctor)employee;
+            s = s + "[Doctor Index Number: " + temp.getDoctorIndexNumber() + "]\n" + "";
+        }
+        return s;
+    }
+
+    private void sendEmail (String email, String pass){
+        try{
+            FileWriter myWriter = new FileWriter(employee.getEmployeeId()+"Password.txt");
+            myWriter.write("Hello,\nhere is your new password:\n\n");
+            myWriter.append("Email: " + email + "\n");
+            myWriter.append("Password: " + pass + "\n");
+            myWriter.append("\nBest regards\n");
+            myWriter.append("ManyLabs team.");
+            System.out.println("Sending your new password to your email...");
+            myWriter.close();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
 }

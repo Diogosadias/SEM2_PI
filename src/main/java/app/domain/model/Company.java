@@ -46,6 +46,8 @@ public class Company {
      */
     private SpecifyNewTestStore specifyNewTestStore;
 
+    private OrgRoleStore orgRoleStore;
+
     /**
      * The store of employee.
      */
@@ -74,7 +76,8 @@ public class Company {
         this.calStore = new CALStore();
         this.createClientStore = new CreateClientStore(this.authFacade);
         this.parameterCategoryStore = new ParameterCategoryStore();
-        this.employeeStore = new EmployeeStore();
+        this.orgRoleStore = new OrgRoleStore();
+        this.employeeStore = new EmployeeStore(this.orgRoleStore,this.authFacade);
         this.parameterStore = new ParameterStore();
     }
 
@@ -220,5 +223,9 @@ public class Company {
      */
     public void setParameterStore(ParameterStore parameterStore) {
         this.parameterStore = parameterStore;
+    }
+
+    public OrgRoleStore getOrgRoleStore() {
+        return this.orgRoleStore;
     }
 }

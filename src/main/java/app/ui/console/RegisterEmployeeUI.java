@@ -73,19 +73,19 @@ public class RegisterEmployeeUI implements Runnable{
     
     private boolean registerData() throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
         List<OrgRoleDto> set = m_controller.getOrgRoles();
-        OrgRoleDto temp = (OrgRoleDto)Utils.showAndSelectOne(set, "\nList of Organization Role\nNumber/id of role: \n");
-        if (temp != null) {
+        OrgRoleDto role = (OrgRoleDto)Utils.showAndSelectOne(set, "\nList of Organization Role\nNumber/id of role: \n");
+        if (role != null) {
             // Request data: name, address, phoneNumber,socCode, doctorIndexNumber
             String name = Utils.readLineFromConsole("Name: ");
             String address = Utils.readLineFromConsole("Address: ");
             double phoneNumber = Utils.readDoubleFromConsole("Phone number: ");
             String socCode = Utils.readLineFromConsole("Soc Code: ");
-            EmployeeDto eDto = new EmployeeDto(temp.getId(), name, address, (long)phoneNumber, socCode);
-            if (temp.getId().equals(SPECIALIST_DOCTOR)) {
-                int doctorIndexNumber = Utils.readIntegerFromConsole("Doctor Index Number: ");
-                eDto.setDoctorIndexNumber(doctorIndexNumber);
-            }
+            EmployeeDto eDto = new EmployeeDto(role.getId(), name, address, (long)phoneNumber, socCode);
             if (this.m_controller.registerEmployee(eDto)) {
+                if (role.getId().equals(SPECIALIST_DOCTOR)) {
+                    int doctorIndexNumber = Utils.readIntegerFromConsole("Doctor Index Number: ");
+                    m_controller.setDoctorIndexNumber(doctorIndexNumber);
+                }
                 return this.m_controller.saveEmployee();
             } else {
                 System.out.println("Invalid Data was introduced! Returning to the menu.");
@@ -97,7 +97,7 @@ public class RegisterEmployeeUI implements Runnable{
     
     private void presentsData() 
     {
-        System.out.println("\nEmployee:\n" + m_controller.getEmployeeToString());
+        System.out.println("\nEmployee:\n" + m_controller.getEmployeeStore().getEmployeeToString());
     }
 
 }
