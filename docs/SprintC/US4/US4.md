@@ -11,6 +11,12 @@
 
 ### 1.2. Customer Specifications and Clarifications 
 
+**From the Specification Document:**
+
+"...receptionist asks the client’s citizen card number, the lab order (which contains the type of test and parameters to be measured), and registers in the application the test to be performed to that client."
+
+"Many Labs performs two types of tests. Each test is characterized by an internal code, an NHS code, a description that identifies the sample collection method, the date and time when the samples were collected, the date and time of the chemical analysis, the date and time of the diagnosis made by the specialist doctor, the date and time when the laboratory coordinator validated the test, and the test type (whether it is blood test or Covid test)." 
+
 **From the client clarifications:**
 
 
@@ -101,7 +107,8 @@ TestStore (HC+LC),
 ClientStore (HC+LC),
 TestMapper ("DTO" pattern),
 ClientDTO ("DTO" pattern),
-TestTypeDTO ("DTO" pattern) 
+TestTypeDTO ("DTO" pattern), 
+LabOrderDTO ("DTO" pattern) 
 
 ## 3.2. Sequence Diagram (SD)
 
