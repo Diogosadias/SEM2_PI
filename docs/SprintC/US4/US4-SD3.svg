@@ -57,13 +57,13 @@
       ><path d="M0 0 L279 0 L279 104 L0 104 L0 0 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath18"
-      ><path d="M194 30 L194 45 L80 45 L80 30 ZM0 0 L0 104 L279 104 L279 58 L253 58 L253 43 L279 43 L279 0 L81 0 L81 2 L11 2 L11 0 Z"
+      ><path d="M200 30 L200 45 L73 45 L73 30 ZM0 0 L0 104 L279 104 L279 58 L253 58 L253 43 L279 43 L279 0 L81 0 L81 2 L11 2 L11 0 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath19"
       ><path d="M0 0 L229 0 L229 104 L0 104 L0 0 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath20"
-      ><path d="M150 30 L150 45 L70 45 L70 30 ZM0 0 L0 17 L11 17 L11 32 L0 32 L0 104 L83 104 L83 95 L229 95 L229 63 L175 63 L175 33 L229 33 L229 0 Z"
+      ><path d="M150 30 L150 45 L70 45 L70 30 ZM0 0 L0 17 L17 17 L17 32 L0 32 L0 104 L83 104 L83 95 L229 95 L229 63 L175 63 L175 33 L229 33 L229 0 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath21"
       ><path d="M0 0 L426 0 L426 104 L0 104 L0 0 Z"
@@ -108,7 +108,7 @@
       ><path d="M-80 -15 L160 -15 L160 30 L-80 30 L-80 -15 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath35"
-      ><path d="M-114 -15 L228 -15 L228 30 L-114 30 L-114 -15 Z"
+      ><path d="M-127 -15 L254 -15 L254 30 L-127 30 L-127 -15 Z"
       /></clipPath
     ></defs
     ><g fill="white" text-rendering="geometricPrecision" fill-opacity="1" stroke-opacity="1" stroke="white"
@@ -193,8 +193,8 @@
     ><rect fill="none" x="0" width="8" height="12" y="0" clip-path="url(#clipPath6)"
     /></g
     ><g font-size="11px" transform="translate(157,2)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
-    ><text x="9" xml:space="preserve" y="12" clip-path="url(#clipPath13)" stroke="none"
-      >mapper : TestMapper</text
+    ><text x="30" xml:space="preserve" y="12" clip-path="url(#clipPath13)" stroke="none"
+      >: TestMapper</text
     ></g
     ><g font-size="11px" transform="translate(2,2)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
     ><text x="17" xml:space="preserve" y="12" clip-path="url(#clipPath14)" stroke="none"
@@ -285,10 +285,10 @@
       /><text fill="black" x="9" xml:space="preserve" y="12" clip-path="url(#clipPath34)" stroke="none"
       >1.1: create()</text
     ></g
-    ><g font-size="11px" transform="translate(71,60)" fill-opacity="1" fill="white" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="white" stroke-opacity="1"
-    ><rect x="0" width="114" height="15" y="0" clip-path="url(#clipPath35)" stroke="none"
+    ><g font-size="11px" transform="translate(64,60)" fill-opacity="1" fill="white" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="white" stroke-opacity="1"
+    ><rect x="0" width="127" height="15" y="0" clip-path="url(#clipPath35)" stroke="none"
       /><text fill="black" x="10" xml:space="preserve" y="12" clip-path="url(#clipPath35)" stroke="none"
-      >1: toDto(testTypes)</text
+      >1: toTTDto(testTypes)</text
     ></g
     ><g font-size="8px" fill-opacity="1" fill="rgb(120,120,120)" text-rendering="geometricPrecision" image-rendering="optimizeQuality" stroke="rgb(120,120,120)" stroke-opacity="1"
     ><text x="0" xml:space="preserve" y="10" stroke="none"
