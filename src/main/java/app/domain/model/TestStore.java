@@ -1,19 +1,43 @@
 package app.domain.model;
 
+import app.domain.dto.LabOrderDto;
 import app.domain.dto.TestDto;
+import app.domain.dto.TestMapper;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class TestStore {
 
-    private ArrayList<Test> testlist;
+    private Company company;
 
+    private Client client;
 
-    public TestStore() {
+    private TestMapper mapper;
+
+    private List<Test> testlist;
+
+    public TestStore(){
         testlist = new ArrayList<>();
+        this.mapper = new TestMapper();
     }
 
+    public void setCompany (Company company) {
+        this.company = company;
+    }
+
+    public void getClient(long cc) {
+        this.client = company.getCreateClientStore().getClientByCC(cc);
+        if (client == null) {
+            throw new IllegalArgumentException("Client with CC:" + cc + " is not registered.");
+        }
+    }
+
+    public LabOrderDto getClientLabOrder() {
+        LabOrderStore store = this.company.getLabOrderStore();
+        LabOrder order = store.getClientLabOrder(this.client);
+        return mapper.toOrderDto(order);
+    }
 
     public Test createTest() {
         return new Test();
@@ -55,5 +79,5 @@ public class TestStore {
         }
         return null;
     }
-}
 
+}

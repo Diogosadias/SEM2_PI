@@ -1,18 +1,17 @@
 package app.domain.model;
 
 import app.domain.dto.EmployeeDto;
-import static app.domain.shared.Constants.*;
+
 
 import app.domain.shared.GenerateEmployeeId;
 import auth.AuthFacade;
-import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.lang.reflect.InvocationTargetException;
+
+import static app.domain.shared.Constants.*;
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertFalse;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -20,9 +19,22 @@ import static org.junit.Assert.*;
  */
 public class EmployeeStoreTest  {
 
-    Employee e1 = new Employee(new OrgRole("12345","safdxfasf"), "1111", "John", "Address", 12345678912L,"12345" );
-    EmployeeDto dto = new EmployeeDto("teste", "teste", "teste", 12345678912L, "12335");
-    EmployeeStore es = new EmployeeStore(new OrgRoleStore(), new AuthFacade());
+    OrgRole role = new OrgRole(RECEPTIONIST, MODEL_CLASS_PATH+ ROLE_RECEP);
+    AuthFacade authFacade = new AuthFacade();
+    EmployeeDto dto = new EmployeeDto(role.getId(),"name","address",12312312312L,"soc");
+    Employee e1;
+    OrgRoleStore ors = new OrgRoleStore();
+    EmployeeStore es = new EmployeeStore(ors, new AuthFacade());
+
+
+
+    public EmployeeStoreTest() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException{
+        authFacade.addUserRole(RECEPTIONIST,RECEPTIONIST);
+        dto.setId("J00001");
+        e1 = new Employee(role, dto);
+        ors.addOrgRole(role);
+        es.registerEmployee(dto);
+    }
 
 /*    @Test
     public void testGetOrgRoles() {
@@ -60,7 +72,7 @@ public class EmployeeStoreTest  {
     public void testGenerateEmployeeId() {
         System.out.println("GenerateEmployeeId");
         String expResult = new GenerateEmployeeId(e1.getName(),es.getNumEmployees()).getId();
-        String result = "J00001";
+        String result = "N00001";
         assertEquals(expResult, result);    
     }
 

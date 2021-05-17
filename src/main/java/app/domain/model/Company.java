@@ -16,7 +16,6 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class Company {
 
-
     /**
      * The designation of company.
      */
@@ -27,26 +26,16 @@ public class Company {
      */
     private final AuthFacade authFacade;
 
-    private SampleStore sampleStore;
     /**
      * The store of Clinical Analysis Laboratory.
      */
     private CALStore calStore;
 
-    /**
-     * The store of Clinical Analysis Laboratory.
-     */
     private ReportStore reportStore;
-
     /**
      * The store of create a client.
      */
     private CreateClientStore createClientStore;
-
-    /**
-     * The store of Tests.
-     */
-    private TestStore testStore;
 
     /**
      * The store of parameter category.
@@ -71,6 +60,18 @@ public class Company {
     private ParameterStore parameterStore;
 
     /**
+     * The store of registered Tests to clients.
+     */
+    private TestStore testStore;
+
+    /**
+     * The store of client's LabOrder.
+     */
+    private LabOrderStore labOrderStore;
+
+    private SampleStore sampleStore;
+
+    /**
      * Constructor Company with the designation.
      *
      * @param designation company's designation
@@ -84,6 +85,7 @@ public class Company {
         this.designation = designation;
         this.authFacade = new AuthFacade();
 
+        this.reportStore = new ReportStore();
         this.sampleStore = new SampleStore();
         this.specifyNewTestStore= new SpecifyNewTestStore();
         this.calStore = new CALStore();
@@ -92,6 +94,8 @@ public class Company {
         this.orgRoleStore = new OrgRoleStore();
         this.employeeStore = new EmployeeStore(this.orgRoleStore,this.authFacade);
         this.parameterStore = new ParameterStore();
+        this.testStore = new TestStore();
+        this.labOrderStore = new LabOrderStore();
     }
 
     /**
@@ -137,25 +141,6 @@ public class Company {
      */
     public CALStore getCalStore() {
         return this.calStore;
-    }
-
-    /**
-     * Return the Test's store.
-     *
-     * @return Test's store
-     */
-    public TestStore getTestStore() {
-        return this.testStore;
-    }
-
-
-    /**
-     * Return the Report's store.
-     *
-     * @return Report's store
-     */
-    public ReportStore getReportStore() {
-        return this.reportStore;
     }
 
     /**
@@ -261,6 +246,21 @@ public class Company {
         return this.orgRoleStore;
     }
 
+    public TestStore getTestStore() {
+        return this.testStore;
+    }
+    /**
+     * Return the Report's store.
+     *
+     * @return Report's store
+     */
+    public ReportStore getReportStore() {
+        return this.reportStore;
+    }
+
+    public LabOrderStore getLabOrderStore() {
+        return this.labOrderStore;
+    }
 
     public SampleStore getSampleStore() {
         return sampleStore;

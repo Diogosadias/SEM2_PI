@@ -1,18 +1,22 @@
 package app.domain.dto;
 
-import app.domain.model.Client;
-import app.domain.model.OrgRole;
-import app.domain.model.Test;
-import app.domain.model.TestStore;
+import app.domain.model.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class TestMapper {
-    private ArrayList<Test> testlist;
 
 
-    public TestMapper(){ }
+    public TestMapper () {
+
+    }
+
+    public LabOrderDto toOrderDto(LabOrder order) {
+        String type = order.getTestType();
+        List<Parameter> listParameters  = order.getListParameters();
+        return new LabOrderDto(type,listParameters);
+    }
 
     public List<TestDto> toDto(List<Test>list){
 
@@ -38,4 +42,5 @@ public class TestMapper {
         //possible changes to this
         return test;
     }
+
 }
