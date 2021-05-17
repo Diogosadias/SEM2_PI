@@ -1,5 +1,7 @@
 package app.domain.model;
 
+import java.util.List;
+
 public class Test {
     private String sampleTime;
     public String sampleDate;
@@ -11,8 +13,9 @@ public class Test {
     public String dateChemical;
     private String description;
     private String NHSCode;
-    private String barcode;
     private String parameterValue;
+    private Client client;
+    private List<Sample> sampleList;
 
 
     public boolean getInformation(Test test){
@@ -44,4 +47,23 @@ public class Test {
         return false;
     }
 
+    public String getNHSCode() {
+        return NHSCode;
+    }
+
+    public void setNHSCode(String NHSCode) {
+        this.NHSCode = NHSCode;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public void setSampleList(Sample sample){
+        this.sampleList.add(sample);
+    }
 }

@@ -16,6 +16,7 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class Company {
 
+
     /**
      * The designation of company.
      */
@@ -26,6 +27,7 @@ public class Company {
      */
     private final AuthFacade authFacade;
 
+    private SampleStore sampleStore;
     /**
      * The store of Clinical Analysis Laboratory.
      */
@@ -82,6 +84,7 @@ public class Company {
         this.designation = designation;
         this.authFacade = new AuthFacade();
 
+        this.sampleStore = new SampleStore();
         this.specifyNewTestStore= new SpecifyNewTestStore();
         this.calStore = new CALStore();
         this.createClientStore = new CreateClientStore(this.authFacade);
@@ -256,5 +259,14 @@ public class Company {
 
     public OrgRoleStore getOrgRoleStore() {
         return this.orgRoleStore;
+    }
+
+
+    public SampleStore getSampleStore() {
+        return sampleStore;
+    }
+
+    public void setSampleStore(SampleStore sampleStore) {
+        this.sampleStore = sampleStore;
     }
 }
