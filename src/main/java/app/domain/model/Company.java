@@ -32,9 +32,19 @@ public class Company {
     private CALStore calStore;
 
     /**
+     * The store of Clinical Analysis Laboratory.
+     */
+    private ReportStore reportStore;
+
+    /**
      * The store of create a client.
      */
     private CreateClientStore createClientStore;
+
+    /**
+     * The store of Tests.
+     */
+    private TestStore testStore;
 
     /**
      * The store of parameter category.
@@ -124,6 +134,25 @@ public class Company {
      */
     public CALStore getCalStore() {
         return this.calStore;
+    }
+
+    /**
+     * Return the Test's store.
+     *
+     * @return Test's store
+     */
+    public TestStore getTestStore() {
+        return this.testStore;
+    }
+
+
+    /**
+     * Return the Report's store.
+     *
+     * @return Report's store
+     */
+    public ReportStore getReportStore() {
+        return this.reportStore;
     }
 
     /**
