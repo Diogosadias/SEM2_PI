@@ -4,7 +4,7 @@ import java.util.Objects;
 
 import static app.domain.shared.Constants.ROLE_SPEC_DOCTOR;
 
-public class SpecialistDoctor extends Employee implements RoleExtra{
+public class SpecialistDoctor extends Employee{
 
     /**
      * Specialist Doctor's Index number
@@ -75,8 +75,4 @@ public class SpecialistDoctor extends Employee implements RoleExtra{
         return Objects.hash(super.hashCode(), doctorIndexNumber);
     }
 
-    @Override
-    public String RegisteredUserRole() {
-        return ROLE_SPEC_DOCTOR;
-    }
 }
