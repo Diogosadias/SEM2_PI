@@ -2,6 +2,8 @@ package app.domain.model;
 
 import app.domain.dto.EmployeeDto;
 import static app.domain.shared.Constants.*;
+
+import app.domain.shared.GenerateEmployeeId;
 import auth.AuthFacade;
 import org.junit.Assert;
 import org.junit.Test;
@@ -57,7 +59,7 @@ public class EmployeeStoreTest  {
     @Test
     public void testGenerateEmployeeId() {
         System.out.println("GenerateEmployeeId");
-        String expResult = es.generateEmployeeId(e1.getName());
+        String expResult = new GenerateEmployeeId(e1.getName(),es.getNumEmployees()).getId();
         String result = "J00001";
         assertEquals(expResult, result);    
     }

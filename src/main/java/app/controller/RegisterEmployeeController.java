@@ -79,7 +79,7 @@ public class RegisterEmployeeController {
 
 
     public void confirmEmployee () {
-        estore.setNumEmployees();
+        estore.confirmRegistration();
     }
 
     public void cancelEmployee() {

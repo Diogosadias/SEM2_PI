@@ -1,8 +1,6 @@
 package app.domain.model;
 
-import app.domain.shared.Constants;
 import auth.domain.model.Email;
-import auth.domain.model.User;
 
 import java.util.Date;
 
