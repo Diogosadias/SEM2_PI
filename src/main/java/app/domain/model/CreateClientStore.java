@@ -138,7 +138,14 @@ public class CreateClientStore {
         return clientList;
     }
 
-
+    public Client getClientByCC(long cc) {
+        for ( Client c : clientList) {
+            if (c.getCitizenCard() == cc) {
+                return c;
+            }
+        }
+        throw new IllegalArgumentException("Client with CC:" + cc + " is not registered.");
+    }
 
 
 }
