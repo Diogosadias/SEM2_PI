@@ -1,14 +1,11 @@
 package app.domain.model;
 
 import app.domain.dto.EmployeeDto;
-import app.domain.model.Employee;
-import app.domain.model.OrgRole;
-import app.domain.shared.Constants;
+import app.domain.shared.EmailSender;
+import app.domain.shared.GenerateEmployeeId;
 import app.domain.shared.GeneratePassword;
 import auth.AuthFacade;
 
-import java.io.FileWriter;
-import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +23,8 @@ public class EmployeeStore {
 
     private Employee employee;
 
+    private String employeePwd;
+
     /**
      * Initialize a list of employers.
      */
@@ -35,11 +34,6 @@ public class EmployeeStore {
      * Initialize number of employers.
      */
     private int numEmployees=0;
-
-    /**
-     * Declare a constant with maximum number of employers .
-     */
-    private final int MAX_NUM_EMPLOYEES = 99999;
 
     private OrgRoleStore rStore;
 
@@ -64,7 +58,7 @@ public class EmployeeStore {
     public boolean registerEmployee(EmployeeDto eDto) throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
         String roleId = eDto.getRoleId();
         OrgRole role = this.rStore.getRoleById(roleId);
-        eDto.setId(generateEmployeeId(eDto.getName()));
+        eDto.setId(new GenerateEmployeeId(eDto.getName(), this.getNumEmployees()).getId());
         this.employee = role.createEmployee(eDto);
         return (employee != null);
     }
@@ -81,40 +75,8 @@ public class EmployeeStore {
         String name = employee.getName();
         String role = employee.getRole().getId();
         this.addEmployee(this.employee);
-        String pwd = GeneratePassword.makeRandomPass();
-        boolean b = this.auth.addUserWithRole(name, email, pwd, role);
-        sendEmail(email,pwd);
-        return b;
-    }
-
-    /**
-     * Generate the id of the employee.
-     *
-     * @param name employee's name
-     *
-     * @return employee's id
-     */
-    public String generateEmployeeId(String name) {
-        int nEmp = getNumEmployees();
-        if (nEmp == MAX_NUM_EMPLOYEES) { throw new IllegalArgumentException("Maximum Employees reached."); };
-        // acrescentar +1 ao numero de employees
-        int id = nEmp + 1;
-        // gerar as inicias do nome
-        String initials = "";
-        String[] temp = name.split(" ");
-        for (int i=0;i< temp.length;i++) {
-            initials += temp[i].toUpperCase().charAt(0);
-        }
-        // acrescentar zeros entre as letras e o numero
-        String fillZeros = "";
-        for (int i=0;i< 5;i++) {
-
-            if (id % 10 == 0) {
-                fillZeros += "0";
-            }
-            id = id / 10;
-        }
-        return initials + fillZeros + "" + (nEmp + 1);
+        this.employeePwd = new GeneratePassword().getPwd();
+        return this.auth.addUserWithRole(name, email, this.employeePwd, role);
     }
 
     /**
@@ -126,7 +88,8 @@ public class EmployeeStore {
         return numEmployees;
     }
 
-    public void  setNumEmployees() {
+    public void  confirmRegistration() {
+        new EmailSender(this.employee.getEmail(),this.employeePwd);
         this.numEmployees++;
     }
 
@@ -185,21 +148,6 @@ public class EmployeeStore {
             s = s + "[Doctor Index Number: " + temp.getDoctorIndexNumber() + "]\n" + "";
         }
         return s;
-    }
-
-    private void sendEmail (String email, String pass){
-        try{
-            FileWriter myWriter = new FileWriter(employee.getEmployeeId()+"Password.txt");
-            myWriter.write("Hello,\nhere is your new password:\n\n");
-            myWriter.append("Email: " + email + "\n");
-            myWriter.append("Password: " + pass + "\n");
-            myWriter.append("\nBest regards\n");
-            myWriter.append("ManyLabs team.");
-            System.out.println("Sending your new password to your email...");
-            myWriter.close();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
     }
 
 }

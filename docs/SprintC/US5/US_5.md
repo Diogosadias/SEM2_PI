@@ -121,9 +121,211 @@ ref:
 
 # 5. Construction (Implementation)
 
-*In this section, it is suggested to provide, if necessary, some evidence that the construction/implementation is in accordance with the previously carried out design. Furthermore, it is recommeded to mention/describe the existence of other relevant (e.g. configuration) files and highlight relevant commits.*
 
-*It is also recommended to organize this content by subsections.* 
+**TestDTO:**
+
+    public class TestDTO{
+
+    private String code;
+    private Client client
+
+    public TestDTO(String code, Client client){
+    
+    this.code = code;
+    this.client = client;
+    }
+
+    public String getCode(){
+    return code;
+    }
+    
+    public Client getClient(){
+    return Client
+    }
+
+
+    }
+
+**TestStore:**
+
+    public class TestStore{
+
+      private List<Test> testS;
+
+
+    public TestStore () {
+        this.testS = new ArrayList<>();
+    }
+
+    public void addTestStore (Test test) {
+        this.testS.add(test);
+    }
+
+     public List<Test> getTests () {
+        if(testS!=null) {
+            if (testS.isEmpty()) {
+                throw new IllegalArgumentException("Organization Test list is empty.");
+            }
+            return testS;
+        }
+        return null;
+    }
+
+    public void addSampletoTest(Sample sample, Test test){
+    
+        for(Test t : testS){
+        if(t == test)
+        t.add(sample);
+        }
+    }
+
+    }
+
+**RecordSamplesController:**
+
+
+
+    public class RecordSamplesController(){
+
+     public class SpecifyNewTypeTestController{
+    
+    private Company company;
+    private SampleStore ts;
+    private Sample sample
+    public TestStore tstore = new TestStore();
+  
+    public RecordSampleController(Company company){
+    this.company = company;
+    this.sample = null;
+    this.ts = company.getTestStore();
+    }
+
+    public boolean createSample(){
+            this.sample = this.ts.createTestType();
+            
+            (if this.sample.validateSample(sample))
+            return true;
+
+            return false;
+        }
+
+        public boolean saveSample(Test test){
+            ts.addSampleToTest(sample,test);
+            return this.ts.saveSample(sample);
+        }
+
+        
+
+    public List<TestDto> getTests(){
+        List<Test> tests = this.tstore.getTestStore().getTest();
+        TestMapper mapper = new TestMapper();
+        return mapper.toDto(tests);
+    }
+
+
+    
+    }
+
+**TestMapper:**
+
+
+    public class TestMapper{
+
+    
+    public TestMapper(){
+
+    }
+
+    public List<TestDTO> toDto(List<testDTO>list){
+
+    List<TestDto> testDto = new ArrayList<>();
+
+    for(Test test: list){
+    String code = test.getId();
+    Client client = test.getClient();
+    
+    TestDTO dto = new TestDTO(code,client);
+
+    testDTO.add(dto);
+    }
+
+    }
+    }
+
+
+**Sample:**
+
+    public class Sample implements SampleAPI{
+
+    
+    public Sample(){
+    File file = setBarcode();
+    }
+
+    
+    public File setBarcode(){
+    return getBarcode;
+    }
+
+    }
+
+**SampleAPI:**
+
+    Interface API {
+
+    public File getBarcode() throws IOException {
+
+        long min = 100000000000l;
+        long max = 999999999999l;
+
+        long random_bar =  (long)Math.floor(Math.random()*(max-min+1)+min);
+
+
+        String barcode = String.valueOf(random_bar);
+
+
+        System.out.println(barcode);
+
+
+        BufferedImage b = generateEAN13BarcodeImage(barcode);
+
+
+
+        File file = new File("myimage.png");
+        //ImageIO.write(b,"png",file);
+        return file;
+    }
+
+
+
+    public static BufferedImage generateEAN13BarcodeImage(String barcodeText) {
+
+        EAN13Bean barcodeGenerator = new EAN13Bean();
+        BitmapCanvasProvider canvas =
+                new BitmapCanvasProvider(160, BufferedImage.TYPE_BYTE_BINARY, false, 0);
+
+        barcodeGenerator.generateBarcode(canvas, barcodeText);
+        return canvas.getBufferedImage();
+    }
+
+
+    }
+
+**SampleStore**
+
+    public class SampleStore{
+    private final List<Sample> sampleList;
+
+
+    public SampleStore(){
+    this.sampleList = new ArrayList<>();
+    }
+
+     public Sample createSample(){
+        return new Sample();
+    }
+
+    }
 
 # 6. Integration and Demo 
 
