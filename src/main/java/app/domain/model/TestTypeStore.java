@@ -1,6 +1,8 @@
 package app.domain.model;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -9,19 +11,19 @@ import java.util.Set;
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  */
 
-public class SpecifyNewTestStore {
+public class TestTypeStore {
 
     /**
      * store - list of the test types available
      */
-    private final Set<TestType> store;
+    private List<TestType> store;
 
     /**
      * Constructor for the test type store.
      * Initializes the list.
      */
-    public SpecifyNewTestStore(){
-        store = new HashSet<TestType>();
+    public TestTypeStore(){
+        store = new ArrayList<>();
     }
 
     /**
@@ -121,7 +123,7 @@ public class SpecifyNewTestStore {
      *
      * @return List<TestType>
      */
-    public Set<TestType> getTestTypeList(){
+    public List<TestType> getTestTypeList(){
         return this.store;
     }
 }

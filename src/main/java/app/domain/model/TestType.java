@@ -1,13 +1,14 @@
 package app.domain.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
 
-public class TestType extends SpecifyNewTestStore {
+public class TestType extends TestTypeStore {
     /**
      * code - 5 alphanumeric numbers and can´t be empty
      */
@@ -23,7 +24,7 @@ public class TestType extends SpecifyNewTestStore {
     /**
      * parameterList - Contains the parameter categories of the test type
      */
-    private final ArrayList<ParameterCategory> parameterList = new ArrayList<ParameterCategory>();
+    private List<ParameterCategory> parameterList = new ArrayList<>();
 
     /**
      * Constructor for a test type.
@@ -42,6 +43,10 @@ public class TestType extends SpecifyNewTestStore {
     }
 
     public TestType() {
+    }
+
+    public List getListParameters() {
+        return this.parameterList;
     }
 
     /**

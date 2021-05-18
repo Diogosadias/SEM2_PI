@@ -11,11 +11,66 @@ public class Test {
     private String dateDiagnosis;
     private String timeChemical;
     public String dateChemical;
-    private String description;
-    private String NHSCode;
     private String parameterValue;
-    private Client client;
     private List<Sample> sampleList;
+
+    private Client client;
+    private String nhsCode;
+    private String description;
+    private TestType type;
+    private long code;
+    private List<Parameter> listParameters;
+    private String state;
+
+    public Test (TestType type, String description,Client client) {
+        checkTypeAttribute(type);
+        checkDescriptionAttribute(description);
+        checkClientAttribute(client);
+
+        this.type = type;
+        this.description = description.trim();
+        this.client = client;
+    }
+
+    private void checkTypeAttribute (TestType type) {
+        if(type == null) {
+            throw new IllegalArgumentException("Creating Test Error: Test type is null.");
+        }
+    }
+    private void checkDescriptionAttribute (String description) {
+        if(description.trim().length() == 0) {
+            throw new IllegalArgumentException("Creating Test Error: Description is empty.");
+        }
+    }
+    private void checkClientAttribute (Client client) {
+        if(client == null) {
+            throw new IllegalArgumentException("Creating Test Error: Client is null.");
+        }
+    }
+
+    public long getCode() {
+        return this.code;
+    }
+
+    public void setCode(long code) {
+        this.code = code;
+    }
+
+    public void setTestType(TestType type) {
+        this.type = type;
+    }
+
+    public TestType getTestType() {
+        return this.type;
+    }
+
+    public List getListParameters() {
+        return this.listParameters;
+    }
+
+    public void addParameter(Parameter parameter) {
+        listParameters.add(parameter);
+    }
 
 
     public boolean getInformation(Test test){
@@ -47,16 +102,12 @@ public class Test {
         return false;
     }
 
-    public String getNHSCode() {
-        return NHSCode;
-    }
-
-    public void setNHSCode(String NHSCode) {
-        this.NHSCode = NHSCode;
-    }
-
     public Client getClient() {
         return client;
+    }
+
+    public String getNhsCode() {
+        return this.nhsCode;
     }
 
     public void setClient(Client client) {
@@ -65,5 +116,34 @@ public class Test {
 
     public void setSampleList(Sample sample){
         this.sampleList.add(sample);
+    }
+
+    public void setNhsCode(String nhsCode) {
+        checkNhsCodeAttribute(nhsCode);
+        this.nhsCode = nhsCode;
+    }
+
+    private void checkNhsCodeAttribute (String nhsCode) {
+        int count = 0;
+        for(int i = 0; i < nhsCode.length(); i++) {
+            if(nhsCode.charAt(i) != ' ')
+                count++;
+        }
+        if(count != 12) {
+            throw new IllegalArgumentException("Adding NhsCode to Test Error: NhsCode needs 12 alphanumeric characters.");
+        }
+    }
+
+
+    public String getNhsCode(String nhsCode) {
+        return this.nhsCode;
+    }
+
+    public String getState () {
+        return this.state;
+    }
+
+    public void setState (String state) {
+        this.state = state;
     }
 }
