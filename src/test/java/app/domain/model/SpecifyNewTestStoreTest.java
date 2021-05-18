@@ -2,7 +2,9 @@ package app.domain.model;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import static org.junit.Assert.*;
@@ -118,7 +120,7 @@ public class SpecifyNewTestStoreTest {
         TestType p2 = storeTest.createTestType("aaaaa","aaaaaaaa","aaaaa");
         storeTest.saveTestType(p1);
         storeTest.saveTestType(p2);
-        Set<TestType> storeTestList = new HashSet<>();
+        List<TestType> storeTestList = new ArrayList<>();
         storeTestList.add(p1);
         storeTestList.add(p2);
 
