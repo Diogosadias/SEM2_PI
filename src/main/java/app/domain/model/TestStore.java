@@ -5,6 +5,8 @@ import app.domain.dto.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static app.domain.shared.Constants.SPECIALIST_DOCTOR;
+
 public class TestStore {
 
     private Company company;
@@ -26,11 +28,9 @@ public class TestStore {
         this.company = company;
     }
 
-    public void getClient(long cc) {
+    public boolean checkRegisteredClient(long cc) {
         this.client = company.getCreateClientStore().getClientByCC(cc);
-        if (client == null) {
-            throw new IllegalArgumentException("Client with CC:" + cc + " is not registered.");
-        }
+        return (client != null) ;
     }
 
     public List getListTestType() {
@@ -83,11 +83,25 @@ public class TestStore {
         return true;
     }
 
+    public String getTestToString() {
+        String s =  "\nClient: " + this.test.getClient().getCitizenCard() +
+                    "\nType of Test: " + this.test.getTestType().getDescription() +
+                    "\nCollection Method: " + this.test.getDescription()+
+                    "\nNhs Code: " + this.test.getNhsCode() +
+                    "\n\nList of Parameters to be measured: ";
+        for (Parameter p : this.test.getListParameters()) {
+            s = s + "\n - " + p.getName();
+        }
+        return s;
+    }
+
     public void saveTest() {
         if(!testlist.contains(this.test)) {
             testlist.add(this.test);
             numRegisteredTest += 1;
             this.test.setState("Registered");
+        } else {
+            throw new IllegalArgumentException("Test already exists.");
         }
     }
 

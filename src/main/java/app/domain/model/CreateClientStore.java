@@ -144,7 +144,7 @@ public class CreateClientStore {
                 return c;
             }
         }
-        throw new IllegalArgumentException("Client with CC:" + cc + " is not registered.");
+        return null;
     }
 
 

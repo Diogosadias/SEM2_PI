@@ -64,7 +64,7 @@ public class Test {
         return this.type;
     }
 
-    public List getListParameters() {
+    public List<Parameter> getListParameters() {
         return this.listParameters;
     }
 
@@ -106,12 +106,20 @@ public class Test {
         return client;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     public String getNhsCode() {
         return this.nhsCode;
     }
 
     public void setClient(Client client) {
         this.client = client;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public void setSampleList(Sample sample){
@@ -132,11 +140,6 @@ public class Test {
         if(count != 12) {
             throw new IllegalArgumentException("Adding NhsCode to Test Error: NhsCode needs 12 alphanumeric characters.");
         }
-    }
-
-
-    public String getNhsCode(String nhsCode) {
-        return this.nhsCode;
     }
 
     public String getState () {

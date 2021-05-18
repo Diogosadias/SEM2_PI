@@ -1,7 +1,10 @@
 package app.controller;
 
+import app.domain.dto.EmployeeDto;
 import app.domain.model.Company;
+import app.domain.model.Employee;
 import app.domain.model.OrgRole;
+import app.domain.model.Receptionist;
 import app.domain.shared.Constants;
 import auth.AuthFacade;
 import auth.UserSession;
@@ -98,9 +101,17 @@ App {
         //this.company.getEmployeeStore().addOrgRole(new OrgRole(ADMINISTRATOR, MODEL_CLASS_PATH +"" + ADMINISTRATOR));
 
         this.authFacade.addUserWithRole("Admin", "admin@lei.pt", "495", Constants.ROLE_ADMIN);
-        this.authFacade.addUserWithRole("Receptionist", "recep@lei.pt", "123",Constants.ROLE_RECEP);
         this.authFacade.addUserWithRole("Client1","clei@sd.pt","123",Constants.ROLE_CLIENT);
         this.authFacade.addUserWithRoles("SuperUser", "superuser@super.user", "123456", new String[] { Constants.ROLE_CLIENT,Constants.ROLE_ADMIN, Constants.ROLE_RECEP });
+
+        //Employee
+        Receptionist employee1 = new Receptionist(this.company.getOrgRoleStore().getRoleById(RECEPTIONIST), "R00001", "Receptionist1","R1:address",12900000001L,"R1:soc");
+        this.authFacade.addUserWithRole(employee1.getName(), employee1.getEmail(), "123",Constants.ROLE_RECEP);
+        this.company.getEmployeeStore().addEmployee(employee1);
+
+        //TestType
+
+
     }
 
     // Extracted from https://www.javaworld.com/article/2073352/core-java/core-java-simply-singleton.html?page=2

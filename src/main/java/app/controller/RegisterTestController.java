@@ -17,8 +17,11 @@ public class RegisterTestController {
         tStore.setCompany(this.company);
     }
 
-    public List getListTestType(long cc) {
-        tStore.getClient(cc);
+    public boolean checkRegisteredClient(long cc) {
+        return tStore.checkRegisteredClient(cc);
+    }
+
+    public List getListTestType() {
         return tStore.getListTestType();
     }
 
@@ -46,4 +49,11 @@ public class RegisterTestController {
         tStore.saveTest();
     }
 
+    public Company getCompany () {
+        return this.company;
+    }
+
+    public TestStore getTestStore() {
+        return this.tStore;
+    }
 }
