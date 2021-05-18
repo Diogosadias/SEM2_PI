@@ -21,6 +21,8 @@ public class EmailSender {
             myWriter.close();
         }catch (IOException e){
             e.printStackTrace();
+        }finally{
+            System.out.println("Email with new password sent!");
         }
     }
 }

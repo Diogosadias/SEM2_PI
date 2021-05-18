@@ -50,7 +50,7 @@ public class CreateClientUI implements Runnable{
 
         try {
             System.out.print("Name: ");
-            name = read.next();
+            name = read.nextLine();
 
             System.out.print("Email: ");
             id = read.next();
