@@ -1,6 +1,6 @@
 package app.controller;
 
-import app.domain.model.SpecifyNewTestStore;
+import app.domain.model.TestTypeStore;
 import app.domain.model.TestType;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -25,7 +25,7 @@ public class SpecifyNewTestTypeControllerTest {
     public void writeTestTypeByCode() {
         //arrange
         SpecifyNewTestTypeController specifyNewTestTypeController = new SpecifyNewTestTypeController();
-        SpecifyNewTestStore specifyNewTestStore= new SpecifyNewTestStore();
+        TestTypeStore specifyNewTestStore= new TestTypeStore();
         TestType testType1 = new TestType("12345", "zxc", "zxcvb");
 
 
@@ -40,7 +40,7 @@ public class SpecifyNewTestTypeControllerTest {
     public void writeTestType() {
         //arrange
         SpecifyNewTestTypeController specifyNewTestTypeController = new SpecifyNewTestTypeController();
-        SpecifyNewTestStore specifyNewTestStore= new SpecifyNewTestStore();
+        TestTypeStore specifyNewTestStore= new TestTypeStore();
         TestType testType1 = new TestType("12345", "zxc", "zxcvb");
 
 

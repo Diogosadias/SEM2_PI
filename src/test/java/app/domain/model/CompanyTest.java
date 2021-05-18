@@ -56,11 +56,6 @@ public class CompanyTest extends TestCase {
     }
 
     @Test
-    public void testGetSpecifyNewTestStore() {
-        assertNotNull(test.getSpecifyNewTestStore());
-    }
-
-    @Test
     public void testGetEmployeeStore() {
         assertNotNull(test.getEmployeeStore());
     }

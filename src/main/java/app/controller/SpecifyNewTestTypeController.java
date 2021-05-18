@@ -2,7 +2,7 @@ package app.controller;
 
 import app.domain.model.Company;
 import app.domain.model.ParameterCategory;
-import app.domain.model.SpecifyNewTestStore;
+import app.domain.model.TestTypeStore;
 import app.domain.model.TestType;
 
 /**
@@ -15,14 +15,14 @@ public class SpecifyNewTestTypeController {
 
     private Company company;
     private TestType tt;
-    private SpecifyNewTestStore ts;
+    private TestTypeStore ts;
 
     /**
      * Constructor for a given Company instance.
      */
     public SpecifyNewTestTypeController(){
         this.company = App.getInstance().getCompany();
-        this.ts = this.company.getSpecifyNewTestStore();
+        this.ts = this.company.getTestTypeStore();
         this.tt = new TestType();
     }
 

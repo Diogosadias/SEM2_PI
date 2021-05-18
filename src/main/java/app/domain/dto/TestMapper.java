@@ -12,18 +12,12 @@ public class TestMapper {
 
     }
 
-    public LabOrderDto toOrderDto(LabOrder order) {
-        String type = order.getTestType();
-        List<Parameter> listParameters  = order.getListParameters();
-        return new LabOrderDto(type,listParameters);
-    }
-
     public List<TestDto> toDto(List<Test>list){
 
         List<TestDto> testDto = new ArrayList<>();
 
         for(Test test: list){
-            String code = test.getNHSCode();
+            String code = test.getNhsCode();
             Client client = test.getClient();
 
             TestDto dto = new TestDto(code,client);

@@ -1,8 +1,10 @@
 package app.controller;
 
-import app.domain.dto.LabOrderDto;
+import app.domain.dto.TestTypeDto;
 import app.domain.model.Company;
 import app.domain.model.TestStore;
+
+import java.util.List;
 
 public class RegisterTestController {
 
@@ -15,9 +17,33 @@ public class RegisterTestController {
         tStore.setCompany(this.company);
     }
 
-    public LabOrderDto getLabOrder(long cc) {
+    public List getListTestType(long cc) {
         tStore.getClient(cc);
-        return tStore.getClientLabOrder();
+        return tStore.getListTestType();
+    }
+
+    public List getListParameters(String category) {
+        return tStore.getListParameters(category);
+    }
+
+    public void newTest(String type) {
+        tStore.newTest(type);
+    }
+
+    public boolean addParameterToTest(String parameter) {
+        return tStore.addParameterToTest(parameter);
+    }
+
+    public void addNhsCodeToTest(String nhs) {
+        tStore.addNhsCodeToTest(nhs);
+    }
+
+    public boolean validateTest() {
+        return tStore.validateTest();
+    }
+
+    public void confirmTest() {
+        tStore.saveTest();
     }
 
 }

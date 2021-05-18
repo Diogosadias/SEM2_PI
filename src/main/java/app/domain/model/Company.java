@@ -42,11 +42,6 @@ public class Company {
      */
     private ParameterCategoryStore parameterCategoryStore;
 
-    /**
-     * The store of specify new test type.
-     */
-    private SpecifyNewTestStore specifyNewTestStore;
-
     private OrgRoleStore orgRoleStore;
 
     /**
@@ -67,7 +62,7 @@ public class Company {
     /**
      * The store of client's LabOrder.
      */
-    private LabOrderStore labOrderStore;
+    private TestTypeStore testTypeStore;
 
     private SampleStore sampleStore;
 
@@ -87,7 +82,6 @@ public class Company {
 
         this.reportStore = new ReportStore();
         this.sampleStore = new SampleStore();
-        this.specifyNewTestStore= new SpecifyNewTestStore();
         this.calStore = new CALStore();
         this.createClientStore = new CreateClientStore(this.authFacade);
         this.parameterCategoryStore = new ParameterCategoryStore();
@@ -95,25 +89,7 @@ public class Company {
         this.employeeStore = new EmployeeStore(this.orgRoleStore,this.authFacade);
         this.parameterStore = new ParameterStore();
         this.testStore = new TestStore();
-        this.labOrderStore = new LabOrderStore();
-    }
-
-    /**
-     * Return the SpecifyNewTest's store.
-     *
-     * @return SpecifyNewTest's store
-     */
-    public SpecifyNewTestStore getTestTypeStore() {
-        return specifyNewTestStore;
-    }
-
-    /**
-     * Change the TestType's store.
-     *
-     * @param testTypeStore TestType's store
-     */
-    public void setTestTypeStore(SpecifyNewTestStore testTypeStore) {
-        this.specifyNewTestStore = testTypeStore;
+        this.testTypeStore = new TestTypeStore();
     }
 
     /**
@@ -193,17 +169,12 @@ public class Company {
      *
      * @return SpecifyNewTest's store
      */
-    public SpecifyNewTestStore getSpecifyNewTestStore() {
-        return specifyNewTestStore;
+    public TestTypeStore getTestTypeStore() {
+        return this.testTypeStore;
     }
 
-    /**
-     * Change the SpecifyNewTest's store.
-     *
-     * @param specifyNewTestStore SpecifyNewTest's store
-     */
-    public void setSpecifyNewTestStore(SpecifyNewTestStore specifyNewTestStore) {
-        this.specifyNewTestStore = specifyNewTestStore;
+    public void setTestTypeStore(TestTypeStore testTypeStore) {
+        this.testTypeStore = testTypeStore;
     }
 
     /**
@@ -256,10 +227,6 @@ public class Company {
      */
     public ReportStore getReportStore() {
         return this.reportStore;
-    }
-
-    public LabOrderStore getLabOrderStore() {
-        return this.labOrderStore;
     }
 
     public SampleStore getSampleStore() {

@@ -2,9 +2,7 @@ package app.domain.model;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import static org.junit.Assert.*;
@@ -14,7 +12,7 @@ import static org.junit.Assert.*;
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  */
 public class SpecifyNewTestStoreTest {
-    SpecifyNewTestStore storeTest = new SpecifyNewTestStore();
+    TestTypeStore storeTest = new TestTypeStore();
     TestType p1 = new TestType("aaaaa","aaaaaaaa","aaaaa");
     @Test
     public void createTestType() {

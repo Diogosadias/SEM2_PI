@@ -18,7 +18,6 @@
 |**Collecting Methods**|**Métodos de Coleta**|Procedure adopted by the MLT to Collect Samples to be tested from the Client.
 |**Configuration File**|**Ficheiro de Configuração**| Used to configure the initial settings and parameters in some programs. 
 |**Courier**|**Estafeta**|Person in charge of transporting samples to the Company's Headquarters
-|**Covid-19 Test** |**Teste Covid-19**| Test performed in order to verify if a client is infected with Covid-19 
 |**Covid-19 Test**|**Teste Covid-19**|Type of test - Collects a Swab and results in a positive or negative result|
 |**Daily Report**|**Relatório Diário**|Report required from NHS and made by Many Labs with a summary of the Covid-19 data for that given day
 |**Diagnosis**|**Diagnóstico**|Written by the SD and it's written inside the Report - Description of the results found because of the test - _"investigation or analysis of the cause or nature of a condition, situation, or problem"_ 
