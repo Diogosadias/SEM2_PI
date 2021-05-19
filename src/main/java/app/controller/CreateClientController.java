@@ -59,10 +59,7 @@ public class CreateClientController {
         this.rc = this.clientStore.createClient(id,name,nhs,citizenCard,tin,birthDate,sex,pNumber);
 
         if(!this.clientStore.validateClient(this.rc)){return false;}
-        String pwd = new GeneratePassword().getPwd();
-        String email = this.rc.getId().getEmail();
-        new EmailSender(email,pwd);
-        saveClient(this.rc,pwd);
+        saveClient(this.rc);
         return true;
 
     }
@@ -72,8 +69,8 @@ public class CreateClientController {
      *
      * @return boolean
      */
-    public boolean saveClient(Client rc,String pwd){
-        return this.clientStore.saveClient(this.rc, pwd);
+    public boolean saveClient(Client rc){
+        return this.clientStore.saveClient(this.rc);
     }
 
     /**

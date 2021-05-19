@@ -1,11 +1,11 @@
 package app.domain.model;
 
 import app.domain.dto.*;
+import app.domain.shared.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static app.domain.shared.Constants.SPECIALIST_DOCTOR;
 
 public class TestStore {
 
@@ -99,14 +99,16 @@ public class TestStore {
         if(!testlist.contains(this.test)) {
             testlist.add(this.test);
             numRegisteredTest += 1;
-            this.test.setState("Registered");
         } else {
             throw new IllegalArgumentException("Test already exists.");
         }
     }
 
-    public Test createTest() {
-        return null;
+    public boolean addTest(Test test){
+        if(this.testlist.contains(test)) {
+            throw new IllegalArgumentException("Test is already registered.");
+        }
+        return this.testlist.add(test);
     }
 
     public boolean getTest(Test test) {
@@ -136,12 +138,26 @@ public class TestStore {
         }
     }
 
-    public List<Test> getTests () {
-        if(testlist!=null) {
-            if (testlist.isEmpty()) {
-                throw new IllegalArgumentException("Organization Test list is empty.");
+    public List<Test> getRegisteredTests () {
+        return this.getTests(Constants.REGISTERED);
+    }
+
+    public List<Test> getTests (String state) {
+        if(this.testlist!=null) {
+            if (this.testlist.isEmpty()) {
+                throw new IllegalArgumentException("Test list is empty.");
             }
-            return testlist;
+            List<Test> temp = new ArrayList<>();
+            for (Test t : this.testlist) {
+                if (t.hasCondition(state)) {
+                    temp.add(t);
+                }
+            }
+            if (temp.isEmpty()) {
+                System.out.println("There are no Tests under condition: " + state);
+                return null;
+            }
+            return temp;
         }
         return null;
     }

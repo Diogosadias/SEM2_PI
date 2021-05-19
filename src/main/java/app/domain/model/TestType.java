@@ -45,6 +45,13 @@ public class TestType extends TestTypeStore {
     public TestType() {
     }
 
+    public boolean addParameterCategory(ParameterCategory category) {
+        if(this.parameterList.contains(category)) {
+            throw new IllegalArgumentException("TestType already has the category.");
+        }
+        return this.parameterList.add(category);
+    }
+
     public List getListParameters() {
         return this.parameterList;
     }

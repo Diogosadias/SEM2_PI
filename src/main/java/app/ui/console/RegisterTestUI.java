@@ -49,7 +49,6 @@ public class RegisterTestUI implements Runnable {
     }
 
     private boolean checkClient() {
-        this.m_controller.registerTest();
         long cc = (long) Utils.readDoubleFromConsole("\nClient - CC number: (16 digits)");
         if(!m_controller.checkRegisteredClient(cc)) {
             System.out.println("\nClient with CC: " + cc + " is not registered.\n");

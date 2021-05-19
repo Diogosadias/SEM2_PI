@@ -34,7 +34,7 @@ public class CreateClientControllerTest extends TestCase {
         CreateClientController ccr = new CreateClientController();
 
         //calculation
-        boolean b1 = ccr.saveClient(c1,"aaaa");
+        boolean b1 = ccr.saveClient(c1);
 
         //assert
         assertEquals(false,b1);

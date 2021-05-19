@@ -1,6 +1,10 @@
 package app.domain.model;
 
+import app.domain.shared.Constants;
+
+import java.util.ArrayList;
 import java.util.List;
+
 
 public class Test {
     private String sampleTime;
@@ -30,6 +34,8 @@ public class Test {
         this.type = type;
         this.description = description.trim();
         this.client = client;
+        this.state = Constants.REGISTERED;
+        listParameters = new ArrayList<>();
     }
 
     private void checkTypeAttribute (TestType type) {
@@ -142,11 +148,22 @@ public class Test {
         }
     }
 
-    public String getState () {
-        return this.state;
+    public boolean hasCondition(String state) {
+        return this.state.equals(state);
     }
 
-    public void setState (String state) {
-        this.state = state;
+    @Override
+    public String toString() {
+        String s =  "\n --- Many Labs Test --- " +
+                "\nClient CC: " + this.client.getCitizenCard() +
+                "\nType of Test: " + this.type.getDescription() +
+                "\nCollection Method: " + this.description+
+                "\nNhs Code: " + this.nhsCode +
+                "\n\nList of Parameters to be measured: ";
+        for (Parameter p : this.getListParameters()) {
+            s = s + "\n - " + p.getName();
+        }
+        return s;
     }
+
 }

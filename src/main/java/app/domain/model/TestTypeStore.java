@@ -69,6 +69,10 @@ public class TestTypeStore {
         }
     }
 
+    public boolean addTestType(TestType type) {
+        return this.saveTestType(type);
+    }
+
     /**
      * Method for deleting an existing test type.
      *

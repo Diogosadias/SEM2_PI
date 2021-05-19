@@ -36,6 +36,7 @@ public class Constants {
     public static final String EMAIL_SUFIX = "@lei.pt";
     public static final String MODEL_CLASS_PATH = "app.domain.model.";
 
+    public static final String REGISTERED = "Registered";
 	
 
 }

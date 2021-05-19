@@ -1,18 +1,17 @@
 package app.controller;
 
 import app.domain.dto.EmployeeDto;
-import app.domain.model.Company;
-import app.domain.model.Employee;
-import app.domain.model.OrgRole;
-import app.domain.model.Receptionist;
+import app.domain.model.*;
 import app.domain.shared.Constants;
 import auth.AuthFacade;
 import auth.UserSession;
+import auth.domain.model.Email;
 
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Date;
 import java.util.Properties;
 
 import static app.domain.shared.Constants.*;
@@ -109,9 +108,28 @@ App {
         this.authFacade.addUserWithRole(employee1.getName(), employee1.getEmail(), "123",Constants.ROLE_RECEP);
         this.company.getEmployeeStore().addEmployee(employee1);
 
+        //Client
+        Client client1 = new Client (new Email("client1@lei.pt"),"Client Teste",1234567890L,1212121212121212L,210000000001L,new Date(1990,01,01),"M",91000000000L);
+        this.company.getCreateClientStore().addClient(client1);
+
+        //ParameterCategory
+        ParameterCategory category1 = new ParameterCategory("PC-01","Hemogram","nhsid");
+        this.company.getParameterCategoryStore().addParameterCategory(category1);
+
+        //Parameter
+        Parameter parameter1 = new Parameter("P-001","Red Blood Cells (RBC)","Number of RBC",category1.getCode());
+        this.company.getParameterStore().addParameter(parameter1);
+
         //TestType
+        TestType type1 = new TestType("TT-01","Blood Test","Blood Sample");
+        type1.addParameterCategory(category1);
+        this.company.getTestTypeStore().addTestType(type1);
 
-
+        //Test
+        Test test1 = new Test (type1,type1.getCollectingMethod(),client1);
+        test1.addParameter(parameter1);
+        test1.setNhsCode("nhsCode-AB01");
+        this.company.getTestStore().addTest(test1);
     }
 
     // Extracted from https://www.javaworld.com/article/2073352/core-java/core-java-simply-singleton.html?page=2

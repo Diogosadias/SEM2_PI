@@ -34,7 +34,7 @@ public class RecordSampleController {
 
 
     public List<TestDto> getTests() {
-        List<Test> tests = this.tstore.getTests();
+        List<Test> tests = this.tstore.getTests("Introduz aqui state does Dtos");
         TestMapper mapper = new TestMapper();
         return mapper.toDto(tests);
     }

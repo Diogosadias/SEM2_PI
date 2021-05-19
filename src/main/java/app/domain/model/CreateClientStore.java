@@ -2,6 +2,8 @@ package app.domain.model;
 
 import app.controller.App;
 import app.domain.shared.Constants;
+import app.domain.shared.EmailSender;
+import app.domain.shared.GeneratePassword;
 import auth.AuthFacade;
 import auth.domain.model.Email;
 import auth.domain.model.Password;
@@ -110,14 +112,21 @@ public class CreateClientStore {
      *
      * @return boolean
      */
-    public boolean saveClient(Client rc, String pwd){
+    public boolean saveClient(Client rc){
         if(validateClient(rc)){
+            String pwd = new GeneratePassword().getPwd();
+            String email = rc.getId().getEmail();
             this.authFacade.addUserWithRole(rc.getName(), rc.getId().getEmail(), pwd , Constants.ROLE_CLIENT);
+            new EmailSender(email,pwd);
             return this.clientList.add(rc);
         }
             return false;
 
 
+    }
+
+    public boolean addClient(Client client) {
+        return saveClient(client);
     }
 
     /**

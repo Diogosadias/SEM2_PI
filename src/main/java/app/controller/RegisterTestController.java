@@ -1,10 +1,12 @@
 package app.controller;
 
-import app.domain.dto.TestTypeDto;
 import app.domain.model.Company;
 import app.domain.model.TestStore;
 
 import java.util.List;
+
+import static app.domain.shared.Constants.ROLE_ADMIN;
+import static app.domain.shared.Constants.ROLE_RECEP;
 
 public class RegisterTestController {
 
@@ -12,9 +14,17 @@ public class RegisterTestController {
 
     private TestStore tStore;
 
-    public void registerTest() {
-        this.tStore = company.getTestStore();
+    public RegisterTestController() {
+        if (!App.getInstance().getCurrentUserSession().isLoggedInWithRole(ROLE_RECEP)) {
+            throw new IllegalStateException("Utilizador nï¿½o Autorizado");
+        }
+        this.company = App.getInstance().getCompany();
+        this.tStore = this.company.getTestStore();
         tStore.setCompany(this.company);
+    }
+
+    public void registerTest() {
+
     }
 
     public boolean checkRegisteredClient(long cc) {
