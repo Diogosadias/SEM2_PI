@@ -30,7 +30,7 @@ public class Report {
 
     public boolean checkDiagnosis(String diagnosis){
         if(diagnosis!= null){
-            diagnosis.trim();
+            diagnosis=diagnosis.trim();
             if(countwords(diagnosis)>400){
                 throw new IllegalArgumentException("Diagnosis has an Invalid Input! (>400 words)");
             }
@@ -41,8 +41,7 @@ public class Report {
 
     public int countwords(String s){
         StringTokenizer st = new StringTokenizer(s);
-        int count = st.countTokens();
-        return count;
+        return st.countTokens();
     }
 
 }
