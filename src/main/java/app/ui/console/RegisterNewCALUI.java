@@ -4,6 +4,7 @@ import app.controller.App;
 import app.controller.RegisterNewCALController;
 import app.ui.console.utils.Utils;
 import auth.AuthFacade;
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 

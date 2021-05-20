@@ -33,7 +33,7 @@ App {
     private final Company company;
     private final AuthFacade authFacade;
 
-    private App() throws IOException
+    private App()
     {
         Properties props = getProperties();
         this.company = new Company(props.getProperty(Constants.PARAMS_COMPANY_DESIGNATION));
@@ -84,7 +84,7 @@ App {
     }
 
 
-    private void bootstrap() throws IOException
+    private void bootstrap()
     {
         this.authFacade.addUserRole(Constants.ROLE_EMPLOYEE,Constants.ROLE_EMPLOYEE);
         this.authFacade.addUserRole(Constants.ROLE_ADMIN,Constants.ROLE_ADMIN);
@@ -140,7 +140,6 @@ App {
 
         //Test
         List<Sample> sampleList = new ArrayList<>();
-        sampleList.add(new Sample());
         Test test1 = new Test ("10-10-2010", null, null, "10-10-2010", "Test", null, "5", client1, sampleList);
         test1.addParameter(parameter1);
         test1.setNhsCode("nhsCode-AB01");
@@ -149,7 +148,7 @@ App {
 
     // Extracted from https://www.javaworld.com/article/2073352/core-java/core-java-simply-singleton.html?page=2
     private static App singleton = null;
-    public static App getInstance() throws IOException
+    public static App getInstance()
     {
         if(singleton == null)
         {
