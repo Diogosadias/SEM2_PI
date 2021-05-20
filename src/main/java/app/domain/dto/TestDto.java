@@ -9,13 +9,15 @@ public class TestDto {
 
     private ArrayList<Test> testlist= new ArrayList<>();
 
-    private String NhsCode;
+    private long code;
+    private String description;
     private Client client;
 
     public TestDto(){}
 
-    public TestDto(String NhsCode, Client client){
-        this.NhsCode = NhsCode;
+    public TestDto(long code,String description, Client client){
+        this.code = code;
+        this.description = description;
         this.client = client;
 
 
@@ -30,5 +32,10 @@ public class TestDto {
 
     public boolean addTest(Test test){
         return testlist.add(test);
+    }
+
+
+    public String toString(){
+        return  "Collection Method:"+description+" \nClient:"+client.getCitizenCard();
     }
 }

@@ -109,8 +109,8 @@ App {
         this.authFacade.addUserWithRole(employee1.getName(), employee1.getEmail(), "123",Constants.ROLE_RECEP);
         this.company.getEmployeeStore().addEmployee(employee1);
 
-        SpecialistDoctor employee2 = new SpecialistDoctor(this.company.getOrgRoleStore().getRoleById(SPECIALIST_DOCTOR), "SD0002", "Receptionist1","R1:address",12900000201L,"R1:soc",123);
-        this.authFacade.addUserWithRole(employee2.getName(), employee2.getEmail(), "123", SPECIALIST_DOCTOR);
+        MedicalLabTechnician employee2 = new MedicalLabTechnician(this.company.getOrgRoleStore().getRoleById(MEDICAL_LAB_TECHNICIAN), "ML00002", "Receptionist1","R1:address",12900000201L,"R1:soc");
+        this.authFacade.addUserWithRole(employee2.getName(), employee2.getEmail(), "123", MEDICAL_LAB_TECHNICIAN);
         this.company.getEmployeeStore().addEmployee(employee2);
 
         //Client

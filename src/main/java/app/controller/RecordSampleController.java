@@ -9,8 +9,7 @@ import app.domain.shared.Constants;
 import java.io.IOException;
 import java.util.List;
 
-import static app.domain.shared.Constants.ROLE_ADMIN;
-import static app.domain.shared.Constants.ROLE_SPEC_DOCTOR;
+import static app.domain.shared.Constants.*;
 
 public class RecordSampleController {
 
@@ -20,7 +19,7 @@ public class RecordSampleController {
     public TestStore tstore;
 
     public RecordSampleController() {
-        if (!App.getInstance().getCurrentUserSession().isLoggedInWithRole(ROLE_SPEC_DOCTOR)) {
+        if (!App.getInstance().getCurrentUserSession().isLoggedInWithRole(ROLE_MED_LAB_TECH)) {
             throw new IllegalStateException("Utilizador nï¿½o Autorizado");
         }
         this.company = App.getInstance().getCompany();

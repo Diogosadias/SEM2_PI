@@ -17,10 +17,11 @@ public class TestMapper {
         List<TestDto> testDto = new ArrayList<>();
 
         for(Test test: list){
-            String code = test.getNhsCode();
+            long code = test.getCode();
+            String description = test.getDescription();
             Client client = test.getClient();
 
-            TestDto dto = new TestDto(code,client);
+            TestDto dto = new TestDto(code,description,client);
 
             testDto.add(dto);
         }
