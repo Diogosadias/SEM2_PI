@@ -19,7 +19,6 @@ public class TestStore {
 
     private List<Test> testlist;
 
-    private TestMapper mapper;
     
     private Test test;
 
@@ -27,8 +26,7 @@ public class TestStore {
     private final long MAX_NUM_TEST = 1000000000000L;
 
     public TestStore(){
-        testlist = new ArrayList<>();     
-        this.mapper = new TestMapper();
+        testlist = new ArrayList<>();
     }
     
     public boolean checkCompleted(Test test) {
@@ -40,7 +38,6 @@ public class TestStore {
         for(TestDto a : tests){
             if(!a.getDateValidation().isEmpty())
                 tests.remove(a);
-                
         }
         return tests;
     }
@@ -139,8 +136,7 @@ public class TestStore {
         return false;
     }
 
-    public void addSampletoTest(Sample sample, Test test) {
-
+    public void addSampleToTest(Sample sample, Test test) {
         for (Test t : testlist) {
             if (t == test)
                 t.setSampleList(sample);
@@ -163,10 +159,10 @@ public class TestStore {
                 }
             }
             if (temp.isEmpty()) {
-                System.out.println("There are no Tests under condition: " + state);
+                System.out.println("There are no"+ state +"Tests");
                 return null;
             }
-            return this.mapper.toDto(temp);
+            return new TestMapper().toDto(temp);
         }
         return null;
     }
