@@ -9,6 +9,7 @@ import java.util.List;
 /**
  *
  * @author Tiago Rocha <1181445@isep.ipp.pt>
+ * @author Bruno Pereira <1191454@isep.ipp.pt>
  */
 public class TestStore {
 
@@ -18,13 +19,30 @@ public class TestStore {
 
     private List<Test> testlist;
 
+    private TestMapper mapper;
+    
     private Test test;
 
     private long numRegisteredTest = 100000000000L;
     private final long MAX_NUM_TEST = 1000000000000L;
 
     public TestStore(){
-        testlist = new ArrayList<>();
+        testlist = new ArrayList<>();     
+        this.mapper = new TestMapper();
+    }
+    
+    public boolean checkCompleted(Test test) {
+        return test.checkCompleted();
+    }
+
+    public List<TestDto> getTestCompletedList() {
+        List<TestDto> tests = this.getTests(Constants.REGISTERED);
+        for(TestDto a : tests){
+            if(!a.getDateValidation().isEmpty())
+                tests.remove(a);
+                
+        }
+        return tests;
     }
 
     public void setCompany (Company company) {
@@ -44,10 +62,10 @@ public class TestStore {
     }
 
     public void newTest(String typeCode) {
-        TestTypeStore ttStore = this.company.getTestTypeStore();
-        TestType type = ttStore.getTestTypeByCode(typeCode);
-        String description = type.getCollectingMethod();
-        this.test = new Test(type,description,this.client);
+//        TestTypeStore ttStore = this.company.getTestTypeStore();
+//        TestType type = ttStore.getTestTypeByCode(typeCode);
+//        String description = type.getCollectingMethod();
+//        this.test = new Test(type,description,this.client);
         generateTestCode();
     }
 
@@ -121,12 +139,6 @@ public class TestStore {
         return false;
     }
 
-    public boolean checkCompleted(Test test) {
-        return test.checkCompleted();
-    }
-
-
-
     public void addSampletoTest(Sample sample, Test test) {
 
         for (Test t : testlist) {
@@ -135,11 +147,11 @@ public class TestStore {
         }
     }
 
-    public List<Test> getRegisteredTests () {
+    public List<TestDto> getRegisteredTests () {
         return this.getTests(Constants.REGISTERED);
     }
 
-    public List<Test> getTests (String state) {
+    public List<TestDto> getTests (String state) {
         if(this.testlist!=null) {
             if (this.testlist.isEmpty()) {
                 throw new IllegalArgumentException("Test list is empty.");
@@ -154,7 +166,7 @@ public class TestStore {
                 System.out.println("There are no Tests under condition: " + state);
                 return null;
             }
-            return temp;
+            return this.mapper.toDto(temp);
         }
         return null;
     }

@@ -38,16 +38,16 @@ public class SampleStore implements BarcodeAPI {
         else
             return false;
     }
+        
+    public List<Sample> getSamples(){
+        return this.sampleList;
+    }
 
     public List<TestDto> getTests() {
-
-        List<Test> tests = this.company.getTestStore().getTests(Constants.REGISTERED);
-
-        TestMapper mapper = new TestMapper();
-        return mapper.toDto(tests);
+        return this.company.getTestStore().getTests(Constants.REGISTERED);
     }
 
     public void writeTest(TestDto testdto){
-        this.test = this.company.getTestStore().getTestByCode(testdto.getCode());
+        this.test = this.company.getTestStore().getTestByCode(Long.valueOf(testdto.getNHSCode()));
     }
 }

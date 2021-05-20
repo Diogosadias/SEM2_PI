@@ -8,44 +8,67 @@ import java.util.List;
 /**
  *
  * @author Tiago Rocha <1181445@isep.ipp.pt>
+ * @author Bruno Pereira <1191454@isep.ipp.pt>
  */
 public class Test {
-    private String sampleTime;
+    
     public String sampleDate;
-    private String timeValidation;
     private String dateValidation;
-    private String timeDiagnosis;
     private String dateDiagnosis;
-    private String timeChemical;
     public String dateChemical;
-    private String parameterValue;
-
-    private List<Sample> sampleList;
-
-    private Client client;
-    private String nhsCode;
     private String description;
+    private String NHSCode;
+    private String parameterValue;
+    private Client client;
+    private List<Sample> sampleList;
+    //implementar estes atributos no construtor
     private TestType type;
     private long code;
     private List<Parameter> listParameters;
     private String state;
 
 
-    public Test (TestType type, String description,Client client) {
+    /**
+     *
+     * @param sampleDate
+     * @param dateValidation
+     * @param dateDiagnosis
+     * @param dateChemical
+     * @param description
+     * @param NHSCode
+     * @param parameterValue
+     * @param client
+     * @param sampleList
+     */
+    public Test(String sampleDate, String dateValidation, String dateDiagnosis, String dateChemical, String description, String NHSCode, String parameterValue, Client client, List<Sample> sampleList) {
+        
+        checkChemicalDate(dateChemical);
+        checkSampleDate(sampleDate);
         checkTypeAttribute(type);
         checkDescriptionAttribute(description);
         checkClientAttribute(client);
-
-        this.type = type;
-        this.description = description.trim();
+        checkNhsCodeAttribute(NHSCode);
+                       
+        this.sampleDate = sampleDate;
+        this.dateValidation = dateValidation;
+        this.dateDiagnosis = dateDiagnosis;
+        this.dateChemical = dateChemical;
+        this.description = description;
+        this.NHSCode = NHSCode;
+        this.parameterValue = parameterValue;
         this.client = client;
-        this.state = Constants.REGISTERED;
-        this.listParameters = new ArrayList<>();
+        this.sampleList = sampleList;
+    }
+
+    /**
+     *
+     */
+    public Test() {
     }
 
     public void setNhsCode(String nhsCode) {
         checkNhsCodeAttribute(nhsCode);
-        this.nhsCode = nhsCode;
+        this.NHSCode = nhsCode;
     }
 
     private void checkNhsCodeAttribute (String nhsCode) {
@@ -107,14 +130,14 @@ public class Test {
         return false;
     }
 
-    public boolean checkChemicalDate(Test test){
+    public boolean checkChemicalDate(String dateChemical){
         if(dateChemical==null){
             return false;
         }
         return true;
     }
 
-    public boolean checkSampleDate(Test test){
+    public boolean checkSampleDate(String sampleDate){
         if(sampleDate == null){
             return false;
         }
@@ -137,7 +160,7 @@ public class Test {
     }
 
     public String getNhsCode() {
-        return this.nhsCode;
+        return this.NHSCode;
     }
 
     public void setClient(Client client) {
@@ -156,13 +179,51 @@ public class Test {
         return this.state.equals(state);
     }
 
+    public String getSampleDate() {
+        return sampleDate;
+    }
+
+    public String getDateValidation() {
+        return dateValidation;
+    }
+
+    public String getDateDiagnosis() {
+        return dateDiagnosis;
+    }
+
+    public String getDateChemical() {
+        return dateChemical;
+    }
+
+    public String getNHSCode() {
+        return NHSCode;
+    }
+
+    public String getParameterValue() {
+        return parameterValue;
+    }
+
+    public List<Sample> getSampleList() {
+        return sampleList;
+    }
+
+    public TestType getType() {
+        return type;
+    }
+
+    public String getState() {
+        return state;
+    }
+    
+    
+
     @Override
     public String toString() {
         String s =  "\n --- Many Labs Test --- " +
                 "\nClient CC: " + this.client.getCitizenCard() +
                 "\nType of Test: " + this.type.getDescription() +
                 "\nCollection Method: " + this.description+
-                "\nNhs Code: " + this.nhsCode +
+                "\nNhs Code: " + this.NHSCode +
                 "\n\nList of Parameters to be measured: ";
         for (Parameter p : this.getListParameters()) {
             s = s + "\n - " + p.getName();

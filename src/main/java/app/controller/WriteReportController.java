@@ -2,6 +2,8 @@ package app.controller;
 
 import app.domain.dto.*;
 import app.domain.model.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class WriteReportController {
     private Company company;
@@ -12,12 +14,12 @@ public class WriteReportController {
     private TestStore testStore;
 
     public WriteReportController(){
-        this(App.getInstance().getCompany());
+        this.company = App.getInstance().getCompany();
     }
 
 
     public WriteReportController(Company company){
-        this.company = company;
+        this.company = App.getInstance().getCompany();
         this.reportStore = company.getReportStore();
         this.testStore = company.getTestStore();
 
@@ -32,9 +34,7 @@ public class WriteReportController {
         return this.reportStore.saveReport(report);
     }
 
-
-/*
-    public TestDto getTestCompletedList(){
+    public List<TestDto> getTestCompletedList(){
         return testMapper.getTestCompletedList(testStore);
     }
 
@@ -43,9 +43,10 @@ public class WriteReportController {
         //Shows list of tests completed
     }
 
-    public Test getTestInformation(Test test){
-        return testMapper.getTestInformation(testdto.getTest(test));
+    public Test getTestInformation(TestDto test){        
+        Test aux = testMapper.getTest(test);
+        aux.getInformation(aux);
+        return aux;
     }
-*/
 
 }

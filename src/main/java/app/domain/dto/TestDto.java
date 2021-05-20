@@ -2,6 +2,7 @@ package app.domain.dto;
 
 import app.domain.model.Client;
 import app.domain.model.Parameter;
+import app.domain.model.Sample;
 import app.domain.model.Test;
 
 import java.util.ArrayList;
@@ -10,43 +11,88 @@ import java.util.List;
 /**
  *
  * @author Tiago Rocha <1181445@isep.ipp.pt>
+ * @author Bruno Pereira <1191454@isep.ipp.pt>
  */
 public class TestDto {
 
-    private ArrayList<Test> testlist= new ArrayList<>();
-
-    private long code;
-    private String type;
+    private String sampleDate;
+    private String dateValidation;
+    private String dateDiagnosis;
+    private String dateChemical;
     private String description;
-    private long clientCC;
-    String nhsCode;
-    List<Parameter> parameters = new ArrayList<>();
+    private String NHSCode;
+    private String parameterValue;
+    private String client;
+    private List<Sample> sampleList;
 
     public TestDto(){}
 
-    public TestDto(long code,String description, long clientCC){
-        this.code = code;
+    /**
+     *
+     * @param sampleDate
+     * @param dateValidation
+     * @param dateDiagnosis
+     * @param dateChemical
+     * @param description
+     * @param NHSCode
+     * @param parameterValue
+     * @param client
+     * @param sampleList
+     */
+    public TestDto(String sampleDate, String dateValidation, String dateDiagnosis, String dateChemical, String description, String NHSCode, String parameterValue, String client, List<Sample> sampleList) {
+        this.sampleDate = sampleDate;
+        this.dateValidation = dateValidation;
+        this.dateDiagnosis = dateDiagnosis;
+        this.dateChemical = dateChemical;
         this.description = description;
-        this.clientCC = clientCC;
-    }
-
-    public TestDto(long code, String type, String description, long clientCC, String nhsCode, List<Parameter> parameters){
-        this.code = code;
-        this.type = type;
-        this.description = description;
-        this.clientCC = clientCC;
-        this.nhsCode = nhsCode;
-        this.parameters = parameters;
+        this.NHSCode = NHSCode;
+        this.parameterValue = parameterValue;
+        this.client = client;
+        this.sampleList = sampleList;
     }
 
 
 
-    public long getCode(){
-        return code;
+     public String getSampleDate() {
+        return sampleDate;
     }
+
+    public String getDateValidation() {
+        return dateValidation;
+    }
+
+    public String getDateDiagnosis() {
+        return dateDiagnosis;
+    }
+
+    public String getDateChemical() {
+        return dateChemical;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getNHSCode() {
+        return NHSCode;
+    }
+
+    public String getParameterValue() {
+        return parameterValue;
+    }
+
+    public String getClient() {
+        return client;
+    }
+
+    public List<Sample> getSampleList() {
+        return sampleList;
+    }
+
+    
 
     public String toString(){
-        return  "Collection Method:"+description+" \nClient:"+this.clientCC;
+        return  "Collection Method:"+description+" \nClient:"+client;
     }
 
 }
