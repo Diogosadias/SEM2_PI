@@ -5,6 +5,11 @@ import app.domain.model.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * @author Bruno Pereira <1191454@isep.ipp.pt>
+ */
+
 public class WriteReportController {
     private Company company;
     private Report report;
@@ -26,12 +31,12 @@ public class WriteReportController {
     }
 
     public boolean createReport(String diagnosis, Test test){
-        report = reportStore.createReport(diagnosis, test);
-        return reportStore.validateReport(report);
+        this.report = reportStore.createReport(diagnosis, test);
+        return reportStore.validateReport(this.report);
     }
 
     public boolean saveReport(){
-        return this.reportStore.saveReport(report);
+        return this.reportStore.saveReport(this.report);
     }
 
     public List<TestDto> getTestCompletedList(){
