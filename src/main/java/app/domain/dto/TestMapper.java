@@ -28,7 +28,11 @@ public class TestMapper {
     }
 
     public TestDto getTestCompletedList(TestStore testStore) {
-        return testStore.getTestCompletedList();
+        if(testStore!=null){
+            return testStore.getTestCompletedList();
+
+        }
+        return null;
     }
 
 
