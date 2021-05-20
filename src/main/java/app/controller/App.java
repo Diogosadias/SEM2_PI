@@ -15,6 +15,8 @@ import java.util.Date;
 import java.util.Properties;
 
 import static app.domain.shared.Constants.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -31,7 +33,7 @@ App {
     private final Company company;
     private final AuthFacade authFacade;
 
-    private App()
+    private App() throws IOException
     {
         Properties props = getProperties();
         this.company = new Company(props.getProperty(Constants.PARAMS_COMPANY_DESIGNATION));
@@ -82,7 +84,7 @@ App {
     }
 
 
-    private void bootstrap()
+    private void bootstrap() throws IOException
     {
         this.authFacade.addUserRole(Constants.ROLE_EMPLOYEE,Constants.ROLE_EMPLOYEE);
         this.authFacade.addUserRole(Constants.ROLE_ADMIN,Constants.ROLE_ADMIN);
@@ -137,7 +139,9 @@ App {
         this.company.getTestTypeStore().addTestType(type1);
 
         //Test
-        Test test1 = new Test (type1,type1.getCollectingMethod(),client1);
+        List<Sample> sampleList = new ArrayList<>();
+        sampleList.add(new Sample());
+        Test test1 = new Test ("10-10-2010", null, null, "10-10-2010", "Test", null, "5", client1, sampleList);
         test1.addParameter(parameter1);
         test1.setNhsCode("nhsCode-AB01");
         this.company.getTestStore().addTest(test1);
@@ -145,7 +149,7 @@ App {
 
     // Extracted from https://www.javaworld.com/article/2073352/core-java/core-java-simply-singleton.html?page=2
     private static App singleton = null;
-    public static App getInstance()
+    public static App getInstance() throws IOException
     {
         if(singleton == null)
         {
