@@ -1,5 +1,9 @@
 package app.domain.dto;
 
+/**
+ *
+ * @author Tiago Rocha <1181445@isep.ipp.pt>
+ */
 public class ParameterDto {
 
     private String code;

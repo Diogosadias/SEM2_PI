@@ -6,7 +6,8 @@ import org.apache.commons.lang3.StringUtils;
  *
  *  @author Márcio Ramos <1201682@isep.ipp.pt>
  *  @author Tiago Ferreira <1200601@isep.ipp.pt>
- */
+ *  @author Tiago Rocha <1181445@isep.ipp.pt>
+*/
 public class ParameterCategory {
     /**
      * code - Parameter Category Code

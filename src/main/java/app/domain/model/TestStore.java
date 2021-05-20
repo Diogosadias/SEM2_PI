@@ -6,7 +6,10 @@ import app.domain.shared.Constants;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ *
+ * @author Tiago Rocha <1181445@isep.ipp.pt>
+ */
 public class TestStore {
 
     private Company company;
@@ -29,7 +32,7 @@ public class TestStore {
     }
 
     public boolean checkRegisteredClient(long cc) {
-        CreateClientStore cStore = this.company.getCreateClientStore();
+        ClientStore cStore = this.company.getCreateClientStore();
         this.client = cStore.getClientByCC(cc);
         return (client != null) ;
     }

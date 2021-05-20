@@ -1,8 +1,9 @@
 package app.domain.shared;
 
-import app.domain.model.Employee;
-import app.domain.model.EmployeeStore;
-
+/**
+ *
+ * @author Tiago Rocha <1181445@isep.ipp.pt>
+ */
 public class GenerateEmployeeId {
 
     /**

@@ -2,13 +2,8 @@ package app.controller;
 
 import app.domain.model.Client;
 import app.domain.model.Company;
-import app.domain.model.CreateClientStore;
-import app.domain.shared.EmailSender;
-import app.domain.shared.GeneratePassword;
+import app.domain.model.ClientStore;
 import auth.AuthFacade;
-
-import java.io.FileWriter;
-import java.io.IOException;
 
 /**
  * Controller for the US3 realization - Register a new Client
@@ -22,7 +17,7 @@ public class CreateClientController {
     private AuthFacade authFacade;
     private App app;
 
-    private CreateClientStore clientStore;
+    private ClientStore clientStore;
     Client rc;
 
     /**

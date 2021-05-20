@@ -1,7 +1,9 @@
 package app.domain.model;
 
-import static app.domain.shared.Constants.ROLE_MED_LAB_TECH;
-
+/**
+ *
+ * @author Tiago Rocha <1181445@isep.ipp.pt>
+ */
 public class MedicalLabTechnician extends Employee{
 
     public MedicalLabTechnician(OrgRole role, String employeeId, String name, String address, long phoneNumber, String socCode){

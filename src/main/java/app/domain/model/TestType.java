@@ -6,7 +6,8 @@ import java.util.List;
 /**
  *
  * @author Tomás Pinto <1181835@isep.ipp.pt>
- */
+ * @author Tiago Rocha <1181445@isep.ipp.pt>
+*/
 
 public class TestType extends TestTypeStore {
     /**

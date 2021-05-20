@@ -6,6 +6,10 @@ import app.domain.model.Employee;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ *
+ * @author Tiago Rocha <1181445@isep.ipp.pt>
+ */
 public class ListEmployeesUI implements Runnable {
 
     public ListEmployeesUI () {

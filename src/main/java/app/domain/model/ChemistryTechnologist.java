@@ -1,7 +1,9 @@
 package app.domain.model;
 
-import static app.domain.shared.Constants.ROLE_CHEM_TECH;
-
+/**
+ *
+ * @author Tiago Rocha <1181445@isep.ipp.pt>
+ */
 public class ChemistryTechnologist extends Employee{
 
     public ChemistryTechnologist(OrgRole role, String employeeId, String name, String address, long phoneNumber, String socCode){

@@ -5,6 +5,10 @@ import app.domain.model.Test;
 
 import java.util.ArrayList;
 
+/**
+ *
+ * @author Tiago Rocha <1181445@isep.ipp.pt>
+ */
 public class TestDto {
 
     private ArrayList<Test> testlist= new ArrayList<>();

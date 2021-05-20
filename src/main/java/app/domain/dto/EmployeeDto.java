@@ -1,10 +1,8 @@
 package app.domain.dto;
 
-import java.util.Locale;
-
 /**
  *
- * @author Tiago Rocha
+ * @author Tiago Rocha <1181445@isep.ipp.pt>
  */
 public class EmployeeDto {
     private String roleId;

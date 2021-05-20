@@ -280,11 +280,11 @@ The CreateClienttController is the communicator between the CreateClientUI and t
     private String address;
     private String phoneNumber;
     private String socCode;   
-    private CreateClientStore createClientStore;
+    private CreateClientStore clientStore;
 
 
     public void getClientStore(){
-           return createClientStore;      
+           return clientStore;      
     }  
     }
 

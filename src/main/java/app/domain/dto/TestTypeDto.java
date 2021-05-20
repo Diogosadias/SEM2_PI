@@ -4,7 +4,10 @@ import app.domain.model.Parameter;
 import app.domain.model.ParameterCategory;
 
 import java.util.List;
-
+/**
+ *
+ * @author Tiago Rocha <1181445@isep.ipp.pt>
+ */
 public class TestTypeDto {
 
     private String code;

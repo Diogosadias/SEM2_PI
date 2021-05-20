@@ -5,9 +5,12 @@ import app.domain.model.TestStore;
 
 import java.util.List;
 
-import static app.domain.shared.Constants.ROLE_ADMIN;
 import static app.domain.shared.Constants.ROLE_RECEP;
 
+/**
+ *
+ * @author Tiago Rocha <1181445@isep.ipp.pt>
+ */
 public class RegisterTestController {
 
     private Company company;

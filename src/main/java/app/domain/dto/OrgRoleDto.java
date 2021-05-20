@@ -2,7 +2,7 @@ package app.domain.dto;
 
 /**
  *
- * @author Tiago Rocha
+ * @author Tiago Rocha <1181445@isep.ipp.pt>
  */
 public class OrgRoleDto {
 

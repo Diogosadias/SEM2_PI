@@ -41,6 +41,8 @@ public class EmployeeStore {
 
     /**
      * Create Store instance with empties arrays.
+     *
+     * @author Tiago Rocha <1181445@isep.ipp.pt>
      */
     public EmployeeStore (OrgRoleStore rStore, AuthFacade auth) {
         this.rStore = rStore;

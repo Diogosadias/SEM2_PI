@@ -23,6 +23,7 @@ import static app.domain.shared.Constants.*;
  * @author Tomás Pinto <1181835@isep.ipp.pt>
  * @author Gil <1180838@isep.ipp.pt>
  * @author Bruno Pereira <1191454@isep.ipp.pt>
+ * @author Tiago Rocha <1181445@isep.ipp.pt>
  */
 public class
 App {

@@ -1,7 +1,6 @@
 package app.ui.console;
 
 import app.controller.AuthController;
-import app.domain.model.MedicalLabTechnician;
 import app.domain.shared.Constants;
 import app.ui.console.utils.Utils;
 import auth.mappers.dto.UserRoleDTO;

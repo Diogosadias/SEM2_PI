@@ -11,8 +11,8 @@ import static app.domain.shared.Constants.SPECIALIST_DOCTOR;
 /**
  * This domain class allows to build an instance of role.
  *
- * @author Tiago Rocha
  *  @author Márcio Ramos <1201682@isep.ipp.pt>
+ * @author Tiago Rocha <1181445@isep.ipp.pt>
  */
 public class OrgRole {
 

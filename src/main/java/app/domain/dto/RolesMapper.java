@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  *
- * @author Tiago Rocha
+ * @author Tiago Rocha <1181445@isep.ipp.pt>
  */
 public class RolesMapper {
 

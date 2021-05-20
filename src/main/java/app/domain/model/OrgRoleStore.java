@@ -3,6 +3,10 @@ package app.domain.model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * @author Tiago Rocha <1181445@isep.ipp.pt>
+ */
 public class OrgRoleStore {
 
     private List<OrgRole> lor;

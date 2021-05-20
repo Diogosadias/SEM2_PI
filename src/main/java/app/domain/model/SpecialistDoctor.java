@@ -2,8 +2,10 @@ package app.domain.model;
 
 import java.util.Objects;
 
-import static app.domain.shared.Constants.ROLE_SPEC_DOCTOR;
-
+/**
+ *
+ * @author Tiago Rocha <1181445@isep.ipp.pt>
+ */
 public class SpecialistDoctor extends Employee{
 
     /**

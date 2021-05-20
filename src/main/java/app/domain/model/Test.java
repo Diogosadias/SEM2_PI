@@ -5,7 +5,10 @@ import app.domain.shared.Constants;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ *
+ * @author Tiago Rocha <1181445@isep.ipp.pt>
+ */
 public class Test {
     private String sampleTime;
     public String sampleDate;

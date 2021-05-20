@@ -9,6 +9,10 @@ import app.ui.console.utils.Utils;
 
 import java.util.List;
 
+/**
+ *
+ * @author Tiago Rocha <1181445@isep.ipp.pt>
+ */
 public class RegisterTestUI implements Runnable {
 
     private RegisterTestController m_controller;
