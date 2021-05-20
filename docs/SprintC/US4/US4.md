@@ -90,22 +90,23 @@ ParameterCategory needs to be specified in US11.
 | 																										|	...having the store information?					 					|  RegisterTestController	|	PureFabrication: Company uses controller.                            |
 | Step 2: requests Client citizen card number						 									|	n/a					 													|             				|                           |
 | Step 3: types the CC number  																			|	...checking if Client is registered?									|  ClientStore				|  	HC + LC: Company delegates responsability to the ClientStore.                            |
-|																										|	...registering a new client, if it is not registered?		 			|  RegisterClientUI			|  	PureFabrication: responsible for user interaction.                            |
 |																										|	...saving the client?							 						|  TestStore				|  	HC + LC: Test is requested by Client.                            |
-| Step 4: lists all the TestType and asks to select one													|	...knowing all the TesType?												|  TestTypeStore			|   HC + LC: Company delegates responsability to the TestStore.                      |
+| Step 4: asks if wants to register a new Client or cancel operation									|	n/a					 													|             				|                           |
+| Step 4: chooses an option																				|	...registering a new client?								 			|  RegisterClientUI			|  	PureFabrication: responsible for user interaction.                            |
+| Step 5: lists all the TestType and asks to select one													|	...knowing all the TesType?												|  TestTypeStore			|   HC + LC: Company delegates responsability to the TestStore.                      |
 |																										|	...listing the TesType list?											|  TestTypeMapper 			|   DTO: TestTypeDto has the TestType list.                          |
-| Step 5: selects the TestType  												 						|	...saving the TestType selected?						 				|  TestStore    			|  	HC + LC: Test is of TestType.                            |
-| Step 6: lists all the Parameter Categories of the TestType selected and asks to select one			|	...listing the ParameterCategory list?									|  TestTypeMapper 			|   DTO: TestType has ParameterCategory list.                          |
-| Step 7: selects the ParameterCategory  												 				|	...saving the ParameterCategory selected?						 		|  TestStore    			|  	HC + LC: Each TestType is presented under ParameterCategory.                            |
-| Step 8: shows list of Parameters according to the Category selected and asks to choose at least one	|	...knowing all the Parameters?											|  ParameterStore			|   HC + LC: Company delegates responsability to the ParameterStore.                      |
+| Step 6: selects the TestType  												 						|	...saving the TestType selected?						 				|  TestStore    			|  	HC + LC: Test is of TestType.                            |
+| Step 7: lists all the Parameter Categories of the TestType selected and asks to select one			|	...listing the ParameterCategory list?									|  TestTypeMapper 			|   DTO: TestType has ParameterCategory list.                          |
+| Step 8: selects the ParameterCategory  												 				|	...saving the ParameterCategory selected?						 		|  TestStore    			|  	HC + LC: Each TestType is presented under ParameterCategory.                            |
+| Step 9: shows list of Parameters according to the Category selected and asks to choose at least one	|	...knowing all the Parameters?											|  ParameterStore			|   HC + LC: Company delegates responsability to the ParameterStore.                      |
 |																										|	...listing the Parameters list?							 				|  ParameterMapper  		|   DTO: ListParameterDto has the list of Parameters.                           |
-| Step 9: selects the Parameter(s)  																	|	...saving the list of Parameters selected?								|  TestStore    			|  	HC + LC: Test requests analysis of Parameter(s).                            |
-| Step 10: requests additional data ( nhsCode ) 														|	n/a						 												|               			|                              											|
-| Step 11: types requested data  		 																|	...saving the input data?						 						|  TestStore    			|  	IE: Test created in step 1.                       				   |
-| Step 12: validates and shows all the data, asking for confirmation  		 							|	...validating the data locally(eg.: mandatory vs non-mandatory data)?	|  Test		        		|   IE: knows its own data.                         					 |
+| Step 10: selects the Parameter(s)  																	|	...saving the list of Parameters selected?								|  TestStore    			|  	HC + LC: Test requests analysis of Parameter(s).                            |
+| Step 11: requests additional data ( nhsCode ) 														|	n/a						 												|               			|                              											|
+| Step 12: types requested data  		 																|	...saving the input data?						 						|  TestStore    			|  	IE: Test created in step 1.                       				   |
+| Step 13: validates and shows all the data, asking for confirmation  		 							|	...validating the data locally(eg.: mandatory vs non-mandatory data)?	|  Test		        		|   IE: knows its own data.                         					 |
 |   		 																							|	...validating the data globally(eg.: duplicated)?					 	|  TestStore	    		|   HC+LC: knows all the Test objects.                         |
-| Step 13: confirms all the data  		 																|	...saving the created Test												|  TestStore   				|   IE: adopts/records all the Test objects.                          |
-| Step 14: informs Test registered to Client sucessfully  		 										|	...informing operation success?						 					|  RegisterTestUI			|   PureFabrication8: responsible for user interaction                          |              
+| Step 14: confirms all the data  		 																|	...saving the created Test												|  TestStore   				|   IE: adopts/records all the Test objects.                          |
+| Step 15: informs Test registered to Client sucessfully  		 										|	...informing operation success?						 					|  RegisterTestUI			|   PureFabrication8: responsible for user interaction                          |              
 
 ### Systematization ##
 
@@ -125,7 +126,6 @@ RegisterTestController (applying the "controller" pattern),
 TestStore (HC+LC),
 ClientStore (HC+LC),
 TestTypeStore (HC+LC),
-ParameterCategoryStore(HC+LC),
 ParameterStore(HC+LC),
 TestTypeMapper ("DTO" pattern),
 ParameterMapper ("DTO" pattern),
@@ -138,17 +138,17 @@ ParameterDTO ("DTO" pattern)
 
 *Main Diagram:*
 
-![US4-SD](US4-SD.svg)
+![MainDiagram](US4-SD.svg)
 
 
 *LabOrder_toDto Diagram:*
 
-![US4-SD2](US4-SD2.svg)
+![SecondaryDiagram](TestType_toDto_List.svg)
 
 
 *TypeTestList_toDto Diagram:*
 
-![US4-SD3](US4-SD3.svg)
+![ThirdDiagram](Parameter_toDto_List.svg)
 
 
 ## 3.3. Class Diagram (CD)
