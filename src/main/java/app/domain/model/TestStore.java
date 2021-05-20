@@ -59,10 +59,10 @@ public class TestStore {
     }
 
     public void newTest(String typeCode) {
-//        TestTypeStore ttStore = this.company.getTestTypeStore();
-//        TestType type = ttStore.getTestTypeByCode(typeCode);
-//        String description = type.getCollectingMethod();
-//        this.test = new Test(type,description,this.client);
+        TestTypeStore ttStore = this.company.getTestTypeStore();
+        TestType type = ttStore.getTestTypeByCode(typeCode);
+        String description = type.getCollectingMethod();
+        this.test = new Test(type,description,this.client);
         generateTestCode();
     }
 

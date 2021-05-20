@@ -21,13 +21,30 @@ public class Test {
     private String parameterValue;
     private Client client;
     private List<Sample> sampleList;
-    //implementar estes atributos no construtor
+    
     private TestType type;
     private long code;
     private List<Parameter> listParameters;
     private String state;
 
-
+    /**
+     *
+     * @param type
+     * @param description
+     * @param client
+     */
+    public Test(TestType type, String description, Client client){
+        checkTypeAttribute(type);
+        checkDescriptionAttribute(description);
+        checkClientAttribute(client);
+        
+        this.type = type;
+        this.description = description.trim();
+        this.client = client;
+        this.state = Constants.REGISTERED;
+        this.listParameters = new ArrayList();
+    }
+    
     /**
      *
      * @param sampleDate
@@ -44,7 +61,6 @@ public class Test {
         
         checkChemicalDate(dateChemical);
         checkSampleDate(sampleDate);
-        checkTypeAttribute(type);
         checkDescriptionAttribute(description);
         checkClientAttribute(client);
         checkNhsCodeAttribute(NHSCode);
@@ -96,7 +112,7 @@ public class Test {
             throw new IllegalArgumentException("Creating Test Error: Client is null.");
         }
     }
-
+    
     public long getCode() {
         return this.code;
     }

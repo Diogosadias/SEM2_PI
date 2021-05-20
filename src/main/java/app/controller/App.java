@@ -139,8 +139,7 @@ App {
         this.company.getTestTypeStore().addTestType(type1);
 
         //Test
-        List<Sample> sampleList = new ArrayList<>();
-        Test test1 = new Test ("10-10-2010", null, null, "10-10-2010", "Test", null, "5", client1, sampleList);
+        Test test1 = new Test (type1,type1.getCollectingMethod(),client1);
         test1.addParameter(parameter1);
         test1.setNhsCode("nhsCode-AB01");
         this.company.getTestStore().addTest(test1);
