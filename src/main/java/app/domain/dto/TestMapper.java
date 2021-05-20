@@ -17,15 +17,27 @@ public class TestMapper {
     }
 
     public List<TestDto> toDto(List<Test>list){
-
         List<TestDto> testDto = new ArrayList<>();
-
         for(Test test: list){
             long code = test.getCode();
             String description = test.getDescription();
             Client client = test.getClient();
 
-            TestDto dto = new TestDto(code,description,client);
+            TestDto dto = new TestDto(code,description,client.getCitizenCard());
+
+            testDto.add(dto);
+        }
+        return testDto;
+    }
+
+    public List<TestDto> toDtoRegistered(List<Test>list){
+        List<TestDto> testDto = new ArrayList<>();
+        for(Test test: list){
+            long code = test.getCode();
+            String description = test.getDescription();
+            Client client = test.getClient();
+
+            TestDto dto = new TestDto(code,description,client.getCitizenCard());
 
             testDto.add(dto);
         }

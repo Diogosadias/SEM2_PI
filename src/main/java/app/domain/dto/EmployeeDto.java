@@ -1,5 +1,8 @@
 package app.domain.dto;
 
+import app.domain.model.SpecialistDoctor;
+import app.domain.shared.Constants;
+
 /**
  *
  * @author Tiago Rocha <1181445@isep.ipp.pt>
@@ -55,5 +58,18 @@ public class EmployeeDto {
 
     public void setDoctorIndexNumber(int doctorIndexNumber) {
         this.doctorIndexNumber = doctorIndexNumber;
+    }
+
+    @Override
+    public String toString() {
+        String s = "\n-- " + this.roleId + " -- \n" +
+                "Id: " + this.employeeId + "\n" +
+                this.name + ", " + this.address + "\n" +
+                "Phone: " + this.phoneNumber + "\n" +
+                "SOC: " + this.socCode + "\n" ;
+        if (this.roleId.equals(Constants.SPECIALIST_DOCTOR)) {
+            s += "Doctor Number: " + this.doctorIndexNumber + "\n";
+        }
+        return s;
     }
 }

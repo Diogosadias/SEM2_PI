@@ -2,6 +2,7 @@ package app.domain.model;
 
 import auth.AuthFacade;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.tools.ant.types.Mapper;
 
 /**
  * This domain class allows to build an instance of company.
@@ -236,4 +237,5 @@ public class Company {
     public void setSampleStore(SampleStore sampleStore) {
         this.sampleStore = sampleStore;
     }
+
 }

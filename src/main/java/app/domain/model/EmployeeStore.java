@@ -1,6 +1,7 @@
 package app.domain.model;
 
 import app.domain.dto.EmployeeDto;
+import app.domain.dto.EmployeeMapper;
 import app.domain.shared.EmailSender;
 import app.domain.shared.GenerateEmployeeId;
 import app.domain.shared.GeneratePassword;
@@ -150,6 +151,11 @@ public class EmployeeStore {
             s = s + "[Doctor Index Number: " + temp.getDoctorIndexNumber() + "]\n" + "";
         }
         return s;
+    }
+
+    public List getEmployeesToShow () {
+        EmployeeMapper mapper = new EmployeeMapper();
+        return mapper.toDto(this.le);
     }
 
 }

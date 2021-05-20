@@ -1,6 +1,7 @@
 package app.ui.console;
 
 import app.controller.RegisterTestController;
+import app.domain.dto.TestDto;
 import app.domain.model.Test;
 
 import java.util.List;

@@ -1,7 +1,7 @@
 package app.ui.console;
 
 import app.controller.RegisterEmployeeController;
-import app.domain.model.Employee;
+import app.domain.dto.EmployeeDto;
 
 import java.util.List;
 import java.util.Scanner;
@@ -17,12 +17,12 @@ public class ListEmployeesUI implements Runnable {
     }
 
     public void run() {
-        RegisterEmployeeController rec = new RegisterEmployeeController();
-        List<Employee> list  = rec.getCompany().getEmployeeStore().getEmployees();
+        RegisterEmployeeController controller = new RegisterEmployeeController();
+        List<EmployeeDto> list  = controller.getCompany().getEmployeeStore().getEmployeesToShow();
         if (list.isEmpty()) {
             System.out.println("List of Employees is empty.");
         } else {
-            for (Employee e : list) {
+            for (EmployeeDto e : list) {
                 System.out.println("\n" + e);
                 System.out.println("\nPress Enter to continue:");
                 Scanner scanner = new Scanner(System.in);
