@@ -37,6 +37,6 @@ public class Constants {
     public static final String MODEL_CLASS_PATH = "app.domain.model.";
 
     public static final String REGISTERED = "Registered";
-	
+	public static final String SAMPLECOLLECTED = "Sample Collected";
 
 }

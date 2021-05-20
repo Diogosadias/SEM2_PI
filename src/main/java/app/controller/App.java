@@ -103,10 +103,15 @@ App {
         this.authFacade.addUserWithRole("Client1","clei@sd.pt","123",Constants.ROLE_CLIENT);
         this.authFacade.addUserWithRoles("SuperUser", "superuser@super.user", "123456", new String[] { Constants.ROLE_CLIENT,Constants.ROLE_ADMIN, Constants.ROLE_RECEP });
 
+
         //Employee
         Receptionist employee1 = new Receptionist(this.company.getOrgRoleStore().getRoleById(RECEPTIONIST), "R00001", "Receptionist1","R1:address",12900000001L,"R1:soc");
         this.authFacade.addUserWithRole(employee1.getName(), employee1.getEmail(), "123",Constants.ROLE_RECEP);
         this.company.getEmployeeStore().addEmployee(employee1);
+
+        SpecialistDoctor employee2 = new SpecialistDoctor(this.company.getOrgRoleStore().getRoleById(SPECIALIST_DOCTOR), "SD0002", "Receptionist1","R1:address",12900000201L,"R1:soc",123);
+        this.authFacade.addUserWithRole(employee2.getName(), employee2.getEmail(), "123", SPECIALIST_DOCTOR);
+        this.company.getEmployeeStore().addEmployee(employee2);
 
         //Client
         Client client1 = new Client (new Email("client1@lei.pt"),"Client Teste",1234567890L,1212121212121212L,210000000001L,new Date(1990,01,01),"M",91000000000L);

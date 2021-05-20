@@ -16,6 +16,7 @@ public class Test {
     private String timeChemical;
     public String dateChemical;
     private String parameterValue;
+
     private List<Sample> sampleList;
 
     private Client client;
@@ -25,6 +26,7 @@ public class Test {
     private long code;
     private List<Parameter> listParameters;
     private String state;
+
 
     public Test (TestType type, String description,Client client) {
         checkTypeAttribute(type);

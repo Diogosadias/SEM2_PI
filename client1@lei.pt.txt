@@ -2,7 +2,7 @@ Hello,
 here is your new password:
 
 Email: client1@lei.pt
-Password: n9wsezn8o5
+Password: ybw7acohur
 
 Best regards
 ManyLabs team.

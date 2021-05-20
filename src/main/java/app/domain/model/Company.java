@@ -81,7 +81,6 @@ public class Company {
         this.authFacade = new AuthFacade();
 
         this.reportStore = new ReportStore();
-        this.sampleStore = new SampleStore();
         this.calStore = new CALStore();
         this.createClientStore = new CreateClientStore(this.authFacade);
         this.parameterCategoryStore = new ParameterCategoryStore();
@@ -90,6 +89,7 @@ public class Company {
         this.parameterStore = new ParameterStore();
         this.testStore = new TestStore();
         this.testTypeStore = new TestTypeStore();
+        this.sampleStore = new SampleStore(this);
     }
 
     /**
@@ -230,7 +230,7 @@ public class Company {
     }
 
     public SampleStore getSampleStore() {
-        return sampleStore;
+        return this.sampleStore;
     }
 
     public void setSampleStore(SampleStore sampleStore) {

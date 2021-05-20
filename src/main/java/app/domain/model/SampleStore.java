@@ -1,5 +1,9 @@
 package app.domain.model;
 
+import app.domain.dto.TestDto;
+import app.domain.dto.TestMapper;
+import app.domain.shared.Constants;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,8 +13,12 @@ public class SampleStore {
     private final List<Sample> sampleList;
 
 
-    public SampleStore(){
+
+    Company company;
+
+    public SampleStore(Company company){
         this.sampleList = new ArrayList<>();
+        this.company = company;
     }
 
     public Sample createSample() throws IOException {
@@ -22,5 +30,13 @@ public class SampleStore {
             return true;
         else
             return false;
+    }
+
+    public List<TestDto> getTests() {
+
+        List<Test> tests = this.company.getTestStore().getTests(Constants.REGISTERED);
+
+        TestMapper mapper = new TestMapper();
+        return mapper.toDto(tests);
     }
 }
