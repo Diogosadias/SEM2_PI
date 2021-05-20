@@ -1,6 +1,5 @@
 package app.domain.model;
 
-import org.apache.tools.ant.util.Tokenizer;
 
 import java.util.StringTokenizer;
 

@@ -1,20 +1,20 @@
 package app.domain.model;
 
 import app.domain.dto.TestDto;
-import app.domain.dto.TestMapper;
-import app.domain.shared.BarcodeAPI;
 import app.domain.shared.Constants;
+import net.sourceforge.barbecue.BarcodeException;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SampleStore implements BarcodeAPI {
+/**
+ * Sample Store - Stores the registered samples
+ *
+ * @author Gil Pereira
+ */
+public class SampleStore {
 
     private final List<Sample> sampleList;
-    private Test test;
-
-
     Company company;
 
     public SampleStore(){
@@ -26,17 +26,22 @@ public class SampleStore implements BarcodeAPI {
         this.company = company;
     }
 
-    public Sample createSample() throws IOException {
-        Sample sample = new Sample();
-
-        return sample;
+    public Sample createSample(String id) throws BarcodeException {
+        return new Sample(id);
     }
 
     public boolean saveSample(Sample sample){
-        if(sampleList.add(sample))
-            return true;
+        if(validateSample(sample))
+            return this.sampleList.add(sample);
         else
             return false;
+    }
+
+    public boolean validateSample(Sample sample){
+        for (Sample s : this.sampleList) {
+            if (s.getSampleBarcode().equals(sample.getSampleBarcode())) return false;
+        }
+        return true;
     }
         
     public List<Sample> getSamples(){
@@ -47,7 +52,4 @@ public class SampleStore implements BarcodeAPI {
         return this.company.getTestStore().getTests(Constants.REGISTERED);
     }
 
-    public void writeTest(TestDto testdto){
-        this.test = this.company.getTestStore().getTestByCode(Long.valueOf(testdto.getNHSCode()));
-    }
 }

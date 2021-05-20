@@ -1,22 +1,25 @@
 package app.domain.model;
 
-import app.domain.shared.BarcodeAPI;
+import net.sourceforge.barbecue.Barcode;
+import net.sourceforge.barbecue.BarcodeException;
+import net.sourceforge.barbecue.BarcodeFactory;
 
-import java.io.File;
-import java.io.IOException;
+/**
+ * Sample - Domain Class representing a sample. Identified by it´s Barcode and Name.
+ *
+ * @author Gil Pereira
+ */
+public class Sample {
 
-public class Sample implements BarcodeAPI {
-
-
+    private final Barcode sampleBarcode;
 
     //AC: Sample should only have Barcode
-    public Sample() throws IOException {
-        File file = setBarcode();
+    public Sample(String id)throws BarcodeException {
+        this.sampleBarcode = BarcodeFactory.createUPCA(id+System.currentTimeMillis());
     }
 
-
-    public File setBarcode() throws IOException {
-        return getBarcode();
+    public Barcode getSampleBarcode(){
+        return this.sampleBarcode;
     }
 
 }

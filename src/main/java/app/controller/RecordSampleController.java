@@ -4,13 +4,17 @@ package app.controller;
 import app.domain.dto.TestDto;
 import app.domain.dto.TestMapper;
 import app.domain.model.*;
-import app.domain.shared.Constants;
-
+import net.sourceforge.barbecue.BarcodeException;
 import java.io.IOException;
 import java.util.List;
 
-import static app.domain.shared.Constants.*;
+import static app.domain.shared.Constants.ROLE_MED_LAB_TECH;
 
+/**
+ * RecordSampleController - Controller for US5, registering a sample to a test.
+ *
+ * @author Gil Pereira
+ */
 public class RecordSampleController {
 
     private Company company;
@@ -20,38 +24,26 @@ public class RecordSampleController {
 
     public RecordSampleController() {
         if (!App.getInstance().getCurrentUserSession().isLoggedInWithRole(ROLE_MED_LAB_TECH)) {
-            throw new IllegalStateException("Utilizador nï¿½o Autorizado");
+            throw new IllegalStateException("Access Unauthorized!");
         }
         this.company = App.getInstance().getCompany();
         this.tss = this.company.getSampleStore();
         this.sample = null;
         this.tss.setCompany(this.company);
-
     }
 
-    public Sample createSample() throws IOException {
-        this.sample = this.tss.createSample();
+    public Sample createSample(String id) throws IOException, BarcodeException {
+        this.sample = this.tss.createSample(id);
         return sample;
     }
 
-    public boolean saveSample(Test test) {
+    public boolean saveSample(TestDto test) {
         this.tstore = this.company.getTestStore();
-        tstore.addSampletoTest(sample, test);
+        tstore.addSampleToTest(sample, new TestMapper().getTest(test));
         return this.tss.saveSample(sample);
     }
 
-    public SampleStore getSampleStore(){
-        return this.tss;
-    }
-
-    public void convertDtoToTest(TestDto t){ tss.writeTest(t);}
-
-
-    public Company getCompany() {
-        return company;
-    }
-
-    public void setCompany(Company company) {
-        this.company = company;
+    public List<TestDto> getTests() {
+        return this.tstore.getRegisteredTests();
     }
 }
