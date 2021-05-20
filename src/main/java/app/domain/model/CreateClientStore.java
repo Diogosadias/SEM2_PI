@@ -126,7 +126,7 @@ public class CreateClientStore {
     }
 
     public boolean addClient(Client client) {
-        return saveClient(client);
+        return this.clientList.add(client);
     }
 
     /**

@@ -27,7 +27,7 @@ public class TestMapper {
         }
         return testDto;
     }
-
+/*
     public TestDto getTestCompletedList(TestStore testStore) {
         if(testStore!=null){
             return testStore.getTestCompletedList();
@@ -40,6 +40,6 @@ public class TestMapper {
     public Test getTestInformation(Test test) {
         //possible changes to this
         return test;
-    }
+    } */
 
 }

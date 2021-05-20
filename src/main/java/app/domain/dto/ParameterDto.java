@@ -28,6 +28,7 @@ public class ParameterDto {
 
     @Override
     public String toString() {
-        return "Parameter: " + name + "\n";
+        return "[ " + name + " ]\n";
     }
+
 }

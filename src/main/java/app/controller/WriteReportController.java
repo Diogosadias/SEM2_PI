@@ -33,7 +33,7 @@ public class WriteReportController {
     }
 
 
-
+/*
     public TestDto getTestCompletedList(){
         return testMapper.getTestCompletedList(testStore);
     }
@@ -46,6 +46,6 @@ public class WriteReportController {
     public Test getTestInformation(Test test){
         return testMapper.getTestInformation(testdto.getTest(test));
     }
-
+*/
 
 }

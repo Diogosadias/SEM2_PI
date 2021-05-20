@@ -76,7 +76,7 @@ public class TestStore {
 
     public boolean validateTest() {
         for (Test t : testlist) {
-            if (t.getClient().equals(this.test.getClient()) && t.getTestType().equals(this.test.getTestType()) && t.getListParameters().equals(this.test.getListParameters())) {
+            if (t.getClient().equals(this.test.getClient()) && t.getTestType().equals(this.test.getTestType()) && t.getListParameters().equals(this.test.getListParameters()) && t.getDescription().equals(this.test.getDescription()) && t.getNhsCode().equals(this.test.getNhsCode())) {
                 System.out.println("Error: Test was already registered with same Client, TestType and list of Parameters");
             }
         }
@@ -100,15 +100,13 @@ public class TestStore {
             testlist.add(this.test);
             numRegisteredTest += 1;
         } else {
-            throw new IllegalArgumentException("Test already exists.");
+            throw new IllegalArgumentException("Test is already registered.");
         }
     }
 
-    public boolean addTest(Test test){
-        if(this.testlist.contains(test)) {
-            throw new IllegalArgumentException("Test is already registered.");
-        }
-        return this.testlist.add(test);
+    public void addTest(Test test){
+        this.test = test;
+        this.saveTest();
     }
 
     public boolean getTest(Test test) {

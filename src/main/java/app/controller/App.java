@@ -115,6 +115,7 @@ App {
 
         //Client
         Client client1 = new Client (new Email("client1@lei.pt"),"Client Teste",1234567890L,1212121212121212L,210000000001L,new Date(1990,01,01),"M",91000000000L);
+        this.authFacade.addUserWithRole(client1.getName(), client1.getId().getEmail(), "123" , Constants.ROLE_CLIENT);
         this.company.getCreateClientStore().addClient(client1);
 
         //ParameterCategory
