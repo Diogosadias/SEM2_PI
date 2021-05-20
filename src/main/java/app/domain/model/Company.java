@@ -89,7 +89,7 @@ public class Company {
         this.parameterStore = new ParameterStore();
         this.testStore = new TestStore();
         this.testTypeStore = new TestTypeStore();
-        this.sampleStore = new SampleStore(this);
+        this.sampleStore = new SampleStore();
     }
 
     /**

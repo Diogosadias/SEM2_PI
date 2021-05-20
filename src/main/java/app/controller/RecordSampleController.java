@@ -8,20 +8,27 @@ import app.domain.shared.Constants;
 
 import java.io.IOException;
 import java.util.List;
+
+import static app.domain.shared.Constants.ROLE_ADMIN;
+import static app.domain.shared.Constants.ROLE_SPEC_DOCTOR;
+
 public class RecordSampleController {
 
     private Company company;
     private SampleStore tss;
     private Sample sample;
-    public TestStore tstore = new TestStore();
+    public TestStore tstore;
 
-    public RecordSampleController(Company company) {
-        this.company = company;
-        this.sample = null;
+    public RecordSampleController() {
+        if (!App.getInstance().getCurrentUserSession().isLoggedInWithRole(ROLE_SPEC_DOCTOR)) {
+            throw new IllegalStateException("Utilizador nï¿½o Autorizado");
+        }
+        this.company = App.getInstance().getCompany();
         this.tss = this.company.getSampleStore();
-    }
+        this.sample = null;
+        this.tss.setCompany(this.company);
 
-    public RecordSampleController(){}
+    }
 
     public boolean createSample() throws IOException {
         this.sample = this.tss.createSample();
@@ -29,6 +36,7 @@ public class RecordSampleController {
     }
 
     public boolean saveSample(Test test) {
+        this.tstore = this.company.getTestStore();
         tstore.addSampletoTest(sample, test);
         return this.tss.saveSample(sample);
     }
@@ -38,4 +46,11 @@ public class RecordSampleController {
     }
 
 
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
 }

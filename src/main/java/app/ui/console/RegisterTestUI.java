@@ -73,7 +73,7 @@ public class RegisterTestUI implements Runnable {
                 String answer = Constants.ANS_YES;
                 while(answer.equals(Constants.ANS_YES) ) {
                     // add Parameter to list of Parameters in Test
-                    Parameter parameter = (Parameter)Utils.showAndSelectOne(parametersDto, "\n" + category.getDescription() + " - List of Parameters:\n");
+                    ParameterDto parameter = (ParameterDto)Utils.showAndSelectOne(parametersDto, "\n" + category.getDescription() + " - List of Parameters:\n");
                     if (parameter == null) {
                         System.out.println("\nParameter is null.\n");;
                     } else {

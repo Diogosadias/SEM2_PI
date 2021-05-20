@@ -16,8 +16,12 @@ public class SampleStore {
 
     Company company;
 
-    public SampleStore(Company company){
+    public SampleStore(){
         this.sampleList = new ArrayList<>();
+    }
+
+
+    public void setCompany (Company company) {
         this.company = company;
     }
 
