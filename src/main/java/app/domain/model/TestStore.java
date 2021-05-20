@@ -102,7 +102,6 @@ public class TestStore {
         if(!testlist.contains(this.test)) {
             testlist.add(this.test);
             numRegisteredTest += 1;
-            System.out.println(numRegisteredTest);
         } else {
             throw new IllegalArgumentException("Test is already registered.");
         }
