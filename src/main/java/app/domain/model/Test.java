@@ -37,9 +37,24 @@ public class Test {
         this.description = description.trim();
         this.client = client;
         this.state = Constants.REGISTERED;
-        listParameters = new ArrayList<>();
+        this.listParameters = new ArrayList<>();
     }
 
+    public void setNhsCode(String nhsCode) {
+        checkNhsCodeAttribute(nhsCode);
+        this.nhsCode = nhsCode;
+    }
+
+    private void checkNhsCodeAttribute (String nhsCode) {
+        int count = 0;
+        for(int i = 0; i < nhsCode.length(); i++) {
+            if(nhsCode.charAt(i) != ' ')
+                count++;
+        }
+        if(count != 12) {
+            throw new IllegalArgumentException("Adding NhsCode to Test Error: NhsCode needs 12 alphanumeric characters.");
+        }
+    }
     private void checkTypeAttribute (TestType type) {
         if(type == null) {
             throw new IllegalArgumentException("Creating Test Error: Test type is null.");
@@ -132,22 +147,6 @@ public class Test {
 
     public void setSampleList(Sample sample){
         this.sampleList.add(sample);
-    }
-
-    public void setNhsCode(String nhsCode) {
-        checkNhsCodeAttribute(nhsCode);
-        this.nhsCode = nhsCode;
-    }
-
-    private void checkNhsCodeAttribute (String nhsCode) {
-        int count = 0;
-        for(int i = 0; i < nhsCode.length(); i++) {
-            if(nhsCode.charAt(i) != ' ')
-                count++;
-        }
-        if(count != 12) {
-            throw new IllegalArgumentException("Adding NhsCode to Test Error: NhsCode needs 12 alphanumeric characters.");
-        }
     }
 
     public boolean hasCondition(String state) {

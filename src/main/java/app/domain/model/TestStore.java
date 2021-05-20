@@ -29,24 +29,20 @@ public class TestStore {
     }
 
     public boolean checkRegisteredClient(long cc) {
-        this.client = company.getCreateClientStore().getClientByCC(cc);
+        CreateClientStore cStore = this.company.getCreateClientStore();
+        this.client = cStore.getClientByCC(cc);
         return (client != null) ;
     }
 
     public List getListTestType() {
-        TestTypeStore store = this.company.getTestTypeStore();
-        TestTypeMapper mapper = new TestTypeMapper();
-        return mapper.toDto(store.getTestTypeList());
+        TestTypeStore ttStore = this.company.getTestTypeStore();
+        TestTypeMapper ttMapper = new TestTypeMapper();
+        return ttMapper.toDto(ttStore.getTestTypeList());
     }
 
-    public List getListParameters(String category) {
-        ParameterStore store = this.company.getParameterStore();
-        ParameterMapper mapper = new ParameterMapper();
-        return mapper.toDto(store.getParameterList(),category);
-    }
-
-    public void newTest(String code) {
-        TestType type = this.company.getTestTypeStore().getTestTypeByCode(code);
+    public void newTest(String typeCode) {
+        TestTypeStore ttStore = this.company.getTestTypeStore();
+        TestType type = ttStore.getTestTypeByCode(typeCode);
         String description = type.getCollectingMethod();
         this.test = new Test(type,description,this.client);
         generateTestCode();
@@ -59,9 +55,16 @@ public class TestStore {
         this.test.setCode(numRegisteredTest + 1);
     }
 
-    public boolean addParameterToTest(String code) {
+    public List getListParameters(String category) {
+        ParameterStore pStore = this.company.getParameterStore();
+        ParameterMapper pMapper = new ParameterMapper();
+        return pMapper.toDto(pStore.getParameterList(),category);
+    }
+
+    public boolean addParameterToTest(String parameterCode) {
+        ParameterStore pStore = this.company.getParameterStore();
         List<Parameter> list = this.test.getListParameters();
-        Parameter parameter = this.company.getParameterStore().getParameterByCode(code);
+        Parameter parameter = pStore.getParameterByCode(parameterCode);
         if(list.isEmpty() || !list.contains(parameter)){
             this.test.addParameter(parameter);
             return true;
@@ -99,6 +102,7 @@ public class TestStore {
         if(!testlist.contains(this.test)) {
             testlist.add(this.test);
             numRegisteredTest += 1;
+            System.out.println(numRegisteredTest);
         } else {
             throw new IllegalArgumentException("Test is already registered.");
         }

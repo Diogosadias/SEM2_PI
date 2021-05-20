@@ -3,14 +3,11 @@ package app.ui.console;
 import app.controller.RegisterTestController;
 import app.domain.dto.ParameterDto;
 import app.domain.dto.TestTypeDto;
-import app.domain.model.Parameter;
 import app.domain.model.ParameterCategory;
 import app.domain.shared.Constants;
 import app.ui.console.utils.Utils;
 
 import java.util.List;
-
-import static app.domain.shared.Constants.SPECIALIST_DOCTOR;
 
 public class RegisterTestUI implements Runnable {
 
@@ -62,12 +59,11 @@ public class RegisterTestUI implements Runnable {
         List<TestTypeDto> typesDto = m_controller.getListTestType();
         TestTypeDto typeDto = (TestTypeDto)Utils.showAndSelectOne(typesDto, "\nList of Types of Test:\n");
         if (typeDto != null) {
+            this.m_controller.newTest(typeDto.getCode());
             // get list of ParameterCategories from selected TestType
             List<ParameterCategory> categories = typeDto.getListCategories();
             ParameterCategory category = (ParameterCategory)Utils.showAndSelectOne(categories, "\n" + typeDto.getDescription() + " - List of ParameterCategory:\n");
             if (category != null) {
-                String type = typeDto.getCode();
-                this.m_controller.newTest(type);
                 // select Parameter(s) from a list of Parameter dto (filtered with category selected)
                 List<ParameterDto> parametersDto = m_controller.getListParameters(category.getCode());
                 String answer = Constants.ANS_YES;

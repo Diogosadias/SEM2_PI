@@ -23,10 +23,6 @@ public class RegisterTestController {
         tStore.setCompany(this.company);
     }
 
-    public void registerTest() {
-
-    }
-
     public boolean checkRegisteredClient(long cc) {
         return tStore.checkRegisteredClient(cc);
     }
@@ -35,16 +31,16 @@ public class RegisterTestController {
         return tStore.getListTestType();
     }
 
+    public void newTest(String typeCode) {
+        tStore.newTest(typeCode);
+    }
+
     public List getListParameters(String category) {
         return tStore.getListParameters(category);
     }
 
-    public void newTest(String type) {
-        tStore.newTest(type);
-    }
-
-    public boolean addParameterToTest(String parameter) {
-        return tStore.addParameterToTest(parameter);
+    public boolean addParameterToTest(String parameterCode) {
+        return tStore.addParameterToTest(parameterCode);
     }
 
     public void addNhsCodeToTest(String nhs) {
