@@ -12,6 +12,9 @@ public class ReportStore {
 
 
     public Report createReport(String diagnosis, Test test){
+        if(diagnosis==null || test ==null){
+            return null;
+        }
         return new Report(diagnosis,test);
     }
 
