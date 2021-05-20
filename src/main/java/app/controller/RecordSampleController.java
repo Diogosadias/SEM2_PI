@@ -29,9 +29,9 @@ public class RecordSampleController {
 
     }
 
-    public boolean createSample() throws IOException {
+    public Sample createSample() throws IOException {
         this.sample = this.tss.createSample();
-        return true;
+        return sample;
     }
 
     public boolean saveSample(Test test) {
@@ -43,6 +43,8 @@ public class RecordSampleController {
     public SampleStore getSampleStore(){
         return this.tss;
     }
+
+    public void convertDtoToTest(TestDto t){ tss.writeTest(t);}
 
 
     public Company getCompany() {

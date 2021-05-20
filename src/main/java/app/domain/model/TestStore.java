@@ -121,14 +121,7 @@ public class TestStore {
         return test.checkCompleted();
     }
 
-    public TestDto getTestCompletedList() {
-        TestDto list = new TestDto();
 
-        for (Test temp : testlist) {
-            if (getTest(temp)) list.addTest(temp);
-        }
-        return list;
-    }
 
     public void addSampletoTest(Sample sample, Test test) {
 
@@ -163,5 +156,13 @@ public class TestStore {
     }
 
 
+    public Test getTestByCode( long code){
+
+        for(Test t : this.testlist){
+            if(t.getCode() == code)
+                return t;
+        }
+        throw new IllegalArgumentException("Test with that code doesn't exist!");
+    }
 
 }

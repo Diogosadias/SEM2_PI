@@ -23,17 +23,12 @@ public class TestDto {
 
     }
 
-    public Test getTest(Test test) {
-        for(Test temp:testlist){
-            if(temp.equals(test)) return null;
-        }
-        return test;
-    }
 
-    public boolean addTest(Test test){
-        return testlist.add(test);
-    }
 
+
+    public long getCode(){
+        return code;
+    }
 
     public String toString(){
         return  "Collection Method:"+description+" \nClient:"+client.getCitizenCard();

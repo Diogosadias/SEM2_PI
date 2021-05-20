@@ -4,6 +4,7 @@ package app.ui.console;
 
 import app.controller.RecordSampleController;
 import app.domain.dto.TestDto;
+import app.domain.model.Sample;
 import app.domain.model.SampleStore;
 import app.ui.console.utils.Utils;
 
@@ -14,6 +15,8 @@ public class RecordSampleUI implements Runnable{
 
     RecordSampleController rsc;
 
+    Sample sample;
+
     public RecordSampleUI(){
 
         this.rsc = new RecordSampleController();
@@ -23,13 +26,19 @@ public class RecordSampleUI implements Runnable{
     public void run() {
         writeTests();
 
+        try {
+            sample = rsc.createSample();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
+    }
 
 
 
 
-    
+
+
 
 
 
@@ -39,6 +48,7 @@ public class RecordSampleUI implements Runnable{
         TestDto test = (TestDto) Utils.showAndSelectOne(set,"\nTests");
 
 
+        rsc.convertDtoToTest(test);
 
 
     }

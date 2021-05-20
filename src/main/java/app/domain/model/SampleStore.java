@@ -2,16 +2,17 @@ package app.domain.model;
 
 import app.domain.dto.TestDto;
 import app.domain.dto.TestMapper;
+import app.domain.shared.BarcodeAPI;
 import app.domain.shared.Constants;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SampleStore {
+public class SampleStore implements BarcodeAPI {
 
     private final List<Sample> sampleList;
-
+    private Test test;
 
 
     Company company;
@@ -26,7 +27,9 @@ public class SampleStore {
     }
 
     public Sample createSample() throws IOException {
-        return new Sample();
+        Sample sample = new Sample();
+
+        return sample;
     }
 
     public boolean saveSample(Sample sample){
@@ -42,5 +45,9 @@ public class SampleStore {
 
         TestMapper mapper = new TestMapper();
         return mapper.toDto(tests);
+    }
+
+    public void writeTest(TestDto testdto){
+        this.test = this.company.getTestStore().getTestByCode(testdto.getCode());
     }
 }
