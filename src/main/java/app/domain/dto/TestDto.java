@@ -15,84 +15,54 @@ import java.util.List;
  */
 public class TestDto {
 
-    private String sampleDate;
-    private String dateValidation;
-    private String dateDiagnosis;
-    private String dateChemical;
+    private long code;
+    private String type;
     private String description;
-    private String NHSCode;
-    private String parameterValue;
-    private String client;
-    private List<Sample> sampleList;
+    private long clientCC;
+    String nhsCode;
+    List<Parameter> parameters = new ArrayList<>();
 
     public TestDto(){}
 
     /**
      *
-     * @param sampleDate
-     * @param dateValidation
-     * @param dateDiagnosis
-     * @param dateChemical
+     * @param code
      * @param description
-     * @param NHSCode
-     * @param parameterValue
-     * @param client
-     * @param sampleList
+     * @param clientCC
      */
-    public TestDto(String sampleDate, String dateValidation, String dateDiagnosis, String dateChemical, String description, String NHSCode, String parameterValue, String client, List<Sample> sampleList) {
-        this.sampleDate = sampleDate;
-        this.dateValidation = dateValidation;
-        this.dateDiagnosis = dateDiagnosis;
-        this.dateChemical = dateChemical;
+    public TestDto(long code,String description, long clientCC){
+        this.code = code;
         this.description = description;
-        this.NHSCode = NHSCode;
-        this.parameterValue = parameterValue;
-        this.client = client;
-        this.sampleList = sampleList;
+        this.clientCC = clientCC;
     }
 
-
-
-     public String getSampleDate() {
-        return sampleDate;
-    }
-
-    public String getDateValidation() {
-        return dateValidation;
-    }
-
-    public String getDateDiagnosis() {
-        return dateDiagnosis;
-    }
-
-    public String getDateChemical() {
-        return dateChemical;
+    public long getCode(){
+        return code;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public String getNHSCode() {
-        return NHSCode;
+    public String getType() {
+        return type;
     }
 
-    public String getParameterValue() {
-        return parameterValue;
+    public long getClientCC() {
+        return clientCC;
     }
 
-    public String getClient() {
-        return client;
+    public String getNhsCode() {
+        return nhsCode;
     }
 
-    public List<Sample> getSampleList() {
-        return sampleList;
+    public List<Parameter> getParameters() {
+        return parameters;
     }
-
     
 
     public String toString(){
-        return  "Collection Method:"+description+" \nClient:"+client;
+        return  "Collection Method:"+description+" \nCode:"+code;
     }
 
 }

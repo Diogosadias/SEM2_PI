@@ -87,6 +87,11 @@ public class Client {
         this.sex = sex;
         this.pNumber = pNumber;
     }
+    
+    public Client(long citizenCard){
+        checkCitizenNumber(citizenCard);
+        this.citizenCard = citizenCard;
+    }
 
     /**
      * Constructor Client with the email, name, nhs, citizen card, tin number, birth date and sex.

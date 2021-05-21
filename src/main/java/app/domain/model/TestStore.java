@@ -18,7 +18,6 @@ public class TestStore {
     private Client client;
 
     private List<Test> testlist;
-
     
     private Test test;
 
@@ -33,12 +32,13 @@ public class TestStore {
         return test.checkCompleted();
     }
 
+    //
     public List<TestDto> getTestCompletedList() {
         List<TestDto> tests = this.getTests(Constants.REGISTERED);
-        for(TestDto a : tests){
-            if(!a.getDateValidation().isEmpty())
-                tests.remove(a);
-        }
+//        for(TestDto a : tests){
+//            if(!a.getDateValidation().isEmpty())
+//                tests.remove(a);
+//        }
         return tests;
     }
 

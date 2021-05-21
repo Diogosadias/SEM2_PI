@@ -26,7 +26,7 @@ public class RecordSampleUI implements Runnable {
     public void run() {
         try {
             TestDto chosenTest = writeTests();
-            Barcode result = rsc.createSample(chosenTest.getNHSCode()).getSampleBarcode();
+            Barcode result = rsc.createSample(chosenTest.getNhsCode()).getSampleBarcode();
 
             /*
             * PRINT BARCODE

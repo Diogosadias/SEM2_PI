@@ -59,11 +59,11 @@ public class WriteReportUI implements Runnable{
         List<TestDto> set = writeReportController.getTestCompletedList();
         TestDto test = (TestDto)Utils.showAndSelectOne(set, "\nList of Completed Tests\nNumber/id of role: \n");
         
-        Test temp = writeReportController.getTestInformation(test);
+        writeReportController.getTestInformation(test);
                 
         String diagnosis = Utils.readLineFromConsole("Diagnosis: ");
         
-        writeReportController.createReport(diagnosis, this.tstore.getTestByCode(Long.valueOf(test.getNHSCode())));
+        writeReportController.createReport(diagnosis, this.tstore.getTestByCode(Long.valueOf(test.getNhsCode())));
         return writeReportController.saveReport();
     }
 
