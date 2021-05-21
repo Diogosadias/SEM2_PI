@@ -54,16 +54,16 @@
       ><path d="M435 29 L435 44 L177 44 L177 29 ZM380 70 L380 85 L246 85 L246 70 ZM0 0 L0 104 L618 104 L618 0 L375 0 L375 5 L238 5 L238 0 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath17"
-      ><path d="M380 29 L380 44 L246 44 L246 29 ZM526 72 L526 87 L86 87 L86 72 ZM0 0 L0 104 L618 104 L618 0 L435 0 L435 3 L177 3 L177 0 Z"
+      ><path d="M380 29 L380 44 L246 44 L246 29 ZM475 72 L475 87 L134 87 L134 72 ZM0 0 L0 104 L618 104 L618 0 L435 0 L435 3 L177 3 L177 0 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath18"
-      ><path d="M526 30 L526 45 L86 45 L86 30 ZM399 72 L399 87 L212 87 L212 72 ZM0 0 L0 104 L618 104 L618 0 L380 0 L380 2 L246 2 L246 0 Z"
+      ><path d="M475 30 L475 45 L134 45 L134 30 ZM404 72 L404 87 L204 87 L204 72 ZM0 0 L0 104 L618 104 L618 0 L380 0 L380 2 L246 2 L246 0 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath19"
-      ><path d="M399 30 L399 45 L212 45 L212 30 ZM552 66 L552 81 L56 81 L56 66 ZM0 0 L0 104 L618 104 L618 0 L526 0 L526 3 L86 3 L86 0 Z"
+      ><path d="M404 30 L404 45 L204 45 L204 30 ZM552 66 L552 81 L56 81 L56 66 ZM0 0 L0 104 L618 104 L618 0 L475 0 L475 3 L134 3 L134 0 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath20"
-      ><path d="M552 30 L552 45 L56 45 L56 30 ZM382 79 L382 94 L229 94 L229 79 ZM0 0 L0 104 L618 104 L618 0 L399 0 L399 9 L212 9 L212 0 Z"
+      ><path d="M552 30 L552 45 L56 45 L56 30 ZM382 79 L382 94 L229 94 L229 79 ZM0 0 L0 104 L618 104 L618 0 L404 0 L404 9 L204 9 L204 0 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath21"
       ><path d="M382 30 L382 45 L229 45 L229 30 ZM416 69 L416 84 L197 84 L197 69 ZM0 0 L0 104 L618 104 L618 0 Z"
@@ -105,10 +105,10 @@
       ><path d="M-496 -15 L992 -15 L992 30 L-496 30 L-496 -15 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath34"
-      ><path d="M-187 -15 L374 -15 L374 30 L-187 30 L-187 -15 Z"
+      ><path d="M-200 -15 L400 -15 L400 30 L-200 30 L-200 -15 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath35"
-      ><path d="M-440 -15 L880 -15 L880 30 L-440 30 L-440 -15 Z"
+      ><path d="M-341 -15 L682 -15 L682 30 L-341 30 L-341 -15 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath36"
       ><path d="M-258 -15 L516 -15 L516 30 L-258 30 L-258 -15 Z"
@@ -300,15 +300,15 @@
       /><text fill="black" x="9" xml:space="preserve" y="12" clip-path="url(#clipPath33)" stroke="none"
       >4.1:  shows list of Parameters according to the Category selected and asks to choose at least one</text
     ></g
-    ><g font-size="11px" transform="translate(209,311)" fill-opacity="1" fill="white" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="white" stroke-opacity="1"
-    ><rect x="0" width="187" height="15" y="0" clip-path="url(#clipPath34)" stroke="none"
+    ><g font-size="11px" transform="translate(201,311)" fill-opacity="1" fill="white" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="white" stroke-opacity="1"
+    ><rect x="0" width="200" height="15" y="0" clip-path="url(#clipPath34)" stroke="none"
       /><text fill="black" x="10" xml:space="preserve" y="12" clip-path="url(#clipPath34)" stroke="none"
-      >4:  selects the ParameterCategory</text
+      >4:  selects the ParameterCategory(s)</text
     ></g
-    ><g font-size="11px" transform="translate(83,269)" fill-opacity="1" fill="white" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="white" stroke-opacity="1"
-    ><rect x="0" width="440" height="15" y="0" clip-path="url(#clipPath35)" stroke="none"
+    ><g font-size="11px" transform="translate(131,269)" fill-opacity="1" fill="white" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="white" stroke-opacity="1"
+    ><rect x="0" width="341" height="15" y="0" clip-path="url(#clipPath35)" stroke="none"
       /><text fill="black" x="9" xml:space="preserve" y="12" clip-path="url(#clipPath35)" stroke="none"
-      >3.1: lists all the Parameter Categories of the TestType selected and asks to select one</text
+      >3.1: lists the Parameter Categories and asks to select at least one</text
     ></g
     ><g font-size="11px" transform="translate(243,226)" fill-opacity="1" fill="white" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="white" stroke-opacity="1"
     ><rect x="0" width="134" height="15" y="0" clip-path="url(#clipPath28)" stroke="none"
