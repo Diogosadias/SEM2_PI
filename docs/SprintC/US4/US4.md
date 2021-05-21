@@ -99,7 +99,7 @@ ParameterCategory needs to be specified in US11.
 | Step 5: lists all the TestType and asks to select one													|	...knowing all the TesType?												|  TestTypeStore			|   HC + LC: Company delegates responsability to the TestStore.                      |
 |																										|	...listing the TesType list?											|  TestTypeMapper 			|   DTO: TestTypeDto has the TestType list.                          |
 | Step 6: selects the TestType  												 						|	...saving the TestType selected?						 				|  TestStore    			|  	HC + LC: Test is of TestType.                            |
-| Step 7: lists all the Parameter Categories of the TestType selected and asks to select one			|	...listing the ParameterCategory list?									|  TestTypeMapper 			|   DTO: TestType has ParameterCategory list.                          |
+| Step 7: lists all the Parameter Categories of the TestType selected and asks to select at least one	|	...listing the ParameterCategory list?									|  TestTypeMapper 			|   DTO: TestType has ParameterCategory list.                          |
 | Step 8: selects the ParameterCategory  												 				|	...saving the ParameterCategory selected?						 		|  TestStore    			|  	HC + LC: Each TestType is presented under ParameterCategory.                            |
 | Step 9: shows list of Parameters according to the Category selected and asks to choose at least one	|	...knowing all the Parameters?											|  ParameterStore			|   HC + LC: Company delegates responsability to the ParameterStore.                      |
 |																										|	...listing the Parameters list?							 				|  ParameterMapper  		|   DTO: ListParameterDto has the list of Parameters.                           |
@@ -130,6 +130,7 @@ TestStore (HC+LC),
 ClientStore (HC+LC),
 TestTypeStore (HC+LC),
 ParameterStore(HC+LC),
+ParameterCategoryStore(HC+LC),
 TestTypeMapper ("DTO" pattern),
 ParameterMapper ("DTO" pattern),
 TestTypeDTO ("DTO" pattern),
@@ -144,12 +145,12 @@ ParameterDTO ("DTO" pattern)
 ![MainDiagram](US4-SD.svg)
 
 
-*LabOrder_toDto Diagram:*
+*TestType_toDto_List Diagram:*
 
 ![TestType_toDto_List](TestType_toDto_List.svg)
 
 
-*TypeTestList_toDto Diagram:*
+*Parameter_toDto_List Diagram:*
 
 ![Parameter_toDto_List](Parameter_toDto_List.svg)
 
