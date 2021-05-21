@@ -19,16 +19,19 @@
 
 **From the client clarifications:**
 
-Q1: When the receptionist chooses the test type, should the categories appear, and then when selecting the category, the receptionist can choose the parameters for the test? Or when the Receptionist chooses the test type, should appear all the parameters that it includes immediately?
+Q:	When the receptionist chooses the test type, should the categories appear, and then when selecting the category, the receptionist can choose the parameters for the test? Or when the Receptionist chooses the test type, should appear all the parameters that it includes immediately?
+A:  Firstly, the receptionist should choose a test type. Then choose a category from a set of categories. Last, the receptionist should choose a parameter.
 
-A: Firstly, the receptionist should choose a test type. Then choose a category from a set of categories. Last, the receptionist should choose a parameter.
+Q:	What are the attributes of a test and the acceptance criteria?
+A:  -Test code : Sequential number with 12 digits. The code is automatically generated.
+	-NHS code: 12 alphanumeric characters.
 
+Q:	I wanted to ask if the NHS code of which test is unique or not.
+A:	Yes.
 
-Q2:What are the attributes of a test and the acceptance criteria?
+Q: when the receptionist is registering a test for a client, the test can have more than one category and many parameters of the chosen categories or it only can have one category?
+A: Each test can have more than one category.
 
-A: A test has the following attributes:
-Test code : Sequential number with 12 digits. The code is automatically generated.
-NHS code: 12 alphanumeric characters.
 
 ### 1.3. Acceptance Criteria
 
@@ -143,12 +146,12 @@ ParameterDTO ("DTO" pattern)
 
 *LabOrder_toDto Diagram:*
 
-![SecondaryDiagram](TestType_toDto_List.svg)
+![TestType_toDto_List](TestType_toDto_List.svg)
 
 
 *TypeTestList_toDto Diagram:*
 
-![ThirdDiagram](Parameter_toDto_List.svg)
+![Parameter_toDto_List](Parameter_toDto_List.svg)
 
 
 ## 3.3. Class Diagram (CD)
