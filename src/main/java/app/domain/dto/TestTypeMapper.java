@@ -15,14 +15,21 @@ public class TestTypeMapper {
     public TestTypeMapper() {
     }
 
-    public List toDto(List<TestType> types) {
-        List<TestTypeDto> dto =new ArrayList<>();
+    public List<TestTypeDto> toDto(List<TestType> types) {
+        List<TestTypeDto> ttDto =new ArrayList<>();
         for (TestType t : types) {
-            String code = t.getCode();
-            String description = t.getDescription();
-            List<ParameterCategory> lpc = t.getListParameters();
-            dto.add(new TestTypeDto(code,description,lpc));
+            String ttCode = t.getCode();
+            String ttDescription = t.getDescription();
+            List<ParameterCategory> listCategories = t.getListParameters();
+            List<ParameterCategoryDto> categoriesDto = new ArrayList<>();
+            for (ParameterCategory pc : listCategories) {
+                String pcCode = pc.getCode();
+                String pcDescription = pc.getDescription();
+                ParameterCategoryDto pcDto = new ParameterCategoryDto(pcCode,pcDescription);
+                categoriesDto.add(pcDto);
+            }
+            ttDto.add(new TestTypeDto(ttCode,ttDescription,categoriesDto));
         }
-        return dto;
+        return ttDto;
     }
 }

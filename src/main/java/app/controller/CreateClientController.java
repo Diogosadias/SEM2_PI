@@ -32,7 +32,7 @@ public class CreateClientController {
     public CreateClientController(app.domain.model.Company company){
         this.company = company;
         this.authFacade = this.company.getAuthFacade();
-        this.clientStore = this.company.getCreateClientStore();
+        this.clientStore = this.company.getClientStore();
     }
 
     /**
@@ -54,7 +54,7 @@ public class CreateClientController {
         this.rc = this.clientStore.createClient(id,name,nhs,citizenCard,tin,birthDate,sex,pNumber);
 
         if(!this.clientStore.validateClient(this.rc)){return false;}
-        saveClient();
+        saveClient(this.rc);
         return true;
 
     }
@@ -64,8 +64,8 @@ public class CreateClientController {
      *
      * @return boolean
      */
-    public boolean saveClient(){
-        return this.clientStore.saveClient(this.rc);
+    public boolean saveClient(Client rc){
+        return this.clientStore.saveClient(rc);
     }
 
     /**

@@ -1,10 +1,12 @@
 package app.controller;
 
+import app.domain.dto.EmployeeDto;
 import app.domain.model.*;
 import app.domain.shared.Constants;
 import auth.AuthFacade;
 import auth.UserSession;
 import auth.domain.model.Email;
+
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -100,7 +102,7 @@ App {
 
         this.authFacade.addUserWithRole("Admin", "admin@lei.pt", "495", Constants.ROLE_ADMIN);
         this.authFacade.addUserWithRole("Client1","clei@sd.pt","123",Constants.ROLE_CLIENT);
-        this.authFacade.addUserWithRoles("SuperUser", "superuser@super.user", "123456", new String[] { Constants.ROLE_CLIENT,Constants.ROLE_ADMIN, Constants.ROLE_RECEP, MEDICAL_LAB_TECHNICIAN });
+        this.authFacade.addUserWithRoles("SuperUser", "superuser@super.user", "123456", new String[] { Constants.ROLE_CLIENT,Constants.ROLE_ADMIN, Constants.ROLE_RECEP });
 
 
         //Employee
@@ -119,26 +121,63 @@ App {
         //Client
         Client client1 = new Client (new Email("client1@lei.pt"),"Client Teste",1234567890L,1212121212121212L,210000000001L,new Date(1990,01,01),"M",91000000000L);
         this.authFacade.addUserWithRole(client1.getName(), client1.getId().getEmail(), "123" , Constants.ROLE_CLIENT);
-        this.company.getCreateClientStore().addClient(client1);
+        this.company.getClientStore().addClient(client1);
 
-        //ParameterCategory
-        ParameterCategory category1 = new ParameterCategory("PC-01","Hemogram","nhsid");
+        //ParameterCategory - Covid Tests
+        ParameterCategory categoryCovid = new ParameterCategory("CC-01","SARS-CoV-2","21001");
+        this.company.getParameterCategoryStore().addParameterCategory(categoryCovid);
+
+        //ParameterCategory - Blood Tests
+        ParameterCategory category1 = new ParameterCategory("CB-01","Hemogram (CBC","11001");
         this.company.getParameterCategoryStore().addParameterCategory(category1);
 
-        //Parameter
-        Parameter parameter1 = new Parameter("P-001","Red Blood Cells (RBC)","Number of RBC",category1.getCode());
+        ParameterCategory category2 = new ParameterCategory("CB-02","Basic Metabolic Panel","11002");
+        this.company.getParameterCategoryStore().addParameterCategory(category2);
+
+        ParameterCategory category3 = new ParameterCategory("CB-03","Complete Metabolic Panel","11003");
+        this.company.getParameterCategoryStore().addParameterCategory(category3);
+
+        //Parameter - Category 1
+        Parameter parameter1 = new Parameter("P-001","White Blood Cells (WBC)","White blood cells count",category1.getCode());
         this.company.getParameterStore().addParameter(parameter1);
+        Parameter parameter2 = new Parameter("P-002","Red Blood Cells (RBC)","Red blood cells count",category1.getCode());
+        this.company.getParameterStore().addParameter(parameter2);
+        Parameter parameter3 = new Parameter("P-003","Platelets (PLT)","Platelets count",category1.getCode());
+        this.company.getParameterStore().addParameter(parameter3);
+
+        //Parameter - Category 2
+        Parameter parameter4 = new Parameter("P-004","Electrolytes","Check levels of Electrolytes in blood.",category2.getCode());
+        this.company.getParameterStore().addParameter(parameter4);
+        Parameter parameter5 = new Parameter("P-005","Calcium","Check levels of Calcium in blood.",category2.getCode());
+        this.company.getParameterStore().addParameter(parameter5);
+
+        //Parameter - Category 3
+        Parameter parameter6 = new Parameter("P-006","Albumin","BMP measurements as well as Albumin,related to liver function.",category3.getCode());
+        this.company.getParameterStore().addParameter(parameter6);
+        Parameter parameter7 = new Parameter("P-007","Total protein","BMP measurements as well as total Proteins, related to liver function.",category3.getCode());
+        this.company.getParameterStore().addParameter(parameter7);
+
+        //Parameter - Category Covid
+        Parameter parameter8 = new Parameter("P-008","Infection Detection","Detect if the presence of the virus is Positive or Negative.",categoryCovid.getCode());
+        this.company.getParameterStore().addParameter(parameter8);
 
         //TestType
-        TestType type1 = new TestType("TT-01","Blood Test","Blood Sample");
+        TestType type1 = new TestType("TT-01","Blood Test","Blood sample");
         type1.addParameterCategory(category1);
+        type1.addParameterCategory(category2);
+        type1.addParameterCategory(category3);
         this.company.getTestTypeStore().addTestType(type1);
+
+        TestType type2 = new TestType("TT-02","Covid Test","Sample");
+        type2.addParameterCategory(categoryCovid);
+        this.company.getTestTypeStore().addTestType(type2);
 
         //Test
         Test test1 = new Test (type1,type1.getCollectingMethod(),client1);
+        test1.addCategory(category1);
         test1.addParameter(parameter1);
         test1.setNhsCode("nhsCode-AB01");
-        test1.setCode(12345);
+        test1.setCode("000000000001");
         this.company.getTestStore().addTest(test1);
     }
 

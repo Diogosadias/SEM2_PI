@@ -1,9 +1,7 @@
 package app.domain.dto;
 
-import app.domain.model.Parameter;
-import app.domain.model.ParameterCategory;
-
 import java.util.List;
+
 /**
  *
  * @author Tiago Rocha <1181445@isep.ipp.pt>
@@ -12,9 +10,9 @@ public class TestTypeDto {
 
     private String code;
     private String description;
-    private List<ParameterCategory> listCategories;
+    private List<ParameterCategoryDto> listCategories;
 
-    public TestTypeDto(String code, String description, List<ParameterCategory> listCategories) {
+    public TestTypeDto(String code, String description, List<ParameterCategoryDto> listCategories) {
         this.code = code;
         this.description = description;
         this.listCategories = listCategories;
@@ -26,7 +24,7 @@ public class TestTypeDto {
     public String getDescription() {
         return description;
     }
-    public List<ParameterCategory> getListCategories() {
+    public List<ParameterCategoryDto> getListCategories() {
         return listCategories;
     }
 
@@ -36,7 +34,7 @@ public class TestTypeDto {
     public void setDescription(String description) {
         this.description = description;
     }
-    public void setListParameters(List<ParameterCategory> listCategories) {
+    public void setListParameters(List<ParameterCategoryDto> listCategories) {
         this.listCategories = listCategories;
     }
 

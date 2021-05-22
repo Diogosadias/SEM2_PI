@@ -36,8 +36,10 @@ public class Constants {
     public static final String EMAIL_SUFIX = "@lei.pt";
     public static final String MODEL_CLASS_PATH = "app.domain.model.";
 
+    //Test - states
     public static final String REGISTERED = "Registered";
-	public static final String SAMPLECOLLECTED = "Sample Collected";
-
-
+	public static final String SAMPLE_COLLECTED = "Sample Collected";
+    public static final String SAMPLE_ANALYSED = "Sample Analysed";
+    public static final String DIAGNOSIS_MADE = "Diagnosis Made";
+    public static final String VALIDATED = "Validated";
 }

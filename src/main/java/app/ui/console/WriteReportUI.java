@@ -52,13 +52,13 @@ public class WriteReportUI implements Runnable{
     }
 
     private boolean registerData() {
-        List<TestDto> set = writeReportController.getTestCompletedList();
-        TestDto test = (TestDto)Utils.showAndSelectOne(set, "\nList of Completed Tests: \n");
-        writeReportController.getTestInformation(test);
+        List<TestDto> set = writeReportController.getTestList();
+        TestDto dto = (TestDto)Utils.showAndSelectOne(set, "\nList of Chemical Analysis Tests: \n");
+        writeReportController.getTestInformation(dto);
         
         String diagnosis = Utils.readLineFromConsole("Diagnosis: ");
         
-        writeReportController.createReport(diagnosis, App.getInstance().getCompany().getTestStore().getTestByCode(Long.valueOf(test.getCode())));
+        writeReportController.createReport(diagnosis, App.getInstance().getCompany().getTestStore().getTestByCode(dto.getCode()));
         return writeReportController.saveReport();
     }
 

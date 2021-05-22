@@ -18,7 +18,7 @@ public class TestDto {
     private String dateDiagnosis;
     public String dateChemical;
     private String parameterValue;
-    private long code;
+    private String code;
     private List<Sample> sampleList = new ArrayList<>();
     private String type;
     private String description;
@@ -34,13 +34,13 @@ public class TestDto {
      * @param description
      * @param clientCC
      */
-    public TestDto(long code,String description, long clientCC){
+    public TestDto(String code,String description, long clientCC){
         this.code = code;
         this.description = description;
         this.clientCC = clientCC;
     }
 
-    public TestDto(String sampleDate, String dateValidation, String dateDiagnosis, String dateChemical, String parameterValue, long code, String type, String description, long clientCC, String nhsCode) {
+    public TestDto(String sampleDate, String dateValidation, String dateDiagnosis, String dateChemical, String parameterValue, String code, String type, String description, long clientCC, String nhsCode) {
         this.sampleDate = sampleDate;
         this.dateValidation = dateValidation;
         this.dateDiagnosis = dateDiagnosis;
@@ -77,7 +77,7 @@ public class TestDto {
         return sampleList;
     }
     
-    public long getCode(){
+    public String getCode(){
         return code;
     }
 

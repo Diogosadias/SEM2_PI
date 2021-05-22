@@ -12,91 +12,40 @@ import java.util.List;
  */
 public class Test {
     
-    private final String constant;
-    
     public String sampleDate;
     private String dateValidation;
     private String dateDiagnosis;
     public String dateChemical;
-    private String description;
-    private String NHSCode;
     private String parameterValue;
-    private Client client;
     private List<Sample> sampleList = new ArrayList<>();
+
+
+    private Client client;
+    private String nhsCode;
+    private String description;
     private TestType type;
-    private long code;
-    private List<Parameter> listParameters = new ArrayList<>();
+    private String code;
+    private List<Parameter> listParameters;
+    private List<ParameterCategory> listCategories;
     private String state;
 
-    /**
-     *
-     * @param type
-     * @param description
-     * @param client
-     */
-    public Test(TestType type, String description, Client client){
+
+    public Test (TestType type, String description,Client client) {
         checkTypeAttribute(type);
         checkDescriptionAttribute(description);
         checkClientAttribute(client);
-        
+
         this.type = type;
         this.description = description.trim();
         this.client = client;
         this.state = Constants.REGISTERED;
-        this.listParameters = new ArrayList();
-        this.constant = Constants.REGISTERED; 
-    }
-    
-    /**
-     *
-     * @param code
-     * @param sampleDate
-     * @param dateValidation
-     * @param dateDiagnosis
-     * @param dateChemical
-     * @param description
-     * @param NHSCode
-     * @param parameterValue
-     * @param client
-     * @param sampleList
-     * @param state
-     * @param type
-     * @param listParameters
-     */
-    public Test(long code, String sampleDate, String dateValidation, String dateDiagnosis, String dateChemical, String description, String NHSCode, String parameterValue, Client client, List<Sample> sampleList, String state, List<Parameter> listParameters, TestType type) {
-        
-        checkChemicalDate(dateChemical);
-        checkSampleDate(sampleDate);
-        checkDescriptionAttribute(description);
-        checkClientAttribute(client);        
-        checkNhsCodeAttribute(NHSCode);
-        
-        this.code = code;
-        this.sampleDate = sampleDate;
-        this.dateValidation = dateValidation;
-        this.dateDiagnosis = dateDiagnosis;
-        this.dateChemical = dateChemical;
-        this.description = description;
-        this.NHSCode = NHSCode;
-        this.parameterValue = parameterValue;
-        this.client = client;
-        this.sampleList = sampleList;
-        this.state = Constants.REGISTERED;
-        this.listParameters = new ArrayList();
-        this.type = type;
-        this.constant = Constants.REGISTERED; 
-    }
-
-    /**
-     *
-     */
-    public Test() {
-        this.constant = Constants.REGISTERED; 
+        this.listParameters = new ArrayList<>();
+        this.listCategories = new ArrayList<>();
     }
 
     public void setNhsCode(String nhsCode) {
         checkNhsCodeAttribute(nhsCode);
-        this.NHSCode = nhsCode;
+        this.nhsCode = nhsCode;
     }
 
     private void checkNhsCodeAttribute (String nhsCode) {
@@ -124,12 +73,15 @@ public class Test {
             throw new IllegalArgumentException("Creating Test Error: Client is null.");
         }
     }
-    
-    public long getCode() {
+
+    public String getCode() {
         return this.code;
     }
 
-    public void setCode(long code) {
+    public void setCode(String code) {
+        if (code == null) {
+            throw new IllegalArgumentException("Error: Code is null.");
+        }
         this.code = code;
     }
 
@@ -142,49 +94,32 @@ public class Test {
     }
 
     public List<Parameter> getListParameters() {
+        if (listParameters.isEmpty()) {
+            throw new IllegalArgumentException("Test: List Parameter is empty.");
+        }
         return this.listParameters;
     }
 
-    public void addParameter(Parameter parameter) {
-        listParameters.add(parameter);
-    }
-
-
-    public boolean getInformation(Test test){
-        if(test!=null){
-            String s =  "\n --- Many Labs Test --- " +
-                "\nClient CC: " + test.client.getCitizenCard() +
-                "\nType of Test: " + test.type.getDescription() +
-                "\nCollection Method: " + test.description+
-                "\nNhs Code: " + test.NHSCode +
-                "\n\nList of Parameters to be measured: ";
-            for (Parameter p : test.getListParameters()) {
-                s = s + "\n - " + p.getName();
-            }
-            System.out.println(s);
+    public List<ParameterCategory> getListCategories() {
+        if (listCategories.isEmpty()) {
+            throw new IllegalArgumentException("Test: List ParameterCategory is empty.");
         }
-        return true;
+        return this.listCategories;
     }
 
-    public boolean checkChemicalDate(String dateChemical){
-        if(dateChemical==null){
+    public boolean addParameter(Parameter parameter) {
+        if (listParameters.contains(parameter)) {
+            System.out.println("Test: Parameter already exists.");
             return false;
         }
-        return true;
+        return listParameters.add(parameter);
     }
 
-    public boolean checkSampleDate(String sampleDate){
-        if(sampleDate == null){
-            return false;
+    public void addCategory(ParameterCategory category) {
+        if (listCategories.contains(category)) {
+            throw new IllegalArgumentException("Test: ParameterCategory already exists.");
         }
-        return true;
-    }
-
-    public boolean checkCompleted(){
-        if(true){
-            return true;
-        }
-        return false;
+        listCategories.add(category);
     }
 
     public Client getClient() {
@@ -196,7 +131,7 @@ public class Test {
     }
 
     public String getNhsCode() {
-        return this.NHSCode;
+        return this.nhsCode;
     }
 
     public void setClient(Client client) {
@@ -207,7 +142,7 @@ public class Test {
         this.description = description;
     }
 
-    public void setSampleList(Sample sample){
+    public void addSample(Sample sample){
         this.sampleList.add(sample);
     }
 
@@ -215,52 +150,24 @@ public class Test {
         return this.state.equals(state);
     }
 
-    public String getSampleDate() {
-        return sampleDate;
-    }
 
-    public String getDateValidation() {
-        return dateValidation;
-    }
-
-    public String getDateDiagnosis() {
-        return dateDiagnosis;
-    }
-
-    public String getDateChemical() {
-        return dateChemical;
-    }
-
-    public String getNHSCode() {
-        return NHSCode;
-    }
-
-    public String getParameterValue() {
-        return parameterValue;
-    }
-
-    public List<Sample> getSampleList() {
-        return sampleList;
-    }
-
-    public TestType getType() {
-        return type;
-    }
-
-    public String getState() {
-        return state;
-    }
-    
     @Override
     public String toString() {
         String s =  "\n --- Many Labs Test --- " +
+                "\nTest n: " + this.code +
                 "\nClient CC: " + this.client.getCitizenCard() +
                 "\nType of Test: " + this.type.getDescription() +
                 "\nCollection Method: " + this.description+
-                "\nNhs Code: " + this.NHSCode +
-                "\n\nList of Parameters to be measured: ";
-        for (Parameter p : this.getListParameters()) {
-            s = s + "\n - " + p.getName();
+                "\nNhs Code: " + this.nhsCode +
+                "\n\nList of Parameter(s) for each Category to be analysed: ";
+        for (ParameterCategory category : this.getListCategories()) {
+            s = s + "\n\n - " + category.getDescription();
+            for (Parameter parameter : this.getListParameters()) {
+                if (parameter.getCategory().equals(category.getCode()))
+                {
+                    s = s + "\n" + parameter.getName();
+                }
+            }
         }
         return s;
     }

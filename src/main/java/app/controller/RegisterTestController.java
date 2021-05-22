@@ -38,8 +38,9 @@ public class RegisterTestController {
         tStore.newTest(typeCode);
     }
 
-    public List getListParameters(String category) {
-        return tStore.getListParameters(category);
+    public List getListParameters(String categoryCode) {
+        tStore.addCategoryToTest(categoryCode);
+        return tStore.getListParameters(categoryCode);
     }
 
     public boolean addParameterToTest(String parameterCode) {

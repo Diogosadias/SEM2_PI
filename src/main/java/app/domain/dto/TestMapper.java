@@ -19,35 +19,18 @@ public class TestMapper {
         this.company = App.getInstance().getCompany();
     }
 
-    public List<TestDto> toDto(List<Test>list){
+    public List<TestDto> toDto(List<Test> list){
         List<TestDto> testDto = new ArrayList<>();
-
         for(Test test: list){
-            long code = test.getCode();
+            String code = test.getCode();
             String description = test.getDescription();
             Client client = test.getClient();
 
             TestDto dto = new TestDto(code,description,client.getCitizenCard());
-            dto.setNhsCode(test.getNhsCode());
+
             testDto.add(dto);
         }
         return testDto;
     }
-    
-    public List<TestDto> getTestCompletedList() {
-        return this.company.getTestStore().getTestCompletedList();
-    }
-
-
-    public Test getTest(TestDto test) {     
-        return this.company.getTestStore().getTestByCode(test.getCode());
-    }
-
-
-    public Test getTestInformation(TestDto test) {
-        Test aux = this.company.getTestStore().getTestByCode(test.getCode());
-        aux.getInformation(aux);
-        return aux;
-    } 
 
 }

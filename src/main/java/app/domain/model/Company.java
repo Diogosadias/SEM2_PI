@@ -133,7 +133,7 @@ public class Company {
      *
      * @return Createclient's store
      */
-    public ClientStore getCreateClientStore() {
+    public ClientStore getClientStore() {
         return clientStore;
     }
 
@@ -142,7 +142,7 @@ public class Company {
      *
      * @param clientStore CreateClient's store
      */
-    public void setCreateClientStore(ClientStore clientStore) {
+    public void setClientStore(ClientStore clientStore) {
         this.clientStore = clientStore;
     }
 

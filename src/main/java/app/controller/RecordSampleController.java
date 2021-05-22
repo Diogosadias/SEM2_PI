@@ -38,13 +38,16 @@ public class RecordSampleController {
         return sample;
     }
 
-    public boolean saveSample(TestDto test) {
+    public boolean saveSample(TestDto dto) {
         this.tstore = this.company.getTestStore();
-        tstore.addSampleToTest(sample, new TestMapper().getTest(test));
+        Test test = this.tstore.getTestByCode(dto.getCode());
+        tstore.addSampleToTest(sample, test);
         return this.tss.saveSample(sample);
     }
 
     public List<TestDto> getTests() {
-        return this.tstore.getRegisteredTests();
+        List<Test> tests = this.tstore.getRegisteredTests();
+        TestMapper mapper = new TestMapper();
+        return mapper.toDto(tests);
     }
 }

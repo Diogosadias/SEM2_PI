@@ -47,7 +47,7 @@ public class CompanyTest extends TestCase {
 
     @Test
     public void testGetCreateClientStore() {
-        assertNotNull(test.getCreateClientStore());
+        assertNotNull(test.getClientStore());
     }
 
     @Test

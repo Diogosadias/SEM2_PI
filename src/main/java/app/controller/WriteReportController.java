@@ -2,6 +2,8 @@ package app.controller;
 
 import app.domain.dto.*;
 import app.domain.model.*;
+import app.domain.shared.Constants;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +26,16 @@ public class WriteReportController {
         this.testMapper = new TestMapper();
     }
 
+    public List<TestDto> getTestList() {
+        List<Test> list = this.testStore.getSampleAnalysisTests();
+        return this.testMapper.toDto(list);
+    }
+
+    public void getTestInformation(TestDto test) {
+        Test aux = this.company.getTestStore().getTestByCode(test.getCode());
+        System.out.println(aux);
+    }
+
     public boolean createReport(String diagnosis, Test test){
         this.report = reportStore.createReport(diagnosis, test);
         return reportStore.validateReport(this.report);
@@ -31,19 +43,6 @@ public class WriteReportController {
 
     public boolean saveReport(){
         return this.reportStore.saveReport(this.report);
-    }
-
-    public List<TestDto> getTestCompletedList(){
-        return this.testMapper.getTestCompletedList();
-    }
-
-    public void ShowList(){
-        getTestCompletedList();
-        //Shows list of tests completed
-    }
-
-    public Test getTestInformation(TestDto test){        
-        return this.testMapper.getTestInformation(test);
     }
 
     public String getReportToString() {        

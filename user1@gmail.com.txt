@@ -1,8 +1,0 @@
-Hello,
-here is your new password:
-
-Email: user1@gmail.com
-Password: r9ajcgjy7t
-
-Best regards
-ManyLabs team.
