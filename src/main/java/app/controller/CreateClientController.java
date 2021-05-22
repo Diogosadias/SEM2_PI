@@ -54,7 +54,7 @@ public class CreateClientController {
         this.rc = this.clientStore.createClient(id,name,nhs,citizenCard,tin,birthDate,sex,pNumber);
 
         if(!this.clientStore.validateClient(this.rc)){return false;}
-        saveClient(this.rc);
+        saveClient();
         return true;
 
     }
@@ -64,8 +64,8 @@ public class CreateClientController {
      *
      * @return boolean
      */
-    public boolean saveClient(Client rc){
-        return this.clientStore.saveClient(rc);
+    public boolean saveClient(){
+        return this.clientStore.saveClient(this.rc);
     }
 
     /**
