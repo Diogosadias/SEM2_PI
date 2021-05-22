@@ -21,6 +21,7 @@ public class WriteReportController {
         this.company = App.getInstance().getCompany();
         this.testStore = company.getTestStore();
         this.reportStore = company.getReportStore();
+        this.testMapper = new TestMapper();
     }
 
     public boolean createReport(String diagnosis, Test test){
@@ -33,7 +34,7 @@ public class WriteReportController {
     }
 
     public List<TestDto> getTestCompletedList(){
-        return testStore.getTestCompletedList();
+        return this.testMapper.getTestCompletedList();
     }
 
     public void ShowList(){
@@ -42,9 +43,7 @@ public class WriteReportController {
     }
 
     public Test getTestInformation(TestDto test){        
-        Test aux = this.testStore.getTestByCode(test.getCode());
-        aux.getInformation(aux);
-        return aux;
+        return this.testMapper.getTestInformation(test);
     }
 
     public String getReportToString() {        
