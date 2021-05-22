@@ -9,17 +9,13 @@ import app.domain.dto.EmployeeDto;
 import app.domain.dto.OrgRoleDto;
 import app.domain.dto.RolesMapper;
 import app.domain.model.*;
-import app.domain.model.EmployeeStore;
-import app.domain.shared.GeneratePassword;
+import app.domain.stores.EmployeeStore;
 import auth.AuthFacade;
 
-import java.io.FileWriter;
-import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 import static app.domain.shared.Constants.ROLE_ADMIN;
-import static app.domain.shared.Constants.ROLE_EMPLOYEE;
 
 
 /**

@@ -1,4 +1,6 @@
-package app.domain.model;
+package app.domain.stores;
+import app.domain.model.CAL;
+
 import java.lang.Object;
 import java.util.ArrayList;
 /**

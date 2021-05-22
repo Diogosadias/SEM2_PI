@@ -1,12 +1,8 @@
 package app.ui.console;
 
 import app.controller.App;
-import app.controller.RegisterNewCALController;
 import app.controller.WriteReportController;
 import app.domain.dto.TestDto;
-import app.domain.model.Company;
-import app.domain.model.Test;
-import app.domain.model.TestStore;
 import app.ui.console.utils.Utils;
 import auth.AuthFacade;
 import java.util.List;

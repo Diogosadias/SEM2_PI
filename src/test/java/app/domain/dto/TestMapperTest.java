@@ -1,9 +1,7 @@
 package app.domain.dto;
 
-import app.domain.model.TestStore;
+import app.domain.stores.TestStore;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class TestMapperTest {
     TestMapper mapper = new TestMapper();

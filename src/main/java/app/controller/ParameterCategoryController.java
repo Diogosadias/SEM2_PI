@@ -1,7 +1,7 @@
 package app.controller;
 
 import app.domain.model.*;
-import app.domain.model.ParameterCategoryStore;
+import app.domain.stores.ParameterCategoryStore;
 
 /**
  * Controller for the US11 realization - Register a new Parameter Category

@@ -1,6 +1,7 @@
-package app.domain.model;
+package app.domain.stores;
 
 import app.controller.App;
+import app.domain.model.Client;
 import app.domain.shared.Constants;
 import app.domain.shared.EmailSender;
 import app.domain.shared.GeneratePassword;

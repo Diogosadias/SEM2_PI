@@ -1,5 +1,6 @@
 package app.domain.model;
 
+import app.domain.stores.*;
 import auth.AuthFacade;
 import org.apache.commons.lang3.StringUtils;
 

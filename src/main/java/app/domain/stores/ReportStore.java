@@ -1,4 +1,7 @@
-package app.domain.model;
+package app.domain.stores;
+
+import app.domain.model.Report;
+import app.domain.model.Test;
 
 import java.util.ArrayList;
 

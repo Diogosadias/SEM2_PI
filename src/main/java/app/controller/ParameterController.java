@@ -1,6 +1,7 @@
 package app.controller;
 
 import app.domain.model.*;
+import app.domain.stores.ParameterStore;
 
 /**
  * Controller for the US10 realization - Register a new Parameter and categorize it

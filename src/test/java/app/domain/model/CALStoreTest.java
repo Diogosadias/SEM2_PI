@@ -1,15 +1,8 @@
 package app.domain.model;
 
-import app.domain.model.CAL;
-import app.domain.model.CALStore;
-import app.domain.model.Client;
-import auth.domain.model.Email;
+import app.domain.stores.CALStore;
 import org.junit.Test;
 
-
-
-import java.util.ArrayList;
-import java.util.Date;
 
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertNull;

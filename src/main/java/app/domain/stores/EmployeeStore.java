@@ -1,7 +1,10 @@
-package app.domain.model;
+package app.domain.stores;
 
 import app.domain.dto.EmployeeDto;
 import app.domain.dto.EmployeeMapper;
+import app.domain.model.Employee;
+import app.domain.model.OrgRole;
+import app.domain.model.SpecialistDoctor;
 import app.domain.shared.EmailSender;
 import app.domain.shared.GenerateEmployeeId;
 import app.domain.shared.GeneratePassword;
