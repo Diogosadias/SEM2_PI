@@ -78,9 +78,9 @@ public class RegisterEmployeeUI implements Runnable{
             // Request data: name, address, phoneNumber,socCode, doctorIndexNumber
             String name = Utils.readLineFromConsole("Name: ");
             String address = Utils.readLineFromConsole("Address: ");
-            double phoneNumber = Utils.readDoubleFromConsole("Phone number: ");
+            long phoneNumber = Utils.readLongFromConsole("Phone number: ");
             String socCode = Utils.readLineFromConsole("Soc Code: ");
-            EmployeeDto eDto = new EmployeeDto(role.getId(), name, address, (long)phoneNumber, socCode);
+            EmployeeDto eDto = new EmployeeDto(role.getId(), name, address, phoneNumber, socCode);
             if (this.m_controller.registerEmployee(eDto)) {
                 if (role.getId().equals(SPECIALIST_DOCTOR)) {
                     int doctorIndexNumber = Utils.readIntegerFromConsole("Doctor Index Number: ");

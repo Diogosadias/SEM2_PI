@@ -297,10 +297,10 @@ public class Client {
     /**
      * Check if the phone number it's within the rules
      *
-     * @param phonenumber
+     * @param phoneNumber
      */
-    public void checkPNumber(long phonenumber){
-        String temp = String.valueOf(phonenumber);
+    public void checkPNumber(long phoneNumber){
+        String temp = String.valueOf(phoneNumber);
         if (temp.length() <11 || temp.length() > 12)
             throw new IllegalArgumentException("Phone Number must have 11 chars.");
     }

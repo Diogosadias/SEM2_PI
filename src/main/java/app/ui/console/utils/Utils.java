@@ -49,6 +49,23 @@ public class Utils {
             }
         } while (true);
     }
+    static public long readLongFromConsole(String prompt)
+    {
+        do
+        {
+            try
+            {
+                String input = readLineFromConsole(prompt);
+
+                long value = Long.parseLong(input);
+
+                return value;
+            } catch (NumberFormatException ex)
+            {
+                Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } while (true);
+    }
 
     static public double readDoubleFromConsole(String prompt)
     {
