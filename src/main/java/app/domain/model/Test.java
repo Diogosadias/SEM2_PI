@@ -73,6 +73,7 @@ public class Test {
         this.parameterValue = parameterValue;
         this.client = client;
         this.sampleList = sampleList;
+        String constant = Constants.REGISTERED;
     }
 
     /**
