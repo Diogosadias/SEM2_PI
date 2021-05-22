@@ -67,17 +67,14 @@ public class ParameterCategory {
      * @return parameter category's features
      */
 
-    public String toCategoryString() {
+
+    @Override
+    public String toString() {
         return "ParameterCategory{" +
                 "code='" + code + '\'' +
                 ", description='" + description + '\'' +
                 ", nhsId='" + nhsId + '\'' +
                 '}';
-    }
-
-    @Override
-    public String toString() {
-        return "[ " + description + "]\n";
     }
 
     /**
