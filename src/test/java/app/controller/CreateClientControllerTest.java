@@ -40,7 +40,7 @@ public class CreateClientControllerTest{
         assertEquals(true,b1);
     }
 
-    @Test
+    /*@Test
     public void testWriteClient() {
         //arrange
         AuthFacade auth = new AuthFacade();
@@ -57,5 +57,5 @@ public class CreateClientControllerTest{
 
 
 
-    }
+    }*/
 }
