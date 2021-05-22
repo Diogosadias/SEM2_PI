@@ -1,9 +1,9 @@
 package app.domain.model;
 
-import app.domain.dto.TestDto;
-import app.domain.shared.Constants;
 import net.sourceforge.barbecue.BarcodeException;
+import net.sourceforge.barbecue.output.OutputException;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,18 +15,12 @@ import java.util.List;
 public class SampleStore {
 
     private final List<Sample> sampleList;
-    Company company;
 
     public SampleStore(){
         this.sampleList = new ArrayList<>();
     }
 
-
-    public void setCompany (Company company) {
-        this.company = company;
-    }
-
-    public Sample createSample(String id) throws BarcodeException {
+    public Sample createSample(String id) throws BarcodeException, OutputException, IOException {
         return new Sample(id);
     }
 
@@ -47,9 +41,4 @@ public class SampleStore {
     public List<Sample> getSamples(){
         return this.sampleList;
     }
-
-    public List<TestDto> getTests() {
-        return this.company.getTestStore().getTests(Constants.REGISTERED);
-    }
-
 }

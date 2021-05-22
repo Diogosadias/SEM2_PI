@@ -1,12 +1,10 @@
 package app.controller;
 
-import app.domain.dto.EmployeeDto;
 import app.domain.model.*;
 import app.domain.shared.Constants;
 import auth.AuthFacade;
 import auth.UserSession;
 import auth.domain.model.Email;
-
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -15,8 +13,6 @@ import java.util.Date;
 import java.util.Properties;
 
 import static app.domain.shared.Constants.*;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -104,7 +100,7 @@ App {
 
         this.authFacade.addUserWithRole("Admin", "admin@lei.pt", "495", Constants.ROLE_ADMIN);
         this.authFacade.addUserWithRole("Client1","clei@sd.pt","123",Constants.ROLE_CLIENT);
-        this.authFacade.addUserWithRoles("SuperUser", "superuser@super.user", "123456", new String[] { Constants.ROLE_CLIENT,Constants.ROLE_ADMIN, Constants.ROLE_RECEP });
+        this.authFacade.addUserWithRoles("SuperUser", "superuser@super.user", "123456", new String[] { Constants.ROLE_CLIENT,Constants.ROLE_ADMIN, Constants.ROLE_RECEP, MEDICAL_LAB_TECHNICIAN });
 
 
         //Employee

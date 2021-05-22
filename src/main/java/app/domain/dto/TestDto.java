@@ -1,9 +1,6 @@
 package app.domain.dto;
 
-import app.domain.model.Client;
 import app.domain.model.Parameter;
-import app.domain.model.Sample;
-import app.domain.model.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,7 +56,15 @@ public class TestDto {
     public List<Parameter> getParameters() {
         return parameters;
     }
-    
+
+
+    public void setNhsCode(String nhsCode) {
+        this.nhsCode = nhsCode;
+    }
+
+    public void setParameters(List<Parameter> parameters) {
+        this.parameters = parameters;
+    }
 
     public String toString(){
         return  "Collection Method:"+description+" \nCode:"+code;

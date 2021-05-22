@@ -20,11 +20,10 @@ public class Test {
     private String NHSCode;
     private String parameterValue;
     private Client client;
-    private List<Sample> sampleList;
-    
+    private List<Sample> sampleList = new ArrayList<>();
     private TestType type;
     private long code;
-    private List<Parameter> listParameters;
+    private List<Parameter> listParameters = new ArrayList<>();
     private String state;
 
     /**
@@ -74,6 +73,7 @@ public class Test {
         this.parameterValue = parameterValue;
         this.client = client;
         this.sampleList = sampleList;
+        String constant = Constants.REGISTERED;
     }
 
     /**

@@ -6,6 +6,7 @@ import app.domain.dto.TestDto;
 import app.ui.console.utils.Utils;
 import net.sourceforge.barbecue.Barcode;
 import net.sourceforge.barbecue.BarcodeException;
+import net.sourceforge.barbecue.output.OutputException;
 
 import java.io.IOException;
 
@@ -26,21 +27,22 @@ public class RecordSampleUI implements Runnable {
     public void run() {
         try {
             TestDto chosenTest = writeTests();
-            Barcode result = rsc.createSample(chosenTest.getNhsCode()).getSampleBarcode();
+            System.out.println(chosenTest);
+            Barcode result = rsc.createSample(String.valueOf(chosenTest.getCode())).getSampleBarcode();
 
             /*
             * PRINT BARCODE
             * SAVE BARCODE AS JPEG
             */
 
-            if(Utils.confirm("Do you wish to register this sample?")) {
+            if(Utils.confirm("Do you wish to register this sample? Y / N")) {
                 if(this.rsc.saveSample(chosenTest)) {
                     System.out.println("Sample registered with success!");
                 }else{
                     System.out.println("Sample was not registered!");
                 }
             }
-        } catch (IOException | BarcodeException e) {
+        } catch (IOException | BarcodeException | OutputException e) {
             e.printStackTrace();
         }
 

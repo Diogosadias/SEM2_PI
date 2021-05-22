@@ -28,7 +28,7 @@ public class TestMapper {
             Client client = test.getClient();
 
             TestDto dto = new TestDto(code,description,client.getCitizenCard());
-
+            dto.setNhsCode(test.getNhsCode());
             testDto.add(dto);
         }
         return testDto;
@@ -40,7 +40,7 @@ public class TestMapper {
 
 
     public Test getTest(TestDto test) {     
-        return new Test(this.company.getTestTypeStore().getTestTypeByCode(String.valueOf(test.getCode())), test.getDescription(), this.company.getCreateClientStore().getClientByCC(test.getClientCC()));
+        return this.company.getTestStore().getTestByCode(test.getCode());
     }
 
 
