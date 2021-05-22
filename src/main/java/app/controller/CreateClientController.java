@@ -3,7 +3,6 @@ package app.controller;
 import app.domain.model.Client;
 import app.domain.model.Company;
 import app.domain.model.ClientStore;
-import app.domain.shared.GeneratePassword;
 import auth.AuthFacade;
 
 /**
@@ -53,9 +52,9 @@ public class CreateClientController {
     public boolean createClient(String id, String name, long nhs, long citizenCard, long tin, String birthDate, String sex, long pNumber){
 
         this.rc = this.clientStore.createClient(id,name,nhs,citizenCard,tin,birthDate,sex,pNumber);
-        String pwd = new GeneratePassword().getPwd();
+
         if(!this.clientStore.validateClient(this.rc)){return false;}
-        saveClient(this.rc,pwd);
+        saveClient(this.rc);
         return true;
 
     }
@@ -65,8 +64,8 @@ public class CreateClientController {
      *
      * @return boolean
      */
-    public boolean saveClient(Client rc,String pwd){
-        return this.clientStore.saveClient(rc,pwd);
+    public boolean saveClient(Client rc){
+        return this.clientStore.saveClient(rc);
     }
 
     /**
