@@ -91,6 +91,7 @@ public class Test {
      *
      */
     public Test() {
+        this.constant = Constants.REGISTERED; 
     }
 
     public void setNhsCode(String nhsCode) {
