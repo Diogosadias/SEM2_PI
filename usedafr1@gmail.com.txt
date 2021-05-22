@@ -2,7 +2,7 @@ Hello,
 here is your new password:
 
 Email: usedafr1@gmail.com
-Password: ycavxvke2u
+Password: 123
 
 Best regards
 ManyLabs team.

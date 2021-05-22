@@ -104,9 +104,9 @@ public class ClientStore {
         return false;
     }
 
-    public boolean saveClient(Client rc){
+    public boolean saveClient(Client rc, String pwd){
         if(validateClient(rc)){
-            String pwd = new GeneratePassword().getPwd();
+
             String email = rc.getId().getEmail();
             this.authFacade.addUserWithRole(rc.getName(), rc.getId().getEmail(), pwd , Constants.ROLE_CLIENT);
             new EmailSender(email,pwd);

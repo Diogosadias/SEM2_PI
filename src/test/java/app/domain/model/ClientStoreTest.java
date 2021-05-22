@@ -36,7 +36,7 @@ public class ClientStoreTest {
         //testing
         boolean b = tccs.validateClient(c1);
         assertEquals(true,b);
-        tccs.saveClient(c1);
+        tccs.saveClient(c1,"123");
         boolean b1 = tccs.validateClient(c1);
         assertEquals(false,b1);
         boolean b2 = tccs.validateClient(null);
@@ -46,10 +46,10 @@ public class ClientStoreTest {
     @Test
     public void testSaveClient() {
         //testing
-        boolean b = tccs.saveClient(c1);
+        boolean b = tccs.saveClient(c1,"123");
         assertEquals(true,b);
 
-        boolean b1 = tccs.saveClient(c1);
+        boolean b1 = tccs.saveClient(c1,"123");
         assertEquals(false,b1);
     }
 
