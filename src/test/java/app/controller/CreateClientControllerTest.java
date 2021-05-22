@@ -29,14 +29,14 @@ public class CreateClientControllerTest extends TestCase {
 
     public void testSaveClient() {
         //arange
-        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 11111111111l);
+        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("2021/12/22"), "M", 11111111111l);
         CreateClientController ccr = new CreateClientController();
 
         //calculation
         boolean b1 = ccr.saveClient(c1);
 
         //assert
-        assertEquals(false,b1);
+        assertEquals(true,b1);
     }
 
     public void testWriteClient() {
