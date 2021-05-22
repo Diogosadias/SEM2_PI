@@ -9,7 +9,7 @@ public class Report {
 
 
 
-    Report (String diagnosis, Test test){
+    public Report (String diagnosis, Test test){
         checkDiagnosis(diagnosis);
         this.diagnosis = diagnosis;
         this.test = test;
