@@ -76,7 +76,7 @@ public class RegisterTestUI implements Runnable {
                         // add Parameter to list of Parameters in Test
                         ParameterDto parameter = (ParameterDto) Utils.showAndSelectOne(parametersDto, "\n" + category.getDescription() + " - List of Parameters:\n");
                         if (parameter == null) {
-                            System.out.println("\nParameter is null.\n");
+                            answer = Constants.ANS_NO;
                         } else {
                             this.m_controller.addParameterToTest(parameter.getCode());
                             parametersDto.remove(parameter);
@@ -95,8 +95,7 @@ public class RegisterTestUI implements Runnable {
                         System.out.println("\nNo more categories to choose from the list.\n");
                     }
                 }else{
-                    System.out.println("\nParameterCategory is null.\n");
-                    return false;
+                    answer = Constants.ANS_NO;
                 }
 
             }
