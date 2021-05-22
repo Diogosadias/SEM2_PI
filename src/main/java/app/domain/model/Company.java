@@ -35,7 +35,7 @@ public class Company {
     /**
      * The store of create a client.
      */
-    private ClientStore clientStore;
+    private CreateClientStore createClientStore;
 
     /**
      * The store of parameter category.
@@ -82,7 +82,7 @@ public class Company {
 
         this.reportStore = new ReportStore();
         this.calStore = new CALStore();
-        this.clientStore = new ClientStore(this.authFacade);
+        this.createClientStore = new CreateClientStore(this.authFacade);
         this.parameterCategoryStore = new ParameterCategoryStore();
         this.orgRoleStore = new OrgRoleStore();
         this.employeeStore = new EmployeeStore(this.orgRoleStore,this.authFacade);
@@ -133,17 +133,17 @@ public class Company {
      *
      * @return Createclient's store
      */
-    public ClientStore getClientStore() {
-        return clientStore;
+    public CreateClientStore getClientStore() {
+        return createClientStore;
     }
 
     /**
      * Change the CreateClient's store.
      *
-     * @param clientStore CreateClient's store
+     * @param createClientStore CreateClient's store
      */
-    public void setClientStore(ClientStore clientStore) {
-        this.clientStore = clientStore;
+    public void setClientStore(CreateClientStore createClientStore) {
+        this.createClientStore = createClientStore;
     }
 
     /**

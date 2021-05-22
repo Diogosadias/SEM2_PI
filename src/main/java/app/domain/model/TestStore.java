@@ -39,7 +39,7 @@ public class TestStore {
     }
 
     public boolean checkRegisteredClient(long cc) {
-        ClientStore cStore = this.company.getClientStore();
+        CreateClientStore cStore = this.company.getClientStore();
         this.client = cStore.getClientByCC(cc);
         return (client != null) ;
     }

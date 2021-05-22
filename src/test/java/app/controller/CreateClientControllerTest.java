@@ -1,8 +1,6 @@
 package app.controller;
 
 import app.domain.model.Client;
-import app.domain.model.ClientStore;
-import auth.AuthFacade;
 import auth.domain.model.Email;
 import org.junit.Test;
 import java.util.Date;
@@ -45,7 +43,7 @@ public class CreateClientControllerTest{
         //arrange
         AuthFacade auth = new AuthFacade();
         CreateClientController ccr = new CreateClientController();
-        ClientStore ccs = new ClientStore(auth);
+        CreateClientStore ccs = new CreateClientStore(auth);
         Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 11111111111l);
 
 

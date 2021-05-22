@@ -10,11 +10,11 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-public class ClientStoreTest {
+public class CreateClientStoreTest {
     AuthFacade auth = new AuthFacade();
 
     Client c1 = new Client(new Email("usedafr1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("2001/12/22"), "M", 11111111111L);
-    ClientStore store = new ClientStore(auth);
+    CreateClientStore store = new CreateClientStore(auth);
 
 
     @Test
@@ -56,7 +56,7 @@ public class ClientStoreTest {
     @Test
     public void testGetClientList() {
         AuthFacade auth = null;
-        ClientStore ccs = new ClientStore(auth);
+        CreateClientStore ccs = new CreateClientStore(auth);
         Client c1 = new Client(new Email("usewdar1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("2001/12/22"), "M", 11111111111L);
         List<Client> testList = new ArrayList<>();
         //calculations

@@ -12,13 +12,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ClientStore - Class responsible for managing Clients.
+ * CreateClientStore - Class responsible for managing Clients.
  *
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  * @author Tiago Ferreira <1200601@isep.ipp.pt>
  * @author Gil <1180838@isep.ipp.pt>
  */
-public class ClientStore {
+public class CreateClientStore {
 
     /**
      * Initialize a list of clients.
@@ -26,14 +26,14 @@ public class ClientStore {
     private final List<Client> clientList;
 
     /**
-     * The AuthFacade of ClientStore.
+     * The AuthFacade of CreateClientStore.
      */
     private final AuthFacade authFacade;
 
     /**
      * Create Store instance with empty array.
      */
-    public ClientStore(AuthFacade authFacade){
+    public CreateClientStore(AuthFacade authFacade){
         this.clientList = new ArrayList<>();
         this.authFacade = authFacade;
     }
