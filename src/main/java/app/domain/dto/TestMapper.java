@@ -34,8 +34,8 @@ public class TestMapper {
         return testDto;
     }
     
-    public List<TestDto> getTestCompletedList(TestStore testStore) {
-        return testStore.getTestCompletedList();
+    public List<TestDto> getTestCompletedList() {
+        return this.company.getTestStore().getTestCompletedList();
     }
 
 
@@ -44,9 +44,10 @@ public class TestMapper {
     }
 
 
-    public Test getTestInformation(Test test) {
-        //possible changes to this
-        return test;
+    public Test getTestInformation(TestDto test) {
+        Test aux = this.company.getTestStore().getTestByCode(test.getCode());
+        aux.getInformation(aux);
+        return aux;
     } 
 
 }
