@@ -138,7 +138,7 @@ public class TestStore {
 
     public void addSampleToTest(Sample sample, Test test) {
         for (Test t : testlist) {
-            if (t == test)
+            if (t.getCode() == test.getCode())
                 t.setSampleList(sample);
         }
     }

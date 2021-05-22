@@ -5,6 +5,8 @@ import app.domain.dto.TestDto;
 import app.domain.dto.TestMapper;
 import app.domain.model.*;
 import net.sourceforge.barbecue.BarcodeException;
+import net.sourceforge.barbecue.output.OutputException;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -28,11 +30,10 @@ public class RecordSampleController {
         }
         this.company = App.getInstance().getCompany();
         this.tss = this.company.getSampleStore();
-        this.sample = null;
-        this.tss.setCompany(this.company);
+        this.tstore = this.company.getTestStore();
     }
 
-    public Sample createSample(String id) throws IOException, BarcodeException {
+    public Sample createSample(String id) throws IOException, BarcodeException, OutputException {
         this.sample = this.tss.createSample(id);
         return sample;
     }
