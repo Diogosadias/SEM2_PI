@@ -4,8 +4,8 @@ import app.domain.dto.EmployeeDto;
 
 
 import app.domain.shared.GenerateEmployeeId;
-import app.domain.stores.EmployeeStore;
-import app.domain.stores.OrgRoleStore;
+import app.domain.model.stores.EmployeeStore;
+import app.domain.model.stores.OrgRoleStore;
 import auth.AuthFacade;
 import org.junit.Test;
 

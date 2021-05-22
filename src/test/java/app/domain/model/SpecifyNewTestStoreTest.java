@@ -1,6 +1,6 @@
 package app.domain.model;
 
-import app.domain.stores.TestTypeStore;
+import app.domain.model.stores.TestTypeStore;
 import org.junit.Test;
 
 import java.util.ArrayList;

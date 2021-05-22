@@ -1,6 +1,6 @@
 package app.domain.model;
 
-import app.domain.stores.ClientStore;
+import app.domain.model.stores.ClientStore;
 import auth.AuthFacade;
 import auth.domain.model.Email;
 import org.junit.Test;

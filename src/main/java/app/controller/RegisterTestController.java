@@ -1,7 +1,7 @@
 package app.controller;
 
 import app.domain.model.Company;
-import app.domain.stores.TestStore;
+import app.domain.model.stores.TestStore;
 
 import java.util.List;
 

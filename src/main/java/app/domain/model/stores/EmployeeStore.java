@@ -1,4 +1,4 @@
-package app.domain.stores;
+package app.domain.model.stores;
 
 import app.domain.dto.EmployeeDto;
 import app.domain.dto.EmployeeMapper;

@@ -1,7 +1,6 @@
-package app.domain.stores;
+package app.domain.model.stores;
 import app.domain.model.CAL;
 
-import java.lang.Object;
 import java.util.ArrayList;
 /**
  * CALStore - Class responsible for managing CALs

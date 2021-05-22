@@ -1,13 +1,11 @@
-package app.domain.stores;
+package app.domain.model.stores;
 
-import app.controller.App;
 import app.domain.model.Client;
 import app.domain.shared.Constants;
 import app.domain.shared.EmailSender;
 import app.domain.shared.GeneratePassword;
 import auth.AuthFacade;
 import auth.domain.model.Email;
-import auth.domain.model.Password;
 
 import java.sql.Date;
 import java.util.ArrayList;

@@ -2,7 +2,7 @@ package app.controller;
 
 import app.domain.model.Company;
 import app.domain.model.ParameterCategory;
-import app.domain.stores.TestTypeStore;
+import app.domain.model.stores.TestTypeStore;
 import app.domain.model.TestType;
 
 /**
