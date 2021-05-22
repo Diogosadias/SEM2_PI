@@ -9,7 +9,7 @@ import app.domain.dto.EmployeeDto;
 import app.domain.dto.OrgRoleDto;
 import app.domain.dto.RolesMapper;
 import app.domain.model.*;
-import app.domain.model.stores.EmployeeStore;
+import app.domain.model.EmployeeStore;
 import auth.AuthFacade;
 
 import java.lang.reflect.InvocationTargetException;

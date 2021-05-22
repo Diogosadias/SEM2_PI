@@ -1,6 +1,5 @@
 package app.domain.model;
 
-import app.domain.model.stores.ParameterCategoryStore;
 import org.junit.Test;
 
 import java.util.ArrayList;

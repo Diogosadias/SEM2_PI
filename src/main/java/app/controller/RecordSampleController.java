@@ -4,8 +4,8 @@ package app.controller;
 import app.domain.dto.TestDto;
 import app.domain.dto.TestMapper;
 import app.domain.model.*;
-import app.domain.model.stores.SampleStore;
-import app.domain.model.stores.TestStore;
+import app.domain.model.SampleStore;
+import app.domain.model.TestStore;
 import net.sourceforge.barbecue.BarcodeException;
 import net.sourceforge.barbecue.output.OutputException;
 

@@ -1,7 +1,7 @@
 package app.controller;
 
 import app.domain.model.*;
-import app.domain.model.stores.CALStore;
+import app.domain.model.CALStore;
 
 /**
  *  Controller for the US8 realization - Register a new CAL

@@ -1,6 +1,6 @@
 package app.domain.dto;
 
-import app.domain.model.stores.TestStore;
+import app.domain.model.TestStore;
 import org.junit.Test;
 
 public class TestMapperTest {

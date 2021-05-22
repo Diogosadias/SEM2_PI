@@ -1,6 +1,5 @@
 package app.domain.model;
 
-import app.domain.model.stores.CALStore;
 import org.junit.Test;
 
 

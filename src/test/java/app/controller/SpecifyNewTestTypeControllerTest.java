@@ -1,6 +1,6 @@
 package app.controller;
 
-import app.domain.model.stores.TestTypeStore;
+import app.domain.model.TestTypeStore;
 import app.domain.model.TestType;
 import org.junit.Test;
 import static org.junit.Assert.*;

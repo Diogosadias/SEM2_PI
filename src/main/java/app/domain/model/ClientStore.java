@@ -1,4 +1,4 @@
-package app.domain.model.stores;
+package app.domain.model;
 
 import app.domain.model.Client;
 import app.domain.shared.Constants;

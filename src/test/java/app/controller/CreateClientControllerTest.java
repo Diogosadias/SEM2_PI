@@ -1,7 +1,7 @@
 package app.controller;
 
 import app.domain.model.Client;
-import app.domain.model.stores.ClientStore;
+import app.domain.model.ClientStore;
 import auth.AuthFacade;
 import auth.domain.model.Email;
 import junit.framework.TestCase;

@@ -2,8 +2,8 @@ package app.controller;
 
 import app.domain.dto.*;
 import app.domain.model.*;
-import app.domain.model.stores.ReportStore;
-import app.domain.model.stores.TestStore;
+import app.domain.model.ReportStore;
+import app.domain.model.TestStore;
 
 import java.util.List;
 

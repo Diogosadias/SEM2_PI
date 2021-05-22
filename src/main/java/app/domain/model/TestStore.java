@@ -1,7 +1,6 @@
-package app.domain.model.stores;
+package app.domain.model;
 
 import app.domain.dto.*;
-import app.domain.model.*;
 import app.domain.shared.Constants;
 import app.domain.shared.GenerateTestCode;
 
