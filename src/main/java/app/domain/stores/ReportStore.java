@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class ReportStore {
 
-    private ArrayList<Report> reportlist;
+    private final ArrayList<Report> reportlist;
 
     public ReportStore(){
         reportlist = new ArrayList<>();
