@@ -12,6 +12,8 @@ import java.util.List;
  */
 public class Test {
     
+    private final String constant;
+    
     public String sampleDate;
     private String dateValidation;
     private String dateDiagnosis;
@@ -42,10 +44,12 @@ public class Test {
         this.client = client;
         this.state = Constants.REGISTERED;
         this.listParameters = new ArrayList();
+        this.constant = Constants.REGISTERED; 
     }
     
     /**
      *
+     * @param code
      * @param sampleDate
      * @param dateValidation
      * @param dateDiagnosis
@@ -55,15 +59,19 @@ public class Test {
      * @param parameterValue
      * @param client
      * @param sampleList
+     * @param state
+     * @param type
+     * @param listParameters
      */
-    public Test(String sampleDate, String dateValidation, String dateDiagnosis, String dateChemical, String description, String NHSCode, String parameterValue, Client client, List<Sample> sampleList) {
+    public Test(long code, String sampleDate, String dateValidation, String dateDiagnosis, String dateChemical, String description, String NHSCode, String parameterValue, Client client, List<Sample> sampleList, String state, List<Parameter> listParameters, TestType type) {
         
         checkChemicalDate(dateChemical);
         checkSampleDate(sampleDate);
         checkDescriptionAttribute(description);
-        checkClientAttribute(client);
+        checkClientAttribute(client);        
         checkNhsCodeAttribute(NHSCode);
-                       
+        
+        this.code = code;
         this.sampleDate = sampleDate;
         this.dateValidation = dateValidation;
         this.dateDiagnosis = dateDiagnosis;
@@ -73,13 +81,17 @@ public class Test {
         this.parameterValue = parameterValue;
         this.client = client;
         this.sampleList = sampleList;
-        String constant = Constants.REGISTERED;
+        this.state = Constants.REGISTERED;
+        this.listParameters = new ArrayList();
+        this.type = type;
+        this.constant = Constants.REGISTERED; 
     }
 
     /**
      *
      */
     public Test() {
+        this.constant = Constants.REGISTERED; 
     }
 
     public void setNhsCode(String nhsCode) {
@@ -140,10 +152,18 @@ public class Test {
 
     public boolean getInformation(Test test){
         if(test!=null){
-            //print information
-
+            String s =  "\n --- Many Labs Test --- " +
+                "\nClient CC: " + test.client.getCitizenCard() +
+                "\nType of Test: " + test.type.getDescription() +
+                "\nCollection Method: " + test.description+
+                "\nNhs Code: " + test.NHSCode +
+                "\n\nList of Parameters to be measured: ";
+            for (Parameter p : test.getListParameters()) {
+                s = s + "\n - " + p.getName();
+            }
+            System.out.println(s);
         }
-        return false;
+        return true;
     }
 
     public boolean checkChemicalDate(String dateChemical){
@@ -231,8 +251,6 @@ public class Test {
         return state;
     }
     
-    
-
     @Override
     public String toString() {
         String s =  "\n --- Many Labs Test --- " +

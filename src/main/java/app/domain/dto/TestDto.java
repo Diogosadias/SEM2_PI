@@ -1,6 +1,7 @@
 package app.domain.dto;
 
 import app.domain.model.Parameter;
+import app.domain.model.Sample;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +12,14 @@ import java.util.List;
  * @author Bruno Pereira <1191454@isep.ipp.pt>
  */
 public class TestDto {
-
+    
+    public String sampleDate;
+    private String dateValidation;
+    private String dateDiagnosis;
+    public String dateChemical;
+    private String parameterValue;
     private long code;
+    private List<Sample> sampleList = new ArrayList<>();
     private String type;
     private String description;
     private long clientCC;
@@ -33,6 +40,43 @@ public class TestDto {
         this.clientCC = clientCC;
     }
 
+    public TestDto(String sampleDate, String dateValidation, String dateDiagnosis, String dateChemical, String parameterValue, long code, String type, String description, long clientCC, String nhsCode) {
+        this.sampleDate = sampleDate;
+        this.dateValidation = dateValidation;
+        this.dateDiagnosis = dateDiagnosis;
+        this.dateChemical = dateChemical;
+        this.parameterValue = parameterValue;
+        this.code = code;
+        this.type = type;
+        this.description = description;
+        this.clientCC = clientCC;
+        this.nhsCode = nhsCode;
+    }
+
+    public String getSampleDate() {
+        return sampleDate;
+    }
+
+    public String getDateValidation() {
+        return dateValidation;
+    }
+
+    public String getDateDiagnosis() {
+        return dateDiagnosis;
+    }
+
+    public String getDateChemical() {
+        return dateChemical;
+    }
+
+    public String getParameterValue() {
+        return parameterValue;
+    }
+
+    public List<Sample> getSampleList() {
+        return sampleList;
+    }
+    
     public long getCode(){
         return code;
     }

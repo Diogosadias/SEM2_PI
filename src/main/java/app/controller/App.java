@@ -138,6 +138,7 @@ App {
         Test test1 = new Test (type1,type1.getCollectingMethod(),client1);
         test1.addParameter(parameter1);
         test1.setNhsCode("nhsCode-AB01");
+        test1.setCode(12345);
         this.company.getTestStore().addTest(test1);
     }
 

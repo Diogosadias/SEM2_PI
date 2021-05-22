@@ -19,8 +19,6 @@ public class WriteReportUI implements Runnable{
     
     private WriteReportController writeReportController;
     private AuthFacade authFacade;
-    private Company company;
-    private TestStore tstore;
 
     /**
      * Constructor initiating the Controller and AuthFacade
@@ -28,9 +26,7 @@ public class WriteReportUI implements Runnable{
     public WriteReportUI()
     {
         this.writeReportController = new WriteReportController();
-        this.company = App.getInstance().getCompany();
-        this.authFacade = this.company.getAuthFacade();        
-        this.tstore = this.company.getTestStore();
+        this.authFacade = App.getInstance().getCompany().getAuthFacade();    
     }
 
     @Override
@@ -57,18 +53,17 @@ public class WriteReportUI implements Runnable{
 
     private boolean registerData() {
         List<TestDto> set = writeReportController.getTestCompletedList();
-        TestDto test = (TestDto)Utils.showAndSelectOne(set, "\nList of Completed Tests\nNumber/id of role: \n");
-        
+        TestDto test = (TestDto)Utils.showAndSelectOne(set, "\nList of Completed Tests: \n");
         writeReportController.getTestInformation(test);
-                
+        
         String diagnosis = Utils.readLineFromConsole("Diagnosis: ");
         
-        writeReportController.createReport(diagnosis, this.tstore.getTestByCode(Long.valueOf(test.getNhsCode())));
+        writeReportController.createReport(diagnosis, App.getInstance().getCompany().getTestStore().getTestByCode(Long.valueOf(test.getCode())));
         return writeReportController.saveReport();
     }
 
     private void presentsData() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\nReport:\n" + writeReportController.getReportToString());
     }
 
 }
