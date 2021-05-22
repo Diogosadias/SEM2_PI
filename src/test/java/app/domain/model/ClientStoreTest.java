@@ -43,7 +43,7 @@ public class ClientStoreTest {
         assertFalse(b2);
     }
 
-    /*@Test
+    @Test
     public void testSaveClient() {
         //testing
         boolean b = store.saveClient(c1);
@@ -51,7 +51,7 @@ public class ClientStoreTest {
 
         boolean b1 = store.saveClient(c1);
         assertEquals(false,b1);
-    }*/
+    }
 
     @Test
     public void testGetClientList() {
