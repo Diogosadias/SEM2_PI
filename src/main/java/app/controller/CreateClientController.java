@@ -18,7 +18,7 @@ public class CreateClientController {
     private App app;
 
     private ClientStore clientStore;
-    Client rc;
+
 
     /**
      *  Public empty constructor
@@ -51,10 +51,10 @@ public class CreateClientController {
      */
     public boolean createClient(String id, String name, long nhs, long citizenCard, long tin, String birthDate, String sex, long pNumber){
 
-        this.rc = this.clientStore.createClient(id,name,nhs,citizenCard,tin,birthDate,sex,pNumber);
+        Client rc = this.clientStore.createClient(id,name,nhs,citizenCard,tin,birthDate,sex,pNumber);
 
-        if(!this.clientStore.validateClient(this.rc)){return false;}
-        saveClient(this.rc);
+        if(!this.clientStore.validateClient(rc)){return false;}
+        saveClient(rc);
         return true;
 
     }
@@ -65,7 +65,7 @@ public class CreateClientController {
      * @return boolean
      */
     public boolean saveClient(Client rc){
-        return this.clientStore.saveClient(this.rc);
+        return this.clientStore.saveClient(rc);
     }
 
     /**
