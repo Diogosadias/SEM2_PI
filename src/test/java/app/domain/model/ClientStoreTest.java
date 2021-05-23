@@ -1,12 +1,14 @@
 package app.domain.model;
 
-import static org.junit.Assert.*;
-
 import auth.AuthFacade;
 import auth.domain.model.Email;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
+import static org.junit.Assert.*;
 
 public class ClientStoreTest {
     AuthFacade auth = new AuthFacade();
@@ -29,4 +31,39 @@ public class ClientStoreTest {
         assertEquals(c1.getSex(),c2.getSex());
     }
 
+    @Test
+    public void testValidateClient() {
+        //testing
+        boolean b = store.validateClient(c1);
+        assertEquals(true,b);
+        store.saveClient(c1,"aaaa");
+        boolean b1 = store.validateClient(c1);
+        assertEquals(false,b1);
+        boolean b2 = store.validateClient(null);
+        assertFalse(b2);
+    }
+
+    @Test
+    public void testSaveClient() {
+        //testing
+        boolean b = store.saveClient(c1,"aaaa");
+        assertEquals(true,b);
+
+        Client c2 = new Client(new Email("usedafr1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("2001/12/22"), "M", 11111111111L);
+        boolean b1 = store.saveClient(c2,"aaaa");
+        assertEquals(false,b1);
+    }
+
+    @Test
+    public void testGetClientList() {
+        AuthFacade auth = null;
+        ClientStore ccs = new ClientStore(auth);
+        Client c1 = new Client(new Email("usewdar1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("2001/12/22"), "M", 11111111111L);
+        List<Client> testList = new ArrayList<>();
+        //calculations
+        ccs.setClientList(c1);
+        testList.add(c1);
+        //assemble
+        assertEquals(testList,ccs.getClientList());
+    }
 }
