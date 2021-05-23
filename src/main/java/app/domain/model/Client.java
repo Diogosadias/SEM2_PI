@@ -301,7 +301,7 @@ public class Client {
      */
     public void checkPNumber(long phoneNumber){
         String temp = String.valueOf(phoneNumber);
-        if (temp.length() <11 || temp.length() > 12)
+        if (temp.length() <11 )
             throw new IllegalArgumentException("Phone Number must have 11 chars.");
     }
 
