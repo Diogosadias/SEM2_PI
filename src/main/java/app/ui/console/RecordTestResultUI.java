@@ -8,10 +8,10 @@ import java.util.Scanner;
 
 public class RecordTestResultUI implements Runnable {
 
-    private final RecordTestResultController rtr;
+    private RecordTestResultController m_controller;
 
     public RecordTestResultUI(){
-        rtr = new RecordTestResultController();
+        this.m_controller = new RecordTestResultController();
     }
 
 
@@ -26,7 +26,7 @@ public class RecordTestResultUI implements Runnable {
         TestDto chosenTest = writeTests();
         System.out.println(chosenTest);
 
-        rtr.getListParameters(chosenTest.getCode());
+        m_controller.getListParameters(chosenTest.getCode());
 
         System.out.println("Parameter Code:");
         parameterCode = read.next();
@@ -47,6 +47,6 @@ public class RecordTestResultUI implements Runnable {
 
 
     public TestDto writeTests(){
-        return (TestDto) Utils.showAndSelectOne(rtr.getTests(),"\nTests");
+        return (TestDto) Utils.showAndSelectOne(m_controller.getTests(),"\nTests");
     }
 }

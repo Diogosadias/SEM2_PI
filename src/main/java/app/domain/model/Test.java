@@ -31,8 +31,6 @@ public class Test {
     private String state;
 
 
-
-
     public Test (TestType type, String description,Client client) {
         checkTypeAttribute(type);
         checkDescriptionAttribute(description);
