@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="760fc46b-2948-4366-add4-76a0240c8add" name="Default Changelist" comment="bug fixing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/SprintC/US5/US05-SD.vpp" beforeDir="false" afterPath="$PROJECT_DIR$/docs/SprintC/US5/US05-SD.vpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/SprintC/US5/US_5.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/SprintC/US5/US_5.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,11 +25,10 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-<<<<<<< HEAD
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-=======
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/app/domain/dto" />
->>>>>>> 6c1d9106186400654c43fae5b2fe876afcde70df
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -41,20 +38,7 @@
       <recent name="app.domain.shared" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ClientStoreTest.testSaveClient">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="app.ui.Main" />
-      <module name="Sem2App" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="app.ui.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.ClientStoreTest">
     <configuration name="ClientStoreTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sem2App" />
       <extension name="coverage">
@@ -66,6 +50,38 @@
       <option name="PACKAGE_NAME" value="app.domain.model" />
       <option name="MAIN_CLASS_NAME" value="app.domain.model.ClientStoreTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClientStoreTest.testCreateClient" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sem2App" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.domain.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="app.domain.model" />
+      <option name="MAIN_CLASS_NAME" value="app.domain.model.ClientStoreTest" />
+      <option name="METHOD_NAME" value="testCreateClient" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClientStoreTest.testGetClientList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sem2App" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.domain.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="app.domain.model" />
+      <option name="MAIN_CLASS_NAME" value="app.domain.model.ClientStoreTest" />
+      <option name="METHOD_NAME" value="testGetClientList" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -86,17 +102,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CreateClientControllerTest.testSaveClient" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ClientStoreTest.testValidateClient" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sem2App" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="app.controller.*" />
+          <option name="PATTERN" value="app.domain.model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="app.controller" />
-      <option name="MAIN_CLASS_NAME" value="app.controller.CreateClientControllerTest" />
-      <option name="METHOD_NAME" value="testSaveClient" />
+      <option name="PACKAGE_NAME" value="app.domain.model" />
+      <option name="MAIN_CLASS_NAME" value="app.domain.model.ClientStoreTest" />
+      <option name="METHOD_NAME" value="testValidateClient" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -104,10 +120,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ClientStoreTest.testSaveClient" />
         <item itemvalue="JUnit.ClientStoreTest" />
-        <item itemvalue="JUnit.CreateClientControllerTest.testSaveClient" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.ClientStoreTest.testSaveClient" />
+        <item itemvalue="JUnit.ClientStoreTest.testGetClientList" />
+        <item itemvalue="JUnit.ClientStoreTest.testValidateClient" />
+        <item itemvalue="JUnit.ClientStoreTest.testCreateClient" />
       </list>
     </recent_temporary>
   </component>
@@ -179,9 +196,9 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/US_5_md$All_in_Sem2App.ic" NAME="All in Sem2App Coverage Results" MODIFIED="1621703903766" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/US_5_md$Main.ic" NAME="Main Coverage Results" MODIFIED="1621704288703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>app.ui.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/US_5_md$All_in_Sem2App.ic" NAME="All in Sem2App Coverage Results" MODIFIED="1621784942747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
