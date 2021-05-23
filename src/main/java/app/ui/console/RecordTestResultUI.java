@@ -1,9 +1,11 @@
 package app.ui.console;
 
 import app.controller.RecordTestResultController;
+import app.domain.dto.ParameterDto;
 import app.domain.dto.TestDto;
 import app.ui.console.utils.Utils;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class RecordTestResultUI implements Runnable {
@@ -26,10 +28,8 @@ public class RecordTestResultUI implements Runnable {
         TestDto chosenTest = writeTests();
         System.out.println(chosenTest);
 
-        m_controller.getListParameters(chosenTest.getCode());
-
-        System.out.println("Parameter Code:");
-        parameterCode = read.next();
+        List<ParameterDto> parametersDto = m_controller.getListParameters(chosenTest.getCode());
+        ParameterDto parameter = (ParameterDto) Utils.showAndSelectOne(parametersDto, "\nList of Parameters:\n");
 
         System.out.println("Result:");
         result = read.next();

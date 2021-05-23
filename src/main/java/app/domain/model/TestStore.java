@@ -197,7 +197,6 @@ public class TestStore {
         for (ParameterCategory category : this.test.getListCategories()) {
             dto.addAll(mapper.toDto(parameters,category.getCode()));
         }
-        System.out.println(dto);
         return dto;
     }
 
