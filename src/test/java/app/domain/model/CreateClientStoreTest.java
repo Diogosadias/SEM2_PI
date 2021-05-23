@@ -1,5 +1,7 @@
 package app.domain.model;
 
+
+
 import auth.AuthFacade;
 import auth.domain.model.Email;
 import org.junit.Test;
