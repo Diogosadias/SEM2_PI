@@ -4,45 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="f95a5609-ec65-4c49-be54-ad504b691120" name="Default Changelist" comment="">
+    <list default="true" id="760fc46b-2948-4366-add4-76a0240c8add" name="Default Changelist" comment="bug fixing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-=======
-    <list default="true" id="f95a5609-ec65-4c49-be54-ad504b691120" name="Default Changelist" comment="bug fixing">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/controller/CreateClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controller/CreateClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/domain/model/ClientStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/domain/model/ClientStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/app/domain/model/ClientStoreTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/app/domain/model/ClientStoreTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/controller/CreateClientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/controller/CreateClientController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/domain/model/ClientStore.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/domain/model/ClientStore.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/app/domain/model/ClientStoreTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/app/domain/model/ClientStoreTest.class" afterDir="false" />
->>>>>>> abb5955bb567adb203e059360e563a5ed26c214e
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="JUnit3 Test Class" />
-        <option value="JUnit4 Test Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
-  </component>
-  <component name="ProjectId" id="1swf9aMvmBpN6iMmhHGTWtZ8RBB" />
+  <component name="ProjectId" id="1stQglxq3IUA2VUOWpuYdytefHF" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -50,20 +23,22 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3" value="junit.framework.TestCase" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/app/domain/dto" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-      <recent name="junit.framework.TestCase" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\rocha\OneDrive\Documentos\lei-21-s2-1dj-g44\src\main\java\app\domain\dto" />
     </key>
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="app.domain.model" />
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="app.domain.shared" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CreateClientControllerTest">
+  <component name="RunManager" selected="JUnit.ClientStoreTest.testSaveClient">
     <configuration name="ClientStoreTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sem2App" />
       <extension name="coverage">
@@ -95,6 +70,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ClientStoreTest.testGetClientList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sem2App" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.domain.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="app.domain.model" />
+      <option name="MAIN_CLASS_NAME" value="app.domain.model.ClientStoreTest" />
+      <option name="METHOD_NAME" value="testGetClientList" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ClientStoreTest.testSaveClient" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sem2App" />
       <extension name="coverage">
@@ -111,7 +102,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClientTest.testGetPNumber" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ClientStoreTest.testValidateClient" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sem2App" />
       <extension name="coverage">
         <pattern>
@@ -120,146 +111,94 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="app.domain.model" />
-      <option name="MAIN_CLASS_NAME" value="app.domain.model.ClientTest" />
-      <option name="METHOD_NAME" value="testGetPNumber" />
+      <option name="MAIN_CLASS_NAME" value="app.domain.model.ClientStoreTest" />
+      <option name="METHOD_NAME" value="testValidateClient" />
       <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CreateClientControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Sem2App" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="app.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="app.controller" />
-      <option name="MAIN_CLASS_NAME" value="app.controller.CreateClientControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CreateClientControllerTest" />
         <item itemvalue="JUnit.ClientStoreTest.testSaveClient" />
+        <item itemvalue="JUnit.ClientStoreTest.testGetClientList" />
+        <item itemvalue="JUnit.ClientStoreTest.testValidateClient" />
         <item itemvalue="JUnit.ClientStoreTest.testCreateClient" />
         <item itemvalue="JUnit.ClientStoreTest" />
-        <item itemvalue="JUnit.ClientTest.testGetPNumber" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task id="LOCAL-00001" summary="wdaw">
-      <created>1621786878250</created>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="760fc46b-2948-4366-add4-76a0240c8add" name="Default Changelist" comment="" />
+      <created>1621689524311</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1621689524311</updated>
+      <workItem from="1621689528537" duration="145000" />
+      <workItem from="1621693967604" duration="6495000" />
+      <workItem from="1621700878765" duration="219000" />
+      <workItem from="1621780314147" duration="9000" />
+    </task>
+    <task id="LOCAL-00001" summary="bug fixing">
+      <created>1621782935729</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1621786878250</updated>
+      <updated>1621782935729</updated>
     </task>
-    <task id="LOCAL-00002" summary="wdaw">
-      <created>1621787695325</created>
+    <task id="LOCAL-00002" summary="bug fixing">
+      <created>1621783333398</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1621787695325</updated>
+      <updated>1621783333398</updated>
     </task>
-    <task id="LOCAL-00003" summary="wdaw">
-      <created>1621787754344</created>
+    <task id="LOCAL-00003" summary="bug fixing">
+      <created>1621783614271</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1621787754344</updated>
+      <updated>1621783614271</updated>
     </task>
-    <task id="LOCAL-00004" summary="wdaw">
-      <created>1621787818058</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1621787818058</updated>
-    </task>
-<<<<<<< HEAD
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="f95a5609-ec65-4c49-be54-ad504b691120" name="Default Changelist" comment="" />
-      <created>1621788426503</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1621788426503</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
-=======
-    <task id="LOCAL-00005" summary="bug fixing">
-      <created>1621788222840</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1621788222840</updated>
-    </task>
-    <task id="LOCAL-00006" summary="bug fixing">
-      <created>1621788887076</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1621788887076</updated>
-    </task>
-    <task id="LOCAL-00007" summary="bug fixing">
-      <created>1621788982563</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1621788982563</updated>
-    </task>
-    <task id="LOCAL-00008" summary="bug fixing">
-      <created>1621789100178</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1621789100178</updated>
-    </task>
-    <task id="LOCAL-00009" summary="bug fixing">
-      <created>1621789309084</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1621789309084</updated>
-    </task>
-    <task id="LOCAL-00010" summary="bug fixing">
-      <created>1621789381949</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1621789381949</updated>
-    </task>
-    <task id="LOCAL-00011" summary="bug fixing">
-      <created>1621789676010</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1621789676010</updated>
-    </task>
-    <option name="localTasksCounter" value="12" />
->>>>>>> abb5955bb567adb203e059360e563a5ed26c214e
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="wdaw" />
     <MESSAGE value="bug fixing" />
     <option name="LAST_COMMIT_MESSAGE" value="bug fixing" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/app/ui/console/RegisterTestUI.java</url>
+          <line>103</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/US_5_md$All_in_Sem2App.ic" NAME="All in Sem2App Coverage Results" MODIFIED="1621787130552" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/US_5_md$ClientStoreTest_testSaveClient.ic" NAME="ClientStoreTest.testSaveClient Coverage Results" MODIFIED="1621786203971" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>app.domain.model.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/US_5_md$Main.ic" NAME="Main Coverage Results" MODIFIED="1621704288703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>app.ui.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/US_5_md$All_in_Sem2App.ic" NAME="All in Sem2App Coverage Results" MODIFIED="1621784942747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
