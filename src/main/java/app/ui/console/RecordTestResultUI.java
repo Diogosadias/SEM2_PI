@@ -26,6 +26,8 @@ public class RecordTestResultUI implements Runnable {
         TestDto chosenTest = writeTests();
         System.out.println(chosenTest);
 
+        rtr.getListParameters(chosenTest.getCode());
+
         System.out.println("Parameter Code:");
         parameterCode = read.next();
 

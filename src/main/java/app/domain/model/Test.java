@@ -187,4 +187,18 @@ public class Test {
         return s;
     }
 
+    public String toStringParameters() {
+        String s = "\n\nList of Parameter(s) for each Category to be analysed: ";
+        for (ParameterCategory category : this.getListCategories()) {
+            s = s + "\n\n - " + category.getDescription();
+            for (Parameter parameter : this.getListParameters()) {
+                if (parameter.getCategory().equals(category.getCode()))
+                {
+                    s = s + "\n" + parameter.getName();
+                }
+            }
+        }
+        return s;
+    }
+
 }

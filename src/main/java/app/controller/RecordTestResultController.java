@@ -21,6 +21,11 @@ public class RecordTestResultController {
         this.tstore = this.company.getTestStore();
     }
 
+    public void getListParameters (String testCode) {
+        this.tstore.setTest(testCode);
+        this.tstore.getListParametersFromTest();
+    }
+
 
     public boolean addTestResult(String parameterCode, String results, String metric){
         this.ps = this.company.getParameterStore();

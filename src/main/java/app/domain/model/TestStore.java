@@ -125,12 +125,6 @@ public class TestStore {
         this.saveTest();
     }
 
-    /*public boolean getTest(Test test) {
-        if (checkCompleted(test))
-            return true;
-        return false;
-    }*/
-
     public void addSampleToTest(Sample sample, Test test) {
         for (Test t : testlist) {
             if (t.getCode().equals(test.getCode()))
@@ -183,6 +177,9 @@ public class TestStore {
         return null;
     }
 
+    public void setTest (String code) {
+        this.test = this.getTestByCode(code);
+    }
 
     public Test getTestByCode( String code){
 
@@ -191,6 +188,17 @@ public class TestStore {
                 return t;
         }
         throw new IllegalArgumentException("Test with that code doesn't exist!");
+    }
+
+    public List<ParameterDto> getListParametersFromTest () {
+        ParameterMapper mapper = new ParameterMapper();
+        List<Parameter> parameters = this.test.getListParameters();
+        List<ParameterDto> dto = new ArrayList<>();
+        for (ParameterCategory category : this.test.getListCategories()) {
+            dto.addAll(mapper.toDto(parameters,category.getCode()));
+        }
+        System.out.println(dto);
+        return dto;
     }
 
 }

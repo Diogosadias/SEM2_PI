@@ -1,6 +1,7 @@
 package app.domain.dto;
 
 import app.domain.model.Parameter;
+import app.domain.model.ParameterCategory;
 import app.domain.model.Sample;
 
 import java.util.ArrayList;
@@ -40,18 +41,7 @@ public class TestDto {
         this.clientCC = clientCC;
     }
 
-    public TestDto(String sampleDate, String dateValidation, String dateDiagnosis, String dateChemical, String parameterValue, String code, String type, String description, long clientCC, String nhsCode) {
-        this.sampleDate = sampleDate;
-        this.dateValidation = dateValidation;
-        this.dateDiagnosis = dateDiagnosis;
-        this.dateChemical = dateChemical;
-        this.parameterValue = parameterValue;
-        this.code = code;
-        this.type = type;
-        this.description = description;
-        this.clientCC = clientCC;
-        this.nhsCode = nhsCode;
-    }
+
 
     public String getSampleDate() {
         return sampleDate;
@@ -113,5 +103,7 @@ public class TestDto {
     public String toString(){
         return  "Collection Method:"+description+" \nCode:"+code;
     }
+
+
 
 }
