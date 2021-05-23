@@ -1,5 +1,6 @@
 package app.domain.model;
 
+import app.controller.App;
 import app.domain.shared.Constants;
 
 import java.util.ArrayList;
@@ -30,6 +31,9 @@ public class Test {
     private String state;
 
 
+    private Company company = App.getInstance().getCompany();
+    private ParameterStore ps = this.company.getParameterStore();
+
     public Test (TestType type, String description,Client client) {
         checkTypeAttribute(type);
         checkDescriptionAttribute(description);
@@ -42,6 +46,17 @@ public class Test {
         this.listParameters = new ArrayList<>();
         this.listCategories = new ArrayList<>();
     }
+
+    public boolean addTestResult(String parameterCode, String code, String metric){
+        Parameter p = ps.getParameterByCode(parameterCode);
+
+
+        return true;
+    }
+
+
+
+
 
     public void setNhsCode(String nhsCode) {
         checkNhsCodeAttribute(nhsCode);
