@@ -236,14 +236,14 @@ The CreateClienttController is the communicator between the CreateClientUI and t
     public class CreateClientController {
 
     private Company company;
-    private CreateClientStore createClientStore;
+    private CreateClientStore clientStore;
     Client rc;
 
     public boolean createClient(String id, String name, long nhs, long citizenCard, long tin, String birthDate, String sex, long pNumber,String testpass){
 
         this.rc = this.CreateClientStore.createClient(id,name,nhs,citizenCard,tin,birthDate,sex,pNumber);
 
-        if(!this.createClientStore.validateClient(this.rc)){return false;}
+        if(!this.clientStore.validateClient(this.rc)){return false;}
 
         saveClient(this.rc,testpass);
         return true;
@@ -280,11 +280,11 @@ The CreateClienttController is the communicator between the CreateClientUI and t
     private String address;
     private String phoneNumber;
     private String socCode;   
-    private CreateClientStore createClientStore;
+    private CreateClientStore clientStore;
 
 
     public void getClientStore(){
-           return createClientStore;      
+           return clientStore;      
     }  
     }
 

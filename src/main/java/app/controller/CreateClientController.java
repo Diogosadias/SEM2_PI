@@ -2,7 +2,7 @@ package app.controller;
 
 import app.domain.model.Client;
 import app.domain.model.Company;
-import app.domain.model.CreateClientStore;
+import app.domain.model.ClientStore;
 import auth.AuthFacade;
 
 /**
@@ -17,7 +17,7 @@ public class CreateClientController {
     private AuthFacade authFacade;
     private App app;
 
-    private CreateClientStore createClientStore;
+    private ClientStore clientStore;
     Client rc;
 
     /**
@@ -32,7 +32,7 @@ public class CreateClientController {
     public CreateClientController(app.domain.model.Company company){
         this.company = company;
         this.authFacade = this.company.getAuthFacade();
-        this.createClientStore = this.company.getClientStore();
+        this.clientStore = this.company.getClientStore();
     }
 
     /**
@@ -51,9 +51,9 @@ public class CreateClientController {
      */
     public boolean createClient(String id, String name, long nhs, long citizenCard, long tin, String birthDate, String sex, long pNumber){
 
-        this.rc = this.createClientStore.createClient(id,name,nhs,citizenCard,tin,birthDate,sex,pNumber);
+        this.rc = this.clientStore.createClient(id,name,nhs,citizenCard,tin,birthDate,sex,pNumber);
 
-        if(!this.createClientStore.validateClient(this.rc)){return false;}
+        if(!this.clientStore.validateClient(this.rc)){return false;}
         saveClient(this.rc);
         return true;
 
@@ -65,15 +65,15 @@ public class CreateClientController {
      * @return boolean
      */
     public boolean saveClient(Client rc){
-        return this.createClientStore.saveClient(rc);
+        return this.clientStore.saveClient(rc);
     }
 
     /**
      * Write the Client instance.
      */
     public void writeClient(){
-        System.out.println(createClientStore.getClientList().size());
-        for(Client c : createClientStore.getClientList())
+        System.out.println(clientStore.getClientList().size());
+        for(Client c : clientStore.getClientList())
             System.out.println(c);
     }
 
