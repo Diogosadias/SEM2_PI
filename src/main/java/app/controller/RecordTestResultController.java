@@ -4,15 +4,17 @@ import app.domain.dto.ParameterDto;
 import app.domain.dto.TestDto;
 import app.domain.dto.TestMapper;
 import app.domain.model.*;
+import app.domain.shared.ExternalModule;
 
 import java.util.List;
 
 import static app.domain.shared.Constants.*;
 
 public class RecordTestResultController {
-    public Company company;
-    public TestStore tstore;
-    public ParameterStore ps;
+    private Company company;
+    private TestStore tstore;
+    private ParameterStore ps;
+    private ExternalModule em;
 
     public RecordTestResultController(){
         if (!App.getInstance().getCurrentUserSession().isLoggedInWithRole(ROLE_CHEM_TECH)) {
@@ -28,20 +30,9 @@ public class RecordTestResultController {
     }
 
 
-    public boolean addTestResult(String parameterCode, String results, String metric){
-        this.ps = this.company.getParameterStore();
-
-        Parameter p = ps.getParameterByCode(parameterCode);
-
-        if(p == null){
-            System.out.println("Parameter Doesn't exist!");
-        }
-        else{
-
-        }
-
-
-        return true;
+    public void addTestResult(ParameterDto dto){
+        this.tstore.getTest().newTestParameter(dto.getCode());
+        this.tstore.getTest().addTestResult();
     }
 
 
@@ -53,5 +44,9 @@ public class RecordTestResultController {
         List<Test> tests = this.tstore.getRegisteredTests();
         TestMapper mapper = new TestMapper();
         return mapper.toDto(tests);
+    }
+
+    public void getExternalModule() {
+        this.tstore.getTest().getTestType().getExternalModule();
     }
 }
