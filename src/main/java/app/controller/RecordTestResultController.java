@@ -1,5 +1,6 @@
 package app.controller;
 
+import app.domain.dto.ParameterDto;
 import app.domain.dto.TestDto;
 import app.domain.dto.TestMapper;
 import app.domain.model.*;
@@ -21,9 +22,9 @@ public class RecordTestResultController {
         this.tstore = this.company.getTestStore();
     }
 
-    public void getListParameters (String testCode) {
+    public List<ParameterDto> getListParameters (String testCode) {
         this.tstore.setTest(testCode);
-        this.tstore.getListParametersFromTest();
+        return this.tstore.getListParametersFromTest();
     }
 
 
