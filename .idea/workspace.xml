@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f95a5609-ec65-4c49-be54-ad504b691120" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/domain/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/domain/model/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/app/domain/model/ClientStoreTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/app/domain/model/ClientStoreTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +45,7 @@
       <recent name="app.domain.model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ClientTest.testGetPNumber">
+  <component name="RunManager" selected="JUnit.ClientStoreTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.ui.Main" />
       <module name="Sem2App" />
@@ -117,8 +116,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ClientTest.testGetPNumber" />
         <item itemvalue="JUnit.ClientStoreTest" />
+        <item itemvalue="JUnit.ClientTest.testGetPNumber" />
         <item itemvalue="JUnit.ClientStoreTest.testSaveClient" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.All in Sem2App" />
@@ -161,7 +160,28 @@
       <option name="project" value="LOCAL" />
       <updated>1621788222840</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="bug fixing">
+      <created>1621788887076</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1621788887076</updated>
+    </task>
+    <task id="LOCAL-00007" summary="bug fixing">
+      <created>1621788982563</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1621788982563</updated>
+    </task>
+    <task id="LOCAL-00008" summary="bug fixing">
+      <created>1621789100178</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1621789100178</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
