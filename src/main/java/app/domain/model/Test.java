@@ -30,7 +30,7 @@ public class Test {
     private List<ParameterCategory> listCategories;
     private String state;
 
-    
+
     public Test (TestType type, String description,Client client) {
         checkTypeAttribute(type);
         checkDescriptionAttribute(description);
