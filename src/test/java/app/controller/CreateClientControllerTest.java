@@ -32,7 +32,7 @@ public class CreateClientControllerTest{
         CreateClientController ccr = new CreateClientController();
 
         //calculation
-        boolean b1 = ccr.saveClient(c1);
+        boolean b1 = ccr.saveClient(c1,"aaaa");
 
         //assert
         assertEquals(true,b1);
