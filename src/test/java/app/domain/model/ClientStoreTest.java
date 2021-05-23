@@ -50,7 +50,7 @@ public class ClientStoreTest {
         assertEquals(true,b);
 
         Client c2 = new Client(new Email("usedafr1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("2001/12/22"), "M", 11111111111L);
-        boolean b1 = store.saveClient(c2,"aaaa");
+        boolean b1 = store.saveClient(c1,"aaaa");
         assertEquals(false,b1);
     }
 
