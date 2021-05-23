@@ -11,7 +11,7 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public class ClientStoreTest {
-    /*AuthFacade auth = new AuthFacade();
+    AuthFacade auth = new AuthFacade();
 
     Client c1 = new Client(new Email("usedafr1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("2001/12/22"), "M", 11111111111L);
     ClientStore store = new ClientStore(auth);
@@ -65,5 +65,5 @@ public class ClientStoreTest {
         testList.add(c1);
         //assemble
         assertEquals(testList,ccs.getClientList());
-    }*/
+    }
 }
