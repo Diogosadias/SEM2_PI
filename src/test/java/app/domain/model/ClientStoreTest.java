@@ -46,12 +46,13 @@ public class ClientStoreTest {
     @Test
     public void testSaveClient() {
         //testing
-        boolean b = store.saveClient(c1,"aaaa");
+        boolean b = store.validateClient(c1);
         assertEquals(true,b);
-
-        Client c2 = new Client(new Email("usedafr1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("2001/12/22"), "M", 11111111111L);
-        boolean b1 = store.saveClient(c2,"aaaa");
+        store.saveClient(c1,"aaaa");
+        boolean b1 = store.validateClient(c1);
         assertEquals(false,b1);
+        boolean b2 = store.validateClient(null);
+        assertFalse(b2);
     }
 
     @Test
