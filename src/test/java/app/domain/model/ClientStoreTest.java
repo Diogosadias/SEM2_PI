@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 public class ClientStoreTest {
     AuthFacade auth = new AuthFacade();
 
-    Client c1 = new Client(new Email("usedafr1@gmail.com"), "John", 1111111111, 1111111111111111L, 111111111111L, new Date("2001/12/22"), "M", 11111111111L);
+    Client c1 = new Client(new Email("usedafr1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("2001/12/22"), "M", 11111111111L);
     ClientStore store = new ClientStore(auth);
 
 
@@ -21,7 +21,7 @@ public class ClientStoreTest {
     public void testCreateClient() {
 
         //calculations
-        Client c2 = store.createClient("usxedar1@gmail.com", "John", 1111111111, 1111111111111111L, 111111111111L, "2001/12/22", "M", 11111111111L);
+        Client c2 = store.createClient("usxedar1@gmail.com", "John", 1111111111L, 1111111111111111L, 111111111111L, "2001/12/22", "M", 11111111111L);
 
         //assert
         assertEquals(c1.getPNumber(),c2.getPNumber());
@@ -49,7 +49,7 @@ public class ClientStoreTest {
         boolean b = store.saveClient(c1,"aaaa");
         assertEquals(true,b);
 
-        Client c2 = new Client(new Email("usedafr1@gmail.com"), "John", 1111111111, 1111111111111111L, 111111111111L, new Date("2001/12/22"), "M", 11111111111L);
+        Client c2 = new Client(new Email("usedafr1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("2001/12/22"), "M", 11111111111L);
         boolean b1 = store.saveClient(c2,"aaaa");
         assertEquals(false,b1);
     }
@@ -58,7 +58,7 @@ public class ClientStoreTest {
     public void testGetClientList() {
         AuthFacade auth = null;
         ClientStore ccs = new ClientStore(auth);
-        Client c1 = new Client(new Email("usewdar1@gmail.com"), "John", 1111111111, 1111111111111111L, 111111111111L, new Date("2001/12/22"), "M", 11111111111L);
+        Client c1 = new Client(new Email("usewdar1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("2001/12/22"), "M", 11111111111L);
         List<Client> testList = new ArrayList<>();
         //calculations
         ccs.setClientList(c1);
