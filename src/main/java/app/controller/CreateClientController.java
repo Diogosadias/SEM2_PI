@@ -70,7 +70,11 @@ public class CreateClientController {
      * @return boolean
      */
     public boolean saveClient(Client rc, String pwd){
-        return this.clientStore.saveClient(rc, pwd);
+        if (this.clientStore.validateClient(rc)) {
+            return this.clientStore.saveClients(rc, pwd);
+        }else{
+            return false;
+        }
     }
 
     /**

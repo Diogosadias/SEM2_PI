@@ -103,13 +103,10 @@ public class ClientStore {
         return false;
     }
 
-    public boolean saveClient(Client rc, String pwd){
-        if(validateClient(rc)){
+    public boolean saveClients(Client rc, String pwd){
+
             this.authFacade.addUserWithRole(rc.getName(), rc.getId().getEmail(), pwd , Constants.ROLE_CLIENT);
             return this.clientList.add(rc);
-        }
-            return false;
-
 
     }
 
