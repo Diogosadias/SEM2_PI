@@ -31,8 +31,7 @@ public class Test {
     private String state;
 
 
-    private Company company = App.getInstance().getCompany();
-    private ParameterStore ps = this.company.getParameterStore();
+
 
     public Test (TestType type, String description,Client client) {
         checkTypeAttribute(type);
@@ -48,7 +47,6 @@ public class Test {
     }
 
     public boolean addTestResult(String parameterCode, String code, String metric){
-        Parameter p = ps.getParameterByCode(parameterCode);
 
 
         return true;
