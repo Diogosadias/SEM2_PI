@@ -73,7 +73,7 @@ public class Client {
 
         checkNHS(nhs);
         checkCitizenNumber(citizenCard);
-        checkPNumber(pNumber);
+        //checkPNumber(pNumber);
         checkTIN(tin);
         checkSex(sex);
 
@@ -299,11 +299,11 @@ public class Client {
      *
      * @param phoneNumber
      */
-    public void checkPNumber(long phoneNumber){
+   /* public void checkPNumber(long phoneNumber){
         String temp = String.valueOf(phoneNumber);
         if (temp.length() <11 || temp.length() > 12)
             throw new IllegalArgumentException("Phone Number must have 11 chars.");
-    }
+    }*/
 
 
     /**
