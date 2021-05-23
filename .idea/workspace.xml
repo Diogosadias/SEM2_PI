@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="760fc46b-2948-4366-add4-76a0240c8add" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/controller/CreateClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controller/CreateClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/domain/model/ClientStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/domain/model/ClientStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/app/domain/model/ClientStoreTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/app/domain/model/ClientStoreTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +125,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621782935729</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="bug fixing">
+      <created>1621783333398</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1621783333398</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
