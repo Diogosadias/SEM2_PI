@@ -110,9 +110,7 @@ public class ClientStore {
 
     }
 
-    public boolean addClient(Client client) {
-        return this.clientList.add(client);
-    }
+
 
     /**
      * Change the Client's list.
