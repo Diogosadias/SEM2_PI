@@ -6,7 +6,9 @@ import java.util.List;
 public class ClinicalChemistryTechnologistUI implements Runnable {
 
 
-    public ClinicalChemistryTechnologistUI(){}
+    public ClinicalChemistryTechnologistUI(){
+
+    }
 
     public void run(){
         List<MenuItem> options = new ArrayList<MenuItem>();

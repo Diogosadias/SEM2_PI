@@ -8,10 +8,10 @@ import java.util.Scanner;
 
 public class RecordTestResultUI implements Runnable {
 
-    private final RecordTestResultController rtr;
+    private RecordTestResultController rtr;
 
     public RecordTestResultUI(){
-        rtr = new RecordTestResultController();
+        this.rtr = new RecordTestResultController();
     }
 
 
