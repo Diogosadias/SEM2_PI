@@ -65,7 +65,7 @@ public class Test {
     }
 
     public void addTestResult () {
-     
+
     }
 
     public void setNhsCode(String nhsCode) {
