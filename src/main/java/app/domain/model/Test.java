@@ -3,7 +3,8 @@ package app.domain.model;
 import app.controller.App;
 import app.domain.dto.ParameterDto;
 import app.domain.shared.Constants;
-
+import app.domain.shared.ExternalModule;
+import com.example2.EMRefValue;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -64,7 +65,27 @@ public class Test {
     }
 
     public void addTestResult () {
-
+        TestType type = this.getTestType();
+        Parameter param = this.testParam.getParameter();
+        Date date = null; // Date is Test chemical date ?????
+        ExternalModule em = type.getExternalModule();
+        if (type.getDescription().equals("Blood Test")) {
+            if (date != null) {
+                EMRefValue refValue = em.getReferenceValue(param,date);
+            }else {
+                EMRefValue refValue = em.getReferenceValue(param);
+            }
+            String usedMetric = em.usedMetricBlood(param);
+            String metrics = em.getMetricsFor(param);
+            double minRef = em.getMinReferenceValueBlood(param);
+            double maxRef = em.getMaxReferenceValueBlood(param);
+        }
+        if (type.getDescription().equals("Covid Test")) {
+            String metric = em.usedMetricCovid(param);
+            double minRef = em.getMinReferenceValueCovid(param);
+            double maxRef = em.getMaxReferenceValueCovid(param);
+        }
+        throw new IllegalArgumentException("TestResult: no test type with same description");
     }
 
     public void setNhsCode(String nhsCode) {
