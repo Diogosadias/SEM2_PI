@@ -10,8 +10,6 @@ import java.util.Date;
 
 public class ExternalModule {
 
-<<<<<<< HEAD
-=======
     private CovidReferenceValues1API crv1;
     private ExternalModule2API em2;
     private ExternalModule3API em3;
@@ -56,5 +54,5 @@ public class ExternalModule {
     public Double getMaxReferenceValueBlood(Parameter param) {
         return this.em3.getMaxReferenceValue(param.getCode(),this.accessKey);
     }
->>>>>>> parent of 8b4d10d... [Trying Fixiing] Jenkins
+
 }
