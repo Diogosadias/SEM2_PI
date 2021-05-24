@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="760fc46b-2948-4366-add4-76a0240c8add" name="Default Changelist" comment="bug fixing">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="760fc46b-2948-4366-add4-76a0240c8add" name="Default Changelist" comment="bug fixing" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -140,6 +138,7 @@
       <workItem from="1621693967604" duration="6495000" />
       <workItem from="1621700878765" duration="219000" />
       <workItem from="1621780314147" duration="9000" />
+      <workItem from="1621893973369" duration="6000" />
     </task>
     <task id="LOCAL-00001" summary="bug fixing">
       <created>1621782935729</created>
@@ -196,9 +195,9 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/US_5_md$All_in_Sem2App.ic" NAME="All in Sem2App Coverage Results" MODIFIED="1621784942747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/US_5_md$Main.ic" NAME="Main Coverage Results" MODIFIED="1621704288703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>app.ui.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/US_5_md$All_in_Sem2App.ic" NAME="All in Sem2App Coverage Results" MODIFIED="1621784942747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
