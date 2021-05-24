@@ -3,7 +3,7 @@ package app.domain.model;
 import app.controller.App;
 import app.domain.dto.ParameterDto;
 import app.domain.shared.Constants;
-import app.domain.shared.ExternalModule;
+
 
 import java.util.ArrayList;
 import java.util.Date;
