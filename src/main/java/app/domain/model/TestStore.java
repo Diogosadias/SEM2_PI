@@ -181,6 +181,10 @@ public class TestStore {
         this.test = this.getTestByCode(code);
     }
 
+    public Test getTest () {
+        return this.test;
+    }
+
     public Test getTestByCode( String code){
 
         for(Test t : this.testlist){
