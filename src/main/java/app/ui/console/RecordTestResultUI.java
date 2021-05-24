@@ -4,7 +4,7 @@ import app.controller.RecordTestResultController;
 import app.domain.dto.ParameterDto;
 import app.domain.dto.TestDto;
 import app.ui.console.utils.Utils;
-import com.example1.ExternalModule3API;
+
 
 import java.util.List;
 import java.util.Scanner;
