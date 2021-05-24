@@ -127,51 +127,41 @@ App {
         this.company.getClientStore().saveClients(client1,"123");
 
         //ParameterCategory - Covid Tests
-        ParameterCategory categoryCovid = new ParameterCategory("SC200","SARS-CoV-2","21001");
+        ParameterCategory categoryCovid = new ParameterCategory("CC-01","SARS-CoV-2","21001");
         this.company.getParameterCategoryStore().addParameterCategory(categoryCovid);
 
         //ParameterCategory - Blood Tests
-        ParameterCategory category1 = new ParameterCategory("CBC00","Hemogram (CBC)","11001");
+        ParameterCategory category1 = new ParameterCategory("CB-01","Hemogram (CBC","11001");
         this.company.getParameterCategoryStore().addParameterCategory(category1);
 
-        ParameterCategory category2 = new ParameterCategory("BMP00","Basic Metabolic Panel","11002");
+        ParameterCategory category2 = new ParameterCategory("CB-02","Basic Metabolic Panel","11002");
         this.company.getParameterCategoryStore().addParameterCategory(category2);
 
-        ParameterCategory category3 = new ParameterCategory("CMP00","Complete Metabolic Panel","11003");
+        ParameterCategory category3 = new ParameterCategory("CB-03","Complete Metabolic Panel","11003");
         this.company.getParameterCategoryStore().addParameterCategory(category3);
 
         //Parameter - Category 1
-        Parameter parameter1 = new Parameter("WBC00","White Blood Cells (WBC)","White blood cells count",category1.getCode());
+        Parameter parameter1 = new Parameter("P-001","White Blood Cells (WBC)","White blood cells count",category1.getCode());
         this.company.getParameterStore().addParameter(parameter1);
-        Parameter parameter2 = new Parameter("RBC00","Red Blood Cells (RBC)","Red blood cells count",category1.getCode());
+        Parameter parameter2 = new Parameter("P-002","Red Blood Cells (RBC)","Red blood cells count",category1.getCode());
         this.company.getParameterStore().addParameter(parameter2);
-        Parameter parameter3 = new Parameter("PLT00","Platelet Count (PLT)","Platelets count",category1.getCode());
+        Parameter parameter3 = new Parameter("P-003","Platelets (PLT)","Platelets count",category1.getCode());
         this.company.getParameterStore().addParameter(parameter3);
-        Parameter parameter9 = new Parameter("HB000","Haemoglobin (HB)","Haemoglobin count",category1.getCode());
-        this.company.getParameterStore().addParameter(parameter9);
-        Parameter parameter10 = new Parameter("MCV00","Mean Cell Volume (MCV)","Mean Cell count",category1.getCode());
-        this.company.getParameterStore().addParameter(parameter10);
-        Parameter parameter11 = new Parameter("MCH00","Mean Cell Haemoglobin (MCH)","Mean Cell Haemoglobin count",category1.getCode());
-        this.company.getParameterStore().addParameter(parameter11);
-        Parameter parameter12 = new Parameter("MCHC0","Mean Cell Haemoglobin Concentration (MCHC)","Mean Cell Haemoglobin count",category1.getCode());
-        this.company.getParameterStore().addParameter(parameter12);
-        Parameter parameter13 = new Parameter("ESR00","Erythrocyte Sedimentation Rate (ESR)","Erythrocyte Sedimentation count",category1.getCode());
-        this.company.getParameterStore().addParameter(parameter13);
 
         //Parameter - Category 2
-        Parameter parameter4 = new Parameter("ElT00","Electrolytes","Check levels of Electrolytes in blood.",category2.getCode());
+        Parameter parameter4 = new Parameter("P-004","Electrolytes","Check levels of Electrolytes in blood.",category2.getCode());
         this.company.getParameterStore().addParameter(parameter4);
-        Parameter parameter5 = new Parameter("CLC00","Calcium","Check levels of Calcium in blood.",category2.getCode());
+        Parameter parameter5 = new Parameter("P-005","Calcium","Check levels of Calcium in blood.",category2.getCode());
         this.company.getParameterStore().addParameter(parameter5);
 
         //Parameter - Category 3
-        Parameter parameter6 = new Parameter("ABM00","Albumin","BMP measurements as well as Albumin,related to liver function.",category3.getCode());
+        Parameter parameter6 = new Parameter("P-006","Albumin","BMP measurements as well as Albumin,related to liver function.",category3.getCode());
         this.company.getParameterStore().addParameter(parameter6);
-        Parameter parameter7 = new Parameter("TPT00","Total protein","BMP measurements as well as total Proteins, related to liver function.",category3.getCode());
+        Parameter parameter7 = new Parameter("P-007","Total protein","BMP measurements as well as total Proteins, related to liver function.",category3.getCode());
         this.company.getParameterStore().addParameter(parameter7);
 
         //Parameter - Category Covid
-        Parameter parameter8 = new Parameter("IgGAN","IgC antibodies","Detect presence of antibodies.",categoryCovid.getCode());
+        Parameter parameter8 = new Parameter("P-008","Infection Detection","Detect if the presence of the virus is Positive or Negative.",categoryCovid.getCode());
         this.company.getParameterStore().addParameter(parameter8);
 
         //TestType

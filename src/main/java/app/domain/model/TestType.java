@@ -1,7 +1,5 @@
 package app.domain.model;
 
-import app.domain.shared.ExternalModule;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -143,10 +141,6 @@ public class TestType extends TestTypeStore {
      */
     public void setCategory(ParameterCategory parameter){
         parameterList.add(parameter);
-    }
-
-    public ExternalModule getExternalModule () {
-        return new ExternalModule();
     }
 
     /**

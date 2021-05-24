@@ -1,13 +1,9 @@
 package app.domain.model;
 
 import app.controller.App;
-import app.domain.dto.ParameterDto;
 import app.domain.shared.Constants;
-import app.domain.shared.ExternalModule;
-import com.example2.EMRefValue;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -34,8 +30,6 @@ public class Test {
     private List<ParameterCategory> listCategories;
     private String state;
 
-    private TestParameter testParam;
-
 
     public Test (TestType type, String description,Client client) {
         checkTypeAttribute(type);
@@ -50,43 +44,15 @@ public class Test {
         this.listCategories = new ArrayList<>();
     }
 
-    public void newTestParameter (String code) {
-        Parameter param = this.getParameterByCode(code);
-        this.testParam = new TestParameter(param);
+    public boolean addTestResult(String parameterCode, String code, String metric){
+
+
+        return true;
     }
 
-    public Parameter getParameterByCode(String code) {
-        for (Parameter p : listParameters) {
-            if (p.getCode().equals(code)) {
-                return p;
-            }
-        }
-        throw new IllegalArgumentException("Test: No Parameter with that Code.");
-    }
 
-    public void addTestResult () {
-        TestType type = this.getTestType();
-        Parameter param = this.testParam.getParameter();
-        Date date = null; // Date is Test chemical date ?????
-        ExternalModule em = type.getExternalModule();
-        if (type.getDescription().equals("Blood Test")) {
-            if (date != null) {
-                EMRefValue refValue = em.getReferenceValue(param,date);
-            }else {
-                EMRefValue refValue = em.getReferenceValue(param);
-            }
-            String usedMetric = em.usedMetricBlood(param);
-            String metrics = em.getMetricsFor(param);
-            double minRef = em.getMinReferenceValueBlood(param);
-            double maxRef = em.getMaxReferenceValueBlood(param);
-        }
-        if (type.getDescription().equals("Covid Test")) {
-            String metric = em.usedMetricCovid(param);
-            double minRef = em.getMinReferenceValueCovid(param);
-            double maxRef = em.getMaxReferenceValueCovid(param);
-        }
-        throw new IllegalArgumentException("TestResult: no test type with same description");
-    }
+
+
 
     public void setNhsCode(String nhsCode) {
         checkNhsCodeAttribute(nhsCode);
