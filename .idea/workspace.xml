@@ -23,7 +23,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/app/domain/dto" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/ExternalModule2API.jar" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -139,6 +139,7 @@
       <workItem from="1621700878765" duration="219000" />
       <workItem from="1621780314147" duration="9000" />
       <workItem from="1621893973369" duration="6000" />
+      <workItem from="1621893994245" duration="433000" />
     </task>
     <task id="LOCAL-00001" summary="bug fixing">
       <created>1621782935729</created>
