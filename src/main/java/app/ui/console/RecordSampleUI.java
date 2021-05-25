@@ -28,7 +28,7 @@ public class RecordSampleUI implements Runnable {
         try {
             TestDto chosenTest = writeTests();
             System.out.println(chosenTest);
-            Barcode result = rsc.createSample(String.valueOf(chosenTest.getCode())).getSampleBarcode();
+            Barcode result = rsc.createSample(String.valueOf(chosenTest.getCode()),chosenTest.getCode()).getSampleBarcode();
 
             /*
             * PRINT BARCODE
@@ -36,7 +36,7 @@ public class RecordSampleUI implements Runnable {
             */
 
             if(Utils.confirm("Do you wish to register this sample? Y / N")) {
-                if(this.rsc.saveSample(chosenTest)) {
+                if(this.rsc.saveSample()) {
                     System.out.println("Sample registered with success!");
                 }else{
                     System.out.println("Sample was not registered!");

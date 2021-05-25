@@ -17,7 +17,7 @@ public class MedicalLabTechnicianUI implements  Runnable {
 
         List<MenuItem> options = new ArrayList<MenuItem>();
         options.add(new MenuItem("Create Sample", new RecordSampleUI()));
-
+        options.add(new MenuItem("List Test Sample(s)", new ListSampleCollectedUI()));
 
         boolean success = false;
         int option;

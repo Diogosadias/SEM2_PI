@@ -27,3 +27,5 @@ docs/SprintB/MD.vpp.bak_001d
 *.bak_004d
 docs/SprintB/US10/US_Template.md
 
+src/main/.idea/main.iml
+src/main/.idea/modules.xml

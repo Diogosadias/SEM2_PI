@@ -182,8 +182,12 @@ public class Test {
         this.description = description;
     }
 
-    public void addSample(Sample sample){
-        this.sampleList.add(sample);
+    public boolean addSample(Sample sample){
+        if(!this.sampleList.isEmpty() && this.sampleList.contains(sample)) {
+            return false;
+        }
+        this.state = Constants.SAMPLE_COLLECTED;
+        return this.sampleList.add(sample);
     }
 
     public boolean hasCondition(String state) {

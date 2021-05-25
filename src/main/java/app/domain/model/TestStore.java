@@ -115,11 +115,8 @@ public class TestStore {
         this.saveTest();
     }
 
-    public void addSampleToTest(Sample sample, Test test) {
-        for (Test t : testlist) {
-            if (t.getCode().equals(test.getCode()))
-                t.addSample(sample);
-        }
+    public boolean addSampleToTest(Sample sample) {
+        return this.test.addSample(sample);
     }
 
     public List<Test> getRegisteredTests () {
@@ -150,7 +147,7 @@ public class TestStore {
     public List<Test> getTests (String state) {
         if(this.testlist!=null) {
             if (this.testlist.isEmpty()) {
-                throw new IllegalArgumentException("Test list is empty.");
+                throw new IllegalArgumentException("Test list is empty.\n");
             }
             List<Test> temp = new ArrayList<>();
             for (Test t : this.testlist) {
@@ -159,8 +156,7 @@ public class TestStore {
                 }
             }
             if (temp.isEmpty()) {
-                System.out.println("There are no Tests under condition: " + state);
-                return null;
+                throw new IllegalArgumentException("Sample Test list is empty.\n");
             }
             return temp;
         }

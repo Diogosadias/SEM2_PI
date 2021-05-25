@@ -187,7 +187,7 @@ App {
 
         //Test
         Test test1 = new Test (type1,type1.getCollectingMethod(),client1);
-        test1.setState(Constants.SAMPLE_ANALYSED);
+        test1.setState(REGISTERED);
         test1.addCategory(category1);
         test1.addParameter(parameter1);
         test1.setNhsCode("nhsCode-AB01");

@@ -35,16 +35,18 @@ public class RecordSampleController {
         this.tstore = this.company.getTestStore();
     }
 
-    public Sample createSample(String id) throws IOException, BarcodeException, OutputException {
+    public Sample createSample(String id, String testCode) throws IOException, BarcodeException, OutputException {
         this.sample = this.tss.createSample(id);
-        return sample;
+        this.tstore.setTest(testCode);
+        return this.sample;
     }
 
-    public boolean saveSample(TestDto dto) {
-        this.tstore = this.company.getTestStore();
-        Test test = this.tstore.getTestByCode(dto.getCode());
-        tstore.addSampleToTest(sample, test);
-        return this.tss.saveSample(sample);
+    public boolean saveSample() {
+        if (this.tstore.addSampleToTest(this.sample)) {
+            return this.tss.saveSample(this.sample);
+        }
+        System.out.println("\nSample already is registered in Test.");
+        return false;
     }
 
     public List<TestDto> getTests() {
@@ -52,4 +54,9 @@ public class RecordSampleController {
         TestMapper mapper = new TestMapper();
         return mapper.toDto(tests);
     }
+
+    public Company getCompany() {
+        return this.company;
+    }
+
 }

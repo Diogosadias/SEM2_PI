@@ -72,8 +72,6 @@ public class RegisterEmployeeController {
         return this.company;
     }
 
-
-
     public void confirmEmployee () {
         estore.confirmRegistration();
     }
