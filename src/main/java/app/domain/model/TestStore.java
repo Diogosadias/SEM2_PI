@@ -94,23 +94,6 @@ public class TestStore {
         return true;
     }
 
-    public String getTestToString() {
-        String s =  "\nClient: " + this.test.getClient().getCitizenCard() +
-                "\nType of Test: " + this.test.getTestType().getDescription() +
-                "\nCollection Method: " + this.test.getDescription()+
-                "\nNhs Code: " + this.test.getNhsCode() +
-                "\n\nList of Parameter(s) for each Category to be analysed: ";
-        for (ParameterCategory category : this.test.getListCategories()) {
-            s = s + "\n\n - " + category.getDescription();
-            for (Parameter parameter : this.test.getListParameters()) {
-                if (parameter.getCategory().equals(category.getCode()))                            {
-                    s = s + "\n" + parameter.getName();
-                }
-            }
-        }
-        return s;
-    }
-
     public void saveTest() {
         if(!testlist.contains(this.test)) {
             testlist.add(this.test);
@@ -204,4 +187,28 @@ public class TestStore {
         return dto;
     }
 
+    public String getTestToString() {
+        String s =  "\nClient: " + this.test.getClient().getCitizenCard() +
+                "\nType of Test: " + this.test.getTestType().getDescription() +
+                "\nCollection Method: " + this.test.getDescription()+
+                "\nNhs Code: " + this.test.getNhsCode() +
+                "\n\nList of Parameter(s) for each Category to be analysed: ";
+        for (ParameterCategory category : this.test.getListCategories()) {
+            s = s + "\n\n - " + category.getDescription();
+            for (Parameter parameter : this.test.getListParameters()) {
+                if (parameter.getCategory().equals(category.getCode()))                            {
+                    s = s + "\n" + parameter.getName();
+                }
+            }
+        }
+        return s;
+    }
+
+    public String getTestResultToString() {
+        TestParameter testParam = this.test.getCurrentTestParameter();
+        String s = "\nType of Test: " + this.test.getTestType().getDescription() +
+                "\nCollection Method: " + this.test.getDescription()+
+                "\n" + testParam;
+        return s;
+    }
 }

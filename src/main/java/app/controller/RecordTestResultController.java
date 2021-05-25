@@ -24,20 +24,34 @@ public class RecordTestResultController {
         this.tstore = this.company.getTestStore();
     }
 
+    public TestStore getTestStore () {
+        return this.tstore;
+    }
+
     public List<ParameterDto> getListParameters (String testCode) {
         this.tstore.setTest(testCode);
         return this.tstore.getListParametersFromTest();
     }
 
-
-    public void addTestResult(ParameterDto dto){
-        this.tstore.getTest().newTestParameter(dto.getCode());
-        this.tstore.getTest().addTestResult();
+    public void addTestResult(ParameterDto dto, String result, double metric){
+        this.tstore.getTest().addTestResult(dto.getCode(),result,metric);
     }
 
+    public boolean validateTestResult () {
+        List<TestParameter> listTestParameter = this.tstore.getTest().getListTestParameter();
+        TestParameter testParam = this.tstore.getTest().getCurrentTestParameter();
+        for (TestParameter tp : listTestParameter) {
+            if (tp.getParameter().getCode().equals(testParam.getParameter().getCode())){
+                System.out.println("Error: This parameter is already tested.");
+                return false;
+            }
+        }
+        return (testParam.getResult() != null);
+    }
 
-
-
+    public boolean saveTestResult() {
+        return this.tstore.getTest().addResultToList();
+    }
 
 
     public List<TestDto> getTests() {

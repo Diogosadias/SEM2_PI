@@ -35,6 +35,7 @@ public class Test {
     private String state;
 
     private TestParameter testParam;
+    private List<TestParameter> listTestParameter;
 
 
     public Test (TestType type, String description,Client client) {
@@ -48,11 +49,7 @@ public class Test {
         this.state = Constants.REGISTERED;
         this.listParameters = new ArrayList<>();
         this.listCategories = new ArrayList<>();
-    }
-
-    public void newTestParameter (String code) {
-        Parameter param = this.getParameterByCode(code);
-        this.testParam = new TestParameter(param);
+        this.listTestParameter = new ArrayList<>();
     }
 
     public Parameter getParameterByCode(String code) {
@@ -64,28 +61,26 @@ public class Test {
         throw new IllegalArgumentException("Test: No Parameter with that Code.");
     }
 
-    public void addTestResult () {
+    public void addTestResult (String code, String result, double metric) {
         TestType type = this.getTestType();
-        Parameter param = this.testParam.getParameter();
-        Date date = null; // Date is Test chemical date ?????
+        Parameter param = this.getParameterByCode(code);
+        this.testParam = new TestParameter(param);
         ExternalModule em = type.getExternalModule();
-        if (type.getDescription().equals("Blood Test")) {
-            if (date != null) {
-                EMRefValue refValue = em.getReferenceValue(param,date);
-            }else {
-                EMRefValue refValue = em.getReferenceValue(param);System.out.println(refValue);
-            }
-            String usedMetric = em.usedMetricBlood(param);System.out.println("usedMetric: " + usedMetric);
-            String metrics = em.getMetricsFor(param);System.out.println("metrics: " + metrics);
-            double minRef = em.getMinReferenceValueBlood(param);System.out.println("minRef: " + minRef);
-            double maxRef = em.getMaxReferenceValueBlood(param);System.out.println("maxRef: " + maxRef);
+        EMRefValue refValue = em.getReferenceValue(param);
+        testParam.addResult(result,metric,refValue);
+    }
+
+    public boolean addResultToList () {
+        if (!listTestParameter.isEmpty() && listTestParameter.contains(this.testParam) ) {
+            return false;
         }
-        if (type.getDescription().equals("Covid Test")) {
-            String metric = em.usedMetricCovid(param);
-            double minRef = em.getMinReferenceValueCovid(param);
-            double maxRef = em.getMaxReferenceValueCovid(param);
-        }
-        //throw new IllegalArgumentException("TestResult: no test type with same description");
+        return this.listTestParameter.add(this.testParam);
+    }
+
+    public List getListTestParameter() {return this.listTestParameter;}
+
+    public TestParameter getCurrentTestParameter () {
+        return this.testParam;
     }
 
     public void setNhsCode(String nhsCode) {
