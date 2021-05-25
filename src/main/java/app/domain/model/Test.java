@@ -73,19 +73,19 @@ public class Test {
             if (date != null) {
                 EMRefValue refValue = em.getReferenceValue(param,date);
             }else {
-                EMRefValue refValue = em.getReferenceValue(param);
+                EMRefValue refValue = em.getReferenceValue(param);System.out.println(refValue);
             }
-            String usedMetric = em.usedMetricBlood(param);
-            String metrics = em.getMetricsFor(param);
-            double minRef = em.getMinReferenceValueBlood(param);
-            double maxRef = em.getMaxReferenceValueBlood(param);
+            String usedMetric = em.usedMetricBlood(param);System.out.println("usedMetric: " + usedMetric);
+            String metrics = em.getMetricsFor(param);System.out.println("metrics: " + metrics);
+            double minRef = em.getMinReferenceValueBlood(param);System.out.println("minRef: " + minRef);
+            double maxRef = em.getMaxReferenceValueBlood(param);System.out.println("maxRef: " + maxRef);
         }
         if (type.getDescription().equals("Covid Test")) {
             String metric = em.usedMetricCovid(param);
             double minRef = em.getMinReferenceValueCovid(param);
             double maxRef = em.getMaxReferenceValueCovid(param);
         }
-        throw new IllegalArgumentException("TestResult: no test type with same description");
+        //throw new IllegalArgumentException("TestResult: no test type with same description");
     }
 
     public void setNhsCode(String nhsCode) {
