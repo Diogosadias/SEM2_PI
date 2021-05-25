@@ -129,7 +129,7 @@ public class TestDto {
     }
 
     public String toString(){
-        return  "Type: " + type +
+        return
                 "\nCode: "+ code +
                 "\nCollection Method: "+ description;
     }

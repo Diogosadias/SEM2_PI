@@ -22,7 +22,10 @@ public class RecordTestResultUI implements Runnable {
     public void run(){
         try {
             TestDto testDto = writeTests();
-            System.out.println(testDto.);
+            System.out.println(testDto);
+            if (testDto == null) {
+                return;
+            }
             List<ParameterDto> parametersDto = m_controller.getListParameters(testDto.getCode());
             ParameterDto parameterDto = (ParameterDto) Utils.showAndSelectOne(parametersDto, "\nList of Parameters:\n");
             Scanner read = new Scanner(System.in);
