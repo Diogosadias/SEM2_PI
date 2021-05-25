@@ -5,6 +5,8 @@ import app.domain.shared.Constants;
 import auth.AuthFacade;
 import auth.UserSession;
 import auth.domain.model.Email;
+import net.sourceforge.barbecue.BarcodeException;
+import net.sourceforge.barbecue.output.OutputException;
 
 
 import java.io.FileInputStream;
@@ -109,15 +111,17 @@ App {
         this.authFacade.addUserWithRole(employee1.getName(), employee1.getEmail(), "123",Constants.ROLE_RECEP);
         this.company.getEmployeeStore().addEmployee(employee1);
 
+        // email: MLT00002@lei.pt pass: 123
         MedicalLabTechnician employee2 = new MedicalLabTechnician(this.company.getOrgRoleStore().getRoleById(MEDICAL_LAB_TECHNICIAN), "MLT00002", "Medical Lab Technician1","MLT1-address",12900000201L,"MLT1-soc");
         this.authFacade.addUserWithRole(employee2.getName(), employee2.getEmail(), "123", MEDICAL_LAB_TECHNICIAN);
         this.company.getEmployeeStore().addEmployee(employee2);
 
+        // email: SD00004@lei.pt pass: 123
         SpecialistDoctor employee3 = new SpecialistDoctor(this.company.getOrgRoleStore().getRoleById(SPECIALIST_DOCTOR), "SD00004", "Specialist Doctor1","SD1-address",12900000231L,"SD1-soc",11921);
         this.authFacade.addUserWithRole(employee3.getName(), employee3.getEmail(), "123", SPECIALIST_DOCTOR);
         this.company.getEmployeeStore().addEmployee(employee3);
 
-
+        // email: CMT00003@lei.pt pass: 123
         ChemistryTechnologist employee4 = new ChemistryTechnologist(this.company.getOrgRoleStore().getRoleById(CHEMISTRY_TECHNOLOGIST), "CMT00003", "Chemistry Technologist1", "CMT-adress",12900001231L,"CMT-soc");
         this.authFacade.addUserWithRole(employee4.getName(), employee4.getEmail(), "123", CHEMISTRY_TECHNOLOGIST );
         this.company.getEmployeeStore().addEmployee(employee4);
@@ -192,6 +196,8 @@ App {
         test1.setNhsCode("nhsCode-AB01");
         test1.setCode("000000000001");
         this.company.getTestStore().addTest(test1);
+
+
     }
 
     // Extracted from https://www.javaworld.com/article/2073352/core-java/core-java-simply-singleton.html?page=2
