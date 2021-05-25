@@ -3,8 +3,11 @@ package app.ui.console;
 import app.controller.App;
 import app.controller.WriteReportController;
 import app.domain.dto.TestDto;
+import app.domain.model.TestStore;
+import app.domain.shared.Constants;
 import app.ui.console.utils.Utils;
 import auth.AuthFacade;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -48,11 +51,20 @@ public class WriteReportUI implements Runnable{
     }
 
     private boolean registerData() {
-        List<TestDto> set = writeReportController.getTestList();
+        List<TestDto> set = new ArrayList<>(); 
+        try{           
+            set = writeReportController.getTestList();
+        }
+        catch (Exception e) {
+            System.out.println("Empty List.");
+        }
+        
         TestDto dto = (TestDto)Utils.showAndSelectOne(set, "\nList of Chemical Analysis Tests: \n");
         writeReportController.getTestInformation(dto);
         
         String diagnosis = Utils.readLineFromConsole("Diagnosis: ");
+        
+        writeReportController.updateTestState(dto, Constants.DIAGNOSIS_MADE);
         
         writeReportController.createReport(diagnosis, App.getInstance().getCompany().getTestStore().getTestByCode(dto.getCode()));
         return writeReportController.saveReport();

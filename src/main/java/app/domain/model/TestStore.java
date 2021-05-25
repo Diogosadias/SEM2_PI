@@ -102,6 +102,13 @@ public class TestStore {
             throw new IllegalArgumentException("Test is already registered.");
         }
     }
+    
+    public void updateTestState(TestDto test, String state){
+        for (Test t : testlist) {
+            if (t.getCode().equals(test.getCode()))
+                t.setState(state);
+        }
+    }
 
     public void addTest(Test test){
         this.test = test;
