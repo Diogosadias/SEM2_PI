@@ -28,7 +28,7 @@ public class Sample {
                 + (r.nextInt(90) + 10) * 1_000_000_000L;
         System.out.println(String.valueOf(numbers));
 
-        this.sampleBarcode = BarcodeFactory.createUPCA(String.valueOf(numbers));
+        this.sampleBarcode = BarcodeFactory.createCode128(String.valueOf(numbers));
 
         //Save as JPEG
         File barcodeJPEG = new File("Sample_" + id + ".jpeg");
