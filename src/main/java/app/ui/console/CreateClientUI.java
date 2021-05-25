@@ -59,13 +59,13 @@ public class CreateClientUI implements Runnable{
             /*System.out.print("Password: ");
             password = read.next();*/
 
-            System.out.print("National Health Service: ");
+            System.out.print("National Health Service (10 Digits): ");
             nhs = read.nextLong();
 
-            System.out.print("Citizen Card: ");
+            System.out.print("Citizen Card (16 Digits): ");
             citizenCard = read.nextLong();
 
-            System.out.print("TIN: ");
+            System.out.print("TIN (12 Digits): ");
             tin = read.nextLong();
 
             System.out.print("Birth Date (YYYY/MM/DD): ");
@@ -74,7 +74,7 @@ public class CreateClientUI implements Runnable{
             System.out.print("Sex (M/F): ");
             sex = read.next();
 
-            System.out.print("Phone Number: ");
+            System.out.print("Phone Number (11 Digits): ");
             pNumber = read.nextLong();
 
 
