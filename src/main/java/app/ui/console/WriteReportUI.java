@@ -64,7 +64,7 @@ public class WriteReportUI implements Runnable{
         
         String diagnosis = Utils.readLineFromConsole("Diagnosis: ");
         
-        writeReportController.updateTestState(dto, Constants.DIAGNOSIS_MADE);
+        //writeReportController.updateTestState(dto, Constants.DIAGNOSIS_MADE);
         
         writeReportController.createReport(diagnosis, App.getInstance().getCompany().getTestStore().getTestByCode(dto.getCode()));
         return writeReportController.saveReport();

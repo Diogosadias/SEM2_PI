@@ -187,20 +187,13 @@ public class Test {
             return false;
         }
         this.state = Constants.SAMPLE_COLLECTED;
-        return this.sampleList.add(sample);
+        return (this.sampleList.add(sample));
     }
 
     public boolean hasCondition(String state) {
         return this.state.equals(state);
     }
-    
-    public String getState() {
-        return state;
-    }
 
-    public void setState(String state) {
-        this.state = state;
-    }
 
     @Override
     public String toString() {

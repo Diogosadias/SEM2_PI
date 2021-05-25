@@ -102,13 +102,6 @@ public class TestStore {
             throw new IllegalArgumentException("Test is already registered.");
         }
     }
-    
-    public void updateTestState(TestDto test, String state){
-        for (Test t : testlist) {
-            if (t.getCode().equals(test.getCode()))
-                t.setState(state);
-        }
-    }
 
     public void addTest(Test test){
         this.test = test;
@@ -156,7 +149,7 @@ public class TestStore {
                 }
             }
             if (temp.isEmpty()) {
-                throw new IllegalArgumentException("Sample Test list is empty.\n");
+                throw new IllegalArgumentException("Test list in this state [ "+ state + " ] is empty.\n");
             }
             return temp;
         }

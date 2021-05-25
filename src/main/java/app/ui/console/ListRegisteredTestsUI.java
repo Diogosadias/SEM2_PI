@@ -19,10 +19,8 @@ public class ListRegisteredTestsUI implements Runnable {
 
     public void run() {
         RegisterTestController controller = new RegisterTestController();
-        List<Test> list  = controller.getCompany().getTestStore().getRegisteredTests();
-        if (list.isEmpty()) {
-            System.out.println("List of Tests is empty.");
-        } else {
+        try {
+            List<Test> list  = controller.getCompany().getTestStore().getRegisteredTests();
             for (Test t : list ) {
                 System.out.println("\n" + t);
                 System.out.println("\nPress Enter to continue:");
@@ -30,6 +28,8 @@ public class ListRegisteredTestsUI implements Runnable {
                 scanner.nextLine();
             }
             System.out.println("Reached end of registered Test list.\n");
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
         }
 
     }

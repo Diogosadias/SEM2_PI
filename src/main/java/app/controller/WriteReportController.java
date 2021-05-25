@@ -35,10 +35,10 @@ public class WriteReportController {
         Test aux = this.company.getTestStore().getTestByCode(test.getCode());
         System.out.println(aux);
     }
-    
+    /*
     public void updateTestState(TestDto test, String state){
         this.testStore.updateTestState(test, state);
-    }
+    }*/
 
     public boolean createReport(String diagnosis, Test test){
         this.report = reportStore.createReport(diagnosis, test);
