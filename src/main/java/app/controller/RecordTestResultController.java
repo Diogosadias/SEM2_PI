@@ -13,8 +13,6 @@ import static app.domain.shared.Constants.*;
 public class RecordTestResultController {
     private Company company;
     private TestStore tstore;
-    private ParameterStore ps;
-    private ExternalModule em;
 
     public RecordTestResultController(){
         if (!App.getInstance().getCurrentUserSession().isLoggedInWithRole(ROLE_CHEM_TECH)) {
@@ -55,12 +53,8 @@ public class RecordTestResultController {
 
 
     public List<TestDto> getTests() {
-        List<Test> tests = this.tstore.getRegisteredTests();
+        List<Test> tests = this.tstore.getSampleCollectedTests();
         TestMapper mapper = new TestMapper();
-        return mapper.toDto(tests);
-    }
-
-    public void getExternalModule() {
-        this.tstore.getTest().getTestType().getExternalModule();
+        return mapper.testSamples_toDto(tests);
     }
 }

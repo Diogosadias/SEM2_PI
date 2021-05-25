@@ -29,7 +29,7 @@ public class Sample {
         System.out.println(String.valueOf(numbers));
 
         this.sampleBarcode = BarcodeFactory.createCode128(String.valueOf(numbers));
-
+        
         //Save as JPEG
         File barcodeJPEG = new File("Sample_" + id + ".jpeg");
 

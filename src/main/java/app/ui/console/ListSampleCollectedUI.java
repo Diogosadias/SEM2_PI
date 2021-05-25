@@ -2,7 +2,7 @@ package app.ui.console;
 
 
 import app.controller.RecordSampleController;
-import app.domain.model.Test;
+import app.domain.dto.TestDto;
 
 import java.util.List;
 import java.util.Scanner;
@@ -20,9 +20,9 @@ public class ListSampleCollectedUI implements Runnable {
     public void run() {
         RecordSampleController controller = new RecordSampleController();
         try {
-            List<Test> list = controller.getCompany().getTestStore().getSampleCollectedTests();
-            for (Test t : list) {
-                System.out.println("\n" + t);
+            List<TestDto> list = controller.listTestSamples();
+            for (TestDto t : list) {
+                System.out.println("\n" + t.Samples_toString());
                 System.out.println("\nPress Enter to continue:");
                 Scanner scanner = new Scanner(System.in);
                 scanner.nextLine();

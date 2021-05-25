@@ -3,6 +3,7 @@ package app.domain.dto;
 import app.domain.model.Parameter;
 import app.domain.model.ParameterCategory;
 import app.domain.model.Sample;
+import app.domain.model.TestParameter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +27,8 @@ public class TestDto {
     private long clientCC;
     String nhsCode;
     List<Parameter> parameters = new ArrayList<>();
+    List<ParameterCategory> categories = new ArrayList<>();
+    List<TestParameter> listTP = new ArrayList<>();
 
     public TestDto(){}
 
@@ -35,13 +38,30 @@ public class TestDto {
      * @param description
      * @param clientCC
      */
+
+
     public TestDto(String code,String description, long clientCC){
         this.code = code;
         this.description = description;
         this.clientCC = clientCC;
     }
 
+    public TestDto(String code,List<ParameterCategory> categories,List<Parameter> parameters){
+        this.code = code;
+        this.categories = categories;
+        this.parameters = parameters;
+    }
 
+    public TestDto(String code,String description,List<Sample> sampleList){
+        this.code = code;
+        this.description = description;
+        this.sampleList = sampleList;
+    }
+
+    public TestDto(String code,List<TestParameter> listTP){
+        this.code = code;
+        this.listTP = listTP;
+    }
 
     public String getSampleDate() {
         return sampleDate;
@@ -100,10 +120,43 @@ public class TestDto {
         this.parameters = parameters;
     }
 
-    public String toString(){
-        return  "Collection Method:"+description+" \nCode:"+code;
+    public List<TestParameter> getListTestParameter() {
+        return listTP;
     }
 
+    public void setListTP(List<TestParameter> listTP) {
+        this.listTP = listTP;
+    }
 
+    public String toString(){
+        return  "Type: " + type +
+                "\nCode: "+ code +
+                "\nCollection Method: "+ description;
+    }
+
+    //US12
+    public String Parameters_toString() {
+        String s = "\n\nList of Parameter(s) for each Category to be analysed: ";
+        for (ParameterCategory category : this.categories) {
+            s = s + "\n\n - " + category.getDescription();
+            for (Parameter parameter : this.parameters) {
+                if (parameter.getCategory().equals(category.getCode()))
+                {
+                    s += "\n" + parameter.getName();
+                }
+            }
+        }
+        return s;
+    }
+
+    //US5
+    public String Samples_toString() {
+        String s = "\nTest n: " + this.code +
+                "\nList of Sample(s): \n";
+        for (Sample sample : this.sampleList) {
+            s += "\n - " + sample.getSampleBarcode();
+        }
+        return s;
+    }
 
 }

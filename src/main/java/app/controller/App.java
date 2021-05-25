@@ -113,12 +113,12 @@ App {
         this.authFacade.addUserWithRole(employee2.getName(), employee2.getEmail(), "123", MEDICAL_LAB_TECHNICIAN);
         this.company.getEmployeeStore().addEmployee(employee2);
 
-        SpecialistDoctor employee3 = new SpecialistDoctor(this.company.getOrgRoleStore().getRoleById(SPECIALIST_DOCTOR), "SD00003", "Specialist Doctor1","SD1-address",12900000231L,"SD1-soc",11921);
+        SpecialistDoctor employee3 = new SpecialistDoctor(this.company.getOrgRoleStore().getRoleById(SPECIALIST_DOCTOR), "SD00004", "Specialist Doctor1","SD1-address",12900000231L,"SD1-soc",11921);
         this.authFacade.addUserWithRole(employee3.getName(), employee3.getEmail(), "123", SPECIALIST_DOCTOR);
         this.company.getEmployeeStore().addEmployee(employee3);
 
 
-        ChemistryTechnologist employee4 = new ChemistryTechnologist(this.company.getOrgRoleStore().getRoleById(CHEMISTRY_TECHNOLOGIST), "CMT00003", "Chemistry Technologist", "CMT-adress",12900001231L,"CMT-soc");
+        ChemistryTechnologist employee4 = new ChemistryTechnologist(this.company.getOrgRoleStore().getRoleById(CHEMISTRY_TECHNOLOGIST), "CMT00003", "Chemistry Technologist1", "CMT-adress",12900001231L,"CMT-soc");
         this.authFacade.addUserWithRole(employee4.getName(), employee4.getEmail(), "123", CHEMISTRY_TECHNOLOGIST );
         this.company.getEmployeeStore().addEmployee(employee4);
 

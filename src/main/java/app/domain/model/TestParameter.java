@@ -6,6 +6,8 @@ public class TestParameter {
 
     private Parameter param;
 
+    private Report report;
+
     private TestParameterResult testResult;
 
     public TestParameter (Parameter param) {
@@ -22,6 +24,14 @@ public class TestParameter {
 
     public TestParameterResult getResult() {
         return this.testResult;
+    }
+
+    public void setReport(Report report) {
+        this.report = report;
+    }
+
+    public Report getReport() {
+        return this.report;
     }
 
     @Override

@@ -36,16 +36,16 @@ public class RecordSampleController {
     }
 
     public Sample createSample(String id, String testCode) throws IOException, BarcodeException, OutputException {
-        this.sample = this.tss.createSample(id);
         this.tstore.setTest(testCode);
-        return this.sample;
+        this.sample = this.tss.createSample(id);
+        return sample;
     }
 
     public boolean saveSample() {
-        if (this.tstore.addSampleToTest(this.sample)) {
-            return this.tss.saveSample(this.sample);
+        if(this.tss.saveSample(this.sample)) {
+            return this.tstore.addSampleToTest(sample);
         }
-        System.out.println("\nSample already is registered in Test.");
+        System.out.println("\nSample is already registered in Test.");
         return false;
     }
 
@@ -53,6 +53,12 @@ public class RecordSampleController {
         List<Test> tests = this.tstore.getRegisteredTests();
         TestMapper mapper = new TestMapper();
         return mapper.toDto(tests);
+    }
+
+    public List<TestDto> listTestSamples() {
+        List<Test> tests = this.tstore.getSampleCollectedTests();
+        TestMapper mapper = new TestMapper();
+        return mapper.testSamples_toDto(tests);
     }
 
     public Company getCompany() {

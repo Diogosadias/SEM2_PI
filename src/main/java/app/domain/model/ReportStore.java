@@ -39,6 +39,7 @@ public class ReportStore {
     public boolean saveReport(Report report){
         if(!validateReport(report))
             return false;
+
         return this.reportlist.add(report);
     }
 }

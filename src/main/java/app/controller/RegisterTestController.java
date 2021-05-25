@@ -66,4 +66,8 @@ public class RegisterTestController {
     public TestStore getTestStore() {
         return this.tStore;
     }
+
+    public List getTests() {
+        return this.company.getTestStore().getRegisteredTests();
+    }
 }

@@ -28,24 +28,24 @@ public class WriteReportController {
 
     public List<TestDto> getTestList() {
         List<Test> list = this.testStore.getSampleAnalysisTests();
-        return this.testMapper.toDto(list);
+        return this.testMapper.testResults_toDto(list);
     }
 
     public void getTestInformation(TestDto test) {
         Test aux = this.company.getTestStore().getTestByCode(test.getCode());
+        this.testStore.setTest(aux.getCode());
         System.out.println(aux);
     }
-    /*
-    public void updateTestState(TestDto test, String state){
-        this.testStore.updateTestState(test, state);
-    }*/
 
-    public boolean createReport(String diagnosis, Test test){
+    public boolean createReport(String diagnosis, String testCode){
+        Test test = this.testStore.getTestByCode(testCode);
         this.report = reportStore.createReport(diagnosis, test);
         return reportStore.validateReport(this.report);
     }
 
-    public boolean saveReport(){
+    public boolean saveReport(TestParameter tp){
+
+        this.testStore.getTest().setTestParameterReport(tp,this.report);
         return this.reportStore.saveReport(this.report);
     }
 

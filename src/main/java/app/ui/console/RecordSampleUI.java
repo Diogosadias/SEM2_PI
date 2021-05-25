@@ -42,7 +42,7 @@ public class RecordSampleUI implements Runnable {
                     System.out.println("Sample was not registered!");
                 }
             }
-        } catch (IOException | BarcodeException | OutputException e) {
+        } catch (IOException | BarcodeException | OutputException | IllegalArgumentException e) {
             e.printStackTrace();
         }
 

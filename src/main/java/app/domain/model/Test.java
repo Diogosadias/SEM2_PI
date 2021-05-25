@@ -190,10 +190,23 @@ public class Test {
         return (this.sampleList.add(sample));
     }
 
+    public List getListSamples() {
+        return this.sampleList;
+    }
+
     public boolean hasCondition(String state) {
         return this.state.equals(state);
     }
 
+    public boolean setTestParameterReport (TestParameter tp, Report report) {
+        for (TestParameter param : listTestParameter) {
+            if (param == tp) {
+                param.setReport(report);
+                this.state = Constants.DIAGNOSIS_MADE;
+            }
+        }
+        throw new IllegalArgumentException("Not same TestParameter.");
+    }
 
     @Override
     public String toString() {
@@ -204,20 +217,6 @@ public class Test {
                 "\nCollection Method: " + this.description+
                 "\nNhs Code: " + this.nhsCode +
                 "\n\nList of Parameter(s) for each Category to be analysed: ";
-        for (ParameterCategory category : this.getListCategories()) {
-            s = s + "\n\n - " + category.getDescription();
-            for (Parameter parameter : this.getListParameters()) {
-                if (parameter.getCategory().equals(category.getCode()))
-                {
-                    s = s + "\n" + parameter.getName();
-                }
-            }
-        }
-        return s;
-    }
-
-    public String toStringParameters() {
-        String s = "\n\nList of Parameter(s) for each Category to be analysed: ";
         for (ParameterCategory category : this.getListCategories()) {
             s = s + "\n\n - " + category.getDescription();
             for (Parameter parameter : this.getListParameters()) {

@@ -3,6 +3,7 @@ package app.ui.console;
 import app.controller.App;
 import app.controller.WriteReportController;
 import app.domain.dto.TestDto;
+import app.domain.model.TestParameter;
 import app.domain.model.TestStore;
 import app.domain.shared.Constants;
 import app.ui.console.utils.Utils;
@@ -60,14 +61,13 @@ public class WriteReportUI implements Runnable{
         }
         
         TestDto dto = (TestDto)Utils.showAndSelectOne(set, "\nList of Chemical Analysis Tests: \n");
-        writeReportController.getTestInformation(dto);
-        
+        //writeReportController.getTestInformation(dto);
+        //Aqui tens de perguntar qual Parameter o Specialist Doctor tem de fazer Report e Diagnosis
+        TestParameter tp = (TestParameter)Utils.showAndSelectOne(dto.getListTestParameter(), "\nList of Parameters(Test): \n");
         String diagnosis = Utils.readLineFromConsole("Diagnosis: ");
-        
-        //writeReportController.updateTestState(dto, Constants.DIAGNOSIS_MADE);
-        
-        writeReportController.createReport(diagnosis, App.getInstance().getCompany().getTestStore().getTestByCode(dto.getCode()));
-        return writeReportController.saveReport();
+
+        writeReportController.createReport(diagnosis, dto.getCode());
+        return writeReportController.saveReport(tp);
     }
 
     private void presentsData() {
