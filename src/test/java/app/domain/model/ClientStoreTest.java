@@ -36,7 +36,8 @@ public class ClientStoreTest {
         //testing
         boolean b = store.validateClient(c1);
         assertEquals(true,b);
-        store.saveClients(c1,"aaaa");
+        String pwd = "aaaa";
+        store.saveClient(c1,pwd);
         boolean b1 = store.validateClient(c1);
         assertEquals(false,b1);
         boolean b2 = store.validateClient(null);
@@ -46,8 +47,8 @@ public class ClientStoreTest {
     @Test
     public void testSaveClient() {
         //testing
-
-        boolean b = store.saveClients(c1,"aaaa");
+        String pwd = "aaaa";
+        boolean b = store.saveClient(c1,pwd);
 
         assertEquals(true,b);
 
