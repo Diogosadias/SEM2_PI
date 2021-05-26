@@ -128,7 +128,7 @@ App {
 
         //Client
         Client client1 = new Client (new Email("client1@lei.pt"),"Client Teste",1234567890L,1212121212121212L,210000000001L,new Date("1990/01/01"),"M",91000000000L);
-        this.company.getClientStore().saveClient(client1,"123");
+        this.company.getClientStore().saveClients(client1,"123");
 
         //ParameterCategory - Covid Tests
         ParameterCategory categoryCovid = new ParameterCategory("SC200","SARS-CoV-2","21001");
