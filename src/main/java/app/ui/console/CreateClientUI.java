@@ -14,15 +14,6 @@ import java.util.Scanner;
 public class CreateClientUI implements Runnable{
 
 
-
-    public CreateClientUI()
-    {
-
-    }
-
-    public void listClients(){
-
-    }
     public boolean answer(){
         Scanner read = new Scanner(System.in);
         System.out.println("Are you sure you want to create this client?");
