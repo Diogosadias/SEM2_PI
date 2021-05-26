@@ -44,12 +44,12 @@ public class ClientStoreTest {
     }
 
     @Test
-    public void testSaveClients() {
+    public void testSaveClient() {
         //testing
 
         boolean b = store.saveClients(c1,"aaaa");
 
-        assertEquals(false,b);
+        assertEquals(true,b);
 
     }
 
