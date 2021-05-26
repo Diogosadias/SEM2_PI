@@ -2,6 +2,7 @@ package app.domain.model;
 
 import auth.AuthFacade;
 import auth.domain.model.Email;
+import junit.framework.TestCase;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-public class ClientStoreTest {
+public class ClientStoreTest extends TestCase {
     AuthFacade auth = new AuthFacade();
 
     Client c1 = new Client(new Email("usedafr1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("2001/12/22"), "M", 11111111111L);
