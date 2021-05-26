@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="760fc46b-2948-4366-add4-76a0240c8add" name="Default Changelist" comment="">
+    <list default="true" id="760fc46b-2948-4366-add4-76a0240c8add" name="Default Changelist" comment="Changes to &quot;Utils&quot;, &quot;RegisterTestUI&quot;, &quot;ClientStore&quot;, &quot;TestStore&quot;, &quot;RegisterTestController&quot;&#10;[UC-03][UC-04][Code Implementation]">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/controller/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controller/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/controller/RegisterTestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controller/RegisterTestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/domain/model/ClientStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/domain/model/ClientStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/domain/model/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/domain/model/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/domain/model/TestStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/domain/model/TestStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/ui/console/RegisterTestUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/ui/console/RegisterTestUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/ui/console/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/ui/console/utils/Utils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +30,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -84,7 +91,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CompanyTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ClientStoreTest.testValidateClient" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sem2App" />
       <extension name="coverage">
         <pattern>
@@ -93,13 +100,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="app.domain.model" />
-      <option name="MAIN_CLASS_NAME" value="app.domain.model.CompanyTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="app.domain.model.ClientStoreTest" />
+      <option name="METHOD_NAME" value="testValidateClient" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CompanyTest.testCompanyConstructorBlankDesignation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ClientStoreTest.testsaveClient" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sem2App" />
       <extension name="coverage">
         <pattern>
@@ -108,8 +116,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="app.domain.model" />
-      <option name="MAIN_CLASS_NAME" value="app.domain.model.CompanyTest" />
-      <option name="METHOD_NAME" value="testCompanyConstructorBlankDesignation" />
+      <option name="MAIN_CLASS_NAME" value="app.domain.model.ClientStoreTest" />
+      <option name="METHOD_NAME" value="testsaveClient" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -118,10 +126,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.CompanyTest.testCompanyConstructorBlankDesignation" />
-        <item itemvalue="JUnit.CompanyTest" />
-        <item itemvalue="JUnit.ClientStoreTest" />
         <item itemvalue="JUnit.ClientStoreTest.testSaveClient" />
+        <item itemvalue="JUnit.ClientStoreTest" />
+        <item itemvalue="JUnit.ClientStoreTest.testValidateClient" />
+        <item itemvalue="JUnit.ClientStoreTest.testsaveClient" />
       </list>
     </recent_temporary>
   </component>
@@ -210,7 +218,28 @@
       <option name="project" value="LOCAL" />
       <updated>1622059597987</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="fix bug">
+      <created>1622059895401</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1622059895401</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fix bug">
+      <created>1622060534187</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1622060534187</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fix bug">
+      <created>1622060954157</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1622060954158</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,14 +260,15 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="bug fixing" />
     <MESSAGE value="fix bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix bug" />
+    <MESSAGE value="Changes to &quot;Utils&quot;, &quot;RegisterTestUI&quot;, &quot;ClientStore&quot;, &quot;TestStore&quot;, &quot;RegisterTestController&quot;&#10;[UC-03][UC-04][Code Implementation]" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes to &quot;Utils&quot;, &quot;RegisterTestUI&quot;, &quot;ClientStore&quot;, &quot;TestStore&quot;, &quot;RegisterTestController&quot;&#10;[UC-03][UC-04][Code Implementation]" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/app/ui/console/RegisterTestUI.java</url>
-          <line>103</line>
+          <line>104</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

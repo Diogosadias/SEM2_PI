@@ -12,6 +12,7 @@ import java.util.List;
 /**
  *
  * @author Tiago Rocha <1181445@isep.ipp.pt>
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
  */
 public class RegisterTestUI implements Runnable {
 
@@ -50,9 +51,9 @@ public class RegisterTestUI implements Runnable {
     }
 
     private boolean checkClient() {
-        long cc = (long) Utils.readDoubleFromConsole("\nClient - CC number: (16 digits)");
-        if(!m_controller.checkRegisteredClient(cc)) {
-            System.out.println("\nClient with CC: " + cc + " is not registered.\n");
+        long tin = Utils.readLongFromConsole("\nClient - TIN number: (12 digits)");
+        if(!m_controller.checkRegisteredClient(tin)) {
+            System.out.println("\nClient with TIN: " + tin + " is not registered.\n");
             return false;
         }
         return true;

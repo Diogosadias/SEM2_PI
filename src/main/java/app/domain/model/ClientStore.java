@@ -1,9 +1,9 @@
 package app.domain.model;
 
-import app.domain.model.Client;
+
 import app.domain.shared.Constants;
-import app.domain.shared.EmailSender;
-import app.domain.shared.GeneratePassword;
+
+
 import auth.AuthFacade;
 import auth.domain.model.Email;
 
@@ -133,6 +133,14 @@ public class ClientStore {
     public Client getClientByCC(long cc) {
         for ( Client c : clientList) {
             if (c.getCitizenCard() == cc) {
+                return c;
+            }
+        }
+        return null;
+    }
+    public Client getClientByTIN(long tin) {
+        for ( Client c : clientList) {
+            if (c.getTin() == tin) {
                 return c;
             }
         }

@@ -10,6 +10,7 @@ import static app.domain.shared.Constants.ROLE_RECEP;
 /**
  *
  * @author Tiago Rocha <1181445@isep.ipp.pt>
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
  */
 public class RegisterTestController {
 
@@ -26,8 +27,8 @@ public class RegisterTestController {
         tStore.setCompany(this.company);
     }
 
-    public boolean checkRegisteredClient(long cc) {
-        return tStore.checkRegisteredClient(cc);
+    public boolean checkRegisteredClient(long tin) {
+        return tStore.checkRegisteredClient(tin);
     }
 
     public List getListTestType() {

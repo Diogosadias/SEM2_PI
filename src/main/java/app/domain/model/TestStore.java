@@ -11,6 +11,7 @@ import java.util.List;
  *
  * @author Tiago Rocha <1181445@isep.ipp.pt>
  * @author Bruno Pereira <1191454@isep.ipp.pt>
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
  */
 public class TestStore {
 
@@ -18,14 +19,14 @@ public class TestStore {
 
     private Client client;
 
-    private List<Test> testlist;
+    private List<Test> testList;
 
     private Test test;
 
     private long numRegisteredTest = 0;
 
     public TestStore(){
-        testlist = new ArrayList<>();
+        testList = new ArrayList<>();
     }
     
     /*public boolean checkCompleted(Test test) {
@@ -38,9 +39,9 @@ public class TestStore {
         this.company = company;
     }
 
-    public boolean checkRegisteredClient(long cc) {
+    public boolean checkRegisteredClient(long tin) {
         ClientStore cStore = this.company.getClientStore();
-        this.client = cStore.getClientByCC(cc);
+        this.client = cStore.getClientByTIN(tin);
         return (client != null) ;
     }
 
@@ -86,8 +87,8 @@ public class TestStore {
     }
 
     public boolean validateTest() {
-        for (Test t : testlist) {
-            if (t.getClient().equals(t.getNhsCode().equals(this.test.getNhsCode()))) {
+        for (Test t : testList) {
+            if (t.getNhsCode().equals(this.test.getNhsCode())) {
                 System.out.println("Error: Test was already registered with same Nhs code.");
             }
         }
@@ -95,8 +96,8 @@ public class TestStore {
     }
 
     public void saveTest() {
-        if(!testlist.contains(this.test)) {
-            testlist.add(this.test);
+        if(!testList.contains(this.test)) {
+            testList.add(this.test);
             numRegisteredTest += 1;
         } else {
             throw new IllegalArgumentException("Test is already registered.");
@@ -138,12 +139,12 @@ public class TestStore {
     }
 
     public List<Test> getTests (String state) {
-        if(this.testlist!=null) {
-            if (this.testlist.isEmpty()) {
+        if(this.testList !=null) {
+            if (this.testList.isEmpty()) {
                 throw new IllegalArgumentException("Test list is empty.\n");
             }
             List<Test> temp = new ArrayList<>();
-            for (Test t : this.testlist) {
+            for (Test t : this.testList) {
                 if (t.hasCondition(state)) {
                     temp.add(t);
                 }
@@ -166,7 +167,7 @@ public class TestStore {
 
     public Test getTestByCode( String code){
 
-        for(Test t : this.testlist){
+        for(Test t : this.testList){
             if(t.getCode().equals(code))
                 return t;
         }
@@ -184,7 +185,7 @@ public class TestStore {
     }
 
     public String getTestToString() {
-        String s =  "\nClient: " + this.test.getClient().getCitizenCard() +
+        String s =  "\nClient: " + this.test.getClient().getTin() +
                 "\nType of Test: " + this.test.getTestType().getDescription() +
                 "\nCollection Method: " + this.test.getDescription()+
                 "\nNhs Code: " + this.test.getNhsCode() +
