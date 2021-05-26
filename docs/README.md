@@ -7,8 +7,14 @@ The teams consists of students identified in the following table.
 | Student Number	| Name |
 |--------------|----------------------------|
 | **1161605**  | Diogo Sá Oliveira Pereira Dias        |
-| **1200601**  | Tiago Ferreira       |
+| **1200601**  | Tiago José de Almeida Ferreira       |
 | **1191454**  | Bruno Miguel Moreira Pereira      |
+| **1181835**  | Tomás Afonso Rodrigues Matos Pinto        |
+| **1201682**  | Márcio Rodrigues Ramos        |
+| **1180838**  | Gil Pimenta Pereira        |
+| **1181445**  | Tiago José Tomaz da Rocha        |
+| **1150920**  | Vasco Barcelos Santos Sodre        |
+
 
 
 
