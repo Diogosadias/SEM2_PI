@@ -17,7 +17,7 @@ public class CompanyTest{
     @Test
     public void testCompanyConstructorBlankDesignation(){
         try{
-           // Company test1 = new Company("");
+            Company test1 = new Company("");
             fail("No Illegal Argument Exception!");
         }catch(IllegalArgumentException ex){
             assertEquals("Designation cannot be blank.", ex.getMessage());
