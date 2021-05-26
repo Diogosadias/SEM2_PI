@@ -36,10 +36,10 @@ public class ClientStoreTest extends TestCase {
     public void testValidateClient() {
         //testing
         boolean b = store.validateClient(c1);
-        assertTrue(b);
+        assertEquals(true,b);
         store.saveClients(c1,"aaaa");
         boolean b1 = store.validateClient(c1);
-        assertFalse(b1);
+        assertEquals(false,b1);
         boolean b2 = store.validateClient(null);
         assertFalse(b2);
     }
@@ -50,7 +50,7 @@ public class ClientStoreTest extends TestCase {
 
         boolean b = store.saveClients(c1,"aaaa");
 
-        assertTrue(b);
+        assertEquals(true,b);
 
     }
 
