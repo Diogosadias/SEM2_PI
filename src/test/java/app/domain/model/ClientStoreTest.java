@@ -10,6 +10,10 @@ import java.util.Date;
 import java.util.List;
 
 import static org.junit.Assert.*;
+/**
+ *
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
+ */
 
 public class ClientStoreTest extends TestCase {
     AuthFacade auth = new AuthFacade();
