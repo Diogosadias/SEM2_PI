@@ -1,10 +1,10 @@
 package app.domain.model;
 
-import junit.framework.TestCase;
+
 import org.junit.Test;
 
-
-public class CompanyTest extends TestCase {
+import static org.junit.Assert.*;
+public class CompanyTest{
 
     Company test = new Company("TEST");
 
@@ -17,7 +17,7 @@ public class CompanyTest extends TestCase {
     @Test
     public void testCompanyConstructorBlankDesignation(){
         try{
-            Company test1 = new Company("");
+           // Company test1 = new Company("");
             fail("No Illegal Argument Exception!");
         }catch(IllegalArgumentException ex){
             assertEquals("Designation cannot be blank.", ex.getMessage());
