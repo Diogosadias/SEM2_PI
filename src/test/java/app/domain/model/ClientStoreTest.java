@@ -36,10 +36,10 @@ public class ClientStoreTest extends TestCase {
     public void testValidateClient() {
         //testing
         boolean b = store.validateClient(c1);
-        assertEquals(true,b);
+        assertTrue(b);
         store.saveClients(c1,"aaaa");
         boolean b1 = store.validateClient(c1);
-        assertEquals(false,b1);
+        assertFalse(b1);
         boolean b2 = store.validateClient(null);
         assertFalse(b2);
     }
@@ -50,14 +50,14 @@ public class ClientStoreTest extends TestCase {
 
         boolean b = store.saveClients(c1,"aaaa");
 
-        assertEquals(true,b);
+        assertTrue(b);
 
     }
 
     @Test
     public void testGetClientList() {
         AuthFacade auth = null;
-        ClientStore ccs = new ClientStore(auth);
+        ClientStore ccs = new ClientStore(null);
         Client c1 = new Client(new Email("usewdar1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("2001/12/22"), "M", 11111111111L);
         List<Client> testList = new ArrayList<>();
         //calculations
