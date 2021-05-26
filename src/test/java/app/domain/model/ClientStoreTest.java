@@ -7,7 +7,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-//a
+
 import static org.junit.Assert.*;
 
 public class ClientStoreTest {
