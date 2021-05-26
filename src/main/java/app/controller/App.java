@@ -16,7 +16,7 @@ import java.util.Date;
 import java.util.Properties;
 
 import static app.domain.shared.Constants.*;
-
+//coment test commit
 /**
  *
  * @author Paulo Maio <pam@isep.ipp.pt>

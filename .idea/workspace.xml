@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="760fc46b-2948-4366-add4-76a0240c8add" name="Default Changelist" comment="fix bug">
+    <list default="true" id="760fc46b-2948-4366-add4-76a0240c8add" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/controller/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controller/App.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +39,7 @@
       <recent name="app.domain.shared" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CompanyTest.testCompanyConstructorBlankDesignation">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.ui.Main" />
       <module name="Sem2App" />
@@ -116,10 +117,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.CompanyTest.testCompanyConstructorBlankDesignation" />
         <item itemvalue="JUnit.CompanyTest" />
         <item itemvalue="JUnit.ClientStoreTest" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.ClientStoreTest.testSaveClient" />
       </list>
     </recent_temporary>
@@ -202,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622059489971</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="fix bug">
+      <created>1622059597987</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1622059597987</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
