@@ -36,22 +36,23 @@ public class ClientStoreTest{
     @Test
     public void testValidateClient() {
         //testing
-        //boolean b = store.validateClient(c1);
-        assertTrue(true);
-        //store.saveClients(c1,"aaaa");
-       // boolean b1 = store.validateClient(c1);
-        assertFalse(false);
-        //boolean b2 = store.validateClient(null);
-        assertFalse(false);
+        boolean b = store.validateClient(c1);
+        assertTrue(b);
+        store.saveClients(c1,"aaaa");
+        boolean b1 = store.validateClient(c1);
+        assertFalse(b1);
+        boolean b2 = store.validateClient(null);
+        assertFalse(b2);
     }
 
     @Test
     public void testSaveClient() {
         //testing
+        Client c2 = store.createClient("usxeeedar1@gmail.com", "Johnn", 1111111110L, 1111101111111111L, 101111111111L, "2001/12/22", "M", 11011111111L);
 
-       // boolean b = store.saveClients(c1,"aaaa");
+        boolean test1 = store.saveClients(c1,"aaaa");
 
-        assertTrue(true);
+        assertTrue(test1);
 
     }
 
