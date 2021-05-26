@@ -5,10 +5,12 @@ import auth.domain.model.Email;
 import org.junit.Test;
 import java.util.Date;
 import static org.junit.Assert.*;
+
 /**
  *
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  */
+
 public class CreateClientControllerTest{
 
     @Test
