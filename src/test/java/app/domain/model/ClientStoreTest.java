@@ -44,7 +44,7 @@ public class ClientStoreTest extends TestCase {
         boolean b2 = store.validateClient(null);
         assertFalse(b2);
     }
-/*
+
     @Test
     public void testSaveClient() {
         //testing
@@ -66,5 +66,5 @@ public class ClientStoreTest extends TestCase {
         testList.add(c1);
         //assemble
         assertEquals(testList,ccs.getClientList());
-    }*/
+    }
 }
