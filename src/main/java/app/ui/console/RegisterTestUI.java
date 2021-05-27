@@ -25,28 +25,30 @@ public class RegisterTestUI implements Runnable {
 
     @Override
     public void run() {
-        System.out.println("\nRegister Test: \n");
-        if(checkClient())   {
-            if(registerData())
-            {
-                presentsData();
-                if (Utils.confirm("Do you confirm the data? (Y/N)")) {
-                    m_controller.confirmTest();
-                    System.out.println("Test registered successfully!");
-                } else
-                {
-                    System.out.println("Operation cancelled.");
+        String answer = Constants.ANS_YES;
+        while (answer.equals(Constants.ANS_YES)) {
+            System.out.println("\nRegister Test: \n");
+            if (checkClient()) {
+                if (registerData()) {
+                    presentsData();
+                    if (Utils.confirm("Do you confirm the data? (Y/N)")) {
+                        m_controller.confirmTest();
+                        System.out.println("Test registered successfully!");
+                    } else {
+                        System.out.println("Operation cancelled.");
+                    }
+                } else {
+                    System.out.println("Error: Operation cancelled.");
                 }
             } else {
-                System.out.println("Error: Operation cancelled.");
+                if (Utils.confirm("Do you want to register a new Client? (Y/N)")) {
+                    new CreateClientUI().run();
+                }
             }
-        }
-        else
-        { if(Utils.confirm("Do you want to register a new Client? (Y/N)"))   {
-            new CreateClientUI().run();
-        } else {
-            System.out.println("Operation cancelled.");
-        }
+            if (!Utils.confirm("Do you want to register another Test? (Y/N)")) {
+                answer = Constants.ANS_NO;
+                System.out.println("Operation cancelled. Returning to Menu.");
+            }
         }
     }
 
