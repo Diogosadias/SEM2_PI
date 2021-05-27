@@ -4,13 +4,14 @@ package app.domain.model;
 import java.util.StringTokenizer;
 
 public class Report {
-    private String diagnosis;
-    private Test test;
+    private final String diagnosis;
+    private final Test test;
 
 
 
     public Report (String diagnosis, Test test){
         checkDiagnosis(diagnosis);
+        checkTest(test);
         this.diagnosis = diagnosis;
         this.test = test;
 
@@ -36,6 +37,13 @@ public class Report {
             return true;
         }
         throw new IllegalArgumentException("Diagnosis has an Invalid Input!");
+    }
+
+    public boolean checkTest(Test test){
+        if(test!= null){
+            return true;
+        }
+        throw new IllegalArgumentException("Test cannot be null!");
     }
 
     public int countwords(String s){

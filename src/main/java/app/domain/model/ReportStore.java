@@ -30,6 +30,7 @@ public class ReportStore {
                         return false;
                     }
                 }
+                return true;
             }
             return true;
         }
