@@ -314,7 +314,9 @@ public class Client {
     @Override
     public String toString() {
                 return "Client{" +
-                "nhs=" + nhs +
+                ", name="+ name +
+                ", id="+ id +
+                ", nhs=" + nhs +
                 ", citizenCard=" + citizenCard +
                 ", tin=" + tin +
                 ", birthDate='" + birthDate + '\'' +

@@ -107,6 +107,7 @@ App {
 
 
         //Employee
+        // email: R00001@lei.pt pass: 123
         Receptionist employee1 = new Receptionist(this.company.getOrgRoleStore().getRoleById(RECEPTIONIST), "R00001", "Receptionist1","R1-address",12900000001L,"R1-soc");
         this.authFacade.addUserWithRole(employee1.getName(), employee1.getEmail(), "123",Constants.ROLE_RECEP);
         this.company.getEmployeeStore().addEmployee(employee1);
