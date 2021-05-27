@@ -32,6 +32,7 @@ A:	Yes.
 Q: when the receptionist is registering a test for a client, the test can have more than one category and many parameters of the chosen categories or it only can have one category?
 A: Each test can have more than one category.
 
+"In US4 the receptionist of the laboratory should ask the client to get his TIN number."
 
 ### 1.3. Acceptance Criteria
 
@@ -50,7 +51,7 @@ ParameterCategory needs to be specified in US11.
 
 ### 1.5 Input and Output Data
 
-**Input Data:** CC number, Nhs Code
+**Input Data:** Client TIN, Nhs Code
 
 **Selected Data:** TestType, ParameterCategory, Parameter(s)
 
@@ -91,10 +92,10 @@ ParameterCategory needs to be specified in US11.
 | Step 1: asks to register a Test																		|	...interacting with the user?							 				|  RegisterTestUI			|  	PureFabrication: responsible for user interaction.                          |
 | 																										|	...instantiating a new Test?						 					|  TestStore				|  	HC + LC: Company delegates responsability to the TestStore.                            |
 | 																										|	...having the store information?					 					|  RegisterTestController	|	PureFabrication: Company uses controller.                            |
-| Step 2: requests Client citizen card number						 									|	n/a					 													|             				|                           |
-| Step 3: types the CC number  																			|	...checking if Client is registered?									|  ClientStore				|  	HC + LC: Company delegates responsability to the ClientStore.                            |
+| Step 2: requests Client TIN number						 											|	n/a					 													|             				|                          					|
+| Step 3: types the TIN number  																		|	...checking if Client is registered?									|  ClientStore				|  	HC + LC: Company delegates responsability to the ClientStore.                            |
 |																										|	...saving the client?							 						|  TestStore				|  	HC + LC: Test is requested by Client.                            |
-| Step 4: asks if wants to register a new Client or cancel operation									|	n/a					 													|             				|                           |
+| Step 4: asks if wants to register a new Client or cancel operation									|	n/a					 													|             				|                           				|
 | Step 4: chooses an option																				|	...registering a new client?								 			|  RegisterClientUI			|  	PureFabrication: responsible for user interaction.                            |
 | Step 5: lists all the TestType and asks to select one													|	...knowing all the TesType?												|  TestTypeStore			|   HC + LC: Company delegates responsability to the TestStore.                      |
 |																										|	...listing the TesType list?											|  TestTypeMapper 			|   DTO: TestTypeDto has the TestType list.                          |
