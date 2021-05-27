@@ -16,17 +16,20 @@ public class ReportStoreTest {
     public void createReport() {
         assertNull(reportStore.createReport(null,new app.domain.model.Test((new TestType("codex","description","collectingMethod")),"qwertyuiop",new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 11111111111L))));
         assertNull(reportStore.createReport("123456789",null));
+        Report report2 = reportStore.createReport("123456789",new app.domain.model.Test((new TestType("codex","description","collectingMethod")),"qwertyuiop",new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 11111111111L)));
 
+        assertEquals(report2.getDiagnosis(),report1.getDiagnosis());
+        //assertEquals(report2.getTest(),report1.getTest());
     }
 
     @Test
     public void validateReport() {
         //testing
-        boolean b = reportStore.validateReport(report1);
-        assertEquals(true,b);
+        assertTrue(reportStore.validateReport(report1));
         reportStore.saveReport(report1);
-        boolean b1 = reportStore.validateReport(report1);
-        assertEquals(false,b1);
+        assertFalse(reportStore.validateReport(report1));
+        Report report2 = reportStore.createReport("123356789",new app.domain.model.Test((new TestType("co2ex","description","collectingMethod")),"qweruiop",new Client(new Email("uer1@gmail.com"), "Jhn", 1111211111L, 1111111121111111L, 111111111121L, new Date("12/12/2021"), "M", 11111111112L)));
+        assertTrue(reportStore.validateReport(report2));
         assertFalse(reportStore.validateReport(null));
 
     }
