@@ -11,6 +11,7 @@ import java.util.Scanner;
  *
  * @author Bruno Pereira <1191454@isep.ipp.pt>
  * @author Tomás Pinto <1181835@isep.ipp.pt>
+ * @author Márcio Ramos <1181835@isep.ipp.pt>
  */
 public class SpecifyNewTestTypeUI implements Runnable {
 
@@ -26,28 +27,32 @@ public class SpecifyNewTestTypeUI implements Runnable {
 
         System.out.println("Create New Type Test:");
 
-        System.out.println("New code:");
+        System.out.println("New code(5 alphanumeric characters):");
         code = read.next();
-        System.out.println("Description:");
-        description = read.next();
-        System.out.println("Collecting Method:");
-        collectingMethod = read.next();
+        read.nextLine();
+        System.out.println("Description(max. 15 characters):");
+        description = read.nextLine();
+        System.out.println("Collecting Method(max. 20 characters):");
+        collectingMethod = read.nextLine();
         System.out.print("\n");
 
-        pc.writeParameterCategories();
+
         tc.createTestType(code,description,collectingMethod);
 
          String codep;
         do {
+            tc.writeTestType();
+            System.out.println("\nParameter Categories: ");
+            pc.writeParameterCategories();
             System.out.println("Type parameter's code: (Type Finish to end)");
-            codep = read.next();
+            codep = read.nextLine();
             ParameterCategory codeparameter  = pc.getParameterCategory(codep);
             if (codeparameter == null) {
                 System.out.println("Parameter Category doesn't exist!");
             } else
                 tc.addParameterToTest(pc.getParameterCategory(codep));
             System.out.print("\n");
-            tc.writeTestType();
+
         } while( ! codep.equalsIgnoreCase("Finish"));
     }
 }

@@ -8,6 +8,7 @@ import static app.domain.shared.Constants.ANS_YES;
 /**
  *
  * @author Tomás Pinto <1181835@isep.ipp.pt>
+ * @author Márcio Ramos <1181835@isep.ipp.pt>
  */
 
 public class DeleteTypeTestUI implements Runnable{
@@ -19,7 +20,7 @@ public class DeleteTypeTestUI implements Runnable{
         String verific;
 
         System.out.println("Choose the code of the test type you want to delete:\n");
-        specifyNewTestTypeController.writeTestType();
+        specifyNewTestTypeController.writeTestTypeStore();
         System.out.print("\n->");
         codedel= read.next();
         do {

@@ -47,7 +47,7 @@ public class SpecifyNewTestTypeControllerTest {
         //calculations
         specifyNewTestStore.getTestTypeList();
 
-        specifyNewTestTypeController.writeTestType();
+        specifyNewTestTypeController.writeTestTypeStore();
     }
 
     @Test

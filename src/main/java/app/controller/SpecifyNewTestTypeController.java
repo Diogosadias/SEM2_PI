@@ -10,6 +10,7 @@ import app.domain.model.TestType;
  *
  * @author Bruno Pereira <1191454@isep.ipp.pt>
  * @author Tomás Pinto <1181835@isep.ipp.pt>
+ * @author Márcio Ramos <1181835@isep.ipp.pt>
  */
 public class SpecifyNewTestTypeController {
 
@@ -58,10 +59,14 @@ public class SpecifyNewTestTypeController {
     /**
      * Write a Test Type.
      */
-    public void writeTestType(){
+    public void writeTestTypeStore(){
 
         for(TestType t : ts.getTestTypeList())
-            System.out.println(t); }
+            System.out.println(t);
+    }
+
+    public void writeTestType(){
+            System.out.println(tt); }
 
     /**
      * Delete an existing Test Type.
