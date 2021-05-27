@@ -46,7 +46,7 @@ public class Test {
         this.type = type;
         this.description = description.trim();
         this.client = client;
-        this.state = new State(Constants.REGISTERED);
+
         this.listParameters = new ArrayList<>();
         this.listCategories = new ArrayList<>();
         this.listTestParameter = new ArrayList<>();
@@ -87,6 +87,7 @@ public class Test {
     public void setNhsCode(String nhsCode) {
         checkNhsCodeAttribute(nhsCode);
         this.nhsCode = nhsCode;
+        this.state = new State(Constants.REGISTERED);
     }
 
     private void checkNhsCodeAttribute (String nhsCode) {
