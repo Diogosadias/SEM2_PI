@@ -39,7 +39,7 @@ public class ReportTest {
         catch (IllegalArgumentException ex){
             assertEquals("Test cannot be null!", ex.getMessage());
         }
-        
+
     }
 
     @Test
