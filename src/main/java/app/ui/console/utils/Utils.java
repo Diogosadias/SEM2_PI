@@ -165,10 +165,23 @@ public class Utils {
         Integer value;
         do
         {
+
             input = Utils.readLineFromConsole("Type your option: ");
-            value =  Integer.valueOf(input);
+            value = detectNumberFormatException(input);
         } while (value < 0 || value > list.size());
 
         return value - 1;
     }
+
+    static public Integer detectNumberFormatException(String s){
+        Integer n;
+        try {
+            n = Integer.valueOf(s);
+            return n;
+        }catch(NumberFormatException ex){
+            System.out.println("This is not an option!");
+            return -2;
+        }
+    }
+
 }
