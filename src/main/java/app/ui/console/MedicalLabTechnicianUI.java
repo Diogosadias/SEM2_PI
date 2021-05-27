@@ -23,7 +23,7 @@ public class MedicalLabTechnicianUI implements  Runnable {
         int option;
         do
         {
-            option = Utils.showAndSelectIndex(options, "\n\nMedicalLabTechnician Menu:");
+            option = Utils.showAndSelectIndex(options, "\n\nMedical Laboratory Technician Menu:");
 
             if ( (option >= 0) && (option < options.size()))
             {

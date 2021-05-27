@@ -21,44 +21,50 @@ import static app.domain.shared.Constants.ROLE_MED_LAB_TECH;
  */
 public class RecordSampleController {
 
-    private Company company;
-    private SampleStore tss;
+    private final Company company;
+    private final SampleStore sampleStore;
+    private final TestStore testStore;
+    private final ClientStore clientStore;
     private Sample sample;
-    public TestStore tstore;
 
     public RecordSampleController() {
         if (!App.getInstance().getCurrentUserSession().isLoggedInWithRole(ROLE_MED_LAB_TECH)) {
             throw new IllegalStateException("Access Unauthorized!");
         }
         this.company = App.getInstance().getCompany();
-        this.tss = this.company.getSampleStore();
-        this.tstore = this.company.getTestStore();
+        this.sampleStore = this.company.getSampleStore();
+        this.testStore = this.company.getTestStore();
+        this.clientStore = this.company.getClientStore();
     }
 
     public Sample createSample(String id, String testCode) throws IOException, BarcodeException, OutputException {
-        this.tstore.setTest(testCode);
-        this.sample = this.tss.createSample(id);
+        this.testStore.setTest(testCode);
+        this.sample = this.sampleStore.createSample(id);
         return sample;
     }
 
     public boolean saveSample() {
-        if(this.tss.saveSample(this.sample)) {
-            return this.tstore.addSampleToTest(sample);
+        if(this.sampleStore.saveSample(this.sample)) {
+            return this.testStore.addSampleToTest(sample);
         }
         System.out.println("\nSample is already registered in Test.");
         return false;
     }
 
     public List<TestDto> getTests() {
-        List<Test> tests = this.tstore.getRegisteredTests();
+        List<Test> tests = this.testStore.getRegisteredTests();
         TestMapper mapper = new TestMapper();
         return mapper.toDto(tests);
     }
 
     public List<TestDto> listTestSamples() {
-        List<Test> tests = this.tstore.getSampleCollectedTests();
+        List<Test> tests = this.testStore.getSampleCollectedTests();
         TestMapper mapper = new TestMapper();
         return mapper.testSamples_toDto(tests);
+    }
+
+    public String getTestClientNameByCC(long cc){
+        return this.clientStore.getClientByCC(cc).getName();
     }
 
     public Company getCompany() {

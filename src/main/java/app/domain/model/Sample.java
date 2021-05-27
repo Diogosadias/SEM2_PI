@@ -31,7 +31,7 @@ public class Sample {
         this.sampleBarcode = BarcodeFactory.createCode128(String.valueOf(numbers));
 
         //Save as JPEG
-        File barcodeJPEG = new File("Sample_" + id + ".jpeg");
+        File barcodeJPEG = new File("sample_"+id+"_"+ numbers+".jpeg");
 
         if (!barcodeJPEG.exists()){
             this.jpegPath = null;

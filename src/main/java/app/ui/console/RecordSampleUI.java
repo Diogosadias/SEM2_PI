@@ -28,22 +28,23 @@ public class RecordSampleUI implements Runnable {
         try {
             TestDto chosenTest = writeTests();
             System.out.println(chosenTest);
-            Barcode result = rsc.createSample(String.valueOf(chosenTest.getCode()),chosenTest.getCode()).getSampleBarcode();
+            boolean testFlag = Utils.confirm(chosenTest+"\nClient Name: "+this.rsc.getTestClientNameByCC(chosenTest.getClientCC())
+                    + "\nDo you wish to add samples to this test? Y/N");
+            if(!testFlag) throw new Exception("RE-RUN-UI");
+            int sampleNumber = Utils.readIntegerFromConsole("How many samples to collect?");
 
-            /*
-            * PRINT BARCODE
-            * SAVE BARCODE AS JPEG
-            */
-
-            if(Utils.confirm("Do you wish to register this sample? Y / N")) {
+            for(int i=0; i<sampleNumber; i++){
+                rsc.createSample(String.valueOf(chosenTest.getCode()),chosenTest.getCode());
                 if(this.rsc.saveSample()) {
-                    System.out.println("Sample registered with success!");
+                    System.out.println("Sample nº "+ (i+1) + " registered with success!");
                 }else{
-                    System.out.println("Sample was not registered!");
+                    System.out.println("Sample nº "+ i+1 + "was not registered!");
                 }
             }
         } catch (IOException | BarcodeException | OutputException | IllegalArgumentException e) {
             e.printStackTrace();
+        } catch (Exception e) {
+            run();
         }
 
     }
@@ -51,4 +52,5 @@ public class RecordSampleUI implements Runnable {
     public TestDto writeTests(){
         return (TestDto) Utils.showAndSelectOne(rsc.getTests(),"\nTests");
     }
+
 }
