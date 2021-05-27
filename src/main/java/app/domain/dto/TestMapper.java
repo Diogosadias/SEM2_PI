@@ -21,17 +21,19 @@ public class TestMapper {
     }
 
     public List<TestDto> toDto(List<Test> list){
+        if(list!=null) {
+            for (Test test : list) {
+                String code = test.getCode();
+                String description = test.getDescription();
+                Client client = test.getClient();
 
-        for(Test test: list){
-            String code = test.getCode();
-            String description = test.getDescription();
-            Client client = test.getClient();
+                TestDto dto = new TestDto(code, description, client.getCitizenCard());
 
-            TestDto dto = new TestDto(code,description,client.getCitizenCard());
-
-            testDto.add(dto);
+                testDto.add(dto);
+            }
+            return testDto;
         }
-        return testDto;
+        return null;
     }
 
     public List<TestDto> testParameters_toDto(List<Test> list){

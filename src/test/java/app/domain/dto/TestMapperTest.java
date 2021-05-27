@@ -1,24 +1,32 @@
 package app.domain.dto;
 
-import app.domain.model.TestStore;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.*;
+
 public class TestMapperTest {
+
+    List<TestDto> testDto = new ArrayList<>();
     TestMapper mapper = new TestMapper();
-    TestStore testStore = new TestStore();
 
     @Test
-    public void toDto() {
+    public void testToDto() {
+        assertNull(mapper.toDto(null));
+
     }
 
-    /*
     @Test
-    public void testGetTestCompletedList() {
-
-        assertNull(mapper.getTestCompletedList(null));
+    public void testParameters_toDto() {
     }
-*/
+
     @Test
-    public void getTestInformation() {
+    public void testSamples_toDto() {
+    }
+
+    @Test
+    public void testResults_toDto() {
     }
 }
