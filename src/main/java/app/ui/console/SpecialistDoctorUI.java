@@ -5,10 +5,10 @@ import app.ui.console.utils.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SpeacialistDoctorUI implements Runnable {
+public class SpecialistDoctorUI implements Runnable {
 
 
-    public SpeacialistDoctorUI(){
+    public SpecialistDoctorUI(){
 
     }
 
@@ -17,8 +17,8 @@ public class SpeacialistDoctorUI implements Runnable {
     public void run(){
 
         List<MenuItem> options = new ArrayList<MenuItem>();
-        options.add(new MenuItem("Create Sample", new RecordSampleUI()));
-
+        options.add(new MenuItem("Diagnosis - Write Report", new WriteReportUI()));
+        options.add(new MenuItem("List Diagnosed Tests", new ListDiagnosedTestUI()));
 
         boolean success = false;
         int option;

@@ -25,6 +25,7 @@ public class TestDto {
     private String type;
     private String description;
     private long clientCC;
+    private long tin;
     String nhsCode;
     List<Parameter> parameters = new ArrayList<>();
     List<ParameterCategory> categories = new ArrayList<>();
@@ -58,8 +59,9 @@ public class TestDto {
         this.sampleList = sampleList;
     }
 
-    public TestDto(String code,List<TestParameter> listTP){
+    public TestDto(String code,long tin,List<TestParameter> listTP){
         this.code = code;
+        this.tin = tin;
         this.listTP = listTP;
     }
 
@@ -111,6 +113,13 @@ public class TestDto {
         return parameters;
     }
 
+    public long getTin() {
+        return tin;
+    }
+
+    public void setTin(long tin) {
+        this.tin = tin;
+    }
 
     public void setNhsCode(String nhsCode) {
         this.nhsCode = nhsCode;

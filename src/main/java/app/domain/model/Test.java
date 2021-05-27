@@ -32,7 +32,7 @@ public class Test {
     private String code;
     private List<Parameter> listParameters;
     private List<ParameterCategory> listCategories;
-    private String state;
+    private State state;
 
     private TestParameter testParam;
     private List<TestParameter> listTestParameter;
@@ -46,7 +46,7 @@ public class Test {
         this.type = type;
         this.description = description.trim();
         this.client = client;
-        this.state = Constants.REGISTERED;
+        this.state = new State(Constants.REGISTERED);
         this.listParameters = new ArrayList<>();
         this.listCategories = new ArrayList<>();
         this.listTestParameter = new ArrayList<>();
@@ -68,6 +68,7 @@ public class Test {
         ExternalModule em = type.getExternalModule();
         EMRefValue refValue = em.getReferenceValue(param);
         testParam.addResult(result,metric,refValue);
+        this.state = new State(Constants.SAMPLE_ANALYSED);
     }
 
     public boolean addResultToList () {
@@ -186,7 +187,7 @@ public class Test {
         if(!this.sampleList.isEmpty() && this.sampleList.contains(sample)) {
             return false;
         }
-        this.state = Constants.SAMPLE_COLLECTED;
+        state.setDesignation(Constants.SAMPLE_COLLECTED);
         return (this.sampleList.add(sample));
     }
 
@@ -195,14 +196,17 @@ public class Test {
     }
 
     public boolean hasCondition(String state) {
-        return this.state.equals(state);
+        return this.state.currentState().equals(state);
     }
 
     public boolean setTestParameterReport (TestParameter tp, Report report) {
+        System.out.println(tp.getParameter().getCode());
         for (TestParameter param : listTestParameter) {
-            if (param == tp) {
+            System.out.println(param.getParameter().getCode());
+            if (param.getParameter().getCode().equals(tp.getParameter().getCode())) {
                 param.setReport(report);
-                this.state = Constants.DIAGNOSIS_MADE;
+                this.state = new State(Constants.DIAGNOSIS_MADE);
+                return true;
             }
         }
         throw new IllegalArgumentException("Not same TestParameter.");

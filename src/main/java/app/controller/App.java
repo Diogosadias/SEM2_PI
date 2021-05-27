@@ -135,15 +135,18 @@ App {
         ParameterCategory categoryCovid = new ParameterCategory("SC200","SARS-CoV-2","21001");
         this.company.getParameterCategoryStore().addParameterCategory(categoryCovid);
 
+        //Parameter - Category Covid
+        Parameter parameter8 = new Parameter("IgGAN","IgC antibodies","Detect presence of antibodies.",categoryCovid.getCode());
+        this.company.getParameterStore().addParameter(parameter8);
+
+        //TestType - Covid
+        TestType type2 = new TestType("TT-02","Covid Test","Sample");
+        type2.addParameterCategory(categoryCovid);
+        this.company.getTestTypeStore().addTestType(type2);
+
         //ParameterCategory - Blood Tests
         ParameterCategory category1 = new ParameterCategory("CBC00","Hemogram (CBC)","11001");
         this.company.getParameterCategoryStore().addParameterCategory(category1);
-
-        ParameterCategory category2 = new ParameterCategory("BMP00","Basic Metabolic Panel","11002");
-        this.company.getParameterCategoryStore().addParameterCategory(category2);
-
-        ParameterCategory category3 = new ParameterCategory("CMP00","Complete Metabolic Panel","11003");
-        this.company.getParameterCategoryStore().addParameterCategory(category3);
 
         //Parameter - Category 1
         Parameter parameter1 = new Parameter("WBC00","White Blood Cells (WBC)","White blood cells count",category1.getCode());
@@ -163,6 +166,18 @@ App {
         Parameter parameter13 = new Parameter("ESR00","Erythrocyte Sedimentation Rate (ESR)","Erythrocyte Sedimentation count",category1.getCode());
         this.company.getParameterStore().addParameter(parameter13);
 
+        //TestType
+        TestType type1 = new TestType("TT-01","Blood Test","Blood sample");
+        type1.addParameterCategory(category1);
+        this.company.getTestTypeStore().addTestType(type1);
+
+        /*
+        ParameterCategory category2 = new ParameterCategory("BMP00","Basic Metabolic Panel","11002");
+        this.company.getParameterCategoryStore().addParameterCategory(category2);
+
+        ParameterCategory category3 = new ParameterCategory("CMP00","Complete Metabolic Panel","11003");
+        this.company.getParameterCategoryStore().addParameterCategory(category3);
+
         //Parameter - Category 2
         Parameter parameter4 = new Parameter("ElT00","Electrolytes","Check levels of Electrolytes in blood.",category2.getCode());
         this.company.getParameterStore().addParameter(parameter4);
@@ -175,20 +190,7 @@ App {
         Parameter parameter7 = new Parameter("TPT00","Total protein","BMP measurements as well as total Proteins, related to liver function.",category3.getCode());
         this.company.getParameterStore().addParameter(parameter7);
 
-        //Parameter - Category Covid
-        Parameter parameter8 = new Parameter("IgGAN","IgC antibodies","Detect presence of antibodies.",categoryCovid.getCode());
-        this.company.getParameterStore().addParameter(parameter8);
-
-        //TestType
-        TestType type1 = new TestType("TT-01","Blood Test","Blood sample");
-        type1.addParameterCategory(category1);
-        type1.addParameterCategory(category2);
-        type1.addParameterCategory(category3);
-        this.company.getTestTypeStore().addTestType(type1);
-
-        TestType type2 = new TestType("TT-02","Covid Test","Sample");
-        type2.addParameterCategory(categoryCovid);
-        this.company.getTestTypeStore().addTestType(type2);
+         */
 
         //Test
         Test test1 = new Test (type1,type1.getCollectingMethod(),client1);

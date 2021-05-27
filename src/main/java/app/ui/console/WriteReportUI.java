@@ -52,22 +52,19 @@ public class WriteReportUI implements Runnable{
     }
 
     private boolean registerData() {
-        List<TestDto> set = new ArrayList<>(); 
-        try{           
-            set = writeReportController.getTestList();
+        try{
+            List<TestDto> set = writeReportController.getTestList();
+            TestDto dto = (TestDto)Utils.showAndSelectOne(set, "\nList of Chemical Analysis Tests: \n");
+            TestParameter tp = (TestParameter)Utils.showAndSelectOne(dto.getListTestParameter(), "\nList of Parameters(Test): \n");
+            String diagnosis = Utils.readLineFromConsole("Diagnosis: ");
+
+            writeReportController.createReport(diagnosis, dto.getCode());
+            return writeReportController.saveReport(tp);
         }
         catch (Exception e) {
             System.out.println("Empty List.");
+            return false;
         }
-        
-        TestDto dto = (TestDto)Utils.showAndSelectOne(set, "\nList of Chemical Analysis Tests: \n");
-        //writeReportController.getTestInformation(dto);
-        //Aqui tens de perguntar qual Parameter o Specialist Doctor tem de fazer Report e Diagnosis
-        TestParameter tp = (TestParameter)Utils.showAndSelectOne(dto.getListTestParameter(), "\nList of Parameters(Test): \n");
-        String diagnosis = Utils.readLineFromConsole("Diagnosis: ");
-
-        writeReportController.createReport(diagnosis, dto.getCode());
-        return writeReportController.saveReport(tp);
     }
 
     private void presentsData() {

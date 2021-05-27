@@ -58,12 +58,13 @@ public class TestMapper {
         return testDto;
     }
 
-    public List<TestDto> testResults_toDto(List<Test> list){
+    public List<TestDto> listTestParameter_toDto(List<Test> list){
 
         for(Test test: list){
             String code = test.getCode();
+            long tin = test.getClient().getTin();
             List<TestParameter> listTP = test.getListTestParameter();
-            TestDto dto = new TestDto(code,listTP);
+            TestDto dto = new TestDto(code,tin,listTP);
             testDto.add(dto);
         }
         return testDto;

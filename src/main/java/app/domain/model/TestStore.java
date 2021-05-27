@@ -150,7 +150,7 @@ public class TestStore {
                 }
             }
             if (temp.isEmpty()) {
-                throw new IllegalArgumentException("Test list in this state [ "+ state + " ] is empty.\n");
+                throw new IllegalArgumentException("Test list in this state [ " + state + " ] is empty.\n");
             }
             return temp;
         }
