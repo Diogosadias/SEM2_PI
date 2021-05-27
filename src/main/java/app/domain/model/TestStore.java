@@ -184,6 +184,10 @@ public class TestStore {
         return dto;
     }
 
+    public boolean setTestStateDiagnosis(Test test) {
+        return test.testDiagnosisCompleted();
+    }
+
     public String getTestToString() {
         String s =  "\nClient: " + this.test.getClient().getTin() +
                 "\nType of Test: " + this.test.getTestType().getDescription() +
