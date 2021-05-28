@@ -14,6 +14,7 @@ import java.util.Random;
  * Sample - Domain Class representing a sample. Identified by it´s Barcode and Name.
  *
  * @author Gil Pereira
+ * @author Tiago Ferreira
  */
 public class Sample {
 

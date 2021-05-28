@@ -14,6 +14,7 @@ import java.io.IOException;
  * RecordSampleUI - UI for US5, registering a sample to a test.
  *
  * @author Gil Pereira
+ * @author Tiago Ferreira
  */
 public class RecordSampleUI implements Runnable {
 
