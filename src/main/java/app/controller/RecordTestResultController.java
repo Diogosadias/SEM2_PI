@@ -31,8 +31,9 @@ public class RecordTestResultController {
         return this.tstore.getListParametersFromTest();
     }
 
-    public void addTestResult(ParameterDto dto, String result, double metric){
+    public boolean addTestResult(ParameterDto dto, String result, double metric){
         this.tstore.getTest().addTestResult(dto.getCode(),result,metric);
+        return this.validateTestResult();
     }
 
     public boolean validateTestResult () {

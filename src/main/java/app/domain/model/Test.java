@@ -96,9 +96,6 @@ public class Test {
         this.testParam = new TestParameter(param);
         ExternalModule em = testType.getExternalModule();
         EMRefValue refValue = em.getEMRefValue(this.description,param);
-        testParam.addResult(result,metric,refValue);
-        this.state = Constants.SAMPLE_ANALYSED;
-        this.dateChemical = new Date(System.currentTimeMillis());
         this.testParam.addResult(result,metric,refValue);
     }
 
@@ -106,6 +103,8 @@ public class Test {
         if (!listTestParameter.isEmpty() && listTestParameter.contains(this.testParam) ) {
             return false;
         }
+        this.state = Constants.SAMPLE_ANALYSED;
+        this.dateChemical = new Date(System.currentTimeMillis());
         return this.listTestParameter.add(this.testParam);
     }
 
