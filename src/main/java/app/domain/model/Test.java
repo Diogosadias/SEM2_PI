@@ -99,6 +99,7 @@ public class Test {
         testParam.addResult(result,metric,refValue);
         this.state = Constants.SAMPLE_ANALYSED;
         this.dateChemical = new Date(System.currentTimeMillis());
+        this.testParam.addResult(result,metric,refValue);
     }
 
     public boolean addResultToList () {
@@ -186,6 +187,7 @@ public class Test {
         if(!this.sampleList.isEmpty() && this.sampleList.contains(sample)) {
             return false;
         }
+        this.state = Constants.SAMPLE_COLLECTED;
         return (this.sampleList.add(sample));
     }
 
