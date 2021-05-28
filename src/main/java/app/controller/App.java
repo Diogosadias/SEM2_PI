@@ -193,13 +193,21 @@ App {
          */
 
         //Test
-        Test test1 = new Test (type1,type1.getCollectingMethod(),client1);
-        test1.addCategory(category1);
-        test1.addParameter(parameter1);
-        test1.setNhsCode("nhsCode-AB01");
-        test1.setCode("000000000001");
-        this.company.getTestStore().addTest(test1);
+        Test forSamples = new Test (type1,type1.getCollectingMethod(),client1);
+        forSamples.addCategory(category1);
+        forSamples.addParameter(parameter1);
+        forSamples.setNhsCode("nhsCode-AB01");
+        forSamples.setCode("000000000001");
+        this.company.getTestStore().addTest(forSamples);
 
+        Test forReports = new Test (type1,type1.getCollectingMethod(),client1);
+        forReports.addCategory(category1);
+        forReports.addParameter(parameter1);
+        forReports.setNhsCode("nhsCode-AB02");
+        forReports.setCode("000000000002");
+        forReports.addTestResult(parameter1.getCode(),"result",1);
+        forReports.addResultToList();
+        this.company.getTestStore().addTest(forReports);
 
     }
 
