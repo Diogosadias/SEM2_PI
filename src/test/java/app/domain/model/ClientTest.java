@@ -231,18 +231,6 @@ public class ClientTest {
 
     @Test
     public void checkCitizenNumber(){
-        try{
-            Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 111111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 11111111111L);
-            fail();
-        }catch (IllegalArgumentException ex){
-            assertEquals("Citizen Number code must have 16 chars.",ex.getMessage());
-        }
-        try{
-            Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111112L, 111111111111111112L, 111111111111L, new Date("12/12/2021"), "M", 11111111111L);
-            fail();
-        }catch (IllegalArgumentException ex){
-            assertEquals("Citizen Number code must have 16 chars.",ex.getMessage());
-        }
     }
 
     @Test
