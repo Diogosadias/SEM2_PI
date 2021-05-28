@@ -53,11 +53,50 @@ public class TestTest {
         @Test
         public void setCode(){
         String code = null;
+        String code2 = "";
         try{
             test.setCode(code);
         }catch (IllegalArgumentException ex){
             assertEquals("Error: Code is null.",ex.getMessage());
         }
+        try{
+            test.setCode(code2);
+        }catch (IllegalArgumentException ex){
+            assertEquals("Error: Code is null.",ex.getMessage());
+        }
+        }
+
+        @Test
+        public void getListParametersTest(){
+        try{
+            test.getListParameters();
+        }catch (IllegalArgumentException ex){
+            assertEquals("Test: List Parameter is empty.",ex.getMessage());
+        }
+        }
+
+        @Test
+        public void getListCategories(){
+
+        try{
+            test.getListCategories();
+        }catch (IllegalArgumentException ex){
+            assertEquals("Test: List ParameterCategory is empty.",ex.getMessage());
+        }
+
+        }
+
+        @Test
+        public void addParameterTest(){
+        Parameter parameter = new Parameter("code","parameter","description","category");
+
+        try {
+            test.addParameter(parameter);
+            test.addParameter(parameter);
+        }catch (IllegalArgumentException ex){
+            assertEquals("Test: Parameter already exists.",ex.getMessage());
+        }
+
         }
 
 
