@@ -96,9 +96,6 @@ public class Test {
         this.testParam = new TestParameter(param);
         ExternalModule em = testType.getExternalModule();
         EMRefValue refValue = em.getEMRefValue(this.description,param);
-        testParam.addResult(result,metric,refValue);
-        this.state = Constants.SAMPLE_ANALYSED;
-        this.dateChemical = new Date(System.currentTimeMillis());
         this.testParam.addResult(result,metric,refValue);
     }
 
@@ -106,6 +103,8 @@ public class Test {
         if (!listTestParameter.isEmpty() && listTestParameter.contains(this.testParam) ) {
             return false;
         }
+        this.state = Constants.SAMPLE_ANALYSED;
+        this.dateChemical = new Date(System.currentTimeMillis());
         return this.listTestParameter.add(this.testParam);
     }
 
@@ -221,14 +220,6 @@ public class Test {
         return this.dateValidation;
     }
 
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-    
     public String Parameters_toString() {
         String s = "\n\nList of Parameter(s) for each Category to be analysed: ";
         for (ParameterCategory category : this.getListCategories()) {

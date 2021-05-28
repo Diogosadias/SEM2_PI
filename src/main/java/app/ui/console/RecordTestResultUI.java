@@ -27,26 +27,31 @@ public class RecordTestResultUI implements Runnable {
                 return;
             }
             List<ParameterDto> parametersDto = m_controller.getListParameters(testDto.getCode());
-            ParameterDto parameterDto = (ParameterDto) Utils.showAndSelectOne(parametersDto, "\nList of Parameters:\n");
-            Scanner read = new Scanner(System.in);
-            System.out.println("\nResult: ");
-            String result = read.nextLine();
-            System.out.println("\nMetric.");
-            double metric = read.nextDouble();
-            m_controller.addTestResult(parameterDto,result,metric);
-            if(m_controller.validateTestResult()) {
-                presentsData();
-                if (!Utils.confirm("\nDo you want to confirm the Test/Parameter Result? (Y/N)")) {
-                    System.out.println("\nOperation canceled.");
-                } else {
-                    if (m_controller.saveTestResult()) {
-                        System.out.println("\nTestResult saved successfully.");
+            while (!parametersDto.isEmpty()) {
+                ParameterDto parameterDto = (ParameterDto) Utils.showAndSelectOne(parametersDto, "\nList of Parameters:\n");
+                Scanner read = new Scanner(System.in);
+                System.out.println("\nResult: ");
+                String result = read.nextLine();
+                System.out.println("\nMetric.");
+                double metric = read.nextDouble();
+                if (m_controller.addTestResult(parameterDto, result, metric)) {
+                    presentsData();
+                    if (!Utils.confirm("\nDo you want to confirm the Test/Parameter Result? (Y/N)")) {
+                        System.out.println("\nOperation canceled.");
                     } else {
-                        System.out.println("\nError: Operation Failed.");
+                        if (m_controller.saveTestResult()) {
+                            System.out.println("\nTestResult saved successfully.");
+                        } else {
+                            System.out.println("\nError: Operation Failed.");
+                        }
                     }
+
+                } else {
+                    System.out.println("\nError: Operation Failed.");
                 }
-            } else {
-                System.out.println("\nError: Operation Failed.");
+                if (parametersDto.isEmpty()) {
+                    System.out.println("\nAll parameters have been analysed, Operation Completed.\n");
+                }
             }
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
