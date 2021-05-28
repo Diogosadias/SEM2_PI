@@ -36,7 +36,6 @@ public class TestTypeDtoTest {
     @Before
     public void setUp() {
         List<ParameterCategoryDto> listCategories = new ArrayList<>();
-        listCategories.add(new ParameterCategoryDto("12345", "teste"));
         testTypeDto = new TestTypeDto("12345", "teste", listCategories);
     }
     
@@ -76,7 +75,6 @@ public class TestTypeDtoTest {
         System.out.println("getListCategories");
         TestTypeDto instance = testTypeDto;
         List<ParameterCategoryDto> expResult = new ArrayList<>();
-        expResult.add(new ParameterCategoryDto("12345", "teste"));
         List<ParameterCategoryDto> result = instance.getListCategories();
         assertEquals(expResult, result);
     }
