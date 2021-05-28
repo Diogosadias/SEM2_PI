@@ -25,11 +25,11 @@ public class Test {
     private String description;
     private TestType type;
     private String code;
-    private List<Parameter> listParameters;
-    private List<ParameterCategory> listCategories;
+    private final List<Parameter> listParameters;
+    private final List<ParameterCategory> listCategories;
     private TestParameter testParam;
-    private List<TestParameter> listTestParameter;
-    private List<Sample> sampleList = new ArrayList<>();
+    private final List<TestParameter> listTestParameter;
+    private final List<Sample> sampleList = new ArrayList<>();
     private Date dateRegistered;
     private Date dateChemical;
     private Date dateDiagnosis;
@@ -91,10 +91,10 @@ public class Test {
     }
 
     public void addTestResult (String code, String result, double metric) {
-        TestType type = this.getTestType();
+        TestType testType = this.getTestType();
         Parameter param = this.getParameterByCode(code);
         this.testParam = new TestParameter(param);
-        ExternalModule em = type.getExternalModule();
+        ExternalModule em = testType.getExternalModule();
         EMRefValue refValue = em.getEMRefValue(this.description,param);
         testParam.addResult(result,metric,refValue);
         this.state = Constants.SAMPLE_ANALYSED;
