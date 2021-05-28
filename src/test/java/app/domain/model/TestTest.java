@@ -98,16 +98,7 @@ public class TestTest {
 
     @Test
     public void checkAddTestResult(){
-        Parameter parameter = new Parameter("code","parameter","description","category");
-        this.test.addParameter(parameter);
-        ExternalModule em = this.test.getTestType().getExternalModule();
-
-        TestParameter tp = new TestParameter(parameter);
-        tp.addResult("12", 12, em.getEMRefValue(this.test.getDescription(), parameter));
-
-        test.addTestResult("code", "12", 12);
-        assertEquals(this.test.getCurrentTestParameter().toString(), tp.toString());
-        assertTrue(this.test.hasCondition(Constants.SAMPLE_ANALYSED));
+   
     }
 
     @Test
