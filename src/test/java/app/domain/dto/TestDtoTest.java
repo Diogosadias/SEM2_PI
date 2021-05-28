@@ -57,7 +57,7 @@ public class TestDtoTest {
     public void testGetSampleList() {
         System.out.println("getSampleList");
         TestDto instance = testDto3;
-        List<Sample> expResult = null;
+        List<Sample> expResult = new ArrayList<>();
         List<Sample> result = instance.getSampleList();
         assertEquals(expResult, result);
     }
@@ -177,7 +177,7 @@ public class TestDtoTest {
     public void testGetDateDiagnosis() {
         System.out.println("getDateDiagnosis");
         TestDto instance = testDto1;
-        Date expResult = new Date(2021, 10, 10);;
+        Date expResult = new Date(2021, 10, 10);
         Date result = instance.getDateDiagnosis();
         assertEquals(expResult, result);
     }
@@ -188,12 +188,10 @@ public class TestDtoTest {
     @Test
     public void testGetDateValidation() {
         System.out.println("getDateValidation");
-        TestDto instance = new TestDto();
-        Date expResult = null;
+        TestDto instance = testDto1;
+        Date expResult = new Date(2021, 10, 10);
         Date result = instance.getDateValidation();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
     /**
