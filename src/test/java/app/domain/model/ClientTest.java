@@ -261,6 +261,12 @@ public class ClientTest {
         }catch (IllegalArgumentException ex){
             assertEquals("You must define your sex as 'M' or 'F'.",ex.getMessage());
         }
+        try{
+            Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "Feminine", 11111111111L);
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("You must define your sex as 'M' or 'F'.",ex.getMessage());
+        }
     }
 
     @Test
