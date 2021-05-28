@@ -51,4 +51,8 @@ public class Report {
         return st.countTokens();
     }
 
+    @Override
+    public String toString() {
+        return "\nDiagnosis:\n" + this.diagnosis + "\n" + this.test.toString();
+    }
 }

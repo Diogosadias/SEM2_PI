@@ -59,7 +59,7 @@ public class WriteReportUI implements Runnable{
             String diagnosis = Utils.readLineFromConsole("Diagnosis: ");
 
             writeReportController.createReport(diagnosis, dto.getCode());
-            return writeReportController.saveReport(tp);
+            return writeReportController.saveReport();
         }
         catch (Exception e) {
             System.out.println("Empty List.");

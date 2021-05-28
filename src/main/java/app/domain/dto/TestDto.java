@@ -6,6 +6,7 @@ import app.domain.model.Sample;
 import app.domain.model.TestParameter;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -14,12 +15,13 @@ import java.util.List;
  * @author Bruno Pereira <1191454@isep.ipp.pt>
  */
 public class TestDto {
-    
-    public String sampleDate;
-    private String dateValidation;
-    private String dateDiagnosis;
-    public String dateChemical;
-    private String parameterValue;
+
+    private Date dateRegistered;
+    private Date dateSampleCollected;
+    private Date dateChemicalAnalysis;
+    private Date dateDiagnosis;
+    private Date dateValidation;
+
     private String code;
     private List<Sample> sampleList = new ArrayList<>();
     private String type;
@@ -63,26 +65,6 @@ public class TestDto {
         this.code = code;
         this.tin = tin;
         this.listTP = listTP;
-    }
-
-    public String getSampleDate() {
-        return sampleDate;
-    }
-
-    public String getDateValidation() {
-        return dateValidation;
-    }
-
-    public String getDateDiagnosis() {
-        return dateDiagnosis;
-    }
-
-    public String getDateChemical() {
-        return dateChemical;
-    }
-
-    public String getParameterValue() {
-        return parameterValue;
     }
 
     public List<Sample> getSampleList() {
@@ -135,6 +117,38 @@ public class TestDto {
 
     public void setListTP(List<TestParameter> listTP) {
         this.listTP = listTP;
+    }
+
+    public Date getDateRegistered() {
+        return dateRegistered;
+    }
+
+    public Date getDateChemicalAnalysis() {
+        return dateChemicalAnalysis;
+    }
+
+    public Date getDateDiagnosis() {
+        return dateDiagnosis;
+    }
+
+    public Date getDateValidation() {
+        return dateValidation;
+    }
+
+    public void setDateRegistered (Date dateRegistered) {
+        this.dateRegistered = dateRegistered;
+    }
+
+    public void setDateChemicalAnalysis (Date dateChemicalAnalysis) {
+        this.dateChemicalAnalysis = dateChemicalAnalysis;
+    }
+
+    public void setDateDiagnosis (Date dateDiagnosis) {
+        this.dateDiagnosis = dateDiagnosis;
+    }
+
+    public void setDateValidation (Date dateValidation) {
+        this.dateValidation = dateValidation;
     }
 
     public String toString(){

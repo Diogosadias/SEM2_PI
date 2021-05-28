@@ -43,4 +43,13 @@ public class ReportStore {
 
         return this.reportlist.add(report);
     }
+
+    public Report getReportByTestCode (String code) {
+        for(Report r : reportlist) {
+            if (r.getTest().getCode().equals(code)) {
+                return r;
+            }
+        }
+        throw new IllegalArgumentException("Report: There is no test with that code.");
+    }
 }

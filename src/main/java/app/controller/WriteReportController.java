@@ -49,14 +49,11 @@ public class WriteReportController {
         return reportStore.validateReport(this.report);
     }
 
-    public boolean saveReport(TestParameter tp){
-        try {
-            this.testStore.getTest().setTestParameterReport(tp,this.report);
-            return this.reportStore.saveReport(this.report);
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-            return false;
+    public boolean saveReport(){
+        if(this.reportStore.saveReport(this.report)){
+            return this.testStore.setTestStateDiagnosis(this.report.getTest());
         }
+        return false;
     }
 
     public String getReportToString() {        
@@ -70,12 +67,12 @@ public class WriteReportController {
     }
 
     public String showDiagnosis(TestDto test) {
-        String s = "\nTest n: " + test.getCode() + "\nClient: " + test.getClientCC();
+        String s = "\nTest n: " + test.getCode() + "\nClient: " + test.getClientCC() + "\nDate: " + test.getDateDiagnosis();
         for (TestParameter tp : test.getListTestParameter()) {
             s += "\n" + tp.getParameter() +
-            "\nResult: " + tp.getResult().getResult() +
-            "\nDiagnosis: " + tp.getReport();
+            "\nResult: " + tp.getResult().getResult();
         }
+        s += "Report: " + this.reportStore.getReportByTestCode(test.getCode());
         return s;
     }
 

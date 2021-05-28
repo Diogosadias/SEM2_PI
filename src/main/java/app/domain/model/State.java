@@ -62,20 +62,24 @@ public class State {
         return new Date(year,month,day,hour,min,sec);
     }
 
-    public Date getDate(String state) {
-        switch (state){
-            case Constants.REGISTERED:
-                return this.dateRegistered;
-            case Constants.SAMPLE_COLLECTED:
-                return this.dateSampleCollected;
-            case Constants.SAMPLE_ANALYSED:
-                return this.dateChemicalAnalysis;
-            case Constants.DIAGNOSIS_MADE:
-                return this.dateDiagnosis;
-            case Constants.VALIDATED:
-                return this.dateValidation;
-        }
-        return null;
+    public Date getDateRegistered() {
+        return dateRegistered;
+    }
+
+    public Date getDateSampleCollected() {
+        return dateSampleCollected;
+    }
+
+    public Date getDateChemicalAnalysis() {
+        return dateChemicalAnalysis;
+    }
+
+    public Date getDateDiagnosis() {
+        return dateDiagnosis;
+    }
+
+    public Date getDateValidation() {
+        return dateValidation;
     }
 
     public String currentState() {

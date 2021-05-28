@@ -4,6 +4,7 @@ import app.controller.App;
 import app.domain.model.*;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -71,10 +72,18 @@ public class TestMapper {
             long tin = test.getClient().getTin();
             List<TestParameter> listTP = test.getListTestParameter();
             TestDto dto = new TestDto(code,tin,listTP);
-            testDto.add(dto);
-        }
-        return testDto;
+            Date dateRegistered = test.getDateRegistered();
+            Date dateChemical = test.getDateDiagnosis();
+            dto.setDateRegistered(dateRegistered);
+            dto.setDateChemicalAnalysis(dateChemical);
+                if(test.getDateDiagnosis() != null) {
+                    Date dateDiagnosis = test.getDateDiagnosis();
+                    dto.setDateDiagnosis(dateDiagnosis);
                 }
+            testDto.add(dto);
+            }
+                    return testDto;
+        }
         return null;
     }
 

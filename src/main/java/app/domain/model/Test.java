@@ -8,6 +8,7 @@ import com.example2.EMRefValue;
 
 import java.util.ArrayList;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -16,15 +17,8 @@ import java.util.List;
  * @author Bruno Pereira <1191454@isep.ipp.pt>
  */
 public class Test {
-    
-    public String sampleDate;
-    private String dateValidation;
-    private String dateDiagnosis;
-    public String dateChemical;
-    private String parameterValue;
-    private List<Sample> sampleList = new ArrayList<>();
 
-
+    private State state;
     private Client client;
     private String nhsCode;
     private String description;
@@ -32,10 +26,9 @@ public class Test {
     private String code;
     private List<Parameter> listParameters;
     private List<ParameterCategory> listCategories;
-    private State state;
-
     private TestParameter testParam;
     private List<TestParameter> listTestParameter;
+    private List<Sample> sampleList = new ArrayList<>();
 
 
     public Test (TestType type, String description,Client client) {
@@ -50,6 +43,37 @@ public class Test {
         this.listParameters = new ArrayList<>();
         this.listCategories = new ArrayList<>();
         this.listTestParameter = new ArrayList<>();
+    }
+
+    private void checkTypeAttribute (TestType type) {
+        if(type == null) {
+            throw new IllegalArgumentException("Creating Test Error: Test type is null.");
+        }
+    }
+    private void checkDescriptionAttribute (String description) {
+        if(description.trim().length() == 0) {
+            throw new IllegalArgumentException("Creating Test Error: Description is empty.");
+        }
+    }
+    private void checkClientAttribute (Client client) {
+        if(client == null) {
+            throw new IllegalArgumentException("Creating Test Error: Client is null.");
+        }
+    }
+    private void checkNhsCodeAttribute (String nhsCode) {
+        int count = 0;
+        for(int i = 0; i < nhsCode.length(); i++) {
+            if(nhsCode.charAt(i) != ' ')
+                count++;
+        }
+        if(count != 12) {
+            throw new IllegalArgumentException("Adding NhsCode to Test Error: NhsCode needs 12 alphanumeric characters.");
+        }
+    }
+    public void setNhsCode(String nhsCode) {
+        checkNhsCodeAttribute(nhsCode);
+        this.nhsCode = nhsCode;
+        this.state = new State(Constants.REGISTERED);
     }
 
     public Parameter getParameterByCode(String code) {
@@ -82,38 +106,6 @@ public class Test {
 
     public TestParameter getCurrentTestParameter () {
         return this.testParam;
-    }
-
-    public void setNhsCode(String nhsCode) {
-        checkNhsCodeAttribute(nhsCode);
-        this.nhsCode = nhsCode;
-        this.state = new State(Constants.REGISTERED);
-    }
-
-    private void checkNhsCodeAttribute (String nhsCode) {
-        int count = 0;
-        for(int i = 0; i < nhsCode.length(); i++) {
-            if(nhsCode.charAt(i) != ' ')
-                count++;
-        }
-        if(count != 12) {
-            throw new IllegalArgumentException("Adding NhsCode to Test Error: NhsCode needs 12 alphanumeric characters.");
-        }
-    }
-    private void checkTypeAttribute (TestType type) {
-        if(type == null) {
-            throw new IllegalArgumentException("Creating Test Error: Test type is null.");
-        }
-    }
-    private void checkDescriptionAttribute (String description) {
-        if(description.trim().length() == 0) {
-            throw new IllegalArgumentException("Creating Test Error: Description is empty.");
-        }
-    }
-    private void checkClientAttribute (Client client) {
-        if(client == null) {
-            throw new IllegalArgumentException("Creating Test Error: Client is null.");
-        }
     }
 
     public String getCode() {
@@ -200,17 +192,29 @@ public class Test {
         return this.state.currentState().equals(state);
     }
 
-    public boolean setTestParameterReport (TestParameter tp, Report report) {
-        System.out.println(tp.getParameter().getCode());
-        for (TestParameter param : listTestParameter) {
-            System.out.println(param.getParameter().getCode());
-            if (param.getParameter().getCode().equals(tp.getParameter().getCode())) {
-                param.setReport(report);
-                this.state = new State(Constants.DIAGNOSIS_MADE);
-                return true;
-            }
-        }
-        throw new IllegalArgumentException("Not same TestParameter.");
+    public boolean testDiagnosisCompleted () {
+        this.state = new State(Constants.DIAGNOSIS_MADE);
+        return true;
+    }
+
+    public Date getDateRegistered() {
+        return this.state.getDateRegistered();
+    }
+
+    public Date getDateSampleCollected() {
+        return this.state.getDateSampleCollected();
+    }
+
+    public Date getDateChemicalAnalysis() {
+        return this.state.getDateChemicalAnalysis();
+    }
+
+    public Date getDateDiagnosis() {
+        return this.state.getDateDiagnosis();
+    }
+
+    public Date getDateValidation() {
+        return this.state.getDateValidation();
     }
 
     @Override
@@ -221,6 +225,7 @@ public class Test {
                 "\nType of Test: " + this.type.getDescription() +
                 "\nCollection Method: " + this.description+
                 "\nNhs Code: " + this.nhsCode +
+                "\nRegistration date: " + this.state.getDateRegistered() +
                 "\n\nList of Parameter(s) for each Category to be analysed: ";
         for (ParameterCategory category : this.getListCategories()) {
             s = s + "\n\n - " + category.getDescription();
