@@ -3,9 +3,7 @@ package app.ui.console;
 import app.controller.RecordTestResultController;
 import app.domain.dto.ParameterDto;
 import app.domain.dto.TestDto;
-import app.domain.shared.Constants;
 import app.ui.console.utils.Utils;
-import com.example1.ExternalModule3API;
 
 import java.util.List;
 import java.util.Scanner;
@@ -41,6 +39,7 @@ public class RecordTestResultUI implements Runnable {
                     } else {
                         if (m_controller.saveTestResult()) {
                             System.out.println("\nTestResult saved successfully.");
+                            parametersDto.remove(parameterDto);
                         } else {
                             System.out.println("\nError: Operation Failed.");
                         }
