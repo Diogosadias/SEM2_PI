@@ -18,7 +18,6 @@ public class CreateNewParameterCategoryUI implements Runnable{
         String nhsId;
 
         ParameterCategoryController pc = new ParameterCategoryController();
-        Scanner read = new Scanner(System.in);
         code = Utils.readLineFromConsole("New code: ");
         description = Utils.readLineFromConsole("Description: ");
         nhsId = Utils.readLineFromConsole("NHSID: ");
