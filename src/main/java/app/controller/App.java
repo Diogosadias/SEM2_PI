@@ -198,7 +198,6 @@ App {
         test1.addParameter(parameter1);
         test1.setNhsCode("nhsCode-AB01");
         test1.setCode("000000000001");
-        test1.setState(Constants.SAMPLE_ANALYSED);
         this.company.getTestStore().addTest(test1);
 
 

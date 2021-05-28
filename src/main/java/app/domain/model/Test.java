@@ -220,14 +220,6 @@ public class Test {
         return this.dateValidation;
     }
 
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-    
     public String Parameters_toString() {
         String s = "\n\nList of Parameter(s) for each Category to be analysed: ";
         for (ParameterCategory category : this.getListCategories()) {
