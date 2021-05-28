@@ -2,8 +2,13 @@ package app.domain.model;
 
 
 import org.junit.Test;
-
 import static org.junit.Assert.*;
+
+/**
+ *
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
+ */
+
 public class CompanyTest{
 
     Company test = new Company("TEST");
@@ -65,4 +70,13 @@ public class CompanyTest{
         assertNotNull(test.getParameterStore());
     }
 
+    @Test
+    public void testGetReportStore() {
+        assertNotNull(test.getReportStore());
+    }
+
+    @Test
+    public void testGetSampleStore() {
+        assertNotNull(test.getSampleStore());
+    }
 }
