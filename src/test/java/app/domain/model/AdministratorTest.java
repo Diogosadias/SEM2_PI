@@ -25,6 +25,8 @@ public class AdministratorTest {
             assertEquals("Address must have no more than 30 characters.",ex.getMessage());
         }
 
+        assertEquals(admin.getAdress(),"adress");
+
     }
 
     @Test
@@ -45,6 +47,8 @@ public class AdministratorTest {
         }catch (IllegalArgumentException ex){
             assertEquals("SOC must have 5 chars.",ex.getMessage());
         }
+
+        assertEquals("aaaaa",admin.getStandardOcuppationalCode());
     }
 
     @Test
@@ -68,6 +72,8 @@ public class AdministratorTest {
         } catch (IllegalArgumentException ex) {
             assertEquals("Employee ID must have 5 chars.", ex.getMessage());
         }
+
+        assertEquals("11111",admin.getEmployeeId());
     }
 
         @Test

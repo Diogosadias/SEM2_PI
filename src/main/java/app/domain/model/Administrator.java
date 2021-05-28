@@ -57,11 +57,12 @@ public class Administrator extends User {
      *
      * @param adress administrator's address
      */
-    private void checkAdressrules(String adress) {
+    private boolean checkAdressrules(String adress) {
         if (adress.length() == 0)
             throw new IllegalArgumentException("Address cannot be blank.");
-        if ( adress.length() > 30)
+        if ( adress.trim().length() > 30)
             throw new IllegalArgumentException("Address must have no more than 30 characters.");
+        return true;
     }
 
     /**
@@ -69,11 +70,12 @@ public class Administrator extends User {
      *
      * @param standardOcupationalCode administrator's standard occupational code
      */
-    private void checkStandardOcuppationalCoderules(String standardOcupationalCode) {
+    private boolean checkStandardOcuppationalCoderules(String standardOcupationalCode) {
         if (standardOcupationalCode.length() == 0)
             throw new IllegalArgumentException("SOC cannot be blank.");
         if ( standardOcupationalCode.length() != 5)
             throw new IllegalArgumentException("SOC must have 5 chars.");
+        return true;
     }
 
     /**
@@ -81,11 +83,12 @@ public class Administrator extends User {
      *
      * @param employeeid administrator's employee id
      */
-    private void checkEmployeeId(String employeeid) {
+    private boolean checkEmployeeId(String employeeid) {
         if (employeeid.length() == 0)
             throw new IllegalArgumentException("Employee ID cannot be blank.");
         if ( employeeid.length() != 5)
             throw new IllegalArgumentException("Employee ID must have 5 chars.");
+        return true;
     }
 
     /**
