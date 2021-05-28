@@ -27,6 +27,12 @@ public class AdministratorTest {
 
         assertEquals(admin.getAdress(),"adress");
 
+        try {
+            Administrator admin2 = new Administrator(new Email("aaa@aaa.aaa"), new Password("12345"), "Name", null, "11111", "aaaaa", "11111");
+        }catch (IllegalArgumentException ex){
+            assertEquals("Address cannot be null.",ex.getMessage());
+        }
+
     }
 
     @Test
@@ -49,6 +55,12 @@ public class AdministratorTest {
         }
 
         assertEquals("aaaaa",admin.getStandardOcuppationalCode());
+
+        try {
+            Administrator admin2 = new Administrator(new Email("aaa@aaa.aaa"), new Password("12345"), "Name", "adress", "11111", null, "11111");
+        }catch (IllegalArgumentException ex){
+            assertEquals("SOC cannot be null.",ex.getMessage());
+        }
     }
 
     @Test
@@ -74,6 +86,12 @@ public class AdministratorTest {
         }
 
         assertEquals("11111",admin.getEmployeeId());
+
+        try {
+            Administrator admin2 = new Administrator(new Email("aaa@aaa.aaa"), new Password("12345"), "Name", "adress", "11111", "aaaaa", null);
+        }catch (IllegalArgumentException ex){
+            assertEquals("Employee ID cannot be null.",ex.getMessage());
+        }
     }
 
         @Test

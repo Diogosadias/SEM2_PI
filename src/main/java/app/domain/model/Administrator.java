@@ -58,11 +58,14 @@ public class Administrator extends User {
      * @param adress administrator's address
      */
     private boolean checkAdressrules(String adress) {
+        if(adress!=null) {
         if (adress.length() == 0)
             throw new IllegalArgumentException("Address cannot be blank.");
         if ( adress.trim().length() > 30)
             throw new IllegalArgumentException("Address must have no more than 30 characters.");
         return true;
+        }
+        throw new IllegalArgumentException("Address cannot be null.");
     }
 
     /**
@@ -71,11 +74,15 @@ public class Administrator extends User {
      * @param standardOcupationalCode administrator's standard occupational code
      */
     private boolean checkStandardOcuppationalCoderules(String standardOcupationalCode) {
+
+        if(standardOcupationalCode!=null) {
         if (standardOcupationalCode.length() == 0)
             throw new IllegalArgumentException("SOC cannot be blank.");
         if ( standardOcupationalCode.length() != 5)
             throw new IllegalArgumentException("SOC must have 5 chars.");
         return true;
+    }
+        throw new IllegalArgumentException("SOC cannot be null.");
     }
 
     /**
@@ -84,11 +91,14 @@ public class Administrator extends User {
      * @param employeeid administrator's employee id
      */
     private boolean checkEmployeeId(String employeeid) {
-        if (employeeid.length() == 0)
-            throw new IllegalArgumentException("Employee ID cannot be blank.");
-        if ( employeeid.length() != 5)
-            throw new IllegalArgumentException("Employee ID must have 5 chars.");
-        return true;
+        if(employeeid!=null) {
+            if (employeeid.length() == 0)
+                throw new IllegalArgumentException("Employee ID cannot be blank.");
+            if (employeeid.length() != 5)
+                throw new IllegalArgumentException("Employee ID must have 5 chars.");
+            return true;
+        }
+        throw new IllegalArgumentException("Employee ID cannot be null.");
     }
 
     /**
