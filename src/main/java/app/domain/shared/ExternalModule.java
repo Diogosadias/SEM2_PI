@@ -15,11 +15,32 @@ public class ExternalModule {
     private ExternalModule3API em3;
 
     private final static int accessKey = 12345;
+    private final static String BLOOD_TEST = "Blood Test";
+    private final static String COVID_TEST = "Covid Test";
 
     public ExternalModule () {
         this.crv1 = new CovidReferenceValues1API();
         this.em2 = new ExternalModule2API();
         this.em3 = new ExternalModule3API();
+    }
+
+    public EMRefValue getEMRefValue(String description, Parameter param) {
+        if (description.equals(BLOOD_TEST)) {
+            String paramId = param.getCode();
+            String metric = this.usedMetricBlood(param);
+            double minValue = this.getMinReferenceValueBlood(param);
+            double maxValue = this.getMaxReferenceValueBlood(param);
+            Date date = new Date();
+            return new EMRefValue(paramId,metric,minValue,maxValue,date);
+        } else if (description.equals(COVID_TEST)) {
+            String paramId = param.getCode();
+            String metric = this.usedMetricCovid(param);
+            double minValue = this.getMinReferenceValueCovid(param);
+            double maxValue = this.getMaxReferenceValueCovid(param);
+            Date date = new Date();
+            return new EMRefValue(paramId,metric,minValue,maxValue,date);
+        }
+        return null;
     }
 
     // API 1 - Covid

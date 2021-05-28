@@ -6,6 +6,7 @@ import app.domain.shared.Constants;
 import app.domain.shared.ExternalModule;
 import com.example2.EMRefValue;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import java.util.Date;
@@ -18,7 +19,7 @@ import java.util.List;
  */
 public class Test {
 
-    private State state;
+    private String state;
     private Client client;
     private String nhsCode;
     private String description;
@@ -29,7 +30,10 @@ public class Test {
     private TestParameter testParam;
     private List<TestParameter> listTestParameter;
     private List<Sample> sampleList = new ArrayList<>();
-
+    private Date dateRegistered;
+    private Date dateChemical;
+    private Date dateDiagnosis;
+    private Date dateValidation;
 
     public Test (TestType type, String description,Client client) {
         checkTypeAttribute(type);
@@ -73,7 +77,8 @@ public class Test {
     public void setNhsCode(String nhsCode) {
         checkNhsCodeAttribute(nhsCode);
         this.nhsCode = nhsCode;
-        this.state = new State(Constants.REGISTERED);
+        this.state = Constants.REGISTERED;
+        this.dateRegistered = new Date(System.currentTimeMillis());
     }
 
     public Parameter getParameterByCode(String code) {
@@ -90,9 +95,10 @@ public class Test {
         Parameter param = this.getParameterByCode(code);
         this.testParam = new TestParameter(param);
         ExternalModule em = type.getExternalModule();
-        EMRefValue refValue = em.getReferenceValue(param);
+        EMRefValue refValue = em.getEMRefValue(this.description,param);
         testParam.addResult(result,metric,refValue);
-        this.state = new State(Constants.SAMPLE_ANALYSED);
+        this.state = Constants.SAMPLE_ANALYSED;
+        this.dateChemical = new Date(System.currentTimeMillis());
     }
 
     public boolean addResultToList () {
@@ -180,7 +186,6 @@ public class Test {
         if(!this.sampleList.isEmpty() && this.sampleList.contains(sample)) {
             return false;
         }
-        state.setDesignation(Constants.SAMPLE_COLLECTED);
         return (this.sampleList.add(sample));
     }
 
@@ -189,32 +194,29 @@ public class Test {
     }
 
     public boolean hasCondition(String state) {
-        return this.state.currentState().equals(state);
+        return this.state.equals(state);
     }
 
     public boolean testDiagnosisCompleted () {
-        this.state = new State(Constants.DIAGNOSIS_MADE);
+        this.state = Constants.DIAGNOSIS_MADE;
+        this.dateDiagnosis = new Date(System.currentTimeMillis());
         return true;
     }
 
     public Date getDateRegistered() {
-        return this.state.getDateRegistered();
-    }
-
-    public Date getDateSampleCollected() {
-        return this.state.getDateSampleCollected();
+        return this.dateRegistered;
     }
 
     public Date getDateChemicalAnalysis() {
-        return this.state.getDateChemicalAnalysis();
+        return this.dateChemical;
     }
 
     public Date getDateDiagnosis() {
-        return this.state.getDateDiagnosis();
+        return this.dateDiagnosis;
     }
 
     public Date getDateValidation() {
-        return this.state.getDateValidation();
+        return this.dateValidation;
     }
 
     @Override
@@ -225,7 +227,7 @@ public class Test {
                 "\nType of Test: " + this.type.getDescription() +
                 "\nCollection Method: " + this.description+
                 "\nNhs Code: " + this.nhsCode +
-                "\nRegistration date: " + this.state.getDateRegistered() +
+                "\nRegistration date: " + Constants.FORMATTER.format(this.dateRegistered) +
                 "\n\nList of Parameter(s) for each Category to be analysed: ";
         for (ParameterCategory category : this.getListCategories()) {
             s = s + "\n\n - " + category.getDescription();

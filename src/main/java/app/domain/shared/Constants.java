@@ -1,5 +1,7 @@
 package app.domain.shared;
 
+import java.text.SimpleDateFormat;
+
 /**
  *
  * @author Paulo Maio <pam@isep.ipp.pt>
@@ -32,6 +34,8 @@ public class Constants {
 
     public static final String ANS_YES = "Y";
     public static final String ANS_NO = "N";
+
+    public static final SimpleDateFormat FORMATTER = new SimpleDateFormat("EEEE, yyyy-MM-dd HH:mm:ss");
 
     public static final String EMAIL_SUFIX = "@lei.pt";
     public static final String MODEL_CLASS_PATH = "app.domain.model.";
