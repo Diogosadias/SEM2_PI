@@ -55,7 +55,7 @@ public class WriteReportUI implements Runnable{
         try{
             List<TestDto> set = writeReportController.getTestList();
             TestDto dto = (TestDto)Utils.showAndSelectOne(set, "\nList of Chemical Analysis Tests: \n");
-            TestParameter tp = (TestParameter)Utils.showAndSelectOne(dto.getListTestParameter(), "\nList of Parameters(Test): \n");
+            System.out.println(writeReportController.getCompany().getTestStore().getTestByCode(dto.getCode()).Parameters_toString());
             String diagnosis = Utils.readLineFromConsole("Diagnosis: ");
 
             writeReportController.createReport(diagnosis, dto.getCode());

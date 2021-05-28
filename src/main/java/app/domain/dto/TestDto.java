@@ -79,10 +79,6 @@ public class TestDto {
         return description;
     }
 
-    public String getType() {
-        return type;
-    }
-
     public long getClientCC() {
         return clientCC;
     }
