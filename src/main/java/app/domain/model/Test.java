@@ -113,7 +113,7 @@ public class Test {
     }
 
     public void setCode(String code) {
-        if (code == null) {
+        if (code == null || code.equals("")) {
             throw new IllegalArgumentException("Error: Code is null.");
         }
         this.code = code;

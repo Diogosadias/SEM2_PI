@@ -16,21 +16,48 @@ public class TestTest {
     app.domain.model.Test test = new app.domain.model.Test(testtype,"description",c1);
 
     @Test
-    public void checkValidation(){
+    public void checkValidation() {
+        try {
+            app.domain.model.Test test1 = new app.domain.model.Test(null, "description", c1);
+        } catch (IllegalArgumentException ex) {
+            assertEquals("Creating Test Error: Test type is null.", ex.getMessage());
+        }
+        try {
+            app.domain.model.Test test1 = new app.domain.model.Test(testtype, "", c1);
+        } catch (IllegalArgumentException ex) {
+            assertEquals("Creating Test Error: Description is empty.", ex.getMessage());
+        }
+        try {
+            app.domain.model.Test test1 = new app.domain.model.Test(testtype, "description", null);
+        } catch (IllegalArgumentException ex) {
+            assertEquals("Creating Test Error: Client is null.", ex.getMessage());
+        }
+        }
+
+        @Test
+        public void checkNhsCodeAtributeTest(){
+        String nhs = "aaaaa";
+        String nhs2 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
         try{
-            app.domain.model.Test test1 = new app.domain.model.Test(null,"description",c1);
-        }catch(IllegalArgumentException ex){
-            assertEquals("Creating Test Error: Test type is null.",ex.getMessage());
+            test.setNhsCode(nhs);
+        }catch (IllegalArgumentException ex){
+            assertEquals("Adding NhsCode to Test Error: NhsCode needs 12 alphanumeric characters.",ex.getMessage());
         }
         try{
-            app.domain.model.Test test1 = new app.domain.model.Test(testtype,"",c1);
+            test.setNhsCode(nhs2);
         }catch (IllegalArgumentException ex){
-            assertEquals("Creating Test Error: Description is empty.",ex.getMessage());
+            assertEquals("Adding NhsCode to Test Error: NhsCode needs 12 alphanumeric characters.",ex.getMessage());
         }
+        }
+
+        @Test
+        public void setCode(){
+        String code = null;
         try{
-            app.domain.model.Test test1 = new app.domain.model.Test(testtype,"description",null);
+            test.setCode(code);
         }catch (IllegalArgumentException ex){
-            assertEquals("Creating Test Error: Client is null.",ex.getMessage());
+            assertEquals("Error: Code is null.",ex.getMessage());
+        }
         }
 
 
@@ -38,4 +65,3 @@ public class TestTest {
 
 
 
-}
