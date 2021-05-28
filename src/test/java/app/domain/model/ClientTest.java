@@ -16,7 +16,9 @@ import static org.junit.Assert.fail;
 /**
  *
  * @author Márcio Ramos <1201682@isep.ipp.pt>
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
+
 public class ClientTest {
     //preparations
     Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 11111111111L);
@@ -160,7 +162,7 @@ public class ClientTest {
         //calculations
         c1.setCitizenCard(1111111111111112L);
 
-        //aserts
+        //assert
         Assert.assertEquals(1111111111111112L, c1.getCitizenCard());
     }
 
@@ -231,10 +233,35 @@ public class ClientTest {
 
     @Test
     public void checkCitizenNumber(){
+        try{
+            Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 111111111111121111L, 111111111111L, new Date("12/12/2021"), "M", 11111111111L);
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("Citizen Card code must have 16 chars.",ex.getMessage());
+        }
+        try{
+            Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 111111111211121111L, 111111111111L, new Date("12/12/2021"), "M", 11111111111L);
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("Citizen Card code must have 16 chars.",ex.getMessage());
+        }
     }
 
     @Test
-    public void checkSex(){}
+    public void checkSex(){
+        try{
+            Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "Y", 11111111111L);
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("You must define your sex as 'M' or 'F'.",ex.getMessage());
+        }
+        try{
+            Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "I", 11111111111L);
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("You must define your sex as 'M' or 'F'.",ex.getMessage());
+        }
+    }
 
     @Test
     public void checkTIN(){
