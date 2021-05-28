@@ -73,7 +73,7 @@ public class SpecifyNewTestStoreTest {
     }
     @Test
     public void deleteTestTypeNonExistent() {
-        assertFalse(storeTest.deleteTestType("DOESNT EXIST"));
+        assertFalse(storeTest.deleteTestType("DOESN'T EXIST"));
     }
 
 

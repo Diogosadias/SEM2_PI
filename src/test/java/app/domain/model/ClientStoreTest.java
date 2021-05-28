@@ -11,6 +11,11 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
+/**
+ *
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
+ */
+
 public class ClientStoreTest {
     AuthFacade auth = new AuthFacade();
 
