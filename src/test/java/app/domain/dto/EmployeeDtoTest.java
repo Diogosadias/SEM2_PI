@@ -4,12 +4,15 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+/**
+ *
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
+ */
+
 public class EmployeeDtoTest {
 
     EmployeeDto dto = new EmployeeDto("Doctor","John","Rua",12345678910l,"SocCode");
-
-
-
+    
     @Test
     public void getRoleId(){
         String role;
@@ -48,11 +51,20 @@ public class EmployeeDtoTest {
 
     }
 
+    @Test
     public void getSocCode(){
         String soc;
         soc = dto.getSocCode();
 
-        assertEquals("SOCCODE",soc);
+        assertEquals("SocCode",soc);
         assertEquals(false,soc.equals(""));
+    }
+
+    @Test
+    public void testToString() {
+
+        //assert
+        assertEquals(false,dto.toString().equals(" "));
+
     }
 }
