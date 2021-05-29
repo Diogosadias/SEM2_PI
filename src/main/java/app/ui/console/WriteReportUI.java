@@ -3,12 +3,9 @@ package app.ui.console;
 import app.controller.App;
 import app.controller.WriteReportController;
 import app.domain.dto.TestDto;
-import app.domain.model.TestParameter;
-import app.domain.model.TestStore;
-import app.domain.shared.Constants;
 import app.ui.console.utils.Utils;
 import auth.AuthFacade;
-import java.util.ArrayList;
+
 import java.util.List;
 
 /**
@@ -55,7 +52,7 @@ public class WriteReportUI implements Runnable{
         try{
             List<TestDto> set = writeReportController.getTestList();
             TestDto dto = (TestDto)Utils.showAndSelectOne(set, "\nList of Chemical Analysis Tests: \n");
-            System.out.println(writeReportController.getCompany().getTestStore().getTestByCode(dto.getCode()).Parameters_toString());
+            System.out.println(writeReportController.getCompany().getTestStore().getTestByCode(dto.getCode()).parametersToString());
             String diagnosis = Utils.readLineFromConsole("Diagnosis: ");
 
             writeReportController.createReport(diagnosis, dto.getCode());

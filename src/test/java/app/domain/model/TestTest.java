@@ -4,9 +4,13 @@ import app.domain.shared.Constants;
 import app.domain.shared.ExternalModule;
 import auth.domain.model.Email;
 
+import java.io.IOException;
 import java.util.Date;
 
 import static org.junit.Assert.*;
+
+import net.sourceforge.barbecue.BarcodeException;
+import net.sourceforge.barbecue.output.OutputException;
 import org.junit.Test;
 
 public class TestTest {
@@ -140,7 +144,7 @@ public class TestTest {
     @Test
     public void checkGetListParameters(){
         try{
-            this.test.getListParameters().isEmpty();
+            assertTrue(this.test.getListParameters().isEmpty());
         }catch (IllegalArgumentException ex){
             assertEquals("Test: List Parameter is empty.",ex.getMessage());
         }
@@ -153,27 +157,141 @@ public class TestTest {
     }
 
     @Test
-    public void getListCategories(){
+    public void checkGetListCategories(){
+        ParameterCategory pCat = new ParameterCategory("12345", "weyrutiy", "123");
         try{
-            test.getListCategories();
+            assertTrue(test.getListCategories().isEmpty());
         }catch (IllegalArgumentException ex){
             assertEquals("Test: List ParameterCategory is empty.",ex.getMessage());
         }
-
+        test.addCategory(pCat);
+        assertTrue(test.getListCategories().contains(pCat));
     }
 
     @Test
-    public void addParameterTest(){
+    public void checkAddParameter(){
         Parameter parameter = new Parameter("code","parameter","description","category");
-
+        assertTrue(test.addParameter(parameter));
         try {
-            test.addParameter(parameter);
             test.addParameter(parameter);
         }catch (IllegalArgumentException ex){
             assertEquals("Test: Parameter already exists.",ex.getMessage());
         }
     }
+
+    @Test
+    public void checkAddCategory(){
+        ParameterCategory pCat = new ParameterCategory("12345", "weyrutiy", "123");
+        test.addCategory(pCat);
+        assertTrue(test.getListCategories().contains(pCat));
+        try {
+            test.addCategory(pCat);
+        }catch (IllegalArgumentException ex){
+            assertEquals("Test: ParameterCategory already exists.",ex.getMessage());
+        }
+    }
+
+    @Test
+    public void checkGetClient(){
+        assertEquals(test.getClient(), c1);
+    }
+
+    @Test
+    public void checkSetClient() {
+        Client c2 = new Client(new Email("user2@gmail.com"), "Helium", 1112251111L, 1111123111111111L, 111167111111L, new Date("5/12/2021"), "M", 12110111111L);
+        assertEquals(test.getClient(), c1);
+        test.setClient(c2);
+        assertEquals(test.getClient(), c2);
+    }
+
+    @Test
+    public void checkSetDescription() {
+        test.setDescription("qweetrthjr");
+        assertEquals("qweetrthjr",test.getDescription());
+    }
+
+    @Test
+    public void checkAddSample(){
+        try{
+            test.setCode("code");
+            Sample s = new Sample(test.getCode());
+            assertTrue(test.getListSamples().isEmpty());
+            assertTrue(test.addSample(s));
+            assertFalse(test.getListSamples().isEmpty());
+            assertTrue(test.hasCondition(Constants.SAMPLE_COLLECTED));
+        } catch (OutputException | BarcodeException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void checkGetListSamples(){
+        try{
+            assertTrue(test.getListSamples().isEmpty());
+            test.setCode("code");
+            Sample s = new Sample(test.getCode());
+            test.addSample(s);
+            assertEquals(1, test.getListSamples().size());
+        } catch (OutputException | BarcodeException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void checkHasCondition(){
+
+    }
+
+    @Test
+    public void checkTestDiagnosisIsCompleted(){
+        assertTrue(test.testDiagnosisCompleted());
+        assertNotNull(test.getDateDiagnosis());
+        assertTrue(test.hasCondition(Constants.DIAGNOSIS_MADE));
+    }
+
+    @Test
+    public void checkGetDateDiagnosis(){
+        assertNull(test.getDateDiagnosis());
+        test.testDiagnosisCompleted();
+        assertNotNull(test.getDateDiagnosis());
+    }
+
+    @Test
+    public void checkParametersToString(){
+        ParameterCategory pCat = new ParameterCategory("12345", "ParamCategoryTest Description", "123");
+        test.addCategory(pCat);
+        Parameter parameter = new Parameter("code","parameter","param test description ","12345");
+        test.addParameter(parameter);
+        assertEquals("\n" +
+                "\nList of Parameter(s) for each Category to be analysed: \n" +
+                "\n" +
+                " - ParamCategoryTest Description\n" +
+                "parameter", test.parametersToString());
+    }
+
+    @Test
+    public void checkToString(){
+        ParameterCategory pCat = new ParameterCategory("12345", "ParamCategoryTest Description", "123");
+        test.addCategory(pCat);
+        Parameter parameter = new Parameter("code","parameter","param test description ","12345");
+        test.addParameter(parameter);
+
+        assertEquals("\n" +
+                " --- Many Labs Test --- \n" +
+                "Test n: null\n" +
+                "Client CC: 1111111111111111\n" +
+                "Type of Test: description\n" +
+                "Collection Method: description\n" +
+                "Nhs Code: null\n" +
+                "Registration date: N/D\n" +
+                "\n" +
+                "List of Parameter(s) for each Category to be analysed: \n" +
+                "\n" +
+                " - ParamCategoryTest Description\n" +
+                "parameter", test.toString());
+    }
 }
+
 
 
 

@@ -137,20 +137,19 @@ public class Test {
         if (listParameters.isEmpty()) {
             throw new IllegalArgumentException("Test: List Parameter is empty.");
         }
-        return this.listParameters;
+        return new ArrayList<>(this.listParameters);
     }
 
     public List<ParameterCategory> getListCategories() {
         if (listCategories.isEmpty()) {
             throw new IllegalArgumentException("Test: List ParameterCategory is empty.");
         }
-        return this.listCategories;
+        return new ArrayList<>(this.listCategories);
     }
 
     public boolean addParameter(Parameter parameter) {
         if (listParameters.contains(parameter)) {
-            System.out.println("Test: Parameter already exists.");
-            return false;
+            throw new IllegalArgumentException("Test: Parameter already exists.");
         }
         return listParameters.add(parameter);
     }
@@ -190,8 +189,8 @@ public class Test {
         return (this.sampleList.add(sample));
     }
 
-    public List getListSamples() {
-        return this.sampleList;
+    public List<Sample> getListSamples() {
+        return new ArrayList<>(this.sampleList);
     }
 
     public boolean hasCondition(String state) {
@@ -204,57 +203,52 @@ public class Test {
         return true;
     }
 
-    public Date getDateRegistered() {
-        return this.dateRegistered;
-    }
+    public Date getDateRegistered() { return (this.dateRegistered == null) ? null : (Date) this.dateRegistered.clone();}
 
-    public Date getDateChemicalAnalysis() {
-        return this.dateChemical;
-    }
+    public Date getDateChemicalAnalysis() { return (this.dateChemical == null) ? null :(Date) this.dateChemical.clone();}
 
-    public Date getDateDiagnosis() {
-        return this.dateDiagnosis;
-    }
+    public Date getDateDiagnosis() {return (this.dateDiagnosis == null) ? null :(Date) this.dateDiagnosis.clone();}
 
-    public Date getDateValidation() {
-        return this.dateValidation;
-    }
+    public Date getDateValidation() {return (this.dateValidation == null) ? null :(Date) this.dateValidation.clone();}
 
-    public String Parameters_toString() {
-        String s = "\n\nList of Parameter(s) for each Category to be analysed: ";
+    public String parametersToString() {
+        StringBuilder bld = new StringBuilder();
+        bld.append("\n\nList of Parameter(s) for each Category to be analysed: ");
         for (ParameterCategory category : this.getListCategories()) {
-            s = s + "\n\n - " + category.getDescription();
+            bld.append("\n\n - ").append(category.getDescription());
             for (Parameter parameter : this.getListParameters()) {
                 if (parameter.getCategory().equals(category.getCode()))
                 {
-                    s += "\n" + parameter.getName();
+                    bld.append("\n").append(parameter.getName());
                 }
             }
         }
-        return s;
+        return bld.toString();
     }
     
 
     @Override
     public String toString() {
-        String s =  "\n --- Many Labs Test --- " +
-                "\nTest n: " + this.code +
-                "\nClient CC: " + this.client.getCitizenCard() +
-                "\nType of Test: " + this.type.getDescription() +
-                "\nCollection Method: " + this.description+
-                "\nNhs Code: " + this.nhsCode +
-                "\nRegistration date: " + Constants.FORMATTER.format(this.dateRegistered) +
-                "\n\nList of Parameter(s) for each Category to be analysed: ";
-        for (ParameterCategory category : this.getListCategories()) {
-            s = s + "\n\n - " + category.getDescription();
-            for (Parameter parameter : this.getListParameters()) {
-                if (parameter.getCategory().equals(category.getCode()))
-                {
-                    s = s + "\n" + parameter.getName();
+        StringBuilder bld = new StringBuilder();
+        bld.append("\n --- Many Labs Test --- " + "\nTest n: ").append(this.code).append("\nClient CC: ")
+                .append(this.client.getCitizenCard()).append("\nType of Test: ")
+                .append(this.type.getDescription()).append("\nCollection Method: ")
+                .append(this.description).append("\nNhs Code: ").append(this.nhsCode).append("\nRegistration date: ")
+                .append( ((getDateRegistered()!=null) ? Constants.FORMATTER.format(getDateRegistered()) : "N/D") )
+                .append("\n\nList of Parameter(s) for each Category to be analysed: ");
+        try {
+            for (ParameterCategory category : this.getListCategories()) {
+                bld.append("\n\n - ").append(category.getDescription());
+                for (Parameter parameter : this.getListParameters()) {
+                    if (parameter.getCategory().equals(category.getCode()))
+                    {
+                        bld.append("\n").append(parameter.getName());
+                    }
                 }
             }
-        }
-        return s;
+        }catch (IllegalArgumentException ignored){}
+
+        return bld.toString();
     }
 
 }
