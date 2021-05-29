@@ -11,12 +11,6 @@ import java.util.List;
  */
 public class RolesMapper {
 
-
-
-    public RolesMapper () {
-
-    }
-
     public List<OrgRoleDto> toDto(List<OrgRole> list) {
         List<OrgRoleDto> rolesDto = new ArrayList<>();
         for (OrgRole role : list) {

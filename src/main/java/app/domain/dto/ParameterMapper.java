@@ -12,9 +12,6 @@ import java.util.List;
 
 public class ParameterMapper {
 
-    public ParameterMapper() {
-    }
-
     public List toDto(List<Parameter> list, String category) {
         List<ParameterDto> parametersDto = new ArrayList<>();
         for (Parameter p : list) {

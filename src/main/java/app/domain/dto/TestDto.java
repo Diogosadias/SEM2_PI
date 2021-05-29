@@ -17,14 +17,12 @@ import java.util.Date;
 public class TestDto {
 
     private Date dateRegistered;
-    private Date dateSampleCollected;
     private Date dateChemicalAnalysis;
     private Date dateDiagnosis;
     private Date dateValidation;
 
     private String code;
     private List<Sample> sampleList = new ArrayList<>();
-    private String type;
     private String description;
     private long clientCC;
     private long tin;
