@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 public class EmployeeDtoTest {
 
     EmployeeDto dto = new EmployeeDto("Doctor","John","Rua",12345678910l,"SocCode");
-    
+
     @Test
     public void getRoleId(){
         String role;

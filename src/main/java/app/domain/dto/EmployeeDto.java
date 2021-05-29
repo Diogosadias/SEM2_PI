@@ -1,14 +1,14 @@
 package app.domain.dto;
 
-import app.domain.model.SpecialistDoctor;
 import app.domain.shared.Constants;
 
 /**
  *
  * @author Tiago Rocha <1181445@isep.ipp.pt>
  */
+
 public class EmployeeDto {
-    private String roleId;
+    private final String roleId;
     private String name;
     private String address;
     private long phoneNumber;
