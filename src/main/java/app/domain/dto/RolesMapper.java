@@ -8,7 +8,9 @@ import java.util.List;
 /**
  *
  * @author Tiago Rocha <1181445@isep.ipp.pt>
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
+
 public class RolesMapper {
 
     public List<OrgRoleDto> toDto(List<OrgRole> list) {

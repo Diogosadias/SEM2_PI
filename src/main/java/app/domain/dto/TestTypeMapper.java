@@ -10,10 +10,8 @@ import java.util.List;
  *
  * @author Tiago Rocha <1181445@isep.ipp.pt>
  */
-public class TestTypeMapper {
 
-    public TestTypeMapper() {
-    }
+public class TestTypeMapper {
 
     public List<TestTypeDto> toDto(List<TestType> types) {
         List<TestTypeDto> ttDto =new ArrayList<>();

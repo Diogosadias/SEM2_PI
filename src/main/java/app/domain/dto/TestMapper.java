@@ -12,9 +12,10 @@ import java.util.Date;
  * @author Tiago Rocha <1181445@isep.ipp.pt>
  * @author Bruno Pereira <1191454@isep.ipp.pt>
  */
+
 public class TestMapper {
-    
-    private Company company;
+
+    private final Company company ;
     List<TestDto> testDto;
     public TestMapper () {
         this.company = App.getInstance().getCompany();
