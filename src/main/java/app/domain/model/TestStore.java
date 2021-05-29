@@ -38,6 +38,9 @@ public class TestStore {
     public void setCompany (Company company) {
         this.company = company;
     }
+    public Company getCompany () {
+        return company;
+    }
 
     public boolean checkRegisteredClient(long tin) {
         ClientStore cStore = this.company.getClientStore();
