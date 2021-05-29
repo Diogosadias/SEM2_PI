@@ -17,7 +17,6 @@ import static org.junit.Assert.*;
  */
 public class LaboratoryCoordinatorTest {
     Company company;
-    AuthFacade authFacade;
 
     @Test
     public void testLaboratoryCoordinator(){

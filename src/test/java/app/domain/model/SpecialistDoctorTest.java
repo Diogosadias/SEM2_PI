@@ -5,6 +5,10 @@ import org.junit.Test;
 
 import static app.domain.shared.Constants.RECEPTIONIST;
 
+/**
+ *
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
+ */
 public class SpecialistDoctorTest extends TestCase {
 
     OrgRole testRole = new OrgRole("testOrgRole_1", "TEST SUBJECT");
