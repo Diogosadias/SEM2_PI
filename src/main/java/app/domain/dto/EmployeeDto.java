@@ -5,14 +5,15 @@ import app.domain.shared.Constants;
 /**
  *
  * @author Tiago Rocha <1181445@isep.ipp.pt>
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
 
 public class EmployeeDto {
     private final String roleId;
-    private String name;
-    private String address;
-    private long phoneNumber;
-    private String socCode;
+    private final String name;
+    private final String address;
+    private final long phoneNumber;
+    private final String socCode;
     private int doctorIndexNumber;
     private String employeeId;
 
