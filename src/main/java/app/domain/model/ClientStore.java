@@ -75,22 +75,22 @@ public class ClientStore {
                 System.out.println("This email is already being used!");
                 return false;
                 //throw new IllegalArgumentException("This email is already being used!");
-            }
+            }else
             if(rc.getCitizenCard()==client.getCitizenCard()){
                 System.out.println("This citizen card is already being used!");
                 return false;
                 //throw new IllegalArgumentException("This citizen card is already being used!");
-            }
+            }else
             if(rc.getNhs()==client.getNhs()){
                 System.out.println("This nhs is already being used!");
                 return false;
                 //throw new IllegalArgumentException("This nhs is already being used!");
-            }
+            }else
             if(rc.getPNumber()==client.getPNumber()){
                 System.out.println("This phone number is already being used!");
                 return false;
                 //throw new IllegalArgumentException("This phone number is already being used!");
-            }
+            }else
             if(rc.getTin()==client.getTin()){
                 System.out.println("This tin is already being used!");
                 return false;
