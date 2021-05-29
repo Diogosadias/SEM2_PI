@@ -97,6 +97,7 @@ public class ClientStoreTest {
         testList.add(c1);
         //assemble
         assertEquals(testList.get(0),ccs.getClientByCC(1111111111111111L));
+        assertEquals(null,ccs.getClientByCC(1111111111311111L));
     }
 
     @Test
