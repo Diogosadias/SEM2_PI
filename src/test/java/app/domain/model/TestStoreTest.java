@@ -9,7 +9,10 @@ import java.util.Date;
 import java.util.List;
 
 import static org.junit.Assert.*;
-
+/**
+ *
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
+ */
 public class TestStoreTest {
     Company company = new Company("Many Labs");
     TestStore ts = company.getTestStore();
