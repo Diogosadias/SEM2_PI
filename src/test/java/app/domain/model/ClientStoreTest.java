@@ -47,6 +47,19 @@ public class ClientStoreTest {
         assertFalse(b1);
         boolean b2 = store.validateClient(null);
         assertFalse(b2);
+
+        Client c2 = new Client(new Email("usrdafr1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("2001/12/22"), "M", 11111111111L);
+        Client c3 = new Client(new Email("usrdafr1@gmail.com"), "John", 1111511111L, 1111111111111111L, 111111111111L, new Date("2001/12/22"), "M", 11111111111L);
+        Client c4 = new Client(new Email("usrdafr1@gmail.com"), "John", 1111111151L, 1111116111111111L, 111111111111L, new Date("2001/12/22"), "M", 11111111111L);
+        Client c5 = new Client(new Email("usrdafr1@gmail.com"), "John", 1111111171L, 1111111111171111L, 111111711111L, new Date("2001/12/22"), "M", 11111111111L);
+        store.saveClients(c2,"aaaa");
+        store.saveClients(c3,"aaaa");
+        store.saveClients(c4,"aaaa");
+        store.saveClients(c5,"aaaa");
+        assertFalse(store.validateClient(c2));
+        assertFalse(store.validateClient(c3));
+        assertFalse(store.validateClient(c4));
+        assertFalse(store.validateClient(c5));
     }
 
     @Test
