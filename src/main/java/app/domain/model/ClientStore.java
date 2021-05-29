@@ -1,6 +1,5 @@
 package app.domain.model;
 
-
 import app.domain.shared.Constants;
 
 
@@ -17,7 +16,9 @@ import java.util.List;
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  * @author Tiago Ferreira <1200601@isep.ipp.pt>
  * @author Gil <1180838@isep.ipp.pt>
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
+
 public class ClientStore {
 
     /**
@@ -74,27 +75,22 @@ public class ClientStore {
             if(rc.getId().equals(client.getId())){
                 System.out.println("This email is already being used!");
                 return false;
-                //throw new IllegalArgumentException("This email is already being used!");
             }else
             if(rc.getCitizenCard()==client.getCitizenCard()){
                 System.out.println("This citizen card is already being used!");
                 return false;
-                //throw new IllegalArgumentException("This citizen card is already being used!");
             }else
             if(rc.getNhs()==client.getNhs()){
                 System.out.println("This nhs is already being used!");
                 return false;
-                //throw new IllegalArgumentException("This nhs is already being used!");
             }else
             if(rc.getPNumber()==client.getPNumber()){
                 System.out.println("This phone number is already being used!");
                 return false;
-                //throw new IllegalArgumentException("This phone number is already being used!");
             }else
             if(rc.getTin()==client.getTin()){
                 System.out.println("This tin is already being used!");
                 return false;
-                //throw new IllegalArgumentException("This tin is already being used!");
             }
         }
 
