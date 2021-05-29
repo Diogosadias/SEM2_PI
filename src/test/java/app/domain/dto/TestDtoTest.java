@@ -242,5 +242,56 @@ public class TestDtoTest {
         String result = instance.Samples_toString();
         assertEquals(expResult, result);
     }
+
+    /**
+     * Test of setTin method, of class TestDto.
+     */
+    @Test
+    public void testSetTin() {
+        System.out.println("setTin");
+        long tin = 1L;
+        TestDto instance = testDto1;
+        instance.setTin(tin);
+        assertEquals(tin, instance.getTin());
+        
+    }
+
+    /**
+     * Test of setNhsCode method, of class TestDto.
+     */
+    @Test
+    public void testSetNhsCode() {
+        System.out.println("setNhsCode");
+        String nhsCode = "54321";
+        TestDto instance = testDto1;
+        instance.setNhsCode(nhsCode);
+        assertEquals(nhsCode, instance.getNhsCode());
+    }
+
+    /**
+     * Test of setParameters method, of class TestDto.
+     */
+    @Test
+    public void testSetParameters() {
+        System.out.println("setParameters");
+        List<Parameter> parameters = new ArrayList<>();
+        parameters.add(new Parameter("1", "teste", "teste", "teste"));        
+        TestDto instance = testDto1;
+        instance.setParameters(parameters);
+        assertEquals(parameters, instance.parameters);
+    }
+
+    /**
+     * Test of setListTP method, of class TestDto.
+     */
+    @Test
+    public void testSetListTP() {
+        System.out.println("setListTP");
+        List<TestParameter> listTP = new ArrayList<>();
+        listTP.add(new TestParameter(new Parameter("2", "teste", "teste", "teste")));
+        TestDto instance = testDto1;
+        instance.setListTP(listTP);
+        assertEquals(listTP, instance.listTP);
+    }
     
 }

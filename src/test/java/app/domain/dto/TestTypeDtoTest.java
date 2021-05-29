@@ -90,5 +90,42 @@ public class TestTypeDtoTest {
         String result = instance.toString();
         assertEquals(expResult, result);
     }
+
+    /**
+     * Test of setCode method, of class TestTypeDto.
+     */
+    @Test
+    public void testSetCode() {
+        System.out.println("setCode");
+        String code = "54321";
+        TestTypeDto instance = testTypeDto;
+        instance.setCode(code);
+        assertEquals(code, instance.getCode());
+    }
+
+    /**
+     * Test of setDescription method, of class TestTypeDto.
+     */
+    @Test
+    public void testSetDescription() {
+        System.out.println("setDescription");
+        String description = "teste2";
+        TestTypeDto instance = testTypeDto;
+        instance.setDescription(description);
+        assertEquals(description, instance.getDescription());
+    }
+
+    /**
+     * Test of setListParameters method, of class TestTypeDto.
+     */
+    @Test
+    public void testSetListParameters() {
+        System.out.println("setListParameters");
+        List<ParameterCategoryDto> listCategories = new ArrayList<>();
+        listCategories.add(new ParameterCategoryDto("1", "teste"));
+        TestTypeDto instance = testTypeDto;
+        instance.setListParameters(listCategories);
+        assertEquals(listCategories, instance.getListCategories());
+    }
     
 }
