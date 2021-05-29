@@ -1,14 +1,16 @@
 package app.domain.model;
-import app.domain.model.CAL;
 
 import java.util.ArrayList;
+
 /**
  * CALStore - Class responsible for managing CALs
  *
  * @author Gil <1180838@isep.ipp.pt>
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
+
 public class CALStore {
-    private  ArrayList<CAL> calList;
+    private final ArrayList<CAL> calList;
 
     /**
      * Create Store instance with empty array.

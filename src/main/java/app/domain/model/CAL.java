@@ -1,6 +1,5 @@
 package app.domain.model;
 
-import java.util.List;
 import java.util.Objects;
 
 /**
@@ -9,7 +8,9 @@ import java.util.Objects;
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  * @author Gil <1180838@isep.ipp.pt>
  * @author Tiago Ferreira <1200601@isep.ipp.pt>
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
+
 public class CAL {
 
     /**
@@ -41,11 +42,6 @@ public class CAL {
      * The id of laboratory.
      */
     private String laboratoryId;
-
-    /**
-     * The tests available of laboratory.
-     */
-    private List<TestType> testsAvailable;
 
     /**
      * CAL Constructor with all attributes (TestTypes not available yet)
