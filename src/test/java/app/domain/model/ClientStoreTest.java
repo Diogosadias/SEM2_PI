@@ -89,6 +89,14 @@ public class ClientStoreTest {
 
     @Test
     public void getClientByCC() {
+        ClientStore ccs = new ClientStore(null);
+        Client c1 = new Client(new Email("usewdar1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("2001/12/22"), "M", 11111111111L);
+        List<Client> testList = new ArrayList<>();
+        //calculations
+        ccs.setClientList(c1);
+        testList.add(c1);
+        //assemble
+        assertEquals(testList.get(0),ccs.getClientByCC(1111111111111111L));
     }
 
     @Test
