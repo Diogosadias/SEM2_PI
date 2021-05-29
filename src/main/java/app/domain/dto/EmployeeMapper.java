@@ -1,7 +1,6 @@
 package app.domain.dto;
 
 import app.domain.model.Employee;
-import app.domain.model.Parameter;
 import app.domain.model.SpecialistDoctor;
 import app.domain.shared.Constants;
 
@@ -14,9 +13,6 @@ import java.util.List;
      */
 
     public class EmployeeMapper {
-
-        public EmployeeMapper() {
-        }
 
         public List toDto(List<Employee> list) {
             List<EmployeeDto> employeesDto = new ArrayList<>();
