@@ -11,6 +11,10 @@ import static app.domain.shared.Constants.SPECIALIST_DOCTOR;
 import static java.lang.System.getProperties;
 import static org.junit.Assert.*;
 
+/**
+ *
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
+ */
 public class LaboratoryCoordinatorTest {
     Company company;
     AuthFacade authFacade;
