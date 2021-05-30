@@ -10,11 +10,10 @@ import static app.domain.shared.Constants.ANS_YES;
 /**
  *
  * @author Márcio Ramos <1201682@isep.ipp.pt>
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
-public class DeleteParameterUI implements Runnable{
-    public DeleteParameterUI(){
 
-    }
+public class DeleteParameterUI implements Runnable{
 
     public void run(){
         Scanner read = new Scanner(System.in);

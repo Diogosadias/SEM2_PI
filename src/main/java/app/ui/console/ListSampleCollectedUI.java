@@ -10,12 +10,10 @@ import java.util.Scanner;
 /**
  *
  * @author Tiago Rocha <1181445@isep.ipp.pt>
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
+
 public class ListSampleCollectedUI implements Runnable {
-
-    public ListSampleCollectedUI () {
-
-    }
 
     public void run() {
         RecordSampleController controller = new RecordSampleController();

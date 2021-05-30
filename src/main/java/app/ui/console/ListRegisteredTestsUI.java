@@ -1,7 +1,6 @@
 package app.ui.console;
 
 import app.controller.RegisterTestController;
-import app.domain.dto.TestDto;
 import app.domain.model.Test;
 
 import java.util.List;
@@ -10,12 +9,10 @@ import java.util.Scanner;
 /**
  *
  * @author Tiago Rocha <1181445@isep.ipp.pt>
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
+
 public class ListRegisteredTestsUI implements Runnable {
-
-    public ListRegisteredTestsUI () {
-
-    }
 
     public void run() {
         RegisterTestController controller = new RegisterTestController();

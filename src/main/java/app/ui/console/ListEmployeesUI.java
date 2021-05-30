@@ -9,12 +9,10 @@ import java.util.Scanner;
 /**
  *
  * @author Tiago Rocha <1181445@isep.ipp.pt>
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
+
 public class ListEmployeesUI implements Runnable {
-
-    public ListEmployeesUI () {
-
-    }
 
     public void run() {
         RegisterEmployeeController controller = new RegisterEmployeeController();

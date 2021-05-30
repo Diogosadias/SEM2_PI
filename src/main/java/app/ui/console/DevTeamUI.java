@@ -4,17 +4,15 @@ package app.ui.console;
  *
  * @author Paulo Maio <pam@isep.ipp.pt>
  * @author Márcio Ramos <1201682@isep.ipp.pt>
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
+
 public class DevTeamUI implements Runnable{
 
-    public DevTeamUI()
-    {
-
-    }
     public void run()
     {
         System.out.println("\n");
-        System.out.printf("Development Team:\n");
+        System.out.printf("Development Team: \n");
         System.out.printf("\t Bruno Miguel Moreira Pereira - 1191454@isep.ipp.pt \n");
         System.out.printf("\t Diogo Sá Oliveira Pereira Dias - 1161605@isep.ipp.pt \n");
         System.out.printf("\t Vasco Barcelos Santos Sodre - 1150920@isep.ipp.pt \n");

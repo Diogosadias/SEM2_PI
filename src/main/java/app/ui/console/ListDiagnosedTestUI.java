@@ -2,16 +2,16 @@ package app.ui.console;
 
 import app.controller.WriteReportController;
 import app.domain.dto.TestDto;
-import app.domain.model.Test;
 
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ *
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
+ */
+
 public class ListDiagnosedTestUI implements Runnable {
-
-    public ListDiagnosedTestUI() {
-
-    }
 
     public void run() {
         WriteReportController controller = new WriteReportController();
