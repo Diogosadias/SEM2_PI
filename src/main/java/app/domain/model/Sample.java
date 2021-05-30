@@ -21,6 +21,7 @@ import java.util.Random;
 public class Sample {
 
     private final Barcode sampleBarcode;
+    private final String jpegPath;
 
     //AC: Sample should only have Barcode
     public Sample(String id) throws BarcodeException, OutputException, IOException {
