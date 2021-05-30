@@ -182,6 +182,189 @@ ParameterDTO ("DTO" pattern)
 
 *It is also recommended to organize this content by subsections.* 
 
+** Test class **
+
+	public class Test{
+		private String state;
+		private Client client;
+		private String nhsCode;
+		private String description;
+		private TestType type;
+		private String code;
+		private final List<Parameter> listParameters;
+		private final List<ParameterCategory> listCategories;
+		private Date dateRegistered;
+		
+		public Test (TestType type, String description,Client client) {
+			checkTypeAttribute(type);
+			checkDescriptionAttribute(description);
+			checkClientAttribute(client);
+
+			this.type = type;
+			this.description = description.trim();
+			this.client = client;
+
+			this.listParameters = new ArrayList<>();
+			this.listCategories = new ArrayList<>();
+			this.listTestParameter = new ArrayList<>();
+    	}
+		
+		private void checkTypeAttribute (TestType type) {
+        	if(type == null) {
+            	throw new IllegalArgumentException("Creating Test Error: Test type is null.");
+        	}
+   		}
+    	private void checkDescriptionAttribute (String description) {
+        	if(description.trim().length() == 0) {
+        	    throw new IllegalArgumentException("Creating Test Error: Description is empty.");
+       	 	}
+    	}
+		private void checkClientAttribute (Client client) {
+			if(client == null) {
+				throw new IllegalArgumentException("Creating Test Error: Client is null.");
+			}
+		}
+		private void checkNhsCodeAttribute (String nhsCode) {
+			int count = 0;
+			for(int i = 0; i < nhsCode.length(); i++) {
+				if(nhsCode.charAt(i) != ' ')
+					count++;
+			}
+			if(count != 12) {
+				throw new IllegalArgumentException("Adding NhsCode to Test Error: NhsCode needs 12 alphanumeric characters.");
+			}
+		}
+
+		public void setNhsCode(String nhsCode) {
+			checkNhsCodeAttribute(nhsCode);
+			this.nhsCode = nhsCode;
+			this.state = Constants.REGISTERED;
+			this.dateRegistered = new Date(System.currentTimeMillis());
+		}
+		
+	}
+	
+** TestStrore class **
+	
+	public class TestStore {
+
+    private Company company;
+    private Client client;
+    private final List<Test> testList;
+    private Test test;
+    private long numRegisteredTest = 0;
+
+    public TestStore(){
+        testList = new ArrayList<>();
+    }
+
+    public void setCompany (Company company) {
+        this.company = company;
+    }
+
+    public Company getCompany () {
+        return company;
+    }
+
+    public boolean checkRegisteredClient(long tin) {
+        ClientStore cStore = this.company.getClientStore();
+        this.client = cStore.getClientByTIN(tin);
+        return (client != null) ;
+    }
+
+    public List getListTestType() {
+        TestTypeStore ttStore = this.company.getTestTypeStore();
+        TestTypeMapper ttMapper = new TestTypeMapper();
+        return ttMapper.toDto(ttStore.getTestTypeList());
+    }
+
+    public void newTest(String typeCode) {
+        TestTypeStore ttStore = this.company.getTestTypeStore();
+        TestType type = ttStore.getTestTypeByCode(typeCode);
+        String description = type.getCollectingMethod();
+        this.test = new Test(type,description,this.client);
+        generateTestCode();
+    }
+
+    private void generateTestCode() {
+        String testCode = new GenerateTestCode(numRegisteredTest).getCode();
+        this.test.setCode(testCode);
+    }
+
+    public void addCategoryToTest (String categoryCode) {
+        ParameterCategoryStore pcStore = this.company.getParameterCategoryStore();
+        ParameterCategory category = pcStore.getParameterCategoryByCode(categoryCode);
+        this.test.addCategory(category);
+    }
+
+    public List getListParameters(String categoryCode) {
+        ParameterStore pStore = this.company.getParameterStore();
+        ParameterMapper pMapper = new ParameterMapper();
+        return pMapper.toDto(pStore.getParameterList(),categoryCode);
+    }
+
+    public boolean addParameterToTest(String parameterCode) {
+        ParameterStore pStore = this.company.getParameterStore();
+        Parameter parameter = pStore.getParameterByCode(parameterCode);
+        return this.test.addParameter(parameter);
+    }
+
+    public void addNhsCodeToTest(String nhs) {
+        this.test.setNhsCode(nhs);
+    }
+
+    public boolean validateTest() {
+        for (Test t : testList) {
+            if (t.getNhsCode().equals(this.test.getNhsCode())) {
+                System.out.println("Error: Test was already registered with same Nhs code.");
+            }
+        }
+        return true;
+    }
+
+    public void saveTest() {
+        if(!testList.contains(this.test)) {
+            testList.add(this.test);
+            numRegisteredTest += 1;
+        } else {
+            throw new IllegalArgumentException("Test is already registered.");
+        }
+    }
+	
+** GenerateTestCode class **
+	
+	public class GenerateTestCode {
+    private static final long MAXNUMTEST = 1000000000000L;
+
+    private final String code;
+
+    public GenerateTestCode(long numTests) {
+        this.code = generateTestCode(numTests);
+    }
+
+    private String generateTestCode(long numTests) {
+        long num = numTests;
+        if(num + 1 == MAXNUMTEST) {
+            throw new IllegalArgumentException("Reached maximum number of Tests.");
+        }
+        // acrescentar zeros entre as letras e o numero
+        String fillZeros = "";
+        for (int i=0;i< 12;i++) {
+
+            if (num % 10 == 0) {
+                fillZeros += "0";
+            }
+            num = num / 10;
+        }
+        return fillZeros + "" + (numTests + 1);
+    }
+
+    public String getCode() {
+        return this.code;
+    }
+
+}
+
 # 6. Integration and Demo 
 
 *In this section, it is suggested to describe the efforts made to integrate this functionality with the other features of the system.*
