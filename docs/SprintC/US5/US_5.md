@@ -30,9 +30,11 @@ In US5, the medical lab technician checks the system and see all tests for which
 **A4:** Yes.
 
 **Q5:** We didn't fully understand what will the API do in this US, so here's out interpretation from the US, correct us if we're wrong please: The API will be generated randomly and the API is an attribute from the sample.
+
 **A5:** The API will be used to generate/print barcodes.
 
 **Q6:** During the current sprint, how should we allow the barcodes to be printed. After generating them via the API, should we save the barcode images to the disk?
+
 **A6:** Each generated barcode should be saved in a folder as a jpeg file.
 
 ### 1.3. Acceptance Criteria
@@ -50,7 +52,7 @@ defined by configuration.
 
 Dependencie on:
 
-* US04
+* US04, US07
 
 ### 1.5 Input and Output Data
 
@@ -61,6 +63,7 @@ Input data:
 Output data:
 
 + Barcode;
++ Test's state changes into a sample registered
 
 
 ### 1.6. System Sequence Diagram (SSD)
@@ -96,7 +99,7 @@ Output data:
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1: asks to register a new sample into a test  		 |		...asking the user the sample attributes?					 |     UI        |     UI: User Interface interacts with the user about an object information                         |
+| Step 1: asks the number of samples  		 |		...asking the user the number of samples?					 |     UI        |     UI: User Interface interacts with the user about an object information                         |
 |   |  ...creating a new Sample |  TestStore | HC LC   |
 | Step 2: shows list of Test  		 |	...showing the test  list?						 |    TestStore + TestMapper         |          IE: Knows the list of Test  DTO: Has the object list with its attributes                    |
 | Step 3: selects the Test 		 |	n/a						 |             |                              |
@@ -133,7 +136,7 @@ ref:
 
 *In this section, it is suggested to present an UML static view representing the main domain related software classes that are involved in fulfilling the requirement as well as and their relations, attributes and methods.*
 
-![US05-CD](US05-CD.svg)
+![US05-CD](US05 CD.svg)
 
 # 4. Tests 
 *In this section, it is suggested to systematize how the tests were designed to allow a correct measurement of requirements fulfilling.* 
@@ -215,46 +218,50 @@ ref:
 
 
 
-    public class RecordSamplesController(){
+    public class RecordSampleController {
 
-     public class SpecifyNewTypeTestController{
-    
-    private Company company;
-    private SampleStore ts;
-    private Sample sample
-    public TestStore tstore = new TestStore();
-  
-    public RecordSampleController(Company company){
-    this.company = company;
-    this.sample = null;
-    this.ts = company.getTestStore();
+    private final Company company;
+    private final SampleStore sampleStore;
+    private final TestStore testStore;
+    private final ClientStore clientStore;
+    private Sample sample;
+
+    public RecordSampleController() {
+        if (!App.getInstance().getCurrentUserSession().isLoggedInWithRole(ROLE_MED_LAB_TECH)) {
+            throw new IllegalStateException("Access Unauthorized!");
+        }
+        this.company = App.getInstance().getCompany();
+        this.sampleStore = this.company.getSampleStore();
+        this.testStore = this.company.getTestStore();
+        this.clientStore = this.company.getClientStore();
     }
 
-    public boolean createSample(){
-            this.sample = this.ts.createTestType();
-            
-            (if this.sample.validateSample(sample))
-            return true;
+    public Sample createSample(String id, String testCode) throws IOException, BarcodeException, OutputException {
+        this.testStore.setTest(testCode);
+        this.sample = this.sampleStore.createSample(id);
+        return sample;
+    }
 
-            return false;
+    public boolean saveSample() {
+        if(this.sampleStore.saveSample(this.sample)) {
+            return this.testStore.addSampleToTest(sample);
         }
+        System.out.println("\nSample is already registered in Test.");
+        return false;
+    }
 
-        public boolean saveSample(Test test){
-            ts.addSampleToTest(sample,test);
-            return this.ts.saveSample(sample);
-        }
-
-        
-
-    public List<TestDto> getTests(){
-        List<Test> tests = this.tstore.getTestStore().getTest();
+    public List<TestDto> getTests() {
+        List<Test> tests = this.testStore.getRegisteredTests();
         TestMapper mapper = new TestMapper();
         return mapper.toDto(tests);
     }
 
-
-    
+    public List<TestDto> listTestSamples() {
+        List<Test> tests = this.testStore.getSampleCollectedTests();
+        TestMapper mapper = new TestMapper();
+        return mapper.testSamples_toDto(tests);
     }
+
 
 **TestMapper:**
 
@@ -285,19 +292,39 @@ ref:
 
 **Sample:**
 
-    public class Sample implements SampleAPI{
+    public class Sample {
 
-    
-    public Sample(){
-    File file = setBarcode();
+    private final Barcode sampleBarcode;
+    private final String jpegPath;
+
+    //AC: Sample should only have Barcode
+    public Sample(String id) throws BarcodeException, OutputException, IOException {
+
+        Random r = new Random();
+        long numbers = r.nextInt(1_000_000_000)
+                + (r.nextInt(90) + 10) * 1_000_000_000L;
+        System.out.println(String.valueOf(numbers));
+
+        this.sampleBarcode = BarcodeFactory.createCode128(String.valueOf(numbers));
+
+        //Save as JPEG
+        File barcodeJPEG = new File("samples/sample_"+id+"_"+ numbers+".jpeg");
+
+        if (!barcodeJPEG.exists()){
+            this.jpegPath = null;
+        }else{
+            this.jpegPath="Sample_" + id;
+        }
+        BarcodeImageHandler.saveJPEG(sampleBarcode, barcodeJPEG);
+
     }
 
-    
-    public File setBarcode(){
-    return getBarcode;
+    public Barcode getSampleBarcode(){
+        return this.sampleBarcode;
     }
 
     }
+
 
 **SampleAPI:**
 
@@ -343,18 +370,35 @@ ref:
 
 **SampleStore**
 
-    public class SampleStore{
+    public class SampleStore {
+
     private final List<Sample> sampleList;
 
-
     public SampleStore(){
-    this.sampleList = new ArrayList<>();
+        this.sampleList = new ArrayList<>();
     }
 
-     public Sample createSample(){
-        return new Sample();
+    public Sample createSample(String id) throws BarcodeException, OutputException, IOException {
+        return new Sample(id);
     }
 
+    public boolean saveSample(Sample sample){
+        if(validateSample(sample))
+            return this.sampleList.add(sample);
+        else
+            return false;
+    }
+
+    public boolean validateSample(Sample sample){
+        for (Sample s : this.sampleList) {
+            if (s.getSampleBarcode().equals(sample.getSampleBarcode())) return false;
+        }
+        return true;
+    }
+        
+    public List<Sample> getSamples(){
+        return this.sampleList;
+    }
     }
 
 # 6. Integration and Demo 
