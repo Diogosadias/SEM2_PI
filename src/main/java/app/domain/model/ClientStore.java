@@ -99,6 +99,15 @@ public class ClientStore {
         return false;
     }
 
+    /**
+     * Saves the new Client.
+     *
+     * @param rc Client's register client
+     * @param pwd Client's password
+     *
+     * @return boolean
+     */
+
     public boolean saveClients(Client rc, String pwd){
 
             this.authFacade.addUserWithRole(rc.getName(), rc.getId().getEmail(), pwd , Constants.ROLE_CLIENT);
@@ -106,13 +115,12 @@ public class ClientStore {
 
     }
 
-
-
     /**
      * Change the Client's list.
      *
      * @param rc Client
      */
+
     public void setClientList(Client rc){
         clientList.add(rc);
     }
@@ -122,9 +130,16 @@ public class ClientStore {
      *
      * @return Client's list
      */
+
     public List<Client> getClientList() {
         return clientList;
     }
+
+    /**
+     * Return the Client's list.
+     *
+     * @param cc client's citizen card
+     */
 
     public Client getClientByCC(long cc) {
         for ( Client c : clientList) {
@@ -134,6 +149,13 @@ public class ClientStore {
         }
         return null;
     }
+
+    /**
+     * Return the Client's list.
+     *
+     * @param tin client's TIN
+     */
+
     public Client getClientByTIN(long tin) {
         for ( Client c : clientList) {
             if (c.getTin() == tin) {

@@ -8,10 +8,6 @@ import java.util.Scanner;
 
 public class ListChemicalAnalysedTestsUI implements Runnable {
 
-    public ListChemicalAnalysedTestsUI () {
-
-    }
-
     public void run() {
         RecordTestResultController controller = new RecordTestResultController();
         try {

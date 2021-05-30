@@ -87,6 +87,20 @@ public class OrgRole {
         return initiateEmployeeClass(dto);
     }
 
+    /**
+     * Initiate Employee Class
+     *
+     * @param dto EmployeeDto' dto
+     *
+     * @return Constructor new instance
+     *
+     * @throws ClassNotFoundException Class not found
+     * @throws IllegalAccessException Illegal access
+     * @throws InstantiationException Instantiation
+     * @throws NoSuchMethodException No such method
+     * @throws InvocationTargetException Invocation target
+     */
+
     private Employee initiateEmployeeClass(EmployeeDto dto) throws ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
         Class<?> c = Class.forName(this.designation);
         Employee temp = new Employee(this,dto);
