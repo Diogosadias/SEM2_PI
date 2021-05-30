@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1be02503-aab3-4684-a64b-ad76e3f11afd" name="Default Changelist" comment="Changes to &quot;SpecifyNewTestTypeController&quot;, &quot;DeleteTypeTestUI&quot;, &quot;ListTypeTestUI&quot;, &quot;SpecifyNewTestTypeUI&quot;, &quot;SpecifyNewTestTypeControllerTest&quot;&#10;[UC-09][Code Implementation]">
+    <list default="true" id="1be02503-aab3-4684-a64b-ad76e3f11afd" name="Default Changelist" comment="Changes to &quot;TestStoreTest&quot; and &quot;TestStoreTest&quot;&#10;[UC-04][UC-05][Unit Testing]">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/domain/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/domain/model/Client.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +50,7 @@
       <recent name="app.domain.model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ClientStoreTest.testValidateClient">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.ui.Main" />
       <module name="Sem2App" />
@@ -63,7 +64,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClientStoreTest.testValidateClient" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ChemistryTechnologistTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sem2App" />
       <extension name="coverage">
         <pattern>
@@ -72,14 +73,44 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="app.domain.model" />
-      <option name="MAIN_CLASS_NAME" value="app.domain.model.ClientStoreTest" />
-      <option name="METHOD_NAME" value="testValidateClient" />
+      <option name="MAIN_CLASS_NAME" value="app.domain.model.ChemistryTechnologistTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sem2App" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.domain.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="app.domain.model" />
+      <option name="MAIN_CLASS_NAME" value="app.domain.model.TestTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestTest.checkParametersToString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sem2App" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.domain.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="app.domain.model" />
+      <option name="MAIN_CLASS_NAME" value="app.domain.model.TestTest" />
+      <option name="METHOD_NAME" value="checkParametersToString" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestStoreTest.checkRegisteredClient" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestTest.checkToString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sem2App" />
       <extension name="coverage">
         <pattern>
@@ -88,40 +119,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="app.domain.model" />
-      <option name="MAIN_CLASS_NAME" value="app.domain.model.TestStoreTest" />
-      <option name="METHOD_NAME" value="checkRegisteredClient" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestStoreTest.getListTestType" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Sem2App" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="app.domain.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="app.domain.model" />
-      <option name="MAIN_CLASS_NAME" value="app.domain.model.TestStoreTest" />
-      <option name="METHOD_NAME" value="getListTestType" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestStoreTest.newTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Sem2App" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="app.domain.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="app.domain.model" />
-      <option name="MAIN_CLASS_NAME" value="app.domain.model.TestStoreTest" />
-      <option name="METHOD_NAME" value="newTest" />
+      <option name="MAIN_CLASS_NAME" value="app.domain.model.TestTest" />
+      <option name="METHOD_NAME" value="checkToString" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -129,11 +128,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ClientStoreTest.testValidateClient" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.TestStoreTest.checkRegisteredClient" />
-        <item itemvalue="JUnit.TestStoreTest.getListTestType" />
-        <item itemvalue="JUnit.TestStoreTest.newTest" />
+        <item itemvalue="JUnit.TestTest.checkToString" />
+        <item itemvalue="JUnit.TestTest" />
+        <item itemvalue="JUnit.TestTest.checkParametersToString" />
+        <item itemvalue="JUnit.ChemistryTechnologistTest" />
       </list>
     </recent_temporary>
   </component>
@@ -174,7 +173,77 @@
       <option name="project" value="LOCAL" />
       <updated>1622304770325</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Changes to &quot;ClientStoreTest&quot;.&#10;[UC-03][Unit Testing]">
+      <created>1622305235773</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1622305235773</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Changes to &quot;ClientStoreTest&quot;.&#10;[UC-03][Unit Testing]">
+      <created>1622305400419</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1622305400419</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Changes to &quot;ClientStoreTest&quot;.&#10;[UC-03][Unit Testing]">
+      <created>1622305823303</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1622305823303</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Changes to &quot;ClientStoreTest&quot;.&#10;[UC-03][Unit Testing]">
+      <created>1622306120801</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1622306120801</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Changes to &quot;ClientStoreTest&quot;.&#10;[UC-03][Unit Testing]">
+      <created>1622306554015</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1622306554015</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Changes to &quot;TestStoreTest&quot; and &quot;SampleStoreTest&quot;&#10;[UC-04][UC-05][Unit Testing]">
+      <created>1622309612646</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1622309612646</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Changes to &quot;LaboratoryCoordinatorTest&quot;&#10;[UC-15][Unit Testing]">
+      <created>1622325373057</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1622325373057</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Changes to &quot;SpecialistDoctorTest&quot; and &quot;LaboratoryCoordinatorTest&quot;">
+      <created>1622327602439</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1622327602439</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Changes to &quot;ChemistryTechnologistTest&quot;">
+      <created>1622328300570</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1622328300570</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Changes to &quot;TestTest&quot;&#10;[UC-04][Unit Testing]">
+      <created>1622386463032</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1622386463032</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -185,9 +254,21 @@
     <MESSAGE value="Changes to &quot;CreateNewParameterCategoryUI&quot;, &quot;SpecifyNewParameterUI&quot;&#10;Deleted class that wasnt being used &quot;CreateNewParameterUI&quot;&#10;[UC-10][Code Implementation]" />
     <MESSAGE value="Added test &quot;TestStoreTest&quot;.&#10;Changes to &quot;TestStore&quot;, &quot;ClientStoreTest&quot;, &quot;TestStoreTest&quot;.&#10;[UC-04][Unit Testing]" />
     <MESSAGE value="Changes to &quot;TestStoreTest&quot; and &quot;Client Store&quot;.&#10;[UC-04][Unit Testing][UC-03][Code Smells]" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes to &quot;TestStoreTest&quot; and &quot;Client Store&quot;.&#10;[UC-04][Unit Testing][UC-03][Code Smells]" />
+    <MESSAGE value="Changes to &quot;ClientStoreTest&quot;.&#10;[UC-03][Unit Testing]" />
+    <MESSAGE value="Changes to &quot;TestStoreTest&quot; and &quot;SampleStoreTest&quot;&#10;[UC-04][UC-05][Unit Testing]" />
+    <MESSAGE value="Changes to &quot;LaboratoryCoordinatorTest&quot;&#10;[UC-15][Unit Testing]" />
+    <MESSAGE value="Changes to &quot;SpecialistDoctorTest&quot; and &quot;LaboratoryCoordinatorTest&quot;" />
+    <MESSAGE value="Changes to &quot;ChemistryTechnologistTest&quot;" />
+    <MESSAGE value="Changes to &quot;TestTest&quot;&#10;[UC-04][Unit Testing]" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes to &quot;TestTest&quot;&#10;[UC-04][Unit Testing]" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/US_5_md$ChemistryTechnologistTest.ic" NAME="ChemistryTechnologistTest Coverage Results" MODIFIED="1622328262857" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>app.domain.model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/US_5_md$SpecialistDoctorTest.ic" NAME="SpecialistDoctorTest Coverage Results" MODIFIED="1622326870002" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>app.domain.model.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/US_5_md$All_in_Sem2App.ic" NAME="All in Sem2App Coverage Results" MODIFIED="1621784942747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/US_5_md$Main.ic" NAME="Main Coverage Results" MODIFIED="1621704288703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>app.ui.*</FILTER>
