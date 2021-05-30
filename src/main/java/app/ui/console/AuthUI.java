@@ -15,10 +15,11 @@ import java.util.Objects;
  * @author Paulo Maio <pam@isep.ipp.pt>
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  * @author Tiago Ferreira <1200601@isep.ipp.pt>
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
 
 public class AuthUI implements Runnable{
-    private AuthController ctrl;
+    private final AuthController ctrl;
 
     public AuthUI()
     {

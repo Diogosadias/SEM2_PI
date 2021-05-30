@@ -1,16 +1,17 @@
 package app.ui.console;
 
-
 import app.ui.console.utils.Utils;
 
-import javax.swing.plaf.TextUI;
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  *
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  * @author Tiago Ferreira <1200601@isep.ipp.pt>
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
+
 public class ClientUI implements Runnable{
 
 
@@ -22,7 +23,7 @@ public class ClientUI implements Runnable{
         //options.add(new MenuItem("Find Client"))    TO DO
         //options.add(new MenuItem("Remove Client"))  TO DO
         //options.add(new MenuItem("Edit Client"))    TO DO
-        boolean success = false;
+
         int option;
         do
         {

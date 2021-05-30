@@ -14,13 +14,10 @@ import java.util.List;
  */
 
 public class AdminUI implements Runnable{
-    public AdminUI()
-    {
-    }
 
     public void run()
     {
-        List<MenuItem> options = new ArrayList<MenuItem>();
+        List<MenuItem> options = new ArrayList<>();
         options.add(new MenuItem("Create type of test", new SpecifyNewTestTypeUI()));
         options.add(new MenuItem("List types of test", new ListTypeTestUI()));
         options.add(new MenuItem("Search types of test", new SearchTestTypeUI()));
@@ -33,9 +30,6 @@ public class AdminUI implements Runnable{
         options.add(new MenuItem("Register employee", new RegisterEmployeeUI()));
         options.add(new MenuItem("List Registered Employees", new ListEmployeesUI()));
         options.add(new MenuItem("Register new Clinical Analysis Laboratory", new RegisterNewCALUI()));
-
-
-        boolean success = false;
 
         int option;
         do
