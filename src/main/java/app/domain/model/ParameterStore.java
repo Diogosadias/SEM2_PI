@@ -1,16 +1,14 @@
 package app.domain.model;
 
-import app.domain.model.Parameter;
-
 import java.util.ArrayList;
 import java.util.List;
-
 
 /**
  * ParameterStore - Class responsible for managing Parameters.
  *
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  */
+
 public class ParameterStore {
     /**
      * parameterList - List containing the Parameters

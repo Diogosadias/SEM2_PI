@@ -1,5 +1,4 @@
 package app.domain.model;
-import app.domain.model.ParameterCategory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,13 +8,15 @@ import java.util.List;
  *
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  * @author Tiago Ferreira <1200601@isep.ipp.pt>
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
+
 public class ParameterCategoryStore {
 
     /**
      * parameterCategoryList - List containing Parameter Categories
      */
-    private List<ParameterCategory> parameterCategoryList = new ArrayList<>();
+    private final List<ParameterCategory> parameterCategoryList = new ArrayList<>();
 
     /**
      * Method for creating a Parameter Category.
