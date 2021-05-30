@@ -25,16 +25,16 @@ public class SpecifyNewParameterUI implements Runnable{
         do {
             System.out.println("New code (5 alphanumeric characters): ");
             code = read.next().trim();
-        } while (code.length() != 5 || code.equals(null));
+        } while (code.length() != 5);
         read.nextLine();
         do {
             System.out.println("Name (max. 8 characters): ");
             name = read.nextLine().trim();
-        } while (name.length() > 8 || name.equals(null));
+        } while (name.length() > 8);
         do {
             System.out.println("Description (max. 20 characters): ");
             description = read.nextLine().trim();
-        } while (description.length() > 20 || name.equals(null));
+        } while (description.length() > 20);
 
         //fazer trim() dos nomes, e tambem verificar se name tem numeros ou se code tem caracteres especiais....(extras)
         ParameterCategory codeparameter;
