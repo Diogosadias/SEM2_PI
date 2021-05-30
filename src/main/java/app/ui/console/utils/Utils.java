@@ -106,7 +106,7 @@ public class Utils {
         } while (true);
     }
 
-    static public boolean confirm(String message) {
+    static public boolean confirm(String message) throws  NullPointerException{
         String input;
         do {
             input = Utils.readLineFromConsole("\n" + message + "\n");
