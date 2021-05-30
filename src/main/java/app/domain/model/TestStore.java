@@ -113,31 +113,56 @@ public class TestStore {
         return this.test.addSample(sample);
     }
 
+    /**
+     * Method for getting the Registered Tests List.
+     * @return registered tests list
+     */
     public List<Test> getRegisteredTests () {
         // Test list with only new registered Tests
         return this.getTests(Constants.REGISTERED);
     }
 
+    /**
+     * Method for getting the Sample Collected List.
+     * @return sample collected list
+     */
     public List<Test> getSampleCollectedTests(){
         // Test list with at least one Sample collected
         return this.getTests(Constants.SAMPLE_COLLECTED);
     }
 
+    /**
+     * Method for getting the Sample Analysed List.
+     * @return sample analysed list
+     */
     public List<Test> getSampleAnalysisTests(){
         // Test list with Chemical analysis Samples
         return this.getTests(Constants.SAMPLE_ANALYSED);
     }
 
+    /**
+     * Method for getting the Diagnosed Tests List.
+     * @return diagnosed tests list
+     */
     public List<Test> getDiagnosedTests(){
         // Test list with Diagnosis made to chemical analysis
         return this.getTests(Constants.DIAGNOSIS_MADE);
     }
 
+    /**
+     * Method for getting the Validated Tests List.
+     * @return validated tests list
+     */
     public List<Test> getValidatedTests(){
         // Test list with diagnosis and report Validated
         return this.getTests(Constants.VALIDATED);
     }
 
+    /**
+     * Method for getting the Test List.
+     * @param state
+     * @return tests list
+     */
     public List<Test> getTests (String state) {
         if(this.testList !=null) {
             if (this.testList.isEmpty()) {
@@ -174,6 +199,10 @@ public class TestStore {
         throw new IllegalArgumentException("Test with that code doesn't exist!");
     }
 
+    /**
+     * Method for getting the Parameter List of the test.
+     * @return parameter list of the test
+     */
     public List<ParameterDto> getListParametersFromTest () {
         ParameterMapper mapper = new ParameterMapper();
         List<Parameter> parameters = this.test.getListParameters();
@@ -184,10 +213,16 @@ public class TestStore {
         return dto;
     }
 
+
     public boolean setTestStateDiagnosis(Test test) {
         return test.testDiagnosisCompleted();
     }
 
+    /**
+     * Return the textual description of the tests.
+     *
+     * @return Test features
+     */
     public String getTestToString() {
         String s =  "\nClient: " + this.test.getClient().getTin() +
                 "\nType of Test: " + this.test.getTestType().getDescription() +
@@ -204,7 +239,11 @@ public class TestStore {
         }
         return s;
     }
-
+    /**
+     * Return the textual description of the test results.
+     *
+     * @return test results features
+     */
     public String getTestResultToString() {
         TestParameter testParam = this.test.getCurrentTestParameter();
         String s = "\nType of Test: " + this.test.getTestType().getDescription() +
