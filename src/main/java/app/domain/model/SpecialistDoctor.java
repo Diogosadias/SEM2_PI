@@ -29,6 +29,12 @@ public class SpecialistDoctor extends Employee{
         this.setDoctorIndexNumber(doctorIndexNumber);
     }
 
+    /**
+     * Constructor Specialist Doctor with the employee.
+     *
+     * @param employee SpecialistDoctor's employee
+     */
+
     public SpecialistDoctor(Employee employee) {
         super (employee.getRole(), employee.getEmployeeId(), employee.getName(), employee.getAddress(), employee.getPhoneNumber(), employee.getSocCode());
         this.setDoctorIndexNumber(doctorIndexNumber);

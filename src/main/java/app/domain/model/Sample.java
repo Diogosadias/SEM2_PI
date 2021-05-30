@@ -20,8 +20,25 @@ import java.util.Random;
 
 public class Sample {
 
+    /**
+     * The barcode of Sample.
+     */
     private final Barcode sampleBarcode;
+
+    /**
+     * The jpegPath of Sample.
+     */
     private final String jpegPath;
+
+    /**
+     * Constructor Sample with the id.
+     *
+     * @param id Sample's id.
+     *
+     * @throws BarcodeException Barcode
+     * @throws OutputException Output
+     * @throws IOException IO
+     */
 
     //AC: Sample should only have Barcode
     public Sample(String id) throws BarcodeException, OutputException, IOException {
@@ -44,6 +61,12 @@ public class Sample {
         BarcodeImageHandler.saveJPEG(sampleBarcode, barcodeJPEG);
 
     }
+
+    /**
+     * Return the sample's barcode.
+     *
+     * @return sample's barcode
+     */
 
     public Barcode getSampleBarcode(){
         return this.sampleBarcode;
