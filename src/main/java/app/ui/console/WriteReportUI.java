@@ -11,11 +11,13 @@ import java.util.List;
 /**
  *
  * @author Bruno Pereira <1191454@isep.ipp.pt>
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
+
 public class WriteReportUI implements Runnable{
     
-    private WriteReportController writeReportController;
-    private AuthFacade authFacade;
+    private final WriteReportController writeReportController;
+    private final AuthFacade authFacade;
 
     /**
      * Constructor initiating the Controller and AuthFacade

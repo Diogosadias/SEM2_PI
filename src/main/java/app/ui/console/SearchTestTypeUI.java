@@ -8,9 +8,6 @@ import java.util.Scanner;
  */
 
 public class SearchTestTypeUI implements Runnable{
-    public SearchTestTypeUI() {
-    }
-
 
     @Override
     public void run() {

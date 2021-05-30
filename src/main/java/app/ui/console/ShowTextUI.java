@@ -5,10 +5,12 @@ import org.apache.commons.lang3.StringUtils;
 /**
  *
  * @author Paulo Maio <pam@isep.ipp.pt>
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
+
 public class ShowTextUI implements Runnable{
 
-    private String text;
+    private final String text;
     public ShowTextUI(String text)
     {
         if (StringUtils.isBlank(text))

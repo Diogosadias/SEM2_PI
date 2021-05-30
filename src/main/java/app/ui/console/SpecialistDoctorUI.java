@@ -7,12 +7,6 @@ import java.util.List;
 
 public class SpecialistDoctorUI implements Runnable {
 
-
-    public SpecialistDoctorUI(){
-
-    }
-
-
     @Override
     public void run(){
 

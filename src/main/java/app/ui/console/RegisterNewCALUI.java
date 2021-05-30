@@ -4,7 +4,6 @@ import app.controller.App;
 import app.controller.RegisterNewCALController;
 import app.ui.console.utils.Utils;
 import auth.AuthFacade;
-import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -13,11 +12,13 @@ import java.util.Scanner;
  *
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  * @author Gil <1180838@isep.ipp.pt>
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
+
 public class RegisterNewCALUI implements Runnable{
 
-    private RegisterNewCALController registerNewCALController;
-    private AuthFacade authFacade;
+    private final RegisterNewCALController registerNewCALController;
+    private final AuthFacade authFacade;
 
     /**
      * Constructor initiating the Controller and AuthFacade
@@ -41,21 +42,21 @@ public class RegisterNewCALUI implements Runnable{
 
             System.out.println("ID:");
 
-            String labId = reader.nextLine();//reader.readLine();
+            String labId = reader.nextLine();
 
             System.out.println("Laboratory Name:");
-            String labName = reader.nextLine();//reader.readLine();
+            String labName = reader.nextLine();
 
             System.out.println("Phone Number:");
-            long phoneNumber = reader.nextLong();//reader.read();
+            long phoneNumber = reader.nextLong();
 
             System.out.println("Address:");
             reader.nextLine();
-            String address = reader.nextLine();// reader.readLine();
+            String address = reader.nextLine();
 
             System.out.println("Tax Identification Number:");
 
-            long tin = reader.nextLong();//reader.read();
+            long tin = reader.nextLong();
 
             String answer;
             do{
@@ -96,12 +97,9 @@ public class RegisterNewCALUI implements Runnable{
                 System.out.println("Invalid Data was introduced! Returning to the menu.");
             }
 
-            return;
-
         } catch (IllegalArgumentException | InputMismatchException e) {
             e.printStackTrace();
             System.out.println("Invalid Input.");
-            return;
         }
     }
 }
