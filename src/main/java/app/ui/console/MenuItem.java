@@ -7,11 +7,12 @@ import java.util.Objects;
 /**
  *
  * @author Paulo Maio <pam@isep.ipp.pt>
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
 
 public class MenuItem {
-    private String description;
-    private Runnable ui;
+    private final String description;
+    private final Runnable ui;
 
     public MenuItem(String description,  Runnable ui)
     {

@@ -9,7 +9,6 @@ import app.controller.App;
 import app.controller.RegisterEmployeeController;
 import app.domain.dto.EmployeeDto;
 import app.domain.dto.OrgRoleDto;
-import app.domain.model.Employee;
 import app.ui.console.utils.Utils;
 import auth.AuthFacade;
 
@@ -22,15 +21,17 @@ import static app.domain.shared.Constants.SPECIALIST_DOCTOR;
  *
  * @author Bruno Pereira <1191454@isep.ipp.pt>
  * @author Tiago Rocha <1181445@isep.ipp.pt>
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
+
 public class RegisterEmployeeUI implements Runnable{
     
-    private RegisterEmployeeController m_controller;
-    private AuthFacade authFacade;
+    private final RegisterEmployeeController mcontroller;
+    private final AuthFacade authFacade;
 
     public RegisterEmployeeUI()
     {
-        this.m_controller = new RegisterEmployeeController();
+        this.mcontroller = new RegisterEmployeeController();
         this.authFacade = App.getInstance().getCompany().getAuthFacade();
     }
 
@@ -45,11 +46,11 @@ public class RegisterEmployeeUI implements Runnable{
                 presentsData();
 
                 if (Utils.confirm("Do you confirm the data? (Y/N)")) {
-                        m_controller.confirmEmployee();
+                        mcontroller.confirmEmployee();
                         System.out.println("Employee registered successfully!");
                 } else
                 {
-                    m_controller.cancelEmployee();
+                    mcontroller.cancelEmployee();
                     System.out.println("Operation cancelled.");
                 }
             }
@@ -72,7 +73,7 @@ public class RegisterEmployeeUI implements Runnable{
     }
     
     private boolean registerData() throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
-        List<OrgRoleDto> set = m_controller.getOrgRoles();
+        List<OrgRoleDto> set = mcontroller.getOrgRoles();
         OrgRoleDto role = (OrgRoleDto)Utils.showAndSelectOne(set, "\nList of Organization Role\nNumber/id of role: \n");
         if (role != null) {
             // Request data: name, address, phoneNumber,socCode, doctorIndexNumber
@@ -81,12 +82,12 @@ public class RegisterEmployeeUI implements Runnable{
             long phoneNumber = Utils.readLongFromConsole("Phone number (11 Digits):");
             String socCode = Utils.readLineFromConsole("Soc Code: ");
             EmployeeDto eDto = new EmployeeDto(role.getId(), name, address, phoneNumber, socCode);
-            if (this.m_controller.registerEmployee(eDto)) {
+            if (this.mcontroller.registerEmployee(eDto)) {
                 if (role.getId().equals(SPECIALIST_DOCTOR)) {
                     int doctorIndexNumber = Utils.readIntegerFromConsole("Doctor Index Number: ");
-                    m_controller.setDoctorIndexNumber(doctorIndexNumber);
+                    mcontroller.setDoctorIndexNumber(doctorIndexNumber);
                 }
-                return this.m_controller.saveEmployee();
+                return this.mcontroller.saveEmployee();
             } else {
                 System.out.println("Invalid Data was introduced! Returning to the menu.");
                 return false;
@@ -97,7 +98,7 @@ public class RegisterEmployeeUI implements Runnable{
     
     private void presentsData() 
     {
-        System.out.println("\nEmployee:\n" + m_controller.getEmployeeStore().getEmployeeToString());
+        System.out.println("\nEmployee:\n" + mcontroller.getEmployeeStore().getEmployeeToString());
     }
 
 }

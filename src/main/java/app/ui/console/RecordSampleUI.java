@@ -4,7 +4,6 @@ package app.ui.console;
 import app.controller.RecordSampleController;
 import app.domain.dto.TestDto;
 import app.ui.console.utils.Utils;
-import net.sourceforge.barbecue.Barcode;
 import net.sourceforge.barbecue.BarcodeException;
 import net.sourceforge.barbecue.output.OutputException;
 

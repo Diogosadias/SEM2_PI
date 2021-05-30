@@ -8,12 +8,17 @@ import app.ui.console.utils.Utils;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ *
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
+ */
+
 public class RecordTestResultUI implements Runnable {
 
-    private RecordTestResultController m_controller;
+    private final RecordTestResultController mcontroller;
 
     public RecordTestResultUI(){
-        this.m_controller = new RecordTestResultController();
+        this.mcontroller = new RecordTestResultController();
     }
 
 
@@ -24,7 +29,7 @@ public class RecordTestResultUI implements Runnable {
             if (testDto == null) {
                 return;
             }
-            List<ParameterDto> parametersDto = m_controller.getListParameters(testDto.getCode());
+            List<ParameterDto> parametersDto = mcontroller.getListParameters(testDto.getCode());
             while (!parametersDto.isEmpty()) {
                 ParameterDto parameterDto = (ParameterDto) Utils.showAndSelectOne(parametersDto, "\nList of Parameters:\n");
                 Scanner read = new Scanner(System.in);
@@ -32,12 +37,12 @@ public class RecordTestResultUI implements Runnable {
                 String result = read.nextLine();
                 System.out.println("\nMetric.");
                 double metric = read.nextDouble();
-                if (m_controller.addTestResult(parameterDto, result, metric)) {
+                if (mcontroller.addTestResult(parameterDto, result, metric)) {
                     presentsData();
                     if (!Utils.confirm("\nDo you want to confirm the Test/Parameter Result? (Y/N)")) {
                         System.out.println("\nOperation canceled.");
                     } else {
-                        if (m_controller.saveTestResult()) {
+                        if (mcontroller.saveTestResult()) {
                             System.out.println("\nTestResult saved successfully.");
                             parametersDto.remove(parameterDto);
                         } else {
@@ -58,10 +63,10 @@ public class RecordTestResultUI implements Runnable {
     }
 
     public TestDto writeTests(){
-        return (TestDto) Utils.showAndSelectOne(m_controller.getTests(),"\nTests");
+        return (TestDto) Utils.showAndSelectOne(mcontroller.getTests(),"\nTests");
     }
 
     private void presentsData()    {
-        System.out.println("\nTest/Parameter Result: \n" + m_controller.getTestStore().getTestResultToString());
+        System.out.println("\nTest/Parameter Result: \n" + mcontroller.getTestStore().getTestResultToString());
     }
 }

@@ -10,11 +10,10 @@ import java.util.List;
  *
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  * @author Gil <1180838@isep.ipp.pt>
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
-public class ReceptionistUI implements Runnable {
 
-    public ReceptionistUI() {
-    }
+public class ReceptionistUI implements Runnable {
 
     public void run() {
 
@@ -26,7 +25,7 @@ public class ReceptionistUI implements Runnable {
         //options.add(new MenuItem("Edit Client"))    TO DO
         options.add(new MenuItem("Register Test", new RegisterTestUI()));
         options.add(new MenuItem("List Registered Tests", new ListRegisteredTestsUI()));
-        boolean success = false;
+
         int option;
         do
         {
