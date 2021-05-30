@@ -18,7 +18,9 @@ import static app.domain.shared.Constants.*;
  *
  * @author Tiago Rocha
  * @author Bruno Pereira <1191454@isep.ipp.pt>
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
+
 public class EmployeeStore {
 
 
@@ -29,16 +31,16 @@ public class EmployeeStore {
     /**
      * Initialize a list of employers.
      */
-    private List<Employee> le;
+    private final List<Employee> le;
 
     /**
      * Initialize number of employers.
      */
     private int numEmployees=0;
 
-    private OrgRoleStore rStore;
+    private final OrgRoleStore rStore;
 
-    private AuthFacade auth;
+    private final AuthFacade auth;
 
     /**
      * Create Store instance with empties arrays.

@@ -6,14 +6,14 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Objects;
 
-import static app.domain.shared.Constants.SPECIALIST_DOCTOR;
-
 /**
  * This domain class allows to build an instance of role.
  *
- *  @author Márcio Ramos <1201682@isep.ipp.pt>
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
  * @author Tiago Rocha <1181445@isep.ipp.pt>
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
+
 public class OrgRole {
 
     /**

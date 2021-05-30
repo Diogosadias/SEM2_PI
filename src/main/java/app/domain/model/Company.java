@@ -14,6 +14,7 @@ import org.apache.commons.lang3.StringUtils;
  * @author Bruno Pereira <1191454@isep.ipp.pt>
  * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
+
 public class Company {
 
     /**
@@ -31,7 +32,7 @@ public class Company {
      */
     private CALStore calStore;
 
-    private ReportStore reportStore;
+    private final ReportStore reportStore;
     /**
      * The store of create a client.
      */
@@ -42,7 +43,7 @@ public class Company {
      */
     private ParameterCategoryStore parameterCategoryStore;
 
-    private OrgRoleStore orgRoleStore;
+    private final OrgRoleStore orgRoleStore;
 
     /**
      * The store of employee.
@@ -57,7 +58,7 @@ public class Company {
     /**
      * The store of registered Tests to clients.
      */
-    private TestStore testStore;
+    private final TestStore testStore;
 
     /**
      * The store of client's LabOrder.
