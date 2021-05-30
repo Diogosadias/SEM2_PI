@@ -161,7 +161,7 @@ App {
         this.company.getParameterStore().addParameter(parameter10);
         Parameter parameter11 = new Parameter("MCH00","Mean Cell Haemoglobin (MCH)","Mean Cell Haemoglobin count",category1.getCode());
         this.company.getParameterStore().addParameter(parameter11);
-        Parameter parameter12 = new Parameter("MCHC0","Mean Cell Haemoglobin Concentration (MCHC)","Mean Cell Haemoglobin count",category1.getCode());
+        Parameter parameter12 = new Parameter("MCHC0","Mean Cell Haemoglobin Concentration (MCHC)","Mean Cell Haemoglobin concentration",category1.getCode());
         this.company.getParameterStore().addParameter(parameter12);
         Parameter parameter13 = new Parameter("ESR00","Erythrocyte Sedimentation Rate (ESR)","Erythrocyte Sedimentation count",category1.getCode());
         this.company.getParameterStore().addParameter(parameter13);

@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Sem2App:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1be02503-aab3-4684-a64b-ad76e3f11afd" name="Default Changelist" comment="Changes to &quot;TestStoreTest&quot; and &quot;TestStoreTest&quot;&#10;[UC-04][UC-05][Unit Testing]">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Sem2App_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/domain/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/domain/model/Client.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,12 +46,21 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.1388889" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Márcio\OneDrive - Instituto Superior de Engenharia do Porto\LEI\Projeto Integrador\src\main\java\META-INF" />
+      <recent name="C:\Users\Márcio\OneDrive - Instituto Superior de Engenharia do Porto\LEI\Projeto Integrador\src\main\java" />
+      <recent name="C:\Users\Márcio\OneDrive - Instituto Superior de Engenharia do Porto\LEI\Projeto Integrador\out\artifacts\Sem2App_jar" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="app.domain.model" />
@@ -137,6 +153,11 @@
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="StructuralSearchPlugin">
+    <searchConfiguration name="Unnamed" created="1622403573173" text="&quot;This description card is already being used!&quot;" recursive="false" caseInsensitive="false" type="JAVA" pattern_context="default" scope_type="PROJECT" scope_descriptor="" history="1">
+      <constraint name="__context__" within="" contains="" />
+    </searchConfiguration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="1be02503-aab3-4684-a64b-ad76e3f11afd" name="Default Changelist" comment="" />
@@ -243,7 +264,28 @@
       <option name="project" value="LOCAL" />
       <updated>1622386463032</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Changes to &quot;Client&quot;&#10;[UC-03][Code Improvement]">
+      <created>1622389338862</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1622389338862</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Changes to &quot;TestStoreTest&quot; and &quot;TestStoreTest&quot;&#10;[UC-04][UC-05][Unit Testing]">
+      <created>1622389379203</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1622389379203</updated>
+    </task>
+    <task id="LOCAL-00017" summary="[Javadoc]">
+      <created>1622398902971</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1622398902971</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -260,7 +302,10 @@
     <MESSAGE value="Changes to &quot;SpecialistDoctorTest&quot; and &quot;LaboratoryCoordinatorTest&quot;" />
     <MESSAGE value="Changes to &quot;ChemistryTechnologistTest&quot;" />
     <MESSAGE value="Changes to &quot;TestTest&quot;&#10;[UC-04][Unit Testing]" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes to &quot;TestTest&quot;&#10;[UC-04][Unit Testing]" />
+    <MESSAGE value="Changes to &quot;Client&quot;&#10;[UC-03][Code Improvement]" />
+    <MESSAGE value="Changes to &quot;TestStoreTest&quot; and &quot;TestStoreTest&quot;&#10;[UC-04][UC-05][Unit Testing]" />
+    <MESSAGE value="[Javadoc]" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Javadoc]" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/US_5_md$ChemistryTechnologistTest.ic" NAME="ChemistryTechnologistTest Coverage Results" MODIFIED="1622328262857" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
