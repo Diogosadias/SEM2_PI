@@ -73,6 +73,7 @@ public class Test {
             throw new IllegalArgumentException("Adding NhsCode to Test Error: NhsCode needs 12 alphanumeric characters.");
         }
     }
+
     public void setNhsCode(String nhsCode) {
         checkNhsCodeAttribute(nhsCode);
         this.nhsCode = nhsCode;
@@ -94,7 +95,7 @@ public class Test {
         Parameter param = this.getParameterByCode(code);
         this.testParam = new TestParameter(param);
         ExternalModule em = testType.getExternalModule();
-        EMRefValue refValue = em.getEMRefValue(this.description,param);
+        EMRefValue refValue = em.getEMRefValue(this.type.getDescription(),param);
         this.testParam.addResult(result,metric,refValue);
     }
 
@@ -111,6 +112,15 @@ public class Test {
 
     public TestParameter getCurrentTestParameter () {
         return this.testParam;
+    }
+
+    public TestParameter getTestParameterByCode(String code) {
+        for (TestParameter tp : listTestParameter) {
+            if (tp.getParameter().getCode().equals(code)) {
+                return tp;
+            }
+        }
+        throw new IllegalArgumentException("Test: No Parameter with that Code.");
     }
 
     public String getCode() {
@@ -224,16 +234,17 @@ public class Test {
         }
         return bld.toString();
     }
-    
+
 
     @Override
     public String toString() {
         StringBuilder bld = new StringBuilder();
-        bld.append("\n --- Many Labs Test --- " + "\nTest n: ").append(this.code).append("\nClient CC: ")
-                .append(this.client.getCitizenCard()).append("\nType of Test: ")
-                .append(this.type.getDescription()).append("\nCollection Method: ")
-                .append(this.description).append("\nNhs Code: ").append(this.nhsCode).append("\nRegistration date: ")
-                .append( ((getDateRegistered()!=null) ? Constants.FORMATTER.format(getDateRegistered()) : "N/D") )
+        bld.append("\n --- Many Labs Test --- ")
+                .append("\nTest n: ").append(this.code)
+                .append("\nClient CC: ").append(this.client.getCitizenCard())
+                .append("\nType of Test: ").append(this.type.getDescription())
+                .append("\nCollection Method: ").append(this.description)
+                .append("\nNhs Code: ").append(this.nhsCode)
                 .append("\n\nList of Parameter(s) for each Category to be analysed: ");
         try {
             for (ParameterCategory category : this.getListCategories()) {
@@ -243,11 +254,35 @@ public class Test {
                     {
                         bld.append("\n").append(parameter.getName());
                     }
+                    if (state.equals(Constants.SAMPLE_ANALYSED))
+                    {
+                        bld.append("\n").append(this.getTestParameterByCode(parameter.getCode()).getResult());
+                    }
                 }
+            }
+            if (state.equals(Constants.SAMPLE_COLLECTED))
+            {
+                for (Sample sample : this.sampleList) {
+                    bld.append("\n").append(sample.getSampleBarcode());
+                }
+            }
+            bld.append("\n\nRegistration date: ").append(Constants.FORMATTER.format(this.dateRegistered));
+            if (dateChemical != null)
+            {
+                bld.append("\nChemical Analysis date: ").append(Constants.FORMATTER.format(this.dateChemical));
+            }
+            if (dateDiagnosis != null)
+            {
+                bld.append("\nDiagnosis date: ").append(Constants.FORMATTER.format(this.dateDiagnosis));
+            }
+            if (dateValidation != null)
+            {
+                bld.append("\nValidation date: ").append(Constants.FORMATTER.format(this.dateValidation));
             }
         }catch (IllegalArgumentException ignored){}
 
         return bld.toString();
     }
+
 
 }

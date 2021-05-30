@@ -58,4 +58,8 @@ public class RecordTestResultController {
         TestMapper mapper = new TestMapper();
         return mapper.testSamples_toDto(tests);
     }
+
+    public Company getCompany() {
+        return company;
+    }
 }
