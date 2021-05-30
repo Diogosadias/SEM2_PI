@@ -6,7 +6,7 @@ package app.domain.shared;
  */
 public class GeneratePassword {
 
-    private String pwd;
+    private final String pwd;
     public GeneratePassword () {
         this.pwd = makeRandomPass();
     }

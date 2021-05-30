@@ -3,15 +3,17 @@ package app.domain.shared;
 /**
  *
  * @author Tiago Rocha <1181445@isep.ipp.pt>
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
+
 public class GenerateEmployeeId {
 
     /**
      * Declare a constant with maximum number of employers .
      */
-    private final int MAX_NUM_EMPLOYEES = 99999;
+    private static final int MAXNUMEMPLOYEES = 99999;
 
-    private String id;
+    private final String id;
 
     public GenerateEmployeeId(String name, int numEmployees) {
         this.id = generateEmployeeId(name,numEmployees);
@@ -19,7 +21,7 @@ public class GenerateEmployeeId {
 
     private String generateEmployeeId(String name, int numEmployees) {
         int nEmp = numEmployees;
-        if (nEmp == MAX_NUM_EMPLOYEES) { throw new IllegalArgumentException("Maximum Employees reached."); };
+        if (nEmp == MAXNUMEMPLOYEES) { throw new IllegalArgumentException("Maximum Employees reached."); }
         // acrescentar +1 ao numero de employees
         int id = nEmp + 1;
         // gerar as inicias do nome

@@ -1,9 +1,9 @@
 package app.domain.shared;
 
 public class GenerateTestCode {
-    private final long MAX_NUM_TEST = 1000000000000L;
+    private static final long MAXNUMTEST = 1000000000000L;
 
-    private String code;
+    private final String code;
 
     public GenerateTestCode(long numTests) {
         this.code = generateTestCode(numTests);
@@ -11,7 +11,7 @@ public class GenerateTestCode {
 
     private String generateTestCode(long numTests) {
         long num = numTests;
-        if(num + 1 == MAX_NUM_TEST) {
+        if(num + 1 == MAXNUMTEST) {
             throw new IllegalArgumentException("Reached maximum number of Tests.");
         }
         // acrescentar zeros entre as letras e o numero
