@@ -12,14 +12,16 @@ import java.util.List;
  * @author Tiago Rocha <1181445@isep.ipp.pt>
  * @author Bruno Pereira <1191454@isep.ipp.pt>
  * @author Márcio Ramos <1201682@isep.ipp.pt>
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
+
 public class TestStore {
 
     private Company company;
 
     private Client client;
 
-    private List<Test> testList;
+    private final List<Test> testList;
 
     private Test test;
 
@@ -28,16 +30,11 @@ public class TestStore {
     public TestStore(){
         testList = new ArrayList<>();
     }
-    
-    /*public boolean checkCompleted(Test test) {
-        return test.checkCompleted();
-    }*/
-
-
 
     public void setCompany (Company company) {
         this.company = company;
     }
+
     public Company getCompany () {
         return company;
     }

@@ -1,12 +1,9 @@
 package app.domain.model;
 
-
-
 import app.domain.shared.Constants;
 import app.domain.shared.ExternalModule;
 import com.example2.EMRefValue;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import java.util.Date;
@@ -17,6 +14,7 @@ import java.util.List;
  * @author Tiago Rocha <1181445@isep.ipp.pt>
  * @author Bruno Pereira <1191454@isep.ipp.pt>
  */
+
 public class Test {
 
     private String state;

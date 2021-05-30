@@ -2,9 +2,14 @@ package app.domain.model;
 
 import com.example2.EMRefValue;
 
+/**
+ *
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
+ */
+
 public class TestParameter {
 
-    private Parameter param;
+    private final Parameter param;
 
     private TestParameterResult testResult;
 
