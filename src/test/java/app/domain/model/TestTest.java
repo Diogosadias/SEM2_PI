@@ -271,11 +271,6 @@ public class TestTest {
 
     @Test
     public void checkToString(){
-        ParameterCategory pCat = new ParameterCategory("12345", "ParamCategoryTest Description", "123");
-        test.addCategory(pCat);
-        Parameter parameter = new Parameter("code","parameter","param test description ","12345");
-        test.addParameter(parameter);
-
         assertEquals("\n" +
                 " --- Many Labs Test --- \n" +
                 "Test n: null\n" +
@@ -283,12 +278,8 @@ public class TestTest {
                 "Type of Test: description\n" +
                 "Collection Method: description\n" +
                 "Nhs Code: null\n" +
-                "Registration date: N/D\n" +
                 "\n" +
-                "List of Parameter(s) for each Category to be analysed: \n" +
-                "\n" +
-                " - ParamCategoryTest Description\n" +
-                "parameter", test.toString());
+                "List of Parameter(s) for each Category to be analysed: ", test.toString());
     }
 }
 
