@@ -174,6 +174,12 @@ public class Company {
         return this.testTypeStore;
     }
 
+    /**
+     * Change the TestType's store.
+     *
+     * @param testTypeStore TestType's Store
+     */
+
     public void setTestTypeStore(TestTypeStore testTypeStore) {
         this.testTypeStore = testTypeStore;
     }
@@ -210,29 +216,56 @@ public class Company {
      *
      * @param parameterStore Parameter's store
      */
+
     public void setParameterStore(ParameterStore parameterStore) {
         this.parameterStore = parameterStore;
     }
+
+    /**
+     * Return the OrgRole's store.
+     *
+     * @return OrgRole's store
+     */
 
     public OrgRoleStore getOrgRoleStore() {
         return this.orgRoleStore;
     }
 
+    /**
+     * Return the Test's store.
+     *
+     * @return Test's store
+     */
+
     public TestStore getTestStore() {
         return this.testStore;
     }
+
     /**
      * Return the Report's store.
      *
      * @return Report's store
      */
+
     public ReportStore getReportStore() {
         return this.reportStore;
     }
 
+    /**
+     * Return the Sample's store.
+     *
+     * @return Sample's store
+     */
+
     public SampleStore getSampleStore() {
         return this.sampleStore;
     }
+
+    /**
+     * Change the Sample's store.
+     *
+     * @param sampleStore Sample's store
+     */
 
     public void setSampleStore(SampleStore sampleStore) {
         this.sampleStore = sampleStore;

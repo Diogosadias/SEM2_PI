@@ -87,24 +87,17 @@ public class Client {
         this.sex = sex;
         this.pNumber = pNumber;
     }
-    
+
+    /**
+     * Constructor Client with the citizen card.
+     *
+     * @param citizenCard client's citizen card
+     */
+
     public Client(long citizenCard){
         checkCitizenNumber(citizenCard);
         this.citizenCard = citizenCard;
     }
-
-    /**
-     * Constructor Client with the email, name, nhs, citizen card, tin number, birth date and sex.
-     *
-     * @param id client's email
-     * @param name client's name
-     * @param nhs client's nhs
-     * @param citizenCard client's citizen card
-     * @param tin client's tin number
-     * @param birthDate client's birth date
-     * @param sex client's sex
-     */
-
 
     /**
      * Return the client's nhs.
