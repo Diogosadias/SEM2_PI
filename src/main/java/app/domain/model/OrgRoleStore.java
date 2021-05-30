@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * OrgRoleStore - Class responsible for managing OrgRoles
  *
  * @author Tiago Rocha <1181445@isep.ipp.pt>
  */

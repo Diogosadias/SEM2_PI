@@ -1,6 +1,7 @@
 package app.domain.model;
 
 /**
+ * LaboratoryCoordinator - Domain class representing a Laboratory Coordinator
  *
  * @author Tiago Rocha <1181445@isep.ipp.pt>
  */

@@ -46,6 +46,10 @@ public class TestType extends TestTypeStore {
         this.collectingMethod = collectingMethod;
     }
 
+    public TestType() {
+
+    }
+
     /**
      * Add a Parameter Category.
      *

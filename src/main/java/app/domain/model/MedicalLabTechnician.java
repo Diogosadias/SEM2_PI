@@ -1,6 +1,7 @@
 package app.domain.model;
 
 /**
+ * MedicalLabTechnician - Domain class representing a Medical Lab Technician
  *
  * @author Tiago Rocha <1181445@isep.ipp.pt>
  */

@@ -1,6 +1,7 @@
 package app.domain.model;
 
 /**
+ * Receptionist - Domain class representing a Receptionist
  *
  * @author Tiago Rocha <1181445@isep.ipp.pt>
  */
