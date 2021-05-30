@@ -27,7 +27,7 @@ public class TestType extends TestTypeStore {
     /**
      * parameterList - Contains the parameter categories of the test type
      */
-    private List<ParameterCategory> parameterList = new ArrayList<>();
+    private final List<ParameterCategory> parameterList = new ArrayList<>();
 
     /**
      * Constructor for a test type.

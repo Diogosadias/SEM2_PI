@@ -1,7 +1,5 @@
 package app.domain.model;
 
-import app.domain.model.TestType;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,12 +9,13 @@ import java.util.List;
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  * @author Tiago Rocha <1181445@isep.ipp.pt>
  */
+
 public class TestTypeStore {
 
     /**
      * store - list of the test types available
      */
-    private List<TestType> store;
+    private final List<TestType> store;
 
     /**
      * Constructor for the test type store.
@@ -100,11 +99,7 @@ public class TestTypeStore {
      */
     public boolean searchTestType(String code) {
         TestType testType = getTestTypeByCode(code);
-        if (getTestTypeList().contains(testType)) {
-            return true;
-        } else {
-            return false;
-        }
+        return getTestTypeList().contains(testType);
     }
 
     /**

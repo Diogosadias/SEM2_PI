@@ -10,9 +10,9 @@ import java.util.Date;
 
 public class ExternalModule {
 
-    private CovidReferenceValues1API crv1;
-    private ExternalModule2API em2;
-    private ExternalModule3API em3;
+    private final CovidReferenceValues1API crv1;
+    private final ExternalModule2API em2;
+    private final ExternalModule3API em3;
 
     private final static int accessKey = 12345;
     private final static String BLOOD_TEST = "Blood Test";
@@ -45,13 +45,13 @@ public class ExternalModule {
 
     // API 1 - Covid
     public String usedMetricCovid(Parameter param) {
-        return this.crv1.usedMetric(param.getCode(),this.accessKey);
+        return this.crv1.usedMetric(param.getCode(), accessKey);
     }
     public Double getMinReferenceValueCovid(Parameter param) {
-        return this.crv1.getMinReferenceValue(param.getCode(),this.accessKey);
+        return this.crv1.getMinReferenceValue(param.getCode(), accessKey);
     }
     public Double getMaxReferenceValueCovid(Parameter param) {
-        return this.crv1.getMaxReferenceValue(param.getCode(),this.accessKey);
+        return this.crv1.getMaxReferenceValue(param.getCode(), accessKey);
     }
 
     // API 2 - Blood
@@ -67,12 +67,12 @@ public class ExternalModule {
 
     // API 3 - Blood
     public String usedMetricBlood(Parameter param) {
-        return this.em3.usedMetric(param.getCode(),this.accessKey);
+        return this.em3.usedMetric(param.getCode(), accessKey);
     }
     public Double getMinReferenceValueBlood(Parameter param) {
-        return this.em3.getMinReferenceValue(param.getCode(),this.accessKey);
+        return this.em3.getMinReferenceValue(param.getCode(), accessKey);
     }
     public Double getMaxReferenceValueBlood(Parameter param) {
-        return this.em3.getMaxReferenceValue(param.getCode(),this.accessKey);
+        return this.em3.getMaxReferenceValue(param.getCode(), accessKey);
     }
 }
