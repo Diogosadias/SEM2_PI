@@ -13,7 +13,7 @@ import java.io.IOException;
  * RecordSampleUI - UI for US5, registering a sample to a test.
  *
  * @author Gil Pereira
- * @author Tiago Ferreira
+ * @author Tiago Ferreira <1200601@isep.ipp.pt>
  */
 public class RecordSampleUI implements Runnable {
 
