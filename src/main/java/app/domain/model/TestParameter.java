@@ -5,6 +5,7 @@ import com.example2.EMRefValue;
 /**
  *
  * @author Tomás Pinto <1181835@isep.ipp.pt>
+ * @author Tiago Ferreira <1200601@isep.ipp.pt>
  */
 
 public class TestParameter {
