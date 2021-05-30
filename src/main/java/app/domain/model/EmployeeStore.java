@@ -23,9 +23,14 @@ import static app.domain.shared.Constants.*;
 
 public class EmployeeStore {
 
-
+    /**
+     * The employee.
+     */
     private Employee employee;
 
+    /**
+     * The Employee's password.
+     */
     private String employeePwd;
 
     /**
@@ -38,8 +43,14 @@ public class EmployeeStore {
      */
     private int numEmployees=0;
 
+    /**
+     * The store of OrgRole.
+     */
     private final OrgRoleStore rStore;
 
+    /**
+     * The AuthFacade of EmployeeStore.
+     */
     private final AuthFacade auth;
 
     /**
@@ -47,6 +58,7 @@ public class EmployeeStore {
      *
      * @author Tiago Rocha <1181445@isep.ipp.pt>
      */
+
     public EmployeeStore (OrgRoleStore rStore, AuthFacade auth) {
         this.rStore = rStore;
         this.auth = auth;
@@ -60,6 +72,7 @@ public class EmployeeStore {
      *
      * @return Employee
      */
+
     public boolean registerEmployee(EmployeeDto eDto) throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
         String roleId = eDto.getRoleId();
         OrgRole role = this.rStore.getRoleById(roleId);
@@ -67,6 +80,12 @@ public class EmployeeStore {
         this.employee = role.createEmployee(eDto);
         return (employee != null);
     }
+
+    /**
+     * Saves the new Employee.
+     *
+     * @return boolean
+     */
 
     public boolean saveEmployee() {
         //validates and saves employee
@@ -89,9 +108,14 @@ public class EmployeeStore {
      *
      * @return employee's number
      */
+
     public int  getNumEmployees() {
         return numEmployees;
     }
+
+    /**
+     * Method that confirms register of the employee.
+     */
 
     public void  confirmRegistration() {
         new EmailSender(this.employee.getEmail(),this.employeePwd);
@@ -105,6 +129,7 @@ public class EmployeeStore {
      *
      * @return boolean
      */
+
     public boolean validateEmployee(Employee employee) {
         if (!this.le.isEmpty()) {
             for (Employee e : le) {
@@ -117,13 +142,31 @@ public class EmployeeStore {
         return true;
     }
 
+    /**
+     * Change the doctor index number.
+     *
+     * @param doctorIndexNumber Employee's doctor index number
+     */
+
     public void setDoctorIndexNumber(int doctorIndexNumber) {
         ((SpecialistDoctor) employee).setDoctorIndexNumber(doctorIndexNumber);
     }
 
+    /**
+     * Add a Employee.
+     *
+     * @param employee - Employee
+     *
+     * @return boolean
+     */
+
     public boolean addEmployee(Employee employee){
         return this.le.add(employee);
     }
+
+    /**
+     * Method for remove an existing employee.
+     */
 
     public void removeEmployee () {
         le.remove(this.employee);
@@ -134,14 +177,27 @@ public class EmployeeStore {
      *
      * @return employee's list
      */
+
     public List<Employee> getEmployees () {
         if(le.isEmpty()) { throw new IllegalArgumentException("Employee list is empty.");}
         return this.le;
     }
 
+    /**
+     * Return the OrgRole's store.
+     *
+     * @return OrgRole's store
+     */
+
     public OrgRoleStore getRoleStore () {
         return this.rStore;
     }
+
+    /**
+     * Return the textual description of theemployee.
+     *
+     * @return Employee's features
+     */
 
     public String getEmployeeToString()
     {
@@ -155,6 +211,12 @@ public class EmployeeStore {
         return s;
     }
 
+    /**
+     * Method for getting the available employees.
+     *
+     * @return Employee Mapper
+     */
+    
     public List getEmployeesToShow () {
         EmployeeMapper mapper = new EmployeeMapper();
         return mapper.toDto(this.le);

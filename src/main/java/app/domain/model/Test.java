@@ -59,14 +59,48 @@ public class Test {
      */
     private final List<ParameterCategory> listCategories;
 
-
+    /**
+     * The test parameter.
+     */
     private TestParameter testParam;
+
+    /**
+     * TestParameterList - Contains the test parameter
+     */
     private final List<TestParameter> listTestParameter;
+
+    /**
+     * SampleList - Contains the sample
+     */
     private final List<Sample> sampleList = new ArrayList<>();
+
+    /**
+     * The registered date.
+     */
     private Date dateRegistered;
+
+    /**
+     * The chemical analysis date.
+     */
     private Date dateChemical;
+
+    /**
+     * The diagnosis date.
+     */
     private Date dateDiagnosis;
+
+    /**
+     * The validation date.
+     */
     private Date dateValidation;
+
+    /**
+     * Constructor Test with the test type, description, client.
+     *
+     * @param type Test's TestType
+     * @param description Test's description
+     * @param client Test's client
+     */
 
     public Test (TestType type, String description,Client client) {
         checkTypeAttribute(type);
@@ -87,6 +121,7 @@ public class Test {
      *
      * @param type - TestType
      */
+
     private void checkTypeAttribute (TestType type) {
         if(type == null) {
             throw new IllegalArgumentException("Creating Test Error: Test type is null.");
@@ -98,6 +133,7 @@ public class Test {
      *
      * @param description - TestType's description
      */
+
     private void checkDescriptionAttribute (String description) {
         if(description.trim().length() == 0) {
             throw new IllegalArgumentException("Creating Test Error: Description is empty.");
@@ -109,6 +145,7 @@ public class Test {
      *
      * @param client - TestType's client
      */
+
     private void checkClientAttribute (Client client) {
         if(client == null) {
             throw new IllegalArgumentException("Creating Test Error: Client is null.");
@@ -120,6 +157,7 @@ public class Test {
      *
      * @param nhsCode - TestType's nhsCode
      */
+
     private void checkNhsCodeAttribute (String nhsCode) {
         int count = 0;
         for(int i = 0; i < nhsCode.length(); i++) {
@@ -136,6 +174,7 @@ public class Test {
      *
      * @param nhsCode test's nhsCode
      */
+
     public void setNhsCode(String nhsCode) {
         checkNhsCodeAttribute(nhsCode);
         this.nhsCode = nhsCode;
@@ -148,6 +187,7 @@ public class Test {
      *
      * @param code parameter's code
      */
+
     public Parameter getParameterByCode(String code) {
         for (Parameter p : listParameters) {
             if (p.getCode().equals(code)) {
@@ -157,6 +197,14 @@ public class Test {
         throw new IllegalArgumentException("Test: No Parameter with that Code.");
     }
 
+    /**
+     * Add test result.
+     *
+     * @param code TestResult's code
+     * @param result TestResult's result
+     * @param metric TestResult's metric
+     */
+
     public void addTestResult (String code, String result, double metric) {
         TestType testType = this.getTestType();
         Parameter param = this.getParameterByCode(code);
@@ -165,6 +213,10 @@ public class Test {
         EMRefValue refValue = em.getEMRefValue(this.type.getDescription(),param);
         this.testParam.addResult(result,metric,refValue);
     }
+
+    /**
+     * Add test result to list.
+     */
 
     public boolean addResultToList () {
         if (!listTestParameter.isEmpty() && listTestParameter.contains(this.testParam) ) {
@@ -180,11 +232,24 @@ public class Test {
      *
      * @return List<TestType>
      */
+
     public List getListTestParameter() {return this.listTestParameter;}
+
+    /**
+     * Method for getting the current test parameter.
+     *
+     * @return TestParameter
+     */
 
     public TestParameter getCurrentTestParameter () {
         return this.testParam;
     }
+
+    /**
+     * Method for getting the test parameter by code.
+     *
+     * @return TestParameterByCode
+     */
 
     public TestParameter getTestParameterByCode(String code) {
         for (TestParameter tp : listTestParameter) {
@@ -195,6 +260,12 @@ public class Test {
         throw new IllegalArgumentException("Test: No Parameter with that Code.");
     }
 
+    /**
+     * Method for getting the test parameter code.
+     *
+     * @return TestParameter's code
+     */
+
     public String getCode() {
         return this.code;
     }
@@ -204,6 +275,7 @@ public class Test {
      *
      * @param code test's code
      */
+
     public void setCode(String code) {
         if (code == null || code.equals("")) {
             throw new IllegalArgumentException("Error: Code is null.");
@@ -216,13 +288,26 @@ public class Test {
      *
      * @param type test's TestType
      */
+
     public void setTestType(TestType type) {
         this.type = type;
     }
 
+    /**
+     * Method for getting the test type.
+     *
+     * @return TestType
+     */
+
     public TestType getTestType() {
         return this.type;
     }
+
+    /**
+     * Method for getting the list of parameters.
+     *
+     * @return Parameter's list
+     */
 
     public List<Parameter> getListParameters() {
         if (listParameters.isEmpty()) {
@@ -231,12 +316,24 @@ public class Test {
         return new ArrayList<>(this.listParameters);
     }
 
+    /**
+     * Method for getting the list of parameters categories.
+     *
+     * @return ParameterCategory's list
+     */
+
     public List<ParameterCategory> getListCategories() {
         if (listCategories.isEmpty()) {
             throw new IllegalArgumentException("Test: List ParameterCategory is empty.");
         }
         return new ArrayList<>(this.listCategories);
     }
+
+    /**
+     * Add a parameter to test.
+     *
+     * @param parameter Test's parameter
+     */
 
     public boolean addParameter(Parameter parameter) {
         if (listParameters.contains(parameter)) {
@@ -245,6 +342,12 @@ public class Test {
         return listParameters.add(parameter);
     }
 
+    /**
+     * Add a parameter category to test.
+     *
+     * @param category Test's ParameterCategory
+     */
+
     public void addCategory(ParameterCategory category) {
         if (listCategories.contains(category)) {
             throw new IllegalArgumentException("Test: ParameterCategory already exists.");
@@ -252,13 +355,31 @@ public class Test {
         listCategories.add(category);
     }
 
+    /**
+     * Method for getting the client.
+     *
+     * @return client
+     */
+
     public Client getClient() {
         return client;
     }
 
+    /**
+     * Method for getting the description.
+     *
+     * @return description
+     */
+
     public String getDescription() {
         return description;
     }
+
+    /**
+     * Method for getting the nhsCode.
+     *
+     * @return nhsCode
+     */
 
     public String getNhsCode() {
         return this.nhsCode;
@@ -269,6 +390,7 @@ public class Test {
      *
      * @param client test's client
      */
+
     public void setClient(Client client) {
         this.client = client;
     }
@@ -278,9 +400,16 @@ public class Test {
      *
      * @param description test's description
      */
+
     public void setDescription(String description) {
         this.description = description;
     }
+
+    /**
+     * Add a sample to test.
+     *
+     * @param sample Test's Sample
+     */
 
     public boolean addSample(Sample sample){
         if(!this.sampleList.isEmpty() && this.sampleList.contains(sample)) {
@@ -290,13 +419,33 @@ public class Test {
         return (this.sampleList.add(sample));
     }
 
+    /**
+     * Method for getting the list of samples.
+     *
+     * @return Sample's list
+     */
+
     public List<Sample> getListSamples() {
         return new ArrayList<>(this.sampleList);
     }
 
+    /**
+     * Method that verify if has condition.
+     *
+     * @param state Test' state
+     *
+     * @return boolean
+     */
+
     public boolean hasCondition(String state) {
         return this.state.equals(state);
     }
+
+    /**
+     * Method that save the test diagnosis.
+     *
+     * @return boolean
+     */
 
     public boolean testDiagnosisCompleted () {
         this.state = Constants.DIAGNOSIS_MADE;
@@ -304,11 +453,35 @@ public class Test {
         return true;
     }
 
+    /**
+     * Method for getting the registered date.
+     *
+     * @return Date's registered
+     */
+
     public Date getDateRegistered() { return (this.dateRegistered == null) ? null : (Date) this.dateRegistered.clone();}
+
+    /**
+     * Method for getting the chemical analysis date.
+     *
+     * @return Date's chemical analysis
+     */
 
     public Date getDateChemicalAnalysis() { return (this.dateChemical == null) ? null :(Date) this.dateChemical.clone();}
 
+    /**
+     * Method for getting the diagnosis date.
+     *
+     * @return Date's diagnosis
+     */
+
     public Date getDateDiagnosis() {return (this.dateDiagnosis == null) ? null :(Date) this.dateDiagnosis.clone();}
+
+    /**
+     * Method for getting the validation date.
+     *
+     * @return Date's validation
+     */
 
     public Date getDateValidation() {return (this.dateValidation == null) ? null :(Date) this.dateValidation.clone();}
 
@@ -317,6 +490,7 @@ public class Test {
      *
      * @return parameter's features
      */
+
     public String parametersToString() {
         StringBuilder bld = new StringBuilder();
         bld.append("\n\nList of Parameter(s) for each Category to be analysed: ");
@@ -337,6 +511,7 @@ public class Test {
      *
      * @return test's features
      */
+
     @Override
     public String toString() {
         StringBuilder bld = new StringBuilder();

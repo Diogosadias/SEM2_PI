@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * TestStore - Class responsible for managing tests.
  *
  * @author Tiago Rocha <1181445@isep.ipp.pt>
  * @author Bruno Pereira <1191454@isep.ipp.pt>
@@ -17,27 +18,63 @@ import java.util.List;
 
 public class TestStore {
 
+    /**
+     * The company.
+     */
     private Company company;
 
+    /**
+     * The client.
+     */
     private Client client;
 
+    /**
+     * Initialize a list of tests.
+     */
     private final List<Test> testList;
 
+    /**
+     * The test.
+     */
     private Test test;
 
+    /**
+     * The number of registered tests.
+     */
     private long numRegisteredTest = 0;
 
+    /**
+     * Initialize a list of Test's store.
+     */
     public TestStore(){
         testList = new ArrayList<>();
     }
+
+    /**
+     * Changes the company.
+     *
+     * @param company - Company
+     */
 
     public void setCompany (Company company) {
         this.company = company;
     }
 
+    /**
+     * Return the company.
+     *
+     * @return Company
+     */
+
     public Company getCompany () {
         return company;
     }
+
+    /**
+     * Check if the registered date it's within the rules.
+     *
+     * @param tin - Client's TIN
+     */
 
     public boolean checkRegisteredClient(long tin) {
         ClientStore cStore = this.company.getClientStore();
@@ -45,11 +82,23 @@ public class TestStore {
         return (client != null) ;
     }
 
+    /**
+     * Return the TestType's list.
+     *
+     * @return TestType's list
+     */
+
     public List getListTestType() {
         TestTypeStore ttStore = this.company.getTestTypeStore();
         TestTypeMapper ttMapper = new TestTypeMapper();
         return ttMapper.toDto(ttStore.getTestTypeList());
     }
+
+    /**
+     * Creates a Test instance.
+     *
+     * @param typeCode - Test's code
+     */
 
     public void newTest(String typeCode) {
         TestTypeStore ttStore = this.company.getTestTypeStore();
@@ -59,10 +108,20 @@ public class TestStore {
         generateTestCode();
     }
 
+    /**
+     * Generate code of the test.
+     */
+
     private void generateTestCode() {
         String testCode = new GenerateTestCode(numRegisteredTest).getCode();
         this.test.setCode(testCode);
     }
+
+    /**
+     * Add a category to test.
+     *
+     * @param categoryCode - Category's code
+     */
 
     public void addCategoryToTest (String categoryCode) {
         ParameterCategoryStore pcStore = this.company.getParameterCategoryStore();
@@ -70,11 +129,23 @@ public class TestStore {
         this.test.addCategory(category);
     }
 
+    /**
+     * Return the Parameter's list.
+     *
+     * @return Parameter's list
+     */
+
     public List getListParameters(String categoryCode) {
         ParameterStore pStore = this.company.getParameterStore();
         ParameterMapper pMapper = new ParameterMapper();
         return pMapper.toDto(pStore.getParameterList(),categoryCode);
     }
+
+    /**
+     * Add a parameter to test.
+     *
+     * @param parameterCode - Parameter's code
+     */
 
     public boolean addParameterToTest(String parameterCode) {
         ParameterStore pStore = this.company.getParameterStore();
@@ -82,9 +153,21 @@ public class TestStore {
         return this.test.addParameter(parameter);
     }
 
+    /**
+     * Add a nhsCode to test.
+     *
+     * @param nhs - Test's nhsCode
+     */
+
     public void addNhsCodeToTest(String nhs) {
         this.test.setNhsCode(nhs);
     }
+
+    /**
+     * Validates Test attributes for business model rules.
+     *
+     * @return boolean
+     */
 
     public boolean validateTest() {
         for (Test t : testList) {
@@ -95,6 +178,10 @@ public class TestStore {
         return true;
     }
 
+    /**
+     * Saves the new Test.
+     */
+
     public void saveTest() {
         if(!testList.contains(this.test)) {
             testList.add(this.test);
@@ -104,10 +191,22 @@ public class TestStore {
         }
     }
 
+    /**
+     * Add a Test.
+     *
+     * @param test - Test
+     */
+
     public void addTest(Test test){
         this.test = test;
         this.saveTest();
     }
+
+    /**
+     * Add a sample of the test.
+     *
+     * @param sample - Test's sample
+     */
 
     public boolean addSampleToTest(Sample sample) {
         return this.test.addSample(sample);
@@ -115,8 +214,10 @@ public class TestStore {
 
     /**
      * Method for getting the Registered Tests List.
+     *
      * @return registered tests list
      */
+
     public List<Test> getRegisteredTests () {
         // Test list with only new registered Tests
         return this.getTests(Constants.REGISTERED);
@@ -124,8 +225,10 @@ public class TestStore {
 
     /**
      * Method for getting the Sample Collected List.
+     *
      * @return sample collected list
      */
+
     public List<Test> getSampleCollectedTests(){
         // Test list with at least one Sample collected
         return this.getTests(Constants.SAMPLE_COLLECTED);
@@ -133,8 +236,10 @@ public class TestStore {
 
     /**
      * Method for getting the Sample Analysed List.
+     *
      * @return sample analysed list
      */
+
     public List<Test> getSampleAnalysisTests(){
         // Test list with Chemical analysis Samples
         return this.getTests(Constants.SAMPLE_ANALYSED);
@@ -142,8 +247,10 @@ public class TestStore {
 
     /**
      * Method for getting the Diagnosed Tests List.
+     *
      * @return diagnosed tests list
      */
+
     public List<Test> getDiagnosedTests(){
         // Test list with Diagnosis made to chemical analysis
         return this.getTests(Constants.DIAGNOSIS_MADE);
@@ -151,8 +258,10 @@ public class TestStore {
 
     /**
      * Method for getting the Validated Tests List.
+     *
      * @return validated tests list
      */
+
     public List<Test> getValidatedTests(){
         // Test list with diagnosis and report Validated
         return this.getTests(Constants.VALIDATED);
@@ -160,9 +269,12 @@ public class TestStore {
 
     /**
      * Method for getting the Test List.
-     * @param state
+     *
+     * @param state - Test's state
+     *
      * @return tests list
      */
+
     public List<Test> getTests (String state) {
         if(this.testList !=null) {
             if (this.testList.isEmpty()) {
@@ -181,6 +293,12 @@ public class TestStore {
         }
         return null;
     }
+
+    /**
+     * Change the code of the test.
+     *
+     * @param code - Test's code
+     */
 
     public void setTest (String code) {
         this.test = this.getTestByCode(code);
@@ -201,8 +319,10 @@ public class TestStore {
 
     /**
      * Method for getting the Parameter List of the test.
+     *
      * @return parameter list of the test
      */
+
     public List<ParameterDto> getListParametersFromTest () {
         ParameterMapper mapper = new ParameterMapper();
         List<Parameter> parameters = this.test.getListParameters();
@@ -213,6 +333,11 @@ public class TestStore {
         return dto;
     }
 
+    /**
+     * Change the test state diagnosis.
+     *
+     * @param test Test's diagnosis state
+     */
 
     public boolean setTestStateDiagnosis(Test test) {
         return test.testDiagnosisCompleted();
@@ -223,6 +348,7 @@ public class TestStore {
      *
      * @return Test features
      */
+
     public String getTestToString() {
         String s =  "\nClient: " + this.test.getClient().getTin() +
                 "\nType of Test: " + this.test.getTestType().getDescription() +
@@ -244,6 +370,7 @@ public class TestStore {
      *
      * @return test results features
      */
+
     public String getTestResultToString() {
         TestParameter testParam = this.test.getCurrentTestParameter();
         String s = "\nType of Test: " + this.test.getTestType().getDescription() +
