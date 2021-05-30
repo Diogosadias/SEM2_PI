@@ -15,11 +15,12 @@ import java.util.Random;
  *
  * @author Gil Pereira
  * @author Tiago Ferreira
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
+
 public class Sample {
 
     private final Barcode sampleBarcode;
-    private final String jpegPath;
 
     //AC: Sample should only have Barcode
     public Sample(String id) throws BarcodeException, OutputException, IOException {

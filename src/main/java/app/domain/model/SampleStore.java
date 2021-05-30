@@ -1,9 +1,7 @@
 package app.domain.model;
 
-import app.domain.model.Sample;
 import net.sourceforge.barbecue.BarcodeException;
 import net.sourceforge.barbecue.output.OutputException;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +11,7 @@ import java.util.List;
  *
  * @author Gil Pereira
  */
+
 public class SampleStore {
 
     private final List<Sample> sampleList;
