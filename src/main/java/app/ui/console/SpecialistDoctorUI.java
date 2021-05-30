@@ -5,16 +5,20 @@ import app.ui.console.utils.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
+ */
+
 public class SpecialistDoctorUI implements Runnable {
 
     @Override
     public void run(){
 
-        List<MenuItem> options = new ArrayList<MenuItem>();
+        List<MenuItem> options = new ArrayList<>();
         options.add(new MenuItem("Diagnosis - Write Report", new WriteReportUI()));
         options.add(new MenuItem("List Diagnosed Tests", new ListDiagnosedTestUI()));
 
-        boolean success = false;
         int option;
         do
         {

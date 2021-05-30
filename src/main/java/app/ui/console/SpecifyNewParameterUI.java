@@ -2,7 +2,6 @@ package app.ui.console;
 
 import app.controller.ParameterCategoryController;
 import app.controller.ParameterController;
-import app.domain.model.Parameter;
 import app.domain.model.ParameterCategory;
 
 import java.util.Scanner;
@@ -10,11 +9,11 @@ import java.util.Scanner;
 /**
  *
  * @author Márcio Ramos <1201682@isep.ipp.pt>
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
-public class SpecifyNewParameterUI implements Runnable{
-    public SpecifyNewParameterUI() {
 
-    }
+public class SpecifyNewParameterUI implements Runnable{
+
     public void run() {
 
         String code;
