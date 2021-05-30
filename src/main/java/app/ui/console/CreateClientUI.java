@@ -10,7 +10,9 @@ import java.util.Scanner;
  *
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  * @author Tiago Ferreira <1200601@isep.ipp.pt>
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
+
 public class CreateClientUI implements Runnable{
 
 
@@ -18,10 +20,7 @@ public class CreateClientUI implements Runnable{
         Scanner read = new Scanner(System.in);
         System.out.println("Are you sure you want to create this client?");
         String answer = read.next();
-        if(answer.equals("Yes")){
-            return true;
-        }
-        return false;
+        return answer.equals("Yes");
     }
     public void run() {
 
@@ -45,10 +44,6 @@ public class CreateClientUI implements Runnable{
 
             System.out.print("Email: ");
             id = read.next();
-
-
-            /*System.out.print("Password: ");
-            password = read.next();*/
 
             System.out.print("National Health Service (10 Digits): ");
             nhs = read.nextLong();

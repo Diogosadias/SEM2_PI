@@ -5,21 +5,19 @@ import app.ui.console.utils.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
+ */
+
 public class ClinicalChemistryTechnologistUI implements Runnable {
-
-
-    public ClinicalChemistryTechnologistUI(){
-
-    }
 
     @Override
     public void run(){
-        List<MenuItem> options = new ArrayList<MenuItem>();
+        List<MenuItem> options = new ArrayList<>();
 
         options.add(new MenuItem("Record Test Result", new RecordTestResultUI()));
 
-
-        boolean success = false;
         int option;
         do
         {
