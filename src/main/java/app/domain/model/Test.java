@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
+ * This domain class allows to build an instance of test.
  *
  * @author Tiago Rocha <1181445@isep.ipp.pt>
  * @author Bruno Pereira <1191454@isep.ipp.pt>
@@ -18,14 +19,47 @@ import java.util.List;
 
 public class Test {
 
+    /**
+     * The state of test.
+     */
     private String state;
+
+    /**
+     * The client of test.
+     */
     private Client client;
+
+    /**
+     * The nhsCode of test.
+     */
     private String nhsCode;
+
+    /**
+     * The description of test.
+     */
     private String description;
+
+    /**
+     * The TestType of test.
+     */
     private TestType type;
+
+    /**
+     * The code of test.
+     */
     private String code;
+
+    /**
+     * parameterList - Contains the parameter
+     */
     private final List<Parameter> listParameters;
+
+    /**
+     * ParameterCategoryList - Contains the parameter categories
+     */
     private final List<ParameterCategory> listCategories;
+
+
     private TestParameter testParam;
     private final List<TestParameter> listTestParameter;
     private final List<Sample> sampleList = new ArrayList<>();
@@ -48,21 +82,44 @@ public class Test {
         this.listTestParameter = new ArrayList<>();
     }
 
+    /**
+     * Check if the type attribute it's within the rules.
+     *
+     * @param type - TestType
+     */
     private void checkTypeAttribute (TestType type) {
         if(type == null) {
             throw new IllegalArgumentException("Creating Test Error: Test type is null.");
         }
     }
+
+    /**
+     * Check if the description attribute it's within the rules.
+     *
+     * @param description - TestType's description
+     */
     private void checkDescriptionAttribute (String description) {
         if(description.trim().length() == 0) {
             throw new IllegalArgumentException("Creating Test Error: Description is empty.");
         }
     }
+
+    /**
+     * Check if the client attribute it's within the rules.
+     *
+     * @param client - TestType's client
+     */
     private void checkClientAttribute (Client client) {
         if(client == null) {
             throw new IllegalArgumentException("Creating Test Error: Client is null.");
         }
     }
+
+    /**
+     * Check if the nhsCode attribute it's within the rules.
+     *
+     * @param nhsCode - TestType's nhsCode
+     */
     private void checkNhsCodeAttribute (String nhsCode) {
         int count = 0;
         for(int i = 0; i < nhsCode.length(); i++) {
@@ -74,6 +131,11 @@ public class Test {
         }
     }
 
+    /**
+     * Change the test's nhsCode.
+     *
+     * @param nhsCode test's nhsCode
+     */
     public void setNhsCode(String nhsCode) {
         checkNhsCodeAttribute(nhsCode);
         this.nhsCode = nhsCode;
@@ -81,6 +143,11 @@ public class Test {
         this.dateRegistered = new Date(System.currentTimeMillis());
     }
 
+    /**
+     * Return the parameter's code.
+     *
+     * @param code parameter's code
+     */
     public Parameter getParameterByCode(String code) {
         for (Parameter p : listParameters) {
             if (p.getCode().equals(code)) {
@@ -108,6 +175,11 @@ public class Test {
         return this.listTestParameter.add(this.testParam);
     }
 
+    /**
+     * Method for getting the available test parameter.
+     *
+     * @return List<TestType>
+     */
     public List getListTestParameter() {return this.listTestParameter;}
 
     public TestParameter getCurrentTestParameter () {
@@ -127,6 +199,11 @@ public class Test {
         return this.code;
     }
 
+    /**
+     * Change the test's code.
+     *
+     * @param code test's code
+     */
     public void setCode(String code) {
         if (code == null || code.equals("")) {
             throw new IllegalArgumentException("Error: Code is null.");
@@ -134,6 +211,11 @@ public class Test {
         this.code = code;
     }
 
+    /**
+     * Change the test's TestType.
+     *
+     * @param type test's TestType
+     */
     public void setTestType(TestType type) {
         this.type = type;
     }
@@ -182,10 +264,20 @@ public class Test {
         return this.nhsCode;
     }
 
+    /**
+     * Change the test's client.
+     *
+     * @param client test's client
+     */
     public void setClient(Client client) {
         this.client = client;
     }
 
+    /**
+     * Change the test's description.
+     *
+     * @param description test's description
+     */
     public void setDescription(String description) {
         this.description = description;
     }
@@ -220,6 +312,11 @@ public class Test {
 
     public Date getDateValidation() {return (this.dateValidation == null) ? null :(Date) this.dateValidation.clone();}
 
+    /**
+     * Return the textual description of the parameter.
+     *
+     * @return parameter's features
+     */
     public String parametersToString() {
         StringBuilder bld = new StringBuilder();
         bld.append("\n\nList of Parameter(s) for each Category to be analysed: ");
@@ -235,7 +332,11 @@ public class Test {
         return bld.toString();
     }
 
-
+    /**
+     * Return the textual description of the test.
+     *
+     * @return test's features
+     */
     @Override
     public String toString() {
         StringBuilder bld = new StringBuilder();
