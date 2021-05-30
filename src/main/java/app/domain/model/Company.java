@@ -32,7 +32,11 @@ public class Company {
      */
     private CALStore calStore;
 
+    /**
+     * The store of report.
+     */
     private final ReportStore reportStore;
+
     /**
      * The store of create a client.
      */
@@ -43,6 +47,9 @@ public class Company {
      */
     private ParameterCategoryStore parameterCategoryStore;
 
+    /**
+     * The store of OrgRole.
+     */
     private final OrgRoleStore orgRoleStore;
 
     /**
@@ -65,6 +72,9 @@ public class Company {
      */
     private TestTypeStore testTypeStore;
 
+    /**
+     * The store of Sample.
+     */
     private SampleStore sampleStore;
 
     /**

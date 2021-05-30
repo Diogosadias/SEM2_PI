@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * TestTypeStore - Class responsible for managing Test Types.
  *
  * @author Tomás Pinto <1181835@isep.ipp.pt>
  * @author Márcio Ramos <1201682@isep.ipp.pt>
@@ -67,6 +68,14 @@ public class TestTypeStore {
             return false;
         }
     }
+
+    /**
+     * Add a Test Type.
+     *
+     * @param type TestType
+     *
+     * @return boolean
+     */
 
     public boolean addTestType(TestType type) {
         return this.saveTestType(type);

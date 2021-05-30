@@ -73,6 +73,14 @@ public class ParameterCategoryStore {
         return parameterCategoryList;
     }
 
+    /**
+     * Add a Parameter Category.
+     *
+     * @param category - Parameter Category
+     *
+     * @return boolean
+     */
+
     public boolean addParameterCategory(ParameterCategory category) {
         if(this.parameterCategoryList.contains(category)) {
             throw new IllegalArgumentException("Parameter Category already exists.");

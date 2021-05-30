@@ -103,6 +103,14 @@ public class ParameterStore {
         return this.parameterList.add(p);
     }
 
+    /**
+     * Add a Parameter.
+     *
+     * @param parameter - Parameter
+     *
+     * @return boolean
+     */
+
     public boolean addParameter(Parameter parameter) {
         if(this.parameterList.contains(parameter)) {
             throw new IllegalArgumentException("Parameter already exists.");

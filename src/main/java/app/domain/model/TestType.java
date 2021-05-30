@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * This domain class allows to build an instance of test type.
  *
  * @author Tomás Pinto <1181835@isep.ipp.pt>
  * @author Tiago Rocha <1181445@isep.ipp.pt>
@@ -45,8 +46,13 @@ public class TestType extends TestTypeStore {
         this.collectingMethod = collectingMethod;
     }
 
-    public TestType() {
-    }
+    /**
+     * Add a Parameter Category.
+     *
+     * @param category Parameter Category
+     *
+     * @return boolean
+     */
 
     public boolean addParameterCategory(ParameterCategory category) {
         if(this.parameterList.contains(category)) {
@@ -54,6 +60,12 @@ public class TestType extends TestTypeStore {
         }
         return this.parameterList.add(category);
     }
+
+    /**
+     * Return the Parameter's list.
+     *
+     * @return Parameter's list
+     */
 
     public List getListParameters() {
         return this.parameterList;
@@ -144,6 +156,12 @@ public class TestType extends TestTypeStore {
     public void setCategory(ParameterCategory parameter){
         parameterList.add(parameter);
     }
+
+    /**
+     * Return the External Module.
+     *
+     * @return ExternalModule - External Module
+     */
 
     public ExternalModule getExternalModule () {
         return new ExternalModule();
