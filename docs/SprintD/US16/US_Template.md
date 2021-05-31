@@ -58,7 +58,7 @@ adding other similar algorithms is required.
 ### 2.1. Relevant Domain Model Excerpt 
 *In this section, it is suggested to present an excerpt of the domain model that is seen as relevant to fulfill this requirement.* 
 
-![USXX-MD](USXX-MD.svg)
+![US16-MD](US16-MD.svg)
 
 ### 2.2. Other Remarks
 
@@ -74,31 +74,34 @@ adding other similar algorithms is required.
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1  		 |							 |             |                              |
-| Step 2  		 |							 |             |                              |
-| Step 3  		 |							 |             |                              |
-| Step 4  		 |							 |             |                              |
-| Step 5  		 |							 |             |                              |
-| Step 6  		 |							 |             |                              |              
+    | Step 1: requests an analysis of the performed tests 		 |	...having the performed tests stored?|   Company         | IE: Has it's own data.                            |
+| Step 2: asks which algorithm should be used  		 |		...asking the user information?					 |    UI         |      UI: it's the frontier between the user and the system making it able to both interact.                        |
+| Step 3: select the algorithm  		 |		...transforming the data?					 |     BenchmarkAlgorithm        |     Creator: Converts and calculates the data.                          |
+| | ...sending the stored tests? | TestDTO | IE: Knows it's own data.
+| Step 4: shows the data  		 |	n/a					 |         |                   |
+| Step 5: confirms the data 		 |	...confirming the converted data?						 |  BenchmarkAlgorithm           |       Creator: Converts and calculates the data.                        |
+| Step 6: informs operation success  		 |	...converting the converted data into a file?						 |  BenchmarkAlgorithm           |      IE: Has it's own data                        |              
 
 ### Systematization ##
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
- * Class1
- * Class2
- * Class3
+ * BenchmarkAlgorithm
 
 Other software classes (i.e. Pure Fabrication) identified: 
- * xxxxUI  
- * xxxxController
+ * AnalyzeTestsUI  
+ * AnalyzeTestsController
 
 ## 3.2. Sequence Diagram (SD)
 
 *In this section, it is suggested to present an UML dynamic view stating the sequence of domain related software objects' interactions that allows to fulfill the requirement.* 
 
-![USXX-SD](USXX-SD.svg)
+![US16-SD](US16-SD.svg)
 
+
+ref:
+
+![US16-SD](Sequence Diagram1.svg)
 ## 3.3. Class Diagram (CD)
 
 *In this section, it is suggested to present an UML static view representing the main domain related software classes that are involved in fulfilling the requirement as well as and their relations, attributes and methods.*
