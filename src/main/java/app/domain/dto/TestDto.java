@@ -4,6 +4,7 @@ import app.domain.model.Parameter;
 import app.domain.model.ParameterCategory;
 import app.domain.model.Sample;
 import app.domain.model.TestParameter;
+import app.domain.shared.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,7 @@ public class TestDto {
     private Date dateDiagnosis;
     private Date dateValidation;
 
+    private String type;
     private String code;
     private List<Sample> sampleList = new ArrayList<>();
     private String description;
@@ -49,8 +51,10 @@ public class TestDto {
         this.clientCC = clientCC;
     }
 
-    public TestDto(String code,List<ParameterCategory> categories,List<Parameter> parameters){
+    public TestDto(String code,String collectMethod, long clientCC, List<ParameterCategory> categories,List<Parameter> parameters){
         this.code = code;
+        this.description = collectMethod;
+        this.clientCC = clientCC;
         this.categories = categories;
         this.parameters = parameters;
     }
@@ -65,6 +69,13 @@ public class TestDto {
         this.code = code;
         this.tin = tin;
         this.listTP = listTP;
+    }
+
+    public TestDto(String code, Date dateRegistered, Date dateChemicalAnalysis, Date dateDiagnosis) {
+        this.code = code;
+        this.dateRegistered = dateRegistered;
+        this.dateChemicalAnalysis = dateChemicalAnalysis;
+        this.dateDiagnosis = dateDiagnosis;
     }
 
     public List<Sample> getSampleList() {
@@ -148,9 +159,23 @@ public class TestDto {
     }
 
     public String toString(){
-        return
-                "\nCode: "+ code +
-                "\nCollection Method: "+ description;
+        String s = "\nTest: " + code;
+        if(nhsCode != null) {
+            s += " | Nhs: "+ nhsCode;
+        }
+        if(type != null) {
+            s += " | Type: "+ type;
+        }
+        if(description != null) {
+            s += " | Collection Method: "+ description;
+        }
+        if(!sampleList.isEmpty()) {
+            s += "\nSamples:";
+            for (Sample sample : sampleList) {
+                s += "\n" + sample.getSampleBarcode();
+            }
+        }
+        return s;
     }
 
     //US12
@@ -175,6 +200,15 @@ public class TestDto {
         for (Sample sample : this.sampleList) {
             s += "\n - " + sample.getSampleBarcode();
         }
+        return s;
+    }
+
+    //US15
+    public String validatedDates_toString() {
+        String s = "\nTest n: " + this.code +
+                "\nDate Registration: " + Constants.FORMATTER.format(this.dateRegistered) +
+                "\nDate Chemical Analysis: " + Constants.FORMATTER.format(this.dateChemicalAnalysis) +
+                "\nDate Diagnosis: " + Constants.FORMATTER.format(this.dateDiagnosis);
         return s;
     }
 

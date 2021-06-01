@@ -2,6 +2,7 @@ package app.domain.dto;
 
 import app.controller.App;
 import app.domain.model.*;
+import app.domain.shared.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,13 +39,31 @@ public class TestMapper {
         return null;
     }
 
+    public List<TestDto> registered_toDto(List<Test> list){
+        if(list!=null) {
+            for(Test test: list){
+                String code = test.getCode();
+                String description = test.getDescription();
+                Client client = test.getClient();
+                List<ParameterCategory> listCategory = test.getListCategories() ;
+                List<Parameter> listParameter = test.getListParameters() ;
+                TestDto dto = new TestDto(code,description, client.getCitizenCard(),listCategory,listParameter);
+                testDto.add(dto);
+            }
+            return testDto;
+        }
+        return null;
+    }
+
     public List<TestDto> testParameters_toDto(List<Test> list){
         if(list!=null) {
         for(Test test: list){
             String code = test.getCode();
+            String description = test.getDescription();
+            Client client = test.getClient();
             List<ParameterCategory> listCategory = test.getListCategories() ;
             List<Parameter> listParameter = test.getListParameters() ;
-            TestDto dto = new TestDto(code,listCategory,listParameter);
+            TestDto dto = new TestDto(code,description, client.getCitizenCard(),listCategory,listParameter);
             testDto.add(dto);
         }
         return testDto;
@@ -67,23 +86,37 @@ public class TestMapper {
     }
 
     public List<TestDto> listTestParameter_toDto(List<Test> list){
-                if(list!=null) {
-        for(Test test: list){
-            String code = test.getCode();
-            long tin = test.getClient().getTin();
-            List<TestParameter> listTP = test.getListTestParameter();
-            TestDto dto = new TestDto(code,tin,listTP);
-            Date dateRegistered = test.getDateRegistered();
-            Date dateChemical = test.getDateDiagnosis();
-            dto.setDateRegistered(dateRegistered);
-            dto.setDateChemicalAnalysis(dateChemical);
+        if(list!=null) {
+            for(Test test: list){
+                String code = test.getCode();
+                long tin = test.getClient().getTin();
+                List<TestParameter> listTP = test.getListTestParameter();
+                TestDto dto = new TestDto(code,tin,listTP);
+                Date dateRegistered = test.getDateRegistered();
+                Date dateChemical = test.getDateDiagnosis();
+                dto.setDateRegistered(dateRegistered);
+                dto.setDateChemicalAnalysis(dateChemical);
                 if(test.getDateDiagnosis() != null) {
                     Date dateDiagnosis = test.getDateDiagnosis();
                     dto.setDateDiagnosis(dateDiagnosis);
                 }
-            testDto.add(dto);
+                testDto.add(dto);
             }
-                    return testDto;
+        return testDto;
+        }
+        return null;
+    }
+
+    public List listTestDiagnosed_toDto (List<Test> list){
+        if(list!=null) {
+            for(Test test: list){
+                String code = test.getCode();
+                Date dateRegistered = test.getDateRegistered();
+                Date dateChemical = test.getDateChemicalAnalysis();
+                Date dateDiagnosis = test.getDateDiagnosis();
+                testDto.add(new TestDto(code,dateRegistered,dateChemical,dateDiagnosis));
+            }
+            return testDto;
         }
         return null;
     }

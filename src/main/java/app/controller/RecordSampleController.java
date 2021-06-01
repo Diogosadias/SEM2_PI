@@ -54,7 +54,7 @@ public class RecordSampleController {
     public List<TestDto> getTests() {
         List<Test> tests = this.testStore.getRegisteredTests();
         TestMapper mapper = new TestMapper();
-        return mapper.toDto(tests);
+        return mapper.registered_toDto(tests);
     }
 
     public List<TestDto> listTestSamples() {

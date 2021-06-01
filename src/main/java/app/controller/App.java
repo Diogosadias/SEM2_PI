@@ -127,6 +127,11 @@ App {
         this.authFacade.addUserWithRole(employee4.getName(), employee4.getEmail(), "123", CHEMISTRY_TECHNOLOGIST );
         this.company.getEmployeeStore().addEmployee(employee4);
 
+        // email: LC00005@lei.pt pass: 123
+        LaboratoryCoordinator employee5 = new LaboratoryCoordinator(this.company.getOrgRoleStore().getRoleById(LABORATORY_COORDINATOR), "LC00005", "Lab Coordinator1", "LC-address",98765432101L,"LC-soc");
+        this.authFacade.addUserWithRole(employee5.getName(), employee5.getEmail(), "123", LABORATORY_COORDINATOR );
+        this.company.getEmployeeStore().addEmployee(employee5);
+
         //Client
         Client client1 = new Client (new Email("client1@lei.pt"),"Client Teste",1234567890L,1212121212121212L,210000000001L,new Date("1990/01/01"),"M",91000000000L);
         this.company.getClientStore().saveClients(client1,"123");

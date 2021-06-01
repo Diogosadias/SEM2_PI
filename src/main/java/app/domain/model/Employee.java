@@ -110,7 +110,7 @@ public class Employee {
      */
     private void checkNumDigits (long num) {
         String temp = String.valueOf(num);
-        if ( temp.length() != 11)
+        if ( temp.length() < 11 || temp.length() > 11)
             throw new IllegalArgumentException("Phone Number must have 11 chars.");
     }
 

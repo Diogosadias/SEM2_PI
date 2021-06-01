@@ -460,6 +460,11 @@ public class Test {
         return this.dateSampleList;
     }
 
+    public void isValidated () {
+        this.state = Constants.VALIDATED;
+        this.dateValidation = new Date(System.currentTimeMillis());
+    }
+
     /**
      * Method for getting the registered date.
      *
