@@ -88,6 +88,22 @@ public class Client {
         this.pNumber = pNumber;
     }
 
+    public Client(Email id, String name, long nhs, long citizenCard, long tin, Date birthDate, long pNumber){
+
+        checkNHS(nhs);
+        checkCitizenNumber(citizenCard);
+        checkPNumber(pNumber);
+        checkTIN(tin);
+
+        this.name = name;
+        this.id = id;
+        this.nhs = nhs;
+        this.citizenCard = citizenCard;
+        this.tin = tin;
+        this.birthDate = birthDate;
+        this.pNumber = pNumber;
+    }
+
     /**
      * Constructor Client with the citizen card.
      *
@@ -306,7 +322,7 @@ public class Client {
      */
     @Override
     public String toString() {
-                return "Client{" +
+        return "Client{" +
                 ", name="+ name +
                 ", id="+ id +
                 ", nhs=" + nhs +
