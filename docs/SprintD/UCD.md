@@ -30,5 +30,6 @@ However, be aware, this is a pedagogical simplification. On further projects and
 |US14|[Write Report and Diagnosis](US14/US14.md)|*
 |US15|[Validate Analysis and Report](US15/US15.md)|*
 |US16|[Checks Results](US16/US16.md)|
+|US17|[Import via CSV file](US17/US17.md)|
 | ... | ...|
 | USXX | [ShortNameOfUSXX](USXX/USXX.md)|
