@@ -19,6 +19,8 @@ import java.util.List;
 
 public class Test {
 
+    private String labId;
+
     /**
      * The state of test.
      */
@@ -262,6 +264,10 @@ public class Test {
         throw new IllegalArgumentException("Test: No Parameter with that Code.");
     }
 
+    public void setLabId (String labId) {
+        this.labId = labId;
+    }
+
     /**
      * Method for getting the test parameter code.
      *
@@ -355,6 +361,10 @@ public class Test {
             throw new IllegalArgumentException("Test: ParameterCategory already exists.");
         }
         listCategories.add(category);
+    }
+
+    public String getLabId() {
+        return this.labId;
     }
 
     /**
