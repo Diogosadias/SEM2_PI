@@ -201,7 +201,7 @@ public class TestDtoTest {
     public void testToString() {
         System.out.println("toString");
         TestDto instance = testDto1;
-        String expResult = "\nCode: "+ testDto1.getCode() + "\nCollection Method: " + testDto1.getDescription();
+        String expResult = "\nTest: "+ testDto1.getCode() + " | Nhs: " + testDto1.getNhsCode() + " | Collection Method: " + testDto1.getDescription();
         String result = instance.toString();
         assertEquals(expResult, result);
     }
