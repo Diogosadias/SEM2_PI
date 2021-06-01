@@ -74,6 +74,8 @@ public class Test {
      */
     private final List<Sample> sampleList = new ArrayList<>();
 
+    private final List<Date> dateSampleList = new ArrayList<>();
+
     /**
      * The registered date.
      */
@@ -416,6 +418,7 @@ public class Test {
             return false;
         }
         this.state = Constants.SAMPLE_COLLECTED;
+        dateSampleList.add(new Date(System.currentTimeMillis()));
         return (this.sampleList.add(sample));
     }
 
@@ -451,6 +454,10 @@ public class Test {
         this.state = Constants.DIAGNOSIS_MADE;
         this.dateDiagnosis = new Date(System.currentTimeMillis());
         return true;
+    }
+
+    public List getListDateSampleCollected () {
+        return this.dateSampleList;
     }
 
     /**
