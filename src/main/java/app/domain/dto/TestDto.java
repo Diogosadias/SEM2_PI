@@ -51,9 +51,10 @@ public class TestDto {
         this.clientCC = clientCC;
     }
 
-    public TestDto(String code,String collectMethod, long clientCC, List<ParameterCategory> categories,List<Parameter> parameters){
+    public TestDto(String code,String collectMethod, String type, long clientCC, List<ParameterCategory> categories,List<Parameter> parameters){
         this.code = code;
         this.description = collectMethod;
+        this.type = type;
         this.clientCC = clientCC;
         this.categories = categories;
         this.parameters = parameters;
@@ -162,6 +163,9 @@ public class TestDto {
         String s = "\nTest: " + code;
         if(nhsCode != null) {
             s += " | Nhs: "+ nhsCode;
+        }
+        if(clientCC != 0) {
+            s += " | Client n: "+ clientCC;
         }
         if(type != null) {
             s += " | Type: "+ type;
