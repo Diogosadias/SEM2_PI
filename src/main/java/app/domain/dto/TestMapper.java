@@ -44,22 +44,24 @@ public class TestMapper {
             for(Test test: list){
                 String code = test.getCode();
                 String description = test.getDescription();
+                String type = test.getTestType().getDescription();
                 Client client = test.getClient();
                 List<ParameterCategory> listCategory = test.getListCategories() ;
                 List<Parameter> listParameter = test.getListParameters() ;
-                TestDto dto = new TestDto(code,description, client.getCitizenCard(),listCategory,listParameter);
+                TestDto dto = new TestDto(code,description,type,client.getCitizenCard(),listCategory,listParameter);
                 testDto.add(dto);
             }
             return testDto;
         }
         return null;
     }
-
+/*
     public List<TestDto> testParameters_toDto(List<Test> list){
         if(list!=null) {
         for(Test test: list){
             String code = test.getCode();
             String description = test.getDescription();
+            String type = test.getTestType().getDescription();
             Client client = test.getClient();
             List<ParameterCategory> listCategory = test.getListCategories() ;
             List<Parameter> listParameter = test.getListParameters() ;
@@ -70,7 +72,7 @@ public class TestMapper {
         }
         return null;
     }
-
+*/
     public List<TestDto> testSamples_toDto(List<Test> list){
             if(list!=null) {
         for(Test test: list){

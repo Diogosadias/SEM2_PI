@@ -21,7 +21,7 @@ public class TestDtoTest {
     TestDto testDto1 = new TestDto("12345","teste1", Long.valueOf("12345"));
     List<ParameterCategory> categories = new ArrayList<>();
     List<Parameter> parameters = new ArrayList<>();
-    TestDto testDto2 = new TestDto("23456","sample",12345678901L, categories, parameters);
+    TestDto testDto2 = new TestDto("23456","sample","type",12345678901L, categories, parameters);
     List<Sample> sampleList = new ArrayList<>();
     TestDto testDto3 = new TestDto("34567","teste3", sampleList);
     List<TestParameter> listTP = new ArrayList<>();

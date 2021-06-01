@@ -27,7 +27,6 @@ public class RecordSampleUI implements Runnable {
     public void run() {
         try {
             TestDto chosenTest = writeTests();
-            System.out.println(chosenTest);
             boolean testFlag = Utils.confirm(chosenTest+"\nClient Name: "+this.rsc.getTestClientNameByCC(chosenTest.getClientCC())
                     + "\nDo you wish to add samples to this test? Y/N");
             if(!testFlag) throw new Exception("RE-RUN-UI");
