@@ -78,14 +78,22 @@ public class CSVFileConverter {
             }
 
 
+            Test test = new Test(new TestType("",s[getIndex(header,"TestType")],""),"",c);
+            test.setCode(s[getIndex(header,"Test_Code")]);
+            test.setNhsCode(s[getIndex(header,"NHS_Number")]);
+            test.setCode(s[getIndex(header,"Test_Code")]);
+
+            Parameter param = new Parameter("","","",s[getIndex(header,"Category")]);
+
+
 
 
             int index = getIndex(header,"Category");
 
             if( s[index].equals("Covid") ){
 
-                if(!s[index+1].equals("NA")){
 
+                if(!s[index+1].equals("NA")){
 
 
                 }
@@ -98,7 +106,7 @@ public class CSVFileConverter {
 
 
 
-
+            testStore.addTest(test);
 
 
 
@@ -132,7 +140,6 @@ public class CSVFileConverter {
 
 
 }
-
 
 
 
