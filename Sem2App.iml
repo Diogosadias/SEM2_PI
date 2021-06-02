@@ -49,6 +49,15 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="Maven: com.nhs.report:Report2NHS:1.0.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/Report2NHS-1.0.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="Maven: net.sourceforge.barbecue:barbecue:2.0-dev">
         <CLASSES>
           <root url="jar://$MODULE_DIR$/libs/barbecue-2.0-dev.jar!/" />
