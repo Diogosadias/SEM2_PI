@@ -582,5 +582,23 @@ public class Test {
         return bld.toString();
     }
 
+    public void setDateRegistered(Date dateRegistered) {
+        this.state = Constants.REGISTERED;
+        this.dateRegistered = dateRegistered;
+    }
 
+    public void setDateChemical(Date dateChemical) {
+        this.state = Constants.SAMPLE_ANALYSED;
+        this.dateChemical = dateChemical;
+    }
+
+    public void setDateDiagnosis(Date dateDiagnosis) {
+        this.state = Constants.DIAGNOSIS_MADE;
+        this.dateDiagnosis = dateDiagnosis;
+    }
+
+    public void setDateValidation(Date dateValidation) {
+        this.state = Constants.VALIDATED;
+        this.dateValidation = dateValidation;
+    }
 }
