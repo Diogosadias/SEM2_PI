@@ -583,21 +583,51 @@ public class Test {
     }
 
     public void setDateRegistered(Date dateRegistered) {
+        if(this.dateRegistered != null){
+            throw new IllegalArgumentException("Test is already in Register state.");
+        }
         this.state = Constants.REGISTERED;
         this.dateRegistered = dateRegistered;
     }
 
     public void setDateChemical(Date dateChemical) {
+        if(this.dateChemical != null){
+            throw new IllegalArgumentException("Test is already in Chemical Analysis state.");
+        }
+        if(this.dateRegistered == null){
+            throw new IllegalArgumentException("Test doesnt have Register date.");
+        }
         this.state = Constants.SAMPLE_ANALYSED;
         this.dateChemical = dateChemical;
     }
 
     public void setDateDiagnosis(Date dateDiagnosis) {
+        if(this.dateDiagnosis != null){
+            throw new IllegalArgumentException("Test is already in Diagnosis state.");
+        }
+        if(this.dateRegistered == null){
+            throw new IllegalArgumentException("Test doesnt have Register date.");
+        }
+        if(this.dateChemical == null){
+            throw new IllegalArgumentException("Test doesnt have Chemical Analysis date.");
+        }
         this.state = Constants.DIAGNOSIS_MADE;
         this.dateDiagnosis = dateDiagnosis;
     }
 
     public void setDateValidation(Date dateValidation) {
+        if(this.dateValidation != null){
+            throw new IllegalArgumentException("Test is already in Validated state.");
+        }
+        if(this.dateRegistered == null){
+            throw new IllegalArgumentException("Test doesnt have Register date.");
+        }
+        if(this.dateChemical == null){
+            throw new IllegalArgumentException("Test doesnt have Chemical Analysis date.");
+        }
+        if(this.dateDiagnosis == null){
+            throw new IllegalArgumentException("Test doesnt have Diagnosis date.");
+        }
         this.state = Constants.VALIDATED;
         this.dateValidation = dateValidation;
     }
