@@ -22,6 +22,7 @@ public class Administrator extends User {
      */
     private String standardOcuppationalCode;
 
+
     /**
      * The employee of the administrator.
      */
