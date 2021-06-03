@@ -17,7 +17,7 @@ public class TestTest {
 
 
     TestType testType = new TestType("codex","description","collectingMethod");
-    Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 11111111111L);
+    Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 1111111111L, new Date("12/12/2021"), "M", 11111111111L);
 
     app.domain.model.Test test = new app.domain.model.Test(testType,"description",c1);
 
@@ -198,7 +198,7 @@ public class TestTest {
 
     @Test
     public void checkSetClient() {
-        Client c2 = new Client(new Email("user2@gmail.com"), "Helium", 1112251111L, 1111123111111111L, 111167111111L, new Date("5/12/2021"), "M", 12110111111L);
+        Client c2 = new Client(new Email("user2@gmail.com"), "Helium", 1112251111L, 1111123111111111L, 1167111111L, new Date("5/12/2021"), "M", 12110111111L);
         assertEquals(test.getClient(), c1);
         test.setClient(c2);
         assertEquals(test.getClient(), c2);

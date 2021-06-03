@@ -82,7 +82,6 @@ public class AuthUI implements Runnable{
             maxAttempts--;
             String id = Utils.readLineFromConsole("Enter UserId/Email: ");
             String pwd = Utils.readLineFromConsole("Enter Password: ");
-
             success = ctrl.doLogin(id, pwd);
             if (!success)
             {

@@ -278,8 +278,10 @@ public class Client {
      */
     public void checkCitizenNumber(long citizenCard){
         String temp = String.valueOf(citizenCard);
-        if (temp.length() != 16)
+        if (temp.length() > 16) {
+            System.out.println(citizenCard);
             throw new IllegalArgumentException("Citizen Card code must have 16 chars.");
+        }
     }
 
     /**
@@ -299,8 +301,8 @@ public class Client {
      */
     public void checkTIN(long tin){
         String temp = String.valueOf(tin);
-        if (temp.length() != 12)
-            throw new IllegalArgumentException("TIN code must have 12 chars.");
+        if (temp.length() != 10)
+            throw new IllegalArgumentException("TIN code must have 10 chars.");
     }
 
     /**

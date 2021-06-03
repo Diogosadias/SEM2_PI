@@ -42,6 +42,11 @@ public class Parameter {
         this.category= category;
     }
 
+    public Parameter(String code, String category){
+        this.code= code;
+        this.category= category;
+    }
+
     /**
      * Return the parameter's code.
      *

@@ -133,27 +133,29 @@ App {
         this.company.getEmployeeStore().addEmployee(employee5);
 
         //Client
-        Client client1 = new Client (new Email("client1@lei.pt"),"Client Teste",1234567890L,1212121212121212L,210000000001L,new Date("1990/01/01"),"M",91000000000L);
+        Client client1 = new Client (new Email("client1@lei.pt"),"Client Teste",1234567890L,1212121212121212L,2100000001L,new Date("1990/01/01"),"M",91000000000L);
         this.company.getClientStore().saveClients(client1,"123");
 
         //ParameterCategory - Covid Tests
-        ParameterCategory categoryCovid = new ParameterCategory("SC200","SARS-CoV-2","21001");
+        ParameterCategory categoryCovid = new ParameterCategory("Covid","SARS-CoV-2","21001");
         this.company.getParameterCategoryStore().addParameterCategory(categoryCovid);
 
         //Parameter - Category Covid
-        Parameter parameter8 = new Parameter("IgGAN","IgC antibodies","Detect presence of antibodies.",categoryCovid.getCode());
+        Parameter parameter8 = new Parameter("IgGAN","IgGAN","Detect presence of antibodies.",categoryCovid.getCode());
         this.company.getParameterStore().addParameter(parameter8);
 
         //TestType - Covid
-        TestType type2 = new TestType("TT-02","Covid Test","Sample");
+        TestType type2 = new TestType("Covid","Covid","Sample");
         type2.addParameterCategory(categoryCovid);
         this.company.getTestTypeStore().addTestType(type2);
 
         //ParameterCategory - Blood Tests
-        ParameterCategory category1 = new ParameterCategory("CBC00","Hemogram (CBC)","11001");
+        ParameterCategory category1 = new ParameterCategory("HCBC","Hemogram","11001");
         this.company.getParameterCategoryStore().addParameterCategory(category1);
+        ParameterCategory category2 = new ParameterCategory("CHLT","Cholesterol","11002");
+        this.company.getParameterCategoryStore().addParameterCategory(category2);
 
-        //Parameter - Category 1
+        //Parameter - Category Hemogram
         Parameter parameter1 = new Parameter("WBC00","White Blood Cells (WBC)","White blood cells count",category1.getCode());
         this.company.getParameterStore().addParameter(parameter1);
         Parameter parameter2 = new Parameter("RBC00","Red Blood Cells (RBC)","Red blood cells count",category1.getCode());
@@ -171,8 +173,12 @@ App {
         Parameter parameter13 = new Parameter("ESR00","Erythrocyte Sedimentation Rate (ESR)","Erythrocyte Sedimentation count",category1.getCode());
         this.company.getParameterStore().addParameter(parameter13);
 
+        //Parameter - Category Cholesterol
+        Parameter parameter14 = new Parameter("HDL00"," POR INTRODUZIR "," AINDA NAO TEM",category2.getCode());
+        this.company.getParameterStore().addParameter(parameter14);
+
         //TestType
-        TestType type1 = new TestType("TT-01","Blood Test","Blood sample");
+        TestType type1 = new TestType("Blood","Blood Test","Blood sample");
         type1.addParameterCategory(category1);
         this.company.getTestTypeStore().addTestType(type1);
 

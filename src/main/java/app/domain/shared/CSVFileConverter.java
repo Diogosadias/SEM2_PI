@@ -37,7 +37,7 @@ public class CSVFileConverter {
 
 
 
-        Scanner sc = new Scanner(new File("covid.csv"));
+        Scanner sc = new Scanner(new File("blood.csv"));
 
         List<String[]> lString = new ArrayList<>();
         List <String[]> category = new ArrayList<>();
@@ -56,59 +56,64 @@ public class CSVFileConverter {
 
         lString.remove(0);
         for(String[] s : lString) {
+            Email email = null;
+            try {
 
+                email = new Email(s[getIndex(header, "E-mail")]);
+                Client c = new Client(email, s[getIndex(header, "Name")], Long.valueOf(s[getIndex(header, "NHS_Number")]), Long.valueOf(s[getIndex(header, "CitizenCard_Number")]), Long.valueOf(s[getIndex(header, "TIN")]), new Date(s[getIndex(header, "BirthDay")]), Long.valueOf(s[getIndex(header, "PhoneNumber")]));
+                clientStore.saveClients(c,"123");
 
-            Client c = new Client(new Email (s[getIndex(header,"E-mail")]),s[getIndex(header,"Name")],Long.valueOf(s[getIndex(header,"NHS_Code")]),Long.valueOf(s[getIndex(header,"CitizenCard_Number")]),Long.valueOf(s[getIndex(header,"TIN")]),new Date(s[getIndex(header,"BirthDay")]),Long.valueOf(s[getIndex(header,"PhoneNumber")]));
+                int count = 0;
 
-            clientStore.saveClients(c,"123");
+                for(int i = 0 ; i < s.length; i++){
 
-            int count = 0;
+                    if(s[i].equals("Category")){
 
-            for(int i = 0 ; i < s.length; i++){
-
-                if(s[i].equals("Category")){
-
-                    String [] temp = new String[1000000];
-                    while(!s[i+1].equals("NA") && !s[i+1].equals("Category")){
-                        temp[count] = s[i+1];
+                        String [] temp = new String[1000000];
+                        while(!s[i+1].equals("NA") && !s[i+1].equals("Category")){
+                            temp[count] = s[i+1];
+                        }
+                        category.add(temp);
+                        count++;
                     }
-                    category.add(temp);
-                    count++;
                 }
-            }
+                TestType type = this.testTypeStore.getTestTypeByCode(s[getIndex(header,"TestType")]);
+                Test test = new Test(type,type.getCollectingMethod(),c);
+                test.setCode(s[getIndex(header,"Test_Code")]);
+                test.setNhsCode(s[getIndex(header,"NHS_Code")]);
+                test.setDateRegistered(this.checkDate(s[getIndex(header,"Test_Reg_DateHour")]));
+                Parameter param = new Parameter("","","",s[getIndex(header,"Category")]);
+                test.setDateChemical(this.checkDate(s[getIndex(header,"Test_Chemical_DateHour")]));
+                test.setDateDiagnosis(this.checkDate(s[getIndex(header,"Test_Doctor_DateHour")]));
+                test.setDateValidation(this.checkDate(s[getIndex(header,"Test_Validation_DateHour")]));
 
 
-            Test test = new Test(new TestType("",s[getIndex(header,"TestType")],""),"",c);
-            test.setCode(s[getIndex(header,"Test_Code")]);
-            test.setNhsCode(s[getIndex(header,"NHS_Number")]);
-            test.setCode(s[getIndex(header,"Test_Code")]);
 
-            Parameter param = new Parameter("","","",s[getIndex(header,"Category")]);
+                int index = getIndex(header,"Category");
+
+                if( s[index].equals("Covid") ){
 
 
+                    if(!s[index+1].equals("NA")){
 
 
-            int index = getIndex(header,"Category");
+                    }
+                }
 
-            if( s[index].equals("Covid") ){
-
-
-                if(!s[index+1].equals("NA")){
-
+                else if( s[index].equals("Blood")){
 
                 }
+
+
+
+
+                testStore.addTest(test);
+
+
+
+            }catch (IllegalArgumentException e) {
+                System.out.println("line " + (lString.indexOf(s) + 2) + " - Client: " + s[getIndex(header, "Name")] + " has invalid data.");
             }
-
-            else if( s[index].equals("Blood")){
-
-            }
-
-
-
-
-            testStore.addTest(test);
-
-
 
         }
 
@@ -119,22 +124,24 @@ public class CSVFileConverter {
 
     private int getIndex(String [] header, String s){
 
-
-
         for(int i = 0; i < header.length; i++){
 
 
-            if(header[i].equals(s))
+            if(header[i].trim().equals(s.trim())){
                 return  i;
+            }
+
 
         }
         return -1;
 
     }
 
-    private void checkTestType(String [] header, String s){
-
-
+    private Date checkDate(String date){
+        if(date.trim().equals("NA")){
+            throw new IllegalArgumentException(date + " is null.");
+        }
+        return new Date(date);
     }
 
 

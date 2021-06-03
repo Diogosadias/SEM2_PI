@@ -583,9 +583,6 @@ public class Test {
     }
 
     public void setDateRegistered(Date dateRegistered) {
-        if(this.dateRegistered != null){
-            throw new IllegalArgumentException("Test is already in Register state.");
-        }
         this.state = Constants.REGISTERED;
         this.dateRegistered = dateRegistered;
     }
