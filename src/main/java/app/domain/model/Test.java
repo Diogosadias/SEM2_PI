@@ -356,11 +356,11 @@ public class Test {
      * @param category Test's ParameterCategory
      */
 
-    public void addCategory(ParameterCategory category) {
+    public boolean addCategory(ParameterCategory category) {
         if (listCategories.contains(category)) {
-            throw new IllegalArgumentException("Test: ParameterCategory already exists.");
+            return false;
         }
-        listCategories.add(category);
+        return listCategories.add(category);
     }
 
     public String getLabId() {

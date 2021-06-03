@@ -3,6 +3,7 @@ package app.domain.model;
 import auth.domain.model.Email;
 
 import java.util.Date;
+import java.util.Objects;
 
 
 /**
@@ -336,5 +337,16 @@ public class Client {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Client)) return false;
+        Client client = (Client) o;
+        return nhs == client.nhs && citizenCard == client.citizenCard && tin == client.tin && pNumber == client.pNumber && name.equals(client.name) && id.equals(client.id) && birthDate.equals(client.birthDate) && sex.equals(client.sex);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, id, nhs, citizenCard, tin, birthDate, sex, pNumber);
+    }
 }

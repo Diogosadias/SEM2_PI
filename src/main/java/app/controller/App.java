@@ -137,7 +137,7 @@ App {
         this.company.getClientStore().saveClients(client1,"123");
 
         //ParameterCategory - Covid Tests
-        ParameterCategory categoryCovid = new ParameterCategory("Covid","SARS-CoV-2","21001");
+        ParameterCategory categoryCovid = new ParameterCategory("Covid","Covid Test","21001");
         this.company.getParameterCategoryStore().addParameterCategory(categoryCovid);
 
         //Parameter - Category Covid
@@ -145,7 +145,7 @@ App {
         this.company.getParameterStore().addParameter(parameter8);
 
         //TestType - Covid
-        TestType type2 = new TestType("Covid","Covid","Sample");
+        TestType type2 = new TestType("Covid","Covid Test","Sample");
         type2.addParameterCategory(categoryCovid);
         this.company.getTestTypeStore().addTestType(type2);
 
@@ -174,7 +174,7 @@ App {
         this.company.getParameterStore().addParameter(parameter13);
 
         //Parameter - Category Cholesterol
-        Parameter parameter14 = new Parameter("HDL00"," POR INTRODUZIR "," AINDA NAO TEM",category2.getCode());
+        Parameter parameter14 = new Parameter("HDL00","High-density lipoprotein","Complex particles composed of multiple proteins",category2.getCode());
         this.company.getParameterStore().addParameter(parameter14);
 
         //TestType
@@ -201,7 +201,7 @@ App {
         Parameter parameter7 = new Parameter("TPT00","Total protein","BMP measurements as well as total Proteins, related to liver function.",category3.getCode());
         this.company.getParameterStore().addParameter(parameter7);
 
-         */
+
 
         //Test
         Test forSamples = new Test (type1,type1.getCollectingMethod(),client1);
@@ -218,7 +218,7 @@ App {
         forReports.setCode("000000000002");
         forReports.addTestResult(parameter1.getCode(),"result",1);
         forReports.addResultToList();
-        this.company.getTestStore().addTest(forReports);
+        this.company.getTestStore().addTest(forReports);*/
 
     }
 

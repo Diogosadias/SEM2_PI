@@ -173,6 +173,11 @@ public class TestStore {
         for (Test t : testList) {
             if (t.getNhsCode().equals(this.test.getNhsCode())) {
                 System.out.println("Error: Test was already registered with same Nhs code.");
+                return false;
+            }
+            if (t.getCode().equals(this.test.getCode())) {
+                System.out.println("Error: Test was already registered with same code.");
+                return false;
             }
         }
         return true;
@@ -294,14 +299,9 @@ public class TestStore {
         return null;
     }
 
-    /**
-     * Change the code of the test.
-     *
-     * @param code - Test's code
-     */
 
-    public void setTest (String code) {
-        this.test = this.getTestByCode(code);
+    public void setTest (Test test) {
+        this.test = test;
     }
 
     public Test getTest () {

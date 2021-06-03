@@ -43,6 +43,14 @@ public class ParameterCategoryStore {
         return null;
     }
 
+    public ParameterCategory getParameterCategoryByDescription(String description){
+        for( ParameterCategory f : parameterCategoryList){
+            if(description.equals(f.getDescription()))
+                return f;
+        }
+        return null;
+    }
+
     /**
      * Method for validating the Parameter Category.
      * @param pc - Parameter Category

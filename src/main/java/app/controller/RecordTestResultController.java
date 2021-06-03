@@ -27,7 +27,7 @@ public class RecordTestResultController {
     }
 
     public List<ParameterDto> getListParameters (String testCode) {
-        this.tstore.setTest(testCode);
+        this.tstore.setTest(this.company.getTestStore().getTestByCode(testCode));
         return this.tstore.getListParametersFromTest();
     }
 

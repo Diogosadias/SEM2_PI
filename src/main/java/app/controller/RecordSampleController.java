@@ -38,7 +38,7 @@ public class RecordSampleController {
     }
 
     public Sample createSample(String id, String testCode) throws IOException, BarcodeException, OutputException {
-        this.testStore.setTest(testCode);
+        this.testStore.setTest(this.testStore.getTestByCode(testCode));
         this.sample = this.sampleStore.createSample(id);
         return sample;
     }

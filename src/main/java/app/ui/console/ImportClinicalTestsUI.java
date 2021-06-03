@@ -3,7 +3,6 @@ package app.ui.console;
 import app.domain.shared.CSVFileConverter;
 
 import java.io.FileNotFoundException;
-import java.sql.SQLOutput;
 
 public class ImportClinicalTestsUI implements Runnable {
 

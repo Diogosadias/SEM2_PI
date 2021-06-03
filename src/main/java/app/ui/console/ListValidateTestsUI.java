@@ -14,9 +14,6 @@ public class ListValidateTestsUI implements Runnable {
             List<Test> list  = controller.getCompany().getTestStore().getValidatedTests();
             for (Test t : list ) {
                 System.out.println("\n" + t);
-                System.out.println("\nPress Enter to continue:");
-                Scanner scanner = new Scanner(System.in);
-                scanner.nextLine();
             }
             System.out.println("Reached end of registered Test list.\n");
         } catch (IllegalArgumentException e) {

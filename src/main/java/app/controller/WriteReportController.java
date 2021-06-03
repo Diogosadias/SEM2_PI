@@ -39,7 +39,7 @@ public class WriteReportController {
 
     public void getTestInformation(TestDto test) {
         Test aux = this.company.getTestStore().getTestByCode(test.getCode());
-        this.testStore.setTest(aux.getCode());
+        this.testStore.setTest(aux);
         System.out.println(aux);
     }
 
