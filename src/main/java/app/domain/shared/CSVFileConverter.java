@@ -33,13 +33,12 @@ public class CSVFileConverter {
 
 
 
-    public void convertToObject() throws FileNotFoundException {
+    public void convertToObject(String fileName) throws FileNotFoundException {
 
-
-
-
-
-        Scanner sc = new Scanner(new File("blood.csv"));
+        if(!fileName.contains(".csv")) {
+            fileName += ".csv";
+        }
+        Scanner sc = new Scanner(new File(fileName));
 
         List<String[]> file = new ArrayList<>();
 
