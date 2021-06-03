@@ -8,7 +8,7 @@ import java.util.Date;
 import static org.junit.Assert.*;
 
 public class ReportTest {
-    Report report = new Report("123456789",new app.domain.model.Test((new TestType("codex","description","collectingMethod")),"qwertyuiop",new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 11111111111L)));
+    Report report = new Report("123456789",new app.domain.model.Test((new TestType("codex","description","collectingMethod")),"qwertyuiop",new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 1111111111L, new Date("12/12/2021"), "M", 11111111111L)));
     @Test
    public void testCheckDiagnosis() {
 
@@ -53,7 +53,7 @@ public class ReportTest {
 
    @Test
     public void testGetTest(){
-        app.domain.model.Test test = new app.domain.model.Test((new TestType("codex","description","collectingMethod")),"qwertyuiop",new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 11111111111L));
+        app.domain.model.Test test = new app.domain.model.Test((new TestType("codex","description","collectingMethod")),"qwertyuiop",new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 1111111111L, new Date("12/12/2021"), "M", 11111111111L));
         //assertEquals(test,report.getTest());
     }
 

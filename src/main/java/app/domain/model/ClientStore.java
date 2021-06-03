@@ -54,8 +54,8 @@ public class ClientStore {
      * @return Client
      */
     public Client createClient(String id, String name, long nhs, long citizenCard, long tin, String birthDate, String sex, long pNumber ){
-        Email email = new Email(id);
 
+        Email email = new Email(id);
         String[] date = birthDate.split("/");
         Date birthDateFormat = new Date(Integer.valueOf(date[0]),Integer.valueOf(date[1]),Integer.valueOf(date[2]));
 

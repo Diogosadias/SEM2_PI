@@ -32,9 +32,9 @@ public class TestStoreTest {
     @Test
     public void checkRegisteredClient() {
         company.getTestStore().setCompany(company);
-        Client c1 = new Client(new Email("usedafr1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("2001/12/22"), "M", 11111111111L);
+        Client c1 = new Client(new Email("usedafr1@gmail.com"), "John", 1111111111L, 1111111111111111L, 1111111111L, new Date("2001/12/22"), "M", 11111111111L);
         company.getClientStore().saveClients(c1,"aaaa");
-        boolean test = company.getTestStore().checkRegisteredClient(111111111111L);
+        boolean test = company.getTestStore().checkRegisteredClient(1111111111L);
         assertTrue(test);
         boolean test2 = company.getTestStore().checkRegisteredClient(111111311111L);
         assertFalse(test2);
