@@ -384,6 +384,7 @@ public class TestStore extends Store{
 
     @Override
     public List getListObjects() {
+        //Change list of objects in Store to a List Object
         List<Object> list = new ArrayList<>();
         for(Test t: testList) {
             list.add(t);
@@ -393,16 +394,19 @@ public class TestStore extends Store{
 
     @Override
     public String getObjectName() {
+        //This store's object class name in lowercase, simpleName changes "app.java.model.domain.Object" to "Object"
         return this.test.getClass().getSimpleName().toLowerCase();
     }
 
     @Override
     public String getFileName() {
+        // Path - "Folder: ser" / "File Name: this store's object class" "Suffix: .txt"
         return "ser/test.txt";
     }
 
     @Override
     public void importObject(Object o) {
+        // Read Object from File and import as this store's object class
         this.test = (Test) o;
         this.saveTest();
     }
