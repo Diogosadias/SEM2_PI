@@ -508,9 +508,7 @@ public class Test implements Serializable {
 
     public Date getDateValidation() {return (this.dateValidation == null) ? null :(Date) this.dateValidation.clone();}
 
-    public TestParameter getTestParam() {
-        return testParam;
-    }
+
 
     /**
      * Return the textual description of the parameter.
