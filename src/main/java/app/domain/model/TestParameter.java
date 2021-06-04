@@ -2,13 +2,15 @@ package app.domain.model;
 
 import com.example2.EMRefValue;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Tomás Pinto <1181835@isep.ipp.pt>
  * @author Tiago Ferreira <1200601@isep.ipp.pt>
  */
 
-public class TestParameter {
+public class TestParameter implements Serializable {
 
     /**
      * The parameter of Test Parameter

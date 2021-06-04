@@ -1,6 +1,9 @@
 package app.domain.model;
 
 import org.apache.commons.lang3.StringUtils;
+
+import java.io.Serializable;
+
 /**
  * This domain class allows to build an instance of parameter category.
  *
@@ -8,7 +11,7 @@ import org.apache.commons.lang3.StringUtils;
  *  @author Tiago Ferreira <1200601@isep.ipp.pt>
  *  @author Tiago Rocha <1181445@isep.ipp.pt>
 */
-public class ParameterCategory {
+public class ParameterCategory implements Serializable {
     /**
      * code - Parameter Category Code
      */

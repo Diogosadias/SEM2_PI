@@ -4,8 +4,10 @@ import app.domain.dto.*;
 import app.domain.shared.Constants;
 import app.domain.shared.GenerateTestCode;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * TestStore - Class responsible for managing tests.
@@ -16,7 +18,7 @@ import java.util.List;
  * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
 
-public class TestStore {
+public class TestStore extends Store{
 
     /**
      * The company.
@@ -46,7 +48,8 @@ public class TestStore {
     /**
      * Initialize a list of Test's store.
      */
-    public TestStore(){
+    public TestStore() {
+        super();
         testList = new ArrayList<>();
     }
 
@@ -378,4 +381,30 @@ public class TestStore {
                 "\n" + testParam;
         return s;
     }
+
+    @Override
+    public List getListObjects() {
+        List<Object> list = new ArrayList<>();
+        for(Test t: testList) {
+            list.add(t);
+        }
+        return list;
+    }
+
+    @Override
+    public String getObjectName() {
+        return this.test.getClass().getSimpleName().toLowerCase();
+    }
+
+    @Override
+    public String getFileName() {
+        return "ser/test.txt";
+    }
+
+    @Override
+    public void importObject(Object o) {
+        this.test = (Test) o;
+        this.saveTest();
+    }
+
 }

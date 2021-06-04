@@ -1,7 +1,13 @@
 package app.domain.model;
 
+import app.controller.FileController;
 import auth.AuthFacade;
 import org.apache.commons.lang3.StringUtils;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This domain class allows to build an instance of company.
@@ -16,6 +22,8 @@ import org.apache.commons.lang3.StringUtils;
  */
 
 public class Company {
+
+    private List<Store> stores;
 
     /**
      * The designation of company.
@@ -83,13 +91,13 @@ public class Company {
      * @param designation company's designation
      */
 
-    public Company(String designation)
-    {
+    public Company(String designation)  {
         if (StringUtils.isBlank(designation))
             throw new IllegalArgumentException("Designation cannot be blank.");
 
         this.designation = designation;
         this.authFacade = new AuthFacade();
+        this.stores = new ArrayList<>();
 
         this.reportStore = new ReportStore();
         this.calStore = new CALStore();
@@ -99,6 +107,7 @@ public class Company {
         this.employeeStore = new EmployeeStore(this.orgRoleStore,this.authFacade);
         this.parameterStore = new ParameterStore();
         this.testStore = new TestStore();
+        stores.add(testStore);
         this.testTypeStore = new TestTypeStore();
         this.sampleStore = new SampleStore();
     }
@@ -281,4 +290,8 @@ public class Company {
         this.sampleStore = sampleStore;
     }
 
+    public List getListStores () {
+        if(stores.size() == 0) throw new IllegalArgumentException("Store list is empty");
+        return this.stores;
+    }
 }

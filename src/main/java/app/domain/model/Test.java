@@ -4,6 +4,7 @@ import app.domain.shared.Constants;
 import app.domain.shared.ExternalModule;
 import com.example2.EMRefValue;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import java.util.Date;
@@ -17,7 +18,7 @@ import java.util.List;
  * @author Tiago Ferreira <1200601@isep.ipp.pt>
  */
 
-public class Test {
+public class Test implements Serializable {
 
     private String labId;
 
@@ -627,5 +628,8 @@ public class Test {
         }
         this.state = Constants.VALIDATED;
         this.dateValidation = dateValidation;
+
+
     }
+
 }

@@ -2,6 +2,7 @@ package app.domain.model;
 
 import auth.domain.model.Email;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
@@ -13,7 +14,7 @@ import java.util.Objects;
  * @author Gil <1180838@isep.ipp.pt>
  */
 
-public class Client {
+public class Client implements Serializable {
 
     /**
      * The name of client.

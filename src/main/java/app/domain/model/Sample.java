@@ -8,6 +8,7 @@ import net.sourceforge.barbecue.output.OutputException;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.Random;
 
 /**
@@ -18,7 +19,7 @@ import java.util.Random;
  * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
 
-public class Sample {
+public class Sample  implements Serializable {
 
     /**
      * The barcode of Sample.

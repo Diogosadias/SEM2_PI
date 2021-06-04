@@ -2,7 +2,9 @@ package app.domain.model;
 
 import com.example2.EMRefValue;
 
-public class TestParameterResult {
+import java.io.Serializable;
+
+public class TestParameterResult  implements Serializable {
 
     /**
      * The result of TestParameterResult.

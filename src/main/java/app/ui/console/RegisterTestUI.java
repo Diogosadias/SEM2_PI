@@ -55,7 +55,7 @@ public class RegisterTestUI implements Runnable {
     }
 
     private boolean checkClient() {
-        long tin = Utils.readLongFromConsole("\nClient - TIN number: (12 digits)");
+        long tin = Utils.readLongFromConsole("\nClient - TIN number: (10 digits)");
         if(!mcontroller.checkRegisteredClient(tin)) {
             System.out.println("\nClient with TIN: " + tin + " is not registered.\n");
             return false;
@@ -105,8 +105,16 @@ public class RegisterTestUI implements Runnable {
 
             }
             // Request Data: nhsCode
-            String nhsCode = Utils.readLineFromConsole("Nhs Code: ");
-            this.mcontroller.addNhsCodeToTest(nhsCode);
+            do {
+                try {
+                    String nhsCode = Utils.readLineFromConsole("Nhs Code: ");
+                    this.mcontroller.addNhsCodeToTest(nhsCode);
+                    answer = Constants.ANS_YES;
+                } catch (IllegalArgumentException i) {
+                    System.out.println("Adding NhsCode to Test Error: NhsCode needs 12 alphanumeric characters.");
+                    answer = Constants.ANS_NO;
+                }
+            }while(!answer.equals(Constants.ANS_YES));
             return (this.mcontroller.validateTest());
         }
         else {

@@ -2,6 +2,7 @@ package app.domain.model;
 
 import app.domain.shared.ExternalModule;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
  * @author Tiago Rocha <1181445@isep.ipp.pt>
 */
 
-public class TestType extends TestTypeStore {
+public class TestType extends TestTypeStore implements Serializable {
     /**
      * code - 5 alphanumeric numbers and can´t be empty
      */

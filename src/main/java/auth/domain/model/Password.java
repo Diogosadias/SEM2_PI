@@ -3,6 +3,7 @@ package auth.domain.model;
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.Serializable;
 import java.security.SecureRandom;
 import java.util.Objects;
 

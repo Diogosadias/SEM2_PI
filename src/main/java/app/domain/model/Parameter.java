@@ -1,11 +1,13 @@
 package app.domain.model;
 
+import java.io.Serializable;
+
 /**
  * This domain class allows to build an instance of parameter.
  *
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  */
-public class Parameter {
+public class Parameter implements Serializable {
 
     /**
      * The code of parameter.
