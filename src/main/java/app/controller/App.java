@@ -201,7 +201,14 @@ App {
         Parameter parameter7 = new Parameter("TPT00","Total protein","BMP measurements as well as total Proteins, related to liver function.",category3.getCode());
         this.company.getParameterStore().addParameter(parameter7);
 
-
+        Test forReports = new Test (type1,type1.getCollectingMethod(),client1);
+        forReports.addCategory(category1);
+        forReports.addParameter(parameter1);
+        forReports.setNhsCode("nhsCode-AB02");
+        forReports.setCode("000000000002");
+        forReports.addTestResult(parameter1.getCode(),"result",1);
+        forReports.addResultToList();
+        this.company.getTestStore().addTest(forReports);
 
         //Test
         Test forSamples = new Test (type1,type1.getCollectingMethod(),client1);
@@ -211,14 +218,14 @@ App {
         forSamples.setCode("000000000001");
         this.company.getTestStore().addTest(forSamples);
 
-        Test forReports = new Test (type1,type1.getCollectingMethod(),client1);
-        forReports.addCategory(category1);
-        forReports.addParameter(parameter1);
-        forReports.setNhsCode("nhsCode-AB02");
-        forReports.setCode("000000000002");
-        forReports.addTestResult(parameter1.getCode(),"result",1);
-        forReports.addResultToList();
-        this.company.getTestStore().addTest(forReports);*/
+        Test covid1 = new Test (type2,type2.getCollectingMethod(),client1);
+        covid1.addCategory(categoryCovid);
+        covid1.addParameter(parameter8);
+        covid1.setNhsCode("nhsCode-CV01");
+        covid1.setCode("000000000002");
+        this.company.getTestStore().addTest(covid1);
+
+*/
 
     }
 

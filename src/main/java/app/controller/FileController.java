@@ -34,6 +34,7 @@ public class FileController {
                 iFile.close();
                 System.out.println("\nFile: " + fileName + " imported successfully.");
             }
+        }catch (EOFException eof) {
         }catch (IOException i) {
             i.printStackTrace();
             return;
@@ -46,16 +47,22 @@ public class FileController {
 
     public void runFileOutputStreams() throws IOException {
         for (Store store : this.stores) {
-            String fileName = "ser/" + store.getObjectName() + ".txt";
-            File writeFile = new File(fileName);
-            writeFile.createNewFile();
-            FileOutputStream oFile = new FileOutputStream(writeFile,false);
-            ObjectOutputStream out = new ObjectOutputStream(oFile);
-            for (Object o : store.getListObjects()){
-                out.writeObject(o);
+            try{
+                String fileName = "ser/" + store.getObjectName() + ".txt";
+                File writeFile = new File(fileName);
+                writeFile.createNewFile();
+                FileOutputStream oFile = new FileOutputStream(writeFile,false);
+                ObjectOutputStream out = new ObjectOutputStream(oFile);
+                for (Object o : store.getListObjects()){
+                    if (o != null){
+                        out.writeObject(o);
+                    }
+                }
+                out.close();
+                System.out.println("\nFile: " + fileName + " exported successfully.");
+            }catch (NullPointerException n) {
+
             }
-            out.close();
-            System.out.println("\nFile: " + fileName + " exported successfully.");
         }
     }
 

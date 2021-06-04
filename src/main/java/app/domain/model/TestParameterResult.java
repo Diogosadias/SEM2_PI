@@ -20,7 +20,7 @@ public class TestParameterResult  implements Serializable {
     /**
      * The refValue of TestParameterResult.
      */
-    private EMRefValue refValue;
+    transient private EMRefValue refValue;
 
     /**
      * Constructor TestParameterResult with the result, metric, refValue.
@@ -96,9 +96,13 @@ public class TestParameterResult  implements Serializable {
      */
     @Override
     public String toString() {
-        return "Result: " + result +
+        String s = "Result: " + result +
                 "\nMetric: " + metric +
-                "\n" + refValue +
                 "\n";
+        if(refValue != null) {
+            s += refValue + "\n";
+        }
+                return s;
+
     }
 }

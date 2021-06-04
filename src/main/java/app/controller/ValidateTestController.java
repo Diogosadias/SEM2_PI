@@ -64,4 +64,8 @@ public class ValidateTestController {
         return this.tStore;
     }
 
+    public List getListTestType() {
+        return tStore.getListTestType();
+    }
+
 }

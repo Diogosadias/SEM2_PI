@@ -1,13 +1,16 @@
 package app.domain.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ReportStore - Class responsible for managing Reports
  *
  */
 
-public class ReportStore {
+public class ReportStore extends Store{
+
+    private Report report;
 
     /**
      * Initialize a list of report.
@@ -18,6 +21,7 @@ public class ReportStore {
      * Initialize a list of Report's store.
      */
     public ReportStore(){
+        super();
         reportlist = new ArrayList<>();
     }
 
@@ -33,7 +37,8 @@ public class ReportStore {
         if(diagnosis==null || test ==null){
             return null;
         }
-        return new Report(diagnosis,test);
+        this.report = new Report(diagnosis,test);
+        return report;
     }
 
     /**
@@ -91,4 +96,42 @@ public class ReportStore {
         }
         throw new IllegalArgumentException("Report: There is no test with that code.");
     }
+
+    public void setReport (Report report) {
+        this.report = report;
+    }
+
+    @Override
+    public List getListObjects() {
+        //Change list of objects in Store to a List Object
+        if(this.reportlist.isEmpty()) {
+            throw new IllegalArgumentException("Report list is empty");
+        }
+        List<Object> list = new ArrayList<>();
+        for(Report r: reportlist) {
+            list.add(r);
+        }
+        return list;
+    }
+
+    @Override
+    public String getObjectName() {
+        //This store's object class name in lowercase, simpleName changes "app.java.model.domain.Object" to "Object"
+
+        return this.report.getClass().getSimpleName().toLowerCase();
+    }
+
+    @Override
+    public String getFileName() {
+        // Path - "Folder: ser" / "File Name: this store's object class" "Suffix: .txt"
+        return "ser/report.txt";
+    }
+
+    @Override
+    public void importObject(Object o) {
+        // Read Object from File and import as this store's object class
+        this.report = (Report) o;
+        this.saveReport(report);
+    }
+
 }

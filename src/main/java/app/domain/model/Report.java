@@ -1,13 +1,14 @@
 package app.domain.model;
 
 
+import java.io.Serializable;
 import java.util.StringTokenizer;
 
 /**
  * This domain class allows to build an instance of report.
  */
 
-public class Report {
+public class Report implements Serializable {
 
     /**
      * The diagnosis of a report.

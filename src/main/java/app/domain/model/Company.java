@@ -100,6 +100,7 @@ public class Company {
         this.stores = new ArrayList<>();
 
         this.reportStore = new ReportStore();
+        stores.add(reportStore);
         this.calStore = new CALStore();
         this.clientStore = new ClientStore(this.authFacade);
         this.parameterCategoryStore = new ParameterCategoryStore();
