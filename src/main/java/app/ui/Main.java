@@ -1,14 +1,8 @@
 package app.ui;
 
-
-import app.controller.App;
 import app.controller.FileController;
 import app.ui.console.MainMenuUI;
-
-import javax.swing.*;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 
 /**
  *
