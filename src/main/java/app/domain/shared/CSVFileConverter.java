@@ -19,6 +19,7 @@ public class CSVFileConverter {
     private TestTypeStore testTypeStore;
     private ParameterStore parameterStore;
     private ParameterCategoryStore categoryStore;
+    private ReportStore reportStore;
     private Company company;
 
     public CSVFileConverter(){
@@ -28,6 +29,7 @@ public class CSVFileConverter {
         this.testTypeStore = company.getTestTypeStore();
         this.parameterStore = company.getParameterStore();
         this.categoryStore = company.getParameterCategoryStore();
+        this.reportStore = company.getReportStore();
     }
 
 
@@ -41,7 +43,6 @@ public class CSVFileConverter {
         Scanner sc = new Scanner(new File(fileName));
 
         List<String[]> file = new ArrayList<>();
-
 
 
         while(sc.hasNext()){
@@ -109,8 +110,25 @@ public class CSVFileConverter {
                                 test.addParameter(this.parameterStore.getParameterByCode(parameterCode));
                             } else {
                                 str = str.replace(",",".");
+                                double metric = Double.valueOf(str);
                                 //Missing Result
-                                test.addTestResult(parameterCode,"Not Defined",Double.valueOf(str));
+                                test.addTestResult(parameterCode,"Not Defined",metric);
+                                test.addResultToList();
+                                String diagnosis = "To be defined";
+                                if(parameterCode.equals("IgGAN")) {
+                                    if(metric > 1.4) {
+                                        diagnosis = "Positive";
+                                    } else if (metric >= 0 && metric <= 1.4) {
+                                        diagnosis = "Negative";
+                                    } else {
+                                        throw new IllegalArgumentException("Parameter value is");
+                                    }
+
+                                }
+                                Report report = this.reportStore.createReport(diagnosis,test);
+                                if(!this.reportStore.saveReport(report)) {
+                                    throw new IllegalArgumentException();
+                                }
                             }
                         }
 

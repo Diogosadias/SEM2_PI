@@ -121,6 +121,12 @@ public class Test implements Serializable {
         this.listTestParameter = new ArrayList<>();
     }
 
+    private void checkTestCodeAttribute (String code) {
+        if (code == null || code.equals("")) {
+            throw new IllegalArgumentException("Error: Test code is null.");
+        }
+    }
+
     /**
      * Check if the type attribute it's within the rules.
      *
@@ -286,9 +292,7 @@ public class Test implements Serializable {
      */
 
     public void setCode(String code) {
-        if (code == null || code.equals("")) {
-            throw new IllegalArgumentException("Error: Code is null.");
-        }
+        checkTestCodeAttribute(code);
         this.code = code;
     }
 
@@ -514,6 +518,12 @@ public class Test implements Serializable {
      * @return parameter's features
      */
 
+    public TestParameter getTestParam(){
+        return testParam;
+    }
+
+
+
     public String parametersToString() {
         StringBuilder bld = new StringBuilder();
         bld.append("\n\nList of Parameter(s) for each Category to be analysed: ");
@@ -553,13 +563,13 @@ public class Test implements Serializable {
                     {
                         bld.append("\n").append(parameter.getName());
                     }
-                    if (state.equals(Constants.SAMPLE_ANALYSED))
+                    if (this.dateChemical != null)
                     {
                         bld.append("\n").append(this.getTestParameterByCode(parameter.getCode()).getResult());
                     }
                 }
             }
-            if (state.equals(Constants.SAMPLE_COLLECTED))
+            if (this.dateSampleList.size() != 0)
             {
                 for (Sample sample : this.sampleList) {
                     bld.append("\n").append(sample.getSampleBarcode());
@@ -589,9 +599,6 @@ public class Test implements Serializable {
     }
 
     public void setDateChemical(Date dateChemical) {
-        if(this.dateChemical != null){
-            throw new IllegalArgumentException("Test is already in Chemical Analysis state.");
-        }
         if(this.dateRegistered == null){
             throw new IllegalArgumentException("Test doesnt have Register date.");
         }
@@ -600,9 +607,6 @@ public class Test implements Serializable {
     }
 
     public void setDateDiagnosis(Date dateDiagnosis) {
-        if(this.dateDiagnosis != null){
-            throw new IllegalArgumentException("Test is already in Diagnosis state.");
-        }
         if(this.dateRegistered == null){
             throw new IllegalArgumentException("Test doesnt have Register date.");
         }
@@ -614,9 +618,6 @@ public class Test implements Serializable {
     }
 
     public void setDateValidation(Date dateValidation) {
-        if(this.dateValidation != null){
-            throw new IllegalArgumentException("Test is already in Validated state.");
-        }
         if(this.dateRegistered == null){
             throw new IllegalArgumentException("Test doesnt have Register date.");
         }

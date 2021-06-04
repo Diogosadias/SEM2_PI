@@ -117,6 +117,11 @@ public class TestStore extends Store{
 
     private void generateTestCode() {
         String testCode = new GenerateTestCode(numRegisteredTest).getCode();
+        for (Test t : this.testList) {
+            if(testCode.equals(t.getCode())) {
+                throw new IllegalArgumentException("Error: Test code is already being used.");
+            }
+        }
         this.test.setCode(testCode);
     }
 
@@ -382,7 +387,6 @@ public class TestStore extends Store{
         return s;
     }
 
-    //Store extends - Methods for File Input and Output streams
     @Override
     public List getListObjects() {
         //Change list of objects in Store to a List Object
