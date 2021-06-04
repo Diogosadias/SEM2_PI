@@ -73,12 +73,12 @@ public class TestTest {
         try{
             test.setCode(code);
         }catch (IllegalArgumentException ex){
-            assertEquals("Error: Code is null.",ex.getMessage());
+            assertEquals("Error: Test code is null.",ex.getMessage());
         }
         try{
             test.setCode(code2);
         }catch (IllegalArgumentException ex){
-            assertEquals("Error: Code is null.",ex.getMessage());
+            assertEquals("Error: Test code is null.",ex.getMessage());
         }
 
         test.setCode("stdfgkhjbk");

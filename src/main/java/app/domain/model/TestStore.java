@@ -386,7 +386,7 @@ public class TestStore extends Store{
                 "\n" + testParam;
         return s;
     }
-    
+
     @Override
     public List getListObjects() {
         //Change list of objects in Store to a List Object

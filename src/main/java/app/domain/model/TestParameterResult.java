@@ -4,22 +4,23 @@ import com.example2.EMRefValue;
 
 import java.io.Serializable;
 
+
 public class TestParameterResult  implements Serializable {
 
     /**
      * The result of TestParameterResult.
      */
-    String result;
+    private String result;
 
     /**
      * The metric of TestParameterResult.
      */
-    double metric;
+    private double metric;
 
     /**
      * The refValue of TestParameterResult.
      */
-    EMRefValue refValue;
+    private EMRefValue refValue;
 
     /**
      * Constructor TestParameterResult with the result, metric, refValue.
