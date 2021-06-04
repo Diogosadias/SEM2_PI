@@ -169,15 +169,28 @@ public class TestTest {
     }
 
     @Test
+    public void checkAddParameter(){
+        Parameter parameter = new Parameter("code","parameter","description","category");
+        assertTrue(test.addParameter(parameter));
+        try {
+            test.addParameter(parameter);
+        }catch (IllegalArgumentException ex){
+            assertEquals("Test: Parameter already exists.",ex.getMessage());
+        }
+    }
+
+    @Test
     public void checkAddCategory(){
         ParameterCategory pCat = new ParameterCategory("12345", "weyrutiy", "123");
-        test.addCategory(pCat);
-        assertTrue(test.getListCategories().contains(pCat));
         try {
-            test.addCategory(pCat);
+            if (test.addCategory(pCat)) {
+                assertTrue(test.getListCategories().contains(pCat));
+            }
         }catch (IllegalArgumentException ex){
             assertEquals("Test: ParameterCategory already exists.",ex.getMessage());
         }
+
+
     }
 
     @Test
@@ -269,17 +282,6 @@ public class TestTest {
                 "Nhs Code: null\n" +
                 "\n" +
                 "List of Parameter(s) for each Category to be analysed: ", test.toString());
-    }
-
-    @Test
-    public void checkAddParameter(){
-        Parameter parameter = new Parameter("code","parameter","description","category");
-        assertTrue(test.addParameter(parameter));
-        try {
-            test.addParameter(parameter);
-        }catch (IllegalArgumentException ex){
-            assertEquals("Test: Parameter already exists.",ex.getMessage());
-        }
     }
 }
 
