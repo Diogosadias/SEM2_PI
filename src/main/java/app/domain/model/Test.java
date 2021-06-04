@@ -553,13 +553,13 @@ public class Test implements Serializable {
                     {
                         bld.append("\n").append(parameter.getName());
                     }
-                    if (state.equals(Constants.SAMPLE_ANALYSED))
+                    if (dateChemical != null)
                     {
                         bld.append("\n").append(this.getTestParameterByCode(parameter.getCode()).getResult());
                     }
                 }
             }
-            if (state.equals(Constants.SAMPLE_COLLECTED))
+            if (dateSampleList.size() != 0)
             {
                 for (Sample sample : this.sampleList) {
                     bld.append("\n").append(sample.getSampleBarcode());
@@ -578,7 +578,9 @@ public class Test implements Serializable {
             {
                 bld.append("\nValidation date: ").append(Constants.FORMATTER.format(this.dateValidation));
             }
-        }catch (IllegalArgumentException ignored){}
+        }catch (IllegalArgumentException ignored){
+            ignored.printStackTrace();
+        }
 
         return bld.toString();
     }
@@ -589,9 +591,6 @@ public class Test implements Serializable {
     }
 
     public void setDateChemical(Date dateChemical) {
-        if(this.dateChemical != null){
-            throw new IllegalArgumentException("Test is already in Chemical Analysis state.");
-        }
         if(this.dateRegistered == null){
             throw new IllegalArgumentException("Test doesnt have Register date.");
         }
@@ -600,9 +599,6 @@ public class Test implements Serializable {
     }
 
     public void setDateDiagnosis(Date dateDiagnosis) {
-        if(this.dateDiagnosis != null){
-            throw new IllegalArgumentException("Test is already in Diagnosis state.");
-        }
         if(this.dateRegistered == null){
             throw new IllegalArgumentException("Test doesnt have Register date.");
         }
@@ -614,9 +610,6 @@ public class Test implements Serializable {
     }
 
     public void setDateValidation(Date dateValidation) {
-        if(this.dateValidation != null){
-            throw new IllegalArgumentException("Test is already in Validated state.");
-        }
         if(this.dateRegistered == null){
             throw new IllegalArgumentException("Test doesnt have Register date.");
         }
