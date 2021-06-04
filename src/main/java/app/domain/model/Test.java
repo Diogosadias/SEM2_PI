@@ -508,11 +508,18 @@ public class Test implements Serializable {
 
     public Date getDateValidation() {return (this.dateValidation == null) ? null :(Date) this.dateValidation.clone();}
 
+    public TestParameter getTestParam() {
+        return testParam;
+    }
+
     /**
      * Return the textual description of the parameter.
      *
      * @return parameter's features
      */
+
+
+
 
     public String parametersToString() {
         StringBuilder bld = new StringBuilder();
@@ -553,13 +560,13 @@ public class Test implements Serializable {
                     {
                         bld.append("\n").append(parameter.getName());
                     }
-                    if (dateChemical != null)
+                    if (state.equals(Constants.SAMPLE_ANALYSED))
                     {
                         bld.append("\n").append(this.getTestParameterByCode(parameter.getCode()).getResult());
                     }
                 }
             }
-            if (dateSampleList.size() != 0)
+            if (state.equals(Constants.SAMPLE_COLLECTED))
             {
                 for (Sample sample : this.sampleList) {
                     bld.append("\n").append(sample.getSampleBarcode());
@@ -578,9 +585,7 @@ public class Test implements Serializable {
             {
                 bld.append("\nValidation date: ").append(Constants.FORMATTER.format(this.dateValidation));
             }
-        }catch (IllegalArgumentException ignored){
-            ignored.printStackTrace();
-        }
+        }catch (IllegalArgumentException ignored){}
 
         return bld.toString();
     }
@@ -591,6 +596,9 @@ public class Test implements Serializable {
     }
 
     public void setDateChemical(Date dateChemical) {
+        if(this.dateChemical != null){
+            throw new IllegalArgumentException("Test is already in Chemical Analysis state.");
+        }
         if(this.dateRegistered == null){
             throw new IllegalArgumentException("Test doesnt have Register date.");
         }
@@ -599,6 +607,9 @@ public class Test implements Serializable {
     }
 
     public void setDateDiagnosis(Date dateDiagnosis) {
+        if(this.dateDiagnosis != null){
+            throw new IllegalArgumentException("Test is already in Diagnosis state.");
+        }
         if(this.dateRegistered == null){
             throw new IllegalArgumentException("Test doesnt have Register date.");
         }
@@ -610,6 +621,9 @@ public class Test implements Serializable {
     }
 
     public void setDateValidation(Date dateValidation) {
+        if(this.dateValidation != null){
+            throw new IllegalArgumentException("Test is already in Validated state.");
+        }
         if(this.dateRegistered == null){
             throw new IllegalArgumentException("Test doesnt have Register date.");
         }
