@@ -518,6 +518,9 @@ public class Test implements Serializable {
      * @return parameter's features
      */
 
+    public TestParameter getTestParam(){
+        return testParam;
+    }
 
 
 
