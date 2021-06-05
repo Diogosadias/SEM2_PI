@@ -30,6 +30,7 @@ public class AdminUI implements Runnable{
         options.add(new MenuItem("Register employee", new RegisterEmployeeUI()));
         options.add(new MenuItem("List Registered Employees", new ListEmployeesUI()));
         options.add(new MenuItem("Register new Clinical Analysis Laboratory", new RegisterNewCALUI()));
+        options.add(new MenuItem("Send Covid report to Nhs", new CovidNhsReportUI()));
 
         int option;
         do

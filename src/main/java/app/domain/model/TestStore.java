@@ -277,7 +277,12 @@ public class TestStore extends Store{
 
     public List<Test> getValidatedTests(){
         // Test list with diagnosis and report Validated
-        return this.getTests(Constants.VALIDATED);
+        try {
+            return this.getTests(Constants.VALIDATED);
+        }catch(IllegalArgumentException i) {
+            System.out.println("Test list in Validated state is empty.\n");
+        }
+        return null;
     }
 
     /**
@@ -300,7 +305,7 @@ public class TestStore extends Store{
                 }
             }
             if (temp.isEmpty()) {
-                throw new IllegalArgumentException("Test list in this state [ " + state + " ] is empty.\n");
+                throw new IllegalArgumentException();
             }
             return temp;
         }
