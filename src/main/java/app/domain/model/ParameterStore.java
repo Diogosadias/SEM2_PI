@@ -9,7 +9,9 @@ import java.util.List;
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  */
 
-public class ParameterStore {
+public class ParameterStore extends Store{
+
+    private Parameter parameter;
     /**
      * parameterList - List containing the Parameters
      */
@@ -32,7 +34,8 @@ public class ParameterStore {
      */
     public Parameter createParameter(String code, String name, String description, String category){
         if (code == null && name == null && description == null && category == null) return null;
-        return new Parameter(code, name, description,category);
+        this.parameter = new Parameter(code, name, description,category);
+        return parameter;
     }
 
     /**
@@ -115,7 +118,8 @@ public class ParameterStore {
         if(this.parameterList.contains(parameter)) {
             throw new IllegalArgumentException("Parameter already exists.");
         }
-        return this.saveParameter(parameter);
+        this.parameter = parameter;
+        return this.saveParameter(this.parameter);
     }
 
     /**
@@ -146,5 +150,28 @@ public class ParameterStore {
             }
         }
         return s.toString();
+    }
+
+    @Override
+    public List getListObjects() {
+        //Change list of objects in Store to a List Object
+        List<Object> list = new ArrayList<>();
+        for(Parameter p: parameterList) {
+            list.add(p);
+        }
+        return list;
+    }
+
+    @Override
+    public String getFileName() {
+        // Path - "Folder: ser" / "File Name: this store's object class" "Suffix: .txt"
+        return "ser/parameter.txt";
+    }
+
+    @Override
+    public void importObject(Object o) {
+        // Read Object from File and import as this store's object class
+        this.parameter = (Parameter) o;
+        this.saveParameter(parameter);
     }
 }

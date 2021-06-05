@@ -1,11 +1,13 @@
 package app.domain.model;
 
+import java.io.Serializable;
+
 /**
  * MedicalLabTechnician - Domain class representing a Medical Lab Technician
  *
  * @author Tiago Rocha <1181445@isep.ipp.pt>
  */
-public class MedicalLabTechnician extends Employee{
+public class MedicalLabTechnician extends Employee implements Serializable {
 
     /**
      * Constructor Medical Lab Technician with the role, employeeId, name, address, phone number, socCode.

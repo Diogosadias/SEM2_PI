@@ -1,11 +1,13 @@
 package app.domain.model;
 
+import java.io.Serializable;
+
 /**
  * LaboratoryCoordinator - Domain class representing a Laboratory Coordinator
  *
  * @author Tiago Rocha <1181445@isep.ipp.pt>
  */
-public class LaboratoryCoordinator extends Employee{
+public class LaboratoryCoordinator extends Employee implements Serializable {
 
     /**
      * Constructor Laboratory Coordinator with the role, employeeId, name, address, phone number, socCode.

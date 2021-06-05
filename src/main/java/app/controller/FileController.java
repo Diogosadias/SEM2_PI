@@ -18,37 +18,41 @@ public class FileController {
     }
 
     public void runFileInputStreams() {
-        try {
+
             for (Store store : this.stores) {
                 String fileName = store.getFileName();
-                FileInputStream iFile = new FileInputStream(fileName);
-                ObjectInputStream in = new ObjectInputStream(iFile);
-                while (iFile.available() > 0) {
+                try{
+                    FileInputStream iFile = new FileInputStream(fileName);
+                    ObjectInputStream in = new ObjectInputStream(iFile);
+                    while (iFile.available() > 0) {
 
-                    Object o = in.readObject();
-                    if(o != null) {
-                        store.importObject(o);
+                        Object o = in.readObject();
+                        if(o != null) {
+                            store.importObject(o);
+                        }
                     }
+                    in.close();
+                    iFile.close();
+                    System.out.println("File: " + fileName + " imported successfully.");
+                }catch (EOFException eof) {
+                    System.out.println("File: " + fileName + " is empty.");
+                }catch (IOException i) {
+                    System.out.println("File: " + fileName + " is missing.");
+                } catch (ClassNotFoundException c) {
+                    c.printStackTrace();
+                    return;
+                }catch (IllegalArgumentException i) {
+                    System.out.println("Error importing client, already exists.");
                 }
-                in.close();
-                iFile.close();
-                System.out.println("\nFile: " + fileName + " imported successfully.");
+
             }
-        }catch (EOFException eof) {
-        }catch (IOException i) {
-            i.printStackTrace();
-            return;
-        } catch (ClassNotFoundException c) {
-            c.printStackTrace();
-            return;
-        }
 
     }
 
     public void runFileOutputStreams() throws IOException {
         for (Store store : this.stores) {
             try{
-                String fileName = "ser/" + store.getObjectName() + ".txt";
+                String fileName = store.getFileName();
                 File writeFile = new File(fileName);
                 writeFile.createNewFile();
                 FileOutputStream oFile = new FileOutputStream(writeFile,false);
@@ -59,8 +63,10 @@ public class FileController {
                     }
                 }
                 out.close();
-                System.out.println("\nFile: " + fileName + " exported successfully.");
+                System.out.println("File: " + fileName + " exported successfully.");
             }catch (NullPointerException n) {
+                n.printStackTrace();
+            } catch (IllegalArgumentException i) {
 
             }
         }

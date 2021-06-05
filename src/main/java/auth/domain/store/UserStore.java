@@ -1,24 +1,27 @@
 package auth.domain.store;
 
+import app.domain.model.Store;
 import auth.domain.model.Email;
 import auth.domain.model.Password;
 import auth.domain.model.User;
 
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 /**
  *
  * @author Paulo Maio <pam@isep.ipp.pt>
  */
-public class UserStore {
+public class UserStore extends Store {
+
+    private User user;
+
     private Set<User> store = new HashSet<User>();
 
 
     public User create(String name, String email, String password)
     {
-        return new User(new Email(email), new Password(password), name);
+        this.user = new User(new Email(email), new Password(password), name);
+        return user;
     }
 
     public boolean add(User user)
@@ -67,5 +70,28 @@ public class UserStore {
     public boolean exists(User user)
     {
         return this.store.contains(user);
+    }
+
+    @Override
+    public List getListObjects() {
+        //Change list of objects in Store to a List Object
+        List<Object> list = new ArrayList<>();
+        for(User u: store) {
+            list.add(u);
+        }
+        return list;
+    }
+
+    @Override
+    public String getFileName() {
+        // Path - "Folder: ser" / "File Name: this store's object class" "Suffix: .txt"
+        return "ser/user.txt";
+    }
+
+    @Override
+    public void importObject(Object o) {
+        // Read Object from File and import as this store's object class
+        this.user = (User) o;
+        this.add(user);
     }
 }

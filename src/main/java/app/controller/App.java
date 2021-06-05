@@ -102,10 +102,9 @@ App {
         //this.company.getEmployeeStore().addOrgRole(new OrgRole(ADMINISTRATOR, MODEL_CLASS_PATH +"" + ADMINISTRATOR));
 
         this.authFacade.addUserWithRole("Admin", "admin@lei.pt", "495", Constants.ROLE_ADMIN);
-        this.authFacade.addUserWithRole("Client1","clei@sd.pt","123",Constants.ROLE_CLIENT);
         this.authFacade.addUserWithRoles("SuperUser", "superuser@super.user", "123456", new String[] { Constants.ROLE_CLIENT,Constants.ROLE_ADMIN, Constants.ROLE_RECEP });
 
-
+/*
         //Employee
         // email: R00001@lei.pt pass: 123
         Receptionist employee1 = new Receptionist(this.company.getOrgRoleStore().getRoleById(RECEPTIONIST), "R00001", "Receptionist1","R1-address",12900000001L,"R1-soc");
@@ -117,15 +116,15 @@ App {
         this.authFacade.addUserWithRole(employee2.getName(), employee2.getEmail(), "123", MEDICAL_LAB_TECHNICIAN);
         this.company.getEmployeeStore().addEmployee(employee2);
 
-        // email: SD00004@lei.pt pass: 123
-        SpecialistDoctor employee3 = new SpecialistDoctor(this.company.getOrgRoleStore().getRoleById(SPECIALIST_DOCTOR), "SD00004", "Specialist Doctor1","SD1-address",12900000231L,"SD1-soc",11921);
-        this.authFacade.addUserWithRole(employee3.getName(), employee3.getEmail(), "123", SPECIALIST_DOCTOR);
-        this.company.getEmployeeStore().addEmployee(employee3);
-
         // email: CMT00003@lei.pt pass: 123
         ChemistryTechnologist employee4 = new ChemistryTechnologist(this.company.getOrgRoleStore().getRoleById(CHEMISTRY_TECHNOLOGIST), "CMT00003", "Chemistry Technologist1", "CMT-adress",12900001231L,"CMT-soc");
         this.authFacade.addUserWithRole(employee4.getName(), employee4.getEmail(), "123", CHEMISTRY_TECHNOLOGIST );
         this.company.getEmployeeStore().addEmployee(employee4);
+
+        // email: SD00004@lei.pt pass: 123
+        SpecialistDoctor employee3 = new SpecialistDoctor(this.company.getOrgRoleStore().getRoleById(SPECIALIST_DOCTOR), "SD00004", "Specialist Doctor1","SD1-address",12900000231L,"SD1-soc",11921);
+        this.authFacade.addUserWithRole(employee3.getName(), employee3.getEmail(), "123", SPECIALIST_DOCTOR);
+        this.company.getEmployeeStore().addEmployee(employee3);
 
         // email: LC00005@lei.pt pass: 123
         LaboratoryCoordinator employee5 = new LaboratoryCoordinator(this.company.getOrgRoleStore().getRoleById(LABORATORY_COORDINATOR), "LC00005", "Lab Coordinator1", "LC-address",98765432101L,"LC-soc");
@@ -182,34 +181,6 @@ App {
         type1.addParameterCategory(category1);
         this.company.getTestTypeStore().addTestType(type1);
 
-        /*
-        ParameterCategory category2 = new ParameterCategory("BMP00","Basic Metabolic Panel","11002");
-        this.company.getParameterCategoryStore().addParameterCategory(category2);
-
-        ParameterCategory category3 = new ParameterCategory("CMP00","Complete Metabolic Panel","11003");
-        this.company.getParameterCategoryStore().addParameterCategory(category3);
-
-        //Parameter - Category 2
-        Parameter parameter4 = new Parameter("ElT00","Electrolytes","Check levels of Electrolytes in blood.",category2.getCode());
-        this.company.getParameterStore().addParameter(parameter4);
-        Parameter parameter5 = new Parameter("CLC00","Calcium","Check levels of Calcium in blood.",category2.getCode());
-        this.company.getParameterStore().addParameter(parameter5);
-
-        //Parameter - Category 3
-        Parameter parameter6 = new Parameter("ABM00","Albumin","BMP measurements as well as Albumin,related to liver function.",category3.getCode());
-        this.company.getParameterStore().addParameter(parameter6);
-        Parameter parameter7 = new Parameter("TPT00","Total protein","BMP measurements as well as total Proteins, related to liver function.",category3.getCode());
-        this.company.getParameterStore().addParameter(parameter7);
-
-        Test forReports = new Test (type1,type1.getCollectingMethod(),client1);
-        forReports.addCategory(category1);
-        forReports.addParameter(parameter1);
-        forReports.setNhsCode("nhsCode-AB02");
-        forReports.setCode("000000000002");
-        forReports.addTestResult(parameter1.getCode(),"result",1);
-        forReports.addResultToList();
-        this.company.getTestStore().addTest(forReports);
-
         //Test
         Test forSamples = new Test (type1,type1.getCollectingMethod(),client1);
         forSamples.addCategory(category1);
@@ -225,6 +196,15 @@ App {
         covid1.setCode("000000000002");
         this.company.getTestStore().addTest(covid1);
 
+
+        Test forReports = new Test (type1,type1.getCollectingMethod(),client1);
+        forReports.addCategory(category1);
+        forReports.addParameter(parameter1);
+        forReports.setNhsCode("nhsCode-AB02");
+        forReports.setCode("000000000002");
+        forReports.addTestResult(parameter1.getCode(),"result",1);
+        forReports.addResultToList();
+        this.company.getTestStore().addTest(forReports);
 */
 
     }

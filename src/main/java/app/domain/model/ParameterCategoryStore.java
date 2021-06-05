@@ -11,7 +11,9 @@ import java.util.List;
  * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
 
-public class ParameterCategoryStore {
+public class ParameterCategoryStore extends Store{
+
+    private ParameterCategory category;
 
     /**
      * parameterCategoryList - List containing Parameter Categories
@@ -93,7 +95,8 @@ public class ParameterCategoryStore {
         if(this.parameterCategoryList.contains(category)) {
             throw new IllegalArgumentException("Parameter Category already exists.");
         }
-        return this.parameterCategoryList.add(category);
+        this.category = category;
+        return this.parameterCategoryList.add(this.category);
     }
 
     /**
@@ -117,5 +120,28 @@ public class ParameterCategoryStore {
             }
         }
         return s.toString();
+    }
+
+    @Override
+    public List getListObjects() {
+        //Change list of objects in Store to a List Object
+        List<Object> list = new ArrayList<>();
+        for(ParameterCategory c: parameterCategoryList) {
+            list.add(c);
+        }
+        return list;
+    }
+
+    @Override
+    public String getFileName() {
+        // Path - "Folder: ser" / "File Name: this store's object class" "Suffix: .txt"
+        return "ser/parametercategory.txt";
+    }
+
+    @Override
+    public void importObject(Object o) {
+        // Read Object from File and import as this store's object class
+        this.category = (ParameterCategory) o;
+        this.saveParameterCategory(category);
     }
 }

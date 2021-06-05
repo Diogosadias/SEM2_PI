@@ -398,12 +398,6 @@ public class TestStore extends Store{
     }
 
     @Override
-    public String getObjectName() {
-        //This store's object class name in lowercase, simpleName changes "app.java.model.domain.Object" to "Object"
-        return this.test.getClass().getSimpleName().toLowerCase();
-    }
-
-    @Override
     public String getFileName() {
         // Path - "Folder: ser" / "File Name: this store's object class" "Suffix: .txt"
         return "ser/test.txt";

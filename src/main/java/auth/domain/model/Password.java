@@ -11,7 +11,7 @@ import java.util.Objects;
  *
  * @author Paulo Maio <pam@isep.ipp.pt>
  */
-public class Password {
+public class Password implements Serializable{
 
     private String password;
 

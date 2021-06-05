@@ -70,4 +70,5 @@ public class OrgRoleStore {
     public void setLor(List<OrgRole> lor){
         this.lor=lor;
     }
+
 }

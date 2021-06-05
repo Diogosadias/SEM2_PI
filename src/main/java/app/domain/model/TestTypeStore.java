@@ -11,7 +11,9 @@ import java.util.List;
  * @author Tiago Rocha <1181445@isep.ipp.pt>
  */
 
-public class TestTypeStore {
+public class TestTypeStore extends Store{
+
+    private TestType type;
 
     /**
      * store - list of the test types available
@@ -37,7 +39,8 @@ public class TestTypeStore {
      */
     public TestType createTestType(String code, String description, String collectingMethod) {
         if (code == null || description == null || collectingMethod == null) return null;
-        return new TestType(code, description, collectingMethod);
+        this.type = new TestType(code, description, collectingMethod);
+        return type;
     }
 
     /**
@@ -78,6 +81,7 @@ public class TestTypeStore {
      */
 
     public boolean addTestType(TestType type) {
+        this.type = type;
         return this.saveTestType(type);
     }
 
@@ -133,5 +137,28 @@ public class TestTypeStore {
      */
     public List<TestType> getTestTypeList(){
         return this.store;
+    }
+
+    @Override
+    public List getListObjects() {
+        //Change list of objects in Store to a List Object
+        List<Object> list = new ArrayList<>();
+        for(TestType tt: store) {
+            list.add(tt);
+        }
+        return list;
+    }
+
+    @Override
+    public String getFileName() {
+        // Path - "Folder: ser" / "File Name: this store's object class" "Suffix: .txt"
+        return "ser/testtype.txt";
+    }
+
+    @Override
+    public void importObject(Object o) {
+        // Read Object from File and import as this store's object class
+        this.type = (TestType) o;
+        this.saveTestType(type);
     }
 }

@@ -93,4 +93,8 @@ public class AuthFacade {
         return this.userSession;
     }
 
+    public UserStore getUserStore () {
+        return this.users;
+    }
+
 }

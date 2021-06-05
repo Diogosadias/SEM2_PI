@@ -1,11 +1,13 @@
 package app.domain.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Tiago Rocha <1181445@isep.ipp.pt>
  */
 
-public class ChemistryTechnologist extends Employee{
+public class ChemistryTechnologist extends Employee implements Serializable {
 
     /**
      * Constructor Chemistry Technologist with the role, employeeId, name, address, phone number, socCode.

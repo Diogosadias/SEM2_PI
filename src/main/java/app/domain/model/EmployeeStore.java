@@ -7,6 +7,7 @@ import app.domain.shared.GenerateEmployeeId;
 import app.domain.shared.GeneratePassword;
 import auth.AuthFacade;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,7 @@ import static app.domain.shared.Constants.*;
  * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
 
-public class EmployeeStore {
+public class EmployeeStore extends Store{
 
     /**
      * The employee.
@@ -161,6 +162,7 @@ public class EmployeeStore {
      */
 
     public boolean addEmployee(Employee employee){
+        this.employee = employee;
         return this.le.add(employee);
     }
 
@@ -220,6 +222,44 @@ public class EmployeeStore {
     public List getEmployeesToShow () {
         EmployeeMapper mapper = new EmployeeMapper();
         return mapper.toDto(this.le);
+    }
+
+    @Override
+    public List getListObjects() {
+        //Change list of objects in Store to a List Object
+        List<Object> list = new ArrayList<>();
+        for(Employee e: le) {
+            list.add(e);
+        }
+        return list;
+    }
+
+    @Override
+    public String getFileName() {
+        // Path - "Folder: ser" / "File Name: this store's object class" "Suffix: .txt"
+        return "ser/employee.txt";
+    }
+
+    @Override
+    public void importObject(Object o) {
+        // Read Object from File and import as this store's object class
+        this.employee = (Employee) o;
+        try {
+            Class<?> c = Class.forName(this.employee.getRole().getDesignation());
+            Constructor<?> constructor = c.getConstructor((Employee.class));
+            this.employee = (Employee) constructor.newInstance(employee);
+            if(this.validateEmployee(employee)) {
+                this.le.add(employee);
+            }
+        } catch (ClassNotFoundException | NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
     }
 
 }

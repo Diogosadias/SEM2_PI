@@ -2,6 +2,7 @@ package app.domain.model;
 
 import app.domain.dto.EmployeeDto;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 import static app.domain.shared.Constants.EMAIL_SUFIX;
@@ -13,7 +14,7 @@ import static app.domain.shared.Constants.EMAIL_SUFIX;
  * @author Bruno Pereira <1191454@isep.ipp.pt>
  * @author Tiago Rocha <1181445@isep.ipp.pt>
  */
-public class Employee {
+public class Employee implements Serializable {
 
     /**
      * The email of employee.

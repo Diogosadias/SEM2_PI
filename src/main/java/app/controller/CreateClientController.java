@@ -54,11 +54,10 @@ public class CreateClientController {
     public boolean createClient(String id, String name, long nhs, long citizenCard, long tin, String birthDate, String sex, long pNumber){
 
         this.rc = this.clientStore.createClient(id,name,nhs,citizenCard,tin,birthDate,sex,pNumber);
-
-        if(!this.clientStore.validateClient(this.rc)){return false;}
         String pwd = new GeneratePassword().getPwd();
-        String email = this.rc.getId().getEmail();
+        String email = rc.getId().getEmail();
         new EmailSender(email,pwd);
+        if(!this.clientStore.validateClient(this.rc)){return false;}
         saveClient(this.rc,pwd);
         return true;
 
@@ -69,9 +68,9 @@ public class CreateClientController {
      *
      * @return boolean
      */
-    public boolean saveClient(Client rc, String pwd){
+    public boolean saveClient(Client rc,String pwd){
         if (this.clientStore.validateClient(rc)) {
-            return this.clientStore.saveClients(rc, pwd);
+            return this.clientStore.saveClients(rc,pwd);
         }else{
             return false;
         }

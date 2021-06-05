@@ -13,8 +13,6 @@ public abstract class Store {
 
     public abstract List getListObjects();
 
-    public abstract String getObjectName();
-
     public abstract String getFileName();
 
     public abstract void importObject(Object o);

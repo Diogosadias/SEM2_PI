@@ -2,7 +2,6 @@ package app.domain.model;
 
 import app.domain.shared.Constants;
 
-
 import auth.AuthFacade;
 import auth.domain.model.Email;
 
@@ -19,7 +18,9 @@ import java.util.List;
  * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
 
-public class ClientStore {
+public class ClientStore extends Store{
+
+    private Client client;
 
     /**
      * Initialize a list of clients.
@@ -109,9 +110,9 @@ public class ClientStore {
      */
 
     public boolean saveClients(Client rc, String pwd){
-
             this.authFacade.addUserWithRole(rc.getName(), rc.getId().getEmail(), pwd , Constants.ROLE_CLIENT);
-            return this.clientList.add(rc);
+            this.client = rc;
+            return this.clientList.add(this.client);
 
     }
 
@@ -165,5 +166,31 @@ public class ClientStore {
         return null;
     }
 
+    @Override
+    public List getListObjects() {
+        //Change list of objects in Store to a List Object
+        List<Object> list = new ArrayList<>();
+        for(Client c: clientList) {
+            list.add(c);
+        }
+        return list;
+    }
+
+    @Override
+    public String getFileName() {
+        // Path - "Folder: ser" / "File Name: this store's object class" "Suffix: .txt"
+        return "ser/client.txt";
+    }
+
+    @Override
+    public void importObject(Object o) {
+        // Read Object from File and import as this store's object class
+        this.client = (Client) o;
+        if (this.validateClient(client)) {
+            this.clientList.add(client);
+        } else {
+            throw new IllegalArgumentException();
+        }
+    }
 
 }

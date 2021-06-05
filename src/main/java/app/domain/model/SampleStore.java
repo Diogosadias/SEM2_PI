@@ -12,7 +12,9 @@ import java.util.List;
  * @author Gil Pereira
  */
 
-public class SampleStore {
+public class SampleStore extends Store{
+
+    private Sample sample;
 
     /**
      * Initialize a list of samples.
@@ -39,7 +41,8 @@ public class SampleStore {
      */
 
     public Sample createSample(String id) throws BarcodeException, OutputException, IOException {
-        return new Sample(id);
+        this.sample = new Sample(id);
+        return sample;
     }
 
     /**
@@ -80,5 +83,28 @@ public class SampleStore {
 
     public List<Sample> getSamples(){
         return this.sampleList;
+    }
+
+    @Override
+    public List getListObjects() {
+        //Change list of objects in Store to a List Object
+        List<Object> list = new ArrayList<>();
+        for(Sample s: sampleList) {
+            list.add(s);
+        }
+        return list;
+    }
+
+    @Override
+    public String getFileName() {
+        // Path - "Folder: ser" / "File Name: this store's object class" "Suffix: .txt"
+        return "ser/sample.txt";
+    }
+
+    @Override
+    public void importObject(Object o) {
+        // Read Object from File and import as this store's object class
+        this.sample = (Sample) o;
+        this.saveSample(sample);
     }
 }

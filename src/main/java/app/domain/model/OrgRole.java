@@ -2,6 +2,7 @@ package app.domain.model;
 
 import app.domain.dto.EmployeeDto;
 
+import java.io.Serializable;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Objects;
@@ -14,7 +15,7 @@ import java.util.Objects;
  * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
 
-public class OrgRole {
+public class OrgRole implements Serializable {
 
     /**
      * The id of role.

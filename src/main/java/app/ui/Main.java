@@ -17,12 +17,13 @@ public class Main {
         {
             fileController.runFileInputStreams();
             menu.run();
+            fileController.runFileOutputStreams();
         }
         catch( Exception e )
         {
             e.printStackTrace();
         }
-        fileController.runFileOutputStreams();
+
     }
 
 }

@@ -1,11 +1,13 @@
 package app.domain.model;
 
+import java.io.Serializable;
+
 /**
  * Receptionist - Domain class representing a Receptionist
  *
  * @author Tiago Rocha <1181445@isep.ipp.pt>
  */
-public class Receptionist extends Employee{
+public class Receptionist extends Employee implements Serializable {
 
     /**
      * Constructor Receptionist with the role, employeeId, name, address, phone number, socCode.

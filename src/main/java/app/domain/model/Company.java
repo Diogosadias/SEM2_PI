@@ -1,11 +1,8 @@
 package app.domain.model;
 
-import app.controller.FileController;
 import auth.AuthFacade;
 import org.apache.commons.lang3.StringUtils;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,12 +25,12 @@ public class Company {
     /**
      * The designation of company.
      */
-    private final String designation;
+    private String designation;
 
     /**
      * The AuthFacade of company.
      */
-    private final AuthFacade authFacade;
+    private AuthFacade authFacade;
 
     /**
      * The store of Clinical Analysis Laboratory.
@@ -43,7 +40,7 @@ public class Company {
     /**
      * The store of report.
      */
-    private final ReportStore reportStore;
+    private ReportStore reportStore;
 
     /**
      * The store of create a client.
@@ -58,7 +55,7 @@ public class Company {
     /**
      * The store of OrgRole.
      */
-    private final OrgRoleStore orgRoleStore;
+    private OrgRoleStore orgRoleStore;
 
     /**
      * The store of employee.
@@ -73,7 +70,7 @@ public class Company {
     /**
      * The store of registered Tests to clients.
      */
-    private final TestStore testStore;
+    private TestStore testStore;
 
     /**
      * The store of client's LabOrder.
@@ -97,20 +94,29 @@ public class Company {
 
         this.designation = designation;
         this.authFacade = new AuthFacade();
+        this.orgRoleStore = new OrgRoleStore();
         this.stores = new ArrayList<>();
 
+        stores.add(this.authFacade.getUserStore());
         this.reportStore = new ReportStore();
         stores.add(reportStore);
         this.calStore = new CALStore();
         this.clientStore = new ClientStore(this.authFacade);
+        stores.add(clientStore);
         this.parameterCategoryStore = new ParameterCategoryStore();
-        this.orgRoleStore = new OrgRoleStore();
+        stores.add(parameterCategoryStore);
         this.employeeStore = new EmployeeStore(this.orgRoleStore,this.authFacade);
+        stores.add(employeeStore);
         this.parameterStore = new ParameterStore();
+        stores.add(parameterStore);
         this.testStore = new TestStore();
         stores.add(testStore);
         this.testTypeStore = new TestTypeStore();
+        stores.add(testTypeStore);
         this.sampleStore = new SampleStore();
+        stores.add(sampleStore);
+
+
     }
 
     /**

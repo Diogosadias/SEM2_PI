@@ -1,12 +1,13 @@
 package app.domain.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author Tiago Rocha <1181445@isep.ipp.pt>
  */
-public class SpecialistDoctor extends Employee{
+public class SpecialistDoctor extends Employee implements Serializable {
 
     /**
      * Specialist Doctor's Index number
