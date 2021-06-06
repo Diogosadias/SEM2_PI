@@ -44,7 +44,6 @@ public class CSVFileConverter {
 
         List<String[]> file = new ArrayList<>();
 
-
         while(sc.hasNext()){
             file.add(sc.nextLine().split(";"));
         }

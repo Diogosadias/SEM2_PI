@@ -1,6 +1,7 @@
 package app.ui.console;
 
 import app.controller.CovidNhsReportController;
+import app.domain.shared.Constants;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -31,14 +32,14 @@ public class CovidNhsReportUI implements Runnable {
         String initDate;
         String finalDate;
 
-        System.out.println("Initial Date:  (dd/mm/yyyy");
+        System.out.println("Initial Date:  (dd/mm/yyyy)");
         initDate = read.next();
         System.out.println("Final Date:  (dd/mm/yyyy)");
         finalDate = read.next();
 
 
 
-        SimpleDateFormat formatter1=new SimpleDateFormat("dd/mm/yyyy");
+        SimpleDateFormat formatter1=new SimpleDateFormat("dd/MM/yyyy");
         try {
             Date dateI = formatter1.parse(initDate);
             Date dateF = formatter1.parse(finalDate);
@@ -56,19 +57,18 @@ public class CovidNhsReportUI implements Runnable {
     }
 
     private String chooseData (String header,String option1, String option2) {
-        String data = null;
-        String option;
+        String data = "NA";
         do {
             System.out.println(header);
-            option = read.nextLine();
-            if (Integer.parseInt(option) == 1 || option.equalsIgnoreCase(option1)) {
+            int option = read.nextInt();
+            if (option == 1) {
                 data = option1;
-            } else if (Integer.parseInt(option) == 2 || option.equalsIgnoreCase(option2)) {
+            } else if (option == 2) {
                 data = option2;
             } else {
                 System.out.println("Incorrect Option, try again.\n");
             }
-        } while (data == null);
+        } while (data == "NA");
         return data;
     }
 }

@@ -17,7 +17,6 @@ public class CovidNhsReportController {
 
     private Company company;
     private TestStore testStore;
-    private List<Test> testList = new ArrayList<>();
     private LinearRegression linear;
     private String historic;
     private int histPoints;
@@ -28,7 +27,7 @@ public class CovidNhsReportController {
 
     public CovidNhsReportController(){
         this.company = App.getInstance().getCompany();
-        this.testStore = company.getTestStore();
+        this.testStore = this.company.getTestStore();
     }
 
     public void startNewReport(String historic, int histPoints) {
@@ -44,9 +43,8 @@ public class CovidNhsReportController {
     }
 
     public void Matcp(Date inid , Date finald){
-
-        this.testList = testStore.getValidatedTests();
-        if (testList != null) {
+        List<Test> testList = this.testStore.getValidatedTests();
+        if (!testList.isEmpty()) {
             Calendar start = Calendar.getInstance();
             Calendar end = Calendar.getInstance();
 
@@ -64,8 +62,8 @@ public class CovidNhsReportController {
 
 
 
-            double [] x = new double[(int)dayDifference];   //nr de testes positivos
-            double [] y = new double[(int) dayDifference]; //nr de testes
+            double [] x = new double[testList.size()];   //nr de testes positivos
+            double [] y = new double[testList.size()]; //nr de testes
 
             while( !start.after(end)){
                 Date targetDay = start.getTime();
@@ -89,7 +87,7 @@ public class CovidNhsReportController {
                 start.add(Calendar.DATE, 1);
 
                 x[i] = countx; //nr de testes positivos - erro aqui
-                y[i] = county; //nr de testes
+                y[i] = county; //nr de testes*/
                 i++;
                 countx = 0;
                 county = 0;
@@ -98,6 +96,9 @@ public class CovidNhsReportController {
             linear = new LinearRegression(x,y);
             System.out.println(linear);
             }
+        else {
+            System.out.println("nao tem");
+        }
 
     }
 
