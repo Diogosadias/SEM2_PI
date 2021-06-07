@@ -109,7 +109,7 @@ public class LinearRegression {
     /**
      * Returns the standard error of the estimate for the slope.
      *
-     * @return the standard error of the estimate for the slope
+     * @return the standard error of the estimate for the slope SE
      */
     public double slopeStdErr() {
         return Math.sqrt(svar1);
@@ -134,6 +134,70 @@ public class LinearRegression {
      *         including the best-fit line and the coefficient of determination
      *         R^2
      */
+
+
+
+    public void parameterCalculation(double [] x, double [] y, double n){
+
+        double yT = 0;
+        double xT = 0;
+        double xm;
+        double ym;
+
+        double Sxx = 0;
+        double Sxy = 0;
+        double Syy = 0;
+        double SE;
+
+        double R;
+
+        double b;
+        double a;
+
+        for(int i = 0; i <= y.length; i++){
+            yT = yT + y[i];
+        }
+
+        for(int i = 0; i <= x.length; i++){
+            xT = xT + x[i];
+        }
+
+        xm = xT/yT;
+        ym = yT/y.length;
+
+        for(int i = 0; i <= x.length; i++){
+            Sxx = Sxx + Math.pow((x[i] - xm),2);
+        }
+
+        for(int i = 0; i <= y.length; i++){
+            Syy = Syy + (y[i] - ym);
+
+        }
+
+        for(int i = 0; i <= x.length; i++){
+            Sxy = Sxy + (x[i] - xm) * (y[i] - ym);
+        }
+
+        b = Sxy/Sxx;
+        a = ym - b*xm;
+
+        SE = Syy - Math.pow(b,2) * Sxx;
+
+        R = Sxy / (Math.sqrt(Sxx) * Math.sqrt(Syy));
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
     public String toString1() {
         StringBuilder s = new StringBuilder();
         s.append(String.format("Declive (b): %.2f n + %.2f", slope(), intercept()));
