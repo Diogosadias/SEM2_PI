@@ -137,7 +137,7 @@ public class LinearRegression {
 
 
 
-    public void parameterCalculation(double [] x, double [] y, double n){
+    public void parameterCalculation(double [] x, double [] y){
 
         double yT = 0;
         double xT = 0;
@@ -147,7 +147,8 @@ public class LinearRegression {
         double Sxx = 0;
         double Sxy = 0;
         double Syy = 0;
-        double SE;
+        double SE = 0;
+        double SR = 0;
 
         double R;
 
@@ -181,9 +182,32 @@ public class LinearRegression {
         b = Sxy/Sxx;
         a = ym - b*xm;
 
-        SE = Syy - Math.pow(b,2) * Sxx;
-
         R = Sxy / (Math.sqrt(Sxx) * Math.sqrt(Syy));
+
+
+        double [] bY =new double[y.length];
+
+
+        for(int i = 0; i <= bY.length; i++){
+            bY[i] = a + b * x[i];
+        }
+
+
+
+
+
+
+       // SE = Syy - Math.pow(b,2) * Sxx;
+        for(int i = 0; i <= y.length; i++){
+            SE =+ Math.pow(y[i] - bY[i], 2); //determinação do SE
+            SR =+ Math.pow(bY[i] - ym, 2);   //determinação do SR
+        }
+        
+        double ST = SE + SR; 
+
+
+
+        //Graus de Liberdade
 
 
 
