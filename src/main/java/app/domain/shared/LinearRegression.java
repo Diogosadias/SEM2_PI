@@ -19,6 +19,10 @@ public class LinearRegression {
     private final double intercept, slope;
     private final double r2;
     private final double svar0, svar1;
+    private double ST = 0;
+    private double SE = 0;
+    private double SR = 0;
+
 
     /**
      * Performs a linear regression on the data points (y[i], x[i]).
@@ -67,6 +71,8 @@ public class LinearRegression {
         double svar  = rss / degreesOfFreedom;
         svar1 = svar / xxbar;
         svar0 = svar/n + xbar*xbar*svar1;
+
+        parameterCalculation(x, y);
     }
 
     /**
@@ -202,8 +208,10 @@ public class LinearRegression {
             SE =+ Math.pow(y[i] - bY[i], 2); //determinação do SE
             SR =+ Math.pow(bY[i] - ym, 2);   //determinação do SR
         }
-        
-        double ST = SE + SR; 
+
+        this.SE = SE;
+        this.SR = SR;
+        this.ST = SE + SR;
 
 
 
@@ -215,12 +223,51 @@ public class LinearRegression {
 
     }
 
+    public double getST(){
+        return this.ST;
+    }
 
+    public double getSE(){
+        return this.SE;
+    }
 
+    public double getSR(){
+        return this.SR;
+    }
 
+    public String decision(){
+        // Reject H0/ Don't reject H0
+        return "Nao implementado ainda";
+    }
 
+    private String decisionF() {
+        // Reject H0/ Don't reject H0
+        return "Nao implementado ainda";
+    }
 
+    private double dfSR() {
+        return 0;
+    }
 
+    private double dfSE() {
+        return 0;
+    }
+
+    private double dfST() {
+        return 0;
+    }
+
+    private double MSR() {
+        return getSR()/dfSR();
+    }
+
+    private double MSE() {
+        return getSE()/dfSE();
+    }
+
+    private double F() {
+        return MSR()/MSE();
+    }
 
     public String toString1() {
         StringBuilder s = new StringBuilder();
@@ -230,8 +277,20 @@ public class LinearRegression {
     }
 
     public String toString(){
-        return "b = "+slope+"\n a ="+intercept+"\n R2 =" +r2+ "\nMargem de erro de interceção " +interceptStdErr()+ "\nErro do declive:" +slopeStdErr();
+        return "b = "+slope+"\na = "+intercept+
+                "\n//\nOther statistics"+"\nR2 = " +r2 + "\nR2adjusted = " + "\nR = " + Math.sqrt(r2) +
+                "\n//\nHypothesis tests for regression coefficients\nHO:b=0 (a=0) H1: b<>0 (a<>0)" +
+                "\nt_obs = " + "\nDecision: " + decision() +
+                "\n//\nSignificance model with Anova\nH0: b=0  H1:b<>0" +
+                "\n\t\tdf\tSS\t\tMS\t\tF\t\t" +
+                "\nRegression\t" + dfSR() + "\t" + getSR() +"\t" + MSR() +"\t"+ F() +"\t" +
+                "\nResidual\t" + dfSE() + "\t" + getSE() +"\t"+ MSE() +"\t\t" +
+                "\nTotal\t\t" + dfST() +"\t" + getST() +"\t\t" +
+                "\n\nDecision: f" + decisionF() +
+                "\n//\nPrediction values\n\n" + "Date\tNumber of OBSERVED positive cases\tNumber of ESTIMATED/EXPECTED positive cases\t\t95% intervals "
+                ;
 
     }
+
 
 }

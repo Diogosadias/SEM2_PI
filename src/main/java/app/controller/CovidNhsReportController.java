@@ -24,6 +24,7 @@ public class CovidNhsReportController {
     private Date finalDate;
     private String regression;
     private Date currentDay;
+    private String report;
 
     public CovidNhsReportController(){
         this.company = App.getInstance().getCompany();
@@ -93,8 +94,9 @@ public class CovidNhsReportController {
                 county = 0;
             }
 
-            linear = new LinearRegression(x,y);
+            this.linear = new LinearRegression(x,y);
             System.out.println(linear);
+
             }
         else {
             System.out.println("nao tem");
@@ -102,7 +104,9 @@ public class CovidNhsReportController {
 
     }
 
-
-
+    public String writeReport(){
+        this.report = linear.toString();
+        return this.report;
+    }
 
 }
