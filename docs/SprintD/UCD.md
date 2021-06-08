@@ -15,7 +15,7 @@ However, be aware, this is a pedagogical simplification. On further projects and
 | UC/US  | Description                                                               |                   
 |:----|:------------------------------------------------------------------------|
 | US1 | [View Results](US1/US1.md)   |
-|US2|[Update personal Information](US2/US2.md)|
+|US2|[Update personal Information](US2/US2.md)|*
 | US3 | [Register Client](US3/US3.md)|*
 | US4 | [Register Test](US4/US4.md) |*
 | US5 | [Records Samples](US5/US5.md)|*
@@ -30,8 +30,8 @@ However, be aware, this is a pedagogical simplification. On further projects and
 |US14|[Write Report and Diagnosis](US14/US14.md)|*
 |US15|[Validate Analysis and Report](US15/US15.md)|*
 |US16|[View the tests and Evaluate waiting Time](US16/US16.md)|
-|US17|[Import via CSV file](US17/US17.md)|
-| US18 | [Generate Covid-19 Reports](US18/US18.md)|
-| US19 | [Generate Covid-19 Reports Daily](US19/US19.md)|
+|US17|[Import via CSV file](US17/US17.md)|*
+| US18 | [Generate Covid-19 Reports](US18/US18.md)|*
+| US19 | [Generate Covid-19 Reports Daily](US19/US19.md)|*
 | ... | ...|
 | USXX | [ShortNameOfUSXX](USXX/USXX.md)|
