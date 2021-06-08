@@ -22,20 +22,22 @@ public class CovidNhsReportUI implements Runnable {
     public void run() {
 
 
-        String historic = chooseData("Send Data to NHS:\n1 - Daily\n2 - Weekly","Daily","Weekly");
+        //String historic = chooseData("Send Data to NHS:\n1 - Daily\n2 - Weekly","Daily","Weekly");
 
         System.out.println("\nNumber of historical points: ");
-        int histPoints = read.nextInt();
+        //int histPoints = read.nextInt();
 
-        controller.startNewReport(historic,histPoints);
+        //controller.startNewReport(historic,histPoints);
 
         String initDate;
         String finalDate;
 
         System.out.println("Initial Date:  (dd/mm/yyyy)");
-        initDate = read.next();
+        //initDate = read.next();
+        initDate = "01/01/2021";
         System.out.println("Final Date:  (dd/mm/yyyy)");
-        finalDate = read.next();
+        //finalDate = read.next();
+        finalDate = "01/08/2021";
 
 
 
@@ -43,10 +45,10 @@ public class CovidNhsReportUI implements Runnable {
         try {
             Date dateI = formatter1.parse(initDate);
             Date dateF = formatter1.parse(finalDate);
-            String regression = chooseData("Set Linear Regression Model:\n1 - Simple Linear Regression\n2 - Multiple Linear Regression","Linear","Multiple");
-            controller.setAdditionalData(dateI,dateF,regression);
-
-            controller.Matcp(dateI,dateF);
+            //String regression = chooseData("Set Linear Regression Model:\n1 - Simple Linear Regression\n2 - Multiple Linear Regression","Linear","Multiple");
+            //controller.setAdditionalData(dateI,dateF,regression);
+            String varIndependent = chooseData("Variable Independent:\n1 - Number of Tests Realised\n2 - Client Mean Age","Registered Test","Mean Age");
+            controller.Matcp(dateI,dateF,varIndependent);
         } catch (ParseException e) {
             e.printStackTrace();
         }

@@ -3,6 +3,9 @@ package app.domain.shared; /****************************************************
  *  Simple linear regression.
  ******************************************************************************/
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 /**
  *  The code LinearRegression class performs a simple linear regression
  *  on an set of n data points (y_i, x_i).
@@ -22,6 +25,10 @@ public class LinearRegression {
     private double ST = 0;
     private double SE = 0;
     private double SR = 0;
+    private double dfST = 0;
+    private double dfSE = 0;
+    private double dfSR = 0;
+    private String varIndependent;
 
 
     /**
@@ -31,10 +38,11 @@ public class LinearRegression {
      * @param  y the corresponding values of the response variable
      * @throws IllegalArgumentException if the lengths of the two arrays are not equal
      */
-    public LinearRegression(double[] x, double[] y) {
+    public LinearRegression(double[] x, double[] y, String varIndependent) {
         if (x.length != y.length) {
             throw new IllegalArgumentException("array lengths are not equal");
         }
+        this.varIndependent = varIndependent;
         int n = x.length;
 
         // first pass
@@ -44,18 +52,18 @@ public class LinearRegression {
             sumx2 += x[i]*x[i];
             sumy  += y[i];
         }
-        double xbar = sumx / n;
-        double ybar = sumy / n;
+        double xbar = sumx / n; // average (media) x
+        double ybar = sumy / n; // average (media) y
 
         // second pass: compute summary statistics
         double xxbar = 0.0, yybar = 0.0, xybar = 0.0;
         for (int i = 0; i < n; i++) {
-            xxbar += (x[i] - xbar) * (x[i] - xbar);
-            yybar += (y[i] - ybar) * (y[i] - ybar);
-            xybar += (x[i] - xbar) * (y[i] - ybar);
+            xxbar += (x[i] - xbar) * (x[i] - xbar); //Sxx
+            yybar += (y[i] - ybar) * (y[i] - ybar); //Syy
+            xybar += (x[i] - xbar) * (y[i] - ybar); //Sxy
         }
-        slope  = xybar / xxbar;
-        intercept = ybar - slope * xbar;
+        slope  = xybar / xxbar; //b
+        intercept = ybar - slope * xbar; //a
 
         // more statistical analysis
         double rss = 0.0;      // residual sum of squares
@@ -67,12 +75,18 @@ public class LinearRegression {
         }
 
         int degreesOfFreedom = n-2;
+        this.dfSR = 1 * this.numParameters();
+        this.dfST = n - 1;
+        this.dfSE = dfST - dfSR;
+        this.SR = ssr;
+        this.SE = rss;
+        this.ST = rss + ssr;
         r2    = ssr / yybar;
-        double svar  = rss / degreesOfFreedom;
+        double svar  = rss / degreesOfFreedom; //MSE
         svar1 = svar / xxbar;
         svar0 = svar/n + xbar*xbar*svar1;
 
-        parameterCalculation(x, y);
+
     }
 
     /**
@@ -145,6 +159,7 @@ public class LinearRegression {
 
     public void parameterCalculation(double [] x, double [] y){
 
+
         double yT = 0;
         double xT = 0;
         double xm;
@@ -161,27 +176,27 @@ public class LinearRegression {
         double b;
         double a;
 
-        for(int i = 0; i <= y.length; i++){
+        for(int i = 0; i < y.length; i++){
             yT = yT + y[i];
         }
 
-        for(int i = 0; i <= x.length; i++){
+        for(int i = 0; i < x.length; i++){
             xT = xT + x[i];
         }
 
         xm = xT/yT;
         ym = yT/y.length;
 
-        for(int i = 0; i <= x.length; i++){
+        for(int i = 0; i < x.length; i++){
             Sxx = Sxx + Math.pow((x[i] - xm),2);
         }
 
-        for(int i = 0; i <= y.length; i++){
+        for(int i = 0; i < y.length; i++){
             Syy = Syy + (y[i] - ym);
 
         }
 
-        for(int i = 0; i <= x.length; i++){
+        for(int i = 0; i < x.length; i++){
             Sxy = Sxy + (x[i] - xm) * (y[i] - ym);
         }
 
@@ -194,7 +209,7 @@ public class LinearRegression {
         double [] bY =new double[y.length];
 
 
-        for(int i = 0; i <= bY.length; i++){
+        for(int i = 0; i < bY.length; i++){
             bY[i] = a + b * x[i];
         }
 
@@ -204,7 +219,7 @@ public class LinearRegression {
 
 
        // SE = Syy - Math.pow(b,2) * Sxx;
-        for(int i = 0; i <= y.length; i++){
+        for(int i = 0; i < y.length; i++){
             SE =+ Math.pow(y[i] - bY[i], 2); //determinação do SE
             SR =+ Math.pow(bY[i] - ym, 2);   //determinação do SR
         }
@@ -246,15 +261,15 @@ public class LinearRegression {
     }
 
     private double dfSR() {
-        return 0;
+        return this.dfSR;
     }
 
     private double dfSE() {
-        return 0;
+        return this.dfSE;
     }
 
     private double dfST() {
-        return 0;
+        return this.dfST;
     }
 
     private double MSR() {
@@ -271,25 +286,36 @@ public class LinearRegression {
 
     public String toString1() {
         StringBuilder s = new StringBuilder();
-        s.append(String.format("Declive (b): %.2f n + %.2f", slope(), intercept()));
-        s.append("R2 = " + String.format("%.3f", R2()) + ")");
+        s.append(String.format("Declive (b): %.4f n + %.4f", slope(), intercept()));
+        s.append("R2 = " + String.format("%.4f", R2()) + ")");
         return s.toString();
     }
 
     public String toString(){
+        NumberFormat formatter = new DecimalFormat("#0.0000");
         return "b = "+slope+"\na = "+intercept+
                 "\n//\nOther statistics"+"\nR2 = " +r2 + "\nR2adjusted = " + "\nR = " + Math.sqrt(r2) +
                 "\n//\nHypothesis tests for regression coefficients\nHO:b=0 (a=0) H1: b<>0 (a<>0)" +
                 "\nt_obs = " + "\nDecision: " + decision() +
                 "\n//\nSignificance model with Anova\nH0: b=0  H1:b<>0" +
-                "\n\t\tdf\tSS\t\tMS\t\tF\t\t" +
-                "\nRegression\t" + dfSR() + "\t" + getSR() +"\t" + MSR() +"\t"+ F() +"\t" +
-                "\nResidual\t" + dfSE() + "\t" + getSE() +"\t"+ MSE() +"\t\t" +
-                "\nTotal\t\t" + dfST() +"\t" + getST() +"\t\t" +
-                "\n\nDecision: f" + decisionF() +
+                "\n\t\t\tdf\t\tSS\t\tMS\t\tF\t\t" +
+                "\nRegression\t" + this.SR + "\t" + formatter.format(getSR()) +"\t" + formatter.format(MSR())+"\t"+ formatter.format(F()) +"\t" +
+                "\nResidual\t" + this.SE + "\t" + formatter.format(getSE()) +"\t\t"+ formatter.format(MSE()) +"\t\t" +
+                "\nTotal\t\t" + this.ST +"\t" + formatter.format(getST()) +"\t\t" ;
+                /*
+                "\n\nDecision: f" + formatter.format(this.) +
                 "\n//\nPrediction values\n\n" + "Date\tNumber of OBSERVED positive cases\tNumber of ESTIMATED/EXPECTED positive cases\t\t95% intervals "
-                ;
+                ;*/
 
+    }
+
+    private int numParameters() {
+        if (this.varIndependent.equals("Registered Test")) {
+            return 1; // mudar para 2
+        } else if (this.varIndependent.equals("Mean Age")) {
+            return  1;
+        }
+        return -1;
     }
 
 

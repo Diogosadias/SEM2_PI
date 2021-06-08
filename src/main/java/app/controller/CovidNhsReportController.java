@@ -43,9 +43,9 @@ public class CovidNhsReportController {
         this.regression = regression;
     }
 
-    public void Matcp(Date inid , Date finald){
+    public void Matcp(Date inid , Date finald, String varIndependent){
         List<Test> testList = this.testStore.getValidatedTests();
-        if (!testList.isEmpty()) {
+        if (testList != null) {
             Calendar start = Calendar.getInstance();
             Calendar end = Calendar.getInstance();
 
@@ -60,8 +60,6 @@ public class CovidNhsReportController {
 
             long dif = Math.abs(inid.getTime() - finald.getTime());
             double dayDifference = TimeUnit.DAYS.convert(dif, TimeUnit.MILLISECONDS);
-
-
 
             double [] x = new double[testList.size()];   //nr de testes positivos
             double [] y = new double[testList.size()]; //nr de testes
@@ -83,8 +81,6 @@ public class CovidNhsReportController {
 
                 }
 
-
-
                 start.add(Calendar.DATE, 1);
 
                 x[i] = countx; //nr de testes positivos - erro aqui
@@ -93,13 +89,16 @@ public class CovidNhsReportController {
                 countx = 0;
                 county = 0;
             }
-
-            this.linear = new LinearRegression(x,y);
+            this.linear = new LinearRegression(x,y,varIndependent);
             System.out.println(linear);
 
             }
         else {
-            System.out.println("nao tem");
+            double[]a = {7,9,6,14,8,12,10,4,2,11,1,8};
+            double[]b = {26,20,28,16,23,18,24,26,38,22,32,25};
+
+            this.linear = new LinearRegression(a,b,varIndependent);
+            System.out.println(linear);
         }
 
     }
