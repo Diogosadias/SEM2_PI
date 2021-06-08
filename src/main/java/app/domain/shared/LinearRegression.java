@@ -30,7 +30,10 @@ public class LinearRegression {
     private double dfST = 0;
     private double dfSE = 0;
     private double dfSR = 0;
+    private  double tDistribution = 0;
+    private  double fDistribution = 0;
     private String varIndependent;
+    private final double ALPHA = 0.05;
 
 
     /**
@@ -57,6 +60,8 @@ public class LinearRegression {
         double xbar = sumx / n; // average (media) x
         double ybar = sumy / n; // average (media) y
 
+
+
         // second pass: compute summary statistics
         double xxbar = 0.0, yybar = 0.0, xybar = 0.0;
         for (int i = 0; i < n; i++) {
@@ -77,7 +82,9 @@ public class LinearRegression {
         }
 
         int degreesOfFreedom = n-2;
-        this.dfSR = 1 * this.numParameters();
+        this.tDistribution = new TDistribution(degreesOfFreedom).inverseCumulativeProbability(1-(ALPHA /2));
+
+        this.dfSR = this.numParameters();
         this.dfST = n - 1;
         this.dfSE = dfST - dfSR;
         this.SR = ssr;
@@ -88,6 +95,8 @@ public class LinearRegression {
         svar1 = svar / xxbar;
         svar0 = svar/n + xbar*xbar*svar1;
 
+        FDistribution fd= new FDistribution(this.dfSR,this.dfSE);
+        this.fDistribution= fd.inverseCumulativeProbability(1- ALPHA);
 
     }
 
@@ -159,6 +168,85 @@ public class LinearRegression {
 
 
 
+    public double getST(){
+        return this.ST;
+    }
+
+    public double getSE(){
+        return this.SE;
+    }
+
+    public double getSR(){
+        return this.SR;
+    }
+
+    public String decision(){
+        // Reject H0/ Don't reject H0
+        return "Nao implementado ainda";
+    }
+
+    private String decisionF() {
+        // Reject H0/ Don't reject H0
+        return "Nao implementado ainda";
+    }
+
+    private double dfSR() {
+        return this.dfSR;
+    }
+
+    private double dfSE() {
+        return this.dfSE;
+    }
+
+    private double dfST() {
+        return this.dfST;
+    }
+
+    private double MSR() {
+        return getSR()/dfSR();
+    }
+
+    private double MSE() {
+        return getSE()/dfSE();
+    }
+
+    private double F() {
+        return MSR()/MSE();
+    }
+
+    public String toString1() {
+        StringBuilder s = new StringBuilder();
+        s.append(String.format("Declive (b): %.4f n + %.4f", slope(), intercept()));
+        s.append("R2 = " + String.format("%.4f", R2()) + ")");
+        return s.toString();
+    }
+
+    public String toString(){
+        NumberFormat formatter = new DecimalFormat("#0.0000");
+        return "b = "+slope+"\na = "+intercept+
+                "\n//\nOther statistics"+"\nR2 = " +r2 + "\nR2adjusted = ..." + "\nR = " + Math.sqrt(r2) +
+                "\n//\nHypothesis tests for regression coefficients\nHO:b=0 (a=0) H1: b<>0 (a<>0)" +
+                "\nt_obs = " + this.tDistribution + "\nDecision: " + decision() +
+                "\n//\nSignificance model with Anova\nH0: b=0  H1:b<>0" +
+                "\n\t\t\tdf\t\tSS\t\tMS\t\tF\t\t" +
+                "\nRegression\t" + this.dfSR + "\t" + formatter.format(getSR()) +"\t" + formatter.format(MSR())+"\t"+ formatter.format(F()) +"\t" +
+                "\nResidual\t" + this.dfSE + "\t" + formatter.format(getSE()) +"\t\t"+ formatter.format(MSE()) +"\t\t" +
+                "\nTotal\t\t" + this.dfST +"\t" + formatter.format(getST()) +"\t\t" +
+                "\n\nDecision: f \n0 > f" + ALPHA + ",(" + (int)this.dfSR + "." + (int)this.dfSE + ")=" + this.fDistribution +
+                "\n//\nPrediction values\n\n" + "Date\tNumber of OBSERVED positive cases\tNumber of ESTIMATED/EXPECTED positive cases\t\t95% intervals "
+                ;
+
+    }
+
+    private int numParameters() {
+        if (this.varIndependent.equals("Registered Test")) {
+            return 1; // mudar para 2
+        } else if (this.varIndependent.equals("Mean Age")) {
+            return  1;
+        }
+        return -1;
+    }
+
     public void parameterCalculation(double [] x, double [] y){
 
 
@@ -220,7 +308,7 @@ public class LinearRegression {
 
 
 
-       // SE = Syy - Math.pow(b,2) * Sxx;
+        // SE = Syy - Math.pow(b,2) * Sxx;
         for(int i = 0; i < y.length; i++){
             SE =+ Math.pow(y[i] - bY[i], 2); //determinação do SE
             SR =+ Math.pow(bY[i] - ym, 2);   //determinação do SR
@@ -239,86 +327,4 @@ public class LinearRegression {
 
 
     }
-
-    public double getST(){
-        return this.ST;
-    }
-
-    public double getSE(){
-        return this.SE;
-    }
-
-    public double getSR(){
-        return this.SR;
-    }
-
-    public String decision(){
-        // Reject H0/ Don't reject H0
-        return "Nao implementado ainda";
-    }
-
-    private String decisionF() {
-        // Reject H0/ Don't reject H0
-        return "Nao implementado ainda";
-    }
-
-    private double dfSR() {
-        return this.dfSR;
-    }
-
-    private double dfSE() {
-        return this.dfSE;
-    }
-
-    private double dfST() {
-        return this.dfST;
-    }
-
-    private double MSR() {
-        return getSR()/dfSR();
-    }
-
-    private double MSE() {
-        return getSE()/dfSE();
-    }
-
-    private double F() {
-        return MSR()/MSE();
-    }
-
-    public String toString1() {
-        StringBuilder s = new StringBuilder();
-        s.append(String.format("Declive (b): %.4f n + %.4f", slope(), intercept()));
-        s.append("R2 = " + String.format("%.4f", R2()) + ")");
-        return s.toString();
-    }
-
-    public String toString(){
-        NumberFormat formatter = new DecimalFormat("#0.0000");
-        return "b = "+slope+"\na = "+intercept+
-                "\n//\nOther statistics"+"\nR2 = " +r2 + "\nR2adjusted = " + "\nR = " + Math.sqrt(r2) +
-                "\n//\nHypothesis tests for regression coefficients\nHO:b=0 (a=0) H1: b<>0 (a<>0)" +
-                "\nt_obs = " + "\nDecision: " + decision() +
-                "\n//\nSignificance model with Anova\nH0: b=0  H1:b<>0" +
-                "\n\t\t\tdf\t\tSS\t\tMS\t\tF\t\t" +
-                "\nRegression\t" + this.SR + "\t" + formatter.format(getSR()) +"\t" + formatter.format(MSR())+"\t"+ formatter.format(F()) +"\t" +
-                "\nResidual\t" + this.SE + "\t" + formatter.format(getSE()) +"\t\t"+ formatter.format(MSE()) +"\t\t" +
-                "\nTotal\t\t" + this.ST +"\t" + formatter.format(getST()) +"\t\t" ;
-                /*
-                "\n\nDecision: f" + formatter.format(this.) +
-                "\n//\nPrediction values\n\n" + "Date\tNumber of OBSERVED positive cases\tNumber of ESTIMATED/EXPECTED positive cases\t\t95% intervals "
-                ;*/
-
-    }
-
-    private int numParameters() {
-        if (this.varIndependent.equals("Registered Test")) {
-            return 1; // mudar para 2
-        } else if (this.varIndependent.equals("Mean Age")) {
-            return  1;
-        }
-        return -1;
-    }
-
-
 }
