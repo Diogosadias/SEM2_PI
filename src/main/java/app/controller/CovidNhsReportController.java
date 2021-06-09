@@ -5,6 +5,7 @@ import app.domain.model.Test;
 import app.domain.model.TestStore;
 import app.domain.shared.LinearRegression;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -25,6 +26,11 @@ public class CovidNhsReportController {
     private String regression;
     private Date currentDay;
     private String report;
+    private String varIndependent;
+    private double [] xTests;
+    private double [] xAge;
+    private double [] y;
+    private List<Test> testList;
 
     public CovidNhsReportController(){
         this.company = App.getInstance().getCompany();
@@ -35,73 +41,94 @@ public class CovidNhsReportController {
         this.currentDay = new Date(System.currentTimeMillis());
         this.historic = historic;
         this.histPoints = histPoints;
+        this.testList = getValidatedCovidTestList();
+        if (testList == null) {
+            throw new IllegalArgumentException("Validated/Covid Test list is empty.");
+        }
     }
 
-    public void setAdditionalData(Date initialDate, Date finalDate, String regression) {
+    private List getValidatedCovidTestList() {
+        List<Test> covidTests = new ArrayList<>();
+        for(Test t :  this.testStore.getValidatedTests()){
+            if(t.getTestType().getCode().equalsIgnoreCase("Covid")){
+                covidTests.add(t);
+            }
+        }
+        if(covidTests.isEmpty()) {
+            return null;
+        }
+        return covidTests;
+    }
+
+    public void doSimpleLinearRegression(Date initialDate, Date finalDate, String regression, String varIndependent) {
+        this.initialDate = initialDate;
+        this.finalDate = finalDate;
+        this.regression = regression;
+        this.varIndependent = varIndependent;
+        this.Matcp();
+    }
+
+    public void doMultipleLinearRegression(Date initialDate, Date finalDate, String regression) {
         this.initialDate = initialDate;
         this.finalDate = finalDate;
         this.regression = regression;
     }
 
-    public void Matcp(Date inid , Date finald, String varIndependent){
-        List<Test> testList = this.testStore.getValidatedTests();
-        if (testList != null) {
-            Calendar start = Calendar.getInstance();
-            Calendar end = Calendar.getInstance();
-
+    public void Matcp(){
+        List<Date> dateList = new ArrayList<>();
+        Calendar start = Calendar.getInstance();
+        Calendar end = Calendar.getInstance();
+        this.xAge = new double[this.histPoints];
+        this.xTests = new double[this.histPoints];
+        this.y = new double[this.histPoints];
 
             int countx = 0;
             int county = 0;
 
-            int i;
+            int i=0;
 
-            start.setTime(inid);
-            end.setTime(finald);
+            start.setTime(this.initialDate);
+            end.setTime(this.finalDate);
 
-            long dif = Math.abs(inid.getTime() - finald.getTime());
-            double dayDifference = TimeUnit.DAYS.convert(dif, TimeUnit.MILLISECONDS);
-
-            double [] x = new double[testList.size()];   //nr de testes positivos
-            double [] y = new double[testList.size()]; //nr de testes
 
             while( !start.after(end)){
                 Date targetDay = start.getTime();
+                int sumAge = 0;
 
-                i = 0;
-
-
-                for(Test t :  testList){
-
-                    if(t.getDateValidation() == targetDay || t.getTestType().getCode().equalsIgnoreCase("Covid")){
-                        county++;
-                        if(t.getTestParam().getResult().getMetric() > 1.4)
+                SimpleDateFormat fmt = new SimpleDateFormat("yyyyMMdd");
+                    List<Test> list = this.testStore.getValidatedTests();
+                    for(Test t :  list){
+                        if(fmt.format(t.getDateValidation()).equals(fmt.format(targetDay))){
                             countx++;
+                            if(t.getTestParam().getResult().getMetric() > 1.4) {
+                                county++;
+                            }
+                            sumAge += t.getClient().calculateAge();
+                        }
                     }
-
-
+                if(countx > 0 && county > 0) {
+                    this.xAge[i] = (double)sumAge / (double)countx;
+                    this.xTests[i] = countx;
+                    this.y[i] = county;
+                    dateList.add(targetDay);
+                } else {
+                    i--;
                 }
-
                 start.add(Calendar.DATE, 1);
-
-                x[i] = countx; //nr de testes positivos - erro aqui
-                y[i] = county; //nr de testes*/
                 i++;
                 countx = 0;
                 county = 0;
             }
-            this.linear = new LinearRegression(x,y,varIndependent);
-            System.out.println(linear);
-
+            if(this.varIndependent.equals("Registered Tests")) {
+                this.linear = new LinearRegression(xTests,y,dateList);
+            } else if(this.varIndependent.equals("Mean Age")) {
+                this.linear = new LinearRegression(xAge,y,dateList);
             }
-        else {
-            double[]a = {7,9,6,14,8,12,10,4,2,11,1,8};
-            double[]b = {26,20,28,16,23,18,24,26,38,22,32,25};
-
-            this.linear = new LinearRegression(a,b,varIndependent);
             System.out.println(linear);
-        }
-
     }
+
+
+
 
     public String writeReport(){
         this.report = linear.toString();

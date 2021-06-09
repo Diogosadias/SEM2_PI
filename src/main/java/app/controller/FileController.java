@@ -67,7 +67,7 @@ public class FileController {
             }catch (NullPointerException n) {
                 n.printStackTrace();
             } catch (IllegalArgumentException i) {
-
+                i.printStackTrace();
             }
         }
     }

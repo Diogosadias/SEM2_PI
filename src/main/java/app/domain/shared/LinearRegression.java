@@ -5,6 +5,11 @@ package app.domain.shared; /****************************************************
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 import org.apache.commons.math3.distribution.FDistribution;
 import org.apache.commons.math3.distribution.TDistribution;
 
@@ -34,22 +39,30 @@ public class LinearRegression {
     private  double fDistribution = 0;
     private String varIndependent;
     private final double ALPHA = 0.05;
-    private String IC= " ";
+    private String board= " ";
+
 
 
     /**
      * Performs a linear regression on the data points (y[i], x[i]).
      *
-     * @param  x the values of the predictor variable
-     * @param  y the corresponding values of the response variable
+     * @param  vecX the values of the predictor variable
+     * @param  vecY the corresponding values of the response variable
      * @throws IllegalArgumentException if the lengths of the two arrays are not equal
      */
-    public LinearRegression(double[] x, double[] y, String varIndependent) {
-        if (x.length != y.length) {
+    public LinearRegression(double[] vecX, double[] vecY, List<Date> dateList) {
+        int n = dateList.size();
+        if (vecX.length != vecY.length) {
             throw new IllegalArgumentException("array lengths are not equal");
         }
-        this.varIndependent = varIndependent;
-        int n = x.length;
+        double[]x = new double[n];
+        double[]y = new double[n];
+        for (int i = 0; i < n; i++) {
+             x[i] = vecX[i];
+             y[i] = vecY[i];
+        }
+
+
 
         // first pass
         double sumx = 0.0, sumy = 0.0, sumx2 = 0.0;
@@ -85,7 +98,7 @@ public class LinearRegression {
         int degreesOfFreedom = n-2;
         this.tDistribution = new TDistribution(degreesOfFreedom).inverseCumulativeProbability(1-(ALPHA /2));
 
-        this.dfSR = this.numParameters();
+        this.dfSR = 1;
         this.dfST = n - 1;
         this.dfSE = dfST - dfSR;
         this.SR = ssr;
@@ -124,12 +137,13 @@ public class LinearRegression {
         double []ICp = new double[n];
         double []ICn = new double[n];
 
-        for(int i = 0; i < n; i ++){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        this.board +="\n//\nPrediction values\n\n" + "Date\t\t\tNumber of OBSERVED positive cases\t\tNumber of ESTIMATED/EXPECTED positive cases\t\t\t\t\t\t95% intervals";
+        for(int i = 0; i < dateList.size(); i ++){
 
             ICn[i] = ybarra[i] - tDistribution * s *  Math.sqrt(1/n + (Math.pow((x[i] - xbar),2)/xxbar));
             ICp[i] = ybarra[i] + tDistribution * s *  Math.sqrt(1/n + (Math.pow((x[i] - xbar),2)/xxbar));
-
-            this.IC = IC + "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t["+ICn[i]+","+ICp[i]+"]";
+            this.board += "\n" + dateFormat.format(dateList.get(i)) + "\t\t\t\t\t" + (int)x[i] + "\t\t\t\t\t\t\t\t\t\t\t\t" + predict(x[i]) +"\t\t\t\t\t\t\t\t\t["+ICn[i]+","+ICp[i]+"]";
         }
 
 
@@ -271,21 +285,10 @@ public class LinearRegression {
                 "\nRegression\t" + this.dfSR + "\t" + formatter.format(getSR()) +"\t" + formatter.format(MSR())+"\t"+ formatter.format(F()) +"\t" +
                 "\nResidual\t" + this.dfSE + "\t" + formatter.format(getSE()) +"\t\t"+ formatter.format(MSE()) +"\t\t" +
                 "\nTotal\t\t" + this.dfST +"\t" + formatter.format(getST()) +"\t\t" +
-                "\n\nDecision: f \n0 > f" + ALPHA + ",(" + (int)this.dfSR + "." + (int)this.dfSE + ")=" + this.fDistribution +
-                "\n//\nPrediction values\n\n" + "Date\tNumber of OBSERVED positive cases\tNumber of ESTIMATED/EXPECTED positive cases\t\t95% intervals"
-                +IC;
+                "\n\nDecision: f \n0 > f" + ALPHA + ",(" + (int)this.dfSR + "." + (int)this.dfSE + ")=" + this.fDistribution + board;
 
 
 
-    }
-
-    private int numParameters() {
-        if (this.varIndependent.equals("Registered Test")) {
-            return 1; // mudar para 2
-        } else if (this.varIndependent.equals("Mean Age")) {
-            return  1;
-        }
-        return -1;
     }
 
     public void parameterCalculation(double [] x, double [] y){
