@@ -21,6 +21,13 @@ public class CovidNhsReportUI implements Runnable {
     @Override
     public void run() {
 
+        String ui = chooseData("Chose UI(Fixing):\n1 - Old\n2 - New","Old","New");
+
+        if(ui=="New"){
+            alternativeUI();
+            return;
+        }
+
 
         String historic = chooseData("Send Data to NHS:\n1 - Daily\n2 - Weekly","Daily","Weekly");
 
@@ -70,5 +77,21 @@ public class CovidNhsReportUI implements Runnable {
             }
         } while (data == "NA");
         return data;
+    }
+
+    public void alternativeUI(){
+
+        //asks for historical points of analysis and data range
+
+
+
+        // asks if linear or multiple regressions, level of significance
+
+        //asks what variables to report
+
+        //Writes on console info and writes on file
+
+        //sends file though API
+
     }
 }
