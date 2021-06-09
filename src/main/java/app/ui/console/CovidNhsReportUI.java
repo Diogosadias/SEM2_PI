@@ -20,31 +20,31 @@ public class CovidNhsReportUI implements Runnable {
 
     @Override
     public void run() {
-
+        /*
         String ui = chooseData("Chose UI(Fixing):\n1 - Old\n2 - New","Old","New");
 
         if(ui=="New"){
             alternativeUI();
             return;
-        }
+        }*/
 
 
         //String historic = chooseData("Send Data to NHS:\n1 - Daily\n2 - Weekly","Daily","Weekly");
-
+        String historic = "Daily";
         System.out.println("\nNumber of historical points: ");
-        //int histPoints = read.nextInt();
+        int histPoints = read.nextInt();
 
-        //controller.startNewReport(historic,histPoints);
+        controller.startNewReport(historic,histPoints);
 
         String initDate;
         String finalDate;
 
         System.out.println("Initial Date:  (dd/mm/yyyy)");
         //initDate = read.next();
-        initDate = "01/01/2021";
+        initDate = "22/03/2021";
         System.out.println("Final Date:  (dd/mm/yyyy)");
         //finalDate = read.next();
-        finalDate = "01/08/2021";
+        finalDate = "26/03/2021";
 
 
 
@@ -54,8 +54,13 @@ public class CovidNhsReportUI implements Runnable {
             Date dateF = formatter1.parse(finalDate);
             //String regression = chooseData("Set Linear Regression Model:\n1 - Simple Linear Regression\n2 - Multiple Linear Regression","Linear","Multiple");
             //controller.setAdditionalData(dateI,dateF,regression);
-            String varIndependent = chooseData("Variable Independent:\n1 - Number of Tests Realised\n2 - Client Mean Age","Registered Test","Mean Age");
-            controller.Matcp(dateI,dateF,varIndependent);
+            String regression = "Linear";
+            if (regression.equals("Linear")) {
+                String varIndependent = chooseData("Variable Independent:\n1 - Number of Tests Realised\n2 - Client Mean Age","Registered Tests","Mean Age");
+                controller.doSimpleLinearRegression(dateI,dateF,"Linear",varIndependent);
+            } else {
+                controller.doMultipleLinearRegression(dateI,dateF,"Multiple");
+            }
         } catch (ParseException e) {
             e.printStackTrace();
         }
