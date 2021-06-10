@@ -168,7 +168,7 @@ public class Utils {
 
             input = Utils.readLineFromConsole("Type your option: ");
             value = detectNumberFormatException(input);
-        } while (value < 0 || value > list.size());
+        } while (value < -1 || value > list.size());
 
         return value - 1;
     }

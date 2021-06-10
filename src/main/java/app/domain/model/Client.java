@@ -5,6 +5,7 @@ import auth.domain.model.Email;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -113,7 +114,6 @@ public class Client implements Serializable {
      */
 
     public Client(long citizenCard){
-        checkCitizenNumber(citizenCard);
         this.citizenCard = citizenCard;
     }
 
@@ -281,7 +281,6 @@ public class Client implements Serializable {
     public void checkCitizenNumber(long citizenCard){
         String temp = String.valueOf(citizenCard);
         if (temp.length() > 16) {
-            System.out.println(citizenCard);
             throw new IllegalArgumentException("Citizen Card code must have 16 chars.");
         }
     }
@@ -350,4 +349,12 @@ public class Client implements Serializable {
     public int hashCode() {
         return Objects.hash(name, id, nhs, citizenCard, tin, birthDate, sex, pNumber);
     }
+
+    public int calculateAge() {
+        Date today = new Date(System.currentTimeMillis());
+        long dif = Math.abs(today.getTime() - this.birthDate.getTime());
+        double dayDifference = TimeUnit.DAYS.convert(dif, TimeUnit.MILLISECONDS);
+        return (int)(dayDifference/365.25);
+    }
+
 }
