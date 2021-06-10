@@ -49,7 +49,7 @@ public class CovidNhsReportUI implements Runnable {
             initDate = "22/03/2021";
             System.out.println("Final Date:  (dd/mm/yyyy)");
             //finalDate = read.next();
-            finalDate = "26/03/2021";
+            finalDate = "26/04/2023";
 
 
 

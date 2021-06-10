@@ -95,7 +95,8 @@ public class CSVFileConverter {
                 if(parameters.size() == 0) {
                     throw new IllegalArgumentException("No valid Parameters.");
                 }
-                test.setDateRegistered(this.checkDate(line[getColumnIndex(header,"Test_Reg_DateHour")]));
+                Date date = this.checkDate(line[getColumnIndex(header,"Test_Reg_DateHour")]);
+                test.setDateRegistered(date);
                 for(String[] vector : parameters) {
                     String parameterCode = "";
                     for(String str : vector) {
@@ -174,7 +175,10 @@ public class CSVFileConverter {
         if(date.trim().equals("NA")){
             throw new IllegalArgumentException(date + " is null.");
         }
-        return new Date(date);
+        String[] temp = date.split(" ");
+        String[] temp1 = temp[0].split("/");
+        String dateFormated = temp1[2] + "/" + temp1[1] + "/" + temp1[0] + " " + temp[1];
+        return new Date(dateFormated);
     }
 
     private boolean checkParameter (String code) {

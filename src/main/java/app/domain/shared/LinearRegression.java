@@ -5,10 +5,6 @@ package app.domain.shared; /****************************************************
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 import org.apache.commons.math3.distribution.FDistribution;
 import org.apache.commons.math3.distribution.TDistribution;
@@ -37,33 +33,42 @@ public class LinearRegression {
     private double dfSR = 0;
     private  double tDistribution = 0;
     private  double fDistribution = 0;
-    private String varIndependent;
     private final double ALPHA = 0.05;
-    private String board= " ";
+    private double []ICsup;
+    private double []ICinf;
 
 
+    public double getICsup(int index) {
+        for (int i=0; i<ICsup.length; i++) {
+            if(i == index) {
+                return ICsup[i];
+            }
+        }
+        return -1;
+    }
+
+    public double getICinf(int index) {
+        for (int i=0; i<ICinf.length; i++) {
+            if(i == index) {
+                return ICinf[i];
+            }
+        }
+        return -1;
+    }
 
     /**
      * Performs a linear regression on the data points (y[i], x[i]).
      *
-     * @param  vecX the values of the predictor variable
-     * @param  vecY the corresponding values of the response variable
+     * @param  x the values of the predictor variable
+     * @param  y the corresponding values of the response variable
      * @throws IllegalArgumentException if the lengths of the two arrays are not equal
      */
-    public LinearRegression(double[] vecX, double[] vecY, List<Date> dateList) {
-        int n = dateList.size();
-        if (vecX.length != vecY.length) {
+    public LinearRegression(double[] x, double[] y) {
+
+        if (x.length != y.length) {
             throw new IllegalArgumentException("array lengths are not equal");
         }
-        double[]x = new double[n];
-        double[]y = new double[n];
-        for (int i = 0; i < n; i++) {
-             x[i] = vecX[i];
-             y[i] = vecY[i];
-        }
-
-
-
+        int n = x.length;
         // first pass
         double sumx = 0.0, sumy = 0.0, sumx2 = 0.0;
         for (int i = 0; i < n; i++) {
@@ -71,8 +76,8 @@ public class LinearRegression {
             sumx2 += x[i]*x[i];
             sumy  += y[i];
         }
-        double xbar = sumx / n; // average (media) x
-        double ybar = sumy / n; // average (media) y
+        double xbar = sumx / n; // mean x
+        double ybar = sumy / n; // mean y
 
 
 
@@ -134,20 +139,13 @@ public class LinearRegression {
         s =  1 / s;
 
 
+        this.ICinf = new double[n];
+        this.ICsup = new double[n];
 
-
-        double []ICp = new double[n];
-        double []ICn = new double[n];
-
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        this.board +="\n//\nPrediction values\n\n" + "Date\t\t\tNumber of OBSERVED positive cases\t\tNumber of ESTIMATED/EXPECTED positive cases\t\t\t\t\t\t95% intervals";
-        for(int i = 0; i < dateList.size(); i ++){
-
-            ICn[i] = ybarra[i] - tDistribution * s *  Math.sqrt(1/n + (Math.pow((x[i] - xbar),2)/xxbar));
-            ICp[i] = ybarra[i] + tDistribution * s *  Math.sqrt(1/n + (Math.pow((x[i] - xbar),2)/xxbar));
-            this.board += "\n" + dateFormat.format(dateList.get(i)) + "\t\t\t\t\t" + (int)x[i] + "\t\t\t\t\t\t\t\t\t\t\t\t" + (x[i] + (y[i] - fit))+"\t\t\t\t\t\t\t\t\t["+ICn[i]+","+ICp[i]+"]";
+        for(int i=0; i < n; i++) {
+            this.ICinf[i] = ybarra[i] - tDistribution * s *  Math.sqrt(1/n + (Math.pow((x[i] - xbar),2)/xxbar));
+            this.ICsup[i] = ybarra[i] + tDistribution * s *  Math.sqrt(1/n + (Math.pow((x[i] - xbar),2)/xxbar));
         }
-
 
 
 
@@ -271,12 +269,6 @@ public class LinearRegression {
         return MSR()/MSE();
     }
 
-    public String toString1() {
-        StringBuilder s = new StringBuilder();
-        s.append(String.format("Declive (b): %.4f n + %.4f", slope(), intercept()));
-        s.append("R2 = " + String.format("%.4f", R2()) + ")");
-        return s.toString();
-    }
 
     public String toString(){
         NumberFormat formatter = new DecimalFormat("#0.0000");
@@ -289,88 +281,7 @@ public class LinearRegression {
                 "\nRegression\t" + this.dfSR + "\t" + formatter.format(getSR()) +"\t" + formatter.format(MSR())+"\t"+ formatter.format(F()) +"\t" +
                 "\nResidual\t" + this.dfSE + "\t" + formatter.format(getSE()) +"\t\t"+ formatter.format(MSE()) +"\t\t" +
                 "\nTotal\t\t" + this.dfST +"\t" + formatter.format(getST()) +"\t\t" +
-                "\n\nDecision: f \n0 > f" + ALPHA + ",(" + (int)this.dfSR + "." + (int)this.dfSE + ")=" + this.fDistribution + board;
-
-
-
-    }
-
-    public void parameterCalculation(double [] x, double [] y){
-
-
-        double yT = 0;
-        double xT = 0;
-        double xm;
-        double ym;
-
-        double Sxx = 0;
-        double Sxy = 0;
-        double Syy = 0;
-        double SE = 0;
-        double SR = 0;
-
-        double R;
-
-        double b;
-        double a;
-
-        for(int i = 0; i < y.length; i++){
-            yT = yT + y[i];
-        }
-
-        for(int i = 0; i < x.length; i++){
-            xT = xT + x[i];
-        }
-
-        xm = xT/yT;
-        ym = yT/y.length;
-
-        for(int i = 0; i < x.length; i++){
-            Sxx = Sxx + Math.pow((x[i] - xm),2);
-        }
-
-        for(int i = 0; i < y.length; i++){
-            Syy = Syy + (y[i] - ym);
-
-        }
-
-        for(int i = 0; i < x.length; i++){
-            Sxy = Sxy + (x[i] - xm) * (y[i] - ym);
-        }
-
-        b = Sxy/Sxx;
-        a = ym - b*xm;
-
-        R = Sxy / (Math.sqrt(Sxx) * Math.sqrt(Syy));
-
-
-        double [] bY =new double[y.length];
-
-
-        for(int i = 0; i < bY.length; i++){
-            bY[i] = a + b * x[i];
-        }
-
-
-
-
-
-
-        // SE = Syy - Math.pow(b,2) * Sxx;
-        for(int i = 0; i < y.length; i++){
-            SE =+ Math.pow(y[i] - bY[i], 2); //determinação do SE
-            SR =+ Math.pow(bY[i] - ym, 2);   //determinação do SR
-        }
-
-        this.SE = SE;
-        this.SR = SR;
-        this.ST = SE + SR;
-
-
-
-        //Graus de Liberdade
-
-
+                "\n\nDecision: f \n0 > f" + ALPHA + ",(" + (int)this.dfSR + "." + (int)this.dfSE + ")=" + this.fDistribution;
 
 
 
