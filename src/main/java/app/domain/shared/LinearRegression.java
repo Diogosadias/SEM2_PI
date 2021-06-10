@@ -86,11 +86,13 @@ public class LinearRegression {
         slope  = xybar / xxbar; //b
         intercept = ybar - slope * xbar; //a
 
+        double fit = 0;
         // more statistical analysis
         double rss = 0.0;      // residual sum of squares
         double ssr = 0.0;      // regression sum of squares
         for (int i = 0; i < n; i++) {
-            double fit = slope*x[i] + intercept;
+            fit = slope*x[i] + intercept;
+
             rss += (fit - y[i]) * (fit - y[i]);
             ssr += (fit - ybar) * (fit - ybar);
         }
@@ -143,7 +145,7 @@ public class LinearRegression {
 
             ICn[i] = ybarra[i] - tDistribution * s *  Math.sqrt(1/n + (Math.pow((x[i] - xbar),2)/xxbar));
             ICp[i] = ybarra[i] + tDistribution * s *  Math.sqrt(1/n + (Math.pow((x[i] - xbar),2)/xxbar));
-            this.board += "\n" + dateFormat.format(dateList.get(i)) + "\t\t\t\t\t" + (int)x[i] + "\t\t\t\t\t\t\t\t\t\t\t\t" + predict(x[i]) +"\t\t\t\t\t\t\t\t\t["+ICn[i]+","+ICp[i]+"]";
+            this.board += "\n" + dateFormat.format(dateList.get(i)) + "\t\t\t\t\t" + (int)x[i] + "\t\t\t\t\t\t\t\t\t\t\t\t" + (x[i] + (y[i] - fit))+"\t\t\t\t\t\t\t\t\t["+ICn[i]+","+ICp[i]+"]";
         }
 
 
@@ -226,7 +228,8 @@ public class LinearRegression {
     }
 
     public double getSE(){
-        return this.SE;
+
+        return this.SE; //issue
     }
 
     public double getSR(){
@@ -260,6 +263,7 @@ public class LinearRegression {
     }
 
     private double MSE() {
+
         return getSE()/dfSE();
     }
 

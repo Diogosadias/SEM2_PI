@@ -5,6 +5,12 @@ import app.domain.model.Test;
 import app.domain.model.TestStore;
 import app.domain.shared.LinearRegression;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -125,6 +131,12 @@ public class CovidNhsReportController {
                 this.linear = new LinearRegression(xAge,y,dateList);
             }
             System.out.println(linear);
+
+        try (PrintStream out = new PrintStream(new FileOutputStream("CovidReport.txt"))) {
+            out.print(linear);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
 
