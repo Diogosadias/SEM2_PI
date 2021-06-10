@@ -6,6 +6,7 @@ import app.domain.shared.Constants;
 import java.io.FileNotFoundException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -30,40 +31,63 @@ public class CovidNhsReportUI implements Runnable {
         }*/
 
 
-        //String historic = chooseData("Send Data to NHS:\n1 - Daily\n2 - Weekly","Daily","Weekly");
-        String historic = "Daily";
+        String historic = chooseData("Send Data to NHS:\n1 - Daily\n2 - Weekly","Daily","Weekly");
+
         System.out.println("\nNumber of historical points: ");
         int histPoints = read.nextInt();
 
         controller.startNewReport(historic,histPoints);
 
-        String initDate;
-        String finalDate;
+        SimpleDateFormat formatter1 = new SimpleDateFormat("dd/MM/yyyy");
 
-        System.out.println("Initial Date:  (dd/mm/yyyy)");
-        //initDate = read.next();
-        initDate = "22/03/2021";
-        System.out.println("Final Date:  (dd/mm/yyyy)");
-        //finalDate = read.next();
-        finalDate = "26/03/2021";
+        if(historic.equals("Daily")) {
+            String initDate;
+            String finalDate;
+
+            System.out.println("Initial Date:  (dd/mm/yyyy)");
+            //initDate = read.next();
+            initDate = "22/03/2021";
+            System.out.println("Final Date:  (dd/mm/yyyy)");
+            //finalDate = read.next();
+            finalDate = "26/03/2021";
 
 
 
-        SimpleDateFormat formatter1=new SimpleDateFormat("dd/MM/yyyy");
-        try {
-            Date dateI = formatter1.parse(initDate);
-            Date dateF = formatter1.parse(finalDate);
-            //String regression = chooseData("Set Linear Regression Model:\n1 - Simple Linear Regression\n2 - Multiple Linear Regression","Linear","Multiple");
-            //controller.setAdditionalData(dateI,dateF,regression);
-            String regression = "Linear";
-            if (regression.equals("Linear")) {
-                String varIndependent = chooseData("Variable Independent:\n1 - Number of Tests Realised\n2 - Client Mean Age","Registered Tests","Mean Age");
-                controller.doSimpleLinearRegression(dateI,dateF,"Linear",varIndependent);
-            } else {
-                controller.doMultipleLinearRegression(dateI,dateF,"Multiple");
+            try {
+                Date dateI = formatter1.parse(initDate);
+                Date dateF = formatter1.parse(finalDate);
+                //String regression = chooseData("Set Linear Regression Model:\n1 - Simple Linear Regression\n2 - Multiple Linear Regression","Linear","Multiple");
+                //controller.setAdditionalData(dateI,dateF,regression);
+                String regression = "Linear";
+                if (regression.equals("Linear")) {
+                    String varIndependent = chooseData("Variable Independent:\n1 - Number of Tests Realised\n2 - Client Mean Age", "Registered Tests", "Mean Age");
+                    controller.doSimpleLinearRegression(dateI, dateF, "Linear", varIndependent);
+                } else {
+                    controller.doMultipleLinearRegression(dateI, dateF, "Multiple");
+                }
+            } catch (ParseException e) {
+                e.printStackTrace();
             }
-        } catch (ParseException e) {
-            e.printStackTrace();
+        }
+
+        else{
+            String dateI;
+            String dateA;
+            Scanner read = new Scanner(System.in);
+
+            System.out.println("Initial date: (dd/mm/yyyy");
+            dateI = read.next();
+            System.out.println("Final date: (date/mm/yyyy");
+            dateA = read.next();
+            long DAY_IN_MS = 1000 * 60 * 60 * 24;
+
+            Date actualDate = new Date();
+            System.out.println(actualDate);
+            Date dateb = new Date(System.currentTimeMillis() - (7 * histPoints * DAY_IN_MS));
+
+            System.out.println(dateb);
+
+
         }
 
 
