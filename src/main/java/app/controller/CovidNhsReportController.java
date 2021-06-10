@@ -4,6 +4,7 @@ import app.domain.model.Company;
 import app.domain.model.Test;
 import app.domain.model.TestStore;
 import app.domain.shared.LinearRegression;
+import app.domain.shared.MultipleRegression;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -21,6 +22,7 @@ public class CovidNhsReportController {
     private Company company;
     private TestStore testStore;
     private LinearRegression linear;
+    private MultipleRegression multiple;
     private String historic;
     private int histPoints;
     private Date initialDate;
@@ -82,6 +84,7 @@ public class CovidNhsReportController {
         this.initialDate = initialDate;
         this.finalDate = finalDate;
         this.regression = regression;
+        this.varIndependent = "Both";
         this.Matcp();
     }
 
@@ -138,10 +141,22 @@ public class CovidNhsReportController {
                 this.linear = new LinearRegression(this.xTestsInterval,this.yInterval);
             } else if(this.varIndependent.equals("Mean Age")) {
                 this.linear = new LinearRegression(this.xAgeInterval,this.yInterval);
+            } else if(this.varIndependent.equals("Both")){
+                this.multiple = new MultipleRegression(this.yInterval,this.xTestsInterval,this.xAgeInterval);
             }
 
         try (PrintStream out = new PrintStream(new FileOutputStream("CovidReport.txt"))) {
-            out.print(linear);
+            switch (regression){
+                case "Linear":
+                    out.print(linear);
+                    break;
+                case "Multiple":
+                    out.print(multiple);
+                    break;
+                default:
+                    out.print("Error!");
+
+            }
             out.print(boardToFile());
         } catch (FileNotFoundException e) {
             e.printStackTrace();

@@ -3,6 +3,12 @@ package app.domain.shared;
 
 import static java.lang.Math.sqrt;
 
+import org.apache.commons.math3.distribution.FDistribution;
+import org.apache.commons.math3.distribution.TDistribution;
+
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 /**
  *  This shared class allows calculate multiple Linear regression.
  *
@@ -14,12 +20,10 @@ import static java.lang.Math.sqrt;
 public class MultipleRegression {
     // Attributes
     private double[][] y;
-    private double[] meanAge;
-    private double[] dailyTests;
     private double[][] betas;
     private double[][] x;
     private double n ;
-    private double k ;
+    private final double k = 2;
     private double sqt;
     private double sqe;
     private double sqr;
@@ -29,6 +33,8 @@ public class MultipleRegression {
     private double r2;
     private double raj;
     private double r;
+    private double f0;
+    private double ALPHA = 0.05;
 
 
 
@@ -46,30 +52,164 @@ public class MultipleRegression {
         this.betas = multiplicar(inversa(multiplicar(transposta(x),x)),multiplicar(transposta(x),this.y));
 
 
-        //print equação
-        // y=b0 + b1 * x1 + b2 * x2
 
         //Calculo da ANOVA
         n = y.length;
-        k=3;
         sqt= valor(multiplicar(transposta(this.y),this.y)) -n*media(y)*media(y);
         sqr=valor(multiplicar(transposta(betas), (multiplicar(transposta(x),this.y)))) -n*media(y)*media(y);
         sqe=valor(multiplicar(transposta(this.y),this.y))-valor(multiplicar(transposta(betas), (multiplicar(transposta(x),this.y))));
         mqr =sqr/k;
         mqe=sqe/(n-(k+1));
         f=mqr/mqe;
+        FDistribution fd= new FDistribution(k,(n-(k+1)));
+        f0= fd.inverseCumulativeProbability(0.95);
 
         // coeficiente de determinação e ajustado
         r2=sqr/sqt;
         raj=1-((n-1)/(n-(k+1)))*(1-r2);
         r=sqrt(r2);
 
-        //Estimação pontual (substituir)
-
-
-        //Estimação intervalar 95% (slide 20)
 
     }
+
+    //Getters and Setters
+
+    /**
+     * Returns the matrix of Y.
+     *
+     * @return matrix of Y.
+     */
+    public double [][] getY() {
+        return y;
+    }
+
+    /**
+     * Returns the matrix of X.
+     *
+     * @return matrix of X.
+     */
+    public double [][] getX() {
+        return x;
+    }
+
+    /**
+     * Returns the matrix of coefficients of regression.
+     *
+     * @return  matrix of coefficients of regression.
+     */
+    public double [][] getBetas() {
+        return betas;
+    }
+
+    /**
+     * Returns the number of occurrences.
+     *
+     * @return  the number of occurrences.
+     */
+    public double  getN() {
+        return n;
+    }
+
+    /**
+     * Returns the degrees of freedom.
+     *
+     * @return  the degrees of freedom.
+     */
+    public double  getK() {
+        return k;
+    }
+
+    /**
+     * Returns the coefficient of determination R^2.
+     *
+     * @return  the coefficient of determination R^2.
+     */
+    public double  getR2() {
+        return r2;
+    }
+
+    /**
+     * Returns the coefficient of determination R^2 adjusted.
+     *
+     * @return  the coefficient of determination R^2 adjusted.
+     */
+    public double  getRaj() {
+        return raj;
+    }
+
+    /**
+     * Returns the square root of the coefficient of determination R^2 .
+     *
+     * @return  the square root of the coefficient of determination R^2 .
+     */
+    public double  getR() {
+        return r;
+    }
+
+    /**
+     * Returns the significance of the model.
+     *
+     * @return  the significance of the model.
+     */
+    public double  getF() {
+        return f;
+    }
+
+    /**
+     * Returns the SQt.
+     *
+     * @return the SQt.
+     */
+    public double getSqt() {
+        return sqt;
+    }
+
+    /**
+     * Returns the SQe.
+     *
+     * @return the SQe.
+     */
+    public double getSqe() {
+        return sqe;
+    }
+
+    /**
+     * Returns the SQr.
+     *
+     * @return the SQr.
+     */
+    public double getSqr() {
+        return sqr;
+    }
+
+    /**
+     * Returns the MQe.
+     *
+     * @return the MQe.
+     */
+    public double getMqe() {
+        return getMqe();
+    }
+
+    /**
+     * Returns the MQr.
+     *
+     * @return the MQr.
+     */
+    public double getMqr() {
+        return mqr;
+    }
+
+    /**
+     * Returns the fishcher value.
+     *
+     * @return the fishcher value.
+     */
+    public double getf0() {
+        return f0;
+    }
+
+    //Auxiliar
 
     private double valor(double[][] multiplicar) {
         return multiplicar[0][0];
@@ -219,14 +359,59 @@ public class MultipleRegression {
         return t;
     }
 
-    //Regression
+    //Predictions
 
 
     public double predict(double x1,double x2) {
         return betas[0][0] + x1*betas[1][0] + x2*betas[2][0];
     }
 
+    public double mininterval(double x1, double x2){
+        double [][] x0 = {{1,x1,x2}};
+        double degreesOfFreedom = (n-(k+1));
+        double t = new TDistribution(degreesOfFreedom).inverseCumulativeProbability(1-(0.025 /2));
+        double delta = sqrt(mqe*valor(multiplicar(transposta(x0),(multiplicar((inversa(multiplicar(transposta(x),x))),x0)))));
+        return predict(x1,x2) - t*delta;
+    }
 
-    //Auxiliary Methods
+    public double maxinterval(double x1, double x2){
+        double [][] x0 = {{1,x1,x2}};
+        double degreesOfFreedom = (n-(k+1));
+        double t = new TDistribution(degreesOfFreedom).inverseCumulativeProbability(1-(0.025 /2));
+        double delta = sqrt(mqe*valor(multiplicar(transposta(x0),(multiplicar((inversa(multiplicar(transposta(x),x))),x0)))));
+        return predict(x1,x2) + t*delta;
+    }
+
+    //Decision
+
+    public String decision(){
+        if(f>f0){
+            return "Reject H0.";
+        }else if(f<=f0){
+            return "Don't Reject H0.";
+        }
+        return "Error";
+    }
+
+//Priting
+
+    public String toString(){
+        NumberFormat formatter = new DecimalFormat("#0.0000");
+        return "The regression model fitted using data from the interval \n" +
+                "^y = " + betas[0] + " + " + betas[1] + "x1 + " + betas[2] + "x2" +
+                "\n//\nOther statistics"+"\nR2 = " + formatter.format(r2) + "\nR2adjusted = " + formatter.format(raj) + "\nR = " + formatter.format(r) +
+                "\n//\nHypothesis tests for regression coefficients\nHO:b1=b2=0, k=2 H1: bj<>0 , j=1,2 " +
+                "\nf_obs = " + this.f0 + "\nDecision: " + "\n" + decision() +
+                "\n//\nSignificance model with Anova\n" +
+                "\n\t\t\tdf\t\tSS\t\tMS\t\tF\t\t" +
+                "\nRegression\t" + this.k + "\t" + formatter.format(sqr) +"\t" + formatter.format(mqr)+"\t"+ formatter.format(f) +"\t" +
+                "\nResidual\t" + (n-(k+1)) + "\t" + formatter.format(sqe) +"\t\t"+ formatter.format(mqe) +"\t\t" +
+                "\nTotal\t" + (n-1) +"\t" + formatter.format(sqt) +"\t\t" +
+                "\n\nDecision: f \n0 > f" + ALPHA + ",(" + (int)this.k + "." + (int)(n-(k+1)) + ")=" + this.f0;
+
+
+
+    }
+
 }
 
