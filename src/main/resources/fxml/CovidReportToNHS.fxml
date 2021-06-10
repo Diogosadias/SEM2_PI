@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.CovidReportToNHSUI">
+   <center>
+      <VBox alignment="TOP_CENTER" prefHeight="582.0" prefWidth="879.0">
+         <children>
+            <Label fx:id="lblTitle" alignment="TOP_CENTER" prefHeight="50.0" prefWidth="282.0" styleClass="page-title" text="Covid-19 Report to NHS" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label alignment="TOP_LEFT" prefHeight="30.0" prefWidth="1060.0" text="Insert requested data">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </Label>
+            <HBox prefHeight="39.0" prefWidth="1060.0" spacing="10.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" prefHeight="31.0" prefWidth="96.0" text="Historical Points:  " />
+                  <TextField fx:id="txtHistoricalPoints" prefHeight="31.0" prefWidth="261.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </HBox>
+            <HBox prefHeight="39.0" prefWidth="1060.0" spacing="10.0">
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+               <children>
+                  <Label alignment="CENTER_RIGHT" prefHeight="31.0" prefWidth="96.0" text="Starting Date:  " />
+                  <TextField fx:id="txtStartDate" prefHeight="31.0" prefWidth="263.0" promptText="dd/mm/yyyy">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox prefHeight="38.0" prefWidth="1060.0" spacing="10.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="96.0" text="End Date:" />
+                  <TextField fx:id="txtEndDate" prefHeight="31.0" prefWidth="263.0" promptText="dd/mm/yyyy" />
+               </children>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </HBox>
+            <HBox prefHeight="45.0" prefWidth="1059.0" spacing="10.0">
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+               <children>
+                  <Label prefHeight="34.0" prefWidth="154.0" text="Regression Type:" />
+                  <ComboBox fx:id="comboBoxRegressiontType" onAction="#chooseRegression" prefHeight="38.0" prefWidth="150.0" />
+               </children>
+            </HBox>
+            <HBox prefHeight="45.0" prefWidth="1059.0" spacing="10.0">
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+               <children>
+                  <Label prefHeight="34.0" prefWidth="154.0" text="Independent Variable:" />
+                  <ComboBox fx:id="comboBoxIndependentVariable" prefHeight="38.0" prefWidth="150.0" />
+               </children>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+   <padding>
+      <Insets bottom="10.0" />
+   </padding>
+   <bottom>
+      <HBox alignment="BOTTOM_CENTER" maxHeight="60.0" prefHeight="300.0" prefWidth="779.0" spacing="50.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#handleCancel" prefHeight="39.0" prefWidth="157.0" text="Cancel" />
+            <Button fx:id="btnSubmit" mnemonicParsing="false" onAction="#handleSubmit" prefHeight="37.0" prefWidth="162.0" text="Send Report to NHS" />
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>
