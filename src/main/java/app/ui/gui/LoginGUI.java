@@ -90,8 +90,8 @@ public class LoginGUI implements Initializable {
                 if (!Objects.isNull(role))
                 {
                     List<MenuItem> rolesUI = getMenuItemForRoles();
-                    mainInstance.replaceSceneContent("/fxml/BlankScene.fxml");
-                    System.out.println("fds");
+                   /* mainInstance.replaceSceneContent("/fxml/BlankScene.fxml");*/
+                    mainInstance.stage.close();
                     this.redirectToRoleUI(rolesUI,role);
 
                 }

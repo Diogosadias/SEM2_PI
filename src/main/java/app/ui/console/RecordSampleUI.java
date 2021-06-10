@@ -27,6 +27,7 @@ public class RecordSampleUI implements Runnable {
     public void run() {
         try {
             TestDto chosenTest = writeTests();
+            if(chosenTest == null) return;
             boolean testFlag = Utils.confirm(chosenTest+"\nClient Name: "+this.rsc.getTestClientNameByCC(chosenTest.getClientCC())
                     + "\nDo you wish to add samples to this test? Y/N");
             if(!testFlag) throw new Exception("RE-RUN-UI");
@@ -49,7 +50,9 @@ public class RecordSampleUI implements Runnable {
     }
 
     public TestDto writeTests(){
-        return (TestDto) Utils.showAndSelectOne(rsc.getTests(),"\nTests");
+        int index = Utils.showAndSelectIndex(rsc.getTests(),"\nTests");
+        if(index==-1) return null;
+        return rsc.getTests().get(index);
     }
 
 }
