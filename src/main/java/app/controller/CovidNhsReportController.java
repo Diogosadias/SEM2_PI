@@ -208,11 +208,27 @@ public class CovidNhsReportController {
 
     private String boardToFile() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String board = "\n\nPrediction values\n\n" + "Date\t\t\tNumber of OBSERVED positive cases\t\tNumber of ESTIMATED/EXPECTED positive cases\t\t\t\t\t\t95% intervals";
-        for(int i = 0; i < this.historicDateList.size(); i ++){
-            board += "\n" + dateFormat.format(historicDateList.get(i)) + "\t\t\t\t\t" + (int)y[i] + "\t\t\t\t\t\t\t\t\t\t\t\t" + this.linear.predict(y[i]) +"\t\t\t\t\t\t\t\t\t["+this.linear.getICinf(i)+","+this.linear.getICsup(i)+"]";
+        String board;
+        switch (regression){
+            case "Linear":
+                board = "\n\nPrediction values\n\n" + "Date\t\t\tNumber of OBSERVED positive cases\t\tNumber of ESTIMATED/EXPECTED positive cases\t\t\t\t\t\t95% intervals";
+                for(int i = 0; i < this.historicDateList.size(); i ++){
+                    board += "\n" + dateFormat.format(historicDateList.get(i)) + "\t\t\t\t\t" + (int)y[i] + "\t\t\t\t\t\t\t\t\t\t\t\t" + this.linear.predict(y[i]) +"\t\t\t\t\t\t\t\t\t["+this.linear.getICinf(i)+","+this.linear.getICsup(i)+"]";
+                }
+                break;
+            case "Multiple":
+                board = "\n\nPrediction values\n\n" + "Date\t\t\tNumber of OBSERVED positive cases\t\tNumber of ESTIMATED/EXPECTED positive cases\t\t\t\t\t\t95% intervals";
+                for(int i = 0; i < this.historicDateList.size(); i ++){
+                    board += "\n" + dateFormat.format(historicDateList.get(i)) + "\t\t\t\t\t" + (int)y[i] + "\t\t\t\t\t\t\t\t\t\t\t\t" + this.multiple.predict(xTestsInterval[i],xAgeInterval[i]) +"\t\t\t\t\t\t\t\t\t["+this.multiple.mininterval(xTestsInterval[i],xAgeInterval[i])+","+this.multiple.maxinterval(xTestsInterval[i],xAgeInterval[i])+"]";
+                }
+                break;
+            default:
+                board = "Error!";
+
+
         }
         return board;
+
     }
 
 }
