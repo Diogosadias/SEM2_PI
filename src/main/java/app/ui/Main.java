@@ -1,6 +1,7 @@
 package app.ui;
 
 import app.controller.App;
+import app.controller.FileController;
 import app.ui.gui.LoginGUI;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -75,6 +76,8 @@ public class Main extends Application {
             /*MainUI mainUI = (MainUI) replaceSceneContent("/fxml/Main.fxml");
             mainUI.setMainApp(this);*/
             LoginGUI loginGUI = (LoginGUI) replaceSceneContent("/fxml/LoginGUI.fxml");
+            FileController fileController = new FileController();
+            fileController.runFileInputStreams();
             loginGUI.setMainInstance(this);
         } catch (Exception ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
@@ -84,7 +87,6 @@ public class Main extends Application {
     public Initializable replaceSceneContent(String fxml) throws Exception {
         FXMLLoader loader = new FXMLLoader();
         InputStream in = Main.class.getResourceAsStream(fxml);
-
         loader.setBuilderFactory(new JavaFXBuilderFactory());
         loader.setLocation(App.class.getResource(fxml));
         Pane page;

@@ -119,38 +119,6 @@ public class LinearRegression {
         FDistribution fd= new FDistribution(this.dfSR,this.dfSE);
         this.fDistribution= fd.inverseCumulativeProbability(1- ALPHA);
 
-
-
-        //IC
-
-        double [] ybarra = new double[y.length];
-
-        for(int i = 0 ; i < y.length; i++){
-            ybarra[i] = intercept + slope * x[i];
-        }
-
-        double s = 0;
-
-        for(int i = 0 ; i < y.length; i++){
-            s = s + Math.pow(y[i] - ybarra[i],2);
-        }
-
-        s = n-2;
-        s =  1 / s;
-
-
-        this.ICinf = new double[n];
-        this.ICsup = new double[n];
-
-        for(int i=0; i < n; i++) {
-            this.ICinf[i] = ybarra[i] - tDistribution * s *  Math.sqrt(1/n + (Math.pow((x[i] - xbar),2)/xxbar));
-            this.ICsup[i] = ybarra[i] + tDistribution * s *  Math.sqrt(1/n + (Math.pow((x[i] - xbar),2)/xxbar));
-        }
-
-
-
-
-
     }
 
     /**
@@ -284,6 +252,26 @@ public class LinearRegression {
                 "\n\nDecision: f \n0 > f" + ALPHA + ",(" + (int)this.dfSR + "." + (int)this.dfSE + ")=" + this.fDistribution;
 
 
+
+    }
+
+    public double getICvalue(double var, double[] x,double[] y) {
+        int n = x.length;
+        int sum = 0;
+        for (int i =0; i < n ; i++) {
+            sum += x[i];
+        }
+        double xbar = sum / (double)n;
+        double xxbar = 0.0;
+        for (int i = 0; i < n; i++) {
+            xxbar += (x[i] - xbar) * (x[i] - xbar); //Sxx
+        }
+        double s = 0;
+        for (int i = 0; i < n; i++) {
+            s += Math.pow(y[i] - predict(y[i]),2);
+        }
+        s = Math.sqrt(s * 1 / (double)(n - 2));
+        return tDistribution * s *  Math.sqrt(1/n + (Math.pow((var - xbar),2)/xxbar));
 
     }
 }

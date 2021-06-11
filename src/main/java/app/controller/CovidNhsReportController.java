@@ -100,8 +100,7 @@ public class CovidNhsReportController {
 
             int i=0;
 
-            //date.setTime(this.currentDay);
-            date.setTime(new Date("2021/05/29 23:59"));
+            date.setTime(this.currentDay);
             int countDays = 1;
             while( countDays <= histPoints ) {
                 Date targetDay = date.getTime();
@@ -122,7 +121,7 @@ public class CovidNhsReportController {
 
                     }
 
-                if(countx > 0 && county > 0) {
+                if(countx > 0 ) {
                     this.xAge[i] = (double)sumAge / (double)countx;
                     this.xTests[i] = countx;
                     this.y[i] = county;
@@ -144,6 +143,8 @@ public class CovidNhsReportController {
             } else if(this.varIndependent.equals("Both")){
                 this.multiple = new MultipleRegression(this.yInterval,this.xTestsInterval,this.xAgeInterval);
             }
+
+
 
         try (PrintStream out = new PrintStream(new FileOutputStream("CovidReport.txt"))) {
             switch (regression){
@@ -179,7 +180,7 @@ public class CovidNhsReportController {
             int county = 0;
             int sumAge = 0;
             for (Test t : list) {
-                if (fmt.format(t.getDateRegistered()).equals(fmt.format(initialDate))) {
+                if (fmt.format(t.getDateRegistered()).equals(fmt.format(start.getTime()))) {
                     countx++;
                     if (t.getTestParam().getResult().getMetric() > 1.4) {
                         county++;
@@ -188,7 +189,7 @@ public class CovidNhsReportController {
                 }
 
             }
-            if(countx > 0 && county > 0) {
+            if(countx > 0) {
                 this.xAgeInterval[i] = (double)sumAge / (double)countx;
                 this.xTestsInterval[i] = countx;
                 this.yInterval[i] = county;
@@ -209,17 +210,24 @@ public class CovidNhsReportController {
     private String boardToFile() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String board;
-        switch (regression){
-            case "Linear":
-                board = "\n\nPrediction values\n\n" + "Date\t\t\tNumber of OBSERVED positive cases\t\tNumber of ESTIMATED/EXPECTED positive cases\t\t\t\t\t\t95% intervals";
+        switch (varIndependent){
+            case "Registered Tests":
+                board = "\n\nPrediction values\n\n" + "Date\t\t\tNumber of OBSERVED positive cases\t\tNumber of ESTIMATED/EXPECTED positive cases\t\t\t\t\t\t95% intervals\t\t\t\t\t\t\tNumber Tests Registed";
                 for(int i = 0; i < this.historicDateList.size(); i ++){
-                    board += "\n" + dateFormat.format(historicDateList.get(i)) + "\t\t\t\t\t" + (int)y[i] + "\t\t\t\t\t\t\t\t\t\t\t\t" + this.linear.predict(y[i]) +"\t\t\t\t\t\t\t\t\t["+this.linear.getICinf(i)+","+this.linear.getICsup(i)+"]";
+                    if(y[i] != 0) {
+                        double predict = this.linear.predict(xTests[i]);
+                        double ICvalue = this.linear.getICvalue(xTests[i],xTests,y);
+                        board += "\n" + dateFormat.format(historicDateList.get(i)) + "\t\t\t\t\t" + (int)y[i] + "\t\t\t\t\t\t\t\t\t\t\t\t" + this.linear.predict(y[i]) +"\t\t\t\t\t\t\t\t\t["+(predict - ICvalue)+","+(predict + ICvalue)+"]" + "\t\t\t\t\t\t" + (int)xTests[i];
+                    }
                 }
                 break;
-            case "Multiple":
-                board = "\n\nPrediction values\n\n" + "Date\t\t\tNumber of OBSERVED positive cases\t\tNumber of ESTIMATED/EXPECTED positive cases\t\t\t\t\t\t95% intervals";
+            case "Mean Age":
+                board = "Por implementar";
+                break;
+            case "Both":
+                board = "\n\nPrediction values\n\n" + "Date\t\t\tNumber of OBSERVED positive cases\t\tNumber of ESTIMATED/EXPECTED positive cases\t\t\t\t\t\t95% intervals\t\t\t\t\t\t\tNumber Tests Registed";
                 for(int i = 0; i < this.historicDateList.size(); i ++){
-                    board += "\n" + dateFormat.format(historicDateList.get(i)) + "\t\t\t\t\t" + (int)y[i] + "\t\t\t\t\t\t\t\t\t\t\t\t" + this.multiple.predict(xTestsInterval[i],xAgeInterval[i]) +"\t\t\t\t\t\t\t\t\t["+this.multiple.mininterval(xTestsInterval[i],xAgeInterval[i])+","+this.multiple.maxinterval(xTestsInterval[i],xAgeInterval[i])+"]";
+                    board += "\n" + dateFormat.format(historicDateList.get(i)) + "\t\t\t\t\t" + (int)y[i] + "\t\t\t\t\t\t\t\t\t\t\t\t" + this.multiple.predict(xTestsInterval[i],xAgeInterval[i]) +"\t\t\t\t\t\t\t\t\t["+this.multiple.mininterval(xTestsInterval[i],xAgeInterval[i])+","+this.multiple.maxinterval(xTestsInterval[i],xAgeInterval[i])+"]"+ "\t\t\t\t\t\t" + (int)xTests[i];
                 }
                 break;
             default:

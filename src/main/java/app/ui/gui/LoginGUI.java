@@ -1,6 +1,7 @@
 package app.ui.gui;
 
 import app.controller.AuthController;
+import app.controller.FileController;
 import app.domain.shared.Constants;
 import app.ui.Main;
 import app.ui.console.*;
@@ -98,6 +99,8 @@ public class LoginGUI implements Initializable {
             }
         }
         this.logout();
+        FileController fileController = new FileController();
+        fileController.runFileOutputStreams();
     }
 
     private UserRoleDTO selectsRole(List<UserRoleDTO> roles){ return roles.get(0); }
