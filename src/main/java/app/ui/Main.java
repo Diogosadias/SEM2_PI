@@ -30,8 +30,8 @@ public class Main extends Application {
 
     private final double MINIMUM_WINDOW_WIDTH = 400.0;
     private final double MINIMUM_WINDOW_HEIGHT = 300.0;
-    private final double SCENE_WIDTH = 450.0;
-    private final double SCENE_HEIGHT = 350.0;
+    private final double SCENE_WIDTH = 900.0;
+    private final double SCENE_HEIGHT = 600.0;
 
     /**
      * The main() method is ignored in correctly deployed JavaFX application.

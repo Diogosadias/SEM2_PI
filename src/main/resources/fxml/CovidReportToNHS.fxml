@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.CovidReportToNHSUI">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.CovidReportToNHSUI">
    <center>
-      <VBox alignment="TOP_CENTER" prefHeight="582.0" prefWidth="879.0">
+      <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="900.0">
          <children>
             <Label fx:id="lblTitle" alignment="TOP_CENTER" prefHeight="50.0" prefWidth="282.0" styleClass="page-title" text="Covid-19 Report to NHS" textAlignment="CENTER">
                <font>

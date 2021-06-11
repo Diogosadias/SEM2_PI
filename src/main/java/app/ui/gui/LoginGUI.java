@@ -1,5 +1,6 @@
 package app.ui.gui;
 
+import app.controller.App;
 import app.controller.AuthController;
 import app.controller.FileController;
 import app.domain.shared.Constants;
@@ -15,6 +16,7 @@ import javafx.scene.control.*;
 
 import java.net.URL;
 import java.util.*;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class LoginGUI implements Initializable {
@@ -91,7 +93,14 @@ public class LoginGUI implements Initializable {
                 if (!Objects.isNull(role))
                 {
                     List<MenuItem> rolesUI = getMenuItemForRoles();
-                   /* mainInstance.replaceSceneContent("/fxml/BlankScene.fxml");*/
+                    /* mainInstance.replaceSceneContent("/fxml/BlankScene.fxml");*/
+                    try {
+                        DashboardAdminUI dashboardAdminUI = (DashboardAdminUI) this.mainInstance.replaceSceneContent("/fxml/DashboardAdmin.fxml");
+                        dashboardAdminUI.setMainInstance(this.mainInstance);
+
+                    } catch (Exception ex) {
+                        Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     mainInstance.stage.close();
                     this.redirectToRoleUI(rolesUI,role);
 
@@ -136,6 +145,7 @@ public class LoginGUI implements Initializable {
         if (!found)
             System.out.println("There is no UI for users with role '" + role.getDescription() + "'");
         /*this.mainInstance*/
+
     }
 
     private void logout()

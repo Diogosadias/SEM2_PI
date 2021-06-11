@@ -100,7 +100,7 @@ public class CovidNhsReportController {
 
             int i=0;
 
-            date.setTime(this.currentDay);
+            date.setTime(new Date(System.currentTimeMillis()));
             int countDays = 1;
             while( countDays <= histPoints ) {
                 Date targetDay = date.getTime();
@@ -203,7 +203,10 @@ public class CovidNhsReportController {
 
 
     public String writeReport(){
-        this.report = linear.toString();
+        if(linear!=null)
+            this.report = linear.toString();
+        else if(multiple!=null)
+                this.report = multiple.toString();
         return this.report;
     }
 

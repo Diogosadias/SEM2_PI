@@ -1,6 +1,7 @@
 package app.ui.gui;
 
 import app.controller.CovidNhsReportController;
+import app.utils.fx.FXUtils;
 import com.nhs.report.Report2NHS;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,10 +21,14 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
+/**
+ * @author Bruno Pereira <1191454@isep.ipp.pt>
+ */
 public class CovidReportToNHSUI implements Initializable {
 
     private CovidNhsReportController controller;
-    private Scanner read;
+
+    private DashboardAdminUI dashboardAdminUI;
 
     ObservableList<String> options1 = FXCollections.observableArrayList("Simple", "Multiple");
     ObservableList<String> options2 = FXCollections.observableArrayList("Mean Age", "Positive Tests");
@@ -53,9 +58,12 @@ public class CovidReportToNHSUI implements Initializable {
     @FXML
     private Button btnSubmit;
 
+    public void setDashboardAdminUI(DashboardAdminUI registerEmployeeUI) {
+        this.dashboardAdminUI = registerEmployeeUI;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        read = new Scanner(System.in);
         controller = new CovidNhsReportController();
         comboBoxRegressiontType.setItems(options1);
         comboBoxIndependentVariable.setItems(options2);
@@ -78,7 +86,7 @@ public class CovidReportToNHSUI implements Initializable {
         if (result.isPresent()) {
             if (result.get() == ButtonType.OK) {
                 //trocar para janela anterior
-                /*switchSmallWindow("/fxml/LoginUI.fxml", "Login");*/
+                dashboardAdminUI.getInstance().toLoginScene();
             }
         }
     }
@@ -89,9 +97,9 @@ public class CovidReportToNHSUI implements Initializable {
         try {
             Date dateI = formatter1.parse(txtStartDate.getText());
             Date dateF = formatter1.parse(txtEndDate.getText());
-            if (comboBoxRegressiontType.getSelectionModel().getSelectedItem().equalsIgnoreCase("Linear")) {
+            if (comboBoxRegressiontType.getSelectionModel().getSelectedItem().equalsIgnoreCase("Simple")) {
 
-                controller.doSimpleLinearRegression(dateI,dateF,"Linear",comboBoxIndependentVariable.getSelectionModel().getSelectedItem());
+                controller.doSimpleLinearRegression(dateI,dateF,"Simple",comboBoxIndependentVariable.getSelectionModel().getSelectedItem());
             } else {
                 controller.doMultipleLinearRegression(dateI,dateF,"Multiple");
             }
@@ -100,6 +108,7 @@ public class CovidReportToNHSUI implements Initializable {
         }
 
         Report2NHS.writeUsingFileWriter(controller.writeReport());
+        dashboardAdminUI.getInstance().toLoginScene();
     }
 
 }
