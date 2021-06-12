@@ -203,14 +203,14 @@ public class LinearRegression {
     }
 
     public String decision(){
-        // Reject H0/ Don't reject H0
-        return "Nao implementado ainda";
+        if(F()>fDistribution){
+            return "Reject H0.";
+        }else if(F()<=fDistribution){
+            return "Don't Reject H0.";
+        }
+        return "Error";
     }
 
-    private String decisionF() {
-        // Reject H0/ Don't reject H0
-        return "Nao implementado ainda";
-    }
 
     private double dfSR() {
         return this.dfSR;
@@ -268,7 +268,7 @@ public class LinearRegression {
         }
         double s = 0;
         for (int i = 0; i < n; i++) {
-            s += Math.pow(y[i] - predict(y[i]),2);
+            s += Math.pow(y[i] - predict(x[i]),2);
         }
         s = Math.sqrt(s * 1 / (double)(n - 2));
         return tDistribution * s *  Math.sqrt(1/n + (Math.pow((var - xbar),2)/xxbar));
