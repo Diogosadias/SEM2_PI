@@ -34,10 +34,11 @@ public class LinearRegression {
     private double dfSR = 0;
     private  double tDistribution = 0;
     private  double fDistribution = 0;
-    private double xxbar;
+    private double Sxx;
     private final double ALPHA = 0.05;
-    private double []ICsup;
-    private double []ICinf;
+    private int n;
+    private double[] x;
+    private double[] y;
 
 
     /**
@@ -48,11 +49,12 @@ public class LinearRegression {
      * @throws IllegalArgumentException if the lengths of the two arrays are not equal
      */
     public LinearRegression(double[] x, double[] y) {
-
+        this.y = y;
+        this.x = x;
         if (x.length != y.length) {
             throw new IllegalArgumentException("array lengths are not equal");
         }
-        int n = x.length;
+        this.n = x.length;
         // first pass
         double sumx = 0.0, sumy = 0.0, sumx2 = 0.0;
         for (int i = 0; i < n; i++) {
@@ -75,7 +77,7 @@ public class LinearRegression {
         }
         slope  = xybar / xxbar; //b
         intercept = ybar - slope * xbar; //a
-        this.xxbar=xxbar;
+        this.Sxx=xxbar;
 
         double fit = 0;
         // more statistical analysis
@@ -241,15 +243,12 @@ public class LinearRegression {
 
     }
 
-    public double getICvalue(double var, double[] x,double[] y) {
-        int n = x.length;
-        
+    public double delta(double x0) {
         double s = 0;
         for (int i = 0; i < n; i++) {
             s += Math.pow(y[i] - predict(x[i]),2);
         }
         s = Math.sqrt(s * 1 / (double)(n - 2));
-        return tDistribution * s *  Math.sqrt(1/n + (Math.pow((var - xbar),2)/this.xxbar));
-
+        return tDistribution * s *  Math.sqrt(1/n + (Math.pow((x0 - xbar),2)/Sxx));
     }
 }

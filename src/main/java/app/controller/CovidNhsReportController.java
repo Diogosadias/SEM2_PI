@@ -219,8 +219,8 @@ public class CovidNhsReportController {
                 for(int i = 0; i < this.historicDateList.size(); i ++){
                     if(y[i] != 0) {
                         double predict = this.linear.predict(xTests[i]);
-                        double ICvalue = this.linear.getICvalue(xTests[i],xTests,y);
-                        board += "\n" + dateFormat.format(historicDateList.get(i)) + "\t\t\t\t\t" + (int)y[i] + "\t\t\t\t\t\t\t\t\t\t\t\t" + this.linear.predict(y[i]) +"\t\t\t\t\t\t\t\t\t["+(predict - ICvalue)+","+(predict + ICvalue)+"]" + "\t\t\t\t\t\t" + (int)xTests[i] + "\t\t\t\t\t\t" + roundAvoid(xAge[i],2);
+                        double delta = this.linear.delta(xTests[i]);
+                        board += "\n" + dateFormat.format(historicDateList.get(i)) + "\t\t\t\t\t" + (int)y[i] + "\t\t\t\t\t\t\t\t\t\t\t\t" + predict +"\t\t\t\t\t\t\t\t\t["+(predict - delta)+","+(predict + delta)+"]" + "\t\t\t\t\t\t" + (int)xTests[i] + "\t\t\t\t\t\t" + roundAvoid(xAge[i],2);
                     }
                 }
                 break;
