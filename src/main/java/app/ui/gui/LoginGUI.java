@@ -19,6 +19,9 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
+ */
 public class LoginGUI implements Initializable {
 
     @FXML
@@ -95,9 +98,10 @@ public class LoginGUI implements Initializable {
                     List<MenuItem> rolesUI = getMenuItemForRoles();
                     /* mainInstance.replaceSceneContent("/fxml/BlankScene.fxml");*/
                     try {
-                        DashboardAdminUI dashboardAdminUI = (DashboardAdminUI) this.mainInstance.replaceSceneContent("/fxml/DashboardAdmin.fxml");
-                        dashboardAdminUI.setMainInstance(this.mainInstance);
-
+                        //DashboardAdminUI dashboardAdminUI = (DashboardAdminUI) this.mainInstance.replaceSceneContent("/fxml/DashboardAdmin.fxml");
+                        //dashboardAdminUI.setMainInstance(this.mainInstance);
+                        /*AdminGUI adminGui= (AdminGUI) this.mainInstance.replaceSceneContent("/fxml/AdminGUI.fxml");
+                        adminGui.setMainInstance(this.mainInstance);*/
                     } catch (Exception ex) {
                         Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
                     }
