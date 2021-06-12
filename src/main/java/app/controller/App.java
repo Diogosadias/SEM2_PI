@@ -9,6 +9,7 @@ import net.sourceforge.barbecue.BarcodeException;
 import net.sourceforge.barbecue.output.OutputException;
 
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -222,4 +223,6 @@ App {
         }
         return singleton;
     }
+
+
 }
