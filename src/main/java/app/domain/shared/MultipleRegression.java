@@ -38,8 +38,14 @@ public class MultipleRegression {
 
 
 
-    //Constructor/Runner
-    public MultipleRegression(double[] y,double[] x1, double[] x2) {
+    /**
+     * Performs a multilinear regression on the data points (y[i], x1[i],x2[i]).
+     *
+     * @param  x1 the values of one of the independent variable
+     * @param  x2 the values of one of the independent variable
+     * @param  y the values of the dependent variable
+     * @throws IllegalArgumentException if the lengths of the three arrays are not equal
+     */    public MultipleRegression(double[] y,double[] x1, double[] x2) {
         if (x1.length != y.length || x2.length != y.length) {
             throw new IllegalArgumentException("array lengths are not equal");
         }

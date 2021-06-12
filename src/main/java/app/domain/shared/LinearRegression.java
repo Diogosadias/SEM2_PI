@@ -25,6 +25,7 @@ public class LinearRegression {
     private final double intercept, slope;
     private final double r2;
     private final double svar0, svar1;
+    private final double xbar;
     private double ST = 0;
     private double SE = 0;
     private double SR = 0;
@@ -33,6 +34,7 @@ public class LinearRegression {
     private double dfSR = 0;
     private  double tDistribution = 0;
     private  double fDistribution = 0;
+    private double xxbar;
     private final double ALPHA = 0.05;
     private double []ICsup;
     private double []ICinf;
@@ -61,6 +63,7 @@ public class LinearRegression {
         double xbar = sumx / n; // mean x
         double ybar = sumy / n; // mean y
 
+        this.xbar=xbar;
 
 
         // second pass: compute summary statistics
@@ -72,6 +75,7 @@ public class LinearRegression {
         }
         slope  = xybar / xxbar; //b
         intercept = ybar - slope * xbar; //a
+        this.xxbar=xxbar;
 
         double fit = 0;
         // more statistical analysis
@@ -239,21 +243,13 @@ public class LinearRegression {
 
     public double getICvalue(double var, double[] x,double[] y) {
         int n = x.length;
-        int sum = 0;
-        for (int i =0; i < n ; i++) {
-            sum += x[i];
-        }
-        double xbar = sum / (double)n;
-        double xxbar = 0.0;
-        for (int i = 0; i < n; i++) {
-            xxbar += (x[i] - xbar) * (x[i] - xbar); //Sxx
-        }
+        
         double s = 0;
         for (int i = 0; i < n; i++) {
             s += Math.pow(y[i] - predict(x[i]),2);
         }
         s = Math.sqrt(s * 1 / (double)(n - 2));
-        return tDistribution * s *  Math.sqrt(1/n + (Math.pow((var - xbar),2)/xxbar));
+        return tDistribution * s *  Math.sqrt(1/n + (Math.pow((var - xbar),2)/this.xxbar));
 
     }
 }
