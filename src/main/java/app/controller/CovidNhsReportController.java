@@ -170,7 +170,7 @@ public class CovidNhsReportController {
         Calendar end = Calendar.getInstance();
         start.setTime(this.initialDate);
         end.setTime(this.finalDate);
-        int n = (int) TimeUnit.DAYS.convert((this.finalDate.getTime() - this.initialDate.getTime()), TimeUnit.MILLISECONDS);
+        int n = (int) TimeUnit.DAYS.convert((this.finalDate.getTime() - this.initialDate.getTime()), TimeUnit.MILLISECONDS) - 1;
         this.xAgeInterval = new double[n];
         this.xTestsInterval = new double[n];
         this.yInterval = new double[n];
@@ -220,7 +220,7 @@ public class CovidNhsReportController {
                     if(y[i] != 0) {
                         double predict = this.linear.predict(xTests[i]);
                         double ICvalue = this.linear.getICvalue(xTests[i],xTests,y);
-                        board += "\n" + dateFormat.format(historicDateList.get(i)) + "\t\t\t\t\t" + (int)y[i] + "\t\t\t\t\t\t\t\t\t\t\t\t" + this.linear.predict(y[i]) +"\t\t\t\t\t\t\t\t\t["+(predict - ICvalue)+","+(predict + ICvalue)+"]" + "\t\t\t\t\t\t" + (int)xTests[i];
+                        board += "\n" + dateFormat.format(historicDateList.get(i)) + "\t\t\t\t\t" + (int)y[i] + "\t\t\t\t\t\t\t\t\t\t\t\t" + this.linear.predict(y[i]) +"\t\t\t\t\t\t\t\t\t["+(predict - ICvalue)+","+(predict + ICvalue)+"]" + "\t\t\t\t\t\t" + (int)xTests[i] + "\t\t\t\t\t\t" + roundAvoid(xAge[i],2);
                     }
                 }
                 break;
@@ -240,6 +240,11 @@ public class CovidNhsReportController {
         }
         return board;
 
+    }
+
+    public static double roundAvoid(double value, int places) {
+        double scale = Math.pow(10, places);
+        return Math.round(value * scale) / scale;
     }
 
 }

@@ -38,24 +38,6 @@ public class LinearRegression {
     private double []ICinf;
 
 
-    public double getICsup(int index) {
-        for (int i=0; i<ICsup.length; i++) {
-            if(i == index) {
-                return ICsup[i];
-            }
-        }
-        return -1;
-    }
-
-    public double getICinf(int index) {
-        for (int i=0; i<ICinf.length; i++) {
-            if(i == index) {
-                return ICinf[i];
-            }
-        }
-        return -1;
-    }
-
     /**
      * Performs a linear regression on the data points (y[i], x[i]).
      *
