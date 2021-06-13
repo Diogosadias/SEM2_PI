@@ -26,19 +26,18 @@ public class LinearRegression {
     private final double r2;
     private final double svar0, svar1;
     private final double xbar;
-    private double ST = 0;
-    private double SE = 0;
-    private double SR = 0;
-    private double dfST = 0;
-    private double dfSE = 0;
-    private double dfSR = 0;
-    private  double tDistribution = 0;
-    private  double fDistribution = 0;
+    private double ST ;
+    private double SE ;
+    private double SR ;
+    private double dfST;
+    private double dfSE;
+    private double dfSR;
+    private  double tDistribution;
+    private  double fDistribution;
     private double Sxx;
     private final double ALPHA = 0.05;
     private int n;
-    private double[] x;
-    private double[] y;
+    private double s;
 
 
     /**
@@ -49,8 +48,6 @@ public class LinearRegression {
      * @throws IllegalArgumentException if the lengths of the two arrays are not equal
      */
     public LinearRegression(double[] x, double[] y) {
-        this.y = y;
-        this.x = x;
         if (x.length != y.length) {
             throw new IllegalArgumentException("array lengths are not equal");
         }
@@ -105,7 +102,9 @@ public class LinearRegression {
         svar0 = svar/n + xbar*xbar*svar1;
 
         FDistribution fd= new FDistribution(this.dfSR,this.dfSE);
-        this.fDistribution= fd.inverseCumulativeProbability(1- ALPHA);
+        this.fDistribution= fd.inverseCumulativeProbability(ALPHA);
+
+        this.s = Math.sqrt(this.MSE());
 
     }
 
@@ -228,27 +227,22 @@ public class LinearRegression {
 
     public String toString(){
         NumberFormat formatter = new DecimalFormat("#0.0000");
-        return "b = "+slope+"\na = "+intercept+
-                "\n//\nOther statistics"+"\nR2 = " +r2 + "\nR2adjusted = ..." + "\nR = " + Math.sqrt(r2) +
+        return "b = "+formatter.format(slope)+"\na = "+formatter.format(intercept)+
+                "\n//\nOther statistics"+"\nR2 = " +formatter.format(r2) + "\nR2adjusted = ..." + "\nR = " + formatter.format(Math.sqrt(r2)) +
                 "\n//\nHypothesis tests for regression coefficients\nHO:b=0 (a=0) H1: b<>0 (a<>0)" +
-                "\nt_obs = " + this.tDistribution + "\nDecision: " + decision() +
+                "\nt_obs = " + formatter.format(this.tDistribution) + "\nDecision: " + decision() +
                 "\n//\nSignificance model with Anova\nH0: b=0  H1:b<>0" +
                 "\n\t\t\tdf\t\tSS\t\tMS\t\tF\t\t" +
                 "\nRegression\t" + this.dfSR + "\t" + formatter.format(getSR()) +"\t" + formatter.format(MSR())+"\t"+ formatter.format(F()) +"\t" +
                 "\nResidual\t" + this.dfSE + "\t" + formatter.format(getSE()) +"\t\t"+ formatter.format(MSE()) +"\t\t" +
                 "\nTotal\t\t" + this.dfST +"\t" + formatter.format(getST()) +"\t\t" +
-                "\n\nDecision: f \n0 > f" + ALPHA + ",(" + (int)this.dfSR + "." + (int)this.dfSE + ")=" + this.fDistribution;
+                "\n\nDecision: f \n0 > f" + ALPHA + ",(" + (int)this.dfSR + "." + (int)this.dfSE + ")=" + formatter.format(this.fDistribution);
 
 
 
     }
 
     public double delta(double x0) {
-        double s = 0;
-        for (int i = 0; i < n; i++) {
-            s += Math.pow(y[i] - predict(x[i]),2);
-        }
-        s = Math.sqrt(s * 1 / (double)(n - 2));
-        return tDistribution * s *  Math.sqrt(1/n + (Math.pow((x0 - xbar),2)/Sxx));
+        return tDistribution * this.s *  Math.sqrt((1/(double)n) + (Math.pow((x0 - xbar),2)/Sxx));
     }
 }

@@ -9,6 +9,8 @@ import app.domain.shared.MultipleRegression;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -145,8 +147,8 @@ public class CovidNhsReportController {
             }
 
 
-
-        try (PrintStream out = new PrintStream(new FileOutputStream("CovidReport.txt"))) {
+        String fileName = "CovidReport.txt";
+        try (PrintStream out = new PrintStream(new FileOutputStream(fileName))) {
             switch (regression){
                 case "Linear":
                     out.print(linear);
@@ -159,6 +161,7 @@ public class CovidNhsReportController {
 
             }
             out.print(boardToFile());
+            System.out.println("\nNhs data successfully delivered to " + fileName);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -212,15 +215,16 @@ public class CovidNhsReportController {
 
     private String boardToFile() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        NumberFormat formatter = new DecimalFormat("#0.0000");
         String board;
         switch (varIndependent){
             case "Registered Tests":
-                board = "\n\nPrediction values\n\n" + "Date\t\t\tNumber of OBSERVED positive cases\t\tNumber of ESTIMATED/EXPECTED positive cases\t\t\t\t\t\t95% intervals\t\t\t\t\t\t\tNumber Tests Registed";
+                board = "\n\nPrediction values\n\n" + "Date\t\t\tNumber of OBSERVED positive cases\t\tNumber of ESTIMATED/EXPECTED positive cases\t\t\t\t\t95% intervals";
                 for(int i = 0; i < this.historicDateList.size(); i ++){
                     if(y[i] != 0) {
                         double predict = this.linear.predict(xTests[i]);
                         double delta = this.linear.delta(xTests[i]);
-                        board += "\n" + dateFormat.format(historicDateList.get(i)) + "\t\t\t\t\t" + (int)y[i] + "\t\t\t\t\t\t\t\t\t\t\t\t" + predict +"\t\t\t\t\t\t\t\t\t["+(predict - delta)+","+(predict + delta)+"]" + "\t\t\t\t\t\t" + (int)xTests[i] + "\t\t\t\t\t\t" + roundAvoid(xAge[i],2);
+                        board += "\n" + dateFormat.format(historicDateList.get(i)) + "\t\t\t\t\t" + (int)y[i] + "\t\t\t\t\t\t\t\t\t\t\t\t" + formatter.format(predict) +"\t\t\t\t\t\t\t\t\t["+formatter.format((predict - delta))+","+formatter.format((predict + delta))+"]";
                     }
                 }
                 break;
@@ -228,7 +232,7 @@ public class CovidNhsReportController {
                 board = "Por implementar";
                 break;
             case "Both":
-                board = "\n\nPrediction values\n\n" + "Date\t\t\tNumber of OBSERVED positive cases\t\tNumber of ESTIMATED/EXPECTED positive cases\t\t\t\t\t\t95% intervals\t\t\t\t\t\t\tNumber Tests Registed";
+                board = "\n\nPrediction values\n\n" + "Date\t\t\tNumber of OBSERVED positive cases\t\tNumber of ESTIMATED/EXPECTED positive cases\t\t\t\t\t95% intervals";
                 for(int i = 0; i < this.historicDateList.size(); i ++){
                     board += "\n" + dateFormat.format(historicDateList.get(i)) + "\t\t\t\t\t" + (int)y[i] + "\t\t\t\t\t\t\t\t\t\t\t\t" + this.multiple.predict(xTestsInterval[i],xAgeInterval[i]) +"\t\t\t\t\t\t\t\t\t["+this.multiple.mininterval(xTestsInterval[i],xAgeInterval[i])+","+this.multiple.maxinterval(xTestsInterval[i],xAgeInterval[i])+"]"+ "\t\t\t\t\t\t" + (int)xTests[i];
                 }
