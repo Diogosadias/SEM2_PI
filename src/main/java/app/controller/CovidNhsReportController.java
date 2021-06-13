@@ -141,11 +141,12 @@ public class CovidNhsReportController {
 
         String fileName = "CovidReport.txt";
         try (PrintStream out = new PrintStream(new FileOutputStream(fileName))) {
-            switch (regression){
-                case "Linear":
+            switch (varIndependent){
+                case "Registered Tests":
+                case "Mean Age":
                     out.print(linear);
                     break;
-                case "Multiple":
+                case "Both":
                     out.print(multiple);
                     break;
                 default:
@@ -210,10 +211,10 @@ public class CovidNhsReportController {
         String board;
         switch (varIndependent){
             case "Registered Tests":
-                board = this.boardSimpleLRString("Positive Cases", xTests, dateFormat);
+                board = this.boardSimpleLRString(xTests, dateFormat);
                 break;
             case "Mean Age":
-                board = this.boardSimpleLRString("Mean Age", xAge, dateFormat);
+                board = this.boardSimpleLRString(xAge, dateFormat);
                 break;
             case "Both":
                 board = "\n\nPrediction values\n\n" + "Date\t\t\tNumber of OBSERVED positive cases\t\tNumber of ESTIMATED/EXPECTED positive cases\t\t\t\t\t95% intervals";
@@ -230,14 +231,14 @@ public class CovidNhsReportController {
 
     }
 
-    private String boardSimpleLRString (String header, double[] x,SimpleDateFormat dateFormat) {
+    private String boardSimpleLRString (double[] x, SimpleDateFormat dateFormat) {
         NumberFormat formatter = new DecimalFormat("#0.0000");
-        String board = "\n\nPrediction values\n\n" + "Date\t\t\tOBSERVED " + header + "\t\tESTIMATED/EXPECTED " + header + "\t\t\t\t\t95% intervals";
+        String board = "\n\nPrediction values\n\n" + "Date\t\t\tNumber of OBSERVED positive cases\t\tNumber of ESTIMATED/EXPECTED positive cases\t\t\t\t\t95% intervals";
         for(int i = 0; i < this.historicDateList.size(); i ++){
             if(y[i] != 0) {
                 double predict = this.linear.predict(x[i]);
                 double delta = this.linear.delta(x[i]);
-                board += "\n" + dateFormat.format(historicDateList.get(i)) + "\t\t\t\t\t" + (int)y[i] + "\t\t\t\t\t\t\t\t\t\t\t\t" + formatter.format(predict) +"\t\t\t\t\t\t\t\t\t["+formatter.format((predict - delta))+","+formatter.format((predict + delta))+"]";
+                board += "\n" + dateFormat.format(historicDateList.get(i)) + "\t\t\t\t\t" + (int)y[i] + "\t\t\t\t\t\t\t\t" + formatter.format(predict) +"\t\t\t\t\t\t\t["+formatter.format((predict - delta))+","+formatter.format((predict + delta))+"]";
             }
         }
         return board;
