@@ -27,7 +27,10 @@
    <top>
       <MenuBar nodeOrientation="RIGHT_TO_LEFT" BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" text="Exit" />
+          <Menu mnemonicParsing="false" text="Options">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#menu_exit" text="Exit" />
+               </items></Menu>
         </menus>
       </MenuBar>
    </top>

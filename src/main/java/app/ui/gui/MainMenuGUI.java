@@ -9,6 +9,7 @@ import app.ui.Main;
 import app.ui.console.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
@@ -74,6 +75,10 @@ public class MainMenuGUI implements Initializable, GuiMethods {
         });
     }
 
+    @FXML
+    private void menu_exit(ActionEvent event) {
+        mainInstance.getStage().close();
+    }
 
     @Override
     public void setInstance(Main mainInstance) {

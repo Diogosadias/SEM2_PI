@@ -83,6 +83,10 @@ public class AdminGUI implements Initializable, GuiMethods {
             e.printStackTrace();
         }
     }
+    @FXML
+    private void menu_exit(ActionEvent event) {
+        mainInstance.getStage().close();
+    }
 
     @Override
     public void setInstance(Main mainInstance) {

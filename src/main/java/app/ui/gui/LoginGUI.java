@@ -81,6 +81,10 @@ public class LoginGUI implements Initializable, GuiMethods {
             e.printStackTrace();
         }
     }
+    @FXML
+    private void menu_exit(ActionEvent event) {
+        mainInstance.getStage().close();
+    }
 
 
     @FXML

@@ -46,7 +46,7 @@
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#menu_goBack" text="Go Back" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="Exit" />
+                  <MenuItem mnemonicParsing="false" onAction="#menu_exit" text="Exit" />
                </items></Menu>
         </menus>
       </MenuBar>
