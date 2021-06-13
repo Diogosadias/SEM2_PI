@@ -3,6 +3,8 @@ package app.ui;
 import app.controller.App;
 import app.controller.FileController;
 import app.ui.gui.LoginGUI;
+import app.ui.gui.MainMenuGUI;
+import app.ui.gui.prot;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,14 +21,17 @@ import java.util.logging.Logger;
 /**
  *
  * @author Paulo Maio <pam@isep.ipp.pt>
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
+ *
  */
 public class Main extends Application {
 
     public Stage stage;
-
+    public prot pw ;
     public Stage getStage() {
         return stage;
     }
+    public Main getinstance(){ return this;}
 
     private final double MINIMUM_WINDOW_WIDTH = 400.0;
     private final double MINIMUM_WINDOW_HEIGHT = 300.0;
@@ -75,10 +80,17 @@ public class Main extends Application {
         try {
             /*MainUI mainUI = (MainUI) replaceSceneContent("/fxml/Main.fxml");
             mainUI.setMainApp(this);*/
-            LoginGUI loginGUI = (LoginGUI) replaceSceneContent("/fxml/LoginGUI.fxml");
             FileController fileController = new FileController();
             fileController.runFileInputStreams();
-            loginGUI.setMainInstance(this);
+            //LoginGUI loginGUI = (LoginGUI) replaceSceneContent("/fxml/LoginGUI.fxml");
+
+            //loginGUI.setMainInstance(this);
+            MainMenuGUI mainMenuGUI = (MainMenuGUI) replaceSceneContent("/fxml/MainMenuGUI.fxml");
+            mainMenuGUI.setMainInstance(this);
+            mainMenuGUI.setStage(stage);
+
+            pw.setStage(stage);
+
         } catch (Exception ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -99,6 +111,7 @@ public class Main extends Application {
         scene.getStylesheets().add("/styles/Styles.css");
         this.stage.setScene(scene);
         this.stage.sizeToScene();
+
         return (Initializable) loader.getController();
     }
 

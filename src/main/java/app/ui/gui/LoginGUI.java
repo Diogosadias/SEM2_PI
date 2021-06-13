@@ -41,7 +41,7 @@ public class LoginGUI implements Initializable {
 
     public AuthController controller;
 
-    private Main mainInstance;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -56,9 +56,7 @@ public class LoginGUI implements Initializable {
         return this.pwdTxtField;
     }
 
-    public void setMainInstance(Main mainInstance) {
-        this.mainInstance = mainInstance;
-    }
+
 
     /**
      * Method that authenticates a User into the App
@@ -78,6 +76,8 @@ public class LoginGUI implements Initializable {
         }
     }*/
 
+
+
     @FXML
     private void onLogin(ActionEvent event) throws Exception {
 
@@ -85,6 +85,7 @@ public class LoginGUI implements Initializable {
 
         if (success)
         {
+
             List<UserRoleDTO> roles = this.controller.getUserRoles();
             if ( (roles == null) || (roles.isEmpty()) )
             {
@@ -92,20 +93,22 @@ public class LoginGUI implements Initializable {
             }
             else
             {
+
                 UserRoleDTO role = selectsRole(roles);
                 if (!Objects.isNull(role))
                 {
                     List<MenuItem> rolesUI = getMenuItemForRoles();
                     /* mainInstance.replaceSceneContent("/fxml/BlankScene.fxml");*/
-                    try {
+                    /*try {
                         //DashboardAdminUI dashboardAdminUI = (DashboardAdminUI) this.mainInstance.replaceSceneContent("/fxml/DashboardAdmin.fxml");
                         //dashboardAdminUI.setMainInstance(this.mainInstance);
-                        /*AdminGUI adminGui= (AdminGUI) this.mainInstance.replaceSceneContent("/fxml/AdminGUI.fxml");
-                        adminGui.setMainInstance(this.mainInstance);*/
+
+                        //AdminGUI adminGui= (AdminGUI) this.mainInstance.replaceSceneContent("/fxml/AdminGUI.fxml");
+
                     } catch (Exception ex) {
                         Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    mainInstance.stage.close();
+                    }*/
+                    //mainInstance.stage.close();
                     this.redirectToRoleUI(rolesUI,role);
 
                 }
@@ -122,6 +125,7 @@ public class LoginGUI implements Initializable {
     {
         List<MenuItem> rolesUI = new ArrayList<>();
         rolesUI.add(new MenuItem(Constants.ROLE_ADMIN, new AdminUI()));
+        //rolesUI.add(new MenuItem(Constants.ROLE_ADMIN, "/fxml/AdminGUI.fxml"));
         rolesUI.add(new MenuItem(Constants.ROLE_RECEP, new ReceptionistUI()));
         rolesUI.add(new MenuItem(Constants.SPECIALIST_DOCTOR, new SpecialistDoctorUI()));
         rolesUI.add(new MenuItem(Constants.CHEMISTRY_TECHNOLOGIST, new ClinicalChemistryTechnologistUI()));
@@ -144,7 +148,18 @@ public class LoginGUI implements Initializable {
             MenuItem item = it.next();
             found = item.hasDescription(role.getDescription());
             if (found)
-                item.run();
+                if(item.getGui()==null) {
+                    item.run();
+                }else{
+                    try {
+                        //item.Instance(mainInstance);
+
+                        item.rungui(item.getGui());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                //item.run();
         }
         if (!found)
             System.out.println("There is no UI for users with role '" + role.getDescription() + "'");

@@ -20,9 +20,7 @@ import javafx.scene.control.ListView;
  */
 public class AdminGUI implements Initializable {
     private Main mainInstance;
-    public void setMainInstance(Main mainInstance) {
-        this.mainInstance = mainInstance;
-    }
+
     @FXML
     private ResourceBundle resources;
 
@@ -42,6 +40,7 @@ public class AdminGUI implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         List<MenuItem> options = new ArrayList<>();
         options.add(new MenuItem("Create type of test", new SpecifyNewTestTypeUI()));
         options.add(new MenuItem("List types of test", new ListTypeTestUI()));
@@ -57,7 +56,7 @@ public class AdminGUI implements Initializable {
         options.add(new MenuItem("Register new Clinical Analysis Laboratory", new RegisterNewCALUI()));
         options.add(new MenuItem("Send Covid report to Nhs", new CovidNhsReportUI()));
 
-        ArrayList<String> list = new ArrayList<String>();
+
 
         for(int i=0; i<options.size();i++){
             myListView.getItems().add(options.get(i).toString());
