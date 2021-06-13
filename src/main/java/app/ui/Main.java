@@ -87,7 +87,7 @@ public class Main extends Application {
             mainMenuGUI.setMainInstance(this);
             mainMenuGUI.setStage(stage);
 
-            pw.setStage(stage);
+
 
         } catch (Exception ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
