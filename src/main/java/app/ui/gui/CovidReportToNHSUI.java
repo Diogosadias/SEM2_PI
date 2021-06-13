@@ -99,9 +99,9 @@ public class CovidReportToNHSUI implements Initializable {
             Date dateF = formatter1.parse(txtEndDate.getText());
             if (comboBoxRegressiontType.getSelectionModel().getSelectedItem().equalsIgnoreCase("Simple")) {
 
-                controller.doSimpleLinearRegression(dateI,dateF,"Simple",comboBoxIndependentVariable.getSelectionModel().getSelectedItem());
+                controller.doLinearRegression(dateI,dateF,comboBoxIndependentVariable.getSelectionModel().getSelectedItem());
             } else {
-                controller.doMultipleLinearRegression(dateI,dateF,"Multiple");
+                controller.doLinearRegression(dateI,dateF,"Both");
             }
         } catch (ParseException e) {
             e.printStackTrace();

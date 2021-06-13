@@ -74,19 +74,11 @@ public class CovidNhsReportController {
         return covidTests;
     }
 
-    public void doSimpleLinearRegression(Date initialDate, Date finalDate, String regression, String varIndependent) {
-        this.initialDate = initialDate;
-        this.finalDate = finalDate;
-        this.regression = regression;
-        this.varIndependent = varIndependent;
-        this.Matcp();
-    }
 
-    public void doMultipleLinearRegression(Date initialDate, Date finalDate, String regression) {
+    public void doLinearRegression(Date initialDate, Date finalDate, String varIndependent) {
         this.initialDate = initialDate;
         this.finalDate = finalDate;
-        this.regression = regression;
-        this.varIndependent = "Both";
+        this.varIndependent = varIndependent;
         this.Matcp();
     }
 
@@ -215,21 +207,13 @@ public class CovidNhsReportController {
 
     private String boardToFile() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        NumberFormat formatter = new DecimalFormat("#0.0000");
         String board;
         switch (varIndependent){
             case "Registered Tests":
-                board = "\n\nPrediction values\n\n" + "Date\t\t\tNumber of OBSERVED positive cases\t\tNumber of ESTIMATED/EXPECTED positive cases\t\t\t\t\t95% intervals";
-                for(int i = 0; i < this.historicDateList.size(); i ++){
-                    if(y[i] != 0) {
-                        double predict = this.linear.predict(xTests[i]);
-                        double delta = this.linear.delta(xTests[i]);
-                        board += "\n" + dateFormat.format(historicDateList.get(i)) + "\t\t\t\t\t" + (int)y[i] + "\t\t\t\t\t\t\t\t\t\t\t\t" + formatter.format(predict) +"\t\t\t\t\t\t\t\t\t["+formatter.format((predict - delta))+","+formatter.format((predict + delta))+"]";
-                    }
-                }
+                board = this.boardSimpleLRString("Positive Cases", xTests, dateFormat);
                 break;
             case "Mean Age":
-                board = "Por implementar";
+                board = this.boardSimpleLRString("Mean Age", xAge, dateFormat);
                 break;
             case "Both":
                 board = "\n\nPrediction values\n\n" + "Date\t\t\tNumber of OBSERVED positive cases\t\tNumber of ESTIMATED/EXPECTED positive cases\t\t\t\t\t95% intervals";
@@ -246,9 +230,18 @@ public class CovidNhsReportController {
 
     }
 
-    public static double roundAvoid(double value, int places) {
-        double scale = Math.pow(10, places);
-        return Math.round(value * scale) / scale;
+    private String boardSimpleLRString (String header, double[] x,SimpleDateFormat dateFormat) {
+        NumberFormat formatter = new DecimalFormat("#0.0000");
+        String board = "\n\nPrediction values\n\n" + "Date\t\t\tOBSERVED " + header + "\t\tESTIMATED/EXPECTED " + header + "\t\t\t\t\t95% intervals";
+        for(int i = 0; i < this.historicDateList.size(); i ++){
+            if(y[i] != 0) {
+                double predict = this.linear.predict(x[i]);
+                double delta = this.linear.delta(x[i]);
+                board += "\n" + dateFormat.format(historicDateList.get(i)) + "\t\t\t\t\t" + (int)y[i] + "\t\t\t\t\t\t\t\t\t\t\t\t" + formatter.format(predict) +"\t\t\t\t\t\t\t\t\t["+formatter.format((predict - delta))+","+formatter.format((predict + delta))+"]";
+            }
+        }
+        return board;
     }
+
 
 }
