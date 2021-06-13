@@ -2,9 +2,7 @@ package app.ui;
 
 import app.controller.App;
 import app.controller.FileController;
-import app.ui.gui.LoginGUI;
 import app.ui.gui.MainMenuGUI;
-import app.ui.gui.prot;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -27,7 +25,7 @@ import java.util.logging.Logger;
 public class Main extends Application {
 
     public Stage stage;
-    public prot pw ;
+
     public Stage getStage() {
         return stage;
     }
