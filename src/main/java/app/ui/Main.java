@@ -3,6 +3,7 @@ package app.ui;
 import app.controller.App;
 import app.controller.FileController;
 import app.ui.gui.MainMenuGUI;
+import app.ui.gui.GuiMethods;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -60,6 +61,8 @@ public class Main extends Application {
         }
         */
         launch(args);
+        FileController fileController = new FileController();
+        fileController.runFileOutputStreams();
     }
 
     @Override
@@ -85,7 +88,7 @@ public class Main extends Application {
             //loginGUI.setMainInstance(this);
             MainMenuGUI mainMenuGUI = (MainMenuGUI) replaceSceneContent("/fxml/MainMenuGUI.fxml");
             mainMenuGUI.setMainInstance(this);
-            mainMenuGUI.setStage(stage);
+
 
 
 
@@ -96,9 +99,11 @@ public class Main extends Application {
 
     public Initializable replaceSceneContent(String fxml) throws Exception {
         FXMLLoader loader = new FXMLLoader();
+
         InputStream in = Main.class.getResourceAsStream(fxml);
         loader.setBuilderFactory(new JavaFXBuilderFactory());
         loader.setLocation(App.class.getResource(fxml));
+
         Pane page;
         try {
             page = (Pane) loader.load(in);
@@ -109,6 +114,10 @@ public class Main extends Application {
         scene.getStylesheets().add("/styles/Styles.css");
         this.stage.setScene(scene);
         this.stage.sizeToScene();
+
+        //interface que envia o Main para todos
+        GuiMethods guiMethods = loader.getController();
+        guiMethods.setInstance(this);
 
         return (Initializable) loader.getController();
     }

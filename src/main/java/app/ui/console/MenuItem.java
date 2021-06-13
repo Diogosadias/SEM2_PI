@@ -48,8 +48,8 @@ public class MenuItem {
     public void Instance(Main mainInstance){
         this.mainInstance=mainInstance;
     }
-    public void rungui(String fxml) throws Exception {
-
+    public void runGui(String fxml, Main mainInstance) throws Exception {
+        this.mainInstance=mainInstance;
         this.mainInstance.replaceSceneContent(fxml);
 
     }

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import app.controller.AuthController;
 import app.ui.Main;
 import app.ui.console.*;
 import javafx.beans.value.ChangeListener;
@@ -18,7 +17,7 @@ import javafx.stage.Stage;
 /**
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  */
-public class MainMenuGUI implements Initializable {
+public class MainMenuGUI implements Initializable, GuiMethods {
     public Stage stage;
     public void setStage(Stage stage){
         this.stage=stage;
@@ -28,6 +27,7 @@ public class MainMenuGUI implements Initializable {
     public void setMainInstance(Main mainInstance) {
         this.mainInstance = mainInstance;
     }
+
     public Main getMainInstance(){
         return mainInstance;
     }
@@ -61,8 +61,8 @@ public class MainMenuGUI implements Initializable {
                     options.get(option).run();
                 }else{
                     try {
-                        options.get(option).Instance(mainInstance);
-                        options.get(option).rungui(options.get(option).getGui());
+                        //options.get(option).Instance(mainInstance);
+                        options.get(option).runGui(options.get(option).getGui(),mainInstance);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -75,4 +75,8 @@ public class MainMenuGUI implements Initializable {
     }
 
 
+    @Override
+    public void setInstance(Main mainInstance) {
+        this.mainInstance=mainInstance;
+    }
 }

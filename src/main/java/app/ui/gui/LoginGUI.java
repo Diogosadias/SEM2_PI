@@ -1,13 +1,10 @@
 package app.ui.gui;
 
-import app.controller.App;
 import app.controller.AuthController;
-import app.controller.FileController;
 import app.domain.shared.Constants;
 import app.ui.Main;
 import app.ui.console.*;
 import app.ui.console.MenuItem;
-import app.ui.console.utils.Utils;
 import auth.mappers.dto.UserRoleDTO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,13 +13,11 @@ import javafx.scene.control.*;
 
 import java.net.URL;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  */
-public class LoginGUI implements Initializable {
+public class LoginGUI implements Initializable, GuiMethods {
 
     @FXML
     private TextField emailTxtField;
@@ -41,6 +36,7 @@ public class LoginGUI implements Initializable {
 
     public AuthController controller;
 
+    private Main mainInstance;
 
 
     @Override
@@ -75,11 +71,20 @@ public class LoginGUI implements Initializable {
             }
         }
     }*/
+    @FXML
+    public void menu_goBack(ActionEvent event) {
 
+        try {
+            MenuItem item= new MenuItem("default", "/fxml/MainMenuGUI.fxml");
+            item.runGui(item.getGui(),mainInstance);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 
     @FXML
-    private void onLogin(ActionEvent event) throws Exception {
+    private void btn_Login(ActionEvent event) throws Exception {
 
         boolean success = this.controller.doLogin(getEmailTxtField().getText(), getPwdTxtField().getText());
 
@@ -115,8 +120,7 @@ public class LoginGUI implements Initializable {
             }
         }
         this.logout();
-        FileController fileController = new FileController();
-        fileController.runFileOutputStreams();
+
     }
 
     private UserRoleDTO selectsRole(List<UserRoleDTO> roles){ return roles.get(0); }
@@ -124,8 +128,8 @@ public class LoginGUI implements Initializable {
     private List<MenuItem> getMenuItemForRoles()
     {
         List<MenuItem> rolesUI = new ArrayList<>();
-        rolesUI.add(new MenuItem(Constants.ROLE_ADMIN, new AdminUI()));
-        //rolesUI.add(new MenuItem(Constants.ROLE_ADMIN, "/fxml/AdminGUI.fxml"));
+        //rolesUI.add(new MenuItem(Constants.ROLE_ADMIN, new AdminUI()));
+        rolesUI.add(new MenuItem(Constants.ROLE_ADMIN, "/fxml/AdminGUI.fxml"));
         rolesUI.add(new MenuItem(Constants.ROLE_RECEP, new ReceptionistUI()));
         rolesUI.add(new MenuItem(Constants.SPECIALIST_DOCTOR, new SpecialistDoctorUI()));
         rolesUI.add(new MenuItem(Constants.CHEMISTRY_TECHNOLOGIST, new ClinicalChemistryTechnologistUI()));
@@ -154,7 +158,7 @@ public class LoginGUI implements Initializable {
                     try {
                         //item.Instance(mainInstance);
 
-                        item.rungui(item.getGui());
+                        item.runGui(item.getGui(),mainInstance);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -186,6 +190,11 @@ public class LoginGUI implements Initializable {
         alert.setHeaderText(headerText);
         alert.setContentText(contentText);
         alert.showAndWait();
+    }
+
+    @Override
+    public void setInstance(Main mainInstance) {
+        this.mainInstance=mainInstance;
     }
 }
 

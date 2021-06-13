@@ -7,9 +7,10 @@ import java.util.ResourceBundle;
 
 import app.ui.Main;
 import app.ui.console.*;
-import app.ui.console.utils.Utils;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -18,7 +19,7 @@ import javafx.scene.control.ListView;
 /**
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  */
-public class AdminGUI implements Initializable {
+public class AdminGUI implements Initializable, GuiMethods {
     private Main mainInstance;
 
     @FXML
@@ -72,4 +73,21 @@ public class AdminGUI implements Initializable {
 
 
     }
+
+    @FXML
+    private void menu_goBack(ActionEvent event) {
+        try {
+            MenuItem item= new MenuItem("default", "/fxml/LoginGUI.fxml");
+            item.runGui(item.getGui(),mainInstance);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void setInstance(Main mainInstance) {
+        this.mainInstance=mainInstance;
+    }
+
+
 }

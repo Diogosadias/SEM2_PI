@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.input.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -27,8 +28,12 @@
    <top>
       <MenuBar nodeOrientation="RIGHT_TO_LEFT" BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" text="Sair" />
-          <Menu mnemonicParsing="false" text="Voltar" />
+          <Menu mnemonicParsing="false" text="Options">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#menu_goBack" text="Go Back" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Exit" />
+               </items></Menu>
         </menus>
       </MenuBar>
    </top>
