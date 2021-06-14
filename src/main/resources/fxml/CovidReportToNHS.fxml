@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.CovidReportToNHSUI">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.CovidReportToNHSUI">
    <center>
       <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="900.0">
          <children>
@@ -30,6 +30,21 @@
                   <Insets left="20.0" />
                </padding>
             </Label>
+            <HBox prefHeight="45.0" prefWidth="1059.0" spacing="10.0">
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+               <children>
+                  <Label prefHeight="34.0" prefWidth="154.0" text="Regression Type:" />
+                  <ComboBox fx:id="comboBoxRegressiontType" onAction="#chooseRegression" prefHeight="38.0" prefWidth="150.0" />
+               </children>
+            </HBox>
+            <HBox prefHeight="42.0" prefWidth="728.0">
+               <children>
+                  <Label prefHeight="31.0" prefWidth="201.0" text="              Send Data to NHS:" />
+                  <ComboBox fx:id="comboHistoric" prefHeight="38.0" prefWidth="150.0" />
+               </children>
+            </HBox>
             <HBox prefHeight="39.0" prefWidth="1060.0" spacing="10.0">
                <children>
                   <Label alignment="CENTER_RIGHT" prefHeight="31.0" prefWidth="96.0" text="Historical Points:  " />
@@ -68,16 +83,7 @@
                   <Insets left="35.0" />
                </padding>
             </HBox>
-            <HBox prefHeight="45.0" prefWidth="1059.0" spacing="10.0">
-               <padding>
-                  <Insets left="35.0" />
-               </padding>
-               <children>
-                  <Label prefHeight="34.0" prefWidth="154.0" text="Regression Type:" />
-                  <ComboBox fx:id="comboBoxRegressiontType" onAction="#chooseRegression" prefHeight="38.0" prefWidth="150.0" />
-               </children>
-            </HBox>
-            <HBox prefHeight="45.0" prefWidth="1059.0" spacing="10.0">
+            <HBox prefHeight="43.0" prefWidth="730.0" spacing="10.0">
                <padding>
                   <Insets left="35.0" />
                </padding>

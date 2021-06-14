@@ -55,8 +55,7 @@ public class AdminGUI implements Initializable, GuiMethods {
         options.add(new MenuItem("Register employee", new RegisterEmployeeUI()));
         options.add(new MenuItem("List Registered Employees", new ListEmployeesUI()));
         options.add(new MenuItem("Register new Clinical Analysis Laboratory", new RegisterNewCALUI()));
-        options.add(new MenuItem("Send Covid report to Nhs", new CovidNhsReportUI()));//"/fxml/CovidReportToNHS.fxml"
-
+        options.add(new MenuItem("Send Covid report to Nhs", "/fxml/CovidReportToNHS.fxml"));
 
 
         for(int i=0; i<options.size();i++){

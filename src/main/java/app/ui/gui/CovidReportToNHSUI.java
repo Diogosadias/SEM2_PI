@@ -1,6 +1,8 @@
 package app.ui.gui;
 
 import app.controller.CovidNhsReportController;
+import app.ui.Main;
+import app.ui.console.MenuItem;
 import app.utils.fx.FXUtils;
 import com.nhs.report.Report2NHS;
 import javafx.collections.FXCollections;
@@ -24,15 +26,16 @@ import java.util.Scanner;
 /**
  * @author Bruno Pereira <1191454@isep.ipp.pt>
  */
-public class CovidReportToNHSUI implements Initializable {
+public class CovidReportToNHSUI implements Initializable, GuiMethods {
+
+    private Main mainInstance;
 
     private CovidNhsReportController controller;
 
-    private DashboardAdminUI dashboardAdminUI;
-
-    ObservableList<String> options1 = FXCollections.observableArrayList("Simple", "Multiple");
-    ObservableList<String> options2 = FXCollections.observableArrayList("Mean Age", "Positive Tests");
-    ObservableList<String> options3 = FXCollections.observableArrayList("Mean Age and Positive Tests");
+    ObservableList<String> options1 = FXCollections.observableArrayList("Linear", "Multiple");
+    ObservableList<String> options2 = FXCollections.observableArrayList("Mean Age", "Registered Tests");
+    ObservableList<String> options3 = FXCollections.observableArrayList("Mean Age and Registered Tests");
+    ObservableList<String> options4 = FXCollections.observableArrayList("Daily", "Weekly");
 
     @FXML
     private Label lblTitle;
@@ -47,6 +50,9 @@ public class CovidReportToNHSUI implements Initializable {
     private TextField txtEndDate;
 
     @FXML
+    private ComboBox<String> comboHistoric;
+
+    @FXML
     private ComboBox<String> comboBoxRegressiontType;
 
     @FXML
@@ -58,15 +64,12 @@ public class CovidReportToNHSUI implements Initializable {
     @FXML
     private Button btnSubmit;
 
-    public void setDashboardAdminUI(DashboardAdminUI registerEmployeeUI) {
-        this.dashboardAdminUI = registerEmployeeUI;
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         controller = new CovidNhsReportController();
         comboBoxRegressiontType.setItems(options1);
         comboBoxIndependentVariable.setItems(options2);
+        comboHistoric.setItems(options4);
     }
 
     @FXML
@@ -86,18 +89,24 @@ public class CovidReportToNHSUI implements Initializable {
         if (result.isPresent()) {
             if (result.get() == ButtonType.OK) {
                 //trocar para janela anterior
-                dashboardAdminUI.getInstance().toLoginScene();
+                try {
+                    app.ui.console.MenuItem item= new MenuItem("default", "/fxml/LoginGUI.fxml");
+                    item.runGui(item.getGui(),mainInstance);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
 
     @FXML
     void handleSubmit(ActionEvent event) {
+        controller.startNewReport(comboHistoric.getSelectionModel().getSelectedItem(),Integer.valueOf(txtHistoricalPoints.getText()));
         SimpleDateFormat formatter1=new SimpleDateFormat("dd/MM/yyyy");
         try {
             Date dateI = formatter1.parse(txtStartDate.getText());
             Date dateF = formatter1.parse(txtEndDate.getText());
-            if (comboBoxRegressiontType.getSelectionModel().getSelectedItem().equalsIgnoreCase("Simple")) {
+            if (comboBoxRegressiontType.getSelectionModel().getSelectedItem().equalsIgnoreCase("Linear")) {
 
                 controller.doLinearRegression(dateI,dateF,comboBoxIndependentVariable.getSelectionModel().getSelectedItem());
             } else {
@@ -108,7 +117,11 @@ public class CovidReportToNHSUI implements Initializable {
         }
 
         Report2NHS.writeUsingFileWriter(controller.writeReport());
-        dashboardAdminUI.getInstance().toLoginScene();
+
     }
 
+    @Override
+    public void setInstance(Main mainInstance) {
+        this.mainInstance=mainInstance;
+    }
 }
