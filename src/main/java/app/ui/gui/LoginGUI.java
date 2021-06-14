@@ -16,6 +16,7 @@ import java.util.*;
 
 /**
  * @author Márcio Ramos <1201682@isep.ipp.pt>
+ * @author Gil <1180838@isep.ipp.pt>
  */
 public class LoginGUI implements Initializable, GuiMethods {
 
@@ -136,12 +137,12 @@ public class LoginGUI implements Initializable, GuiMethods {
         List<MenuItem> rolesUI = new ArrayList<>();
         //rolesUI.add(new MenuItem(Constants.ROLE_ADMIN, new AdminUI()));
         rolesUI.add(new MenuItem(Constants.ROLE_ADMIN, "/fxml/AdminGUI.fxml"));
-        rolesUI.add(new MenuItem(Constants.ROLE_RECEP, new ReceptionistUI()));
-        rolesUI.add(new MenuItem(Constants.SPECIALIST_DOCTOR, new SpecialistDoctorUI()));
-        rolesUI.add(new MenuItem(Constants.CHEMISTRY_TECHNOLOGIST, new ClinicalChemistryTechnologistUI()));
+        rolesUI.add(new MenuItem(Constants.ROLE_RECEP, "/fxml/ReceptionistGUI.fxml"));
+        rolesUI.add(new MenuItem(Constants.SPECIALIST_DOCTOR, "/fxml/SpecialistDoctorGUI.fxml"));
+        rolesUI.add(new MenuItem(Constants.CHEMISTRY_TECHNOLOGIST, "/fxml/ClinicalChemicalTechnologistGUI.fxml"));
         rolesUI.add(new MenuItem(Constants.MEDICAL_LAB_TECHNICIAN, "/fxml/MedLabTechnicianGUI.fxml"));
-        rolesUI.add(new MenuItem(Constants.LABORATORY_COORDINATOR, new LabCoordinatorUI()));
-        rolesUI.add(new MenuItem(Constants.ROLE_CLIENT, new ClientUI()));
+        rolesUI.add(new MenuItem(Constants.LABORATORY_COORDINATOR, "/fxml/LabCoordinatorGUI.fxml"));
+        rolesUI.add(new MenuItem(Constants.ROLE_CLIENT, "/fxml/ClientGUI.fxml"));
 
         // To complete with other user roles and related RoleUI
 

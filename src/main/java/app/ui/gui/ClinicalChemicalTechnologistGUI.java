@@ -16,14 +16,23 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 /**
- *
- * @author Gil <1180838@isep.ipp.pt>
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
  */
-public class MedLabTechnicianGUI implements Initializable, GuiMethods {
+public class ClinicalChemicalTechnologistGUI implements Initializable, GuiMethods {
     private Main mainInstance;
 
     @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
     private ListView<String> myListView;
+
+    @FXML
+    private Button loginButton;
+
 
     int option;
 
@@ -34,9 +43,9 @@ public class MedLabTechnicianGUI implements Initializable, GuiMethods {
 
         List<MenuItem> options = new ArrayList<>();
 
-        options.add(new MenuItem("Create Sample", new RecordSampleUI()));
-        options.add(new MenuItem("List Test Sample(s)", new ListSampleCollectedUI()));
-
+        options.add(new MenuItem("Record Test Result", new RecordTestResultUI()));
+        options.add(new MenuItem("List Test Result", new ListChemicalAnalysedTestsUI()));
+        options.add(new MenuItem("Overview the tests of a client",new OverviewAnalyzeTestsUI()));
 
         for(int i=0; i<options.size();i++){
             myListView.getItems().add(options.get(i).toString());
@@ -80,6 +89,5 @@ public class MedLabTechnicianGUI implements Initializable, GuiMethods {
     public void setInstance(Main mainInstance) {
         this.mainInstance=mainInstance;
     }
-
 
 }

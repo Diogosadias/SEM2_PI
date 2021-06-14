@@ -83,7 +83,7 @@ public class AdminGUI implements Initializable, GuiMethods {
     }
 
     @FXML
-    private void menu_goBack(ActionEvent event) {
+    private void menu_logout(ActionEvent event) {
         try {
             MenuItem item= new MenuItem("default", "/fxml/LoginGUI.fxml");
             item.runGui(item.getGui(),mainInstance);

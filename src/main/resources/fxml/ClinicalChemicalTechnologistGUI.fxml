@@ -30,7 +30,7 @@
         <menus>
           <Menu mnemonicParsing="false" text="Options">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#menu_goBack" text="Go Back" />
+                  <MenuItem mnemonicParsing="false" onAction="#menu_logout" text="Logout" />
                   <SeparatorMenuItem mnemonicParsing="false" />
                   <MenuItem mnemonicParsing="false" onAction="#menu_exit" text="Exit" />
                </items></Menu>
