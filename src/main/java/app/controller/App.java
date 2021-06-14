@@ -9,10 +9,7 @@ import net.sourceforge.barbecue.BarcodeException;
 import net.sourceforge.barbecue.output.OutputException;
 
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.Date;
 import java.util.Properties;
 
@@ -208,6 +205,14 @@ App {
         this.company.getTestStore().addTest(forReports);
 */
 
+    }
+
+    public static void runDailyTasks() {
+        try {
+            new DailyNhsReportController().runDailyTask();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     // Extracted from https://www.javaworld.com/article/2073352/core-java/core-java-simply-singleton.html?page=2

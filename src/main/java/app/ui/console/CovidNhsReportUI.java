@@ -36,7 +36,7 @@ public class CovidNhsReportUI implements Runnable {
         System.out.println("\nNumber of historical points: ");
         int histPoints = read.nextInt();
 
-        controller.startNewReport(historic,histPoints);
+        controller.startNewReport(histPoints);
 
         SimpleDateFormat formatter1 = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -59,33 +59,14 @@ public class CovidNhsReportUI implements Runnable {
                 String regression = chooseData("Set Linear Regression Model:\n1 - Simple Linear Regression\n2 - Multiple Linear Regression","Linear","Multiple");
                 if (regression.equals("Linear")) {
                     String varIndependent = chooseData("Variable Independent:\n1 - Number of Tests Realised\n2 - Client Mean Age", "Registered Tests", "Mean Age");
-                    controller.doLinearRegression(dateI, dateF, varIndependent);
+                    controller.doLinearRegression(dateI, dateF, varIndependent,historic);
                 } else {
-                    controller.doLinearRegression(dateI, dateF, "Both");
+                    controller.doLinearRegression(dateI, dateF, "Both",historic);
                 }
+                controller.sendNhsReport();
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-        }
-
-        else{
-            String dateI;
-            String dateA;
-            Scanner read = new Scanner(System.in);
-
-            System.out.println("Initial date: (dd/mm/yyyy");
-            dateI = read.next();
-            System.out.println("Final date: (date/mm/yyyy");
-            dateA = read.next();
-            long DAY_IN_MS = 1000 * 60 * 60 * 24;
-
-            Date actualDate = new Date();
-            System.out.println(actualDate);
-            Date dateb = new Date(System.currentTimeMillis() - (7 * histPoints * DAY_IN_MS));
-
-            System.out.println(dateb);
-
-
         }
 
 

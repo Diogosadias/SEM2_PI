@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import app.controller.App;
 import app.ui.Main;
 import app.ui.console.*;
 import javafx.beans.value.ChangeListener;
@@ -42,7 +43,7 @@ public class MainMenuGUI implements Initializable, GuiMethods {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        //App.runDailyTasks();
         List<MenuItem> options = new ArrayList<>();
         options.add(new MenuItem("Do Login","/fxml/LoginGUI.fxml"));
         options.add(new MenuItem("Know the Development Team",new DevTeamUI()));
