@@ -215,6 +215,10 @@ public class MultipleRegression {
         return f0;
     }
 
+    public void setAlpha(double alpha){
+        this.ALPHA=alpha;
+    }
+
     //Auxiliar
 
     private double valor(double[][] multiplicar) {
@@ -375,7 +379,7 @@ public class MultipleRegression {
     public double mininterval(double x1, double x2){
         double [][] x0 = {{1,x1,x2}};
         double degreesOfFreedom = (n-(k+1));
-        double t = new TDistribution(degreesOfFreedom).inverseCumulativeProbability(1-(0.025 /2));
+        double t = new TDistribution(degreesOfFreedom).inverseCumulativeProbability(1-(ALPHA /2));
         double delta = sqrt(mqe*valor(multiplicar(transposta(x0),(multiplicar((inversa(multiplicar(transposta(x),x))),x0)))));
         return predict(x1,x2) - t*delta;
     }
@@ -383,7 +387,7 @@ public class MultipleRegression {
     public double maxinterval(double x1, double x2){
         double [][] x0 = {{1,x1,x2}};
         double degreesOfFreedom = (n-(k+1));
-        double t = new TDistribution(degreesOfFreedom).inverseCumulativeProbability(1-(0.025 /2));
+        double t = new TDistribution(degreesOfFreedom).inverseCumulativeProbability(1-(ALPHA /2));
         double delta = sqrt(mqe*valor(multiplicar(transposta(x0),(multiplicar((inversa(multiplicar(transposta(x),x))),x0)))));
         return predict(x1,x2) + t*delta;
     }

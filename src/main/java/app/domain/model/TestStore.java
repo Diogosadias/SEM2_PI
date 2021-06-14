@@ -305,7 +305,7 @@ public class TestStore extends Store{
                 }
             }
             if (temp.isEmpty()) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("No "+state+" tests");
             }
             return temp;
         }

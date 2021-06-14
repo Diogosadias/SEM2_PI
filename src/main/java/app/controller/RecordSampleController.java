@@ -31,9 +31,6 @@ public class RecordSampleController {
     private Sample sample;
 
     public RecordSampleController() {
-        if (!App.getInstance().getCurrentUserSession().isLoggedInWithRole(ROLE_MED_LAB_TECH)) {
-            throw new IllegalStateException("Access Unauthorized!");
-        }
         this.company = App.getInstance().getCompany();
         this.sampleStore = this.company.getSampleStore();
         this.testStore = this.company.getTestStore();
@@ -47,6 +44,9 @@ public class RecordSampleController {
     }
 
     public boolean saveSample() {
+        if (!App.getInstance().getCurrentUserSession().isLoggedInWithRole(ROLE_MED_LAB_TECH)) {
+            throw new IllegalStateException("Access Unauthorized!");
+        }
         if(this.sampleStore.saveSample(this.sample)) {
             return this.testStore.addSampleToTest(sample);
         }

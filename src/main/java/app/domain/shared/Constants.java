@@ -46,4 +46,11 @@ public class Constants {
     public static final String SAMPLE_ANALYSED = "Sample Analysed";
     public static final String DIAGNOSIS_MADE = "Diagnosis Made";
     public static final String VALIDATED = "Validated";
+
+
+    //JAVAFX - gui constants
+    public static final double MINIMUM_WINDOW_WIDTH = 600.0;
+    public static final double MINIMUM_WINDOW_HEIGHT = 400.0;
+    public static final double SCENE_WIDTH = 750.0;
+    public static final double SCENE_HEIGHT = 500.0;
 }
