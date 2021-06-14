@@ -5,6 +5,10 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
+<!--
+    @author Márcio Ramos <1201682@isep.ipp.pt>
+-->
+
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="556.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.MainMenuGUI">
    <center>
       <GridPane alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="225.0" prefWidth="469.0" BorderPane.alignment="CENTER">

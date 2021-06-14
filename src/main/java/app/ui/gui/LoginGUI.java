@@ -108,7 +108,7 @@ public class LoginGUI implements Initializable, GuiMethods {
                 if (!Objects.isNull(role))
                 {
                     List<MenuItem> rolesUI = getMenuItemForRoles();
-                    /* mainInstance.replaceSceneContent("/fxml/BlankScene.fxml");*/
+
                     /*try {
                         //DashboardAdminUI dashboardAdminUI = (DashboardAdminUI) this.mainInstance.replaceSceneContent("/fxml/DashboardAdmin.fxml");
                         //dashboardAdminUI.setMainInstance(this.mainInstance);

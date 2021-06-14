@@ -1,3 +1,34 @@
+/**
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
+ */
+
 .button {
     -fx-font-weight: bold;
 }
+
+.label{
+    -fx-font-size: 14.0 pt;
+}
+
+.list-cell:filled:selected:focused, .list-cell:filled:selected {
+    -fx-background-color: linear-gradient(#328BDB 0%, #207BCF 25%, #1973C9 75%, #0A65BF 100%);
+    -fx-text-fill: white;
+}
+.list-cell:even {
+    -fx-background-color: white;
+}
+.list-cell:filled:hover {
+    -fx-background-color: #dcdcdc;
+    -fx-text-fill: #666666;
+    -fx-font-weight: bold;
+}
+.list-cell{
+    -fx-alignment: center;
+}
+
+.menu-item .label {
+    -fx-font-size: 12.0 pt;
+}
+
+
+
