@@ -2,11 +2,13 @@ package app.domain.model;
 
 import app.domain.shared.Constants;
 
+import app.domain.shared.SortAlgorithm;
 import auth.AuthFacade;
 import auth.domain.model.Email;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -192,5 +194,7 @@ public class ClientStore extends Store{
             throw new IllegalArgumentException();
         }
     }
+
+
 
 }

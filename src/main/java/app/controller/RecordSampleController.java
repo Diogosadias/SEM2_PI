@@ -1,6 +1,7 @@
 package app.controller;
 
 
+import app.domain.dto.ClientDTO;
 import app.domain.dto.TestDto;
 import app.domain.dto.TestMapper;
 import app.domain.model.*;
@@ -10,6 +11,7 @@ import net.sourceforge.barbecue.BarcodeException;
 import net.sourceforge.barbecue.output.OutputException;
 
 import java.io.IOException;
+import java.util.Comparator;
 import java.util.List;
 
 import static app.domain.shared.Constants.ROLE_MED_LAB_TECH;
@@ -18,6 +20,7 @@ import static app.domain.shared.Constants.ROLE_MED_LAB_TECH;
  * RecordSampleController - Controller for US5, registering a sample to a test.
  *
  * @author Gil Pereira
+ * @author Tiago Ferreira
  */
 public class RecordSampleController {
 
@@ -70,5 +73,7 @@ public class RecordSampleController {
     public Company getCompany() {
         return this.company;
     }
+
+
 
 }
