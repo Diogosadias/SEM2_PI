@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.CovidReportToNHSUI">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.CovidReportToNHSUI">
    <center>
       <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="900.0">
          <children>
@@ -108,7 +103,7 @@
       <HBox alignment="BOTTOM_CENTER" maxHeight="60.0" prefHeight="300.0" prefWidth="779.0" spacing="50.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#handleCancel" prefHeight="39.0" prefWidth="157.0" text="Cancel" />
-            <Button fx:id="btnSubmit" mnemonicParsing="false" onAction="#handleSubmit" prefHeight="37.0" prefWidth="162.0" text="Send Report to NHS" />
+            <Button fx:id="btnSubmit" defaultButton="true" mnemonicParsing="false" onAction="#handleSubmit" prefHeight="37.0" prefWidth="162.0" text="Send Report to NHS" />
          </children>
       </HBox>
    </bottom>
