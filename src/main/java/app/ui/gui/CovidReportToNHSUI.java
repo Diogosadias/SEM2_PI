@@ -1,5 +1,6 @@
 package app.ui.gui;
 
+import app.controller.App;
 import app.controller.CovidNhsReportController;
 import app.ui.Main;
 import app.ui.console.MenuItem;
@@ -101,16 +102,16 @@ public class CovidReportToNHSUI implements Initializable, GuiMethods {
 
     @FXML
     void handleSubmit(ActionEvent event) {
-        controller.startNewReport(comboHistoric.getSelectionModel().getSelectedItem(),Integer.valueOf(txtHistoricalPoints.getText()));
+        controller.startNewReport(Integer.valueOf(txtHistoricalPoints.getText()));
         SimpleDateFormat formatter1=new SimpleDateFormat("dd/MM/yyyy");
         try {
             Date dateI = formatter1.parse(txtStartDate.getText());
             Date dateF = formatter1.parse(txtEndDate.getText());
             if (comboBoxRegressiontType.getSelectionModel().getSelectedItem().equalsIgnoreCase("Linear")) {
 
-                controller.doLinearRegression(dateI,dateF,comboBoxIndependentVariable.getSelectionModel().getSelectedItem());
+                controller.doLinearRegression(dateI,dateF,comboBoxIndependentVariable.getSelectionModel().getSelectedItem(),comboHistoric.getSelectionModel().getSelectedItem());
             } else {
-                controller.doLinearRegression(dateI,dateF,"Both");
+                controller.doLinearRegression(dateI,dateF,"Both",comboHistoric.getSelectionModel().getSelectedItem());
             }
         } catch (ParseException e) {
             e.printStackTrace();

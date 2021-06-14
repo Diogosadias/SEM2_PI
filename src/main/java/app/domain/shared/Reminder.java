@@ -17,38 +17,31 @@ import java.util.TimerTask;
 
 public class Reminder {
     Timer timer;
+    private String data;
 
-    public Reminder(int seconds) {
-        timer = new Timer();
-        timer.schedule(new RemindTask(), seconds*5000);
+    public Reminder(String data) {
+        this.data = data;
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.HOUR_OF_DAY,18);
+        cal.set(Calendar.MINUTE,00);
+        cal.set(Calendar.SECOND,0);
+        Date time = cal.getTime();
+
+        Timer timer = new Timer();
+        timer.schedule(new RemindTask(), System.currentTimeMillis());
     }
 
     class RemindTask extends TimerTask {
         public void run() {
 
              Report2NHS reportnhs = new Report2NHS();
-
-             reportnhs.writeUsingFileWriter("");
-
+            reportnhs.writeUsingFileWriter(data);
 
             timer.cancel(); //Terminate the timer thread
         }
     }
 
-    public void scheduled() {
 
-        Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.HOUR_OF_DAY,18);
-        cal.set(Calendar.MINUTE,00);
-        cal.set(Calendar.SECOND,00);
-        Date time = cal.getTime();
-
-        Timer timer = new Timer();
-        timer.schedule(new RemindTask(), time);
-
-
-
-    }
 
 
 }

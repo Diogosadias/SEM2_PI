@@ -29,7 +29,6 @@ public class CovidNhsReportController {
     private int histPoints;
     private Date initialDate;
     private Date finalDate;
-    private String regression;
     private Date currentDay;
     private String report;
     private String varIndependent;
@@ -51,9 +50,8 @@ public class CovidNhsReportController {
         list = this.testStore.getValidatedTests();
     }
 
-    public void startNewReport(String historic, int histPoints) {
+    public void startNewReport(int histPoints) {
         this.currentDay = new Date(System.currentTimeMillis());
-        this.historic = historic;
         this.histPoints = histPoints;
         this.testList = getValidatedCovidTestList();
         if (testList == null) {
@@ -75,7 +73,8 @@ public class CovidNhsReportController {
     }
 
 
-    public void doLinearRegression(Date initialDate, Date finalDate, String varIndependent) {
+    public void doLinearRegression(Date initialDate, Date finalDate, String varIndependent, String hi) {
+        this.historic = historic;
         this.initialDate = initialDate;
         this.finalDate = finalDate;
         this.varIndependent = varIndependent;
@@ -138,7 +137,9 @@ public class CovidNhsReportController {
                 this.multiple = new MultipleRegression(this.yInterval,this.xTestsInterval,this.xAgeInterval);
             }
 
+    }
 
+    public void sendNhsReport() {
         String fileName = "CovidReport.txt";
         try (PrintStream out = new PrintStream(new FileOutputStream(fileName))) {
             switch (varIndependent){
@@ -242,6 +243,10 @@ public class CovidNhsReportController {
             }
         }
         return board;
+    }
+
+    public String getData() {
+        return linear+ boardToFile();
     }
 
 
