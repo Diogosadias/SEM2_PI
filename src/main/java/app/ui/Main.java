@@ -2,6 +2,7 @@ package app.ui;
 
 import app.controller.App;
 import app.controller.FileController;
+import app.domain.shared.Constants;
 import app.ui.gui.MainMenuGUI;
 import app.ui.gui.GuiMethods;
 import javafx.application.Application;
@@ -16,6 +17,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import static app.domain.shared.Constants.*;
 
 /**
  *
@@ -32,10 +35,7 @@ public class Main extends Application {
     }
     public Main getinstance(){ return this;}
 
-    private final double MINIMUM_WINDOW_WIDTH = 400.0;
-    private final double MINIMUM_WINDOW_HEIGHT = 300.0;
-    private final double SCENE_WIDTH = 900.0;
-    private final double SCENE_HEIGHT = 600.0;
+
 
     /**
      * The main() method is ignored in correctly deployed JavaFX application.

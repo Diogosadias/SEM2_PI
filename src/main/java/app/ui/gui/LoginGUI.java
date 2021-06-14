@@ -122,6 +122,8 @@ public class LoginGUI implements Initializable, GuiMethods {
 
                 }
             }
+        }else{
+            openAlert("Login Error", "Login was not successful", "Check your email/password", Alert.AlertType.ERROR);
         }
         this.logout();
 
