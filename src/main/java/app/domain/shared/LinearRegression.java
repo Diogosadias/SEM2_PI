@@ -227,7 +227,9 @@ public class LinearRegression {
 
     public String toString(){
         NumberFormat formatter = new DecimalFormat("#0.0000");
-        return "b = "+formatter.format(slope)+"\na = "+formatter.format(intercept)+
+        return "The regression model fitted using data from the interval \n" +
+                "^y = a + bx <=> ^y = " + formatter.format(intercept) + " + " + formatter.format(slope) + " * x" +
+                "\nb = "+formatter.format(slope)+"\na = "+formatter.format(intercept)+
                 "\n//\nOther statistics"+"\nR2 = " +formatter.format(r2) + "\nR2adjusted = ..." + "\nR = " + formatter.format(Math.sqrt(r2)) +
                 "\n//\nHypothesis tests for regression coefficients\nHO:b=0 (a=0) H1: b<>0 (a<>0)" +
                 "\nt_obs = " + formatter.format(this.tDistribution) + "\nDecision: " + decision() +

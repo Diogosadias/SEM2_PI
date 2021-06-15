@@ -50,12 +50,15 @@ public class CovidNhsReportController {
         list = this.testStore.getValidatedTests();
     }
 
-    public void startNewReport(int histPoints) {
+    public boolean startNewReport(int histPoints) {
         this.currentDay = new Date(System.currentTimeMillis());
         this.histPoints = histPoints;
-        this.testList = getValidatedCovidTestList();
-        if (testList == null) {
-            throw new IllegalArgumentException("Validated/Covid Test list is empty.");
+        try {
+            this.testList = getValidatedCovidTestList();
+            return true;
+        } catch (NullPointerException n) {
+            System.out.println("Validated Test list is empty, cannot send Nhs Report.");
+            return false;
         }
     }
 
@@ -95,11 +98,13 @@ public class CovidNhsReportController {
 
             int i=0;
             historicDateList = new ArrayList<>();
-            date.setTime(new Date(System.currentTimeMillis()));
+            //date.setTime(new Date(System.currentTimeMillis()));
+        date.setTime(new Date("2021/05/29"));
             int countDays = 1;
+            int sumAge = 0;
             while( countDays <= (histPoints*historicDays) ) {
                 Date targetDay = date.getTime();
-                int sumAge = 0;
+
 
                 SimpleDateFormat fmt = new SimpleDateFormat("yyyyMMdd");
                 List<Test> list = this.testStore.getValidatedTests();
@@ -116,20 +121,21 @@ public class CovidNhsReportController {
 
                     }
 
-                if(county > 0 && countx > 0 && sumAge > 0) {
-                    this.xAge[i] = (double)sumAge / (double)countx;
-                    this.xTests[i] = countx;
-                    this.y[i] = county;
-                    historicDateList.add(targetDay);
-                    countDays++;
-                }
                 if(countDays%historicDays == 0){
+                    if(county > 0 && countx > 0) {
+                        this.xAge[i] += (double)sumAge / (double)countx;
+                        this.xTests[i] += countx;
+                        this.y[i] += county;
+                        historicDateList.add(targetDay);
+                       }
                     countx = 0;
                     county = 0;
+                    sumAge = 0;
+                    if(y[i] > 0) {
+                        i++;
+                    }
                 }
-                if(y[i] > 0) {
-                    i++;
-                }
+                countDays++;
                 date.add(Calendar.DATE, -1);
             }
 
@@ -199,18 +205,8 @@ public class CovidNhsReportController {
         }
     }
 
-
-    public String writeReport(){
-        if(linear!=null)
-            this.report = linear.toString();
-        else if(multiple!=null)
-                this.report = multiple.toString();
-        return this.report;
-    }
-
     private String boardToFile() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        NumberFormat formatter = new DecimalFormat("#0.0000");
         String board;
         switch (varIndependent){
             case "Registered Tests":
@@ -238,12 +234,20 @@ public class CovidNhsReportController {
 
     private String boardSimpleLRString (double[] x, SimpleDateFormat dateFormat) {
         NumberFormat formatter = new DecimalFormat("#0.0000");
-        String board = "\n\nPrediction values\n\n" + "Date\t\t\tNumber of OBSERVED positive cases\t\tNumber of ESTIMATED/EXPECTED positive cases\t\t\t\t\t95% intervals";
+        String board = "\n\nPrediction values\n\n" + "Date\t\t\t\t\t\tNumber of OBSERVED positive cases\t\tNumber of ESTIMATED/EXPECTED positive cases\t\t\t\t\t95% intervals";
         for(int i = 0; i < this.historicDateList.size(); i ++){
             if(y[i] != 0) {
                 double predict = this.linear.predict(x[i]);
                 double delta = this.linear.delta(x[i]);
-                board += "\n" + dateFormat.format(historicDateList.get(i)) + "\t\t\t\t\t" + (int)y[i] + "\t\t\t\t\t\t\t\t" + formatter.format(predict) +"\t\t\t\t\t\t\t\t\t\t\t\t["+formatter.format((predict - delta))+","+formatter.format((predict + delta))+"]";
+                Date date = historicDateList.get(i);
+                board += "\n" + dateFormat.format(date);
+                if(this.historicDays == 7) {
+                    Calendar cal = Calendar.getInstance();
+                    cal.setTime(date);
+                    cal.add(Calendar.DATE,historicDays-1);
+                    board += " - " + dateFormat.format(cal.getTime());
+                }
+                board += "\t\t\t\t\t\t\t\t" + (int)y[i] + "\t\t\t\t\t\t\t\t" + formatter.format(predict) +"\t\t\t\t\t\t\t\t\t\t\t\t["+formatter.format((predict - delta))+","+formatter.format((predict + delta))+"]";
             }
         }
         return board + "\n\n\n\n";

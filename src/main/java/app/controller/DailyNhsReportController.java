@@ -1,6 +1,7 @@
 package app.controller;
 
 import app.domain.model.Company;
+import app.domain.shared.Reminder;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -33,18 +34,18 @@ public class DailyNhsReportController {
             Date initialDate = new Date(line[getColumnIndex("InitialDate_Registration")]);
             Date finalDate = new Date(line[getColumnIndex("FinalDate_Registration")]);
             int histPoints = Integer.valueOf(line[getColumnIndex("HistoricPoints")]);
-            reportController.startNewReport(histPoints);
+            if(reportController.startNewReport(histPoints)) {
+                data += getDataFromLinearRegression("Registered Tests",initialDate,finalDate,"Daily");
+                data += getDataFromLinearRegression("Mean Age",initialDate,finalDate,"Daily");
+                data += getDataFromLinearRegression("Both",initialDate,finalDate,"Daily");
 
-            data += getDataFromLinearRegression("Registered Tests",initialDate,finalDate,"Daily");
-            data += getDataFromLinearRegression("Mean Age",initialDate,finalDate,"Daily");
-            data += getDataFromLinearRegression("Both",initialDate,finalDate,"Daily");
+                data += getDataFromLinearRegression("Registered Tests",initialDate,finalDate,"Weekly");
+                data += getDataFromLinearRegression("Mean Age",initialDate,finalDate,"Weekly");
+                data += getDataFromLinearRegression("Both",initialDate,finalDate,"Weekly");
 
-            //data += getDataFromLinearRegression("Registered Tests",initialDate,finalDate,"Weekly");
-            //data += getDataFromLinearRegression("Mean Age",initialDate,finalDate,"Weekly");
-            //data += getDataFromLinearRegression("Both",initialDate,finalDate,"Weekly");
-
-            dailytask(data);
-            //Reminder dailyTask = new Reminder(data);
+                dailytask(data);
+                //Reminder dailyTask = new Reminder(data);
+            }
         }
     }
 

@@ -36,40 +36,38 @@ public class CovidNhsReportUI implements Runnable {
         System.out.println("\nNumber of historical points: ");
         int histPoints = read.nextInt();
 
-        controller.startNewReport(histPoints);
 
-        SimpleDateFormat formatter1 = new SimpleDateFormat("dd/MM/yyyy");
+        if( controller.startNewReport(histPoints)) {
+            SimpleDateFormat formatter1 = new SimpleDateFormat("dd/MM/yyyy");
 
-        if(historic.equals("Daily")) {
-            String initDate;
-            String finalDate;
+            if(historic.equals("Daily")) {
+                String initDate;
+                String finalDate;
 
-            System.out.println("Initial Date:  (dd/mm/yyyy)");
-            //initDate = read.next();
-            initDate = "15/05/2021";
-            System.out.println("Final Date:  (dd/mm/yyyy)");
-            //finalDate = read.next();
-            finalDate = "26/05/2021";
+                System.out.println("Initial Date:  (dd/mm/yyyy)");
+                initDate = read.next();
+                System.out.println("Final Date:  (dd/mm/yyyy)");
+                finalDate = read.next();
 
-
-
-            try {
-                Date dateI = formatter1.parse(initDate);
-                Date dateF = formatter1.parse(finalDate);
-                String regression = chooseData("Set Linear Regression Model:\n1 - Simple Linear Regression\n2 - Multiple Linear Regression","Linear","Multiple");
-                if (regression.equals("Linear")) {
-                    String varIndependent = chooseData("Variable Independent:\n1 - Number of Tests Realised\n2 - Client Mean Age", "Registered Tests", "Mean Age");
-                    controller.doLinearRegression(dateI, dateF, varIndependent,historic);
-                } else {
-                    controller.doLinearRegression(dateI, dateF, "Both",historic);
+                try {
+                    Date dateI = formatter1.parse(initDate);
+                    Date dateF = formatter1.parse(finalDate);
+                    String regression = chooseData("Set Linear Regression Model:\n1 - Simple Linear Regression\n2 - Multiple Linear Regression","Linear","Multiple");
+                    if (regression.equals("Linear")) {
+                        String varIndependent = chooseData("Variable Independent:\n1 - Number of Tests Realised\n2 - Client Mean Age", "Registered Tests", "Mean Age");
+                        controller.doLinearRegression(dateI, dateF, varIndependent,historic);
+                    } else {
+                        controller.doLinearRegression(dateI, dateF, "Both",historic);
+                    }
+                    controller.sendNhsReport();
+                } catch (ParseException e) {
+                    e.printStackTrace();
                 }
-                controller.sendNhsReport();
-            } catch (ParseException e) {
-                e.printStackTrace();
             }
+
+
+
         }
-
-
 
 
     }
