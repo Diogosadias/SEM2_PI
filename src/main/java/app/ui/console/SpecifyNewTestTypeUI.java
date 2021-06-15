@@ -54,5 +54,6 @@ public class SpecifyNewTestTypeUI implements Runnable {
             System.out.print("\n");
 
         } while( ! codep.equalsIgnoreCase("Finish"));
+        System.out.println("Test Type Created!");
     }
 }
