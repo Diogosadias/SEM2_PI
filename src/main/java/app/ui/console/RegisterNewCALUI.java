@@ -40,21 +40,21 @@ public class RegisterNewCALUI implements Runnable{
 
             System.out.println("REGISTER NEW CLINICAL ANALYSIS LABORATORY");
 
-            System.out.println("ID:");
+            System.out.println("ID (must have 5 characters):");
 
             String labId = reader.nextLine();
 
-            System.out.println("Laboratory Name:");
+            System.out.println("Laboratory Name (no more than 20 chars):");
             String labName = reader.nextLine();
 
-            System.out.println("Phone Number:");
+            System.out.println("Phone Number (11 chars):");
             long phoneNumber = reader.nextLong();
 
-            System.out.println("Address:");
+            System.out.println("Address (no more than 30 chars):");
             reader.nextLine();
             String address = reader.nextLine();
 
-            System.out.println("Tax Identification Number:");
+            System.out.println("Tax Identification Number (10 chars):");
 
             long tin = reader.nextLong();
 

@@ -22,6 +22,7 @@ public class MultipleRegression {
     private double[][] y;
     private double[][] betas;
     private double[][] x;
+    private double[][] inv;
     private double n ;
     private final double k = 2;
     private double sqt;
@@ -55,7 +56,10 @@ public class MultipleRegression {
 
 
         //get betas
-        this.betas = multiplicar(inversa(multiplicar(transposta(x),x)),multiplicar(transposta(x),this.y));
+        double [][] xtx = multiplicar(transposta(this.x),this.x);
+        double [][] xty = multiplicar(transposta(this.x),this.y);
+        this.inv = inversa(xtx);
+        this.betas = multiplicar(inv,xty);
 
 
 
@@ -234,10 +238,10 @@ public class MultipleRegression {
     }
 
     private double[][] matrizy(double[] y) {
-        double [][] matriz = new double[1][y.length];
+        double [][] matriz = new double[y.length][1];
         for(int i = 0; i<1;i++){
             for(int j=0;j< y.length;j++){
-                matriz[i][j] = y[j];
+                matriz[j][i] = y[j];
             }
         }
         return matriz;
@@ -247,22 +251,22 @@ public class MultipleRegression {
             throw new IllegalArgumentException("array lengths are not equal");
         }
 
-        double[][]matriz = new double[3][x1.length];
+        double[][]matriz = new double[x1.length][3];
 
         //populate
         for(int i = 0; i<1;i++){
             for(int j=0;j< x1.length;j++){
-                matriz[i][j] = 1;
+                matriz[j][i] = 1;
             }
         }
         for(int i = 1; i<2;i++){
             for(int j=0;j< x1.length;j++){
-                matriz[i][j] = x1[j];
+                matriz[j][i] = x1[j];
             }
         }
         for(int i = 2; i<3;i++){
             for(int j=0;j< x1.length;j++){
-                matriz[i][j] = x2[j];
+                matriz[j][i] = x2[j];
             }
         }
         return matriz;
@@ -273,7 +277,7 @@ public class MultipleRegression {
 
         for(int i = 0; i<x.length;i++){
             for(int j=0;j< x[0].length;j++){
-                matriz[i][j] = x[i][j];
+                matriz[j][i] = x[i][j];
             }
         }
         return matriz;
@@ -283,8 +287,8 @@ public class MultipleRegression {
         double[][] matriz = new double[x.length][y[0].length];
         for(int i = 0; i<x.length;i++){
             for(int j=0;j< y[0].length;j++){
-                for(int a = 0; a<y[0].length;a++){
-                    matriz[i][j] =+ x[i][a] * y[a][j];
+                for(int a = 0; a<y.length;a++){
+                    matriz[i][j] = matriz[i][j] + x[i][a] * y[a][j];
                 }
             }
         }
@@ -349,12 +353,13 @@ public class MultipleRegression {
                 }
             }
         }
-        for(int i = 0, w=0; i < temp.length; i++){
-            for(int j = 0; j < temp[0].length; j++){
+        for(int j = 0, w= 0; j < temp.length; j++){
+            for(int i = 0, k=0; i < temp[0].length; i++){
                 if(j != a){
-                    matriz[w++][j] = temp[i][j];
+                    matriz[w][k++] = temp[j][i];
                 }
             }
+            if(j>0) w++;
         }
 
         return matriz;
@@ -377,19 +382,19 @@ public class MultipleRegression {
     }
 
     public double mininterval(double x1, double x2){
-        double [][] x0 = {{1,x1,x2}};
+        double [][] x0 = {{1},{x1},{x2}};
         double degreesOfFreedom = (n-(k+1));
         double t = new TDistribution(degreesOfFreedom).inverseCumulativeProbability(1-(ALPHA /2));
-        double delta = sqrt(mqe*valor(multiplicar(transposta(x0),(multiplicar((inversa(multiplicar(transposta(x),x))),x0)))));
-        return predict(x1,x2) - t*delta;
+        double delta = mqe * valor(multiplicar(transposta(x0),multiplicar(inv,x0)));
+        return predict(x1,x2) - t*sqrt(delta);
     }
 
     public double maxinterval(double x1, double x2){
-        double [][] x0 = {{1,x1,x2}};
+        double [][] x0 = {{1},{x1},{x2}};
         double degreesOfFreedom = (n-(k+1));
         double t = new TDistribution(degreesOfFreedom).inverseCumulativeProbability(1-(ALPHA /2));
-        double delta = sqrt(mqe*valor(multiplicar(transposta(x0),(multiplicar((inversa(multiplicar(transposta(x),x))),x0)))));
-        return predict(x1,x2) + t*delta;
+        double delta = mqe * valor(multiplicar(transposta(x0),multiplicar(inv,x0)));
+        return predict(x1,x2) + t*sqrt(delta);
     }
 
     //Decision

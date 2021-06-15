@@ -135,7 +135,6 @@ public class LoginGUI implements Initializable, GuiMethods {
     private List<MenuItem> getMenuItemForRoles()
     {
         List<MenuItem> rolesUI = new ArrayList<>();
-        //rolesUI.add(new MenuItem(Constants.ROLE_ADMIN, new AdminUI()));
         rolesUI.add(new MenuItem(Constants.ROLE_ADMIN, "/fxml/AdminGUI.fxml"));
         rolesUI.add(new MenuItem(Constants.ROLE_RECEP, "/fxml/ReceptionistGUI.fxml"));
         rolesUI.add(new MenuItem(Constants.SPECIALIST_DOCTOR, "/fxml/SpecialistDoctorGUI.fxml"));

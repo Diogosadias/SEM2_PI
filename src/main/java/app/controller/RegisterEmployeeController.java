@@ -35,9 +35,6 @@ public class RegisterEmployeeController {
      * Constructor for a given Company instance.
      */
     public RegisterEmployeeController() {
-         if (!App.getInstance().getCurrentUserSession().isLoggedInWithRole(ROLE_ADMIN)) {
-            throw new IllegalStateException("Utilizador nï¿½o Autorizado");
-        }
         this.company = App.getInstance().getCompany();
         this.estore = company.getEmployeeStore();
         this.auth = company.getAuthFacade();
