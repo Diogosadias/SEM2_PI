@@ -120,7 +120,7 @@ public class TestStore extends Store{
         System.out.println(testCode);
         for (Test t : this.testList) {
             if(testCode.equals(t.getCode())) {
-               testCode = new GenerateTestCode(numRegisteredTest+1).getCode();
+               testCode = new GenerateTestCode(numRegisteredTest+30000).getCode();
             }
         }
         this.test.setCode(testCode);
