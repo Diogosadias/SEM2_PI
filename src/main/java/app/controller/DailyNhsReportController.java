@@ -36,8 +36,8 @@ public class DailyNhsReportController {
             reportController.startNewReport(histPoints);
 
             data += getDataFromLinearRegression("Registered Tests",initialDate,finalDate,"Daily");
-            //data += getDataFromLinearRegression("Mean Age",initialDate,finalDate,"Daily");
-            data += getDataFromLinearRegression("Both",initialDate,finalDate,"Daily");
+            data += getDataFromLinearRegression("Mean Age",initialDate,finalDate,"Daily");
+            //data += getDataFromLinearRegression("Both",initialDate,finalDate,"Daily");
 
             //data += getDataFromLinearRegression("Registered Tests",initialDate,finalDate,"Weekly");
             //data += getDataFromLinearRegression("Mean Age",initialDate,finalDate,"Weekly");
