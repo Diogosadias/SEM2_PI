@@ -404,7 +404,7 @@ public class MultipleRegression {
     }
 
 //Priting
-
+    @Override
     public String toString(){
         NumberFormat formatter = new DecimalFormat("#0.0000");
         return "The regression model fitted using data from the interval \n" +
