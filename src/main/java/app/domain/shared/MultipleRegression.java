@@ -412,7 +412,7 @@ public class MultipleRegression {
     @Override
     public String toString(){
         NumberFormat formatter = new DecimalFormat("#0.0000");
-        return "The regression model fitted using data from the interval \n" +
+        return "\nThe regression model fitted using data from the interval \n" +
                 "^y = " + betas[0] + " + " + betas[1] + "x1 + " + betas[2] + "x2" +
                 "\n//\nOther statistics"+"\nR2 = " + formatter.format(r2) + "\nR2adjusted = " + formatter.format(raj) + "\nR = " + formatter.format(r) +
                 "\n//\nHypothesis tests for regression coefficients\nHO:b1=b2=0, k=2 H1: bj<>0 , j=1,2 " +

@@ -87,6 +87,40 @@ public class CovidNhsReportController {
         this.Matcp();
     }
 
+    private void setLinearRegressionData() {
+        Calendar start = Calendar.getInstance();
+        Calendar end = Calendar.getInstance();
+        start.setTime(this.initialDate);
+        end.setTime(this.finalDate);
+        int n = (int) TimeUnit.DAYS.convert((this.finalDate.getTime() - this.initialDate.getTime()), TimeUnit.MILLISECONDS) - 1;
+        this.xAgeInterval = new double[n];
+        this.xTestsInterval = new double[n];
+        this.yInterval = new double[n];
+        int i =0;
+        while (!start.after(end)) {
+            int countx = 0;
+            int county = 0;
+            int sumAge = 0;
+            for (Test t : list) {
+                if (fmt.format(t.getDateRegistered()).equals(fmt.format(start.getTime()))) {
+                    countx++;
+                    if (t.getTestParam().getResult().getMetric() > 1.4) {
+                        county++;
+                    }
+                    sumAge += t.getClient().calculateAge();
+                }
+
+            }
+            if(countx > 0) {
+                this.xAgeInterval[i] = (double)sumAge / (double)countx;
+                this.xTestsInterval[i] = countx;
+                this.yInterval[i] = county;
+                i++;
+            }
+            start.add(Calendar.DATE, 1);
+        }
+    }
+
     public void Matcp(){
         Calendar date = Calendar.getInstance();
         this.xAge = new double[this.histPoints];
@@ -171,39 +205,7 @@ public class CovidNhsReportController {
         }
     }
 
-    public void setLinearRegressionData() {
-        Calendar start = Calendar.getInstance();
-        Calendar end = Calendar.getInstance();
-        start.setTime(this.initialDate);
-        end.setTime(this.finalDate);
-        int n = (int) TimeUnit.DAYS.convert((this.finalDate.getTime() - this.initialDate.getTime()), TimeUnit.MILLISECONDS) - 1;
-        this.xAgeInterval = new double[n];
-        this.xTestsInterval = new double[n];
-        this.yInterval = new double[n];
-        int i =0;
-        while (!start.after(end)) {
-            int countx = 0;
-            int county = 0;
-            int sumAge = 0;
-            for (Test t : list) {
-                if (fmt.format(t.getDateRegistered()).equals(fmt.format(start.getTime()))) {
-                    countx++;
-                    if (t.getTestParam().getResult().getMetric() > 1.4) {
-                        county++;
-                    }
-                    sumAge += t.getClient().calculateAge();
-                }
 
-            }
-            if(countx > 0) {
-                this.xAgeInterval[i] = (double)sumAge / (double)countx;
-                this.xTestsInterval[i] = countx;
-                this.yInterval[i] = county;
-                i++;
-            }
-            start.add(Calendar.DATE, 1);
-        }
-    }
 
     private String boardToFile() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
