@@ -92,7 +92,7 @@ public class CovidNhsReportController {
         Calendar end = Calendar.getInstance();
         start.setTime(this.initialDate);
         end.setTime(this.finalDate);
-        int n = (int) TimeUnit.DAYS.convert((this.finalDate.getTime() - this.initialDate.getTime()), TimeUnit.MILLISECONDS) - 1;
+        int n = (int) TimeUnit.DAYS.convert((this.finalDate.getTime() - this.initialDate.getTime()), TimeUnit.MILLISECONDS) + 1;
         this.xAgeInterval = new double[n];
         this.xTestsInterval = new double[n];
         this.yInterval = new double[n];
@@ -111,7 +111,7 @@ public class CovidNhsReportController {
                 }
 
             }
-            if(countx > 0) {
+            if(countx > 0 && county >0) {
                 this.xAgeInterval[i] = (double)sumAge / (double)countx;
                 this.xTestsInterval[i] = countx;
                 this.yInterval[i] = county;

@@ -50,7 +50,7 @@ public class DailyNhsReportController {
     }
 
     private void dailytask(String data) {
-        File file = new File("NHSReport.txt");
+        File file = new File("DailyNHSReport.txt");
         FileWriter fr = null;
         try {
             fr = new FileWriter(file);
