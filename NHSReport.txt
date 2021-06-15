@@ -1,0 +1,133 @@
+ === Linear Regression - Daily - Registered Tests === 
+b = 0,7608
+a = -1,1816
+//
+Other statistics
+R2 = 0,9774
+R2adjusted = ...
+R = 0,9886
+//
+Hypothesis tests for regression coefficients
+HO:b=0 (a=0) H1: b<>0 (a<>0)
+t_obs = 2,3060
+Decision: Reject H0.
+//
+Significance model with Anova
+H0: b=0  H1:b<>0
+			df		SS		MS		F		
+Regression	1.0	160,6824	160,6824	345,7786	
+Residual	8.0	3,7176		0,4647		
+Total		9.0	164,4000		
+
+Decision: f 
+0 > f0.05,(1.8)=0,0042
+
+Prediction values
+
+Date			Number of OBSERVED positive cases		Number of ESTIMATED/EXPECTED positive cases					95% intervals
+2021-05-28					3								3,3833												[2,2495,4,5170]
+2021-05-27					2								3,3833												[2,2495,4,5170]
+2021-05-26					5								4,1441												[3,0943,5,1939]
+2021-05-25					8								7,9481												[7,2757,8,6206]
+2021-05-24					8								7,9481												[7,2757,8,6206]
+2021-05-22					12								12,5130												[12,0031,13,0228]
+2021-05-21					10								10,2305												[9,7052,10,7559]
+2021-05-20					9								10,2305												[9,7052,10,7559]
+2021-05-19					14								14,0346												[13,4530,14,6162]
+2021-05-18					18								17,0778												[16,2360,17,9196]
+2021-05-17					16								15,5562												[14,8578,16,2546]
+2021-05-15					16								16,3170												[15,5494,17,0847]
+2021-05-14					18								16,3170												[15,5494,17,0847]
+2021-05-13					18								17,8386												[16,9190,18,7582]
+2021-05-12					22								20,8818												[19,6280,22,1357]
+
+
+
+ === Linear Regression - Daily - Mean Age === 
+b = 0,9747
+a = -16,7292
+//
+Other statistics
+R2 = 0,4976
+R2adjusted = ...
+R = 0,7054
+//
+Hypothesis tests for regression coefficients
+HO:b=0 (a=0) H1: b<>0 (a<>0)
+t_obs = 2,3060
+Decision: Reject H0.
+//
+Significance model with Anova
+H0: b=0  H1:b<>0
+			df		SS		MS		F		
+Regression	1.0	81,8009	81,8009	7,9227	
+Residual	8.0	82,5991		10,3249		
+Total		9.0	164,4000		
+
+Decision: f 
+0 > f0.05,(1.8)=0,0042
+
+Prediction values
+
+Date			Number of OBSERVED positive cases		Number of ESTIMATED/EXPECTED positive cases					95% intervals
+2021-05-28					3								6,9896												[2,5447,11,4345]
+2021-05-27					2								6,8271												[2,2686,11,3857]
+2021-05-26					5								12,5131												[10,0534,14,9728]
+2021-05-25					8								9,0203												[5,8648,12,1758]
+2021-05-24					8								9,0203												[5,8648,12,1758]
+2021-05-22					12								9,2098												[6,1562,12,2635]
+2021-05-21					10								10,0438												[7,3762,12,7113]
+2021-05-20					9								7,8993												[4,0676,11,7311]
+2021-05-19					14								14,2189												[11,0418,17,3960]
+2021-05-18					18								17,1025												[12,0219,22,1832]
+2021-05-17					16								14,3740												[11,1098,17,6382]
+2021-05-15					16								12,5979												[10,1162,15,0796]
+2021-05-14					18								14,7593												[11,2679,18,2506]
+2021-05-13					18								15,4763												[11,5297,19,4230]
+2021-05-12					22								20,2439												[12,7847,27,7030]
+
+
+
+ === Linear Regression - Daily - Multiple Variables === 
+The regression model fitted using data from the interval 
+^y = [D@3437d2af + [D@3244f165x1 + [D@637fc07dx2
+//
+Other statistics
+R2 = 26888364271225,7500
+R2adjusted = 34570754063004,2540
+R = 5185399,1429
+//
+Hypothesis tests for regression coefficients
+HO:b1=b2=0, k=2 H1: bj<>0 , j=1,2 
+f_obs = 4.737414127780652
+Decision: 
+Don't Reject H0.
+//
+Significance model with Anova
+
+			df		SS		MS		F		
+Regression	2.0	4420447086189516,0000	2210223543094758,0000	-3,5000	
+Residual	7.0	-4420447086189351,5000		-631492440884193,1000		
+Total	9.0	164,4000		
+
+Decision: f 
+0 > f0.05,(2.7)=4.737414127780652
+
+Prediction values
+
+Date			Number of OBSERVED positive cases		Number of ESTIMATED/EXPECTED positive cases					95% intervals
+2021-05-28					3												1.2279020384916506E13									[NaN,NaN]						
+2021-05-27					2												1.2279020376998447E13									[NaN,NaN]						
+2021-05-26					5												1.4325523858698385E13									[NaN,NaN]						
+2021-05-25					8												2.4558039711299582E13									[NaN,NaN]						
+2021-05-24					8												2.4558039711299582E13									[NaN,NaN]						
+2021-05-22					12												3.683705894794467E13									[NaN,NaN]						
+2021-05-21					10												3.0697549374887027E13									[NaN,NaN]						
+2021-05-20					9												3.0697549270368656E13									[NaN,NaN]						
+2021-05-19					14												4.0930065601220586E13									[NaN,NaN]						
+2021-05-18					18												4.911607856003769E13									[NaN,NaN]						
+2021-05-17					16												4.5023072017914516E13									[NaN,NaN]						
+2021-05-15					16												4.7069575135915805E13									[NaN,NaN]						
+2021-05-14					18												4.706957524126041E13									[NaN,NaN]						
+2021-05-13					18												5.116258168534581E13									[NaN,NaN]						
+2021-05-12					22												5.934859473598237E13									[NaN,NaN]						
