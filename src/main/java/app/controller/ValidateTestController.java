@@ -21,9 +21,9 @@ public class ValidateTestController {
     private List<Test> validated;
 
     public ValidateTestController () {
-        if (!App.getInstance().getCurrentUserSession().isLoggedInWithRole(ROLE_LAB_COORDINATOR)) {
-            throw new IllegalStateException("Utilizador nï¿½o Autorizado");
-        }
+
+
+
         this.company = App.getInstance().getCompany();
         this.tStore = this.company.getTestStore();
         this.validated = new ArrayList<>();

@@ -117,14 +117,28 @@ public class TestStore extends Store{
 
     private void generateTestCode() {
         String testCode = new GenerateTestCode(numRegisteredTest).getCode();
+        System.out.println(testCode);
         for (Test t : this.testList) {
             if(testCode.equals(t.getCode())) {
-                throw new IllegalArgumentException("Error: Test code is already being used.");
+               testCode = new GenerateTestCode(numRegisteredTest+1).getCode();
             }
         }
         this.test.setCode(testCode);
     }
+/*
+    private void generateTestCode() {
+        String testCode = new GenerateTestCode(numRegisteredTest).getCode();
+        System.out.println(testCode);
+        for (int i = 0; i < this.testList.size(); i++ ) {
+            if(testCode.equals(testList.get(i).getCode())) {
 
+                testCode = new GenerateTestCode(numRegisteredTest+1).getCode();
+                i = -1;
+            }
+        }
+        this.test.setCode(testCode);
+    }
+*/
     /**
      * Add a category to test.
      *
