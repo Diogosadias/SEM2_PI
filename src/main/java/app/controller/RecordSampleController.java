@@ -40,14 +40,13 @@ public class RecordSampleController {
     public Sample createSample(String id, String testCode) throws IOException, BarcodeException, OutputException {
         this.testStore.setTest(this.testStore.getTestByCode(testCode));
         this.sample = this.sampleStore.createSample(id);
+
         return sample;
     }
 
     public boolean saveSample() {
-        if (!App.getInstance().getCurrentUserSession().isLoggedInWithRole(ROLE_MED_LAB_TECH)) {
-            throw new IllegalStateException("Access Unauthorized!");
-        }
         if(this.sampleStore.saveSample(this.sample)) {
+
             return this.testStore.addSampleToTest(sample);
         }
         System.out.println("\nSample is already registered in Test.");

@@ -19,6 +19,7 @@ public class RecordSampleUI implements Runnable {
 
     private final RecordSampleController rsc;
 
+
     public RecordSampleUI(){
         this.rsc = new RecordSampleController();
     }
@@ -37,6 +38,8 @@ public class RecordSampleUI implements Runnable {
                 rsc.createSample(String.valueOf(chosenTest.getCode()),chosenTest.getCode());
                 if(this.rsc.saveSample()) {
                     System.out.println("Sample nº "+ (i+1) + " registered with success!");
+
+
                 }else{
                     System.out.println("Sample nº "+ i+1 + "was not registered!");
                 }
