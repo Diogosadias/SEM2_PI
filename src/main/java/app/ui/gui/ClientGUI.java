@@ -45,8 +45,8 @@ public class ClientGUI implements Initializable, GuiMethods {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         List<MenuItem> options = new ArrayList<>();
-        options.add(new MenuItem("NothingCreate Client", new ShowTextUI("Hello")));
-        options.add(new MenuItem("List Clients", new ShowTextUI("Hello")));
+        options.add(new MenuItem("Tests Results", "/fxml/ClientResultViewGUI.fxml"));
+
 
         for(int i=0; i<options.size();i++){
             myListView.getItems().add(options.get(i).toString());
