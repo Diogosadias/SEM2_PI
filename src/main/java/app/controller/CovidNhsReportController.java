@@ -39,9 +39,9 @@ public class CovidNhsReportController {
     private double [] yInterval;
     private double [] y;
     private List<Test> testList;
-    private List<Date> historicDateList = new ArrayList<>();
+    private List<Date> historicDateList;
     private SimpleDateFormat fmt;
-    List<Test> list;
+    private List<Test> list;
 
     public CovidNhsReportController(){
         this.company = App.getInstance().getCompany();
@@ -78,11 +78,11 @@ public class CovidNhsReportController {
         this.initialDate = initialDate;
         this.finalDate = finalDate;
         this.varIndependent = varIndependent;
+        this.setLinearRegressionData();
         this.Matcp();
     }
 
     public void Matcp(){
-        List<Date> intervalDateList = getIntervalDates();
         Calendar date = Calendar.getInstance();
         this.xAge = new double[this.histPoints];
         this.xTests = new double[this.histPoints];
@@ -92,7 +92,7 @@ public class CovidNhsReportController {
             int county = 0;
 
             int i=0;
-
+            historicDateList = new ArrayList<>();
             date.setTime(new Date(System.currentTimeMillis()));
             int countDays = 1;
             while( countDays <= histPoints ) {
@@ -161,8 +161,7 @@ public class CovidNhsReportController {
         }
     }
 
-    public List getIntervalDates() {
-        List<Date> temp = new ArrayList<>();
+    public void setLinearRegressionData() {
         Calendar start = Calendar.getInstance();
         Calendar end = Calendar.getInstance();
         start.setTime(this.initialDate);
@@ -190,12 +189,10 @@ public class CovidNhsReportController {
                 this.xAgeInterval[i] = (double)sumAge / (double)countx;
                 this.xTestsInterval[i] = countx;
                 this.yInterval[i] = county;
-                temp.add(start.getTime());
                 i++;
             }
             start.add(Calendar.DATE, 1);
         }
-        return temp;
     }
 
 
@@ -242,7 +239,7 @@ public class CovidNhsReportController {
                 board += "\n" + dateFormat.format(historicDateList.get(i)) + "\t\t\t\t\t" + (int)y[i] + "\t\t\t\t\t\t\t\t" + formatter.format(predict) +"\t\t\t\t\t\t\t\t\t\t\t\t["+formatter.format((predict - delta))+","+formatter.format((predict + delta))+"]";
             }
         }
-        return board;
+        return board + "\n\n\n\n";
     }
 
     public String getData() {
