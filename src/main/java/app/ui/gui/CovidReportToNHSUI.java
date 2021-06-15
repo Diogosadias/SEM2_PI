@@ -2,6 +2,7 @@ package app.ui.gui;
 
 import app.controller.App;
 import app.controller.CovidNhsReportController;
+import app.domain.shared.Constants;
 import app.ui.Main;
 import app.ui.console.MenuItem;
 import app.utils.fx.FXUtils;
@@ -91,7 +92,7 @@ public class CovidReportToNHSUI implements Initializable, GuiMethods {
             if (result.get() == ButtonType.OK) {
                 //trocar para janela anterior
                 try {
-                    app.ui.console.MenuItem item= new MenuItem("default", "/fxml/LoginGUI.fxml");
+                    app.ui.console.MenuItem item= new MenuItem("default", "/fxml/AdminGUI.fxml");
                     item.runGui(item.getGui(),mainInstance);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -102,22 +103,37 @@ public class CovidReportToNHSUI implements Initializable, GuiMethods {
 
     @FXML
     void handleSubmit(ActionEvent event) {
-        controller.startNewReport(Integer.valueOf(txtHistoricalPoints.getText()));
-        SimpleDateFormat formatter1=new SimpleDateFormat("dd/MM/yyyy");
-        try {
-            Date dateI = formatter1.parse(txtStartDate.getText());
-            Date dateF = formatter1.parse(txtEndDate.getText());
-            if (comboBoxRegressiontType.getSelectionModel().getSelectedItem().equalsIgnoreCase("Linear")) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirm data");
+        alert.setHeaderText("Do you confirm the report data?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent()) {
+            if (result.get() == ButtonType.OK) {
+                controller.startNewReport(Integer.valueOf(txtHistoricalPoints.getText()));
+                SimpleDateFormat formatter1 = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    Date dateI = formatter1.parse(txtStartDate.getText());
+                    Date dateF = formatter1.parse(txtEndDate.getText());
+                    if (comboBoxRegressiontType.getSelectionModel().getSelectedItem().equalsIgnoreCase("Linear")) {
 
-                controller.doLinearRegression(dateI,dateF,comboBoxIndependentVariable.getSelectionModel().getSelectedItem(),comboHistoric.getSelectionModel().getSelectedItem());
-            } else {
-                controller.doLinearRegression(dateI,dateF,"Both",comboHistoric.getSelectionModel().getSelectedItem());
+                        controller.doLinearRegression(dateI, dateF, comboBoxIndependentVariable.getSelectionModel().getSelectedItem(), comboHistoric.getSelectionModel().getSelectedItem());
+                    } else {
+                        controller.doLinearRegression(dateI, dateF, "Both", comboHistoric.getSelectionModel().getSelectedItem());
+                    }
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                controller.sendNhsReport();
+                //Report2NHS.writeUsingFileWriter(controller.writeReport());
+
+                try {
+                    app.ui.console.MenuItem item= new MenuItem("default", "/fxml/AdminGUI.fxml");
+                    item.runGui(item.getGui(),mainInstance);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
-        } catch (ParseException e) {
-            e.printStackTrace();
         }
-
-        Report2NHS.writeUsingFileWriter(controller.writeReport());
 
     }
 
