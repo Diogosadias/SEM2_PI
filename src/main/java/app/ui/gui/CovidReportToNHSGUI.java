@@ -28,7 +28,7 @@ import java.util.Scanner;
 /**
  * @author Bruno Pereira <1191454@isep.ipp.pt>
  */
-public class CovidReportToNHSUI implements Initializable, GuiMethods {
+public class CovidReportToNHSGUI implements Initializable, GuiMethods {
 
     private Main mainInstance;
 
@@ -66,6 +66,59 @@ public class CovidReportToNHSUI implements Initializable, GuiMethods {
     @FXML
     private Button btnSubmit;
 
+    @FXML
+    private void menu_logout(ActionEvent event) {
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Are you sure you want to cancel and logout?");
+        alert.setHeaderText("Do you want to cancel the report and logout?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent()) {
+            if (result.get() == ButtonType.OK) {
+
+                try {
+                    MenuItem item= new MenuItem("default", "/fxml/LoginGUI.fxml");
+                    item.runGui(item.getGui(),mainInstance);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+    @FXML
+    private void menu_cancel(ActionEvent event) {
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Are you sure you want to cancel?");
+        alert.setHeaderText("Do you want to cancel the report?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent()) {
+            if (result.get() == ButtonType.OK) {
+                //trocar para janela anterior
+                try {
+                    MenuItem item= new MenuItem("default", "/fxml/AdminGUI.fxml");
+                    item.runGui(item.getGui(),mainInstance);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+    @FXML
+    private void menu_exit(ActionEvent event) {
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Are you sure you want to cancel and exit the program?");
+        alert.setHeaderText("Do you want to cancel the report and exit the program?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent()) {
+            if (result.get() == ButtonType.OK) {
+
+                mainInstance.getStage().close();
+            }
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         controller = new CovidNhsReportController();
@@ -82,24 +135,7 @@ public class CovidReportToNHSUI implements Initializable, GuiMethods {
             comboBoxIndependentVariable.setItems(options2);
     }
 
-    @FXML
-    void handleCancel(ActionEvent event) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Are you sure you want to cancel?");
-        alert.setHeaderText("Do you want to cancel the report?");
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.isPresent()) {
-            if (result.get() == ButtonType.OK) {
-                //trocar para janela anterior
-                try {
-                    app.ui.console.MenuItem item= new MenuItem("default", "/fxml/AdminGUI.fxml");
-                    item.runGui(item.getGui(),mainInstance);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
+
 
     @FXML
     void handleSubmit(ActionEvent event) {

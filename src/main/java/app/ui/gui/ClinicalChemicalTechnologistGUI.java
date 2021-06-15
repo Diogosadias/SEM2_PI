@@ -7,12 +7,15 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 /**
@@ -73,16 +76,34 @@ public class ClinicalChemicalTechnologistGUI implements Initializable, GuiMethod
 
     @FXML
     private void menu_logout(ActionEvent event) {
-        try {
-            MenuItem item= new MenuItem("default", "/fxml/LoginGUI.fxml");
-            item.runGui(item.getGui(),mainInstance);
-        } catch (Exception e) {
-            e.printStackTrace();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Logout Confirmation");
+        alert.setHeaderText("Are you sure you want to logout?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent()) {
+            if (result.get() == ButtonType.OK) {
+
+                try {
+                    MenuItem item= new MenuItem("default", "/fxml/LoginGUI.fxml");
+                    item.runGui(item.getGui(),mainInstance);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
     @FXML
     private void menu_exit(ActionEvent event) {
-        mainInstance.getStage().close();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Exit Confirmation");
+        alert.setHeaderText("Are you sure you want to exit the program?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent()) {
+            if (result.get() == ButtonType.OK) {
+
+                mainInstance.getStage().close();
+            }
+        }
     }
 
     @Override

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!--
+    @author Márcio Ramos <1201682@isep.ipp.pt>
+-->
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="442.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.CovidReportToNHSGUI">
+   <bottom>
+      <FlowPane alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="56.0" prefWidth="556.0" rowValignment="TOP" translateY="-10.0" BorderPane.alignment="TOP_CENTER">
+         <children>
+            <Button fx:id="btnSubmit" defaultButton="true" mnemonicParsing="false" onAction="#handleSubmit" prefHeight="41.0" prefWidth="233.0" text="Send Report to NHS" />
+         </children>
+      </FlowPane>
+   </bottom>
+   <top>
+      <MenuBar nodeOrientation="RIGHT_TO_LEFT" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Options">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#menu_cancel" text="Cancel" />
+                  <MenuItem mnemonicParsing="false" onAction="#menu_logout" text="Logout" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#menu_exit" text="Exit" />
+               </items></Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <VBox prefHeight="259.0" prefWidth="556.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="BOTTOM_CENTER" prefHeight="38.0" prefWidth="556.0">
+               <children>
+                  <Label fx:id="lblTitle" alignment="TOP_CENTER" prefHeight="32.0" prefWidth="282.0" styleClass="page-title" text="Covid-19 Report to NHS" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <GridPane prefHeight="288.0" prefWidth="660.0">
+              <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="324.0" minWidth="10.0" prefWidth="217.0" />
+                <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="475.0" minWidth="10.0" prefWidth="443.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label alignment="TOP_LEFT" contentDisplay="RIGHT" prefHeight="30.0" prefWidth="1060.0" text="Insert requested data">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                  </Label>
+                  <ComboBox fx:id="comboBoxRegressiontType" onAction="#chooseRegression" prefHeight="38.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="12.0" />
+                     </GridPane.margin>
+                  </ComboBox>
+                  <ComboBox fx:id="comboHistoric" prefHeight="38.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets left="12.0" />
+                     </GridPane.margin>
+                  </ComboBox>
+                  <TextField fx:id="txtHistoricalPoints" prefHeight="31.0" prefWidth="261.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets left="12.0" right="100.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField fx:id="txtStartDate" prefHeight="31.0" prefWidth="263.0" promptText="dd/mm/yyyy" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets left="12.0" right="260.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField fx:id="txtEndDate" prefHeight="31.0" prefWidth="263.0" promptText="dd/mm/yyyy" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <GridPane.margin>
+                        <Insets left="12.0" right="260.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <ComboBox fx:id="comboBoxIndependentVariable" prefHeight="38.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                     <GridPane.margin>
+                        <Insets left="12.0" />
+                     </GridPane.margin>
+                  </ComboBox>
+                  <Label text="Regression Type:" GridPane.rowIndex="1" />
+                  <Label text="Send Data to NHS:" GridPane.rowIndex="2" />
+                  <Label text="Historical Points:" GridPane.rowIndex="3" />
+                  <Label text="Starting Date:" GridPane.rowIndex="4" />
+                  <Label text="End Date:" GridPane.rowIndex="5" />
+                  <Label text="Independent Variable:" GridPane.rowIndex="6" />
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

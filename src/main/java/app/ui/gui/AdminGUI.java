@@ -3,6 +3,7 @@ package app.ui.gui;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import app.ui.Main;
@@ -13,7 +14,9 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 
 /**
@@ -55,7 +58,7 @@ public class AdminGUI implements Initializable, GuiMethods {
         options.add(new MenuItem("Register employee", new RegisterEmployeeUI()));
         options.add(new MenuItem("List Registered Employees", new ListEmployeesUI()));
         options.add(new MenuItem("Register new Clinical Analysis Laboratory", new RegisterNewCALUI()));
-        options.add(new MenuItem("Send Covid report to Nhs", "/fxml/CovidReportToNHS.fxml"));
+        options.add(new MenuItem("Send Covid report to Nhs", "/fxml/CovidReportToNHSGUI.fxml"));
 
 
         for(int i=0; i<options.size();i++){
@@ -84,16 +87,34 @@ public class AdminGUI implements Initializable, GuiMethods {
 
     @FXML
     private void menu_logout(ActionEvent event) {
-        try {
-            MenuItem item= new MenuItem("default", "/fxml/LoginGUI.fxml");
-            item.runGui(item.getGui(),mainInstance);
-        } catch (Exception e) {
-            e.printStackTrace();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Logout Confirmation");
+        alert.setHeaderText("Are you sure you want to logout?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent()) {
+            if (result.get() == ButtonType.OK) {
+
+                try {
+                    MenuItem item= new MenuItem("default", "/fxml/LoginGUI.fxml");
+                    item.runGui(item.getGui(),mainInstance);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
     @FXML
     private void menu_exit(ActionEvent event) {
-        mainInstance.getStage().close();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Exit Confirmation");
+        alert.setHeaderText("Are you sure you want to exit the program?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent()) {
+            if (result.get() == ButtonType.OK) {
+
+                mainInstance.getStage().close();
+            }
+        }
     }
 
     @Override
