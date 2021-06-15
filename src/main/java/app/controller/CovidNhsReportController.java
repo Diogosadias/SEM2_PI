@@ -209,6 +209,7 @@ public class CovidNhsReportController {
 
     private String boardToFile() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        NumberFormat formatter = new DecimalFormat("#0.0000");
         String board;
         switch (varIndependent){
             case "Registered Tests":
@@ -220,7 +221,9 @@ public class CovidNhsReportController {
             case "Both":
                 board = "\n\nPrediction values\n\n" + "Date\t\t\tNumber of OBSERVED positive cases\t\tNumber of ESTIMATED/EXPECTED positive cases\t\t\t\t\t95% intervals";
                 for(int i = 0; i < this.historicDateList.size(); i ++){
-                    board += "\n" + dateFormat.format(historicDateList.get(i)) + "\t\t\t\t\t" + (int)y[i] + "\t\t\t\t\t\t\t\t\t\t\t\t" + this.multiple.predict(xTestsInterval[i],xAgeInterval[i]) +"\t\t\t\t\t\t\t\t\t["+this.multiple.mininterval(xTestsInterval[i],xAgeInterval[i])+","+this.multiple.maxinterval(xTestsInterval[i],xAgeInterval[i])+"]"+ "\t\t\t\t\t\t" + (int)xTests[i];
+                    if(y[i] != 0) {
+                        board += "\n" + dateFormat.format(historicDateList.get(i)) + "\t\t\t\t\t" + (int) y[i] + "\t\t\t\t\t\t\t\t\t\t\t\t" + this.multiple.predict(xTests[i], xAge[i]) + "\t\t\t\t\t\t\t\t\t[" + this.multiple.mininterval(xTests[i], xAge[i]) + "," + this.multiple.maxinterval(xTests[i], xAge[i]) + "]" + "\t\t\t\t\t\t";
+                    }
                 }
                 break;
             default:
@@ -246,6 +249,7 @@ public class CovidNhsReportController {
     }
 
     public String getData() {
+        if(this.varIndependent.equals("Both")) return multiple + boardToFile();
         return linear+ boardToFile();
     }
 
