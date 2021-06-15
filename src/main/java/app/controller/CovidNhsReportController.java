@@ -25,7 +25,7 @@ public class CovidNhsReportController {
     private TestStore testStore;
     private LinearRegression linear;
     private MultipleRegression multiple;
-    private String historic;
+    private int historicDays = 1;
     private int histPoints;
     private Date initialDate;
     private Date finalDate;
@@ -74,7 +74,9 @@ public class CovidNhsReportController {
 
 
     public void doLinearRegression(Date initialDate, Date finalDate, String varIndependent, String historic) {
-        this.historic = historic;
+        if (historic.equals("Weekly")) {
+            historicDays = 7;
+        }
         this.initialDate = initialDate;
         this.finalDate = finalDate;
         this.varIndependent = varIndependent;
@@ -95,7 +97,7 @@ public class CovidNhsReportController {
             historicDateList = new ArrayList<>();
             date.setTime(new Date(System.currentTimeMillis()));
             int countDays = 1;
-            while( countDays <= histPoints ) {
+            while( countDays <= (histPoints*historicDays) ) {
                 Date targetDay = date.getTime();
                 int sumAge = 0;
 
@@ -114,19 +116,21 @@ public class CovidNhsReportController {
 
                     }
 
-                if(countx > 0 ) {
+                if(county > 0 && countx > 0 && sumAge > 0) {
                     this.xAge[i] = (double)sumAge / (double)countx;
                     this.xTests[i] = countx;
                     this.y[i] = county;
                     historicDateList.add(targetDay);
                     countDays++;
-                } else {
-                    i--;
+                }
+                if(countDays%historicDays == 0){
+                    countx = 0;
+                    county = 0;
+                }
+                if(y[i] > 0) {
+                    i++;
                 }
                 date.add(Calendar.DATE, -1);
-                i++;
-                countx = 0;
-                county = 0;
             }
 
             if(this.varIndependent.equals("Registered Tests")) {
