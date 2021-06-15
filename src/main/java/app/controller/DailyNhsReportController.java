@@ -43,15 +43,26 @@ public class DailyNhsReportController {
             //data += getDataFromLinearRegression("Mean Age",initialDate,finalDate,"Weekly");
             //data += getDataFromLinearRegression("Both",initialDate,finalDate,"Weekly");
 
-            File file = new File("NHSReport.txt");
-            try {
-                FileWriter fw = new FileWriter(file);
-                fw.write(data);
-                fw.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            dailytask(data);
             //Reminder dailyTask = new Reminder(data);
+        }
+    }
+
+    private void dailytask(String data) {
+        File file = new File("NHSReport.txt");
+        FileWriter fr = null;
+        try {
+            fr = new FileWriter(file);
+            fr.write(data);
+        } catch (IOException var12) {
+            var12.printStackTrace();
+        } finally {
+            try {
+                fr.close();
+            } catch (IOException var11) {
+                var11.printStackTrace();
+            }
+
         }
     }
 

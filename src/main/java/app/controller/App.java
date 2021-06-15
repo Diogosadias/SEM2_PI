@@ -210,7 +210,7 @@ App {
     public static void runDailyTasks() {
         try {
             new DailyNhsReportController().runDailyTask();
-        } catch (FileNotFoundException e) {
+        } catch (FileNotFoundException | NullPointerException e) {
             e.printStackTrace();
         }
     }

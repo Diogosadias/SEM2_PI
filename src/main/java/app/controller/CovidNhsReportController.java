@@ -73,7 +73,7 @@ public class CovidNhsReportController {
     }
 
 
-    public void doLinearRegression(Date initialDate, Date finalDate, String varIndependent, String hi) {
+    public void doLinearRegression(Date initialDate, Date finalDate, String varIndependent, String historic) {
         this.historic = historic;
         this.initialDate = initialDate;
         this.finalDate = finalDate;
@@ -239,7 +239,7 @@ public class CovidNhsReportController {
             if(y[i] != 0) {
                 double predict = this.linear.predict(x[i]);
                 double delta = this.linear.delta(x[i]);
-                board += "\n" + dateFormat.format(historicDateList.get(i)) + "\t\t\t\t\t" + (int)y[i] + "\t\t\t\t\t\t\t\t" + formatter.format(predict) +"\t\t\t\t\t\t\t["+formatter.format((predict - delta))+","+formatter.format((predict + delta))+"]";
+                board += "\n" + dateFormat.format(historicDateList.get(i)) + "\t\t\t\t\t" + (int)y[i] + "\t\t\t\t\t\t\t\t" + formatter.format(predict) +"\t\t\t\t\t\t\t\t\t\t\t\t["+formatter.format((predict - delta))+","+formatter.format((predict + delta))+"]";
             }
         }
         return board;
