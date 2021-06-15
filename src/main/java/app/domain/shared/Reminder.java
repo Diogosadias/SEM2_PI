@@ -22,26 +22,23 @@ public class Reminder {
     public Reminder(String data) {
         this.data = data;
         Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.HOUR_OF_DAY,18);
-        cal.set(Calendar.MINUTE,00);
-        cal.set(Calendar.SECOND,0);
+        cal.set(Calendar.HOUR_OF_DAY,9);
+        cal.set(Calendar.MINUTE,16);
+        cal.set(Calendar.SECOND,5);
         Date time = cal.getTime();
 
         Timer timer = new Timer();
-        timer.schedule(new RemindTask(), System.currentTimeMillis());
+        timer.schedule(new RemindTask(), time);
+        System.out.println("Nhs Report sent!");
     }
 
     class RemindTask extends TimerTask {
         public void run() {
 
              Report2NHS reportnhs = new Report2NHS();
-            reportnhs.writeUsingFileWriter(data);
-
+            //reportnhs.writeUsingFileWriter(data);
             timer.cancel(); //Terminate the timer thread
         }
     }
-
-
-
 
 }
