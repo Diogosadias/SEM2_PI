@@ -93,11 +93,12 @@ public class CovidNhsReportController {
                 reportData += this.linear + this.boardSimpleLRString(xAge,y, historicDays, dateFormat);
                 break;
             case MULTIPLE:
+                NumberFormat formatter = new DecimalFormat("#0.0000");
                 this.multiple = new MultipleRegression(yInterval,xTestsInterval,xAgeInterval);
                 reportData += this.multiple + "\n\nPrediction values\n\n" + "Date\t\t\tNumber of OBSERVED positive cases\t\tNumber of ESTIMATED/EXPECTED positive cases\t\t\t\t\t95% intervals";
                 for(int i = 0; i < this.historicDateList.size(); i ++){
                     if(y[i] != 0) {
-                        reportData += "\n" + dateFormat.format(historicDateList.get(i)) + "\t\t\t\t\t" + (int) y[i] + "\t\t\t\t\t\t\t\t\t\t\t\t" + this.multiple.predict(xTests[i], xAge[i]) + "\t\t\t\t\t\t\t\t\t[" + this.multiple.mininterval(xTests[i], xAge[i]) + "," + this.multiple.maxinterval(xTests[i], xAge[i]) + "]" + "\t\t\t\t\t\t";
+                        reportData += "\n" + dateFormat.format(historicDateList.get(i)) + "\t\t\t\t\t" + (int) y[i] + "\t\t\t\t\t\t\t\t\t\t\t\t" + formatter.format(this.multiple.predict(xTests[i], xAge[i])) + "\t\t\t\t\t\t\t\t\t[" + formatter.format(this.multiple.mininterval(xTests[i], xAge[i])) + "," + formatter.format(this.multiple.maxinterval(xTests[i], xAge[i])) + "]" + "\t\t\t\t\t\t";
                     }
                 }
                 break;

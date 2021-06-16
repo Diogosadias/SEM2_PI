@@ -93,7 +93,7 @@ Date						Number of OBSERVED positive cases		Number of ESTIMATED/EXPECTED positi
  === Linear Regression - Daily - Multiple === 
 
 The regression model fitted using data from the interval 
-^y = 63,2558 + 87906405622,3821x1 + 2040,6947x2
+
 //
 Other statistics
 R2 = 488536474789,9118
@@ -102,7 +102,7 @@ R = 698953,8431
 //
 Hypothesis tests for regression coefficients
 HO:b1=b2=0, k=2 H1: bj<>0 , j=1,2 
-f_obs = 4.256494729093686
+f_obs = 4,2565
 Decision: 
 Don't Reject H0.
 //
@@ -121,19 +121,19 @@ The regression model is not significant.
 Prediction values
 
 Date			Number of OBSERVED positive cases		Number of ESTIMATED/EXPECTED positive cases					95% intervals
-2021-05-29					1												5.274384780126011E11									[NaN,NaN]						
-2021-05-28					3												5.2743848345445374E11									[NaN,NaN]						
-2021-05-27					2												5.2743848311433795E11									[NaN,NaN]						
-2021-05-26					5												6.153449006407727E11									[NaN,NaN]						
-2021-05-25					8												1.0548769214401934E12									[NaN,NaN]						
-2021-05-24					8												1.0548769214401934E12									[NaN,NaN]						
-2021-05-22					12												1.5823153555712878E12									[NaN,NaN]						
-2021-05-21					10												1.3185961404500693E12									[NaN,NaN]						
-2021-05-20					9												1.3185961359605408E12									[NaN,NaN]						
-2021-05-19					14												1.7581281773029556E12									[NaN,NaN]						
-2021-05-18					18												2.1097538058295388E12									[NaN,NaN]						
-2021-05-17					16												1.9339409888723757E12									[NaN,NaN]						
-2021-05-15					16												2.0218473907763376E12									[NaN,NaN]						 === Linear Regression - Weekly - Registered Tests === 
+2021-05-29					1												527438478012,6011									[NaN,NaN]						
+2021-05-28					3												527438483454,4537									[NaN,NaN]						
+2021-05-27					2												527438483114,3380									[NaN,NaN]						
+2021-05-26					5												615344900640,7727									[NaN,NaN]						
+2021-05-25					8												1054876921440,1934									[NaN,NaN]						
+2021-05-24					8												1054876921440,1934									[NaN,NaN]						
+2021-05-22					12												1582315355571,2878									[NaN,NaN]						
+2021-05-21					10												1318596140450,0693									[NaN,NaN]						
+2021-05-20					9												1318596135960,5408									[NaN,NaN]						
+2021-05-19					14												1758128177302,9556									[NaN,NaN]						
+2021-05-18					18												2109753805829,5388									[NaN,NaN]						
+2021-05-17					16												1933940988872,3757									[NaN,NaN]						
+2021-05-15					16												2021847390776,3376									[NaN,NaN]						 === Linear Regression - Weekly - Registered Tests === 
 
 The regression model fitted using data from the interval 
 ^y = a + bx <=> ^y = -0,3654 + 0,7166 * x
@@ -222,7 +222,7 @@ Date						Number of OBSERVED positive cases		Number of ESTIMATED/EXPECTED positi
  === Linear Regression - Weekly - Multiple === 
 
 The regression model fitted using data from the interval 
-^y = 63,2558 + 87906405622,3821x1 + 2040,6947x2
+
 //
 Other statistics
 R2 = 488536474789,9118
@@ -231,7 +231,7 @@ R = 698953,8431
 //
 Hypothesis tests for regression coefficients
 HO:b1=b2=0, k=2 H1: bj<>0 , j=1,2 
-f_obs = 4.256494729093686
+f_obs = 4,2565
 Decision: 
 Don't Reject H0.
 //
@@ -250,13 +250,13 @@ The regression model is not significant.
 Prediction values
 
 Date			Number of OBSERVED positive cases		Number of ESTIMATED/EXPECTED positive cases					95% intervals
-2021-05-23					27												4.307413928243219E12									[NaN,NaN]						
-2021-05-16					79												1.002133030259367E13									[NaN,NaN]						
-2021-05-09					118												1.397711856572868E13									[NaN,NaN]						
-2021-05-02					175												2.004266056242165E13									[NaN,NaN]						
-2021-04-25					236												2.6108202563164293E13									[NaN,NaN]						
-2021-04-18					284												3.1294680504640496E13									[NaN,NaN]						
-2021-04-11					335												3.665697125647755E13									[NaN,NaN]						
-2021-04-04					368												4.061275952006755E13									[NaN,NaN]						
-2021-03-28					429												4.641458230077732E13									[NaN,NaN]						
-2021-03-21					472												5.160106024404976E13									[NaN,NaN]						
+2021-05-23					27												4307413928243,2190									[NaN,NaN]						
+2021-05-16					79												10021330302593,6700									[NaN,NaN]						
+2021-05-09					118												13977118565728,6800									[NaN,NaN]						
+2021-05-02					175												20042660562421,6500									[NaN,NaN]						
+2021-04-25					236												26108202563164,2930									[NaN,NaN]						
+2021-04-18					284												31294680504640,4960									[NaN,NaN]						
+2021-04-11					335												36656971256477,5500									[NaN,NaN]						
+2021-04-04					368												40612759520067,5500									[NaN,NaN]						
+2021-03-28					429												46414582300777,3200									[NaN,NaN]						
+2021-03-21					472												51601060244049,7600									[NaN,NaN]						
