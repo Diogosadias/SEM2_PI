@@ -41,13 +41,11 @@ public class CovidNhsReportController {
     private List<Test> testList;
     private List<Date> historicDateList;
     private SimpleDateFormat fmt;
-    private List<Test> list;
 
     public CovidNhsReportController(){
         this.company = App.getInstance().getCompany();
         this.testStore = this.company.getTestStore();
         fmt = new SimpleDateFormat("yyyyMMdd");
-        list = this.testStore.getValidatedTests();
     }
 
     public boolean startNewReport(int histPoints) {
@@ -57,7 +55,7 @@ public class CovidNhsReportController {
             this.testList = getValidatedCovidTestList();
             return true;
         } catch (NullPointerException n) {
-            System.out.println("Validated Test list is empty, cannot send Nhs Report.");
+            System.out.println("Problem sending daily Nhs Report.");
             return false;
         }
     }
@@ -101,7 +99,7 @@ public class CovidNhsReportController {
             int countx = 0;
             int county = 0;
             int sumAge = 0;
-            for (Test t : list) {
+            for (Test t : testList) {
                 if (fmt.format(t.getDateRegistered()).equals(fmt.format(start.getTime()))) {
                     countx++;
                     if (t.getTestParam().getResult().getMetric() > 1.4) {
@@ -140,9 +138,8 @@ public class CovidNhsReportController {
 
 
                 SimpleDateFormat fmt = new SimpleDateFormat("yyyyMMdd");
-                List<Test> list = this.testStore.getValidatedTests();
 
-                    for (Test t : list) {
+                    for (Test t : testList) {
 
                         if (fmt.format(t.getDateRegistered()).equals(fmt.format(targetDay))) {
                             countx++;

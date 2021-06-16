@@ -43,8 +43,8 @@ public class DailyNhsReportController {
                 data += getDataFromLinearRegression("Mean Age",initialDate,finalDate,"Weekly");
                 data += getDataFromLinearRegression("Both",initialDate,finalDate,"Weekly");
 
-                dailytask(data);
-                //Reminder dailyTask = new Reminder(data);
+                //dailytask(data);
+                Reminder dailyTask = new Reminder(data);
             }
         }
     }

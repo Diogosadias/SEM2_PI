@@ -342,7 +342,7 @@ public class Client implements Serializable {
         if (this == o) return true;
         if (!(o instanceof Client)) return false;
         Client client = (Client) o;
-        return nhs == client.nhs && citizenCard == client.citizenCard && tin == client.tin && pNumber == client.pNumber && name.equals(client.name) && id.equals(client.id) && birthDate.equals(client.birthDate) && sex.equals(client.sex);
+        return nhs == client.nhs && citizenCard == client.citizenCard && tin == client.tin && pNumber == client.pNumber && name.equals(client.name) && id.equals(client.id) && birthDate.equals(client.birthDate);
     }
 
     @Override
