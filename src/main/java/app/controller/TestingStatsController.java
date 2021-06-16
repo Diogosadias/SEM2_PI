@@ -3,12 +3,10 @@ package app.controller;
 import app.domain.model.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.geometry.Side;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
-
 import java.util.*;
 
 /**
@@ -79,7 +77,7 @@ public class TestingStatsController {
     }
 
     /**
-     * Method for creating a line chart for monthly results' average waiting time
+     * Method for creating a line chart for monthly results' average   time
      */
     public void createLineChart2(LineChart<Number, Number> lineChart, NumberAxis xAxis, NumberAxis yAxis){
         xAxis.setAutoRanging(false);
@@ -89,7 +87,7 @@ public class TestingStatsController {
         xAxis.setLabel("Number of months past");
 
         yAxis.setAutoRanging(true);
-        yAxis.setLabel("Average waiting time (days)");
+        yAxis.setLabel("Days");
 
         lineChart.setTitle("Last 12 months results' average waiting time");
 
@@ -142,8 +140,11 @@ public class TestingStatsController {
         return m2 - m1 + 1;
     }
 
+    /**
+     * Creates a pie chart with the All Time Test Type Distribution Data.
+     * @param pieChart
+     */
     public void createPieChart(PieChart pieChart) {
-
 
         List<PieChart.Data> list = new ArrayList<>();
         for(TestType type : testTypeStore.getTestTypeList()){
@@ -159,10 +160,7 @@ public class TestingStatsController {
         ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(list);
 
         pieChart.setData(pieChartData);
-        pieChart.setLegendSide(Side.LEFT);
         pieChart.setTitle("All Time Test Type Distribution");
         pieChart.setClockwise(true);
-        pieChart.setLabelLineLength(50);
-        pieChart.setLabelsVisible(true);
     }
 }
