@@ -19,7 +19,7 @@ public class ListValidateTestsUI implements Runnable {
                 System.out.println("Diagnosis: " + r.getDiagnosis());
             }
             System.out.println("Reached end of validated Test list.\n");
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException | NullPointerException e) {
         }
     }
 }
