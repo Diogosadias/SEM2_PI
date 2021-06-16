@@ -45,7 +45,7 @@ public class RecordSampleUI implements Runnable {
                 }
             }
         } catch (IOException | BarcodeException | OutputException | IllegalArgumentException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         } catch (Exception e) {
             run();
         }

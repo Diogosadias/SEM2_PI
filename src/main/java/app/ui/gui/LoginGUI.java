@@ -5,6 +5,7 @@ import app.domain.shared.Constants;
 import app.ui.Main;
 import app.ui.console.*;
 import app.ui.console.MenuItem;
+import app.utils.fx.FXUtils;
 import auth.mappers.dto.UserRoleDTO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -75,25 +76,11 @@ public class LoginGUI implements Initializable, GuiMethods {
     @FXML
     public void menu_goBack(ActionEvent event) {
 
-        try {
-            MenuItem item= new MenuItem("default", "/fxml/MainMenuGUI.fxml");
-            item.runGui(item.getGui(),mainInstance);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        FXUtils.menuGoBack(mainInstance,"/fxml/MainMenuGUI.fxml");
     }
     @FXML
     private void menu_exit(ActionEvent event) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Exit Confirmation");
-        alert.setHeaderText("Are you sure you want to exit the program?");
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.isPresent()) {
-            if (result.get() == ButtonType.OK) {
-
-                mainInstance.getStage().close();
-            }
-        }
+       FXUtils.menuExit(mainInstance);
     }
 
 
