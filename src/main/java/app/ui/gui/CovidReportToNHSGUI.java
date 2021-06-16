@@ -120,16 +120,16 @@ public class CovidReportToNHSGUI implements Initializable, GuiMethods {
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent()) {
             if (result.get() == ButtonType.OK) {
-                controller.startNewReport(Integer.valueOf(txtHistoricalPoints.getText()));
+                controller.startNewReport();
                 SimpleDateFormat formatter1 = new SimpleDateFormat("dd/MM/yyyy");
                 try {
                     Date dateI = formatter1.parse(txtStartDate.getText());
                     Date dateF = formatter1.parse(txtEndDate.getText());
                     if (comboBoxRegressiontType.getSelectionModel().getSelectedItem().equalsIgnoreCase("Linear")) {
 
-                        controller.doLinearRegression(dateI, dateF, comboBoxIndependentVariable.getSelectionModel().getSelectedItem(), comboHistoric.getSelectionModel().getSelectedItem());
+                        controller.doLinearRegression(dateI, dateF, comboBoxIndependentVariable.getSelectionModel().getSelectedItem(), comboHistoric.getSelectionModel().getSelectedItem(),Integer.valueOf(txtHistoricalPoints.getText()));
                     } else {
-                        controller.doLinearRegression(dateI, dateF, "Both", comboHistoric.getSelectionModel().getSelectedItem());
+                        controller.doLinearRegression(dateI, dateF, "Both", comboHistoric.getSelectionModel().getSelectedItem(),Integer.valueOf(txtHistoricalPoints.getText()));
                     }
                 } catch (ParseException e) {
                     e.printStackTrace();

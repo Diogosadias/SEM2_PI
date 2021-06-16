@@ -22,26 +22,14 @@ public class CovidNhsReportUI implements Runnable {
 
     @Override
     public void run() {
-        /*
-        String ui = chooseData("Chose UI(Fixing):\n1 - Old\n2 - New","Old","New");
+        controller.startNewReport();
+        if( controller.startNewReport()) {
+            String historic = chooseData("Send Data to NHS:\n1 - Daily\n2 - Weekly","Daily","Weekly");
 
-        if(ui=="New"){
-            alternativeUI();
-            return;
-        }*/
-
-
-        String historic = chooseData("Send Data to NHS:\n1 - Daily\n2 - Weekly","Daily","Weekly");
-
-        System.out.println("\nNumber of historical points: ");
-        int histPoints = read.nextInt();
-
-
-        if( controller.startNewReport(histPoints)) {
+            System.out.println("\nNumber of historical points: ");
+            int histPoints = read.nextInt();
             SimpleDateFormat formatter1 = new SimpleDateFormat("dd/MM/yyyy");
-
-            if(historic.equals("Daily")) {
-                String initDate;
+            String initDate;
                 String finalDate;
 
                 System.out.println("Initial Date:  (dd/mm/yyyy)");
@@ -54,10 +42,10 @@ public class CovidNhsReportUI implements Runnable {
                     Date dateF = formatter1.parse(finalDate);
                     String regression = chooseData("Set Linear Regression Model:\n1 - Simple Linear Regression\n2 - Multiple Linear Regression","Linear","Multiple");
                     if (regression.equals("Linear")) {
-                        String varIndependent = chooseData("Variable Independent:\n1 - Number of Tests Realised\n2 - Client Mean Age", "Registered Tests", "Mean Age");
-                        controller.doLinearRegression(dateI, dateF, varIndependent,historic);
+                        String varIndependent = chooseData("Variable Independent:\n1 - Number of Tests Realised\n2 - Client Mean Age", controller.VAR_TESTS, controller.VAR_AGE);
+                        controller.doLinearRegression(dateI, dateF, varIndependent,historic, histPoints);
                     } else {
-                        controller.doLinearRegression(dateI, dateF, "Both",historic);
+                        controller.doLinearRegression(dateI, dateF, controller.MULTIPLE, historic, histPoints);
                     }
                     controller.sendNhsReport();
                 } catch (ParseException e) {
@@ -67,7 +55,7 @@ public class CovidNhsReportUI implements Runnable {
 
 
 
-        }
+
 
 
     }
@@ -88,19 +76,4 @@ public class CovidNhsReportUI implements Runnable {
         return data;
     }
 
-    public void alternativeUI(){
-
-        //asks for historical points of analysis and data range
-
-
-
-        // asks if linear or multiple regressions, level of significance
-
-        //asks what variables to report
-
-        //Writes on console info and writes on file
-
-        //sends file though API
-
-    }
 }
