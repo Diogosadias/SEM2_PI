@@ -1,0 +1,222 @@
+ === Linear Regression - Daily - Registered Tests === 
+
+The regression model fitted using data from the interval 
+^y = a + bx <=> ^y = -0,3654 + 0,7166 * x
+b = 0,7166
+a = -0,3654
+//
+Other statistics
+R2 = 0,9882
+R2adjusted = ...
+R = 0,9941
+//
+Hypothesis tests for regression coefficients
+HO:b=0 (a=0) H1: b<>0 (a<>0)
+t_obs = 2,2281
+Decision: Reject H0.
+//
+Significance model with Anova
+H0: b=0  H1:b<>0
+			df		SS		MS		F		
+Regression	1.0	384,0856	384,0856	838,4125	
+Residual	10.0	4,5811		0,4581		
+Total		11.0	388,6667		
+
+Decision: f 
+0 > f0.05,(1.10)=0,0041
+
+Prediction values
+
+Date						Number of OBSERVED positive cases		Number of ESTIMATED/EXPECTED positive cases					95% intervals
+
+
+
+ === Linear Regression - Daily - Mean Age === 
+
+The regression model fitted using data from the interval 
+^y = a + bx <=> ^y = -0,8034 + 0,4323 * x
+b = 0,4323
+a = -0,8034
+//
+Other statistics
+R2 = 0,7183
+R2adjusted = ...
+R = 0,8475
+//
+Hypothesis tests for regression coefficients
+HO:b=0 (a=0) H1: b<>0 (a<>0)
+t_obs = 2,2281
+Decision: Reject H0.
+//
+Significance model with Anova
+H0: b=0  H1:b<>0
+			df		SS		MS		F		
+Regression	1.0	279,1856	279,1856	25,5008	
+Residual	10.0	109,4810		10,9481		
+Total		11.0	388,6667		
+
+Decision: f 
+0 > f0.05,(1.10)=0,0041
+
+Prediction values
+
+Date						Number of OBSERVED positive cases		Number of ESTIMATED/EXPECTED positive cases					95% intervals
+
+
+
+ === Linear Regression - Daily - Multiple Variables === 
+
+The regression model fitted using data from the interval 
+^y = [D@3cf4d35 + [D@551e031ex1 + [D@79fa5999x2
+//
+Other statistics
+R2 = 488536474789,9118
+R2adjusted = 597100135854,1145
+R = 698953,8431
+//
+Hypothesis tests for regression coefficients
+HO:b1=b2=0, k=2 H1: bj<>0 , j=1,2 
+f_obs = 4.256494729093686
+Decision: 
+Don't Reject H0.
+//
+Significance model with Anova
+
+			df		SS		MS		F		
+Regression	2.0	189877843201679,1000	94938921600839,5500	-4,5000	
+Residual	9.0	-189877843201290,4400		-21097538133476,7150		
+Total	11.0	388,6667		
+
+Decision: f 
+0 > f0.05,(2.9)=4.256494729093686
+
+Prediction values
+
+Date			Number of OBSERVED positive cases		Number of ESTIMATED/EXPECTED positive cases					95% intervals === Linear Regression - Weekly - Registered Tests === 
+
+The regression model fitted using data from the interval 
+^y = a + bx <=> ^y = -0,3654 + 0,7166 * x
+b = 0,7166
+a = -0,3654
+//
+Other statistics
+R2 = 0,9882
+R2adjusted = ...
+R = 0,9941
+//
+Hypothesis tests for regression coefficients
+HO:b=0 (a=0) H1: b<>0 (a<>0)
+t_obs = 2,2281
+Decision: Reject H0.
+//
+Significance model with Anova
+H0: b=0  H1:b<>0
+			df		SS		MS		F		
+Regression	1.0	384,0856	384,0856	838,4125	
+Residual	10.0	4,5811		0,4581		
+Total		11.0	388,6667		
+
+Decision: f 
+0 > f0.05,(1.10)=0,0041
+
+Prediction values
+
+Date						Number of OBSERVED positive cases		Number of ESTIMATED/EXPECTED positive cases					95% intervals
+2021-05-27 - 2021-06-02								6								12,5330												[12,0449,13,0210]
+2021-05-20 - 2021-05-26								52								56,2442												[52,6337,59,8547]
+2021-05-13 - 2021-05-19								100								97,8057												[91,0094,104,6020]
+2021-05-06 - 2021-05-12								147								136,5009												[126,7312,146,2706]
+2021-04-29 - 2021-05-05								205								190,2442												[176,3418,204,1466]
+2021-04-22 - 2021-04-28								262								233,2389												[216,0293,250,4484]
+2021-04-15 - 2021-04-21								306								274,0838												[253,7320,294,4356]
+2021-04-08 - 2021-04-14								354								318,5116												[294,7417,342,2815]
+2021-04-01 - 2021-04-07								399								353,6239												[327,1525,380,0953]
+2021-03-25 - 2021-03-31								451								397,3351												[367,5005,427,1697]
+2021-03-18 - 2021-03-24								241								216,7576												[200,8158,232,6993]
+
+
+
+ === Linear Regression - Weekly - Mean Age === 
+
+The regression model fitted using data from the interval 
+^y = a + bx <=> ^y = -0,8034 + 0,4323 * x
+b = 0,4323
+a = -0,8034
+//
+Other statistics
+R2 = 0,7183
+R2adjusted = ...
+R = 0,8475
+//
+Hypothesis tests for regression coefficients
+HO:b=0 (a=0) H1: b<>0 (a<>0)
+t_obs = 2,2281
+Decision: Reject H0.
+//
+Significance model with Anova
+H0: b=0  H1:b<>0
+			df		SS		MS		F		
+Regression	1.0	279,1856	279,1856	25,5008	
+Residual	10.0	109,4810		10,9481		
+Total		11.0	388,6667		
+
+Decision: f 
+0 > f0.05,(1.10)=0,0041
+
+Prediction values
+
+Date						Number of OBSERVED positive cases		Number of ESTIMATED/EXPECTED positive cases					95% intervals
+2021-05-27 - 2021-06-02								6								9,3077												[7,1735,11,4418]
+2021-05-20 - 2021-05-26								52								10,7648												[8,5821,12,9475]
+2021-05-13 - 2021-05-19								100								13,1786												[10,5460,15,8112]
+2021-05-06 - 2021-05-12								147								16,0881												[12,5445,19,6317]
+2021-04-29 - 2021-05-05								205								17,2558												[13,2881,21,2234]
+2021-04-22 - 2021-04-28								262								20,0532												[15,0003,25,1061]
+2021-04-15 - 2021-04-21								306								21,9168												[16,1077,27,7258]
+2021-04-08 - 2021-04-14								354								23,8748												[17,2543,30,4952]
+2021-04-01 - 2021-04-07								399								26,2785												[18,6462,33,9109]
+2021-03-25 - 2021-03-31								451								28,1734												[19,7349,36,6119]
+2021-03-18 - 2021-03-24								241								30,5264												[21,0796,39,9733]
+
+
+
+ === Linear Regression - Weekly - Multiple Variables === 
+
+The regression model fitted using data from the interval 
+^y = [D@78adceb5 + [D@155a5295x1 + [D@567b29e2x2
+//
+Other statistics
+R2 = 488536474789,9118
+R2adjusted = 597100135854,1145
+R = 698953,8431
+//
+Hypothesis tests for regression coefficients
+HO:b1=b2=0, k=2 H1: bj<>0 , j=1,2 
+f_obs = 4.256494729093686
+Decision: 
+Don't Reject H0.
+//
+Significance model with Anova
+
+			df		SS		MS		F		
+Regression	2.0	189877843201679,1000	94938921600839,5500	-4,5000	
+Residual	9.0	-189877843201290,4400		-21097538133476,7150		
+Total	11.0	388,6667		
+
+Decision: f 
+0 > f0.05,(2.9)=4.256494729093686
+
+Prediction values
+
+Date			Number of OBSERVED positive cases		Number of ESTIMATED/EXPECTED positive cases					95% intervals
+2021-05-27					6												1.5823153489957158E12									[NaN,NaN]						
+2021-05-20					52												6.944606098839397E12									[NaN,NaN]						
+2021-05-13					100												1.2043177636331924E13									[NaN,NaN]						
+2021-05-06					147												1.6790123553674906E13									[NaN,NaN]						
+2021-04-29					205												2.3383103980865754E13									[NaN,NaN]						
+2021-04-22					262												2.865748833141394E13									[NaN,NaN]						
+2021-04-15					306												3.3668153460686617E13									[NaN,NaN]						
+2021-04-08					354												3.911835061851713E13									[NaN,NaN]						
+2021-04-01					399												4.342576450536085E13									[NaN,NaN]						
+2021-03-25					451												4.878805525727069E13									[NaN,NaN]						
+2021-03-18					241												2.663564105153814E13									[NaN,NaN]						
