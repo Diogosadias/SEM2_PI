@@ -10,6 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1be02503-aab3-4684-a64b-ad76e3f11afd" name="Default Changelist" comment="Changes to &quot;TestStoreTest&quot; and &quot;TestStoreTest&quot;&#10;[UC-04][UC-05][Unit Testing]">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Sem2App_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,7 +24,6 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit4 Test Class" />
-        <option value="Class" />
       </list>
     </option>
   </component>
@@ -45,8 +47,6 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="project.structure.last.edited" value="Artifacts" />
@@ -58,7 +58,6 @@
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\rocha\OneDrive\Documentos\lei-21-s2-1dj-g44" />
       <recent name="C:\Users\Márcio\OneDrive - Instituto Superior de Engenharia do Porto\LEI\Projeto Integrador\src\main\java\META-INF" />
       <recent name="C:\Users\Márcio\OneDrive - Instituto Superior de Engenharia do Porto\LEI\Projeto Integrador\src\main\java" />
       <recent name="C:\Users\Márcio\OneDrive - Instituto Superior de Engenharia do Porto\LEI\Projeto Integrador\out\artifacts\Sem2App_jar" />
@@ -71,7 +70,6 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.ui.Main" />
       <module name="Sem2App" />
-      <option name="VM_PARAMETERS" value="--module-path C:\Users\rocha\IdeaProjects\javafx-sdk-11.0.2\lib --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="app.ui.*" />
@@ -144,13 +142,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.ChemistryTechnologistTest" />
-      <item itemvalue="JUnit.TestTest" />
-      <item itemvalue="JUnit.TestTest.checkParametersToString" />
-      <item itemvalue="JUnit.TestTest.checkToString" />
-    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -174,16 +165,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1622129053071</updated>
-      <workItem from="1623607370264" duration="5182000" />
-      <workItem from="1623612793652" duration="1773000" />
-      <workItem from="1623672497234" duration="108000" />
-      <workItem from="1623677042255" duration="9843000" />
-      <workItem from="1623743638002" duration="7942000" />
-      <workItem from="1623762738396" duration="8679000" />
-      <workItem from="1623835638052" duration="36000" />
-      <workItem from="1623838849974" duration="170000" />
-      <workItem from="1623839857989" duration="3468000" />
-      <workItem from="1623847097000" duration="420000" />
     </task>
     <task id="LOCAL-00001" summary="Changes to &quot;SpecifyNewTestTypeController&quot;, &quot;DeleteTypeTestUI&quot;, &quot;ListTypeTestUI&quot;, &quot;SpecifyNewTestTypeUI&quot;, &quot;SpecifyNewTestTypeControllerTest&quot;&#10;[UC-09][Code Implementation]">
       <created>1622148202327</created>
@@ -307,19 +288,7 @@
     <option name="localTasksCounter" value="18" />
     <servers />
   </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
@@ -338,27 +307,16 @@
     <MESSAGE value="[Javadoc]" />
     <option name="LAST_COMMIT_MESSAGE" value="[Javadoc]" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/app/domain/shared/GenerateTestCode.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="53" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/US_5_md$ChemistryTechnologistTest.ic" NAME="ChemistryTechnologistTest Coverage Results" MODIFIED="1622328262857" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>app.domain.model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/US_5_md$SpecialistDoctorTest.ic" NAME="SpecialistDoctorTest Coverage Results" MODIFIED="1622326870002" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>app.domain.model.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/US_5_md$All_in_Sem2App.ic" NAME="All in Sem2App Coverage Results" MODIFIED="1621784942747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/US_5_md$Main.ic" NAME="Main Coverage Results" MODIFIED="1621704288703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>app.ui.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/US_5_md$SpecialistDoctorTest.ic" NAME="SpecialistDoctorTest Coverage Results" MODIFIED="1622326870002" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>app.domain.model.*</FILTER>
     </SUITE>
   </component>
 </project>
