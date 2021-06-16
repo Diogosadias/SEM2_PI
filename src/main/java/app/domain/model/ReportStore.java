@@ -105,7 +105,8 @@ public class ReportStore extends Store{
     public List getListObjects() {
         //Change list of objects in Store to a List Object
         if(this.reportlist.isEmpty()) {
-            throw new IllegalArgumentException("Report list is empty");
+            System.out.println("Report list is empty");
+            throw new IllegalArgumentException();
         }
         List<Object> list = new ArrayList<>();
         for(Report r: reportlist) {

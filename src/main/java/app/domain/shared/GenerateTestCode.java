@@ -23,7 +23,7 @@ public class GenerateTestCode {
             }
             num = num / 10;
         }
-        return fillZeros + "" + (numTests + 1);
+        return fillZeros + "" + (numTests+1);
     }
 
     public String getCode() {

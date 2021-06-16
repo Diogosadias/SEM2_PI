@@ -19,9 +19,6 @@ public class RegisterTestController {
     private TestStore tStore;
 
     public RegisterTestController() {
-        if (!App.getInstance().getCurrentUserSession().isLoggedInWithRole(ROLE_RECEP)) {
-            throw new IllegalStateException("User is not authorized");
-        }
         this.company = App.getInstance().getCompany();
         this.tStore = this.company.getTestStore();
         tStore.setCompany(this.company);
