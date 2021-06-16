@@ -9,11 +9,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1be02503-aab3-4684-a64b-ad76e3f11afd" name="Default Changelist" comment="Changes to &quot;TestStoreTest&quot; and &quot;TestStoreTest&quot;&#10;[UC-04][UC-05][Unit Testing]">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Sem2App_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
+    <list default="true" id="1be02503-aab3-4684-a64b-ad76e3f11afd" name="Default Changelist" comment="Renamed the file &quot;CovidReportToNHS.fxml&quot; to &quot;CovidReportToNHSGUI.fxml&quot; and the file &quot;CovidReportToNHSUI.java&quot; to &quot;CovidReportToNHSGUI.java&quot;.&#10;Changes to the files &quot;Styles.css&quot;, &quot;CovidReportToNHSGUI.fxml&quot;, &quot;CovidReportToNHSGUI.java&quot;, LoginGUI.fxml, AdminGUI.java, ClientGUI.java, ClinicalChemicalTechnologistGUI.java, LabCoordinatorGUI.java, LoginGUI.java, MainMenuGUI.java, MedLabTechnicianGUI.java, ReceptionistGUI.java, SpecialistDoctorGUI.java.&#10;[Sprint D][Implementation]">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DailyNHSReport.txt" beforeDir="false" afterPath="$PROJECT_DIR$/DailyNHSReport.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sem2App.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Sem2App.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ser/client.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ser/client.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ser/employee.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ser/employee.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ser/user.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ser/user.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/controller/RegisterTestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controller/RegisterTestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/ui/console/RecordSampleUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/ui/console/RecordSampleUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/ui/gui/AdminGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/ui/gui/AdminGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/ui/gui/ClientGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/ui/gui/ClientGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/ui/gui/ClientResultViewGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/ui/gui/ClientResultViewGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/ui/gui/ClinicalChemicalTechnologistGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/ui/gui/ClinicalChemicalTechnologistGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/ui/gui/CovidReportToNHSGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/ui/gui/CovidReportToNHSGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/ui/gui/LabCoordinatorGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/ui/gui/LabCoordinatorGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/ui/gui/LoginGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/ui/gui/LoginGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/ui/gui/MainMenuGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/ui/gui/MainMenuGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/ui/gui/MedLabTechnicianGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/ui/gui/MedLabTechnicianGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/ui/gui/ReceptionistGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/ui/gui/ReceptionistGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/ui/gui/SpecialistDoctorGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/ui/gui/SpecialistDoctorGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/utils/fx/FXUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/utils/fx/FXUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +40,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -38,6 +55,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/11.0.2/javafx-fxml-11.0.2-win.jar!/javafx/fxml/FXMLLoader.class" root0="SKIP_INSPECTION" />
+  </component>
   <component name="ProjectId" id="1t7nYo47vrbWNBJvZMD7dOaGneA" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -49,11 +69,15 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/fxml" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.1388889" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Márcio\OneDrive - Instituto Superior de Engenharia do Porto\LEI\Projeto Integrador ManyLabs\src\main\resources\fxml" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
@@ -70,6 +94,7 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.ui.Main" />
       <module name="Sem2App" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Márcio\OneDrive - Instituto Superior de Engenharia do Porto\LEI\javafx-sdk-11.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="app.ui.*" />
@@ -142,6 +167,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.ChemistryTechnologistTest" />
+      <item itemvalue="JUnit.TestTest" />
+      <item itemvalue="JUnit.TestTest.checkParametersToString" />
+      <item itemvalue="JUnit.TestTest.checkToString" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -285,7 +317,98 @@
       <option name="project" value="LOCAL" />
       <updated>1622398902971</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Changes to &quot;LoginGUI.fxml&quot;&#10;[Sprint D][Implementation]">
+      <created>1623522000484</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1623522000484</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Small change to &quot;LoginGUI.fxml&quot;&#10;[Sprint D][Implementation]">
+      <created>1623522165866</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1623522165866</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Added &quot;AdminGUI.fxml&quot; and &quot;AdminGUI.java&quot;.&#10;Changes to &quot;AdminGUI.fxml&quot;, &quot;AdminGUI.java&quot; and &quot;LoginGUI.java&quot;.&#10;[Sprint D][Implementation]">
+      <created>1623530963486</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1623530963486</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Changes to &quot;MenuItem.java&quot;, &quot;AdminGUI.java&quot;, &quot;LoginGUI.java&quot;, &quot;Main.java&quot;, &quot;MainMenuGUI.java&quot;, &quot;MainMenuGUI.fxml&quot;&#10;[Sprint D][Implementation]">
+      <created>1623610563206</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1623610563206</updated>
+    </task>
+    <task id="LOCAL-00022" summary="small change&#10;[Sprint D][Implementation]">
+      <created>1623610617858</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1623610617858</updated>
+    </task>
+    <task id="LOCAL-00023" summary="small change&#10;[Sprint D][Implementation]">
+      <created>1623610638152</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1623610638152</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Big commit&#10;Changes to &quot;MenuItem.java&quot;, &quot;AdminGUI.java&quot;, &quot;LoginGUI.java&quot;, &quot;Main.java&quot;, &quot;MainMenuGUI.java&quot;, &quot;MainMenuGUI.fxml&quot;, &quot;LoginGUI.fxml&quot;, &quot;AdminGUI.fxml&quot;.&#10;[Sprint D][Implementation]">
+      <created>1623619623177</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1623619623177</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Added Class &quot;GuiMethdos.java&quot;, I forgot to add on last commit.&#10;Changes to &quot;AdminGUI.java&quot;, &quot;LoginGUI.java&quot;, &quot;MainMenuGUI.java&quot;, &quot;MainMenuGUI.fxml&quot;, &quot;LoginGUI.fxml&quot;,&quot;AdminGUI.fxml&quot;,&quot;GuiMethods.java&quot;.&#10;[Sprint D][Implementation]">
+      <created>1623620148790</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1623620148790</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Changes to &quot;LoginGUI.java&quot;, &quot;AdminGUI.java&quot;, &quot;Main.java&quot;, &quot;Constants.java&quot;&#10;[Sprint D][Implementation]">
+      <created>1623665716965</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1623665716965</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Big commit!!&#10;Renamed the file &quot;LabCoordinator.fxml&quot; to &quot;LabCoordinatorGUI.fxml&quot;.&#10;Added the files: &quot;ClientGUI.java&quot;, &quot;ClinicalChemicalTechnologistGUI.java&quot;, &quot;LabCoordinatorGUI.java&quot;, &quot;ReceptionistGUI.java&quot;, &quot;SpecialistDoctorGUI.java&quot;.&#10;Code changes and implementation to the files: &quot;AdminGUI.java&quot;, &quot;LoginGUI.java&quot;, &quot;MedLabTechnicianGUI.java&quot;, &quot;AdminGUI.fxml&quot;, &quot;ClientGUI.fxml&quot;, &quot;ClinicalChemicalTechnologistGUI.fxml&quot;, &quot;LabCoordinatorGUI.fxml&quot;, &quot;MedLabTechnicianGUI.fxml&quot;, &quot;ReceptionistGUI.fxml&quot;, &quot;SpecialistDoctorGUI.fxml&quot;,&quot;ClientGUI.java&quot;, &quot;ClinicalChemicalTechnologistGUI.java&quot;, &quot;LabCoordinatorGUI.java&quot;, &quot;ReceptionistGUI.java&quot;, &quot;SpecialistDoctorGUI.java&quot;.&#10;[Sprint D][Implementation]">
+      <created>1623689285937</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1623689285937</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Changes to the files &quot;Styles.css&quot; and &quot;ClientResultViewGUI&quot;&#10;[Sprint D][Implementation]">
+      <created>1623692739408</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1623692739408</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Renamed the file &quot;CovidReportToNHS.fxml&quot; to &quot;CovidReportToNHSGUI.fxml&quot; and the file &quot;CovidReportToNHSUI.java&quot; to &quot;CovidReportToNHSGUI.java&quot;.&#10;Changes to the files &quot;Styles.css&quot;, &quot;CovidReportToNHSGUI.fxml&quot;, &quot;CovidReportToNHSGUI.java&quot;, LoginGUI.fxml, AdminGUI.java, ClientGUI.java, ClinicalChemicalTechnologistGUI.java, LabCoordinatorGUI.java, LoginGUI.java, MainMenuGUI.java, MedLabTechnicianGUI.java, ReceptionistGUI.java, SpecialistDoctorGUI.java.&#10;[Sprint D][Implementation]">
+      <created>1623762210809</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1623762210809</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Added the file &quot;ClientResultViewGUI.java&quot;.&#10;Changes to the files &quot;ClientGUI.java&quot;, &quot;ClientResultViewGUI.java&quot;, &quot;ClientResultViewGUI.fxml&quot;&#10;[UC-01][Implementation]">
+      <created>1623763943066</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1623763943066</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -305,7 +428,38 @@
     <MESSAGE value="Changes to &quot;Client&quot;&#10;[UC-03][Code Improvement]" />
     <MESSAGE value="Changes to &quot;TestStoreTest&quot; and &quot;TestStoreTest&quot;&#10;[UC-04][UC-05][Unit Testing]" />
     <MESSAGE value="[Javadoc]" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Javadoc]" />
+    <MESSAGE value="Changes to &quot;LoginGUI.fxml&quot;&#10;[Sprint D][Implementation]" />
+    <MESSAGE value="Small change to &quot;LoginGUI.fxml&quot;&#10;[Sprint D][Implementation]" />
+    <MESSAGE value="Added &quot;AdminGUI.fxml&quot; and &quot;AdminGUI.java&quot;.&#10;Changes to &quot;AdminGUI.fxml&quot;, &quot;AdminGUI.java&quot; and &quot;LoginGUI.java&quot;.&#10;[Sprint D][Implementation]" />
+    <MESSAGE value="Changes to &quot;MenuItem.java&quot;, &quot;AdminGUI.java&quot;, &quot;LoginGUI.java&quot;, &quot;Main.java&quot;, &quot;MainMenuGUI.java&quot;, &quot;MainMenuGUI.fxml&quot;&#10;[Sprint D][Implementation]" />
+    <MESSAGE value="small change&#10;[Sprint D][Implementation]" />
+    <MESSAGE value="Big commit&#10;Changes to &quot;MenuItem.java&quot;, &quot;AdminGUI.java&quot;, &quot;LoginGUI.java&quot;, &quot;Main.java&quot;, &quot;MainMenuGUI.java&quot;, &quot;MainMenuGUI.fxml&quot;, &quot;LoginGUI.fxml&quot;, &quot;AdminGUI.fxml&quot;.&#10;[Sprint D][Implementation]" />
+    <MESSAGE value="Added Class &quot;GuiMethdos.java&quot;, I forgot to add on last commit.&#10;Changes to &quot;AdminGUI.java&quot;, &quot;LoginGUI.java&quot;, &quot;MainMenuGUI.java&quot;, &quot;MainMenuGUI.fxml&quot;, &quot;LoginGUI.fxml&quot;,&quot;AdminGUI.fxml&quot;,&quot;GuiMethods.java&quot;.&#10;[Sprint D][Implementation]" />
+    <MESSAGE value="Changes to &quot;LoginGUI.java&quot;, &quot;AdminGUI.java&quot;, &quot;Main.java&quot;, &quot;Constants.java&quot;&#10;[Sprint D][Implementation]" />
+    <MESSAGE value="Big commit!!&#10;Renamed the file &quot;LabCoordinator.fxml&quot; to &quot;LabCoordinatorGUI.fxml&quot;.&#10;Added the files: &quot;ClientGUI.java&quot;, &quot;ClinicalChemicalTechnologistGUI.java&quot;, &quot;LabCoordinatorGUI.java&quot;, &quot;ReceptionistGUI.java&quot;, &quot;SpecialistDoctorGUI.java&quot;.&#10;Code changes and implementation to the files: &quot;AdminGUI.java&quot;, &quot;LoginGUI.java&quot;, &quot;MedLabTechnicianGUI.java&quot;, &quot;AdminGUI.fxml&quot;, &quot;ClientGUI.fxml&quot;, &quot;ClinicalChemicalTechnologistGUI.fxml&quot;, &quot;LabCoordinatorGUI.fxml&quot;, &quot;MedLabTechnicianGUI.fxml&quot;, &quot;ReceptionistGUI.fxml&quot;, &quot;SpecialistDoctorGUI.fxml&quot;,&quot;ClientGUI.java&quot;, &quot;ClinicalChemicalTechnologistGUI.java&quot;, &quot;LabCoordinatorGUI.java&quot;, &quot;ReceptionistGUI.java&quot;, &quot;SpecialistDoctorGUI.java&quot;.&#10;[Sprint D][Implementation]" />
+    <MESSAGE value="Changes to the files &quot;Styles.css&quot; and &quot;ClientResultViewGUI&quot;&#10;[Sprint D][Implementation]" />
+    <MESSAGE value="Renamed the file &quot;CovidReportToNHS.fxml&quot; to &quot;CovidReportToNHSGUI.fxml&quot; and the file &quot;CovidReportToNHSUI.java&quot; to &quot;CovidReportToNHSGUI.java&quot;.&#10;Changes to the files &quot;Styles.css&quot;, &quot;CovidReportToNHSGUI.fxml&quot;, &quot;CovidReportToNHSGUI.java&quot;, LoginGUI.fxml, AdminGUI.java, ClientGUI.java, ClinicalChemicalTechnologistGUI.java, LabCoordinatorGUI.java, LoginGUI.java, MainMenuGUI.java, MedLabTechnicianGUI.java, ReceptionistGUI.java, SpecialistDoctorGUI.java.&#10;[Sprint D][Implementation]" />
+    <MESSAGE value="Added the file &quot;ClientResultViewGUI.java&quot;.&#10;Changes to the files &quot;ClientGUI.java&quot;, &quot;ClientResultViewGUI.java&quot;, &quot;ClientResultViewGUI.fxml&quot;&#10;[UC-01][Implementation]" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the file &quot;ClientResultViewGUI.java&quot;.&#10;Changes to the files &quot;ClientGUI.java&quot;, &quot;ClientResultViewGUI.java&quot;, &quot;ClientResultViewGUI.fxml&quot;&#10;[UC-01][Implementation]" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/app/controller/CreateClientController.java</url>
+          <line>70</line>
+          <properties class="app.controller.CreateClientController" method="saveClient">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/app/domain/shared/GeneratePassword.java</url>
+          <line>6</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/US_5_md$ChemistryTechnologistTest.ic" NAME="ChemistryTechnologistTest Coverage Results" MODIFIED="1622328262857" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
