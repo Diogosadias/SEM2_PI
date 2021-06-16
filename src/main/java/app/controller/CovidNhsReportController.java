@@ -132,8 +132,7 @@ public class CovidNhsReportController {
 
             int i=0;
             historicDateList = new ArrayList<>();
-            //date.setTime(new Date(System.currentTimeMillis()));
-        date.setTime(new Date("2021/05/29"));
+            date.setTime(new Date(System.currentTimeMillis()));
             int countDays = 1;
             int sumAge = 0;
             while( countDays <= (histPoints*historicDays) ) {
