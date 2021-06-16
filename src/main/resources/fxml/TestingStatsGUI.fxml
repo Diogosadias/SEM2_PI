@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.TestingStatsGUI">
+   <children>
+      <Pane prefHeight="212.0" prefWidth="299.0">
+         <children>
+            <LineChart fx:id="lnChart1" layoutX="-14.0" prefHeight="212.0" prefWidth="306.0">
+              <xAxis>
+                <NumberAxis side="BOTTOM" fx:id="xAxis1" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" fx:id="yAxis1"/>
+              </yAxis>
+            </LineChart>
+         </children>
+      </Pane>
+      <Pane layoutX="300.0" layoutY="6.0" prefHeight="200.0" prefWidth="306.0">
+         <children>
+            <LineChart fx:id="lnChart2" layoutX="-14.0" layoutY="-6.0" prefHeight="212.0" prefWidth="306.0">
+                <xAxis>
+                    <NumberAxis side="BOTTOM" fx:id="xAxis2" />
+                </xAxis>
+                <yAxis>
+                    <NumberAxis side="LEFT" fx:id="yAxis2"/>
+                </yAxis>
+            </LineChart>
+         </children>
+      </Pane>
+      <Pane layoutX="200.0" layoutY="200.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <PieChart fx:id="pieChart" layoutX="1.0" layoutY="-1.0" prefHeight="200.0" prefWidth="200.0" />
+         </children>
+      </Pane>
+   </children>
+</Pane>

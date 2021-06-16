@@ -418,4 +418,7 @@ public class TestStore extends Store{
         this.saveTest();
     }
 
+    public Iterable<Test> getAllTests() {
+        return this.testList;
+    }
 }
