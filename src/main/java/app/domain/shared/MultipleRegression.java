@@ -408,21 +408,33 @@ public class MultipleRegression {
         return "Error";
     }
 
+    public String decisionf(){
+        if(f>f0){
+            return "Reject H0\n" +
+                    "The regression model is significant.";
+        }else if(f<=f0){
+            return "Don't reject H0\n" +
+                    "The regression model is not significant.";
+        }
+        return "Error";
+    }
+
 //Priting
     @Override
     public String toString(){
         NumberFormat formatter = new DecimalFormat("#0.0000");
         return "\nThe regression model fitted using data from the interval \n" +
-                "^y = " + betas[0] + " + " + betas[1] + "x1 + " + betas[2] + "x2" +
+                "^y = " + formatter.format(betas[0][0]) + " + " + formatter.format(betas[1][0]) + "x1 + " + formatter.format(betas[2][0]) + "x2" +
                 "\n//\nOther statistics"+"\nR2 = " + formatter.format(r2) + "\nR2adjusted = " + formatter.format(raj) + "\nR = " + formatter.format(r) +
                 "\n//\nHypothesis tests for regression coefficients\nHO:b1=b2=0, k=2 H1: bj<>0 , j=1,2 " +
                 "\nf_obs = " + this.f0 + "\nDecision: " + "\n" + decision() +
-                "\n//\nSignificance model with Anova\n" +
+                "\n//\nSignificance model with Anova\nHO:b1=b2=0, k=2 H1: bj<>0 , j=1,2 " +
                 "\n\t\t\tdf\t\tSS\t\tMS\t\tF\t\t" +
                 "\nRegression\t" + this.k + "\t" + formatter.format(sqr) +"\t" + formatter.format(mqr)+"\t"+ formatter.format(f) +"\t" +
                 "\nResidual\t" + (n-(k+1)) + "\t" + formatter.format(sqe) +"\t\t"+ formatter.format(mqe) +"\t\t" +
                 "\nTotal\t" + (n-1) +"\t" + formatter.format(sqt) +"\t\t" +
-                "\n\nDecision: f \n0 > f" + ALPHA + ",(" + (int)this.k + "." + (int)(n-(k+1)) + ")=" + this.f0;
+                "\n\nDecision: f \n0 > f" + ALPHA + ",(" + (int)this.k + "." + (int)(n-(k+1)) + ")=" + formatter.format(this.f0) +
+                "\n" + decisionf() ;
 
 
 
