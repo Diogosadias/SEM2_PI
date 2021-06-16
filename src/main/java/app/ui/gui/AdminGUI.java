@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 
 import app.ui.Main;
 import app.ui.console.*;
+import app.utils.fx.FXUtils;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -87,34 +88,11 @@ public class AdminGUI implements Initializable, GuiMethods {
 
     @FXML
     private void menu_logout(ActionEvent event) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Logout Confirmation");
-        alert.setHeaderText("Are you sure you want to logout?");
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.isPresent()) {
-            if (result.get() == ButtonType.OK) {
-
-                try {
-                    MenuItem item= new MenuItem("default", "/fxml/LoginGUI.fxml");
-                    item.runGui(item.getGui(),mainInstance);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+        FXUtils.menuLogout(mainInstance);
     }
     @FXML
     private void menu_exit(ActionEvent event) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Exit Confirmation");
-        alert.setHeaderText("Are you sure you want to exit the program?");
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.isPresent()) {
-            if (result.get() == ButtonType.OK) {
-
-                mainInstance.getStage().close();
-            }
-        }
+        FXUtils.menuExit(mainInstance);
     }
 
     @Override

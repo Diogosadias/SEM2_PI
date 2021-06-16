@@ -68,22 +68,7 @@ public class CovidReportToNHSGUI implements Initializable, GuiMethods {
 
     @FXML
     private void menu_logout(ActionEvent event) {
-
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Are you sure you want to cancel and logout?");
-        alert.setHeaderText("Do you want to cancel the report and logout?");
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.isPresent()) {
-            if (result.get() == ButtonType.OK) {
-
-                try {
-                    MenuItem item= new MenuItem("default", "/fxml/LoginGUI.fxml");
-                    item.runGui(item.getGui(),mainInstance);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+        FXUtils.menuLogout(mainInstance);
     }
     @FXML
     private void menu_cancel(ActionEvent event) {
@@ -106,17 +91,7 @@ public class CovidReportToNHSGUI implements Initializable, GuiMethods {
     }
     @FXML
     private void menu_exit(ActionEvent event) {
-
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Are you sure you want to cancel and exit the program?");
-        alert.setHeaderText("Do you want to cancel the report and exit the program?");
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.isPresent()) {
-            if (result.get() == ButtonType.OK) {
-
-                mainInstance.getStage().close();
-            }
-        }
+        FXUtils.menuExit(mainInstance);
     }
 
     @Override

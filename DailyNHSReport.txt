@@ -93,7 +93,7 @@ Date						Number of OBSERVED positive cases		Number of ESTIMATED/EXPECTED positi
  === Linear Regression - Daily - Multiple Variables === 
 
 The regression model fitted using data from the interval 
-^y = [D@4cdda43 + [D@7282892dx1 + [D@73e5e85fx2
+^y = [D@10f58b95 + [D@7bc7ec64x1 + [D@6509236ex2
 //
 Other statistics
 R2 = 488536474789,9118
@@ -220,7 +220,7 @@ Date						Number of OBSERVED positive cases		Number of ESTIMATED/EXPECTED positi
  === Linear Regression - Weekly - Multiple Variables === 
 
 The regression model fitted using data from the interval 
-^y = [D@3003225f + [D@3f8d7c2ex1 + [D@758ffee0x2
+^y = [D@413884ea + [D@54c08bd9x1 + [D@684ec746x2
 //
 Other statistics
 R2 = 488536474789,9118

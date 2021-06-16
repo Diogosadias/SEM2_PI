@@ -56,9 +56,7 @@
           <root url="jar://$MODULE_DIR$/libs/Report2NHS-1.0.0.jar!/" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES>
-          <root url="jar://$MODULE_DIR$/libs/Report2NHS-1.0.0.jar!/" />
-        </SOURCES>
+        <SOURCES />
       </library>
     </orderEntry>
     <orderEntry type="module-library">
