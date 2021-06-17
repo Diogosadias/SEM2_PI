@@ -1,9 +1,11 @@
 package app.domain.model;
 
 import app.controller.App;
+import app.controller.DailyNhsReportController;
 import auth.AuthFacade;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -118,6 +120,14 @@ public class Company {
         stores.add(sampleStore);
 
 
+    }
+
+    public static void runDailyTasks() {
+        try {
+            new DailyNhsReportController().runDailyNhsReportTask();
+        } catch (FileNotFoundException | NullPointerException e) {
+            e.printStackTrace();
+        }
     }
 
     /**

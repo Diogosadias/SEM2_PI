@@ -41,11 +41,13 @@ public class CovidNhsReportUI implements Runnable {
                     Date dateI = formatter1.parse(initDate);
                     Date dateF = formatter1.parse(finalDate);
                     String regression = chooseData("Set Linear Regression Model:\n1 - Simple Linear Regression\n2 - Multiple Linear Regression","Linear","Multiple");
+                    System.out.println("Significance Level:  (ex: 95%)");
+                    double alpha = 1 - Double.valueOf(read.nextLine().replace(",",".").replace("%",""))/100;
                     if (regression.equals("Linear")) {
                         String varIndependent = chooseData("Variable Independent:\n1 - Number of Tests Realised\n2 - Client Mean Age", controller.VAR_TESTS, controller.VAR_AGE);
-                        controller.doLinearRegression(dateI, dateF, varIndependent,historic, histPoints);
+                        controller.doLinearRegression(dateI, dateF, varIndependent,historic, histPoints,alpha);
                     } else {
-                        controller.doLinearRegression(dateI, dateF, controller.MULTIPLE, historic, histPoints);
+                        controller.doLinearRegression(dateI, dateF, controller.MULTIPLE, historic, histPoints,alpha);
                     }
                     controller.sendNhsReport();
                 } catch (ParseException e) {

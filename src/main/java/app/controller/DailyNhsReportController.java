@@ -26,7 +26,7 @@ public class DailyNhsReportController {
 
     public DailyNhsReportController(){this.company = App.getInstance().getCompany();}
 
-    public void runDailyTask()throws FileNotFoundException  {
+    public void runDailyNhsReportTask()throws FileNotFoundException  {
         importFile();
         String data = "";
         for(String[] line : file) {
@@ -36,13 +36,14 @@ public class DailyNhsReportController {
                 Date initialDate = new Date(line[getColumnIndex("InitialDate_Registration")]);
                 Date finalDate = new Date(line[getColumnIndex("FinalDate_Registration")]);
                 int histPoints = Integer.valueOf(line[getColumnIndex("HistoricPoints")]);
-                data += getDataFromLinearRegression("Registered Tests",initialDate,finalDate,"Daily",histPoints);
-                data += getDataFromLinearRegression("Mean Age",initialDate,finalDate,"Daily",histPoints);
-                data += getDataFromLinearRegression("Multiple",initialDate,finalDate,"Daily",histPoints);
+                double alpha = Double.valueOf(line[getColumnIndex("SignificanceLevel")].replace(",","."));
+                data += getDataFromLinearRegression("Registered Tests",initialDate,finalDate,"Daily",histPoints,alpha);
+                data += getDataFromLinearRegression("Mean Age",initialDate,finalDate,"Daily",histPoints,alpha);
+                data += getDataFromLinearRegression("Multiple",initialDate,finalDate,"Daily",histPoints,alpha);
 
-                data += getDataFromLinearRegression("Registered Tests",initialDate,finalDate,"Weekly",histPoints);
-                data += getDataFromLinearRegression("Mean Age",initialDate,finalDate,"Weekly",histPoints);
-                data += getDataFromLinearRegression("Multiple",initialDate,finalDate,"Weekly",histPoints);
+                data += getDataFromLinearRegression("Registered Tests",initialDate,finalDate,"Weekly",histPoints,alpha);
+                data += getDataFromLinearRegression("Mean Age",initialDate,finalDate,"Weekly",histPoints,alpha);
+                data += getDataFromLinearRegression("Multiple",initialDate,finalDate,"Weekly",histPoints,alpha);
 
                 dailytask(data);
                 //Reminder dailyTask = new Reminder(data);
@@ -68,8 +69,8 @@ public class DailyNhsReportController {
         }
     }
 
-    private String getDataFromLinearRegression(String variable, Date initialDate, Date finalDate, String historic,int histPoints) {
-        reportController.doLinearRegression(initialDate,finalDate,variable,historic,histPoints);
+    private String getDataFromLinearRegression(String variable, Date initialDate, Date finalDate, String historic,int histPoints,double alpha) {
+        reportController.doLinearRegression(initialDate,finalDate,variable,historic,histPoints,alpha);
         return " === Linear Regression - " + historic + " - " + variable + " === \n" + reportController.getData() + "\n\n\n";
     }
 

@@ -35,7 +35,7 @@ public class MultipleRegression {
     private double raj;
     private double r;
     private double f0;
-    private double ALPHA = 0.05;
+    private double alpha;
 
 
 
@@ -46,7 +46,8 @@ public class MultipleRegression {
      * @param  x2 the values of one of the independent variable
      * @param  y the values of the dependent variable
      * @throws IllegalArgumentException if the lengths of the three arrays are not equal
-     */    public MultipleRegression(double[] y,double[] x1, double[] x2) {
+     */    public MultipleRegression(double[] y,double[] x1, double[] x2, double alpha) {
+         this.alpha = alpha;
         if (x1.length != y.length || x2.length != y.length) {
             throw new IllegalArgumentException("array lengths are not equal");
         }
@@ -220,7 +221,7 @@ public class MultipleRegression {
     }
 
     public void setAlpha(double alpha){
-        this.ALPHA=alpha;
+        this.alpha=alpha;
     }
 
     //Auxiliar
@@ -388,7 +389,7 @@ public class MultipleRegression {
     public double mininterval(double x1, double x2){
         double [][] x0 = {{1},{x1},{x2}};
         double degreesOfFreedom = (n-(k+1));
-        double t = new TDistribution(degreesOfFreedom).inverseCumulativeProbability(1-(ALPHA /2));
+        double t = new TDistribution(degreesOfFreedom).inverseCumulativeProbability(1-(alpha /2));
         double delta = mqe * valor(multiplicar(transposta(x0),multiplicar(inv,x0)));
         return predict(x1,x2) - t*sqrt(delta);
     }
@@ -396,7 +397,7 @@ public class MultipleRegression {
     public double maxinterval(double x1, double x2){
         double [][] x0 = {{1},{x1},{x2}};
         double degreesOfFreedom = (n-(k+1));
-        double t = new TDistribution(degreesOfFreedom).inverseCumulativeProbability(1-(ALPHA /2));
+        double t = new TDistribution(degreesOfFreedom).inverseCumulativeProbability(1-(alpha /2));
         double delta = mqe * valor(multiplicar(transposta(x0),multiplicar(inv,x0)));
         return predict(x1,x2) + t*sqrt(delta);
     }
@@ -428,8 +429,6 @@ public class MultipleRegression {
     public String toString(){
         NumberFormat formatter = new DecimalFormat("#0.0000");
         return "\nThe regression model fitted using data from the interval \n" +
-                "^y = b[0] + b[1]x1 + b[2] <=> ^y = " + formatter.format(betas[0][0]) + " + " + formatter.format(betas[1][0]) + " * x1" + " + " + formatter.format(betas[2][0]) + " * x2" +
-                "\nb[0] = "+formatter.format(betas[0][0])+"\nb[1] = "+formatter.format(betas[1][0])+"\nb[2] = "+formatter.format(betas[2][0])+
                 "\n//\nOther statistics"+"\nR2 = " + formatter.format(r2) + "\nR2adjusted = " + formatter.format(raj) + "\nR = " + formatter.format(r) +
                 "\n//\nHypothesis tests for regression coefficients\nHO:b1=b2=0, k=2 H1: bj<>0 , j=1,2 " +
                 "\nf_obs = " + formatter.format(this.f0) + "\nDecision: " + "\n" + decision() +
@@ -438,7 +437,7 @@ public class MultipleRegression {
                 "\nRegression\t" + this.k + "\t" + formatter.format(sqr) +"\t" + formatter.format(mqr)+"\t"+ formatter.format(f) +"\t" +
                 "\nResidual\t" + (n-(k+1)) + "\t" + formatter.format(sqe) +"\t\t"+ formatter.format(mqe) +"\t\t" +
                 "\nTotal\t" + (n-1) +"\t" + formatter.format(sqt) +"\t\t" +
-                "\n\nDecision: f \n0 > f" + ALPHA + ",(" + (int)this.k + "." + (int)(n-(k+1)) + ")=" + formatter.format(this.f0) +
+                "\n\nDecision: f \n0 > f" + alpha + ",(" + (int)this.k + "." + (int)(n-(k+1)) + ")=" + formatter.format(this.f0) +
                 "\n" + decisionf() ;
 
 
