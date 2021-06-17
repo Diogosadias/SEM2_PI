@@ -43,9 +43,9 @@ public class CovidNhsReportUI implements Runnable {
                     String regression = chooseData("Set Linear Regression Model:\n1 - Simple Linear Regression\n2 - Multiple Linear Regression","Linear","Multiple");
                     if (regression.equals("Linear")) {
                         String varIndependent = chooseData("Variable Independent:\n1 - Number of Tests Realised\n2 - Client Mean Age", controller.VAR_TESTS, controller.VAR_AGE);
-                        controller.doLinearRegression(dateI, dateF, varIndependent,historic, histPoints);
+                        controller.doLinearRegression(dateI, dateF, varIndependent,historic, histPoints, 95);
                     } else {
-                        controller.doLinearRegression(dateI, dateF, controller.MULTIPLE, historic, histPoints);
+                        controller.doLinearRegression(dateI, dateF, controller.MULTIPLE, historic, histPoints, 95);
                     }
                     controller.sendNhsReport();
                 } catch (ParseException e) {

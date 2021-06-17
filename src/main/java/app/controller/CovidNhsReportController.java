@@ -63,7 +63,7 @@ public class CovidNhsReportController {
     }
 
 
-    public void doLinearRegression(Date initialDate, Date finalDate, String varIndependent, String historic,int histPoints) {
+    public void doLinearRegression(Date initialDate, Date finalDate, String varIndependent, String historic,int histPoints, int alpha) {
         int historicDays = 1;
         if (historic.equals("Weekly")) {
             historicDays = 7;
@@ -85,16 +85,16 @@ public class CovidNhsReportController {
         this.reportData = "";
         switch (varIndependent){
             case VAR_TESTS:
-                this.linear = new LinearRegression(xTestsInterval,yInterval);
+                this.linear = new LinearRegression(xTestsInterval,yInterval, alpha);
                 reportData += this.linear + this.boardSimpleLRString(xTests, y,historicDays, dateFormat);
                 break;
             case VAR_AGE:
-                this.linear = new LinearRegression(xAgeInterval,yInterval);
+                this.linear = new LinearRegression(xAgeInterval,yInterval,alpha);
                 reportData += this.linear + this.boardSimpleLRString(xAge,y, historicDays, dateFormat);
                 break;
             case "Both":
                 NumberFormat formatter = new DecimalFormat("#0.0000");
-                this.multiple = new MultipleRegression(yInterval,xTestsInterval,xAgeInterval);
+                this.multiple = new MultipleRegression(yInterval,xTestsInterval,xAgeInterval, alpha);
                 reportData += this.multiple + "\n\nPrediction values\n\n" + "Date\t\t\tNumber of OBSERVED positive cases\t\tNumber of ESTIMATED/EXPECTED positive cases\t\t\t\t\t95% intervals";
                 for(int i = 0; i < this.historicDateList.size(); i ++){
                     if(y[i] != 0) {
