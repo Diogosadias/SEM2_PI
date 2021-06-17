@@ -2,6 +2,7 @@ package app.controller;
 
 import app.domain.model.*;
 import app.domain.shared.Constants;
+import app.ui.gui.TestingStatsGUI2;
 import javafx.scene.chart.*;
 
 import java.text.DateFormat;
@@ -21,6 +22,8 @@ public class TestingStatsController {
     private Date initDateGraph;
     private Date finalDateGraph;
     private int chart;
+
+
 
 
     /**

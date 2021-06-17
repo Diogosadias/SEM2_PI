@@ -25,17 +25,10 @@ import static app.domain.shared.Constants.SCENE_WIDTH;
 
 public class TestingStatsGUI1 implements Initializable, GuiMethods {
     @FXML
-    public DatePicker initDateTestsWaiting;
+    public DatePicker initDate;
     @FXML
-    public DatePicker finalDateTestsWaiting;
-    @FXML
-    public DatePicker initDateNumberClients;
-    @FXML
-    public DatePicker finalDateNumberClients;
-    @FXML
-    public DatePicker initDateTestsValidated;
-    @FXML
-    public DatePicker finalDateTestsValidated;
+    public DatePicker finalDate;
+
     @FXML
     public Label lblTotalClient;
     @FXML
@@ -50,6 +43,8 @@ public class TestingStatsGUI1 implements Initializable, GuiMethods {
     private Main main;
     private TestingStatsController controller = new TestingStatsController();
 
+
+
     @Override
     public void setInstance(Main mainInstance) {
         this.main=mainInstance;
@@ -62,23 +57,25 @@ public class TestingStatsGUI1 implements Initializable, GuiMethods {
     }
     @FXML
     void selectDate1(ActionEvent event) {
-        System.out.println(initDateNumberClients.getValue());
-        controller.setInitDateGraph(java.sql.Date.valueOf(initDateNumberClients.getValue()));
+        System.out.println(initDate.getValue());
+        controller.setInitDateGraph(java.sql.Date.valueOf(initDate.getValue()));
     }
 
     @FXML
     void selectDate2(ActionEvent event) {
-        controller.setInitDateGraph(java.sql.Date.valueOf(finalDateNumberClients.getValue()));
+        controller.setInitDateGraph(java.sql.Date.valueOf(finalDate.getValue()));
     }
 
 
     @FXML
     private void nrClientsGraphs(ActionEvent event) {
         try{
-            controller.setInitDateGraph(java.sql.Date.valueOf(this.initDateNumberClients.getValue()));
-            controller.setFinalDateGraph(java.sql.Date.valueOf(this.finalDateNumberClients.getValue()));
+            controller.setInitDateGraph(java.sql.Date.valueOf(this.initDate.getValue()));
+            controller.setFinalDateGraph(java.sql.Date.valueOf(this.finalDate.getValue()));
             controller.setChartOption(1);
-            replaceScene();
+            TestingStatsGUI2 testingStatsGUI2 = (TestingStatsGUI2) main.replaceSceneContent("/fxml/TestingStatsGUI2.fxml");
+            testingStatsGUI2.setInstance(main);
+            testingStatsGUI2.setController(controller);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -87,10 +84,12 @@ public class TestingStatsGUI1 implements Initializable, GuiMethods {
     @FXML
     private void waitingTestsGraphs(ActionEvent event) {
         try{
-            controller.setInitDateGraph(java.sql.Date.valueOf(this.initDateNumberClients.getValue()));
-            controller.setFinalDateGraph(java.sql.Date.valueOf(this.finalDateNumberClients.getValue()));
+            controller.setInitDateGraph(java.sql.Date.valueOf(this.initDate.getValue()));
+            controller.setFinalDateGraph(java.sql.Date.valueOf(this.finalDate.getValue()));
             controller.setChartOption(2);
-            replaceScene();
+            TestingStatsGUI2 testingStatsGUI2 = (TestingStatsGUI2) main.replaceSceneContent("/fxml/TestingStatsGUI2.fxml");
+            testingStatsGUI2.setInstance(main);
+            testingStatsGUI2.setController(controller);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -99,26 +98,30 @@ public class TestingStatsGUI1 implements Initializable, GuiMethods {
     @FXML
     private void validatedTestsGraphs(ActionEvent event) {
         try{
-            initDateNumberClients.setOnAction(e -> {
+            initDate.setOnAction(e -> {
                 // get the date picker value
-                LocalDate i = initDateNumberClients.getValue();
+                LocalDate i = initDate.getValue();
                 // get the selected date
                 System.out.println(i);
             });
             /*
             System.out.println(this.initDateNumberClients.getValue());
             System.out.println(this.finalDateNumberClients.getValue());*/
-            controller.setInitDateGraph(java.sql.Date.valueOf(this.initDateNumberClients.getValue()));
-            controller.setFinalDateGraph(java.sql.Date.valueOf(this.finalDateNumberClients.getValue()));
+            controller.setInitDateGraph(java.sql.Date.valueOf(this.initDate.getValue()));
+            controller.setFinalDateGraph(java.sql.Date.valueOf(this.finalDate.getValue()));
             controller.setChartOption(3);
-            replaceScene();
+            TestingStatsGUI2 testingStatsGUI2 = (TestingStatsGUI2) main.replaceSceneContent("/fxml/TestingStatsGUI2.fxml");
+            testingStatsGUI2.setInstance(main);
+            testingStatsGUI2.setController(controller);
+            //replaceScene();
         } catch (Exception e) {
+            //System.out.println(e.getMessage());
             System.out.println(e.getMessage());
         }
     }
 
-    private Initializable replaceScene() throws IOException {
-        String fxml="/fxml/TestingStatsGUI2.java";
+    /*private Initializable replaceScene() throws Exception {
+        String fxml="/fxml/TestingStatsGUI2.fxml";
 
         FXMLLoader loader = new FXMLLoader();
 
@@ -132,6 +135,10 @@ public class TestingStatsGUI1 implements Initializable, GuiMethods {
         } finally {
             in.close();
         }
+        TestingStatsGUI2 testingStatsGUI2 = loader.getController();
+        testingStatsGUI2.setInstance(main);
+        testingStatsGUI2.setController(controller);
+
         Scene scene = new Scene(page, SCENE_WIDTH, SCENE_HEIGHT);
         scene.getStylesheets().add("/styles/Styles.css");
         main.stage.setScene(scene);
@@ -140,11 +147,11 @@ public class TestingStatsGUI1 implements Initializable, GuiMethods {
         //interface que envia o Main para todos
         GuiMethods guiMethods = loader.getController();
         guiMethods.setInstance(main);
-        TestingStatsGUI2 gui = loader.getController();
-        gui.setController(this.controller);
+
+
 
         return (Initializable) loader.getController();
-    }
+    }*/
 
     @FXML
     private void menu_cancel(ActionEvent event) {

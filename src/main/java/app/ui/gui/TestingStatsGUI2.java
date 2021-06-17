@@ -51,10 +51,17 @@ public class TestingStatsGUI2 implements Initializable, GuiMethods{
     Main main;
     private TestingStatsController controller;
 
+    private String[] dates1, dates2, dates3, dates4;
+
     @Override
     public void setInstance(Main mainInstance) {
         this.main = mainInstance;
     }
+    public void setController(TestingStatsController controller) {
+        this.controller = controller;
+    }
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -130,7 +137,5 @@ public class TestingStatsGUI2 implements Initializable, GuiMethods{
         }
     }
 
-    public void setController(TestingStatsController controller) {
-        this.controller = controller;
-    }
+
 }

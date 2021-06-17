@@ -19,12 +19,8 @@
    <center>
       <Pane prefHeight="213.0" prefWidth="357.0" BorderPane.alignment="CENTER">
          <children>
-            <DatePicker fx:id="initDateTestsWaiting" layoutX="292.0" layoutY="30.0" onAction="#selectDate1" />
-            <DatePicker fx:id="finalDateTestsWaiting" layoutX="292.0" layoutY="66.0" onAction="#selectDate2" />
-            <DatePicker fx:id="initDateNumberClients" layoutX="292.0" layoutY="119.0" onAction="#selectDate1" />
-            <DatePicker fx:id="finalDateNumberClients" layoutX="292.0" layoutY="154.0" onAction="#selectDate2" />
-            <DatePicker fx:id="initDateTestsValidated" layoutX="292.0" layoutY="204.0" onAction="#selectDate1" />
-            <DatePicker fx:id="finalDateTestsValidated" layoutX="292.0" layoutY="241.0" onAction="#selectDate2" />
+            <DatePicker fx:id="initDate" layoutX="292.0" layoutY="119.0" onAction="#selectDate1" />
+            <DatePicker fx:id="finalDate" layoutX="292.0" layoutY="154.0" onAction="#selectDate2" />
             <Button fx:id="btnTestsWaiting" layoutX="82.0" layoutY="131.0" mnemonicParsing="false" onAction="#waitingTestsGraphs" text="Tests Waiting">
                <font>
                   <Font size="18.0" />
