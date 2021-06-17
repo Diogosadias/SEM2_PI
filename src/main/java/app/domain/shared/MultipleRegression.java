@@ -428,6 +428,8 @@ public class MultipleRegression {
     public String toString(){
         NumberFormat formatter = new DecimalFormat("#0.0000");
         return "\nThe regression model fitted using data from the interval \n" +
+                "^y = b[0] + b[1]x1 + b[2] <=> ^y = " + formatter.format(betas[0][0]) + " + " + formatter.format(betas[1][0]) + " * x1" + " + " + formatter.format(betas[2][0]) + " * x2" +
+                "\nb[0] = "+formatter.format(betas[0][0])+"\nb[1] = "+formatter.format(betas[1][0])+"\nb[2] = "+formatter.format(betas[2][0])+
                 "\n//\nOther statistics"+"\nR2 = " + formatter.format(r2) + "\nR2adjusted = " + formatter.format(raj) + "\nR = " + formatter.format(r) +
                 "\n//\nHypothesis tests for regression coefficients\nHO:b1=b2=0, k=2 H1: bj<>0 , j=1,2 " +
                 "\nf_obs = " + formatter.format(this.f0) + "\nDecision: " + "\n" + decision() +

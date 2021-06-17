@@ -92,7 +92,7 @@ public class CovidNhsReportController {
                 this.linear = new LinearRegression(xAgeInterval,yInterval);
                 reportData += this.linear + this.boardSimpleLRString(xAge,y, historicDays, dateFormat);
                 break;
-            case MULTIPLE:
+            case "Both":
                 NumberFormat formatter = new DecimalFormat("#0.0000");
                 this.multiple = new MultipleRegression(yInterval,xTestsInterval,xAgeInterval);
                 reportData += this.multiple + "\n\nPrediction values\n\n" + "Date\t\t\tNumber of OBSERVED positive cases\t\tNumber of ESTIMATED/EXPECTED positive cases\t\t\t\t\t95% intervals";
