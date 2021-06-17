@@ -22,7 +22,7 @@
          <children>
             <LineChart fx:id="dailyChart" layoutY="-2.0" prefHeight="182.0" prefWidth="312.0">
                 <xAxis>
-                    <NumberAxis side="BOTTOM" fx:id="xAxis1" />
+                    <CategoryAxis side="BOTTOM" fx:id="xAxis1" />
                 </xAxis>
                 <yAxis>
                     <NumberAxis fx:id="yAxis1" side="LEFT" />
@@ -30,7 +30,7 @@
             </LineChart>
             <LineChart fx:id="monthlyChart" layoutY="179.0" prefHeight="189.0" prefWidth="307.0">
                 <xAxis>
-                    <NumberAxis side="BOTTOM" fx:id="xAxis2" />
+                    <CategoryAxis side="BOTTOM" fx:id="xAxis2" />
                 </xAxis>
                 <yAxis>
                     <NumberAxis fx:id="yAxis2" side="LEFT" />
@@ -38,7 +38,7 @@
             </LineChart>
             <LineChart fx:id="yearlyChart" layoutX="308.0" layoutY="173.0" prefHeight="190.0" prefWidth="292.0">
                 <xAxis>
-                    <NumberAxis side="BOTTOM" fx:id="xAxis3" />
+                    <CategoryAxis side="BOTTOM" fx:id="xAxis3" />
                 </xAxis>
                 <yAxis>
                     <NumberAxis fx:id="yAxis3" side="LEFT" />
@@ -46,7 +46,7 @@
             </LineChart>
             <LineChart fx:id="weeklyChart" layoutX="306.0" prefHeight="175.0" prefWidth="294.0">
                 <xAxis>
-                    <NumberAxis side="BOTTOM" fx:id="xAxis4" />
+                    <CategoryAxis side="BOTTOM" fx:id="xAxis4" />
                 </xAxis>
                 <yAxis>
                     <NumberAxis fx:id="yAxis4" side="LEFT" />
