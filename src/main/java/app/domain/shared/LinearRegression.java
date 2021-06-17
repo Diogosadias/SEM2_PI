@@ -35,7 +35,7 @@ public class LinearRegression {
     private  double tDistribution;
     private  double fDistribution;
     private double Sxx;
-    private final double ALPHA = 0.05;
+    private double alpha;
     private int n;
     private double s;
 
@@ -47,7 +47,8 @@ public class LinearRegression {
      * @param  y the corresponding values of the response variable
      * @throws IllegalArgumentException if the lengths of the two arrays are not equal
      */
-    public LinearRegression(double[] x, double[] y) {
+    public LinearRegression(double[] x, double[] y, double alpha) {
+        this.alpha = alpha;
         if (x.length != y.length) {
             throw new IllegalArgumentException("array lengths are not equal");
         }
@@ -88,7 +89,7 @@ public class LinearRegression {
         }
 
         int degreesOfFreedom = n-2;
-        this.tDistribution = new TDistribution(degreesOfFreedom).inverseCumulativeProbability(1-(ALPHA /2));
+        this.tDistribution = new TDistribution(degreesOfFreedom).inverseCumulativeProbability(1-(alpha /2));
 
         this.dfSR = 1;
         this.dfST = n - 1;
@@ -102,7 +103,7 @@ public class LinearRegression {
         svar0 = svar/n + xbar*xbar*svar1;
 
         FDistribution fd= new FDistribution(this.dfSR,this.dfSE);
-        this.fDistribution= fd.inverseCumulativeProbability(ALPHA);
+        this.fDistribution= fd.inverseCumulativeProbability(alpha);
 
         this.s = Math.sqrt(this.MSE());
 
@@ -238,7 +239,7 @@ public class LinearRegression {
                 "\nRegression\t" + this.dfSR + "\t" + formatter.format(getSR()) +"\t" + formatter.format(MSR())+"\t"+ formatter.format(F()) +"\t" +
                 "\nResidual\t" + this.dfSE + "\t" + formatter.format(getSE()) +"\t\t"+ formatter.format(MSE()) +"\t\t" +
                 "\nTotal\t\t" + this.dfST +"\t" + formatter.format(getST()) +"\t\t" +
-                "\n\nDecision: f \n0 > f" + ALPHA + ",(" + (int)this.dfSR + "." + (int)this.dfSE + ")=" + formatter.format(this.fDistribution);
+                "\n\nDecision: f \n0 > f" + this.alpha + ",(" + (int)this.dfSR + "." + (int)this.dfSE + ")=" + formatter.format(this.fDistribution);
 
 
 

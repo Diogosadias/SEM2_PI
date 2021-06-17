@@ -170,16 +170,18 @@ App {
         this.company.getParameterStore().addParameter(parameter14);
 
         //TestType
+        ParameterCategory category1 = new ParameterCategory("HCBC","Hemogram","11001");
+        Parameter parameter1 = new Parameter("WBC00","White Blood Cells (WBC)","White blood cells count",category1.getCode());
         TestType type1 = new TestType("Blood","Blood Test","Blood sample");
         type1.addParameterCategory(category1);
-        this.company.getTestTypeStore().addTestType(type1);
 
         //Test
+        Client client1 = new Client(9876543210123456L);
         Test forSamples = new Test (type1,type1.getCollectingMethod(),client1);
         forSamples.addCategory(category1);
         forSamples.addParameter(parameter1);
-        forSamples.setNhsCode("nhsCode-AB01");
-        forSamples.setCode("000000000001");
+        forSamples.setNhsCode("nhsCode-AB99");
+        forSamples.setCode("000000002362");
         this.company.getTestStore().addTest(forSamples);
 
         Test covid1 = new Test (type2,type2.getCollectingMethod(),client1);
@@ -200,14 +202,6 @@ App {
         this.company.getTestStore().addTest(forReports);
 */
 
-    }
-
-    public static void runDailyTasks() {
-        try {
-            new DailyNhsReportController().runDailyTask();
-        } catch (FileNotFoundException | NullPointerException e) {
-            e.printStackTrace();
-        }
     }
 
     // Extracted from https://www.javaworld.com/article/2073352/core-java/core-java-simply-singleton.html?page=2

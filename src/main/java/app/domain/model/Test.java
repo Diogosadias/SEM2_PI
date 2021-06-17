@@ -5,8 +5,11 @@ import app.domain.shared.ExternalModule;
 import com.example2.EMRefValue;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -189,8 +192,10 @@ public class Test implements Serializable {
     public void setNhsCode(String nhsCode) {
         checkNhsCodeAttribute(nhsCode);
         this.nhsCode = nhsCode;
+        Date date = new Date(System.currentTimeMillis());
+        checkDateValidation(date);
         this.state = Constants.REGISTERED;
-        this.dateRegistered = new Date(System.currentTimeMillis());
+        this.dateRegistered = date;
     }
 
     /**
@@ -233,8 +238,10 @@ public class Test implements Serializable {
         if (!listTestParameter.isEmpty() && listTestParameter.contains(this.testParam) ) {
             return false;
         }
+        Date date = new Date(System.currentTimeMillis());
+        checkDateValidation(date);
         this.state = Constants.SAMPLE_ANALYSED;
-        this.dateChemical = new Date(System.currentTimeMillis());
+        this.dateChemical = date;
         return this.listTestParameter.add(this.testParam);
     }
 
@@ -466,8 +473,10 @@ public class Test implements Serializable {
      */
 
     public boolean testDiagnosisCompleted () {
+        Date date = new Date(System.currentTimeMillis());
+        checkDateValidation(date);
         this.state = Constants.DIAGNOSIS_MADE;
-        this.dateDiagnosis = new Date(System.currentTimeMillis());
+        this.dateDiagnosis = date;
         return true;
     }
 
@@ -476,8 +485,10 @@ public class Test implements Serializable {
     }
 
     public void isValidated () {
+        Date date = new Date(System.currentTimeMillis());
+        checkDateValidation(date);
         this.state = Constants.VALIDATED;
-        this.dateValidation = new Date(System.currentTimeMillis());
+        this.dateValidation = date;
     }
 
     /**
@@ -594,11 +605,13 @@ public class Test implements Serializable {
     }
 
     public void setDateRegistered(Date dateRegistered) {
+        checkDateValidation(dateRegistered);
         this.state = Constants.REGISTERED;
         this.dateRegistered = dateRegistered;
     }
 
     public void setDateChemical(Date dateChemical) {
+        checkDateValidation(dateRegistered);
         if(this.dateRegistered == null){
             throw new IllegalArgumentException("Test doesnt have Register date.");
         }
@@ -613,6 +626,7 @@ public class Test implements Serializable {
         if(this.dateChemical == null){
             throw new IllegalArgumentException("Test doesnt have Chemical Analysis date.");
         }
+        checkDateValidation(dateDiagnosis);
         this.state = Constants.DIAGNOSIS_MADE;
         this.dateDiagnosis = dateDiagnosis;
     }
@@ -627,10 +641,18 @@ public class Test implements Serializable {
         if(this.dateDiagnosis == null){
             throw new IllegalArgumentException("Test doesnt have Diagnosis date.");
         }
+        checkDateValidation(dateValidation);
         this.state = Constants.VALIDATED;
         this.dateValidation = dateValidation;
+    }
 
-
+    private void checkDateValidation(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        DateFormat weekDay = new SimpleDateFormat("EEEE");
+        if(weekDay.format(date).equalsIgnoreCase("Sunday")){
+            throw new IllegalArgumentException("Many Labs dont work at Sunday!");
+        }
     }
 
 }
