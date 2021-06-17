@@ -86,24 +86,19 @@ public class CovidReport {
                 }
 
             }
-
             if(countDays%historicDays == 0){
                 if(county > 0 && countx > 0) {
                     values[0][i] += (double)sumAge / (double)countx;
                     values[1][i] += countx;
                     values[2][i] += county;
-                    historicDateList.add(targetDay);
-                }
-                if(values[2][i] > 0) {
                     i++;
-
+                    historicDateList.add(targetDay);
                 }
                 countx = 0;
                 county = 0;
                 sumAge = 0;
-
             }
-            countDays++;
+
             date.add(Calendar.DATE, -1);
         }
         return values;

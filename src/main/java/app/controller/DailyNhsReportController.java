@@ -69,8 +69,13 @@ public class DailyNhsReportController {
         }
     }
 
+<<<<<<< HEAD
     private String getDataFromLinearRegression(String variable, Date initialDate, Date finalDate, String historic,int histPoints,double alpha) {
         reportController.doLinearRegression(initialDate,finalDate,variable,historic,histPoints,alpha);
+=======
+    private String getDataFromLinearRegression(String variable, Date initialDate, Date finalDate, String historic,int histPoints) {
+        reportController.doLinearRegression(initialDate,finalDate,variable,historic,histPoints, 95);
+>>>>>>> 198cd3fd76b1b370f941d0bfeffc9ba7e669c9eb
         return " === Linear Regression - " + historic + " - " + variable + " === \n" + reportController.getData() + "\n\n\n";
     }
 

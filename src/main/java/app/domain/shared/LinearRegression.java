@@ -35,7 +35,11 @@ public class LinearRegression {
     private  double tDistribution;
     private  double fDistribution;
     private double Sxx;
+<<<<<<< HEAD
     private double alpha;
+=======
+    private double ALPHA;
+>>>>>>> 198cd3fd76b1b370f941d0bfeffc9ba7e669c9eb
     private int n;
     private double s;
 
@@ -47,8 +51,13 @@ public class LinearRegression {
      * @param  y the corresponding values of the response variable
      * @throws IllegalArgumentException if the lengths of the two arrays are not equal
      */
+<<<<<<< HEAD
     public LinearRegression(double[] x, double[] y, double alpha) {
         this.alpha = alpha;
+=======
+    public LinearRegression(double[] x, double[] y, int alpha) {
+        this.ALPHA = (100.0-alpha)/100.0;
+>>>>>>> 198cd3fd76b1b370f941d0bfeffc9ba7e669c9eb
         if (x.length != y.length) {
             throw new IllegalArgumentException("array lengths are not equal");
         }
@@ -200,28 +209,27 @@ public class LinearRegression {
     }
 
 
-    private double dfSR() {
+    public double dfSR() {
         return this.dfSR;
     }
 
-    private double dfSE() {
+    public double dfSE() {
         return this.dfSE;
     }
 
-    private double dfST() {
+    public double dfST() {
         return this.dfST;
     }
 
-    private double MSR() {
+    public double MSR() {
         return getSR()/dfSR();
     }
 
-    private double MSE() {
-
+    public double MSE() {
         return getSE()/dfSE();
     }
 
-    private double F() {
+    public double F() {
         return MSR()/MSE();
     }
 

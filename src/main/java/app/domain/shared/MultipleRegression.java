@@ -35,7 +35,11 @@ public class MultipleRegression {
     private double raj;
     private double r;
     private double f0;
+<<<<<<< HEAD
     private double alpha;
+=======
+    private double ALPHA;
+>>>>>>> 198cd3fd76b1b370f941d0bfeffc9ba7e669c9eb
 
 
 
@@ -46,8 +50,13 @@ public class MultipleRegression {
      * @param  x2 the values of one of the independent variable
      * @param  y the values of the dependent variable
      * @throws IllegalArgumentException if the lengths of the three arrays are not equal
+<<<<<<< HEAD
      */    public MultipleRegression(double[] y,double[] x1, double[] x2, double alpha) {
          this.alpha = alpha;
+=======
+     */    public MultipleRegression(double[] y,double[] x1, double[] x2, int alpha) {
+        this.ALPHA = (100.0-alpha)/100.0;
+>>>>>>> 198cd3fd76b1b370f941d0bfeffc9ba7e669c9eb
         if (x1.length != y.length || x2.length != y.length) {
             throw new IllegalArgumentException("array lengths are not equal");
         }
@@ -224,9 +233,13 @@ public class MultipleRegression {
         this.alpha=alpha;
     }
 
+    public double getALPHA() {
+        return ALPHA;
+    }
+
     //Auxiliar
 
-    private double valor(double[][] multiplicar) {
+    public double valor(double[][] multiplicar) {
         return multiplicar[0][0];
     }
 
@@ -273,7 +286,7 @@ public class MultipleRegression {
         return matriz;
     }
 
-    private double[][] transposta(double[][] x) {
+    public double[][] transposta(double[][] x) {
         double[][] matriz = new double[x[0].length][x.length];
 
         for(int i = 0; i<x.length;i++){
@@ -284,7 +297,7 @@ public class MultipleRegression {
         return matriz;
     }
 
-    private double[][] multiplicar(double[][] x, double[][] y) {
+    public double[][] multiplicar(double[][] x, double[][] y) {
         double[][] matriz = new double[x.length][y[0].length];
         for(int i = 0; i<x.length;i++){
             for(int j=0;j< y[0].length;j++){
@@ -429,6 +442,8 @@ public class MultipleRegression {
     public String toString(){
         NumberFormat formatter = new DecimalFormat("#0.0000");
         return "\nThe regression model fitted using data from the interval \n" +
+                "^y = b[0] + b[1]x1 + b[2] <=> ^y = " + formatter.format(betas[0][0]) + " + " + formatter.format(betas[1][0]) + " * x1" + " + " + formatter.format(betas[2][0]) + " * x2" +
+                "\nb[0] = "+formatter.format(betas[0][0])+"\nb[1] = "+formatter.format(betas[1][0])+"\nb[2] = "+formatter.format(betas[2][0])+
                 "\n//\nOther statistics"+"\nR2 = " + formatter.format(r2) + "\nR2adjusted = " + formatter.format(raj) + "\nR = " + formatter.format(r) +
                 "\n//\nHypothesis tests for regression coefficients\nHO:b1=b2=0, k=2 H1: bj<>0 , j=1,2 " +
                 "\nf_obs = " + formatter.format(this.f0) + "\nDecision: " + "\n" + decision() +

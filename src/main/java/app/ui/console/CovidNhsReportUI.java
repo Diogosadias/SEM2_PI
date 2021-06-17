@@ -45,9 +45,15 @@ public class CovidNhsReportUI implements Runnable {
                     double alpha = 1 - Double.valueOf(read.nextLine().replace(",",".").replace("%",""))/100;
                     if (regression.equals("Linear")) {
                         String varIndependent = chooseData("Variable Independent:\n1 - Number of Tests Realised\n2 - Client Mean Age", controller.VAR_TESTS, controller.VAR_AGE);
+<<<<<<< HEAD
                         controller.doLinearRegression(dateI, dateF, varIndependent,historic, histPoints,alpha);
                     } else {
                         controller.doLinearRegression(dateI, dateF, controller.MULTIPLE, historic, histPoints,alpha);
+=======
+                        controller.doLinearRegression(dateI, dateF, varIndependent,historic, histPoints, 95);
+                    } else {
+                        controller.doLinearRegression(dateI, dateF, controller.MULTIPLE, historic, histPoints, 95);
+>>>>>>> 198cd3fd76b1b370f941d0bfeffc9ba7e669c9eb
                     }
                     controller.sendNhsReport();
                 } catch (ParseException e) {

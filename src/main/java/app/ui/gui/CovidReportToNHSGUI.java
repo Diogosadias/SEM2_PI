@@ -127,9 +127,9 @@ public class CovidReportToNHSGUI implements Initializable, GuiMethods {
                     Date dateF = formatter1.parse(txtEndDate.getText());
                     if (comboBoxRegressiontType.getSelectionModel().getSelectedItem().equalsIgnoreCase("Linear")) {
 
-                        controller.doLinearRegression(dateI, dateF, comboBoxIndependentVariable.getSelectionModel().getSelectedItem(), comboHistoric.getSelectionModel().getSelectedItem(),Integer.valueOf(txtHistoricalPoints.getText()),Double.valueOf(txtHistoricalPoints.getText()));
+                        controller.doLinearRegression(dateI, dateF, comboBoxIndependentVariable.getSelectionModel().getSelectedItem(), comboHistoric.getSelectionModel().getSelectedItem(),Integer.valueOf(txtHistoricalPoints.getText()));
                     } else {
-                        controller.doLinearRegression(dateI, dateF, "Both", comboHistoric.getSelectionModel().getSelectedItem(),Integer.valueOf(txtHistoricalPoints.getText()),Double.valueOf(txtHistoricalPoints.getText()));
+                        controller.doLinearRegression(dateI, dateF, "Both", comboHistoric.getSelectionModel().getSelectedItem(),Integer.valueOf(txtHistoricalPoints.getText()));
                     }
                 } catch (ParseException e) {
                     e.printStackTrace();
