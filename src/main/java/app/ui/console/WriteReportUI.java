@@ -3,6 +3,8 @@ package app.ui.console;
 import app.controller.App;
 import app.controller.WriteReportController;
 import app.domain.dto.TestDto;
+import app.domain.model.Parameter;
+import app.domain.model.TestParameter;
 import app.ui.console.utils.Utils;
 import auth.AuthFacade;
 
@@ -54,7 +56,11 @@ public class WriteReportUI implements Runnable{
         try{
             List<TestDto> set = writeReportController.getTestList();
             TestDto dto = (TestDto)Utils.showAndSelectOne(set, "\nList of Chemical Analysis Tests: \n");
-            System.out.println(writeReportController.getCompany().getTestStore().getTestByCode(dto.getCode()).parametersToString());
+            List<TestParameter> list = writeReportController.getCompany().getTestStore().getTestByCode(dto.getCode()).getListTestParameter();
+            for(TestParameter p : list){
+                System.out.println(p.getParameter().toString());
+                System.out.println("Result: " + p.getResult() + "\n");
+            }
             String diagnosis = Utils.readLineFromConsole("Diagnosis: ");
 
             writeReportController.createReport(diagnosis, dto.getCode());
