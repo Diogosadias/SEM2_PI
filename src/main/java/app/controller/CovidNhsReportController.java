@@ -61,12 +61,7 @@ public class CovidNhsReportController {
         return covidTests;
     }
 
-<<<<<<< HEAD
     public void doLinearRegression(Date initialDate, Date finalDate, String varIndependent, String historic,int histPoints,double alpha) {
-=======
-
-    public void doLinearRegression(Date initialDate, Date finalDate, String varIndependent, String historic,int histPoints, int alpha) {
->>>>>>> 198cd3fd76b1b370f941d0bfeffc9ba7e669c9eb
         int historicDays = 1;
         if (historic.equals("Weekly")) {
             historicDays = 7;
@@ -88,33 +83,18 @@ public class CovidNhsReportController {
         this.reportData = "";
         switch (varIndependent){
             case VAR_TESTS:
-<<<<<<< HEAD
                 this.report.setSimpleLinearRegression(new LinearRegression(xTestsInterval,yInterval,alpha));
                 reportData += this.report.getSimpleLR() + this.report.boardSimpleLRString(xTests, y,historicDays, dateFormat);
                 break;
             case VAR_AGE:
                 this.report.setSimpleLinearRegression(new LinearRegression(xAgeInterval,yInterval,alpha));
                 reportData += this.report.getSimpleLR() + this.report.boardSimpleLRString(xAge,y, historicDays, dateFormat);
-=======
-                this.linear = new LinearRegression(xTestsInterval,yInterval, alpha);
-                reportData += this.linear + this.boardSimpleLRString(xTests, y,historicDays, dateFormat);
                 break;
-            case VAR_AGE:
-                this.linear = new LinearRegression(xAgeInterval,yInterval,alpha);
-                reportData += this.linear + this.boardSimpleLRString(xAge,y, historicDays, dateFormat);
->>>>>>> 198cd3fd76b1b370f941d0bfeffc9ba7e669c9eb
-                break;
-            case "Both":
+            case MULTIPLE:
                 NumberFormat formatter = new DecimalFormat("#0.0000");
-<<<<<<< HEAD
                 this.report.setMultipleLinearRegression(new MultipleRegression(yInterval,xTestsInterval,xAgeInterval,alpha));
                 reportData += this.report.getMultipleLR() + "\n\nPrediction values\n\n" + "Date\t\t\tNumber of OBSERVED positive cases\t\tNumber of ESTIMATED/EXPECTED positive cases\t\t\t\t\t95% intervals";
                 for(int i = 0; i < this.report.getHistoricDateList().size(); i ++){
-=======
-                this.multiple = new MultipleRegression(yInterval,xTestsInterval,xAgeInterval, alpha);
-                reportData += this.multiple + "\n\nPrediction values\n\n" + "Date\t\t\tNumber of OBSERVED positive cases\t\tNumber of ESTIMATED/EXPECTED positive cases\t\t\t\t\t95% intervals";
-                for(int i = 0; i < this.historicDateList.size(); i ++){
->>>>>>> 198cd3fd76b1b370f941d0bfeffc9ba7e669c9eb
                     if(y[i] != 0) {
                         Date date = this.report.getHistoricDateList().get(i);
                         reportData += "\n" + dateFormat.format(date);

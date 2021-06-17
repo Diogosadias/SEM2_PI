@@ -35,11 +35,15 @@ public class MultipleRegression {
     private double raj;
     private double r;
     private double f0;
+<<<<<<< .merge_file_a05144
 <<<<<<< HEAD
     private double alpha;
 =======
     private double ALPHA;
 >>>>>>> 198cd3fd76b1b370f941d0bfeffc9ba7e669c9eb
+=======
+    private double ALPHA = 0.05;
+>>>>>>> .merge_file_a10232
 
 
 
@@ -50,6 +54,7 @@ public class MultipleRegression {
      * @param  x2 the values of one of the independent variable
      * @param  y the values of the dependent variable
      * @throws IllegalArgumentException if the lengths of the three arrays are not equal
+<<<<<<< .merge_file_a05144
 <<<<<<< HEAD
      */    public MultipleRegression(double[] y,double[] x1, double[] x2, double alpha) {
          this.alpha = alpha;
@@ -57,6 +62,9 @@ public class MultipleRegression {
      */    public MultipleRegression(double[] y,double[] x1, double[] x2, int alpha) {
         this.ALPHA = (100.0-alpha)/100.0;
 >>>>>>> 198cd3fd76b1b370f941d0bfeffc9ba7e669c9eb
+=======
+     */    public MultipleRegression(double[] y,double[] x1, double[] x2) {
+>>>>>>> .merge_file_a10232
         if (x1.length != y.length || x2.length != y.length) {
             throw new IllegalArgumentException("array lengths are not equal");
         }
@@ -233,13 +241,9 @@ public class MultipleRegression {
         this.alpha=alpha;
     }
 
-    public double getALPHA() {
-        return ALPHA;
-    }
-
     //Auxiliar
 
-    public double valor(double[][] multiplicar) {
+    private double valor(double[][] multiplicar) {
         return multiplicar[0][0];
     }
 
@@ -286,7 +290,7 @@ public class MultipleRegression {
         return matriz;
     }
 
-    public double[][] transposta(double[][] x) {
+    private double[][] transposta(double[][] x) {
         double[][] matriz = new double[x[0].length][x.length];
 
         for(int i = 0; i<x.length;i++){
@@ -297,7 +301,7 @@ public class MultipleRegression {
         return matriz;
     }
 
-    public double[][] multiplicar(double[][] x, double[][] y) {
+    private double[][] multiplicar(double[][] x, double[][] y) {
         double[][] matriz = new double[x.length][y[0].length];
         for(int i = 0; i<x.length;i++){
             for(int j=0;j< y[0].length;j++){
