@@ -8,6 +8,7 @@ import java.util.Date;
 /**
  *
  * @author Tiago Ferreira <1200601@isep.ipp.pt>
+ *  @author Márcio Ramos <1201682@isep.ipp.pt>
  */
 
 public class ClientDTO {
@@ -41,6 +42,10 @@ public class ClientDTO {
         return "ClientDTO{" +
                 "name='" + name + '\'' +
                 ", tin=" + tin ;
+    }
+
+    public String toStringNameAndTIN() {
+        return name +", TIN: " + tin ;
     }
 
 

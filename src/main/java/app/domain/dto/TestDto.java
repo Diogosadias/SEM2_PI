@@ -15,6 +15,7 @@ import java.util.Date;
  * @author Tiago Rocha <1181445@isep.ipp.pt>
  * @author Bruno Pereira <1191454@isep.ipp.pt>
  * @author Tomás Pinto <1181835@isep.ipp.pt>
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
  */
 
 public class TestDto {
@@ -213,6 +214,14 @@ public class TestDto {
                 "\nDate Registration: " + Constants.FORMATTER.format(this.dateRegistered) +
                 "\nDate Chemical Analysis: " + Constants.FORMATTER.format(this.dateChemicalAnalysis) +
                 "\nDate Diagnosis: " + Constants.FORMATTER.format(this.dateDiagnosis);
+        return s;
+    }
+
+    public String datesForGUI_toString() {
+        String s = "Test nº: " + this.code +
+                "\nRegistration: " + Constants.FORMATTER.format(this.dateRegistered) +
+                "\nChemical Analysis: " + Constants.FORMATTER.format(this.dateChemicalAnalysis) +
+                "\nDiagnosis: " + Constants.FORMATTER.format(this.dateDiagnosis);
         return s;
     }
 

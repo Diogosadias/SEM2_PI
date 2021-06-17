@@ -22,6 +22,7 @@ import java.util.ResourceBundle;
 /**
  *
  * @author Gil <1180838@isep.ipp.pt>
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
  */
 public class MedLabTechnicianGUI implements Initializable, GuiMethods {
     private Main mainInstance;

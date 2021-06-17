@@ -49,7 +49,7 @@ public class ClinicalChemicalTechnologistGUI implements Initializable, GuiMethod
 
         options.add(new MenuItem("Record Test Result", new RecordTestResultUI()));
         options.add(new MenuItem("List Test Result", new ListChemicalAnalysedTestsUI()));
-        options.add(new MenuItem("Overview the tests of a client",new OverviewAnalyzeTestsUI()));
+        options.add(new MenuItem("Overview the tests of a client","/fxml/OverviewAnalyzeTestsGUI.fxml"));
 
         for(int i=0; i<options.size();i++){
             myListView.getItems().add(options.get(i).toString());

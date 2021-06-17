@@ -76,6 +76,11 @@ public class CreateClientController {
         }
     }
 
+    public Client getClientByTIN(long tin){
+        return this.clientStore.getClientByTIN(tin);
+
+    }
+
     /**
      * Write the Client instance.
      */

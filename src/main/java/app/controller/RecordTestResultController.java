@@ -15,9 +15,9 @@ public class RecordTestResultController {
     private TestStore tstore;
 
     public RecordTestResultController(){
-        if (!App.getInstance().getCurrentUserSession().isLoggedInWithRole(ROLE_CHEM_TECH)) {
+        /*if (!App.getInstance().getCurrentUserSession().isLoggedInWithRole(ROLE_CHEM_TECH)) {
             throw new IllegalStateException("Access Unauthorized!");
-        }
+        }*/
         this.company = App.getInstance().getCompany();
         this.tstore = this.company.getTestStore();
     }
