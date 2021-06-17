@@ -62,12 +62,13 @@ public class TestingStatsController {
         int dif;
 
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String[] dates;
+        String[] datesString;
         StringBuilder sb = new StringBuilder();
-
+        Date[] dates;
+        Date init = this.initDateGraph;
         switch (period){
             case 1:
-                dif = calculateDifferenceInDays(this.initDateGraph,this.finalDateGraph);
+                /*dif = calculateDifferenceInDays(this.initDateGraph,this.finalDateGraph);
                 dates = new String[dif];
                 dates[0] = this.initDateGraph.toString();
                 for(int i = 1; i < dif; i++){
@@ -78,41 +79,144 @@ public class TestingStatsController {
                     sb.delete(0, sb.length());
                     sb.append(res.getYear() + "-" + res.getMonth() + "-" + res.getDay());
                     dates[i] = sb.toString();
+                }*/
+                dif = calculateDifferenceInDays(this.initDateGraph,this.finalDateGraph);
+                dates = new Date[dif];
+                datesString = new String[dif];
+                dates[0] = this.initDateGraph;
+                datesString[0]=dateFormat.format(dates[0]);
+                for(int i = 0 ; i<dif ; i++){
+                    addDaysToDate(init,1);
+                    dates[i]=init;
+                    datesString[i]=dateFormat.format(dates[i]);
                 }
+
+                return datesString;
+            case 7:
+                dif = calculateDifferenceInDays(this.initDateGraph,this.finalDateGraph);
+                dates = new Date[dif];
+                datesString = new String[dif];
+                dates[0] = this.initDateGraph;
+                datesString[0]=dateFormat.format(dates[0]);
+                for(int i = 0 ; i<dif ; i++){
+                    addDaysToDate(init,7);
+                    dates[i]=init;
+                    datesString[i]=dateFormat.format(dates[i]);
+                }
+
+                return datesString;
+            case 31:
+                dif = calculateDifferenceInDays(this.initDateGraph,this.finalDateGraph);
+                dates = new Date[dif];
+                datesString = new String[dif];
+                dates[0] = this.initDateGraph;
+                datesString[0]=dateFormat.format(dates[0]);
+                for(int i = 0 ; i<dif ; i++){
+                    addDaysToDate(init,31);
+                    dates[i]=init;
+                    datesString[i]=dateFormat.format(dates[i]);
+                }
+
+                return datesString;
+            case 365:
+                dif = calculateDifferenceInDays(this.initDateGraph,this.finalDateGraph);
+                dates = new Date[dif];
+                datesString = new String[dif];
+                dates[0] = this.initDateGraph;
+                datesString[0]=dateFormat.format(dates[0]);
+                for(int i = 0 ; i<dif ; i++){
+                    addDaysToDate(init,365);
+                    dates[i]=init;
+                    datesString[i]=dateFormat.format(dates[i]);
+                }
+
+                return datesString;
+        }
+        return null;
+    }
+    public Date[] getDatesInDate(int period){
+        int dif;
+
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String[] datesString;
+        StringBuilder sb = new StringBuilder();
+        Date[] dates;
+        Date init = this.initDateGraph;
+        switch (period){
+            case 1:
+                /*dif = calculateDifferenceInDays(this.initDateGraph,this.finalDateGraph);
+                dates = new String[dif];
+                dates[0] = this.initDateGraph.toString();
+                for(int i = 1; i < dif; i++){
+                    String[] gfhjh = dates[i-1].split("-");
+                    Date p = new Date(Integer.parseInt(gfhjh[0]), Integer.parseInt(gfhjh[1]), Integer.parseInt(gfhjh[2]));
+
+                    Date res = addDaysToDate(p, 1);
+                    sb.delete(0, sb.length());
+                    sb.append(res.getYear() + "-" + res.getMonth() + "-" + res.getDay());
+                    dates[i] = sb.toString();
+                }*/
+                dif = calculateDifferenceInDays(this.initDateGraph,this.finalDateGraph);
+                dates = new Date[dif];
+                datesString = new String[dif];
+                dates[0] = this.initDateGraph;
+                datesString[0]=dateFormat.format(dates[0]);
+                for(int i = 1 ; i<dif ; i++){
+                    System.out.println(init);
+                    init = addDaysToDate(init,1);
+                    dates[i]=init;
+                    datesString[i]=dateFormat.format(dates[i]);
+                }
+
                 return dates;
             case 7:
-                dif = calculateDifferenceInWeeks(this.initDateGraph,this.finalDateGraph);
-                dates = new String[dif];
-                dates[0] = dateFormat.format(this.initDateGraph);
-                for(int i = 1; i < dif; i++){
-                    dates[i] = dateFormat.format(addDaysToDate(new Date(dates[i-1]), 7));
+                dif = calculateDifferenceInDays(this.initDateGraph,this.finalDateGraph);
+                dates = new Date[dif];
+                datesString = new String[dif];
+                dates[0] = this.initDateGraph;
+                datesString[0]=dateFormat.format(dates[0]);
+                for(int i = 0 ; i<dif ; i++){
+                    addDaysToDate(init,7);
+                    dates[i]=init;
+                    datesString[i]=dateFormat.format(dates[i]);
                 }
+
                 return dates;
             case 31:
-                dif = calculateDifferenceInMonths(this.initDateGraph,this.finalDateGraph);
-                dates = new String[dif];
-                dates[0] = dateFormat.format(this.initDateGraph);
-                for(int i = 1; i < dif; i++){
-                    dates[i] = dateFormat.format(addDaysToDate(new Date(dates[i-1]), 31));
+                dif = calculateDifferenceInDays(this.initDateGraph,this.finalDateGraph);
+                dates = new Date[dif];
+                datesString = new String[dif];
+                dates[0] = this.initDateGraph;
+                datesString[0]=dateFormat.format(dates[0]);
+                for(int i = 0 ; i<dif ; i++){
+                    addDaysToDate(init,31);
+                    dates[i]=init;
+                    datesString[i]=dateFormat.format(dates[i]);
                 }
+
                 return dates;
             case 365:
-                dif = calculateDifferenceInYears(this.initDateGraph,this.finalDateGraph);
-                dates = new String[dif];
-                dates[0] = dateFormat.format(this.initDateGraph);
-                for(int i = 1; i < dif; i++){
-                    dates[i] = dateFormat.format(addDaysToDate(new Date(dates[i-1]), 365));
+                dif = calculateDifferenceInDays(this.initDateGraph,this.finalDateGraph);
+                dates = new Date[dif];
+                datesString = new String[dif];
+                dates[0] = this.initDateGraph;
+                datesString[0]=dateFormat.format(dates[0]);
+                for(int i = 0 ; i<dif ; i++){
+                    addDaysToDate(init,365);
+                    dates[i]=init;
+                    datesString[i]=dateFormat.format(dates[i]);
                 }
+
                 return dates;
         }
         return null;
     }
 
-    public int[] getNrTests(String[] dates, String state){
+    public int[] getNrTests(Date[] dates, String state){
         int[] res = new int[dates.length];
         for(int i = 0; i < dates.length; i++){
             for(Test t : this.testStore.getAllTests()){
-                if (t.hasCondition(state) && t.getDateRegistered().after(new Date(dates[i])) && t.getDateRegistered().before(new Date(dates[i+1]))){
+                if (t.hasCondition(state) && t.getDateRegistered().after(dates[i]) && t.getDateRegistered().before(dates[i+1])){
                     res[i]++;
                 }
             }
@@ -121,16 +225,26 @@ public class TestingStatsController {
     }
 
     public Date addDaysToDate(Date date, int days) {
-        Date newDate = new Date(date.getTime());
+        Date newDate = date;
         GregorianCalendar calendar = new GregorianCalendar();
         calendar.setTime(newDate);
         calendar.add(Calendar.DATE, days);
-        newDate.setTime(calendar.getTime().getTime());
+        newDate=calendar.getTime();
+        //newDate.setTime(calendar.getTime().getTime());
         return newDate;
     }
 
     private int calculateDifferenceInDays(Date date1, Date date2) {
-        return (int)(date2.getTime()-date1.getTime()) / (1000*60*60*24);
+        if(date1.getTime()>date2.getTime()){
+            long d = (date1.getTime()-date2.getTime())/(1000*60*60*24);
+            d= Math.abs(d);
+            return Integer.parseInt(String.valueOf(d));
+        }
+        long d = (date2.getTime()-date1.getTime())/(1000*60*60*24);
+        d= Math.abs(d);
+        return Integer.parseInt(String.valueOf(d));
+        //return (int)(date2.getTime()-date1.getTime()) / (1000*60*60*24);
+
     }
 
     private int calculateDifferenceInMonths(Date date1, Date date2) {

@@ -91,7 +91,7 @@ public class TestingStatsGUI1 implements Initializable, GuiMethods {
             testingStatsGUI2.setController(controller);
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println(e.getMessage());
+            //System.out.println(e.getMessage());
         }
     }
 
@@ -104,14 +104,15 @@ public class TestingStatsGUI1 implements Initializable, GuiMethods {
             controller.setInitDateGraph(java.sql.Date.valueOf(this.initDate.getValue()));
             controller.setFinalDateGraph(java.sql.Date.valueOf(this.finalDate.getValue()));
             controller.setChartOption(3);
-            TestingStatsGUI2 testingStatsGUI2 = (TestingStatsGUI2) main.replaceStatsSceneContent("/fxml/TestingStatsGUI2.fxml", this.controller);
+            //TestingStatsGUI2 testingStatsGUI2 = (TestingStatsGUI2) main.replaceStatsSceneContent("/fxml/TestingStatsGUI2.fxml", this.controller);
+            TestingStatsGUI2 testingStatsGUI2 = (TestingStatsGUI2) main.replaceSceneContent("/fxml/TestingStatsGUI2.fxml");
             testingStatsGUI2.setInstance(main);
             testingStatsGUI2.setController(controller);
             //replaceScene();
         } catch (Exception e) {
             //System.out.println(e.getMessage());
             e.printStackTrace();
-            System.out.println(e.getMessage());
+            //System.out.println(e.getMessage());
         }
     }
 
