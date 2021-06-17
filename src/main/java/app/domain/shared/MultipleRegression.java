@@ -199,7 +199,7 @@ public class MultipleRegression {
      * @return the MQe.
      */
     public double getMqe() {
-        return getMqe();
+        return mqe;
     }
 
     /**
@@ -226,7 +226,7 @@ public class MultipleRegression {
 
     //Auxiliar
 
-    private double valor(double[][] multiplicar) {
+    public double valor(double[][] multiplicar) {
         return multiplicar[0][0];
     }
 
@@ -273,7 +273,7 @@ public class MultipleRegression {
         return matriz;
     }
 
-    private double[][] transposta(double[][] x) {
+    public double[][] transposta(double[][] x) {
         double[][] matriz = new double[x[0].length][x.length];
 
         for(int i = 0; i<x.length;i++){
@@ -284,7 +284,7 @@ public class MultipleRegression {
         return matriz;
     }
 
-    private double[][] multiplicar(double[][] x, double[][] y) {
+    public double[][] multiplicar(double[][] x, double[][] y) {
         double[][] matriz = new double[x.length][y[0].length];
         for(int i = 0; i<x.length;i++){
             for(int j=0;j< y[0].length;j++){

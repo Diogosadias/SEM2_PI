@@ -24,13 +24,25 @@ import static org.junit.Assert.*;
 public class LinearRegressionTest {
                 
     private LinearRegression instanceTests;
+
+    @BeforeClass
+    public static void setUpClass() throws Exception {
+    }
+
+    @AfterClass
+    public static void tearDownClass() throws Exception {
+    }
     
     @Before
     public void setUp() {        
         double[] xAgeInterval = new double[] {30.08695652173913, 31.90909090909091, 34.708333333333336, 31.75, 25.266666666666666, 27.466666666666665, 26.61111111111111, 26.416666666666668, 26.416666666666668, 30.0, 0.0, 0.0};
         double[] xTestsInterval = new double[] {23.0, 22.0, 24.0, 20.0, 15.0, 15.0, 18.0, 12.0, 12.0, 7.0, 0.0, 0.0};        
         double[] yInterval = new double[] {16.0, 16.0, 18.0, 14.0, 9.0, 10.0, 12.0, 8.0, 8.0, 5.0, 0.0, 0.0};
-        this.instanceTests = new LinearRegression(xTestsInterval,yInterval,0.05);
+        this.instanceTests = new LinearRegression(xTestsInterval,yInterval, 0.05);
+    }
+
+    @After
+    public void tearDown() throws Exception {
     }
     
 
@@ -140,9 +152,76 @@ public class LinearRegressionTest {
     @Test
     public void testDecision() {
         System.out.println("decision");
-        String expResult = "Reject H0.";
+        String expResult = "Reject H0.";        
         String result = instanceTests.decision();
-        assertEquals(expResult, result);
+        assertEquals(expResult, result);        
     }
-    
+
+    /**
+     * Test of dfSR method, of class LinearRegression.
+     */
+    @Test
+    public void testDfSR() {
+        System.out.println("dfSR");
+        double expResult = 1.0;
+        double result = instanceTests.dfSR();
+        assertEquals(expResult, result, 0.0);
+    }
+
+    /**
+     * Test of dfSE method, of class LinearRegression.
+     */
+    @Test
+    public void testDfSE() {
+        System.out.println("dfSE");
+        double expResult = 10.0;
+        double result = instanceTests.dfSE();
+        assertEquals(expResult, result, 0.0);
+    }
+
+    /**
+     * Test of dfST method, of class LinearRegression.
+     */
+    @Test
+    public void testDfST() {
+        System.out.println("dfST");
+        double expResult = 11.0;
+        double result = instanceTests.dfST();
+        assertEquals(expResult, result, 0.0);
+    }
+
+    /**
+     * Test of MSR method, of class LinearRegression.
+     */
+    @Test
+    public void testMSR() {
+        System.out.println("MSR");
+        double expResult = instanceTests.getSR()/instanceTests.dfSR();
+        double result = instanceTests.MSR();
+        assertEquals(expResult, result, 0.0);
+    }
+
+    /**
+     * Test of MSE method, of class LinearRegression.
+     */
+    @Test
+    public void testMSE() {
+        System.out.println("MSE");
+        double expResult = instanceTests.getSE()/instanceTests.dfSE();
+        double result = instanceTests.MSE();
+        assertEquals(expResult, result, 0.0);
+    }
+
+    /**
+     * Test of F method, of class LinearRegression.
+     */
+    @Test
+    public void testF() {
+        System.out.println("F");
+        double expResult = instanceTests.MSR()/instanceTests.MSE();
+        double result = instanceTests.F();
+        assertEquals(expResult, result, 0.0);
+    }
+
 }
+

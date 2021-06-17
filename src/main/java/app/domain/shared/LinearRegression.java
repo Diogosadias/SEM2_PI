@@ -200,28 +200,28 @@ public class LinearRegression {
     }
 
 
-    private double dfSR() {
+    public double dfSR() {
         return this.dfSR;
     }
 
-    private double dfSE() {
+    public double dfSE() {
         return this.dfSE;
     }
 
-    private double dfST() {
+    public double dfST() {
         return this.dfST;
     }
 
-    private double MSR() {
+    public double MSR() {
         return getSR()/dfSR();
     }
 
-    private double MSE() {
+    public double MSE() {
 
         return getSE()/dfSE();
     }
 
-    private double F() {
+    public double F() {
         return MSR()/MSE();
     }
 
