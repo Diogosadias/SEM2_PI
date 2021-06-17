@@ -146,7 +146,7 @@ public class CSVFileConverter {
                 }
 
             }catch (IllegalArgumentException | NullPointerException e) {
-                System.out.println("line " + (file.indexOf(line) + 2) + " - " + line[0] + " has invalid data.\n");
+                throw new IllegalArgumentException("line " + (file.indexOf(line) + 2) + " - " + line[0] + " has invalid data.\n");
             }
 
         }

@@ -48,7 +48,7 @@ public class LabCoordinatorGUI implements Initializable, GuiMethods {
         List<MenuItem> options = new ArrayList<>();
         options.add(new MenuItem("Validate Test", new ValidateTestUI()));
         options.add(new MenuItem("List Validated Tests", new ListValidateTestsUI()));
-        options.add(new MenuItem("Import Clinical Tests from a CSV file",new ImportClinicalTestsUI()));
+        options.add(new MenuItem("Import Clinical Tests from a CSV file","/fxml/ImportClinicalTestsGUI.fxml"));
         options.add(new MenuItem("Testing Statistics", "/fxml/TestingStatsGUI.fxml"));
 
         for(int i=0; i<options.size();i++){
