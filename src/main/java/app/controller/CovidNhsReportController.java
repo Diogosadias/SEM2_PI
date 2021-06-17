@@ -98,7 +98,15 @@ public class CovidNhsReportController {
                 reportData += this.multiple + "\n\nPrediction values\n\n" + "Date\t\t\tNumber of OBSERVED positive cases\t\tNumber of ESTIMATED/EXPECTED positive cases\t\t\t\t\t95% intervals";
                 for(int i = 0; i < this.historicDateList.size(); i ++){
                     if(y[i] != 0) {
-                        reportData += "\n" + dateFormat.format(historicDateList.get(i)) + "\t\t\t\t\t" + (int) y[i] + "\t\t\t\t\t\t\t\t\t\t\t\t" + formatter.format(this.multiple.predict(xTests[i], xAge[i])) + "\t\t\t\t\t\t\t\t\t[" + formatter.format(this.multiple.mininterval(xTests[i], xAge[i])) + "," + formatter.format(this.multiple.maxinterval(xTests[i], xAge[i])) + "]" + "\t\t\t\t\t\t";
+                        Date date = historicDateList.get(i);
+                        reportData += "\n" + dateFormat.format(date);
+                        if(historicDays == 7) {
+                            Calendar cal = Calendar.getInstance();
+                            cal.setTime(date);
+                            cal.add(Calendar.DATE,historicDays-1);
+                            reportData += " - " + dateFormat.format(cal.getTime());
+                        }
+                        reportData += "\t\t\t\t\t" + (int) y[i] + "\t\t\t\t\t\t\t\t\t\t\t\t" + formatter.format(this.multiple.predict(xTests[i], xAge[i])) + "\t\t\t\t\t\t\t\t\t[" + formatter.format(this.multiple.mininterval(xTests[i], xAge[i])) + "," + formatter.format(this.multiple.maxinterval(xTests[i], xAge[i])) + "]" + "\t\t\t\t\t\t";
                     }
                 }
                 break;
@@ -110,7 +118,7 @@ public class CovidNhsReportController {
     }
 
     private int setN (Date initialDate, Date finalDate) {
-        return (int) TimeUnit.DAYS.convert((finalDate.getTime() - initialDate.getTime()), TimeUnit.MILLISECONDS) + 1;
+        return (int) TimeUnit.DAYS.convert((finalDate.getTime() - initialDate.getTime()), TimeUnit.MILLISECONDS) - 1;
     }
 
     private double[][] getIntervalValues (Calendar start,Calendar end, int n) {
@@ -213,7 +221,7 @@ public class CovidNhsReportController {
                 if(historicDays == 7) {
                     Calendar cal = Calendar.getInstance();
                     cal.setTime(date);
-                    cal.add(Calendar.DATE,histPoints-1);
+                    cal.add(Calendar.DATE,historicDays-1);
                     board += " - " + dateFormat.format(cal.getTime());
                 }
                 board += "\t\t\t\t\t\t\t\t" + (int)y[i] + "\t\t\t\t\t\t\t\t" + formatter.format(predict) +"\t\t\t\t\t\t\t\t\t\t\t\t["+formatter.format((predict - delta))+","+formatter.format((predict + delta))+"]";

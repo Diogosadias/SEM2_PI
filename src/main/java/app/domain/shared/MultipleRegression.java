@@ -298,6 +298,14 @@ public class MultipleRegression {
 
     private double[][] inversa(double[][] x) {
         double det = determinante(x);
+        int rows = x.length;
+        int cols = x[0].length;
+        double[][] inv = new double[rows][cols];
+        for(int i = 0; i < rows; ++i) {
+            for(int j = 0; j < cols; ++j)
+                inv[i][j] = (((x[(j+1)%rows][(i+1)%cols] * x[(j+2)%rows][(i+2)%cols]) - (x[(j+1)%rows][(i+2)%cols] * x[(j+2)%rows][(i+1)%cols]))/ det);
+        }
+        /*
         //Adjacente
         double[][] adj = x;
         for(int i = 0; i< x.length;i++){
@@ -311,13 +319,9 @@ public class MultipleRegression {
         }
         double[][] t = transposta(adj);
 
-        double[][] inv = divDeterminante(t,det);
-
+        double[][] inv = divDeterminante(t,det);*/
         return inv;
     }
-
-
-
 
     private double determinante(double[][] x) {
         double d =0;
