@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.TestingStatsGUI2">
+    <top>
+        <MenuBar nodeOrientation="RIGHT_TO_LEFT" BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="Options">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#menu_cancel" text="Cancel" />
+                    </items></Menu>
+            </menus>
+        </MenuBar>
+    </top>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <LineChart fx:id="dailyChart" layoutY="-2.0" prefHeight="182.0" prefWidth="312.0">
+                <xAxis>
+                    <NumberAxis side="BOTTOM" fx:id="xAxis1" />
+                </xAxis>
+                <yAxis>
+                    <NumberAxis fx:id="yAxis1" side="LEFT" />
+                </yAxis>
+            </LineChart>
+            <LineChart fx:id="monthlyChart" layoutY="179.0" prefHeight="189.0" prefWidth="307.0">
+                <xAxis>
+                    <NumberAxis side="BOTTOM" fx:id="xAxis2" />
+                </xAxis>
+                <yAxis>
+                    <NumberAxis fx:id="yAxis2" side="LEFT" />
+                </yAxis>
+            </LineChart>
+            <LineChart fx:id="yearlyChart" layoutX="308.0" layoutY="173.0" prefHeight="190.0" prefWidth="292.0">
+                <xAxis>
+                    <NumberAxis side="BOTTOM" fx:id="xAxis3" />
+                </xAxis>
+                <yAxis>
+                    <NumberAxis fx:id="yAxis3" side="LEFT" />
+                </yAxis>
+            </LineChart>
+            <LineChart fx:id="weeklyChart" layoutX="306.0" prefHeight="175.0" prefWidth="294.0">
+                <xAxis>
+                    <NumberAxis side="BOTTOM" fx:id="xAxis4" />
+                </xAxis>
+                <yAxis>
+                    <NumberAxis fx:id="yAxis4" side="LEFT" />
+                </yAxis>
+            </LineChart>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>
