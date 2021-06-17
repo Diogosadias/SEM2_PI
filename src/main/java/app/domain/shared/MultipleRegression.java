@@ -35,7 +35,7 @@ public class MultipleRegression {
     private double raj;
     private double r;
     private double f0;
-    private double ALPHA;
+    private double ALPHA = 0.05;
 
 
 
@@ -46,8 +46,7 @@ public class MultipleRegression {
      * @param  x2 the values of one of the independent variable
      * @param  y the values of the dependent variable
      * @throws IllegalArgumentException if the lengths of the three arrays are not equal
-     */    public MultipleRegression(double[] y,double[] x1, double[] x2, int alpha) {
-        this.ALPHA = (100.0-alpha)/100.0;
+     */    public MultipleRegression(double[] y,double[] x1, double[] x2) {
         if (x1.length != y.length || x2.length != y.length) {
             throw new IllegalArgumentException("array lengths are not equal");
         }
@@ -224,13 +223,9 @@ public class MultipleRegression {
         this.ALPHA=alpha;
     }
 
-    public double getALPHA() {
-        return ALPHA;
-    }
-
     //Auxiliar
 
-    public double valor(double[][] multiplicar) {
+    private double valor(double[][] multiplicar) {
         return multiplicar[0][0];
     }
 
@@ -277,7 +272,7 @@ public class MultipleRegression {
         return matriz;
     }
 
-    public double[][] transposta(double[][] x) {
+    private double[][] transposta(double[][] x) {
         double[][] matriz = new double[x[0].length][x.length];
 
         for(int i = 0; i<x.length;i++){
@@ -288,7 +283,7 @@ public class MultipleRegression {
         return matriz;
     }
 
-    public double[][] multiplicar(double[][] x, double[][] y) {
+    private double[][] multiplicar(double[][] x, double[][] y) {
         double[][] matriz = new double[x.length][y[0].length];
         for(int i = 0; i<x.length;i++){
             for(int j=0;j< y[0].length;j++){
