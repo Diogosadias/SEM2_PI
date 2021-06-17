@@ -30,7 +30,7 @@ public class LinearRegressionTest {
         double[] xAgeInterval = new double[] {30.08695652173913, 31.90909090909091, 34.708333333333336, 31.75, 25.266666666666666, 27.466666666666665, 26.61111111111111, 26.416666666666668, 26.416666666666668, 30.0, 0.0, 0.0};
         double[] xTestsInterval = new double[] {23.0, 22.0, 24.0, 20.0, 15.0, 15.0, 18.0, 12.0, 12.0, 7.0, 0.0, 0.0};        
         double[] yInterval = new double[] {16.0, 16.0, 18.0, 14.0, 9.0, 10.0, 12.0, 8.0, 8.0, 5.0, 0.0, 0.0};
-        this.instanceTests = new LinearRegression(xTestsInterval,yInterval);
+        this.instanceTests = new LinearRegression(xTestsInterval,yInterval,0.05);
     }
     
 

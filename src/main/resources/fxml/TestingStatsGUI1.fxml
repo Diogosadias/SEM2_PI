@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.TestingStatsGUI1">
+   <top>
+       <MenuBar nodeOrientation="RIGHT_TO_LEFT" BorderPane.alignment="CENTER">
+           <menus>
+               <Menu mnemonicParsing="false" text="Options">
+                   <items>
+                       <MenuItem mnemonicParsing="false" onAction="#menu_cancel" text="Cancel" />
+                   </items></Menu>
+           </menus>
+       </MenuBar>
+   </top>
+   <center>
+      <Pane prefHeight="213.0" prefWidth="357.0" BorderPane.alignment="CENTER">
+         <children>
+            <DatePicker fx:id="initDateTestsWaiting" layoutX="292.0" layoutY="30.0" onAction="#selectDate1" />
+            <DatePicker fx:id="finalDateTestsWaiting" layoutX="292.0" layoutY="66.0" onAction="#selectDate2" />
+            <DatePicker fx:id="initDateNumberClients" layoutX="292.0" layoutY="119.0" onAction="#selectDate1" />
+            <DatePicker fx:id="finalDateNumberClients" layoutX="292.0" layoutY="154.0" onAction="#selectDate2" />
+            <DatePicker fx:id="initDateTestsValidated" layoutX="292.0" layoutY="204.0" onAction="#selectDate1" />
+            <DatePicker fx:id="finalDateTestsValidated" layoutX="292.0" layoutY="241.0" onAction="#selectDate2" />
+            <Button fx:id="btnTestsWaiting" layoutX="82.0" layoutY="131.0" mnemonicParsing="false" onAction="#waitingTestsGraphs" text="Tests Waiting">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnNumberOfClients" layoutX="63.0" layoutY="47.0" mnemonicParsing="false" onAction="#nrClientsGraphs" text="Number of Clients">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnTestsValidated" layoutX="75.0" layoutY="216.0" mnemonicParsing="false" onAction="#validatedTestsGraphs" text="Tests Validated">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Label layoutX="133.0" layoutY="293.0" text="Total Client Count:">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="110.0" layoutY="320.0" text="Total Validated Tests:">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblTotalClient" layoutX="339.0" layoutY="296.0" />
+            <Label fx:id="lblTotalValidatedTests" layoutX="329.0" layoutY="323.0" />
+         </children>
+      </Pane>
+   </center>
+</BorderPane>

@@ -1,12 +1,11 @@
 package app.controller;
 
 import app.domain.model.*;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.scene.chart.LineChart;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.PieChart;
-import javafx.scene.chart.XYChart;
+import app.domain.shared.Constants;
+import javafx.scene.chart.*;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -19,6 +18,11 @@ public class TestingStatsController {
     private final TestStore testStore;
     private final TestTypeStore testTypeStore;
 
+    private Date initDateGraph;
+    private Date finalDateGraph;
+    private int chart;
+
+
     /**
      * Constructor
      */
@@ -28,10 +32,97 @@ public class TestingStatsController {
         testTypeStore = company.getTestTypeStore();
     }
 
+    public void createLineChartForData(LineChart<String, Number> lineChart, CategoryAxis xAxis, NumberAxis yAxis,
+                                       String xAxisLabel, String yAxisLabel, String chartTitle, String seriesName,
+                                       String[] xValues, int[] yValues){
+
+        if(xValues.length != yValues.length) throw new IllegalArgumentException("Data issues! Couldn't load statistics");
+
+        xAxis.setLabel(xAxisLabel);
+
+        yAxis.setLabel(yAxisLabel);
+        yAxis.setAutoRanging(true);
+        yAxis.setTickUnit(1);
+
+        lineChart.setTitle(chartTitle);
+        XYChart.Series<String, Number> series = new LineChart.Series<>();
+        series.setName(seriesName);
+
+        for (int i = 1; i < xValues.length; i++) {
+            XYChart.Data<String, Number> data = new LineChart.Data<>(xValues[i], yValues[i]);
+            series.getData().add(data);
+        }
+        lineChart.getData().add(series);
+    }
+
+    public String[] getDatesInArray(int period){
+        int dif;
+
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String[] dates;
+
+        switch (period){
+            case 1:
+                dif = calculateDifferenceInDays(this.initDateGraph,this.finalDateGraph);
+                dates = new String[dif];
+                dates[0] = dateFormat.format(this.initDateGraph);
+                for(int i = 1; i < dif; i++){
+                    dates[i] = dateFormat.format(addDaysToDate(new Date(dates[i-1]), 1));
+                }
+                return dates;
+            case 7:
+                dif = calculateDifferenceInWeeks(this.initDateGraph,this.finalDateGraph);
+                dates = new String[dif];
+                dates[0] = dateFormat.format(this.initDateGraph);
+                for(int i = 1; i < dif; i++){
+                    dates[i] = dateFormat.format(addDaysToDate(new Date(dates[i-1]), 7));
+                }
+                return dates;
+            case 31:
+                dif = calculateDifferenceInMonths(this.initDateGraph,this.finalDateGraph);
+                dates = new String[dif];
+                dates[0] = dateFormat.format(this.initDateGraph);
+                for(int i = 1; i < dif; i++){
+                    dates[i] = dateFormat.format(addDaysToDate(new Date(dates[i-1]), 31));
+                }
+                return dates;
+            case 365:
+                dif = calculateDifferenceInYears(this.initDateGraph,this.finalDateGraph);
+                dates = new String[dif];
+                dates[0] = dateFormat.format(this.initDateGraph);
+                for(int i = 1; i < dif; i++){
+                    dates[i] = dateFormat.format(addDaysToDate(new Date(dates[i-1]), 365));
+                }
+                return dates;
+        }
+        return null;
+    }
+
+    public int[] getNrTests(String[] dates, String state){
+        int[] res = new int[dates.length];
+        for(int i = 0; i < dates.length; i++){
+            for(Test t : this.testStore.getAllTests()){
+                if (t.hasCondition(state) && t.getDateRegistered().after(new Date(dates[i])) && t.getDateRegistered().before(new Date(dates[i+1]))){
+                    res[i]++;
+                }
+            }
+        }
+        return res;
+    }
+
+
+    public Date addDaysToDate(Date date, int days) {
+        Date newDate = new Date(date.getTime());
+        GregorianCalendar calendar = new GregorianCalendar();
+        calendar.setTime(newDate);
+        calendar.add(Calendar.DATE, days);
+        newDate.setTime(calendar.getTime().getTime());
+        return newDate;
+    }
 
     /**
      * Method for creating a line chart for monthly registered tests
-     */
+     *//*
     public void createLineChart1(LineChart<Number, Number> lineChart, NumberAxis xAxis, NumberAxis yAxis){
         xAxis.setAutoRanging(false);
         xAxis.setLowerBound(1);
@@ -55,11 +146,8 @@ public class TestingStatsController {
         }
         lineChart.getData().add(series);
     }
-
-    /**
-     *  each position contains the number of tests for each month difference
-     * @return int[12]
-     */
+*/
+    /*
     private int[] getRegisteredTestsNrForLast12Months(){
         Calendar c = Calendar.getInstance();
         c.add(Calendar.YEAR, -1);
@@ -76,9 +164,7 @@ public class TestingStatsController {
         return yValues;
     }
 
-    /**
-     * Method for creating a line chart for monthly results' average   time
-     */
+    *//*
     public void createLineChart2(LineChart<Number, Number> lineChart, NumberAxis xAxis, NumberAxis yAxis){
         xAxis.setAutoRanging(false);
         xAxis.setLowerBound(1);
@@ -101,12 +187,12 @@ public class TestingStatsController {
             series.getData().add(data);
         }
         lineChart.getData().add(series);
-    }
+    }*//*
 
-    /**
+    *//**
      *  Returns the Monthly Average Waiting Time For the Last 12 Months in an array.
      * @return int[]
-     */
+     *//*
     private int[] getMonthlyAverageWaitingTimeForLast12Months() {
         Calendar c = Calendar.getInstance();
         c.add(Calendar.YEAR, -1);
@@ -127,40 +213,40 @@ public class TestingStatsController {
             yValues[dif] = (nTestsInMonth[dif] == 0) ? 0 : (yValues[dif]/nTestsInMonth[dif]);
         }
         return yValues;
+    }*/
+
+
+    private int calculateDifferenceInDays(Date date1, Date date2) {
+        return (int)(date1.getTime()-date2.getTime()) / (1000*60*60*24);
     }
 
-
-    private int calculateDifferenceInDays(Date dateRegistered, Date dateValidation) {
-        return (int)(dateValidation.getTime()-dateRegistered.getTime()) / (1000*60*60*24);
-    }
-
-    private int getMonthsDifference(Date date1, Date date2) {
+    private int calculateDifferenceInMonths(Date date1, Date date2) {
         int m1 = date1.getYear() * 12 + date1.getMonth();
         int m2 = date2.getYear() * 12 + date2.getMonth();
         return m2 - m1 + 1;
     }
 
-    /**
-     * Creates a pie chart with the All Time Test Type Distribution Data.
-     * @param pieChart
-     */
-    public void createPieChart(PieChart pieChart) {
-
-        List<PieChart.Data> list = new ArrayList<>();
-        for(TestType type : testTypeStore.getTestTypeList()){
-            int cont = 0;
-
-            for (Test t : testStore.getAllTests()){
-                if (t.getTestType().getCode().equalsIgnoreCase(type.getCode())) cont++;
-            }
-
-            list.add(new PieChart.Data(type.getDescription(), cont));
-
-        }
-        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(list);
-
-        pieChart.setData(pieChartData);
-        pieChart.setTitle("All Time Test Type Distribution");
-        pieChart.setClockwise(true);
+    private int calculateDifferenceInWeeks(Date date1, Date date2){
+        return (int) (date1.getTime()-date2.getTime())/(7*24 * 60 * 60 * 1000);
     }
+
+    private int calculateDifferenceInYears(Date date1, Date date2){
+        return (int) (date1.getTime()-date2.getTime())/(1000*60*60*24*365);
+    }
+
+    public void setChartOption(int chart) {
+        this.chart = chart;
+    }
+    public int getChartOption() {
+        return chart;
+    }
+
+    public void setInitDateGraph(Date initDateGraph) {
+        this.initDateGraph = initDateGraph;
+    }
+
+    public void setFinalDateGraph(Date finalDateGraph) {
+        this.finalDateGraph = finalDateGraph;
+    }
+
 }
