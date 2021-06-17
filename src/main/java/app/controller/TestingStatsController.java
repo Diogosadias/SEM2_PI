@@ -61,16 +61,23 @@ public class TestingStatsController {
     public String[] getDatesInArray(int period){
         int dif;
 
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String[] dates;
+        StringBuilder sb = new StringBuilder();
 
         switch (period){
             case 1:
                 dif = calculateDifferenceInDays(this.initDateGraph,this.finalDateGraph);
                 dates = new String[dif];
-                dates[0] = dateFormat.format(this.initDateGraph);
+                dates[0] = this.initDateGraph.toString();
                 for(int i = 1; i < dif; i++){
-                    dates[i] = dateFormat.format(addDaysToDate(new Date(dates[i-1]), 1));
+                    String[] gfhjh = dates[i-1].split("-");
+                    Date p = new Date(Integer.parseInt(gfhjh[0]), Integer.parseInt(gfhjh[1]), Integer.parseInt(gfhjh[2]));
+
+                    Date res = addDaysToDate(p, 1);
+                    sb.delete(0, sb.length());
+                    sb.append(res.getYear() + "-" + res.getMonth() + "-" + res.getDay());
+                    dates[i] = sb.toString();
                 }
                 return dates;
             case 7:
@@ -113,7 +120,6 @@ public class TestingStatsController {
         return res;
     }
 
-
     public Date addDaysToDate(Date date, int days) {
         Date newDate = new Date(date.getTime());
         GregorianCalendar calendar = new GregorianCalendar();
@@ -123,104 +129,8 @@ public class TestingStatsController {
         return newDate;
     }
 
-    /**
-     * Method for creating a line chart for monthly registered tests
-     *//*
-    public void createLineChart1(LineChart<Number, Number> lineChart, NumberAxis xAxis, NumberAxis yAxis){
-        xAxis.setAutoRanging(false);
-        xAxis.setLowerBound(1);
-        xAxis.setUpperBound(12);
-        xAxis.setTickUnit(1);
-        xAxis.setLabel("Number of months past");
-
-        yAxis.setLabel("Number of tests");
-        yAxis.setAutoRanging(true);
-        yAxis.setTickUnit(1);
-
-        lineChart.setTitle("Last 12 months registered tests number");
-        XYChart.Series<Number, Number> series = new LineChart.Series<>();
-        series.setName("Registered tests");
-
-        int[] yValues = getRegisteredTestsNrForLast12Months();
-
-        for (int i = 1; i < 13; i++) {
-            XYChart.Data<Number, Number> data = new LineChart.Data<>(13-i, yValues[yValues.length-i]);
-            series.getData().add(data);
-        }
-        lineChart.getData().add(series);
-    }
-*/
-    /*
-    private int[] getRegisteredTestsNrForLast12Months(){
-        Calendar c = Calendar.getInstance();
-        c.add(Calendar.YEAR, -1);
-        Date yrAgo = c.getTime();
-        int[] yValues = new int[12];
-        int dif;
-        for(Test i : testStore.getAllTests()) {
-            dif = getMonthsDifference(yrAgo, i.getDateRegistered());
-            if (dif < 13) {
-                yValues[dif - 1]++;
-            }
-
-        }
-        return yValues;
-    }
-
-    *//*
-    public void createLineChart2(LineChart<Number, Number> lineChart, NumberAxis xAxis, NumberAxis yAxis){
-        xAxis.setAutoRanging(false);
-        xAxis.setLowerBound(1);
-        xAxis.setUpperBound(12);
-        xAxis.setTickUnit(1);
-        xAxis.setLabel("Number of months past");
-
-        yAxis.setAutoRanging(true);
-        yAxis.setLabel("Days");
-
-        lineChart.setTitle("Last 12 months results' average waiting time");
-
-        XYChart.Series<Number, Number> series = new LineChart.Series<>();
-        series.setName("Waiting time");
-
-        int[] yValues = getMonthlyAverageWaitingTimeForLast12Months();
-
-        for (int i = 1; i < 13; i++) {
-            XYChart.Data<Number, Number> data = new LineChart.Data<>(13-i, yValues[yValues.length-i]);
-            series.getData().add(data);
-        }
-        lineChart.getData().add(series);
-    }*//*
-
-    *//**
-     *  Returns the Monthly Average Waiting Time For the Last 12 Months in an array.
-     * @return int[]
-     *//*
-    private int[] getMonthlyAverageWaitingTimeForLast12Months() {
-        Calendar c = Calendar.getInstance();
-        c.add(Calendar.YEAR, -1);
-        Date yrAgo = c.getTime();
-
-        int[] yValues = new int[12];
-        int[] nTestsInMonth = new int[12];
-
-        int dif;
-        for(Test i : testStore.getAllTests()) {
-            dif = getMonthsDifference(yrAgo, i.getDateRegistered());
-            if (dif < 13) {
-                yValues[dif - 1] = calculateDifferenceInDays(i.getDateRegistered(), i.getDateValidation());
-                nTestsInMonth[dif - 1]++;
-            }
-        }
-        for(dif=0; dif < 12; dif++){
-            yValues[dif] = (nTestsInMonth[dif] == 0) ? 0 : (yValues[dif]/nTestsInMonth[dif]);
-        }
-        return yValues;
-    }*/
-
-
     private int calculateDifferenceInDays(Date date1, Date date2) {
-        return (int)(date1.getTime()-date2.getTime()) / (1000*60*60*24);
+        return (int)(date2.getTime()-date1.getTime()) / (1000*60*60*24);
     }
 
     private int calculateDifferenceInMonths(Date date1, Date date2) {
@@ -230,11 +140,11 @@ public class TestingStatsController {
     }
 
     private int calculateDifferenceInWeeks(Date date1, Date date2){
-        return (int) (date1.getTime()-date2.getTime())/(7*24 * 60 * 60 * 1000);
+        return (int) (date2.getTime()-date1.getTime())/(7*24 * 60 * 60 * 1000);
     }
 
     private int calculateDifferenceInYears(Date date1, Date date2){
-        return (int) (date1.getTime()-date2.getTime())/(1000*60*60*24*365);
+        return (int) (date2.getTime()-date1.getTime())/(1000*60*60*24*365);
     }
 
     public void setChartOption(int chart) {

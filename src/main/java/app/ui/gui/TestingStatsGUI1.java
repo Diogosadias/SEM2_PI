@@ -57,7 +57,6 @@ public class TestingStatsGUI1 implements Initializable, GuiMethods {
     }
     @FXML
     void selectDate1(ActionEvent event) {
-        System.out.println(initDate.getValue());
         controller.setInitDateGraph(java.sql.Date.valueOf(initDate.getValue()));
     }
 
@@ -91,6 +90,7 @@ public class TestingStatsGUI1 implements Initializable, GuiMethods {
             testingStatsGUI2.setInstance(main);
             testingStatsGUI2.setController(controller);
         } catch (Exception e) {
+            e.printStackTrace();
             System.out.println(e.getMessage());
         }
     }
@@ -98,24 +98,19 @@ public class TestingStatsGUI1 implements Initializable, GuiMethods {
     @FXML
     private void validatedTestsGraphs(ActionEvent event) {
         try{
-            initDate.setOnAction(e -> {
-                // get the date picker value
-                LocalDate i = initDate.getValue();
-                // get the selected date
-                System.out.println(i);
-            });
             /*
             System.out.println(this.initDateNumberClients.getValue());
             System.out.println(this.finalDateNumberClients.getValue());*/
             controller.setInitDateGraph(java.sql.Date.valueOf(this.initDate.getValue()));
             controller.setFinalDateGraph(java.sql.Date.valueOf(this.finalDate.getValue()));
             controller.setChartOption(3);
-            TestingStatsGUI2 testingStatsGUI2 = (TestingStatsGUI2) main.replaceSceneContent("/fxml/TestingStatsGUI2.fxml");
+            TestingStatsGUI2 testingStatsGUI2 = (TestingStatsGUI2) main.replaceStatsSceneContent("/fxml/TestingStatsGUI2.fxml", this.controller);
             testingStatsGUI2.setInstance(main);
             testingStatsGUI2.setController(controller);
             //replaceScene();
         } catch (Exception e) {
             //System.out.println(e.getMessage());
+            e.printStackTrace();
             System.out.println(e.getMessage());
         }
     }

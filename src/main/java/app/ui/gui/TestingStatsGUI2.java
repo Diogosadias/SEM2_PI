@@ -52,6 +52,7 @@ public class TestingStatsGUI2 implements Initializable, GuiMethods{
     private TestingStatsController controller;
 
     private String[] dates1, dates2, dates3, dates4;
+    private int chartOption;
 
     @Override
     public void setInstance(Main mainInstance) {
@@ -59,17 +60,17 @@ public class TestingStatsGUI2 implements Initializable, GuiMethods{
     }
     public void setController(TestingStatsController controller) {
         this.controller = controller;
+        dates1 = controller.getDatesInArray(1);
+        dates2 = controller.getDatesInArray(7);
+        dates3 = controller.getDatesInArray(31);
+        dates4 = controller.getDatesInArray(365);
+        chartOption = controller.getChartOption();
     }
-
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        String[] dates1 = controller.getDatesInArray(1);
-        String[] dates2 = controller.getDatesInArray(7);
-        String[] dates3 = controller.getDatesInArray(31);
-        String[] dates4 = controller.getDatesInArray(365);
-        switch (controller.getChartOption()){
+
+        switch (chartOption){
             case 1:
                 //NR Clients
                 /*controller.createLineChartForData(this.dailyChart, xAxis1, yAxis1, "Date",

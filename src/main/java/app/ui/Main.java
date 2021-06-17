@@ -2,9 +2,11 @@ package app.ui;
 
 import app.controller.App;
 import app.controller.FileController;
+import app.controller.TestingStatsController;
 import app.domain.shared.Constants;
 import app.ui.gui.MainMenuGUI;
 import app.ui.gui.GuiMethods;
+import app.ui.gui.TestingStatsGUI2;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -122,5 +124,29 @@ public class Main extends Application {
         return (Initializable) loader.getController();
     }
 
+    public Initializable replaceStatsSceneContent(String fxml, TestingStatsController controller) throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+
+        InputStream in = Main.class.getResourceAsStream(fxml);
+        loader.setBuilderFactory(new JavaFXBuilderFactory());
+        loader.setLocation(App.class.getResource(fxml));
+
+        Pane page;
+        try {
+            page = (Pane) loader.load(in);
+        } finally {
+            in.close();
+        }
+        Scene scene = new Scene(page, SCENE_WIDTH, SCENE_HEIGHT);
+        scene.getStylesheets().add("/styles/Styles.css");
+        this.stage.setScene(scene);
+        this.stage.sizeToScene();
+
+        //interface que envia o Main para todos
+        TestingStatsGUI2 guiMethods = loader.getController();
+        guiMethods.setInstance(this);
+        guiMethods.setController(controller);
+        return (Initializable) loader.getController();
+    }
 }
 
