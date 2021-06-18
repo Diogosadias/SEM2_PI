@@ -37,12 +37,12 @@ public class CovidNhsReportController {
 
     public CovidNhsReportController(){
         this.company = App.getInstance().getCompany();
-        this.testStore = this.company.getTestStore();
         fmt = new SimpleDateFormat("yyyyMMdd");
     }
 
     public boolean startNewReport() {
         try {
+            this.testStore = this.company.getTestStore();
             this.testList = getValidatedCovidTestList();
             return true;
         } catch (NullPointerException n) {
@@ -75,14 +75,14 @@ public class CovidNhsReportController {
         Calendar end = Calendar.getInstance();
         start.setTime(initialDate);
         end.setTime(finalDate);
-        double[][] values = getIntervalValues(start,end, n);
-        double[] xAgeInterval = values[0];
-        double[] xTestsInterval = values[1];
-        double[] yInterval = values[2];
-        double[][] matcp = doMatcp(histPoints,historicDays);
-        double[] xAge = matcp[0];
-        double[] xTests = matcp[1];
-        double[] y = matcp[2];
+        double[][] intervalValues = getIntervalValues(start,end, n);
+        double[] xAgeInterval = intervalValues[0];
+        double[] xTestsInterval = intervalValues[1];
+        double[] yInterval = intervalValues[2];
+        double[][] values = getHistoricValues(histPoints,historicDays);
+        double[] xAge = values[0];
+        double[] xTests = values[1];
+        double[] y = values[2];
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         this.reportData = "";
         switch (varIndependent){
@@ -151,7 +151,7 @@ public class CovidNhsReportController {
          return values;
     }
 
-    public double [][] doMatcp(int histPoints,int historicDays){
+    public double [][] getHistoricValues(int histPoints,int historicDays){
             Calendar date = Calendar.getInstance();
             double [][] values = new double[3][histPoints];
             int countx = 0;

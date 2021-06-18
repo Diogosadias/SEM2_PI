@@ -61,7 +61,7 @@ public class CovidReport {
         return values;
     }
 
-    public double [][] doMatcp(int histPoints,int historicDays){
+    public double [][] Matcp(int histPoints,int historicDays){
         Calendar date = Calendar.getInstance();
         double [][] values = new double[3][histPoints];
         int countx = 0;

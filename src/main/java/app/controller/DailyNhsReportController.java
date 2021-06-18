@@ -46,7 +46,7 @@ public class DailyNhsReportController {
                 data += getDataFromLinearRegression("Multiple",initialDate,finalDate,"Weekly",histPoints,alpha);
 
                 dailytask(data);
-                //Reminder dailyTask = new Reminder(data);
+                //Reminder dailyReport = new Reminder(data);
             }
         }
     }

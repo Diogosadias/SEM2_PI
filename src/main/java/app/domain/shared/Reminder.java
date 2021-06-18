@@ -22,7 +22,7 @@ public class Reminder {
     public Reminder(String data) {
         this.data = data;
         Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.HOUR_OF_DAY,18);
+        cal.set(Calendar.HOUR_OF_DAY,6);
         cal.set(Calendar.MINUTE,0);
         cal.set(Calendar.SECOND,0);
         Date time = cal.getTime();

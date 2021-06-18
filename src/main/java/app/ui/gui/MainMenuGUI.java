@@ -47,7 +47,7 @@ public class MainMenuGUI implements Initializable, GuiMethods {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        App.getInstance().getCompany().runDailyTasks();
+        App.getInstance().getCompany().generateDailyTasks();
         List<MenuItem> options = new ArrayList<>();
         options.add(new MenuItem("Do Login","/fxml/LoginGUI.fxml"));
         options.add(new MenuItem("Know the Development Team",new DevTeamUI()));
