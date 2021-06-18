@@ -1,27 +1,16 @@
 package app.ui.gui;
 
-import app.controller.App;
 import app.controller.TestingStatsController;
 import app.ui.Main;
 import app.ui.console.MenuItem;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.fxml.JavaFXBuilderFactory;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.Pane;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.Optional;
 import java.util.ResourceBundle;
-
-import static app.domain.shared.Constants.SCENE_HEIGHT;
-import static app.domain.shared.Constants.SCENE_WIDTH;
 
 public class TestingStatsGUI1 implements Initializable, GuiMethods {
     @FXML
@@ -69,11 +58,9 @@ public class TestingStatsGUI1 implements Initializable, GuiMethods {
     @FXML
     private void nrClientsGraphs(ActionEvent event) {
         try{
-            controller.setInitDateGraph(java.sql.Date.valueOf(this.initDate.getValue()));
-            controller.setFinalDateGraph(java.sql.Date.valueOf(this.finalDate.getValue()));
-            controller.setChartOption(1);
             TestingStatsGUI2 testingStatsGUI2 = (TestingStatsGUI2) main.replaceSceneContent("/fxml/TestingStatsGUI2.fxml");
             testingStatsGUI2.setInstance(main);
+            controller.setChartOption(1);
             testingStatsGUI2.setController(controller);
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -83,71 +70,27 @@ public class TestingStatsGUI1 implements Initializable, GuiMethods {
     @FXML
     private void waitingTestsGraphs(ActionEvent event) {
         try{
-            controller.setInitDateGraph(java.sql.Date.valueOf(this.initDate.getValue()));
-            controller.setFinalDateGraph(java.sql.Date.valueOf(this.finalDate.getValue()));
-            controller.setChartOption(2);
+
             TestingStatsGUI2 testingStatsGUI2 = (TestingStatsGUI2) main.replaceSceneContent("/fxml/TestingStatsGUI2.fxml");
             testingStatsGUI2.setInstance(main);
+            controller.setChartOption(2);
             testingStatsGUI2.setController(controller);
         } catch (Exception e) {
-            e.printStackTrace();
-            //System.out.println(e.getMessage());
+            System.out.println(e.getMessage());
         }
     }
 
     @FXML
     private void validatedTestsGraphs(ActionEvent event) {
         try{
-            /*
-            System.out.println(this.initDateNumberClients.getValue());
-            System.out.println(this.finalDateNumberClients.getValue());*/
-            controller.setInitDateGraph(java.sql.Date.valueOf(this.initDate.getValue()));
-            controller.setFinalDateGraph(java.sql.Date.valueOf(this.finalDate.getValue()));
-            controller.setChartOption(3);
-            //TestingStatsGUI2 testingStatsGUI2 = (TestingStatsGUI2) main.replaceStatsSceneContent("/fxml/TestingStatsGUI2.fxml", this.controller);
             TestingStatsGUI2 testingStatsGUI2 = (TestingStatsGUI2) main.replaceSceneContent("/fxml/TestingStatsGUI2.fxml");
             testingStatsGUI2.setInstance(main);
+            controller.setChartOption(3);
             testingStatsGUI2.setController(controller);
-            //replaceScene();
         } catch (Exception e) {
-            //System.out.println(e.getMessage());
-            e.printStackTrace();
-            //System.out.println(e.getMessage());
+            System.out.println(e.getMessage());
         }
     }
-
-    /*private Initializable replaceScene() throws Exception {
-        String fxml="/fxml/TestingStatsGUI2.fxml";
-
-        FXMLLoader loader = new FXMLLoader();
-
-        InputStream in = Main.class.getResourceAsStream(fxml);
-        loader.setBuilderFactory(new JavaFXBuilderFactory());
-        loader.setLocation(App.class.getResource(fxml));
-
-        Pane page;
-        try {
-            page = (Pane) loader.load(in);
-        } finally {
-            in.close();
-        }
-        TestingStatsGUI2 testingStatsGUI2 = loader.getController();
-        testingStatsGUI2.setInstance(main);
-        testingStatsGUI2.setController(controller);
-
-        Scene scene = new Scene(page, SCENE_WIDTH, SCENE_HEIGHT);
-        scene.getStylesheets().add("/styles/Styles.css");
-        main.stage.setScene(scene);
-        main.stage.sizeToScene();
-
-        //interface que envia o Main para todos
-        GuiMethods guiMethods = loader.getController();
-        guiMethods.setInstance(main);
-
-
-
-        return (Initializable) loader.getController();
-    }*/
 
     @FXML
     private void menu_cancel(ActionEvent event) {
@@ -159,7 +102,7 @@ public class TestingStatsGUI1 implements Initializable, GuiMethods {
             if (result.get() == ButtonType.OK) {
                 //trocar para janela anterior
                 try {
-                    app.ui.console.MenuItem item= new MenuItem("default", "/fxml/LabCoordinatorGUI.fxml");
+                    app.ui.console.MenuItem item= new MenuItem("default", "/fxml/TestingStatsGUI1.fxml");
                     item.runGui(item.getGui(),main);
                 } catch (Exception e) {
                     e.printStackTrace();

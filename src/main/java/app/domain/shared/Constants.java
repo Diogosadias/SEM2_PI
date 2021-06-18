@@ -49,8 +49,8 @@ public class Constants {
 
 
     //JAVAFX - gui constants
-    public static final double MINIMUM_WINDOW_WIDTH = 600.0;
-    public static final double MINIMUM_WINDOW_HEIGHT = 400.0;
-    public static final double SCENE_WIDTH = 750.0;
-    public static final double SCENE_HEIGHT = 500.0;
+    public static final double MINIMUM_WINDOW_WIDTH = 800.0;
+    public static final double MINIMUM_WINDOW_HEIGHT = 500.0;
+    public static final double SCENE_WIDTH = 800;
+    public static final double SCENE_HEIGHT = 600.0;
 }

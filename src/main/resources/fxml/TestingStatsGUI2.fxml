@@ -5,10 +5,9 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.TestingStatsGUI2">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.TestingStatsGUI2">
     <top>
-        <MenuBar nodeOrientation="RIGHT_TO_LEFT" BorderPane.alignment="CENTER">
+        <MenuBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="0.0" prefWidth="655.0" BorderPane.alignment="CENTER">
             <menus>
                 <Menu mnemonicParsing="false" text="Options">
                     <items>
@@ -18,9 +17,9 @@
         </MenuBar>
     </top>
    <center>
-      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <Pane prefHeight="485.0" prefWidth="722.0" BorderPane.alignment="CENTER">
          <children>
-            <LineChart fx:id="dailyChart" layoutY="-2.0" prefHeight="182.0" prefWidth="312.0">
+            <LineChart fx:id="dailyChart" layoutX="-5.0" prefHeight="218.0" prefWidth="381.0">
                 <xAxis>
                     <CategoryAxis side="BOTTOM" fx:id="xAxis1" />
                 </xAxis>
@@ -28,7 +27,7 @@
                     <NumberAxis fx:id="yAxis1" side="LEFT" />
                 </yAxis>
             </LineChart>
-            <LineChart fx:id="monthlyChart" layoutY="179.0" prefHeight="189.0" prefWidth="307.0">
+            <LineChart fx:id="monthlyChart" layoutY="235.0" prefHeight="230.0" prefWidth="370.0">
                 <xAxis>
                     <CategoryAxis side="BOTTOM" fx:id="xAxis2" />
                 </xAxis>
@@ -36,7 +35,7 @@
                     <NumberAxis fx:id="yAxis2" side="LEFT" />
                 </yAxis>
             </LineChart>
-            <LineChart fx:id="yearlyChart" layoutX="308.0" layoutY="173.0" prefHeight="190.0" prefWidth="292.0">
+            <LineChart fx:id="yearlyChart" layoutX="389.0" layoutY="250.0" prefHeight="215.0" prefWidth="344.0">
                 <xAxis>
                     <CategoryAxis side="BOTTOM" fx:id="xAxis3" />
                 </xAxis>
@@ -44,7 +43,7 @@
                     <NumberAxis fx:id="yAxis3" side="LEFT" />
                 </yAxis>
             </LineChart>
-            <LineChart fx:id="weeklyChart" layoutX="306.0" prefHeight="175.0" prefWidth="294.0">
+            <LineChart fx:id="weeklyChart" layoutX="387.0" layoutY="2.0" prefHeight="221.0" prefWidth="349.0">
                 <xAxis>
                     <CategoryAxis side="BOTTOM" fx:id="xAxis4" />
                 </xAxis>
@@ -52,6 +51,9 @@
                     <NumberAxis fx:id="yAxis4" side="LEFT" />
                 </yAxis>
             </LineChart>
+            <DatePicker fx:id="datePickerInit" layoutX="88.0" layoutY="476.0" onAction="#selectDate1" promptText="Initial Date" />
+            <DatePicker fx:id="datePickerFinal" layoutX="344.0" layoutY="476.0" onAction="#selectDate2" promptText="Final Date" />
+            <Button fx:id="btnCharts" layoutX="642.0" layoutY="476.0" mnemonicParsing="false" onAction="#createChart" text="Go" />
          </children>
       </Pane>
    </center>
