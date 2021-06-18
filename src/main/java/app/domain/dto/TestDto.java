@@ -80,6 +80,10 @@ public class TestDto {
         this.dateDiagnosis = dateDiagnosis;
     }
 
+    public TestDto(Date dateValidation) {
+        this.dateValidation = dateValidation;
+    }
+
     public List<Sample> getSampleList() {
         return sampleList;
     }

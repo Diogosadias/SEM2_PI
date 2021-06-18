@@ -421,4 +421,13 @@ public class TestStore extends Store{
     public Iterable<Test> getAllTests() {
         return this.testList;
     }
+
+    public Test getTestByClient(long cc){
+        for(Test t : this.getValidatedTests()){
+            if(t.getClient().equals(this.company.getClientStore().getClientByCC(cc))) {
+                return t;
+            }
+        }
+        throw new IllegalArgumentException("Test with that client doesn't exist!");
+    }
 }

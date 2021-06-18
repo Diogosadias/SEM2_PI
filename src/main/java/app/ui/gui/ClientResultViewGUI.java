@@ -60,7 +60,7 @@ public class ClientResultViewGUI implements Initializable, GuiMethods {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         List<MenuItem> options = new ArrayList<>();
-        options.add(new MenuItem("Hello", new ShowTextUI("Hello")));
+        options.add(new MenuItem("View Results Tests", "/fxml/ClientGUI.fxml"));
 
         for(int i=0; i<options.size();i++){
             myListView.getItems().add(options.get(i).toString());

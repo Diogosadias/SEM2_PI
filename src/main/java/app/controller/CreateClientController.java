@@ -3,6 +3,7 @@ package app.controller;
 import app.domain.model.Client;
 import app.domain.model.Company;
 import app.domain.model.ClientStore;
+import app.domain.model.TestStore;
 import app.domain.shared.EmailSender;
 import app.domain.shared.GeneratePassword;
 import auth.AuthFacade;
@@ -20,6 +21,7 @@ public class CreateClientController {
     private App app;
 
     private ClientStore clientStore;
+    private TestStore testStore;
     Client rc;
 
     /**
@@ -35,6 +37,7 @@ public class CreateClientController {
         this.company = company;
         this.authFacade = this.company.getAuthFacade();
         this.clientStore = this.company.getClientStore();
+        this.testStore = this.company.getTestStore();
     }
 
     /**
@@ -90,4 +93,8 @@ public class CreateClientController {
             System.out.println(c);
     }
 
+    public void viewResultsTest(Client rc) {
+        this.rc = this.clientStore.getClientByCC(rc.getCitizenCard());
+        System.out.println(testStore.getTestByClient(rc.getCitizenCard()));
+    }
 }
