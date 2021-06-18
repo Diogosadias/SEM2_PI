@@ -167,6 +167,15 @@ public class ClientStore extends Store{
         }
         return null;
     }
+    public Client getClientByID(Email id) {
+        String ids= id.toString();
+        for ( Client c : clientList) {
+            if (c.getId().toString().equals(ids)) {
+                return c;
+            }
+        }
+        return null;
+    }
 
     @Override
     public List getListObjects() {

@@ -47,7 +47,7 @@ public class ClientGUI implements Initializable, GuiMethods {
 
         List<MenuItem> options = new ArrayList<>();
         options.add(new MenuItem("Tests Results", "/fxml/ClientResultViewGUI.fxml"));
-        options.add(new MenuItem("View Results Tests", new ClientResultViewUI()));
+
 
 
         for(int i=0; i<options.size();i++){
@@ -64,6 +64,7 @@ public class ClientGUI implements Initializable, GuiMethods {
                 }else{
                     try {
                         options.get(option).runGui(options.get(option).getGui(),mainInstance);
+
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

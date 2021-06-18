@@ -93,8 +93,4 @@ public class CreateClientController {
             System.out.println(c);
     }
 
-    public void viewResultsTest(Client rc) {
-        this.rc = this.clientStore.getClientByCC(rc.getCitizenCard());
-        System.out.println(testStore.getTestByClient(rc.getCitizenCard()));
-    }
 }

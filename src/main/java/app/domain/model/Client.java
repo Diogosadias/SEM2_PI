@@ -117,6 +117,9 @@ public class Client implements Serializable {
         this.citizenCard = citizenCard;
     }
 
+    public Client(String s, String s1) {
+    }
+
     /**
      * Return the client's nhs.
      *

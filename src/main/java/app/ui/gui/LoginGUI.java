@@ -43,7 +43,9 @@ public class LoginGUI implements Initializable, GuiMethods {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         this.controller = new AuthController();
+        this.logout();
     }
 
     public TextField getEmailTxtField(){
@@ -122,7 +124,7 @@ public class LoginGUI implements Initializable, GuiMethods {
         }else{
             openAlert("Login Error", "Login was not successful", "Check your email/password", Alert.AlertType.ERROR);
         }
-        this.logout();
+
 
     }
 
