@@ -10,8 +10,7 @@ import org.junit.Test;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 /**
  *
@@ -41,58 +40,7 @@ public class ClientTest {
         }
 */
 
-    /*
-        @Test
-        public void testCheckValidation(){
 
-            try{
-                Client c1 = new Client(new Email("user1@gmail.com"), "John", 11, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
-            }
-            catch (IllegalArgumentException ex){
-                assertEquals("NHS number must have 10 chars", ex.getMessage());
-            }
-
-            try{
-                Client c1 = new Client(new Email("user1@gmail.com"), "John", 1231231231, 11111, 111111111111l, new Date("12/12/2021"), "M", 111111111111l);
-            }
-            catch (IllegalArgumentException ex){
-                assertEquals("Citizen number must have 16 chars", ex.getMessage());
-            }
-            try{
-                Client c1 = new Client(new Email("user1@gmail.com"), "John", 1231231231,1111111111111111l , 11111, new Date("12/12/2021"), "M", 111111111111l);
-            }
-            catch (IllegalArgumentException ex){
-                assertEquals("TIN must have 12 chars",ex.getMessage());
-            }
-
-
-            try{
-                Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 11111111111L);
-                fail();
-            }
-            catch (IllegalArgumentException ex){
-                assertEquals("Phone Number must have 12 chars",ex.getMessage());
-            }
-            try{
-                Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 111111111111L, new Date("12/12/2021"), "M", 1111111111111L);
-                fail();
-            }
-            catch (IllegalArgumentException ex){
-                assertEquals("Phone Number must have 12 chars",ex.getMessage());
-            }
-
-
-
-            try{
-                Client c1 = new Client(new Email("user1@gmail.com"), "John", 1231231231, 1111111111111111l, 111111111111l, new Date("12/12/2021"), "Ah", 111111111111l);
-            }
-            catch (IllegalArgumentException ex){
-                assertEquals("This gender does not exist!",ex.getMessage());
-            }
-
-
-        }
-    */
     @Test
     public void testGetNhs() {
         //preparations
@@ -230,6 +178,8 @@ public class ClientTest {
         }catch (IllegalArgumentException ex){
             assertEquals("NHS code must have 10 chars.",ex.getMessage());
         }
+        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111221L, 1111111111111111L, 1111111111L, new Date("12/12/2021"), "M", 11111111111L);
+        assertTrue(c1.checkNHS(c1.getNhs()));
 
 
 

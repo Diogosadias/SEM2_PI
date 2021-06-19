@@ -269,10 +269,11 @@ public class Client implements Serializable {
      *
      * @param nhs client's nhs
      */
-    public void checkNHS(long nhs) {
+    public boolean checkNHS(long nhs) {
             String temp = String.valueOf(nhs);
             if (temp.length() != 10)
                 throw new IllegalArgumentException("NHS code must have 10 chars.");
+            return true;
 
     }
 
