@@ -1,6 +1,7 @@
 package app.controller;
 
 import app.domain.model.Company;
+import app.domain.shared.CovidReportMapper;
 import app.domain.shared.Reminder;
 
 import java.io.File;
@@ -22,33 +23,25 @@ public class DailyNhsReportController {
 
     private List<String[]> file;
 
-    private CovidNhsReportController reportController;
-
     public DailyNhsReportController(){this.company = App.getInstance().getCompany();}
 
     public void runDailyNhsReportTask()throws FileNotFoundException  {
         importFile();
+        CovidReportMapper mapper = new CovidReportMapper(this.company);
         String data = "";
         for(String[] line : file) {
-            reportController = new CovidNhsReportController();
-            reportController.startNewReport();
-            if(reportController.startNewReport()) {
                 Date initialDate = new Date(line[getColumnIndex("InitialDate_Registration")]);
                 Date finalDate = new Date(line[getColumnIndex("FinalDate_Registration")]);
                 int histPoints = Integer.valueOf(line[getColumnIndex("HistoricPoints")]);
                 double alpha = Double.valueOf(line[getColumnIndex("SignificanceLevel")].replace(",","."));
-                data += getDataFromLinearRegression("Registered Tests",initialDate,finalDate,"Daily",histPoints,alpha);
-                data += getDataFromLinearRegression("Mean Age",initialDate,finalDate,"Daily",histPoints,alpha);
-                data += getDataFromLinearRegression("Multiple",initialDate,finalDate,"Daily",histPoints,alpha);
-
-                data += getDataFromLinearRegression("Registered Tests",initialDate,finalDate,"Weekly",histPoints,alpha);
-                data += getDataFromLinearRegression("Mean Age",initialDate,finalDate,"Weekly",histPoints,alpha);
-                data += getDataFromLinearRegression("Multiple",initialDate,finalDate,"Weekly",histPoints,alpha);
-
-                dailytask(data);
-                //Reminder dailyReport = new Reminder(data);
+                mapper.startNewReport(initialDate,finalDate,histPoints,alpha);
+                if(mapper.startNewReport(initialDate,finalDate,histPoints,alpha)){
+                    data = mapper.getData();
+                    dailytask(data);
+                    //Reminder dailyReport = new Reminder(data);
+                }
             }
-        }
+
     }
 
     private void dailytask(String data) {
@@ -67,11 +60,6 @@ public class DailyNhsReportController {
             }
 
         }
-    }
-
-    private String getDataFromLinearRegression(String variable, Date initialDate, Date finalDate, String historic,int histPoints,double alpha) {
-        reportController.doLinearRegression(initialDate,finalDate,variable,historic,histPoints,alpha);
-        return " === Linear Regression - " + historic + " - " + variable + " === \n" + reportController.getData() + "\n\n\n";
     }
 
     private void importFile() throws FileNotFoundException {

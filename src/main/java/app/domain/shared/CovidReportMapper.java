@@ -1,14 +1,11 @@
-package app.controller;
+package app.domain.shared;
 
+import app.controller.CovidNhsReportController;
 import app.domain.model.Company;
 import app.domain.model.Test;
 import app.domain.model.TestStore;
-import app.domain.shared.LinearRegression;
-import app.domain.shared.MultipleRegression;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.PrintStream;
+import java.io.*;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -18,13 +15,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class CovidNhsReportController {
+public class CovidReportMapper {
 
-
-    private Company company;
     private TestStore testStore;
-
-
     private LinearRegression linear;
     private MultipleRegression multiple;
     private SimpleDateFormat fmt;
@@ -33,17 +26,26 @@ public class CovidNhsReportController {
     public final String VAR_AGE = "Mean Age";
     public final String MULTIPLE = "Multiple";
     private List<Date> historicDateList;
-    private String reportData = "";
+    private Date initialDate;
+    private Date finalDate;
+    private int histPoints;
+    private double alpha;
+    private String reportData;
 
-    public CovidNhsReportController(){
-        this.company = App.getInstance().getCompany();
+    public CovidReportMapper(Company company) {
+        this.testStore = company.getTestStore();
+        testList = new ArrayList<>();
         fmt = new SimpleDateFormat("yyyyMMdd");
+        historicDateList = new ArrayList<>();
     }
 
-    public boolean startNewReport() {
+    public boolean startNewReport(Date initialDate,Date finalDate,int histPoints, double alpha) {
         try {
-            this.testStore = this.company.getTestStore();
             this.testList = getValidatedCovidTestList();
+            this.initialDate = initialDate;
+            this.finalDate = finalDate;
+            this.histPoints = histPoints;
+            this.alpha = alpha;
             return true;
         } catch (NullPointerException n) {
             System.out.println("Problem sending daily Nhs Report.");
@@ -51,21 +53,36 @@ public class CovidNhsReportController {
         }
     }
 
-    private List getValidatedCovidTestList() {
-        List<Test> covidTests = new ArrayList<>();
-        for(Test t :  this.testStore.getValidatedTests()){
-            if(t.getTestType().getCode().equalsIgnoreCase("Covid")){
-                covidTests.add(t);
-            }
-        }
-        if(covidTests.isEmpty()) {
-            return null;
-        }
-        return covidTests;
+    public String getData (){
+        String data = "";
+        String historic = "Daily";
+        String variable = "Registered Tests";
+        this.doLinearRegression(variable,historic);
+        data += " === Linear Regression - " + historic + " - " + variable + " === \n" + reportData + "\n\n\n";
+         historic = "Daily";
+         variable = "Mean Age";
+        this.doLinearRegression(variable,historic);
+        data += " === Linear Regression - " + historic + " - " + variable + " === \n" + reportData + "\n\n\n";
+        historic = "Daily";
+        variable = "Multiple";
+        this.doLinearRegression(variable,historic);
+        data += " === Linear Regression - " + historic + " - " + variable + " === \n" + reportData + "\n\n\n";
+        historic = "Weekly";
+        variable = "Registered Tests";
+        this.doLinearRegression(variable,historic);
+        data += " === Linear Regression - " + historic + " - " + variable + " === \n" + reportData + "\n\n\n";
+        historic = "Weekly";
+        variable = "Mean Age";
+        this.doLinearRegression(variable,historic);
+        data += " === Linear Regression - " + historic + " - " + variable + " === \n" + reportData + "\n\n\n";
+        historic = "Weekly";
+        variable = "Multiple";
+        this.doLinearRegression(variable,historic);
+        data += " === Linear Regression - " + historic + " - " + variable + " === \n" + reportData + "\n\n\n";
+        return data;
     }
 
-
-    public void doLinearRegression(Date initialDate, Date finalDate, String varIndependent, String historic,int histPoints,double alpha) {
+    public void doLinearRegression(String varIndependent, String historic) {
         int historicDays = 1;
         if (historic.equals("Weekly")) {
             historicDays = 7;
@@ -119,10 +136,6 @@ public class CovidNhsReportController {
         }
     }
 
-    private int setN (Date initialDate, Date finalDate) {
-        return (int) TimeUnit.DAYS.convert((finalDate.getTime() - initialDate.getTime()), TimeUnit.MILLISECONDS) - 1;
-    }
-
     private double[][] getIntervalValues (Calendar start,Calendar end, int n) {
         double [][] values = new double[3][n];
         int i =0;
@@ -148,66 +161,73 @@ public class CovidNhsReportController {
             }
             start.add(Calendar.DATE, 1);
         }
-         return values;
+        return values;
     }
 
     public double [][] getHistoricValues(int histPoints,int historicDays){
-            Calendar date = Calendar.getInstance();
-            double [][] values = new double[3][histPoints];
-            int countx = 0;
-            int county = 0;
+        Calendar date = Calendar.getInstance();
+        double [][] values = new double[3][histPoints];
+        int countx = 0;
+        int county = 0;
 
-            int i=0;
-            historicDateList = new ArrayList<>();
-            date.setTime(new Date(System.currentTimeMillis()));
-            date.setTime(new Date("2021/05/29"));
-            int countDays = 1;
-            int sumAge = 0;
-            while( countDays <= (histPoints*historicDays) ) {
-                Date targetDay = date.getTime();
+        int i=0;
+        historicDateList = new ArrayList<>();
+        date.setTime(new Date(System.currentTimeMillis()));
+        date.setTime(new Date("2021/05/29"));
+        int countDays = 1;
+        int sumAge = 0;
+        while( countDays <= (histPoints*historicDays) ) {
+            Date targetDay = date.getTime();
 
-                    for (Test t : testList) {
+            for (Test t : testList) {
 
-                        if (fmt.format(t.getDateRegistered()).equals(fmt.format(targetDay))) {
-                            countx++;
-                            if (t.getTestParam().getResult().getMetric() > 1.4) {
-                                county++;
-                            }
-                            sumAge += t.getClient().calculateAge();
-                        }
-
+                if (fmt.format(t.getDateRegistered()).equals(fmt.format(targetDay))) {
+                    countx++;
+                    if (t.getTestParam().getResult().getMetric() > 1.4) {
+                        county++;
                     }
+                    sumAge += t.getClient().calculateAge();
+                }
 
-                if(countDays%historicDays == 0){
-                    if(county > 0 && countx > 0) {
-                        values[0][i] += (double)sumAge / (double)countx;
-                        values[1][i] += countx;
-                        values[2][i] += county;
-                        historicDateList.add(targetDay);
-                       }
-                    if(values[2][i] > 0) {
-                        i++;
+            }
 
-                    }
-                    countx = 0;
-                    county = 0;
-                    sumAge = 0;
+            if(countDays%historicDays == 0){
+                if(county > 0 && countx > 0) {
+                    values[0][i] += (double)sumAge / (double)countx;
+                    values[1][i] += countx;
+                    values[2][i] += county;
+                    historicDateList.add(targetDay);
+                }
+                if(values[2][i] > 0) {
+                    i++;
 
                 }
-                countDays++;
-                date.add(Calendar.DATE, -1);
+                countx = 0;
+                county = 0;
+                sumAge = 0;
+
             }
-            return values;
+            countDays++;
+            date.add(Calendar.DATE, -1);
+        }
+        return values;
     }
 
-    public void sendNhsReport() {
-        String fileName = "covidreport.txt";
-        try (PrintStream out = new PrintStream(new FileOutputStream(fileName))) {
-            out.print(reportData);
-            System.out.println("\nNhs data successfully delivered to " + fileName);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+    private List getValidatedCovidTestList() {
+        List<Test> covidTests = new ArrayList<>();
+        for(Test t :  testStore.getValidatedTests()){
+            if(t.getTestType().getCode().equalsIgnoreCase("Covid")){
+                covidTests.add(t);
+            }
         }
+        if(covidTests.isEmpty()) {
+            return null;
+        }
+        return covidTests;
+    }
+
+    public int setN(Date initialDate, Date finalDate) {
+        return (int) TimeUnit.DAYS.convert((finalDate.getTime() - initialDate.getTime()), TimeUnit.MILLISECONDS) - 1;
     }
 
     private String boardSimpleLRString (double[] x, double[] y, int historicDays, SimpleDateFormat dateFormat) {
@@ -231,15 +251,6 @@ public class CovidNhsReportController {
         }
         return board + "\n\n\n\n";
     }
-
-    public String getData() {
-        return reportData;}
-
-    public LinearRegression getLinearRegression() {
-        return this.linear;}
-
-    public MultipleRegression getMultipleRegression() {
-        return this.multiple;}
 
 
 }
