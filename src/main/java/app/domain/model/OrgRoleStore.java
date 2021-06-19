@@ -55,9 +55,8 @@ public class OrgRoleStore {
      */
 
     public OrgRole getRoleById(String id) {
-        for (OrgRole role : this.lor) {
-            if(role.getId().equals(id)) return role;
-        }
+        for (OrgRole role : this.lor)
+            if (role.getId().equals(id)) return role;
         throw new IllegalArgumentException("There is no Organization Role with that Id.");
     }
 
