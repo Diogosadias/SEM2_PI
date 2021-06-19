@@ -32,7 +32,7 @@ public class ClinicalChemicalTechnologistGUI implements Initializable, GuiMethod
     private Button loginButton;
 
 
-    int option;
+    private int option;
 
 
 

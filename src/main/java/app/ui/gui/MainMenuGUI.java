@@ -18,12 +18,12 @@ import javafx.stage.Stage;
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  */
 public class MainMenuGUI implements Initializable, GuiMethods {
-    public Stage stage;
+    private Stage stage;
     public void setStage(Stage stage){
         this.stage=stage;
     }
 
-    public Main mainInstance;
+    private Main mainInstance;
     public void setMainInstance(Main mainInstance) {
         this.mainInstance = mainInstance;
     }

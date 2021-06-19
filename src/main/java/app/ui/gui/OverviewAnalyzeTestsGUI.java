@@ -32,7 +32,7 @@ public class OverviewAnalyzeTestsGUI implements Initializable, GuiMethods {
 
     private Main mainInstance;
     private final OverviewAnalyzeTestsController oc = new OverviewAnalyzeTestsController();
-    int option;
+    private int option;
 
     @FXML
     private RadioButton rbtTin;

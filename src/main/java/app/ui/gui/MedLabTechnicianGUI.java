@@ -23,7 +23,7 @@ public class MedLabTechnicianGUI implements Initializable, GuiMethods {
     @FXML
     private ListView<String> myListView;
 
-    int option;
+    private int option;
 
 
 

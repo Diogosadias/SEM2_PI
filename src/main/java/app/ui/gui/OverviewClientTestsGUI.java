@@ -21,7 +21,7 @@ import javafx.stage.Stage;
 
 public class OverviewClientTestsGUI implements Initializable {
 
-    public Stage stage;
+    private Stage stage;
     public void setStage(Stage stage){
         this.stage=stage;
     }
@@ -38,7 +38,7 @@ public class OverviewClientTestsGUI implements Initializable {
     private ListView<String> myListView;
 
     @FXML
-    private Label lbl_client;
+    private Label lblClient;
 
     @FXML
     private TextArea myTextArea;
@@ -47,7 +47,7 @@ public class OverviewClientTestsGUI implements Initializable {
     public void setClientDTO(ClientDTO clientdto){
         ClientDTO client;
         client=clientdto;
-        lbl_client.setText(client.getName()+" - tin: "+client.getTin());
+        lblClient.setText(client.getName()+" - tin: "+client.getTin());
         tl = oc.listClientTest(client);
         for(Test t: tl){
             TestDto dto = new TestDto(t.getCode(),t.getDateRegistered(),t.getDateChemicalAnalysis(),t.getDateDiagnosis());

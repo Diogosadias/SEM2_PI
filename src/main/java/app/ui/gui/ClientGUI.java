@@ -32,7 +32,7 @@ public class ClientGUI implements Initializable, GuiMethods {
     private Button loginButton;
 
 
-    int option;
+    private int option;
 
 
 

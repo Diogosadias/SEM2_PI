@@ -27,7 +27,7 @@ import static app.domain.shared.Constants.*;
  */
 public class Main extends Application {
 
-    public Stage stage;
+    private Stage stage;
 
     public Stage getStage() {
         return stage;
@@ -66,62 +66,27 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        //LANÇA UI LOGIN
         this.stage = stage;
         stage.setTitle("Many Labs");
         stage.setMinWidth(MINIMUM_WINDOW_WIDTH);
         stage.setMinHeight(MINIMUM_WINDOW_HEIGHT);
-        toLoginScene();
+        toMenuScene();
         this.stage.show();
     }
 
     //Opens Login UI
-    public void toLoginScene() {
+    public void toMenuScene() {
         try {
-            /*MainUI mainUI = (MainUI) replaceSceneContent("/fxml/Main.fxml");
-            mainUI.setMainApp(this);*/
             FileController fileController = new FileController();
             fileController.runFileInputStreams();
-            //LoginGUI loginGUI = (LoginGUI) replaceSceneContent("/fxml/LoginGUI.fxml");
-
-            //loginGUI.setMainInstance(this);
             MainMenuGUI mainMenuGUI = (MainMenuGUI) replaceSceneContent("/fxml/MainMenuGUI.fxml");
             mainMenuGUI.setMainInstance(this);
-
-
-
-
         } catch (Exception ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     public Initializable replaceSceneContent(String fxml) throws Exception {
-        FXMLLoader loader = new FXMLLoader();
-
-        InputStream in = Main.class.getResourceAsStream(fxml);
-        loader.setBuilderFactory(new JavaFXBuilderFactory());
-        loader.setLocation(App.class.getResource(fxml));
-
-        Pane page;
-        try {
-            page = (Pane) loader.load(in);
-        } finally {
-            in.close();
-        }
-        Scene scene = new Scene(page, SCENE_WIDTH, SCENE_HEIGHT);
-        scene.getStylesheets().add("/styles/Styles.css");
-        this.stage.setScene(scene);
-        this.stage.sizeToScene();
-
-        //interface que envia o Main para todos
-        GuiMethods guiMethods = loader.getController();
-        guiMethods.setInstance(this);
-
-        return (Initializable) loader.getController();
-    }
-
-    public Initializable replaceStatsSceneContent(String fxml, TestingStatsController controller) throws Exception {
         FXMLLoader loader = new FXMLLoader();
 
         InputStream in = Main.class.getResourceAsStream(fxml);
@@ -139,10 +104,10 @@ public class Main extends Application {
         this.stage.setScene(scene);
         this.stage.sizeToScene();
 
-        //interface que envia o Main para todos
-        TestingStatsGUI2 guiMethods = loader.getController();
+        //interface that sends the main to every GUI
+        GuiMethods guiMethods = loader.getController();
         guiMethods.setInstance(this);
-        guiMethods.setController(controller);
+
         return loader.getController();
     }
 }

@@ -24,7 +24,7 @@ import javafx.scene.control.TextArea;
 public class ClientResultViewGUI implements Initializable, GuiMethods {
     private Main mainInstance;
 
-    int option;
+    private int option;
 
     @FXML
     private ResourceBundle resources;
