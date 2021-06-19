@@ -4,8 +4,6 @@ import app.controller.OverviewAnalyzeTestsController;
 import app.domain.dto.ClientDTO;
 import app.domain.dto.TestDto;
 import app.domain.model.Test;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import java.net.URL;
 import java.util.List;

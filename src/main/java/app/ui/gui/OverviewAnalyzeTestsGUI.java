@@ -11,8 +11,6 @@ import app.domain.dto.ClientDTO;
 import app.domain.shared.SortAlgorithm;
 import app.ui.Main;
 import app.utils.fx.FXUtils;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
