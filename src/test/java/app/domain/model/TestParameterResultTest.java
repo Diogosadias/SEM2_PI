@@ -18,6 +18,15 @@ public class TestParameterResultTest {
 
     @Test
     public void testSetResult() {
+        try{
+            test.setResult(null);
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("Result is Null!",ex.getMessage());
+        }
+        test.setResult("123");
+        assertEquals("123",test.getResult());
+
     }
 
     @Test
@@ -31,6 +40,10 @@ public class TestParameterResultTest {
 
     @Test
     public void testSetMetric() {
+        test.setMetric(2.34);
+        boolean b = false;
+        if(test.getMetric()==2.34) b=true;
+        assertTrue(b);
     }
 
     @Test
@@ -42,5 +55,14 @@ public class TestParameterResultTest {
 
     @Test
     public void testSetRefValue() {
+        try{
+            test.setRefValue(null);
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("Reference Value is Null!",ex.getMessage());
+        }
+        test.setRefValue(new EMRefValue("1211","1",2.0,4.1,new Date(12/12/2021)));
+        EMRefValue x = new EMRefValue("1211","1",2.0,4.1,new Date(12/12/2021));
+        assertEquals(x,test.getRefValue());
     }
 }

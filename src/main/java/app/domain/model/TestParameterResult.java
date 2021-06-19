@@ -50,7 +50,9 @@ public class TestParameterResult  implements Serializable {
      * @param result - TestParameterResult's result
      */
     public void setResult(String result) {
-        this.result = result;
+        if(result!=null) {
+            this.result = result;
+        } else throw new IllegalArgumentException("Result is Null!");
     }
 
     /**
@@ -86,7 +88,9 @@ public class TestParameterResult  implements Serializable {
      * @param refValue - TestParameterResult's refValue
      */
     public void setRefValue(EMRefValue refValue) {
-        this.refValue = refValue;
+        if(refValue!=null) {
+            this.refValue = refValue;
+        } else throw new IllegalArgumentException("Reference Value is Null!");
     }
 
     /**
