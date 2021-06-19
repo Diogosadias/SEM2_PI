@@ -230,30 +230,29 @@ public class ClientTest {
         }catch (IllegalArgumentException ex){
             assertEquals("NHS code must have 10 chars.",ex.getMessage());
         }
+
+
+
     }
-    /*
-        @Test
-        public void checkCitizenNumber(){
-            try{
-                Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 111111111111121111L, 1111111111L, new Date("12/12/2021"), "M", 11111111111L);
-                fail();
-            }catch (IllegalArgumentException ex){
-                assertEquals("Citizen Card code must have 16 chars.",ex.getMessage());
-            }
-            try{
-                Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 111111111211121111L, 1111111111L, new Date("12/12/2021"), "M", 11111111111L);
-                fail();
-            }catch (IllegalArgumentException ex){
-                assertEquals("Citizen Card code must have 16 chars.",ex.getMessage());
-            }
-            try{
-                Client c1 = new Client(111121121211121111L);
-                fail();
-            }catch (IllegalArgumentException ex){
-                assertEquals("Citizen Card code must have 16 chars.",ex.getMessage());
-            }
+
+    @Test
+    public void checkCitizenNumber(){
+        try{
+            Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 111111111111121111L, 1111111111L, new Date("12/12/2021"), "M", 11111111111L);
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("Citizen Card code must have 16 chars.",ex.getMessage());
         }
-    */
+        try{
+            Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 111111111211121111L, 1111111111L, new Date("12/12/2021"), "M", 11111111111L);
+            fail();
+        }catch (IllegalArgumentException ex){
+            assertEquals("Citizen Card code must have 16 chars.",ex.getMessage());
+        }
+        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111211L, 1111111111L, new Date("12/12/2021"), "M", 11111111111L);
+
+    }
+
     @Test
     public void checkSex(){
         try{
@@ -273,6 +272,12 @@ public class ClientTest {
         }catch (IllegalArgumentException ex){
             assertEquals("You must define your sex as 'M' or 'F'.",ex.getMessage());
         }
+        try{
+            Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 1111111111L, new Date("12/12/2021"), null, 11111111111L);
+        }catch (IllegalArgumentException ex){
+            assertEquals("Cannot be Null",ex.getMessage());
+        }
+
     }
 
     @Test
@@ -289,6 +294,8 @@ public class ClientTest {
         }catch (IllegalArgumentException ex){
             assertEquals("TIN code must have 10 chars.",ex.getMessage());
         }
+        Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111112L, 1111111111111112L, 1111111112L, new Date("12/12/2021"), "M", 11111111111L);
+
     }
 
     @Test
@@ -306,11 +313,9 @@ public class ClientTest {
         }catch (IllegalArgumentException ex){
             assertEquals("Phone Number must have 11 chars.",ex.getMessage());
         }
-        try{
-            Client c1 = new Client(new Email("user3@gmail.com"), "John", 1111111113L, 1111111111111511L, 1111114111L, new Date("12/12/2021"), "M", 11111111111L);
-        }catch (IllegalArgumentException ex){
-            assertEquals("Phone Number must have 11 chars.",ex.getMessage());
-        }
+        Client c1 = new Client(new Email("user2@gmail.com"), "John", 1111111112L, 1111111111111141L, 1111116111L, new Date("12/12/2021"), "M", 12345678901L);
+
+
     }
 
     @Test
