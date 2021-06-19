@@ -146,16 +146,7 @@ public class LinearRegressionTest {
         assertEquals(expResult, result, 0.0);
     }
 
-    /**
-     * Test of decision method, of class LinearRegression.
-     */
-    @Test
-    public void testDecision() {
-        System.out.println("decision");
-        String expResult = "Reject H0.";        
-        String result = instanceTests.decision();
-        assertEquals(expResult, result);        
-    }
+
 
     /**
      * Test of dfSR method, of class LinearRegression.
@@ -222,6 +213,101 @@ public class LinearRegressionTest {
         double result = instanceTests.F();
         assertEquals(expResult, result, 0.0);
     }
+
+    /**
+     * Test of toString method, of class LinearRegression.
+     */
+    @Test
+    public void testToString() {
+        System.out.println("toString");
+        String expResult = "\nThe regression model fitted using data from the interval \n" +
+                "^y = a + bx <=> ^y = -0,3654 + 0,7166 * x\n" +
+                "b = 0,7166\n" +
+                "a = -0,3654\n" +
+                "//\n" +
+                "Other statistics\n" +
+                "R2 = 0,9882\n" +
+                "R2adjusted = ...\n" +
+                "R = 0,9941\n" +
+                "//\n" +
+                "Hypothesis tests for regression coefficients\n" +
+                "HO:b=0 (a=0) H1: b<>0 (a<>0)\n" +
+                "t_obs = 2,2281\n" +
+                "Decision: Reject H0.\n" +
+                "//\n" +
+                "Significance model with Anova\n" +
+                "H0: b=0  H1:b<>0\n" +
+                "\t\t\tdf\t\tSS\t\tMS\t\tF\t\t\n" +
+                "Regression\t1.0\t384,0856\t384,0856\t838,4125\t\n" +
+                "Residual\t10.0\t4,5811\t\t0,4581\t\t\n" +
+                "Total\t\t11.0\t388,6667\t\t\n" +
+                "\n" +
+                "Decision: f \n" +
+                "0 > f0.05,(1.10)=0,0041";
+        String result = instanceTests.toString();
+        assertEquals(expResult, result);
+
+    }
+
+    /**
+     * Test of delta method, of class LinearRegression.
+     */
+    @Test
+    public void testDelta() {
+        System.out.println("delta");
+        double x0 = 1.0;
+        double expResult = 0.8386788508455758;
+        double result = instanceTests.delta(x0);
+        assertEquals(expResult, result, 0.0);
+    }
+
+    /**
+     * Test of decision method, of class LinearRegression.
+     */
+    @Test
+    public void testDecisionReject() {
+        System.out.println("decision");
+        String expResult = "Reject H0.";
+        String result = instanceTests.decision();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of decision method, of class LinearRegression.
+     */
+    @Test
+    public void testDecisionDontReject() {
+        System.out.println("decision");
+        String expResult = "Don't Reject H0.";
+        instanceTests.setfDistribution(900.0);
+        String result = instanceTests.decision();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of getfDistribution method, of class LinearRegression.
+     */
+    @Test
+    public void testGetfDistribution() {
+        System.out.println("delta");
+        double expResult = 0.004134251619444255;
+        double result = instanceTests.getfDistribution();
+        assertEquals(expResult, result, 0.0);
+    }
+
+    /**
+     * Test of setfDistribution method, of class LinearRegression.
+     */
+    @Test
+    public void testSetfDistribution() {
+        System.out.println("delta");
+        double expResult = 100.0;
+        instanceTests.setfDistribution(100.0);
+        double result = 100.0;
+        assertEquals(expResult, result, 0.0);
+    }
+
+
 
 }
 

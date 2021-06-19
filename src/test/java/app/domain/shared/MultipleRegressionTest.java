@@ -21,14 +21,6 @@ public class MultipleRegressionTest {
     
     private MultipleRegression instance;    
 
-    @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-    
     @Before
     public void setUp() {        
         double[] xAgeInterval = new double[] {30.08695652173913, 31.90909090909091, 34.708333333333336, 31.75, 25.266666666666666, 27.466666666666665, 26.61111111111111, 26.416666666666668, 26.416666666666668, 30.0};
@@ -36,10 +28,6 @@ public class MultipleRegressionTest {
         double[] yInterval = new double[] {16.0, 16.0, 18.0, 14.0, 9.0, 10.0, 12.0, 8.0, 8.0, 5.0};
         this.instance = new MultipleRegression(yInterval,xTestsInterval,xAgeInterval, 0.05);
     }    
-
-    @After
-    public void tearDown() throws Exception {
-    }
 
     /**
      * Test of getY method, of class MultipleRegression.
@@ -280,5 +268,41 @@ public class MultipleRegressionTest {
         assertEquals(expResult, result);
     }
 
+    
+    /**
+     * Test of toString method, of class MultipleRegression.
+     */
+    @Test
+    public void testToString() {
+        System.out.println("toString");
+        String expResult = "\n" +
+                "The regression model fitted using data from the interval \n" +
+                "\n" +
+                "//\n" +
+                "Other statistics\n" +
+                "R2 = 0,9958\n" +
+                "R2adjusted = 0,9946\n" +
+                "R = 0,9979\n" +
+                "//\n" +
+                "Hypothesis tests for regression coefficients\n" +
+                "HO:b1=b2=0, k=2 H1: bj<>0 , j=1,2 \n" +
+                "f_obs = 4,7374\n" +
+                "Decision: \n" +
+                "Reject H0.\n" +
+                "//\n" +
+                "Significance model with Anova\n" +
+                "HO:b1=b2=0, k=2 H1: bj<>0 , j=1,2 \n" +
+                "\t\t\tdf\t\tSS\t\tMS\t\tF\t\t\n" +
+                "Regression\t2.0\t163,7145\t81,8572\t835,8410\t\n" +
+                "Residual\t7.0\t0,6855\t\t0,0979\t\t\n" +
+                "Total\t9.0\t164,4000\t\t\n" +
+                "\n" +
+                "Decision: f \n" +
+                "0 > f0.05,(2.7)=4,7374\n" +
+                "Reject H0\n" +
+                "The regression model is significant.";
+        String result = instance.toString();
+        assertEquals(expResult, result);
+    }
     
 }

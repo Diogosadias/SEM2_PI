@@ -199,6 +199,13 @@ public class LinearRegression {
         return "Error";
     }
 
+    public void setfDistribution(double fDistribution) {
+        this.fDistribution = fDistribution;
+    }
+
+    public double getfDistribution() {
+        return fDistribution;
+    }
 
     public double dfSR() {
         return this.dfSR;
