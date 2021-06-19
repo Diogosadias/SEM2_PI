@@ -73,12 +73,12 @@ public class ClientResultViewGUI implements Initializable, GuiMethods {
 
 
         client = crvController.getClient();
-
+        try {
         tl = crvController.listClientTest(client);
         tlDTO= crvController.toDTO(tl);
 
         Collections.sort(tlDTO, new SortAlgorithm.TestCompareByValidationTest());
-        try {
+
             for(TestDto t: tlDTO){
                 //TestDto dto = new TestDto(t.getCode(),t.getDateRegistered(),t.getDateChemicalAnalysis(),t.getDateDiagnosis());
                 myListView.getItems().add(t.datesForGUI_toString());
