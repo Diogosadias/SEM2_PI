@@ -1,52 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
+<!--
+    @author Márcio Ramos <1201682@isep.ipp.pt>
+-->
+
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.TestingStatsGUI1">
    <top>
-       <MenuBar nodeOrientation="RIGHT_TO_LEFT" BorderPane.alignment="CENTER">
-           <menus>
-               <Menu mnemonicParsing="false" text="Options">
-                   <items>
-                       <MenuItem mnemonicParsing="false" onAction="#menu_cancel" text="Cancel" />
-                   </items></Menu>
-           </menus>
-       </MenuBar>
+      <MenuBar nodeOrientation="RIGHT_TO_LEFT" BorderPane.alignment="CENTER">
+         <menus>
+            <Menu mnemonicParsing="false" text="Options">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#menu_goBack" text="Go Back" />
+                  <MenuItem mnemonicParsing="false" onAction="#menu_logout" text="Logout" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#menu_exit" text="Exit" />
+               </items></Menu>
+         </menus>
+      </MenuBar>
    </top>
    <center>
-      <Pane prefHeight="213.0" prefWidth="357.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnTestsWaitingForResult" layoutX="170.0" layoutY="111.0" mnemonicParsing="false" onAction="#testsWaitingForResult" text="Tests Waiting For Diagnosis">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnTestsWaitingForDiagnosis" layoutX="180.0" layoutY="45.0" mnemonicParsing="false" onAction="#testsWaitingForDiagnosis" text="Tests Waiting For Results">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnTestsValidated" layoutX="219.0" layoutY="172.0" mnemonicParsing="false" onAction="#validatedTestsGraphs" text="Tests Validated">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Label layoutX="133.0" layoutY="261.0" text="Total Client Count:">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="109.0" layoutY="293.0" text="Total Validated Tests:">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="lblTotalClient" layoutX="300.0" layoutY="264.0" prefHeight="21.0" prefWidth="54.0" />
-            <Label fx:id="lblTotalValidatedTests" layoutX="301.0" layoutY="296.0" prefHeight="21.0" prefWidth="53.0" />
+            <HBox alignment="CENTER" fillHeight="false" prefHeight="70.0" prefWidth="600.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#testsWaitingForDiagnosis" prefHeight="49.0" prefWidth="250.0" text="Tests Waiting For Results" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" fillHeight="false" prefHeight="70.0" prefWidth="600.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#testsWaitingForResult" prefHeight="49.0" prefWidth="250.0" text="Tests Waiting For Diagnosis" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" fillHeight="false" prefHeight="70.0" prefWidth="600.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#validatedTestsGraphs" prefHeight="49.0" prefWidth="250.0" text="Tests Validated" />
+               </children>
+            </HBox>
+            <GridPane>
+               <columnConstraints>
+                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label text="Total Client Count:" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label text="Total Validated Tests:" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblTotalClient" prefHeight="21.0" prefWidth="54.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="13.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="lblTotalValidatedTests" prefHeight="21.0" prefWidth="53.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets left="13.0" />
+                     </GridPane.margin>
+                  </Label>
+               </children>
+            </GridPane>
          </children>
-      </Pane>
+      </VBox>
    </center>
 </BorderPane>

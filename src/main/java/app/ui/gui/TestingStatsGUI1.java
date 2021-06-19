@@ -3,6 +3,7 @@ package app.ui.gui;
 import app.controller.TestingStatsController;
 import app.ui.Main;
 import app.ui.console.MenuItem;
+import app.utils.fx.FXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -22,12 +23,7 @@ public class TestingStatsGUI1 implements Initializable, GuiMethods {
     public Label lblTotalClient;
     @FXML
     public Label lblTotalValidatedTests;
-    @FXML
-    public Button btnTestsWaitingForResult;
-    @FXML
-    public Button btnTestsWaitingForDiagnosis;
-    @FXML
-    public Button btnTestsValidated;
+
 
     private Main main;
     private TestingStatsController controller = new TestingStatsController();
@@ -84,23 +80,16 @@ public class TestingStatsGUI1 implements Initializable, GuiMethods {
         }
     }
 
-    @FXML
-    private void menu_cancel(ActionEvent event) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Are you sure you want to cancel?");
-        alert.setHeaderText("Do you want to go back?");
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.isPresent()) {
-            if (result.get() == ButtonType.OK) {
-                //trocar para janela anterior
-                try {
-                    app.ui.console.MenuItem item= new MenuItem("default", "/fxml/LabCoordinator.fxml");
-                    item.runGui(item.getGui(),main);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    System.out.println(e.getMessage());
-                }
-            }
-        }
+
+    public void menu_goBack(ActionEvent actionEvent) {
+        FXUtils.menuGoBack(main,"/fxml/LabCoordinatorGUI.fxml");
+    }
+
+    public void menu_logout(ActionEvent actionEvent) {
+        FXUtils.menuLogout(main);
+    }
+
+    public void menu_exit(ActionEvent actionEvent) {
+        FXUtils.menuExit(main);
     }
 }
