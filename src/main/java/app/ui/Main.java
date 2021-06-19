@@ -45,20 +45,6 @@ public class Main extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        /*
-        MainMenuUI menu = new MainMenuUI();
-        FileController fileController = new FileController();
-        try
-        {
-            fileController.runFileInputStreams();
-            menu.run();
-            fileController.runFileOutputStreams();
-        }
-        catch( Exception e )
-        {
-            e.printStackTrace();
-        }
-        */
         launch(args);
         FileController fileController = new FileController();
         fileController.runFileOutputStreams();
