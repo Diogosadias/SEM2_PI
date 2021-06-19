@@ -53,4 +53,13 @@ public class Constants {
     public static final double MINIMUM_WINDOW_HEIGHT = 500.0;
     public static final double SCENE_WIDTH = 800;
     public static final double SCENE_HEIGHT = 600.0;
+    public static final String TOTAL_TESTS = "Total Tests";
+    public static final String DIAGNOSIS_TESTS = "Tests waiting for diagnosis";
+    public static final String RESULT_TESTS = "Tests waiting for results";
+    public static final String GRAPH_DATE = "Date";
+    public static final String DAILY_CHART = "Daily Chart";
+    public static final String WEEKLY_CHART = "Weekly Chart";
+    public static final String MONTHLY_CHART = "Monthly Chart";
+    public static final String YEARLY_CHART = "Yearly Chart";
+    public static final String WAITING_TESTS = "Waiting tests";
 }

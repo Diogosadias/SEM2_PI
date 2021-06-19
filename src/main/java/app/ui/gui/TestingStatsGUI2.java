@@ -18,6 +18,8 @@ import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import static app.domain.shared.Constants.*;
+
 /**
  * @author Gil <1180838@isep.ipp.pt>
  * @author Márcio Ramos <1201682@isep.ipp.pt>
@@ -80,6 +82,7 @@ public class TestingStatsGUI2 implements Initializable, GuiMethods{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        //no need for code here
     }
 
     @FXML
@@ -130,17 +133,17 @@ public class TestingStatsGUI2 implements Initializable, GuiMethods{
             case 1:
                 //Tests Waiting for Results
                 try{
-                    controller.createLineChartForData(this.dailyChart, xAxis1, yAxis1, "Date",
-                            "Tests waiting for results","Daily Chart", "Waiting tests",
+                    controller.createLineChartForData(this.dailyChart, xAxis1, yAxis1, GRAPH_DATE,
+                            RESULT_TESTS,DAILY_CHART, WAITING_TESTS,
                             datesString1, controller.getNrTestsWaitingForResult(dates1));
-                    controller.createLineChartForData(this.weeklyChart, xAxis2, yAxis2, "Date",
-                            "Tests waiting for results","Weekly Chart", "Waiting tests",
+                    controller.createLineChartForData(this.weeklyChart, xAxis2, yAxis2, GRAPH_DATE,
+                            RESULT_TESTS,WEEKLY_CHART, WAITING_TESTS,
                             datesString2, controller.getNrTestsWaitingForResult(dates2));
-                    controller.createLineChartForData(this.monthlyChart, xAxis3, yAxis3, "Date",
-                            "Tests waiting for results","Monthly Chart", "Waiting tests",
+                    controller.createLineChartForData(this.monthlyChart, xAxis3, yAxis3, GRAPH_DATE,
+                            RESULT_TESTS,MONTHLY_CHART, WAITING_TESTS,
                             datesString3, controller.getNrTestsWaitingForResult(dates3));
-                    controller.createLineChartForData(this.yearlyChart, xAxis4, yAxis4, "Date",
-                            "Tests waiting for results","Yearly Chart", "Waiting tests",
+                    controller.createLineChartForData(this.yearlyChart, xAxis4, yAxis4, GRAPH_DATE,
+                            RESULT_TESTS,YEARLY_CHART, WAITING_TESTS,
                             datesString4, controller.getNrTestsWaitingForResult(dates4));
                 } catch (IllegalArgumentException exception){
                     Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -153,17 +156,17 @@ public class TestingStatsGUI2 implements Initializable, GuiMethods{
             case 2:
                 //Tests Waiting for Diagnosis
                 try{
-                    controller.createLineChartForData(this.dailyChart, xAxis1, yAxis1, "Date",
-                            "Tests waiting for diagnosis","Daily Chart", "Waiting Tests",
+                    controller.createLineChartForData(this.dailyChart, xAxis1, yAxis1, GRAPH_DATE,
+                            DIAGNOSIS_TESTS,DAILY_CHART, WAITING_TESTS,
                             datesString1, controller.getNrTestsWaitingForDiagnosis(dates1));
-                    controller.createLineChartForData(this.weeklyChart, xAxis2, yAxis2, "Date",
-                            "Tests waiting for diagnosis","Weekly Chart", "Waiting Tests",
+                    controller.createLineChartForData(this.weeklyChart, xAxis2, yAxis2, GRAPH_DATE,
+                            DIAGNOSIS_TESTS,WEEKLY_CHART, WAITING_TESTS,
                             datesString2, controller.getNrTestsWaitingForDiagnosis(dates2));
-                    controller.createLineChartForData(this.monthlyChart, xAxis3, yAxis3, "Date",
-                            "Tests waiting for diagnosis","Monthly Chart", "Waiting Tests",
+                    controller.createLineChartForData(this.monthlyChart, xAxis3, yAxis3, GRAPH_DATE,
+                            DIAGNOSIS_TESTS,MONTHLY_CHART, WAITING_TESTS,
                             datesString3, controller.getNrTestsWaitingForDiagnosis(dates3));
-                    controller.createLineChartForData(this.yearlyChart, xAxis4, yAxis4, "Date",
-                            "Tests waiting for diagnosis","Yearly Chart", "Waiting Tests",
+                    controller.createLineChartForData(this.yearlyChart, xAxis4, yAxis4, GRAPH_DATE,
+                            DIAGNOSIS_TESTS,YEARLY_CHART, WAITING_TESTS,
                             datesString4, controller.getNrTestsWaitingForDiagnosis(dates4));
                 } catch (IllegalArgumentException exception){
                     Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -176,17 +179,17 @@ public class TestingStatsGUI2 implements Initializable, GuiMethods{
             case 3:
                 //Tests Validated
                 try {
-                    controller.createLineChartForData(this.dailyChart, xAxis1, yAxis1, "Date",
-                            "Total tests","Daily Chart", null,
+                    controller.createLineChartForData(this.dailyChart, xAxis1, yAxis1, GRAPH_DATE,
+                            TOTAL_TESTS,DAILY_CHART, null,
                             datesString1, controller.getNrTestsValidated(dates1));
-                    controller.createLineChartForData(this.weeklyChart, xAxis2, yAxis2, "Date",
-                            "Total tests","Weekly Chart", "",
+                    controller.createLineChartForData(this.weeklyChart, xAxis2, yAxis2, GRAPH_DATE,
+                            TOTAL_TESTS,WEEKLY_CHART, "",
                             datesString2, controller.getNrTestsValidated(dates2));
-                    controller.createLineChartForData(this.monthlyChart, xAxis3, yAxis3, "Date",
-                            "Total tests","Monthly Chart", "",
+                    controller.createLineChartForData(this.monthlyChart, xAxis3, yAxis3, GRAPH_DATE,
+                            TOTAL_TESTS,MONTHLY_CHART, "",
                             datesString3, controller.getNrTestsValidated(dates3));
-                    controller.createLineChartForData(this.yearlyChart, xAxis4, yAxis4, "Date",
-                            "Total tests","Yearly Chart", "",
+                    controller.createLineChartForData(this.yearlyChart, xAxis4, yAxis4, GRAPH_DATE,
+                            TOTAL_TESTS,YEARLY_CHART, "",
                             datesString4, controller.getNrTestsValidated(dates4));
                 } catch (IllegalArgumentException exception){
                     Alert alert = new Alert(Alert.AlertType.WARNING);
