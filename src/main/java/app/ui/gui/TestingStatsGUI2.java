@@ -21,6 +21,10 @@ import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+/**
+ * @author Gil <1180838@isep.ipp.pt>
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
+ */
 public class TestingStatsGUI2 implements Initializable, GuiMethods{
     @FXML
     public DatePicker datePickerInit;
@@ -127,122 +131,70 @@ public class TestingStatsGUI2 implements Initializable, GuiMethods{
 
         switch (chartOption){
             case 1:
-                //NR Clients
+                //Tests Waiting for Results
                 try{
                     controller.createLineChartForData(this.dailyChart, xAxis1, yAxis1, "Date",
-                            "Client Total","Daily Chart", "Clients Number",
-                            datesString1, controller.getNrClients(dates1.length));
-                } catch (IllegalArgumentException exception){
-                    System.out.println(exception.getMessage());
-                } catch (Exception ignored) {
-                    ignored.printStackTrace();
-                    System.out.println(ignored.getMessage());
-                }
-
-                try{
+                            "Tests waiting for results","Daily Chart", "Waiting tests",
+                            datesString1, controller.getNrTestsWaitingForResult(dates1));
                     controller.createLineChartForData(this.weeklyChart, xAxis2, yAxis2, "Date",
-                            "Client Total","Weekly Chart", "Clients Number",
-                            datesString2, controller.getNrClients(dates2.length));
-                } catch (IllegalArgumentException exception){
-                    System.out.println(exception.getMessage());
-                } catch (Exception ignored) {
-                }
-
-                try{
+                            "Tests waiting for results","Weekly Chart", "Waiting tests",
+                            datesString2, controller.getNrTestsWaitingForResult(dates2));
                     controller.createLineChartForData(this.monthlyChart, xAxis3, yAxis3, "Date",
-                            "Client Total","Monthly Chart", "Clients Number",
-                            datesString3, controller.getNrClients(dates3.length));
-                } catch (IllegalArgumentException exception){
-                    System.out.println(exception.getMessage());
-                } catch (Exception ignored) {
-                }
-
-                try{
+                            "Tests waiting for results","Monthly Chart", "Waiting tests",
+                            datesString3, controller.getNrTestsWaitingForResult(dates3));
                     controller.createLineChartForData(this.yearlyChart, xAxis4, yAxis4, "Date",
-                            "Client Total","Yearly Chart", "Clients Number",
-                            datesString4, controller.getNrClients(dates4.length));
+                            "Tests waiting for results","Yearly Chart", "Waiting tests",
+                            datesString4, controller.getNrTestsWaitingForResult(dates4));
                 } catch (IllegalArgumentException exception){
-                    System.out.println(exception.getMessage());
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setContentText(exception.getMessage());
+                    alert.showAndWait();
                 } catch (Exception ignored) {
                 }
-                break;
 
+               break;
             case 2:
-                //Waiting Tests
+                //Tests Waiting for Diagnosis
                 try{
                     controller.createLineChartForData(this.dailyChart, xAxis1, yAxis1, "Date",
-                            "Total tests","Daily Chart", "Waiting Tests",
-                            datesString1, controller.getNrTests(dates1, Constants.VALIDATED));
-                } catch (IllegalArgumentException exception){
-                    System.out.println(exception.getMessage());
-                } catch (Exception ignored) {
-                }
-
-                try{
+                            "Tests waiting for diagnosis","Daily Chart", "Waiting Tests",
+                            datesString1, controller.getNrTestsWaitingForDiagnosis(dates1));
                     controller.createLineChartForData(this.weeklyChart, xAxis2, yAxis2, "Date",
-                            "Total tests","Weekly Chart", "Waiting Tests",
-                            datesString2, controller.getNrTests(dates2, Constants.VALIDATED));
-                } catch (IllegalArgumentException exception){
-                    System.out.println(exception.getMessage());
-                } catch (Exception ignored) {
-                }
-
-                try{
+                            "Tests waiting for diagnosis","Weekly Chart", "Waiting Tests",
+                            datesString2, controller.getNrTestsWaitingForDiagnosis(dates2));
                     controller.createLineChartForData(this.monthlyChart, xAxis3, yAxis3, "Date",
-                            "Total tests","Monthly Chart", "Waiting Tests",
-                            datesString3, controller.getNrTests(dates3, Constants.VALIDATED));
-                } catch (IllegalArgumentException exception){
-                    System.out.println(exception.getMessage());
-                } catch (Exception ignored) {
-                }
-
-                try{
+                            "Tests waiting for diagnosis","Monthly Chart", "Waiting Tests",
+                            datesString3, controller.getNrTestsWaitingForDiagnosis(dates3));
                     controller.createLineChartForData(this.yearlyChart, xAxis4, yAxis4, "Date",
-                            "Total tests","Yearly Chart", "Waiting Tests",
-                            datesString4, controller.getNrTests(dates4, Constants.VALIDATED));
+                            "Tests waiting for diagnosis","Yearly Chart", "Waiting Tests",
+                            datesString4, controller.getNrTestsWaitingForDiagnosis(dates4));
                 } catch (IllegalArgumentException exception){
-                    System.out.println(exception.getMessage());
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setContentText(exception.getMessage());
+                    alert.showAndWait();
                 } catch (Exception ignored) {
                 }
                 break;
 
             case 3:
-                //Validated Tests
+                //Tests Validated
                 try {
                     controller.createLineChartForData(this.dailyChart, xAxis1, yAxis1, "Date",
-                            "Total tests","Daily Chart", "Validated Tests",
-                            datesString1, controller.getNrTests(dates1, Constants.VALIDATED));
-                } catch (IllegalArgumentException exception){
-                    System.out.println(exception.getMessage());
-                } catch (Exception ignored) {
-                }
-
-
-                try {
+                            "Total tests","Daily Chart", null,
+                            datesString1, controller.getNrTestsValidated(dates1));
                     controller.createLineChartForData(this.weeklyChart, xAxis2, yAxis2, "Date",
-                            "Total tests","Weekly Chart", "Validated Tests",
-                            datesString2, controller.getNrTests(dates2, Constants.VALIDATED));
-                } catch (IllegalArgumentException exception){
-                    System.out.println(exception.getMessage());
-                } catch (Exception ignored) {
-                }
-
-
-                try {
+                            "Total tests","Weekly Chart", "",
+                            datesString2, controller.getNrTestsValidated(dates2));
                     controller.createLineChartForData(this.monthlyChart, xAxis3, yAxis3, "Date",
-                            "Total tests","Monthly Chart", "Validated Tests",
-                            datesString3, controller.getNrTests(dates3, Constants.VALIDATED));
-                } catch (IllegalArgumentException exception){
-                    System.out.println(exception.getMessage());
-                } catch (Exception ignored) {
-                }
-
-                try {
+                            "Total tests","Monthly Chart", "",
+                            datesString3, controller.getNrTestsValidated(dates3));
                     controller.createLineChartForData(this.yearlyChart, xAxis4, yAxis4, "Date",
-                            "Total tests","Yearly Chart", "Validated Tests",
-                            datesString4, controller.getNrTests(dates4, Constants.VALIDATED));
+                            "Total tests","Yearly Chart", "",
+                            datesString4, controller.getNrTestsValidated(dates4));
                 } catch (IllegalArgumentException exception){
-                    System.out.println(exception.getMessage());
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setContentText(exception.getMessage());
+                    alert.showAndWait();
                 } catch (Exception ignored) {
                 }
                 break;
