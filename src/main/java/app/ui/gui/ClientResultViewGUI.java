@@ -53,20 +53,16 @@ public class ClientResultViewGUI implements Initializable, GuiMethods {
     private void menuExit(ActionEvent event) {
         FXUtils.menuExit(mainInstance);
     }
-    private List<Test> tl;
-    private List<TestDto> tlDTO;
 
-    private ClientDTO clientdto ;
+    private List<Test> tl;
+
+    private List<TestDto> tlDTO;
 
     private Client client;
 
-    private ClientStore cs;
-
-    private Company company;
-
     private TestStore ts;
 
-    private ClientResultViewController crvController = new ClientResultViewController();
+    private final ClientResultViewController crvController = new ClientResultViewController();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

@@ -38,7 +38,7 @@
                   <MenuItem mnemonicParsing="false" onAction="#menuCancel" text="Cancel" />
                   <MenuItem mnemonicParsing="false" onAction="#menuLogout" text="Logout" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" onAction="#menu_exit" text="Exit" />
+                  <MenuItem mnemonicParsing="false" onAction="#menuExit" text="Exit" />
                </items></Menu>
         </menus>
       </MenuBar>
