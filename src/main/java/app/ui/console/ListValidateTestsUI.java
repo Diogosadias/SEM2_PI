@@ -3,9 +3,7 @@ package app.ui.console;
 import app.controller.ValidateTestController;
 import app.domain.model.Report;
 import app.domain.model.Test;
-
 import java.util.List;
-import java.util.Scanner;
 
 public class ListValidateTestsUI implements Runnable {
 

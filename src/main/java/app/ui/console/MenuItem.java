@@ -1,9 +1,7 @@
 package app.ui.console;
 
 import app.ui.Main;
-import javafx.stage.Stage;
 import org.apache.commons.lang3.StringUtils;
-
 import java.util.Objects;
 
 /**
@@ -45,7 +43,7 @@ public class MenuItem {
     public String getGui(){
         return gui;
     }
-    public void Instance(Main mainInstance){
+    public void instance(Main mainInstance){
         this.mainInstance=mainInstance;
     }
     public void runGui(String fxml, Main mainInstance) throws Exception {

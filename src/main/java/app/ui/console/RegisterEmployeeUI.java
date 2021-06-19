@@ -27,12 +27,11 @@ import static app.domain.shared.Constants.SPECIALIST_DOCTOR;
 public class RegisterEmployeeUI implements Runnable{
     
     private final RegisterEmployeeController mcontroller;
-    private final AuthFacade authFacade;
 
     public RegisterEmployeeUI()
     {
         this.mcontroller = new RegisterEmployeeController();
-        this.authFacade = App.getInstance().getCompany().getAuthFacade();
+        App.getInstance().getCompany().getAuthFacade();
     }
 
 
@@ -58,15 +57,7 @@ public class RegisterEmployeeUI implements Runnable{
             {
                 System.out.println("Error. Operation cancelled.");
             }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
+        } catch (ClassNotFoundException | NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
 

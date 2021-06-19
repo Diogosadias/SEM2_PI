@@ -1,19 +1,15 @@
 package app.ui.console;
 
 import app.controller.CovidNhsReportController;
-import app.domain.shared.Constants;
-
-import java.io.FileNotFoundException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Scanner;
 
 public class CovidNhsReportUI implements Runnable {
 
-    private CovidNhsReportController controller;
-    private Scanner read;
+    private final CovidNhsReportController controller;
+    private final Scanner read;
 
     public CovidNhsReportUI () {
         read = new Scanner(System.in);

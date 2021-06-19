@@ -1,14 +1,10 @@
 package app.ui.console;
 
 import app.controller.OverviewAnalyzeTestsController;
-import app.controller.RecordSampleController;
 import app.domain.dto.ClientDTO;
-import app.domain.model.Client;
 import app.domain.model.Test;
 import app.domain.shared.SortAlgorithm;
 import app.ui.console.utils.Utils;
-
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
@@ -53,9 +49,9 @@ public class OverviewAnalyzeTestsUI implements Runnable {
         List <ClientDTO> clientsDTOs = oc.getClient();
 
 
-        if(choice == 1)
-        Collections.sort(clientsDTOs, new SortAlgorithm.ClientCompareByName());
-        else Collections.sort(clientsDTOs, new SortAlgorithm.ClientCompareByTIN());
+        if(choice == 1) {
+            Collections.sort(clientsDTOs, new SortAlgorithm.ClientCompareByName());
+        } else Collections.sort(clientsDTOs, new SortAlgorithm.ClientCompareByTIN());
 
         int index = Utils.showAndSelectIndex(clientsDTOs,"\nClients");
 
