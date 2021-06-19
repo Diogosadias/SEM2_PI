@@ -50,20 +50,17 @@ public class ClientGUI implements Initializable, GuiMethods {
             myListView.getItems().add(options.get(i).toString());
         }
 
-        myListView.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-                option = myListView.getSelectionModel().getSelectedIndex();
+        myListView.getSelectionModel().selectedIndexProperty().addListener((observableValue, number, t1) -> {
+            option = myListView.getSelectionModel().getSelectedIndex();
 
-                if(options.get(option).getGui()==null) {
-                    options.get(option).run();
-                }else{
-                    try {
-                        options.get(option).runGui(options.get(option).getGui(),mainInstance);
+            if(options.get(option).getGui()==null) {
+                options.get(option).run();
+            }else{
+                try {
+                    options.get(option).runGui(options.get(option).getGui(),mainInstance);
 
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         });

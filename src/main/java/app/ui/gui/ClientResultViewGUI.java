@@ -82,14 +82,11 @@ public class ClientResultViewGUI implements Initializable, GuiMethods {
             FXUtils.openAlert("Warning", "No validated tests","This client doesn't have validated tests!", Alert.AlertType.WARNING);
         }
 
-        myListView.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
+        myListView.getSelectionModel().selectedIndexProperty().addListener((observableValue, number, t1) -> {
 
-                option = myListView.getSelectionModel().getSelectedIndex();
-                Test t = ts.getTestByCode(tlDTO.get(option).getCode());
-                myTextArea.setText(t.toString());//replaces the text
-            }
+            option = myListView.getSelectionModel().getSelectedIndex();
+            Test t = ts.getTestByCode(tlDTO.get(option).getCode());
+            myTextArea.setText(t.toString());//replaces the text
         });
 
     }

@@ -2,10 +2,8 @@ package app.utils.fx;
 
 import app.ui.Main;
 import app.ui.console.MenuItem;
-import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-
 import java.util.Optional;
 
 /**
@@ -14,6 +12,7 @@ import java.util.Optional;
 public class FXUtils {
 
     public FXUtils() {
+        //no need for code here
     }
 
     /**

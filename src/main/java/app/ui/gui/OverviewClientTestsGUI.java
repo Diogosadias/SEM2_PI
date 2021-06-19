@@ -27,8 +27,8 @@ public class OverviewClientTestsGUI implements Initializable {
     public void setStage(Stage stage){
         this.stage=stage;
     }
-    private ClientDTO client;
-    private OverviewAnalyzeTestsController oc = new OverviewAnalyzeTestsController();
+
+    private final OverviewAnalyzeTestsController oc = new OverviewAnalyzeTestsController();
     private List<Test> tl;
     @FXML
     private ResourceBundle resources;
@@ -46,8 +46,9 @@ public class OverviewClientTestsGUI implements Initializable {
     private TextArea myTextArea;
 
     @FXML
-    public void setClientDTO(ClientDTO client){
-        this.client=client;
+    public void setClientDTO(ClientDTO clientdto){
+        ClientDTO client;
+        client=clientdto;
         lbl_client.setText(client.getName()+" - tin: "+client.getTin());
         tl = oc.listClientTest(client);
         for(Test t: tl){
@@ -66,16 +67,10 @@ public class OverviewClientTestsGUI implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        myListView.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-
-                option = myListView.getSelectionModel().getSelectedIndex();
-                myTextArea.setText(tl.get(option).toString());//replaces the text
-            }
+        myListView.getSelectionModel().selectedIndexProperty().addListener((observableValue, number, t1) -> {
+            option = myListView.getSelectionModel().getSelectedIndex();
+            myTextArea.setText(tl.get(option).toString());
         });
-
-
     }
 
 

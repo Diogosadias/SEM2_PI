@@ -95,18 +95,15 @@ public class OverviewAnalyzeTestsGUI implements Initializable, GuiMethods {
             myListView.getItems().add(clientsDTOs.get(i).toStringNameAndTIN());
         }
 
-        myListView.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-                option = myListView.getSelectionModel().getSelectedIndex();
-                client = clientsDTOs.get(option);
-                try {
-                    openClientInfo();
-                } catch (Exception e) {
-                    FXUtils.openAlert("No Tests", "Validated tests list empty","This client doesn't have validated tests", Alert.AlertType.INFORMATION);
-                }
-
+        myListView.getSelectionModel().selectedIndexProperty().addListener((observableValue, number, t1) -> {
+            option = myListView.getSelectionModel().getSelectedIndex();
+            client = clientsDTOs.get(option);
+            try {
+                openClientInfo();
+            } catch (Exception e) {
+                FXUtils.openAlert("No Tests", "Validated tests list empty","This client doesn't have validated tests", Alert.AlertType.INFORMATION);
             }
+
         });
 
 
