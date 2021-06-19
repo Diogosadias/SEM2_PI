@@ -3,7 +3,6 @@ package app.ui.gui;
 import app.controller.OverviewAnalyzeTestsController;
 import app.domain.dto.ClientDTO;
 import app.domain.dto.TestDto;
-import app.domain.model.Client;
 import app.domain.model.Test;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -16,8 +15,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 
 /**

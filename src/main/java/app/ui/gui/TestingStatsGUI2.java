@@ -1,7 +1,6 @@
 package app.ui.gui;
 
 import app.controller.TestingStatsController;
-import app.domain.shared.Constants;
 import app.ui.Main;
 import app.ui.console.MenuItem;
 import javafx.event.ActionEvent;
@@ -10,12 +9,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
-
 import java.net.URL;
 import java.util.Date;
 import java.util.Optional;

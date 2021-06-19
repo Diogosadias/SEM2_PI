@@ -5,13 +5,10 @@ import java.net.URL;
 import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
-
 import app.controller.App;
 import app.controller.CreateClientController;
 import app.controller.OverviewAnalyzeTestsController;
 import app.domain.dto.ClientDTO;
-import app.domain.model.Client;
-import app.domain.model.ClientStore;
 import app.domain.shared.SortAlgorithm;
 import app.ui.Main;
 import app.utils.fx.FXUtils;
@@ -28,9 +25,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
 import static app.domain.shared.Constants.*;
-import static app.domain.shared.Constants.MINIMUM_WINDOW_HEIGHT;
 
 /**
  * @author Márcio Ramos <1201682@isep.ipp.pt>

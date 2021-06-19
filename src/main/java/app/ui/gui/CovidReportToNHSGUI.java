@@ -16,7 +16,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -137,7 +136,6 @@ public class CovidReportToNHSGUI implements Initializable, GuiMethods {
                     e.printStackTrace();
                 }
                 controller.sendNhsReport();
-                //Report2NHS.writeUsingFileWriter(controller.writeReport());
 
                 try {
                     app.ui.console.MenuItem item= new MenuItem("default", "/fxml/AdminGUI.fxml");

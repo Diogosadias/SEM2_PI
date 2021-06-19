@@ -4,7 +4,6 @@ package app.ui.gui;
 import app.domain.shared.CSVFileConverter;
 import app.ui.Main;
 import app.utils.fx.FXUtils;
-import com.sun.glass.ui.CommonDialogs;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -12,15 +11,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
-
-import javax.swing.plaf.FileChooserUI;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import static app.domain.shared.Constants.MINIMUM_WINDOW_HEIGHT;
-import static app.domain.shared.Constants.MINIMUM_WINDOW_WIDTH;
 
 /**
  * @author Márcio Ramos <1201682@isep.ipp.pt>

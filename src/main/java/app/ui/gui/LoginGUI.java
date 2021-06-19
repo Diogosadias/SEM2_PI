@@ -3,7 +3,6 @@ package app.ui.gui;
 import app.controller.AuthController;
 import app.domain.shared.Constants;
 import app.ui.Main;
-import app.ui.console.*;
 import app.ui.console.MenuItem;
 import app.utils.fx.FXUtils;
 import auth.mappers.dto.UserRoleDTO;
@@ -11,7 +10,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-
 import java.net.URL;
 import java.util.*;
 
@@ -62,19 +60,7 @@ public class LoginGUI implements Initializable, GuiMethods {
      * Method that authenticates a User into the App
      *
      * @param event Action Event
-     *//*
-    @FXML
-    private void onLogin(ActionEvent event)  {
-        String strEmail = getEmailTxtField().getText();
-        String strPwd = getPwdTxtField().getText();
-        if (this.oController.onLogin(strEmail, strPwd)) {
-            if (this.oController.getApp().getRole() == null || this.oController.getApp().getRole().isEmpty()) {
-                FxUtils.switchRole();
-            } else {
-                FxUtils.switchDashboard(event, this.oController.getApp().getRole(), strEmail);
-            }
-        }
-    }*/
+     */
     @FXML
     public void menu_goBack(ActionEvent event) {
 
@@ -107,16 +93,6 @@ public class LoginGUI implements Initializable, GuiMethods {
                 {
                     List<MenuItem> rolesUI = getMenuItemForRoles();
 
-                    /*try {
-                        //DashboardAdminUI dashboardAdminUI = (DashboardAdminUI) this.mainInstance.replaceSceneContent("/fxml/DashboardAdmin.fxml");
-                        //dashboardAdminUI.setMainInstance(this.mainInstance);
-
-                        //AdminGUI adminGui= (AdminGUI) this.mainInstance.replaceSceneContent("/fxml/AdminGUI.fxml");
-
-                    } catch (Exception ex) {
-                        Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
-                    }*/
-                    //mainInstance.stage.close();
                     this.redirectToRoleUI(rolesUI,role);
 
                 }
@@ -141,9 +117,7 @@ public class LoginGUI implements Initializable, GuiMethods {
         rolesUI.add(new MenuItem(Constants.LABORATORY_COORDINATOR, "/fxml/LabCoordinatorGUI.fxml"));
         rolesUI.add(new MenuItem(Constants.ROLE_CLIENT, "/fxml/ClientGUI.fxml"));
 
-        // To complete with other user roles and related RoleUI
 
-        //
         return rolesUI;
     }
 
@@ -160,18 +134,16 @@ public class LoginGUI implements Initializable, GuiMethods {
                     item.run();
                 }else{
                     try {
-                        //item.Instance(mainInstance);
 
                         item.runGui(item.getGui(),mainInstance);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
-                //item.run();
         }
         if (!found)
             System.out.println("There is no UI for users with role '" + role.getDescription() + "'");
-        /*this.mainInstance*/
+
 
     }
 

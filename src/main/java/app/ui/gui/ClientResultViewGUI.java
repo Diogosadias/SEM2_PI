@@ -4,7 +4,6 @@ import java.net.URL;
 import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
-
 import app.controller.App;
 import app.controller.ClientResultViewController;
 import app.domain.dto.ClientDTO;
@@ -81,7 +80,6 @@ public class ClientResultViewGUI implements Initializable, GuiMethods {
         Collections.sort(tlDTO, new SortAlgorithm.TestCompareByValidationTest());
 
             for(TestDto t: tlDTO){
-                //TestDto dto = new TestDto(t.getCode(),t.getDateRegistered(),t.getDateChemicalAnalysis(),t.getDateDiagnosis());
                 myListView.getItems().add(t.datesForGUI_toString());
             }
         }catch(NullPointerException ex){
@@ -99,20 +97,6 @@ public class ClientResultViewGUI implements Initializable, GuiMethods {
         });
 
     }
-
-
-   /* public List<Test> listClientTest(Client cl){
-        Client c = cs.getClientByTIN(cl.getTin());
-        List<Test> tl = new ArrayList<>();
-        for(Test t : ts.getValidatedTests()){
-
-            if(t.getClient().getName().equalsIgnoreCase(c.getName())){
-                tl.add(t);
-            }
-        }
-
-        return tl;
-    }*/
 
     @Override
     public void setInstance(Main mainInstance) {
