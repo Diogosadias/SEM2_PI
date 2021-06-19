@@ -41,12 +41,6 @@ public class OverviewAnalyzeTestsGUI implements Initializable, GuiMethods {
     private RadioButton rbtName;
 
     @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
     private ListView<String> myListView;
 
     @FXML

@@ -28,11 +28,6 @@ public class OverviewClientTestsGUI implements Initializable {
 
     private final OverviewAnalyzeTestsController oc = new OverviewAnalyzeTestsController();
     private List<Test> tl;
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
 
     @FXML
     private ListView<String> myListView;

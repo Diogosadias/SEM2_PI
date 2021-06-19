@@ -35,9 +35,6 @@ public class CovidReportToNHSGUI implements Initializable, GuiMethods {
     ObservableList<String> options4 = FXCollections.observableArrayList("Daily", "Weekly");
 
     @FXML
-    private Label lblTitle;
-
-    @FXML
     private TextField txtHistoricalPoints;
 
     @FXML
@@ -57,12 +54,6 @@ public class CovidReportToNHSGUI implements Initializable, GuiMethods {
 
     @FXML
     private ComboBox<String> comboBoxIndependentVariable;
-
-    @FXML
-    private Button btnCancel;
-
-    @FXML
-    private Button btnSubmit;
 
     @FXML
     private void menuLogout(ActionEvent event) {

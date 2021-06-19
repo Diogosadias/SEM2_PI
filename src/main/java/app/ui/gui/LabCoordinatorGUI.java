@@ -20,17 +20,7 @@ public class LabCoordinatorGUI implements Initializable, GuiMethods {
     private Main mainInstance;
 
     @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
     private ListView<String> myListView;
-
-    @FXML
-    private Button loginButton;
-
 
     private int option;
 

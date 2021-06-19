@@ -29,16 +29,7 @@ public class ImportClinicalTestsGUI implements Initializable, GuiMethods {
     private Button btnImport;
 
     @FXML
-    private Button btnFindFile;
-
-    @FXML
     private Label lblFilePath;
-
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
 
     @FXML
     private void menuCancel(ActionEvent event) {

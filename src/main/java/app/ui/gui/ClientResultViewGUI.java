@@ -27,12 +27,6 @@ public class ClientResultViewGUI implements Initializable, GuiMethods {
     private int option;
 
     @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
     private ListView<String> myListView;
 
     @FXML

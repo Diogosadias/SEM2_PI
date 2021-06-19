@@ -23,15 +23,6 @@ public class LoginGUI implements Initializable, GuiMethods {
     private TextField emailTxtField;
 
     @FXML
-    private Button loginButton;
-
-    @FXML
-    private Label emailLabel;
-
-    @FXML
-    private Label pwdLabel;
-
-    @FXML
     private PasswordField pwdTxtField;
 
     public AuthController controller;

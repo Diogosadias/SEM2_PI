@@ -17,7 +17,7 @@ import java.util.Objects;
  * @author Tiago Ferreira <1200601@isep.ipp.pt>
  * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
-
+/*
 public class AuthUI implements Runnable{
     private final AuthController ctrl;
 
@@ -64,10 +64,6 @@ public class AuthUI implements Runnable{
         rolesUI.add(new MenuItem(Constants.MEDICAL_LAB_TECHNICIAN, new MedicalLabTechnicianUI()));
         rolesUI.add(new MenuItem(Constants.LABORATORY_COORDINATOR, new LabCoordinatorUI()));
         rolesUI.add(new MenuItem(Constants.ROLE_CLIENT, new ClientUI()));
-
-        // To complete with other user roles and related RoleUI
-
-        //
         return rolesUI;
     }
 
@@ -121,4 +117,4 @@ public class AuthUI implements Runnable{
     }
 
 
-}
+}*/

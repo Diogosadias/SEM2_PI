@@ -9,7 +9,7 @@ import java.util.List;
  *
  * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
-
+/*
 public class MedicalLabTechnicianUI implements  Runnable {
 
     @Override
@@ -33,4 +33,4 @@ public class MedicalLabTechnicianUI implements  Runnable {
 
 
     }
-}
+}*/

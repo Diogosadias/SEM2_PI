@@ -12,7 +12,7 @@ import java.util.List;
  * @author Gil <1180838@isep.ipp.pt>
  * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
-
+/*
 public class ReceptionistUI implements Runnable {
 
     public void run() {
@@ -39,3 +39,4 @@ public class ReceptionistUI implements Runnable {
 
 
 }
+*/
