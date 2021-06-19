@@ -246,7 +246,7 @@ public class LinearRegression {
                 "\nRegression\t" + this.dfSR + "\t" + formatter.format(getSR()) +"\t" + formatter.format(MSR())+"\t"+ formatter.format(F()) +"\t" +
                 "\nResidual\t" + this.dfSE + "\t" + formatter.format(getSE()) +"\t\t"+ formatter.format(MSE()) +"\t\t" +
                 "\nTotal\t\t" + this.dfST +"\t" + formatter.format(getST()) +"\t\t" +
-                "\n\nDecision: f \n0 > f" + formatter.format(alpha) + ",(" + (int)this.dfSR + "." + (int)this.dfSE + ")=" + formatter.format(this.fDistribution);
+                "\n\nDecision: f \n0 > f" + alpha + ",(" + (int)this.dfSR + "." + (int)this.dfSE + ")=" + formatter.format(this.fDistribution);
 
 
 
