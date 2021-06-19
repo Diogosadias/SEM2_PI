@@ -80,6 +80,13 @@ public class TestDto {
         this.dateChemicalAnalysis = dateChemicalAnalysis;
         this.dateDiagnosis = dateDiagnosis;
     }
+    public TestDto(String code, Date dateRegistered, Date dateChemicalAnalysis, Date dateDiagnosis, Date dateValidation) {
+        this.code = code;
+        this.dateRegistered = dateRegistered;
+        this.dateChemicalAnalysis = dateChemicalAnalysis;
+        this.dateDiagnosis = dateDiagnosis;
+        this.dateValidation=dateValidation;
+    }
 
     public TestDto(Date dateValidation) {
         this.dateValidation = dateValidation;

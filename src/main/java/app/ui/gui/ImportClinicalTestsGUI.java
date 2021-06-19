@@ -85,7 +85,7 @@ public class ImportClinicalTestsGUI implements Initializable, GuiMethods {
             FXUtils.openAlert("Success","File imported successfully","The import was a success", Alert.AlertType.INFORMATION);
         }catch (FileNotFoundException e){
             FXUtils.openAlert("Error","File Not Found", "The file was not found", Alert.AlertType.ERROR);
-        }catch(IllegalArgumentException e){
+        }catch(Exception e){
             FXUtils.openAlert("Error","File Error", e.getMessage(), Alert.AlertType.WARNING);
         }finally {
         }

@@ -52,6 +52,16 @@ public class TestMapper {
         }
         return null;
     }
+    public List<TestDto> validationDate_ToDto(List<Test> list){
+        if(list!=null) {
+            for(Test test: list){
+                TestDto dto = new TestDto(test.getCode(),test.getDateRegistered(),test.getDateChemicalAnalysis(),test.getDateDiagnosis(),test.getDateValidation());
+                testDto.add(dto);
+            }
+            return testDto;
+        }
+        return null;
+    }
 /*
     public List<TestDto> testParameters_toDto(List<Test> list){
         if(list!=null) {
