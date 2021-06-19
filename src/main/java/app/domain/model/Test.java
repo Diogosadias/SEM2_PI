@@ -580,9 +580,8 @@ public class Test implements Serializable {
                     }
                 }
             }
-            if (this.dateSampleList.isEmpty())
+            if (this.dateSampleList.size() != 0)
             {
-            } else {
                 for (Sample sample : this.sampleList) {
                     bld.append("\n").append(sample.getSampleBarcode());
                 }
