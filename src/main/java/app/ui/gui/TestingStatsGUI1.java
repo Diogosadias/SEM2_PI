@@ -23,7 +23,7 @@ public class TestingStatsGUI1 implements Initializable, GuiMethods {
 
 
     private Main main;
-    private TestingStatsController controller = new TestingStatsController();
+    private final TestingStatsController controller = new TestingStatsController();
 
 
 
@@ -42,51 +42,52 @@ public class TestingStatsGUI1 implements Initializable, GuiMethods {
     @FXML
     private void testsWaitingForResult(ActionEvent event) {
         try{
-            TestingStatsGUI2 testingStatsGUI2 = (TestingStatsGUI2) main.replaceSceneContent("/fxml/TestingStatsGUI2.fxml");
-            testingStatsGUI2.setInstance(main);
-            controller.setChartOption(1);
-            testingStatsGUI2.setController(controller);
+            openStatsGUI2(1);
 
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            errMessage(e);
         }
     }
 
     @FXML
     private void testsWaitingForDiagnosis(ActionEvent event) {
         try{
-
-            TestingStatsGUI2 testingStatsGUI2 = (TestingStatsGUI2) main.replaceSceneContent("/fxml/TestingStatsGUI2.fxml");
-            testingStatsGUI2.setInstance(main);
-            controller.setChartOption(2);
-            testingStatsGUI2.setController(controller);
+            openStatsGUI2(2);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            errMessage(e);
         }
     }
+
 
     @FXML
     private void validatedTestsGraphs(ActionEvent event) {
         try{
-            TestingStatsGUI2 testingStatsGUI2 = (TestingStatsGUI2) main.replaceSceneContent("/fxml/TestingStatsGUI2.fxml");
-            testingStatsGUI2.setInstance(main);
-            controller.setChartOption(3);
-            testingStatsGUI2.setController(controller);
+            openStatsGUI2(3);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            errMessage(e);
         }
     }
 
+    public void openStatsGUI2(int num) throws Exception{
+        TestingStatsGUI2 testingStatsGUI2 = (TestingStatsGUI2) main.replaceSceneContent("/fxml/TestingStatsGUI2.fxml");
+        testingStatsGUI2.setInstance(main);
+        controller.setChartOption(num);
+        testingStatsGUI2.setController(controller);
+    }
+    public void errMessage(Exception e){
+        FXUtils.openAlert("Error", "There was an error", e.getMessage(), Alert.AlertType.ERROR);
+    }
 
-    public void menu_goBack(ActionEvent actionEvent) {
+
+    public void menuGoBack() {
         FXUtils.menuGoBack(main,"/fxml/LabCoordinatorGUI.fxml");
     }
 
-    public void menu_logout(ActionEvent actionEvent) {
+    public void menuLogout() {
         FXUtils.menuLogout(main);
     }
 
-    public void menu_exit(ActionEvent actionEvent) {
+    public void menuExit() {
         FXUtils.menuExit(main);
     }
 }

@@ -269,10 +269,12 @@ public class Client implements Serializable {
      *
      * @param nhs client's nhs
      */
-    public void checkNHS(long nhs) {
-        String temp = String.valueOf(nhs);
-        if (temp.length() != 10)
-            throw new IllegalArgumentException("NHS code must have 10 chars.");
+    public boolean checkNHS(long nhs) {
+            String temp = String.valueOf(nhs);
+            if (temp.length() != 10)
+                throw new IllegalArgumentException("NHS code must have 10 chars.");
+            return true;
+
     }
 
 
@@ -294,8 +296,12 @@ public class Client implements Serializable {
      * @param sex
      */
     public void checkSex(String sex){
-        if (!sex.equals("M") && !sex.equals("F"))
-            throw new IllegalArgumentException("You must define your sex as 'M' or 'F'.");
+        if(sex!=null) {
+            if (!sex.equals("M") && !sex.equals("F"))
+                throw new IllegalArgumentException("You must define your sex as 'M' or 'F'.");
+        } else {
+            throw new IllegalArgumentException("Cannot be Null");
+        }
     }
 
     /**

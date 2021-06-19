@@ -83,7 +83,7 @@ public class TestingStatsGUI2 implements Initializable, GuiMethods{
     }
 
     @FXML
-    private void menu_cancel(ActionEvent event) {
+    private void menuCancel(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Are you sure you want to cancel?");
         alert.setHeaderText("Do you want to go back?");

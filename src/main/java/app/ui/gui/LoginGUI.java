@@ -62,18 +62,18 @@ public class LoginGUI implements Initializable, GuiMethods {
      * @param event Action Event
      */
     @FXML
-    public void menu_goBack(ActionEvent event) {
+    public void menuGoBack(ActionEvent event) {
 
         FXUtils.menuGoBack(mainInstance,"/fxml/MainMenuGUI.fxml");
     }
     @FXML
-    private void menu_exit(ActionEvent event) {
+    private void menuExit(ActionEvent event) {
        FXUtils.menuExit(mainInstance);
     }
 
 
     @FXML
-    private void btn_Login(ActionEvent event) throws Exception {
+    private void btnLogin(ActionEvent event) throws Exception {
 
         boolean success = this.controller.doLogin(getEmailTxtField().getText(), getPwdTxtField().getText());
 

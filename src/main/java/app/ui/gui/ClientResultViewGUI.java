@@ -42,31 +42,27 @@ public class ClientResultViewGUI implements Initializable, GuiMethods {
     private TextArea myTextArea;
 
     @FXML
-    private void menu_goBack(ActionEvent event) {
+    private void menuGoBack(ActionEvent event) {
         FXUtils.menuGoBack(mainInstance,"/fxml/ClientGUI.fxml");
     }
     @FXML
-    private void menu_logout(ActionEvent event) {
+    private void menuLogout(ActionEvent event) {
         FXUtils.menuLogout(mainInstance);
     }
     @FXML
-    private void menu_exit(ActionEvent event) {
+    private void menuExit(ActionEvent event) {
         FXUtils.menuExit(mainInstance);
     }
-    private List<Test> tl;
-    private List<TestDto> tlDTO;
 
-    private ClientDTO clientdto ;
+    private List<Test> tl;
+
+    private List<TestDto> tlDTO;
 
     private Client client;
 
-    private ClientStore cs;
-
-    private Company company;
-
     private TestStore ts;
 
-    private ClientResultViewController crvController = new ClientResultViewController();
+    private final ClientResultViewController crvController = new ClientResultViewController();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

@@ -26,13 +26,13 @@ public class ImportClinicalTestsGUI implements Initializable, GuiMethods {
     private Main mainInstance;
 
     @FXML
-    private Button btn_import;
+    private Button btnImport;
 
     @FXML
-    private Button btn_findFile;
+    private Button btnFindFile;
 
     @FXML
-    private Label lbl_filePath;
+    private Label lblFilePath;
 
     @FXML
     private ResourceBundle resources;
@@ -41,15 +41,15 @@ public class ImportClinicalTestsGUI implements Initializable, GuiMethods {
     private URL location;
 
     @FXML
-    private void menu_cancel(ActionEvent event) {
+    private void menuCancel(ActionEvent event) {
         FXUtils.menuGoBack(mainInstance, "/fxml/LabCoordinatorGUI.fxml");
     }
     @FXML
-    private void menu_logout(ActionEvent event) {
+    private void menuLogout(ActionEvent event) {
         FXUtils.menuLogout(mainInstance);
     }
     @FXML
-    private void menu_exit(ActionEvent event) {
+    private void menuExit(ActionEvent event) {
         FXUtils.menuExit(mainInstance);
     }
 
@@ -62,11 +62,11 @@ public class ImportClinicalTestsGUI implements Initializable, GuiMethods {
         selectedFile = fc.showOpenDialog(null);
 
         if(selectedFile!=null){
-            lbl_filePath.setText(selectedFile.getName());
-            btn_import.disableProperty().set(false);
+            lblFilePath.setText(selectedFile.getName());
+            btnImport.disableProperty().set(false);
         }else{
-            lbl_filePath.setText("There is no file selected");
-            btn_import.disableProperty().set(true);
+            lblFilePath.setText("There is no file selected");
+            btnImport.disableProperty().set(true);
             FXUtils.openAlert("Error","File Error", "The file was not selected or was invalid", Alert.AlertType.ERROR);
         }
     }
@@ -78,7 +78,7 @@ public class ImportClinicalTestsGUI implements Initializable, GuiMethods {
             converter.convertToObject(selectedFile.getName());
             FXUtils.openAlert("Success","File imported successfully","The import was a success", Alert.AlertType.INFORMATION);
         }catch (FileNotFoundException e){
-            FXUtils.openAlert("Error","File Not Found", "The file was not found", Alert.AlertType.ERROR);
+            FXUtils.openAlert("File Not Found","File Not Found", "The file was not found", Alert.AlertType.ERROR);
         }catch(Exception e){
             FXUtils.openAlert("Error","File Error", e.getMessage(), Alert.AlertType.INFORMATION);
         }
@@ -86,7 +86,7 @@ public class ImportClinicalTestsGUI implements Initializable, GuiMethods {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        //no need for code here
     }
 
     @Override

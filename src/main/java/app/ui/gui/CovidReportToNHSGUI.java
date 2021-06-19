@@ -1,12 +1,9 @@
 package app.ui.gui;
 
-import app.controller.App;
 import app.controller.CovidNhsReportController;
-import app.domain.shared.Constants;
 import app.ui.Main;
 import app.ui.console.MenuItem;
 import app.utils.fx.FXUtils;
-import com.nhs.report.Report2NHS;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,13 +13,13 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import java.util.Scanner;
 
 /**
  * @author Bruno Pereira <1191454@isep.ipp.pt>
@@ -69,11 +66,11 @@ public class CovidReportToNHSGUI implements Initializable, GuiMethods {
     private Button btnSubmit;
 
     @FXML
-    private void menu_logout(ActionEvent event) {
+    private void menuLogout(ActionEvent event) {
         FXUtils.menuLogout(mainInstance);
     }
     @FXML
-    private void menu_cancel(ActionEvent event) {
+    private void menuCancel(ActionEvent event) {
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Are you sure you want to cancel?");
@@ -92,7 +89,7 @@ public class CovidReportToNHSGUI implements Initializable, GuiMethods {
         }
     }
     @FXML
-    private void menu_exit(ActionEvent event) {
+    private void menuExit(ActionEvent event) {
         FXUtils.menuExit(mainInstance);
     }
 
@@ -127,10 +124,11 @@ public class CovidReportToNHSGUI implements Initializable, GuiMethods {
                 try {
                     Date dateI = formatter1.parse(txtStartDate.getText());
                     Date dateF = formatter1.parse(txtEndDate.getText());
+                    double alpha = alpha(txtAlpha.getText());
                     if (comboBoxRegressiontType.getSelectionModel().getSelectedItem().equalsIgnoreCase("Linear")) {
-                        controller.doLinearRegression(dateI, dateF, comboBoxIndependentVariable.getSelectionModel().getSelectedItem(), comboHistoric.getSelectionModel().getSelectedItem(),Integer.valueOf(txtHistoricalPoints.getText()),(1 - Double.valueOf(txtAlpha.getText().replace(",",".").replace("%",""))/100));
+                        controller.doLinearRegression(dateI, dateF, comboBoxIndependentVariable.getSelectionModel().getSelectedItem(), comboHistoric.getSelectionModel().getSelectedItem(),Integer.valueOf(txtHistoricalPoints.getText()),alpha);
                     } else {
-                        controller.doLinearRegression(dateI, dateF, "Multiple", comboHistoric.getSelectionModel().getSelectedItem(),Integer.valueOf(txtHistoricalPoints.getText()), (1 - Double.valueOf(txtAlpha.getText().replace(",",".").replace("%",""))/100));
+                        controller.doLinearRegression(dateI, dateF, "Multiple", comboHistoric.getSelectionModel().getSelectedItem(),Integer.valueOf(txtHistoricalPoints.getText()),alpha);
                     }
                 } catch (ParseException e) {
                     e.printStackTrace();
@@ -151,5 +149,15 @@ public class CovidReportToNHSGUI implements Initializable, GuiMethods {
     @Override
     public void setInstance(Main mainInstance) {
         this.mainInstance=mainInstance;
+    }
+
+    private double alpha(String sign) {
+        double alpha = (1 - Double.valueOf(sign.replace(",",".").replace("%",""))/100);
+        return round(alpha,2);
+    }
+
+    public static double round(double value, int places) {
+        double scale = Math.pow(10, places);
+        return Math.round(value * scale) / scale;
     }
 }

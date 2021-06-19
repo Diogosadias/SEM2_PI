@@ -57,7 +57,7 @@ public class OverviewClientTestsGUI implements Initializable {
     }
 
     @FXML
-    private void menu_close(ActionEvent event) {
+    private void menuClose(ActionEvent event) {
         stage.close();
     }
 
