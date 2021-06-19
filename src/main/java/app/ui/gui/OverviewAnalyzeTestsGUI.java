@@ -6,7 +6,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 import app.controller.App;
-import app.controller.CreateClientController;
 import app.controller.OverviewAnalyzeTestsController;
 import app.domain.dto.ClientDTO;
 import app.domain.shared.SortAlgorithm;
@@ -34,15 +33,14 @@ import static app.domain.shared.Constants.*;
 public class OverviewAnalyzeTestsGUI implements Initializable, GuiMethods {
 
     private Main mainInstance;
-    private OverviewAnalyzeTestsController oc = new OverviewAnalyzeTestsController();
-    private CreateClientController controllerClient = new CreateClientController();
+    private final OverviewAnalyzeTestsController oc = new OverviewAnalyzeTestsController();
     int option;
 
     @FXML
-    private RadioButton rbt_tin;
+    private RadioButton rbtTin;
 
     @FXML
-    private RadioButton rbt_name;
+    private RadioButton rbtName;
 
     @FXML
     private ResourceBundle resources;
@@ -68,22 +66,21 @@ public class OverviewAnalyzeTestsGUI implements Initializable, GuiMethods {
         FXUtils.menuExit(mainInstance);
     }
 
-    private List<ClientDTO> clientsDTOs = oc.getClient();
+    private final List<ClientDTO> clientsDTOs = oc.getClient();
 
     @FXML
-    public void radio_ListBy(ActionEvent event){
+    public void radioListBy(ActionEvent event){
 
-        if(rbt_name.isSelected()){
+        if(rbtName.isSelected()){
             Collections.sort(clientsDTOs, new SortAlgorithm.ClientCompareByName());
-            rbt_tin.setSelected(false);
+            rbtTin.setSelected(false);
 
         }
-        if(rbt_tin.isSelected()){
+        if(rbtTin.isSelected()){
             Collections.sort(clientsDTOs, new SortAlgorithm.ClientCompareByTIN());
-            rbt_name.setSelected(false);
+            rbtName.setSelected(false);
         }
 
-       // myListView.getItems().removeAll(myListView.getItems());
         for(int i=0; i<clientsDTOs.size();i++){
             myListView.getItems().set(i,clientsDTOs.get(i).toStringNameAndTIN());
         }
@@ -140,7 +137,7 @@ public class OverviewAnalyzeTestsGUI implements Initializable, GuiMethods {
         Pane page;
         try {
 
-            page = (Pane) loader.load(in);
+            page = loader.load(in);
         } finally {
             in.close();
         }
@@ -157,7 +154,7 @@ public class OverviewAnalyzeTestsGUI implements Initializable, GuiMethods {
         this.stage.show();
 
 
-        return (Initializable) loader.getController();
+        return loader.getController();
     }
 
 }

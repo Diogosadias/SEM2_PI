@@ -27,12 +27,12 @@
             <HBox alignment="CENTER_LEFT" prefHeight="41.0" prefWidth="434.0" spacing="35.0" GridPane.rowIndex="1">
                <children>
                   <Label text="List by:" />
-                  <RadioButton fx:id="rbt_name" mnemonicParsing="false" onAction="#radio_ListBy" text="name">
+                  <RadioButton fx:id="rbtName" mnemonicParsing="false" onAction="#radioListBy" text="name">
                      <toggleGroup>
                         <ToggleGroup fx:id="listby" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton fx:id="rbt_tin" mnemonicParsing="false" onAction="#radio_ListBy" text="TIN" toggleGroup="$listby" />
+                  <RadioButton fx:id="rbtTin" mnemonicParsing="false" onAction="#radioListBy" text="TIN" toggleGroup="$listby" />
                </children>
             </HBox>
          </children>

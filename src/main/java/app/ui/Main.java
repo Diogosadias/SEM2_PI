@@ -133,7 +133,7 @@ public class Main extends Application {
 
         Pane page;
         try {
-            page = (Pane) loader.load(in);
+            page = loader.load(in);
         } finally {
             in.close();
         }
@@ -146,7 +146,7 @@ public class Main extends Application {
         TestingStatsGUI2 guiMethods = loader.getController();
         guiMethods.setInstance(this);
         guiMethods.setController(controller);
-        return (Initializable) loader.getController();
+        return loader.getController();
     }
 }
 
