@@ -52,7 +52,7 @@ public class OverviewClientTestsGUI implements Initializable {
         tl = oc.listClientTest(client);
         for(Test t: tl){
             TestDto dto = new TestDto(t.getCode(),t.getDateRegistered(),t.getDateChemicalAnalysis(),t.getDateDiagnosis());
-            myListView.getItems().add(dto.datesForGUI_toString());
+            myListView.getItems().add(dto.datesForGUIToString());
         }
     }
 

@@ -56,7 +56,7 @@ public class RecordTestResultController {
     public List<TestDto> getTests() {
         List<Test> tests = this.tstore.getSampleCollectedTests();
         TestMapper mapper = new TestMapper();
-        return mapper.testSamples_ToDto(tests);
+        return mapper.testSamplesToDto(tests);
     }
 
     public Company getCompany() {

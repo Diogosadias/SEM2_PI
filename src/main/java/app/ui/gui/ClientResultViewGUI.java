@@ -80,7 +80,7 @@ public class ClientResultViewGUI implements Initializable, GuiMethods {
         Collections.sort(tlDTO, new SortAlgorithm.TestCompareByValidationTest());
 
             for(TestDto t: tlDTO){
-                myListView.getItems().add(t.datesForGUI_toString());
+                myListView.getItems().add(t.datesForGUIToString());
             }
         }catch(NullPointerException ex){
             FXUtils.openAlert("Warning", "No validated tests","This client doesn't have validated tests!", Alert.AlertType.WARNING);

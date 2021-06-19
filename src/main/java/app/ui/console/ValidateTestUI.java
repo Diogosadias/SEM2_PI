@@ -41,6 +41,6 @@ public class ValidateTestUI implements Runnable {
     }
 
     private void showData (TestDto dto) {
-        System.out.println(dto.validatedDates_ToString());
+        System.out.println(dto.validatedDatesToString());
     }
 }

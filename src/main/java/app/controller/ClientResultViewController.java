@@ -48,7 +48,7 @@ public class ClientResultViewController {
 
     public List <TestDto> toDTO(List<Test> testList) {
         TestMapper mapper = new TestMapper();
-        return mapper.validationDate_ToDto(testList);
+        return mapper.validationDateToDto(testList);
 
     }
 

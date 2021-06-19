@@ -6,7 +6,6 @@ import app.domain.model.Sample;
 import app.domain.model.TestParameter;
 import app.domain.shared.Constants;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
@@ -196,7 +195,7 @@ public class TestDto {
     }
 
     //US12
-    public String Parameters_ToString() {
+    public String ParametersToString() {
         String s = "\n\nList of Parameter(s) for each Category to be analysed: ";
         for (ParameterCategory category : this.categories) {
             s = s + "\n\n - " + category.getDescription();
@@ -211,7 +210,7 @@ public class TestDto {
     }
 
     //US5
-    public String Samples_ToString() {
+    public String SamplesToString() {
         String s = "\nTest n: " + this.code +
                 "\nList of Sample(s): \n";
         for (Sample sample : this.sampleList) {
@@ -221,14 +220,14 @@ public class TestDto {
     }
 
     //US15
-    public String validatedDates_ToString() {
+    public String validatedDatesToString() {
         return  "\nTest n: " + this.code +
                 "\nDate Registration: " + Constants.FORMATTER.format(this.dateRegistered) +
                 "\nDate Chemical Analysis: " + Constants.FORMATTER.format(this.dateChemicalAnalysis) +
                 "\nDate Diagnosis: " + Constants.FORMATTER.format(this.dateDiagnosis);
     }
 
-    public String datesForGUI_toString() {
+    public String datesForGUIToString() {
         return  "Test nº: " + this.code +
                 "\nRegistration: " + Constants.FORMATTER.format(this.dateRegistered) +
                 "\nChemical Analysis: " + Constants.FORMATTER.format(this.dateChemicalAnalysis) +

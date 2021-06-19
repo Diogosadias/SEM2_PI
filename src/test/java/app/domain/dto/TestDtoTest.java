@@ -223,7 +223,7 @@ public class TestDtoTest {
                 }
             }
         }
-        String result = instance.Parameters_ToString();
+        String result = instance.ParametersToString();
         assertEquals(expResult, result);
     }
 
@@ -239,7 +239,7 @@ public class TestDtoTest {
         for (Sample sample : testDto1.getSampleList()) {
             expResult += "\n - " + sample.getSampleBarcode();
         }
-        String result = instance.Samples_ToString();
+        String result = instance.SamplesToString();
         assertEquals(expResult, result);
     }
 

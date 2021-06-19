@@ -20,7 +20,7 @@ public class ListSampleCollectedUI implements Runnable {
         try {
             List<TestDto> list = controller.listTestSamples();
             for (TestDto t : list) {
-                System.out.println("\n" + t.Samples_ToString());
+                System.out.println("\n" + t.SamplesToString());
                 System.out.println("\nPress Enter to continue:");
                 Scanner scanner = new Scanner(System.in);
                 scanner.nextLine();

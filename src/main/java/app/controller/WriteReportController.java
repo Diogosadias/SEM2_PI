@@ -34,7 +34,7 @@ public class WriteReportController {
 
     public List<TestDto> getTestList() {
         List<Test> list = this.testStore.getSampleAnalysisTests();
-        return this.testMapper.listTestParameter_ToDto(list);
+        return this.testMapper.listTestParameterToDto(list);
     }
 
     public void getTestInformation(TestDto test) {
@@ -63,7 +63,7 @@ public class WriteReportController {
 
     public List getDiagnosedTests () {
         List<Test> list = this.company.getTestStore().getDiagnosedTests();
-        return testMapper.listTestParameter_ToDto(list);
+        return testMapper.listTestParameterToDto(list);
     }
 
     public String showDiagnosis(TestDto test) {

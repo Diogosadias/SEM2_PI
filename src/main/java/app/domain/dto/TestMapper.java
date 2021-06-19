@@ -16,7 +16,7 @@ public class TestMapper {
 
     List<TestDto> testDto;
     public TestMapper () {
-        Company company = App.getInstance().getCompany();
+        App.getInstance().getCompany();
         testDto = new ArrayList<>();
     }
 
@@ -36,7 +36,7 @@ public class TestMapper {
         return null;
     }
 
-    public List<TestDto> registered_ToDto(List<Test> list){
+    public List<TestDto> registeredToDto(List<Test> list){
         if(list!=null) {
             for(Test test: list){
                 String code = test.getCode();
@@ -52,7 +52,7 @@ public class TestMapper {
         }
         return null;
     }
-    public List<TestDto> validationDate_ToDto(List<Test> list){
+    public List<TestDto> validationDateToDto(List<Test> list){
         if(list!=null) {
             for(Test test: list){
                 TestDto dto = new TestDto(test.getCode(),test.getDateRegistered(),test.getDateChemicalAnalysis(),test.getDateDiagnosis(),test.getDateValidation());
@@ -62,25 +62,8 @@ public class TestMapper {
         }
         return null;
     }
-/*
-    public List<TestDto> testParameters_toDto(List<Test> list){
-        if(list!=null) {
-        for(Test test: list){
-            String code = test.getCode();
-            String description = test.getDescription();
-            String type = test.getTestType().getDescription();
-            Client client = test.getClient();
-            List<ParameterCategory> listCategory = test.getListCategories() ;
-            List<Parameter> listParameter = test.getListParameters() ;
-            TestDto dto = new TestDto(code,description, client.getCitizenCard(),listCategory,listParameter);
-            testDto.add(dto);
-        }
-        return testDto;
-        }
-        return null;
-    }
-*/
-    public List<TestDto> testSamples_ToDto(List<Test> list){
+
+    public List<TestDto> testSamplesToDto(List<Test> list){
             if(list!=null) {
         for(Test test: list){
             String code = test.getCode();
@@ -94,7 +77,7 @@ public class TestMapper {
         return null;
     }
 
-    public List<TestDto> listTestParameter_ToDto(List<Test> list){
+    public List<TestDto> listTestParameterToDto(List<Test> list){
         if(list!=null) {
             for(Test test: list){
                 String code = test.getCode();
@@ -116,7 +99,7 @@ public class TestMapper {
         return null;
     }
 
-    public List listTestDiagnosed_ToDto (List<Test> list){
+    public List listTestDiagnosedToDto (List<Test> list){
         if(list!=null) {
             for(Test test: list){
                 String code = test.getCode();
