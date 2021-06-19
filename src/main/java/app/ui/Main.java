@@ -3,7 +3,6 @@ package app.ui;
 import app.controller.App;
 import app.controller.FileController;
 import app.controller.TestingStatsController;
-import app.domain.shared.Constants;
 import app.ui.gui.MainMenuGUI;
 import app.ui.gui.GuiMethods;
 import app.ui.gui.TestingStatsGUI2;
@@ -14,12 +13,10 @@ import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import static app.domain.shared.Constants.*;
 
 /**
