@@ -23,6 +23,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.layout.Pane;
@@ -110,7 +111,7 @@ public class OverviewAnalyzeTestsGUI implements Initializable, GuiMethods {
                 try {
                     openClientInfo();
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    FXUtils.openAlert("No Tests", "Validated tests list empty","This client doesn't have validated tests", Alert.AlertType.INFORMATION);
                 }
 
             }

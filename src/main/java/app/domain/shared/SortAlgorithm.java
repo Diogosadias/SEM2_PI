@@ -34,7 +34,9 @@ public class SortAlgorithm {
 
         @Override
         public int compare(TestDto o1, TestDto o2){
-            return o1.getDateValidation().compareTo(o2.getDateValidation());
+            Long d = (o1.getDateValidation().getTime()-o2.getDateValidation().getTime());
+            int i = d.intValue();
+            return i;
         }
     }
 }

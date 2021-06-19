@@ -48,8 +48,10 @@ public class ClientResultViewController {
 
     public List <TestDto> toDTO(List<Test> testList) {
         TestMapper mapper = new TestMapper();
-        return mapper.toDto(testList);
+        return mapper.validationDate_ToDto(testList);
+
     }
+
 
    /* public List <TestDto> getTest() {
         List<Test> testList = this.ts.getValidatedTests();

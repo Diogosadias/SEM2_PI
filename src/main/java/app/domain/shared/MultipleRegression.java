@@ -226,7 +226,7 @@ public class MultipleRegression {
 
     //Auxiliar
 
-    public double valor(double[][] multiplicar) {
+    private double valor(double[][] multiplicar) {
         return multiplicar[0][0];
     }
 
@@ -273,7 +273,7 @@ public class MultipleRegression {
         return matriz;
     }
 
-    public double[][] transposta(double[][] x) {
+    private double[][] transposta(double[][] x) {
         double[][] matriz = new double[x[0].length][x.length];
 
         for(int i = 0; i<x.length;i++){
@@ -284,7 +284,7 @@ public class MultipleRegression {
         return matriz;
     }
 
-    public double[][] multiplicar(double[][] x, double[][] y) {
+    private double[][] multiplicar(double[][] x, double[][] y) {
         double[][] matriz = new double[x.length][y[0].length];
         for(int i = 0; i<x.length;i++){
             for(int j=0;j< y[0].length;j++){

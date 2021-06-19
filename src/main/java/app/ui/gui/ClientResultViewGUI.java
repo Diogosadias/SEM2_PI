@@ -73,11 +73,12 @@ public class ClientResultViewGUI implements Initializable, GuiMethods {
 
 
         client = crvController.getClient();
-
+        try {
         tl = crvController.listClientTest(client);
         tlDTO= crvController.toDTO(tl);
-        //Collections.sort(tlDTO, new SortAlgorithm.TestCompareByValidationTest());
-        try {
+
+        Collections.sort(tlDTO, new SortAlgorithm.TestCompareByValidationTest());
+
             for(TestDto t: tlDTO){
                 //TestDto dto = new TestDto(t.getCode(),t.getDateRegistered(),t.getDateChemicalAnalysis(),t.getDateDiagnosis());
                 myListView.getItems().add(t.datesForGUI_toString());
@@ -91,7 +92,8 @@ public class ClientResultViewGUI implements Initializable, GuiMethods {
             public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
 
                 option = myListView.getSelectionModel().getSelectedIndex();
-                myTextArea.setText(tl.get(option).toString());//replaces the text
+                Test t = ts.getTestByCode(tlDTO.get(option).getCode());
+                myTextArea.setText(t.toString());//replaces the text
             }
         });
 
