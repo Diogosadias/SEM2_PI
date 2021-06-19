@@ -70,11 +70,11 @@ public class SpecialistDoctorGUI implements Initializable, GuiMethods {
     }
 
     @FXML
-    private void menu_logout(ActionEvent event) {
+    private void menuLogout(ActionEvent event) {
         FXUtils.menuLogout(mainInstance);
     }
     @FXML
-    private void menu_exit(ActionEvent event) {
+    private void menuExit(ActionEvent event) {
         FXUtils.menuExit(mainInstance);
     }
 

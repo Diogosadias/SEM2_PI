@@ -48,7 +48,7 @@
           <Menu mnemonicParsing="false" text="Options">
                <items>
 
-                  <MenuItem mnemonicParsing="false" onAction="#menu_close" text="Close" />
+                  <MenuItem mnemonicParsing="false" onAction="#menuClose" text="Close" />
                </items></Menu>
         </menus>
       </MenuBar>

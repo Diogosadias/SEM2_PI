@@ -41,15 +41,15 @@ public class ImportClinicalTestsGUI implements Initializable, GuiMethods {
     private URL location;
 
     @FXML
-    private void menu_cancel(ActionEvent event) {
+    private void menuCancel(ActionEvent event) {
         FXUtils.menuGoBack(mainInstance, "/fxml/LabCoordinatorGUI.fxml");
     }
     @FXML
-    private void menu_logout(ActionEvent event) {
+    private void menuLogout(ActionEvent event) {
         FXUtils.menuLogout(mainInstance);
     }
     @FXML
-    private void menu_exit(ActionEvent event) {
+    private void menuExit(ActionEvent event) {
         FXUtils.menuExit(mainInstance);
     }
 

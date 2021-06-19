@@ -78,15 +78,15 @@ public class TestingStatsGUI1 implements Initializable, GuiMethods {
     }
 
 
-    public void menu_goBack(ActionEvent actionEvent) {
+    public void menuGoBack(ActionEvent actionEvent) {
         FXUtils.menuGoBack(main,"/fxml/LabCoordinatorGUI.fxml");
     }
 
-    public void menu_logout(ActionEvent actionEvent) {
+    public void menuLogout(ActionEvent actionEvent) {
         FXUtils.menuLogout(main);
     }
 
-    public void menu_exit(ActionEvent actionEvent) {
+    public void menuExit(ActionEvent actionEvent) {
         FXUtils.menuExit(main);
     }
 }

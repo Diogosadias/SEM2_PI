@@ -42,15 +42,15 @@ public class ClientResultViewGUI implements Initializable, GuiMethods {
     private TextArea myTextArea;
 
     @FXML
-    private void menu_goBack(ActionEvent event) {
+    private void menuGoBack(ActionEvent event) {
         FXUtils.menuGoBack(mainInstance,"/fxml/ClientGUI.fxml");
     }
     @FXML
-    private void menu_logout(ActionEvent event) {
+    private void menuLogout(ActionEvent event) {
         FXUtils.menuLogout(mainInstance);
     }
     @FXML
-    private void menu_exit(ActionEvent event) {
+    private void menuExit(ActionEvent event) {
         FXUtils.menuExit(mainInstance);
     }
     private List<Test> tl;

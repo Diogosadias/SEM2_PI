@@ -69,11 +69,11 @@ public class CovidReportToNHSGUI implements Initializable, GuiMethods {
     private Button btnSubmit;
 
     @FXML
-    private void menu_logout(ActionEvent event) {
+    private void menuLogout(ActionEvent event) {
         FXUtils.menuLogout(mainInstance);
     }
     @FXML
-    private void menu_cancel(ActionEvent event) {
+    private void menuCancel(ActionEvent event) {
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Are you sure you want to cancel?");
