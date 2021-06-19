@@ -121,7 +121,7 @@ public class CSVFileConverter {
                                     } else if (metric >= 0 && metric <= 1.4) {
                                         diagnosis = "Negative";
                                     } else {
-                                        throw new IllegalArgumentException("Parameter value is");
+                                        throw new IllegalArgumentException("Parameter value is negative");
                                     }
 
                                 }
