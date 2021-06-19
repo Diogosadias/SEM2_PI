@@ -73,7 +73,7 @@ public class LoginGUI implements Initializable, GuiMethods {
 
 
     @FXML
-    private void btn_Login(ActionEvent event) throws Exception {
+    private void btnLogin(ActionEvent event) throws Exception {
 
         boolean success = this.controller.doLogin(getEmailTxtField().getText(), getPwdTxtField().getText());
 

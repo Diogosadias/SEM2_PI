@@ -63,7 +63,6 @@ public class MainMenuGUI implements Initializable, GuiMethods {
                     options.get(option).run();
                 }else{
                     try {
-                        //options.get(option).Instance(mainInstance);
                         options.get(option).runGui(options.get(option).getGui(),mainInstance);
                     } catch (Exception e) {
                         e.printStackTrace();
