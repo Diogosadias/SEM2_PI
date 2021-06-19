@@ -5,13 +5,10 @@
  */
 package app.ui.console;
 
-import app.controller.App;
 import app.controller.RegisterEmployeeController;
 import app.domain.dto.EmployeeDto;
 import app.domain.dto.OrgRoleDto;
 import app.ui.console.utils.Utils;
-import auth.AuthFacade;
-
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 

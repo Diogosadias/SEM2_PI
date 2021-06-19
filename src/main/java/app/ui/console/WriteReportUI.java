@@ -1,11 +1,9 @@
 package app.ui.console;
 
-import app.controller.App;
 import app.controller.WriteReportController;
 import app.domain.dto.TestDto;
 import app.domain.model.TestParameter;
 import app.ui.console.utils.Utils;
-import auth.AuthFacade;
 import java.util.List;
 
 /**

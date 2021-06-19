@@ -1,9 +1,7 @@
 package app.ui.console;
 
-import app.controller.App;
 import app.controller.RegisterNewCALController;
 import app.ui.console.utils.Utils;
-import auth.AuthFacade;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 

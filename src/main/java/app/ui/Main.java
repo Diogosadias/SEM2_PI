@@ -2,10 +2,8 @@ package app.ui;
 
 import app.controller.App;
 import app.controller.FileController;
-import app.controller.TestingStatsController;
 import app.ui.gui.MainMenuGUI;
 import app.ui.gui.GuiMethods;
-import app.ui.gui.TestingStatsGUI2;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
