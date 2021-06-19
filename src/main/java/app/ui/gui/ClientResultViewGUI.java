@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import app.controller.App;
 import app.controller.ClientResultViewController;
 import app.domain.dto.ClientDTO;
 import app.domain.dto.TestDto;
@@ -66,11 +67,11 @@ public class ClientResultViewGUI implements Initializable, GuiMethods {
 
     private TestStore ts;
 
-    ClientResultViewController crvController = new ClientResultViewController();
+    private ClientResultViewController crvController = new ClientResultViewController();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        ts = App.getInstance().getCompany().getTestStore();
 
         client = crvController.getClient();
         try {
