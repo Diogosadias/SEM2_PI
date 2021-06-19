@@ -3,7 +3,6 @@ package app.domain.shared;
 import app.domain.model.Company;
 import app.domain.model.Test;
 import app.domain.model.TestStore;
-
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -15,14 +14,13 @@ import java.util.concurrent.TimeUnit;
 
 public class CovidReportMapper {
 
-    private TestStore testStore;
+    private final TestStore testStore;
     private LinearRegression linear;
-    private MultipleRegression multiple;
-    private SimpleDateFormat fmt;
+    private final SimpleDateFormat fmt;
     private List<Test> testList;
-    public final String VAR_TESTS = "Registered Tests";
-    public final String VAR_AGE = "Mean Age";
-    public final String MULTIPLE = "Multiple";
+    public static final String VARTESTS = "Registered Tests";
+    public static final String VARAGE = "Mean Age";
+    public static final String MULTIPLE = "Multiple";
     private List<Date> historicDateList;
     private Date initialDate;
     private Date finalDate;
@@ -101,18 +99,18 @@ public class CovidReportMapper {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         this.reportData = "";
         switch (varIndependent){
-            case VAR_TESTS:
+            case VARTESTS:
                 this.linear = new LinearRegression(xTestsInterval,yInterval,alpha);
                 reportData += this.linear + this.boardSimpleLRString(xTests, y,historicDays, dateFormat);
                 break;
-            case VAR_AGE:
+            case VARAGE:
                 this.linear = new LinearRegression(xAgeInterval,yInterval,alpha);
                 reportData += this.linear + this.boardSimpleLRString(xAge,y, historicDays, dateFormat);
                 break;
             case MULTIPLE:
                 NumberFormat formatter = new DecimalFormat("#0.0000");
-                this.multiple = new MultipleRegression(yInterval,xTestsInterval,xAgeInterval,alpha);
-                reportData += this.multiple + "\n\nPrediction values\n\n" + "Date\t\t\tNumber of OBSERVED positive cases\t\tNumber of ESTIMATED/EXPECTED positive cases\t\t\t\t\t95% intervals";
+                MultipleRegression multiple = new MultipleRegression(yInterval, xTestsInterval, xAgeInterval, alpha);
+                reportData += multiple + "\n\nPrediction values\n\n" + "Date\t\t\tNumber of OBSERVED positive cases\t\tNumber of ESTIMATED/EXPECTED positive cases\t\t\t\t\t95% intervals";
                 for(int i = 0; i < this.historicDateList.size(); i ++){
                     if(y[i] != 0) {
                         Date date = historicDateList.get(i);
@@ -123,7 +121,7 @@ public class CovidReportMapper {
                             cal.add(Calendar.DATE,historicDays-1);
                             reportData += " - " + dateFormat.format(cal.getTime());
                         }
-                        reportData += "\t\t\t\t\t" + (int) y[i] + "\t\t\t\t\t\t\t\t\t\t\t\t" + formatter.format(this.multiple.predict(xTests[i], xAge[i])) + "\t\t\t\t\t\t\t\t\t[" + formatter.format(this.multiple.mininterval(xTests[i], xAge[i])) + "," + formatter.format(this.multiple.maxinterval(xTests[i], xAge[i])) + "]" + "\t\t\t\t\t\t";
+                        reportData += "\t\t\t\t\t" + (int) y[i] + "\t\t\t\t\t\t\t\t\t\t\t\t" + formatter.format(multiple.predict(xTests[i], xAge[i])) + "\t\t\t\t\t\t\t\t\t[" + formatter.format(multiple.mininterval(xTests[i], xAge[i])) + "," + formatter.format(multiple.maxinterval(xTests[i], xAge[i])) + "]" + "\t\t\t\t\t\t";
                     }
                 }
                 break;
@@ -229,7 +227,6 @@ public class CovidReportMapper {
     }
 
     private String boardSimpleLRString (double[] x, double[] y, int historicDays, SimpleDateFormat dateFormat) {
-        int histPoints = x.length;
         NumberFormat formatter = new DecimalFormat("#0.0000");
         String board = "\n\nPrediction values\n\n" + "Date\t\t\t\t\t\tNumber of OBSERVED positive cases\t\tNumber of ESTIMATED/EXPECTED positive cases\t\t\t\t\t95% intervals";
         for(int i = 0; i < this.historicDateList.size(); i ++){

@@ -22,22 +22,24 @@ import org.apache.commons.math3.distribution.TDistribution;
  *
  */
 public class LinearRegression {
-    private final double intercept, slope;
+    private final double intercept;
+    private final double slope;
     private final double r2;
-    private final double svar0, svar1;
+    private final double svar0;
+    private final double svar1;
     private final double xbar;
-    private double ST ;
-    private double SE ;
-    private double SR ;
-    private double dfST;
-    private double dfSE;
-    private double dfSR;
-    private  double tDistribution;
-    private  double fDistribution;
-    private double Sxx;
-    private double alpha;
-    private int n;
-    private double s;
+    private final double ST ;
+    private final double SE ;
+    private final double SR ;
+    private final double dfST;
+    private final double dfSE;
+    private final double dfSR;
+    private final double tDistribution;
+    private double fDistribution;
+    private final double Sxx;
+    private final double alpha;
+    private final int n;
+    private final double s;
 
 
     /**
@@ -54,7 +56,9 @@ public class LinearRegression {
         }
         this.n = x.length;
         // first pass
-        double sumx = 0.0, sumy = 0.0, sumx2 = 0.0;
+        double sumx = 0.0;
+        double sumy = 0.0;
+        double sumx2 = 0.0;
         for (int i = 0; i < n; i++) {
             sumx  += x[i];
             sumx2 += x[i]*x[i];
@@ -67,7 +71,9 @@ public class LinearRegression {
 
 
         // second pass: compute summary statistics
-        double xxbar = 0.0, yybar = 0.0, xybar = 0.0;
+        double xxbar = 0.0;
+        double yybar = 0.0;
+        double xybar = 0.0;
         for (int i = 0; i < n; i++) {
             xxbar += (x[i] - xbar) * (x[i] - xbar); //Sxx
             yybar += (y[i] - ybar) * (y[i] - ybar); //Syy

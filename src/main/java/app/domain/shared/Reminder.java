@@ -1,10 +1,6 @@
 package app.domain.shared;
 
 import com.nhs.report.Report2NHS;
-
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Timer;
@@ -17,7 +13,7 @@ import java.util.TimerTask;
 
 public class Reminder {
     Timer timer;
-    private String data;
+    private final String data;
 
     public Reminder(String data) {
         this.data = data;

@@ -14,9 +14,9 @@ public class ExternalModule {
     private final ExternalModule2API em2;
     private final ExternalModule3API em3;
 
-    private final static int ACCESSKEY = 12345;
-    private final static String BLOOD_TEST = "Blood Test";
-    private final static String COVID_TEST = "Covid Test";
+    private static final int ACCESSKEY = 12345;
+    private static final String BLOOD_TEST = "Blood Test";
+    private static final String COVID_TEST = "Covid Test";
 
     public ExternalModule () {
         this.crv1 = new CovidReferenceValues1API();

@@ -23,7 +23,7 @@ public class GenerateEmployeeId {
         int nEmp = numEmployees;
         if (nEmp == MAXNUMEMPLOYEES) { throw new IllegalArgumentException("Maximum Employees reached."); }
         // acrescentar +1 ao numero de employees
-        int id = nEmp + 1;
+        int ids = nEmp + 1;
         // gerar as inicias do nome
         String initials = "";
         String[] temp = name.split(" ");
@@ -34,10 +34,10 @@ public class GenerateEmployeeId {
         String fillZeros = "";
         for (int i=0;i< 5;i++) {
 
-            if (id % 10 == 0) {
+            if (ids % 10 == 0) {
                 fillZeros += "0";
             }
-            id = id / 10;
+            ids = ids / 10;
         }
         return initials + fillZeros + "" + (nEmp + 1);
     }
