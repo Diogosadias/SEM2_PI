@@ -12,7 +12,7 @@
     @author Márcio Ramos <1201682@isep.ipp.pt>
 -->
 
-<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="402.0" prefWidth="556.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.ClientResultViewGUI">
+<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="479.0" prefWidth="699.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.ClientResultViewGUI">
     <top>
         <MenuBar nodeOrientation="RIGHT_TO_LEFT" BorderPane.alignment="CENTER">
             <menus>
@@ -26,8 +26,8 @@
             </menus>
         </MenuBar>
     </top>
-   <left>
-      <GridPane alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="363.0" prefWidth="556.0" BorderPane.alignment="CENTER">
+   <center>
+      <GridPane alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="363.0" prefWidth="556.0" BorderPane.alignment="CENTER">
          <children>
             <TextArea fx:id="myTextArea" editable="false" prefHeight="306.0" prefWidth="268.0" text="Select a test to see the results!" translateY="10.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <padding>
@@ -60,5 +60,5 @@
             <RowConstraints fillHeight="false" maxHeight="350.0" minHeight="-Infinity" prefHeight="309.0" valignment="CENTER" vgrow="SOMETIMES" />
          </rowConstraints>
       </GridPane>
-   </left>
+   </center>
 </BorderPane>
