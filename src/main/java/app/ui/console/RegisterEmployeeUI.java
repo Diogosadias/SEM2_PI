@@ -31,7 +31,6 @@ public class RegisterEmployeeUI implements Runnable{
     public RegisterEmployeeUI()
     {
         this.mcontroller = new RegisterEmployeeController();
-        App.getInstance().getCompany().getAuthFacade();
     }
 
 

@@ -3,11 +3,9 @@ package app.ui.console;
 import app.controller.App;
 import app.controller.WriteReportController;
 import app.domain.dto.TestDto;
-import app.domain.model.Parameter;
 import app.domain.model.TestParameter;
 import app.ui.console.utils.Utils;
 import auth.AuthFacade;
-
 import java.util.List;
 
 /**
@@ -19,7 +17,6 @@ import java.util.List;
 public class WriteReportUI implements Runnable{
     
     private final WriteReportController writeReportController;
-    private final AuthFacade authFacade;
 
     /**
      * Constructor initiating the Controller and AuthFacade
@@ -27,7 +24,6 @@ public class WriteReportUI implements Runnable{
     public WriteReportUI()
     {
         this.writeReportController = new WriteReportController();
-        this.authFacade = App.getInstance().getCompany().getAuthFacade();    
     }
 
     @Override

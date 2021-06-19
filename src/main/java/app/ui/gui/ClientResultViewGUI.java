@@ -45,23 +45,17 @@ public class ClientResultViewGUI implements Initializable, GuiMethods {
         FXUtils.menuExit(mainInstance);
     }
 
-    private List<Test> tl;
-
     private List<TestDto> tlDTO;
-
-    private Client client;
-
-    private TestStore ts;
 
     private final ClientResultViewController crvController = new ClientResultViewController();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ts = App.getInstance().getCompany().getTestStore();
-
-        client = crvController.getClient();
+        TestStore ts = App.getInstance().getCompany().getTestStore();
+        List<Test> tl;
+        Client client = crvController.getClient();
         try {
-        tl = crvController.listClientTest(client);
+            tl = crvController.listClientTest(client);
         tlDTO= crvController.toDTO(tl);
 
         Collections.sort(tlDTO, new SortAlgorithm.TestCompareByValidationTest());

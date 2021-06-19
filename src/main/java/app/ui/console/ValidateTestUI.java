@@ -4,13 +4,11 @@ import app.controller.ValidateTestController;
 import app.domain.dto.TestDto;
 import app.domain.shared.Constants;
 import app.ui.console.utils.Utils;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class ValidateTestUI implements Runnable {
 
-    private ValidateTestController controller;
+    private final ValidateTestController controller;
 
     public ValidateTestUI () {
         this.controller = new ValidateTestController();

@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  */
 public class Utils {
 
-    static public String readLineFromConsole(String prompt)
+    public static String readLineFromConsole(String prompt)
     {
         try
         {
@@ -33,7 +33,7 @@ public class Utils {
         }
     }
 
-    static public int readIntegerFromConsole(String prompt)
+    public static int readIntegerFromConsole(String prompt)
     {
         do
         {
@@ -41,16 +41,15 @@ public class Utils {
             {
                 String input = readLineFromConsole(prompt);
 
-                int value = Integer.parseInt(input);
+                return Integer.parseInt(input);
 
-                return value;
             } catch (NumberFormatException ex)
             {
                 Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, ex);
             }
         } while (true);
     }
-    static public long readLongFromConsole(String prompt)
+    public static long readLongFromConsole(String prompt)
     {
         do
         {
@@ -58,9 +57,8 @@ public class Utils {
             {
                 String input = readLineFromConsole(prompt);
 
-                long value = Long.parseLong(input);
+                return Long.parseLong(input);
 
-                return value;
             } catch (NumberFormatException ex)
             {
                 Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, ex);
@@ -68,7 +66,7 @@ public class Utils {
         } while (true);
     }
 
-    static public double readDoubleFromConsole(String prompt)
+    public static double readDoubleFromConsole(String prompt)
     {
         do
         {
@@ -76,9 +74,8 @@ public class Utils {
             {
                 String input = readLineFromConsole(prompt);
 
-                double value = Double.parseDouble(input);
+                return Double.parseDouble(input);
 
-                return value;
             } catch (NumberFormatException ex)
             {
                 Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, ex);
@@ -86,7 +83,7 @@ public class Utils {
         } while (true);
     }
 
-    static public Date readDateFromConsole(String prompt)
+    public static Date readDateFromConsole(String prompt)
     {
         do
         {
@@ -96,9 +93,8 @@ public class Utils {
 
                 SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 
-                Date date = df.parse(strDate);
+                return df.parse(strDate);
 
-                return date;
             } catch (ParseException ex)
             {
                 Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, ex);
@@ -106,7 +102,7 @@ public class Utils {
         } while (true);
     }
 
-    static public boolean confirm(String message) {
+    public static boolean confirm(String message) {
         String input;
         do {
             input = Utils.readLineFromConsole("\n" + message + "\n");
@@ -115,17 +111,17 @@ public class Utils {
         return input.equalsIgnoreCase("y");
     }
 
-    static public Object showAndSelectOne(List list, String header)
+    public static Object showAndSelectOne(List list, String header)
     {
         showList(list,header);
         return selectsObject(list);
     }
-    static public int showAndSelectIndex(List list, String header)
+    public static int showAndSelectIndex(List list, String header)
     {
         showList(list,header);
         return selectsIndex(list);
     }
-    static public void showList(List list, String header)
+    public static void showList(List list, String header)
     {
         System.out.println(header);
 
@@ -140,7 +136,7 @@ public class Utils {
         System.out.println("0 - Cancel");
     }
 
-    static public Object selectsObject(List list)
+    public static Object selectsObject(List list)
     {
         String input;
         Integer value;
@@ -159,7 +155,7 @@ public class Utils {
         }
     }
 
-    static public int selectsIndex(List list)
+    public static int selectsIndex(List list)
     {
         String input;
         Integer value;
@@ -173,7 +169,7 @@ public class Utils {
         return value - 1;
     }
 
-    static public Integer detectNumberFormatException(String s){
+    public static Integer detectNumberFormatException(String s){
         Integer n;
         try {
             n = Integer.valueOf(s);

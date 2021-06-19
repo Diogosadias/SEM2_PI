@@ -18,7 +18,6 @@ import java.util.Scanner;
 public class RegisterNewCALUI implements Runnable{
 
     private final RegisterNewCALController registerNewCALController;
-    private final AuthFacade authFacade;
 
     /**
      * Constructor initiating the Controller and AuthFacade
@@ -26,7 +25,6 @@ public class RegisterNewCALUI implements Runnable{
     public RegisterNewCALUI()
     {
         this.registerNewCALController= new RegisterNewCALController();
-        this.authFacade = App.getInstance().getCompany().getAuthFacade();
     }
 
     /**
@@ -72,7 +70,7 @@ public class RegisterNewCALUI implements Runnable{
             //int medLabTech = reader.read();
 
             //CONFIRMATION
-            System.out.printf("ID: %s \n Name: %s \n Phone Number: %d \n Address: %s \n TIN: %d \n Covid Tests: %s \n",
+            System.out.printf("ID: %s \n Name: %s \n Phone Number: %d \n Address: %s \n TIN: %d \n Covid Tests: %s %s",
                     labId, labName, phoneNumber, address, tin, answer);
             String confirmation;
             do{
