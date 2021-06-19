@@ -27,7 +27,6 @@ public class EmployeeStoreTest  {
     EmployeeStore es = new EmployeeStore(ors, new AuthFacade());
 
 
-
     public EmployeeStoreTest() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException{
         authFacade.addUserRole(RECEPTIONIST,RECEPTIONIST);
         dto.setId("J00001");
@@ -59,15 +58,15 @@ public class EmployeeStoreTest  {
 
 
     }*/
-
-//    @Test
-//    public void testRegisterEmployee() {        
-//        System.out.println("RegisterEmployee");
-//        Employee expResult = new Employee(new OrgRole("teste","teste"),new EmployeeDto("teste", "teste", "teste", 12345678900L, "12335"));
-//        Employee result = es.registerEmployee(dto);
-//        assertEquals(expResult, result); 
-//    }
-
+/*
+    @Test
+    public void testRegisterEmployee() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+        System.out.println("RegisterEmployee");
+        Employee expResult = new Employee(new OrgRole("teste","teste"),new EmployeeDto("teste", "teste", "teste", 12345678900L, "12335"));
+        boolean result = es.registerEmployee(dto);
+        assertEquals(expResult, result);
+    }
+*/
     @Test
     public void testGenerateEmployeeId() {
         System.out.println("GenerateEmployeeId");
@@ -84,15 +83,15 @@ public class EmployeeStoreTest  {
         assertEquals(expResult, result);    
     }
 
-/*    @Test
+ /*  @Test
     public void testGetRoleById() {
         System.out.println("GetRoleById");
         OrgRole expResult = new OrgRole("role_5",ROLE_RECEP);
-        es.addOrgRole(new OrgRole("role_5",ROLE_RECEP));
+        e1 =
         OrgRole result = es.getRoleById("role_5");
         assertEquals(expResult , result);
-    }*/
-
+    }
+*/
     @Test
     public void testValidateEmployee() {                
         System.out.println("ValidateEmployee");
@@ -113,6 +112,13 @@ public class EmployeeStoreTest  {
         //Correct Later
     }
 
+
+    @Test
+    public void registerEmployee() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+
+        EmployeeDto edto = null;
+        assertEquals(es.registerEmployee(dto), true);
+    }
 //    @Test
 //    public void testGetEmployees() {        
 //        System.out.println("GetEmployees");              
