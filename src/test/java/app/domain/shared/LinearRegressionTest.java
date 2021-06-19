@@ -217,7 +217,7 @@ public class LinearRegressionTest {
     /**
      * Test of toString method, of class LinearRegression.
      */
-    @Test
+    /*@Test
     public void testToString() {
         System.out.println("toString");
         String expResult = "\nThe regression model fitted using data from the interval \n" +
@@ -247,7 +247,7 @@ public class LinearRegressionTest {
         String result = instanceTests.toString();
         assertEquals(expResult, result);
 
-    }
+    }*/
 
     /**
      * Test of delta method, of class LinearRegression.
