@@ -1,11 +1,9 @@
 package app.domain.shared;
 
-import app.controller.CovidNhsReportController;
 import app.domain.model.Company;
 import app.domain.model.Test;
 import app.domain.model.TestStore;
 
-import java.io.*;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;

@@ -33,7 +33,9 @@ public class DailyNhsReportController {
                 Date initialDate = new Date(line[getColumnIndex("InitialDate_Registration")]);
                 Date finalDate = new Date(line[getColumnIndex("FinalDate_Registration")]);
                 int histPoints = Integer.valueOf(line[getColumnIndex("HistoricPoints")]);
-                double alpha = Double.valueOf(line[getColumnIndex("SignificanceLevel")].replace(",","."));
+                //double alpha = Double.valueOf(line[getColumnIndex("SignificanceLevel")].replace(",","."));
+                String sign = line[getColumnIndex("SignificanceLevel")].replace("%","").replace(",",".");
+                double alpha = round(1 - (Double.valueOf(sign)/(double)100),2);
                 mapper.startNewReport(initialDate,finalDate,histPoints,alpha);
                 if(mapper.startNewReport(initialDate,finalDate,histPoints,alpha)){
                     data = mapper.getData();
@@ -42,6 +44,11 @@ public class DailyNhsReportController {
                 }
             }
 
+    }
+
+    public static double round(double value, int places) {
+        double scale = Math.pow(10, places);
+        return Math.round(value * scale) / scale;
     }
 
     private void dailytask(String data) {
