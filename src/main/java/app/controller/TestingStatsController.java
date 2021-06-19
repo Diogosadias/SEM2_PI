@@ -1,6 +1,7 @@
 package app.controller;
 
 import app.domain.model.*;
+import app.domain.shared.Constants;
 import javafx.scene.chart.*;
 
 import java.text.DateFormat;
@@ -10,12 +11,13 @@ import java.util.*;
 /**
  *  Controller for testing statistics
  *
- * @author Gil
+ /**
+ * @author Gil <1180838@isep.ipp.pt>
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
  */
 public class TestingStatsController {
 
     private final TestStore testStore;
-    private final TestTypeStore testTypeStore;
     private final ClientStore clientStore;
 
     private Date initDateGraph;
@@ -39,7 +41,6 @@ public class TestingStatsController {
     public TestingStatsController() {
         Company company = App.getInstance().getCompany();
         this.testStore = company.getTestStore();
-        this.testTypeStore = company.getTestTypeStore();
         this.clientStore = company.getClientStore();
     }
 
@@ -51,7 +52,9 @@ public class TestingStatsController {
 
         if(xValues.length != yValues.length) throw new IllegalArgumentException("Data issues! Couldn't load statistics");
         if(xValues.length < 2) throw new Exception("");
-
+        if(Arrays.stream(yValues).sum() == 0) {
+            throw new IllegalArgumentException("Data issues! All Y values are 0!");
+        }
         yAxis.setAutoRanging(true);
 
         lineChart.setTitle(chartTitle);
@@ -63,11 +66,14 @@ public class TestingStatsController {
             series.getData().add(data);
         }
         lineChart.getData().add(series);
+        lineChart.setAnimated(false);
+        xAxis.setAnimated(false);
+        yAxis.setAnimated(false);
     }
 
     public void getArraysForDates(int period){
         int dif;
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM");
         switch (period){
             case 1:
                 dif = calculateDifferenceInDays(this.initDateGraph,this.finalDateGraph);
@@ -156,7 +162,6 @@ public class TestingStatsController {
         long d = (date2.getTime()-date1.getTime())/(1000*60*60*24);
         d= Math.abs(d);
         return Integer.parseInt(String.valueOf(d));
-        //return (int)(date2.getTime()-date1.getTime()) / (1000*60*60*24);
     }
 
     private int calculateDifferenceInMonths(Date date1, Date date2) {
@@ -200,47 +205,62 @@ public class TestingStatsController {
         this.finalDateGraph = finalDateGraph;
     }
 
-    public int[] getNrTests(Date[] dates, String state){
+    public int[] getNrTestsWaitingForResult(Date[] dates){
         int[] res = new int[dates.length];
-        for(int i = 0; i < dates.length; i++){
+        for(int i = 1; i <= dates.length; i++){
             for(Test t : this.testStore.getAllTests()){
-                if (t.hasCondition(state) && t.getDateRegistered().after(dates[i]) && t.getDateRegistered().before(addDaysToDate(dates[i],1))){
-                    res[i]++;
+                if(t.hasCondition(Constants.SAMPLE_COLLECTED) || t.hasCondition(Constants.SAMPLE_ANALYSED)
+                        || t.hasCondition(Constants.DIAGNOSIS_MADE) || t.hasCondition(Constants.VALIDATED)){
+                    //Test collected b4 date and no date for the result
+                    if ((t.getDateChemicalAnalysis().after(dates[i-1]) || t.getDateChemicalAnalysis()==null)
+                            && t.getDateRegistered().before(dates[i-1])){
+                        res[i-1]++;
+                    }
                 }
             }
         }
         return res;
     }
-    public int[] getNrClients(int datesLength) {
-        int[] res = new int[datesLength];
-        for(int i = 0; i < datesLength; i++){
-            Date minDate = new Date();
-            for(Client c : this.clientStore.getClientList()){
 
-                if(!Objects.isNull(c) && !Objects.isNull(c.getId())){
-
-                    for(Test t : this.testStore.getAllTests()){
-                        System.out.println(c);
-                        if(t.getClient().getId().equals(c.getId())){
-                            if(t.getDateRegistered().getDay() < minDate.getDay() &&
-                                    t.getDateRegistered().getMonth() <= minDate.getMonth() &&
-                                    t.getDateRegistered().getYear() <= minDate.getYear()){
-                                minDate = t.getDateRegistered();
-                            }
-                        }
+    public int[] getNrTestsWaitingForDiagnosis(Date[] dates){
+        int[] res = new int[dates.length];
+        for(int i = 1; i <= dates.length; i++){
+            for(Test t : this.testStore.getAllTests()){
+                if(t.hasCondition(Constants.SAMPLE_ANALYSED) || t.hasCondition(Constants.DIAGNOSIS_MADE)
+                        || t.hasCondition(Constants.VALIDATED)){
+                    //Results already exist by date and no diagnosis
+                    if ((t.getDateDiagnosis().after(dates[i-1]) || t.getDateDiagnosis() == null) && t.getDateChemicalAnalysis().before(dates[i-1])){
+                        res[i-1]++;
                     }
+                }
+            }
+        }
+        return res;
+    }
 
+    public int[] getNrTestsValidated(Date[] dates){
+        int[] res = new int[dates.length];
+        for(int i = 1; i <= dates.length; i++){
+            for(Test t : this.testStore.getAllTests()){
+                if(t.hasCondition(Constants.VALIDATED)){
+                    //validation in date
+                    if (t.getDateValidation().after(dates[i-1]) && t.getDateValidation().before(addDaysToDate(dates[i-1], 2))){
+                        res[i-1]++;
+                    }
                 }
 
             }
-
-            if (minDate.getDay() == dates[i].getDay() &&
-                    dates[i].getMonth() == minDate.getMonth() &&
-                    dates[i].getYear() == minDate.getYear()){
-                res[i]++;
-            }
-
         }
         return res;
+    }
+
+
+
+    public int getTotalClients(){
+        return  this.clientStore.getClientList().size();
+    }
+
+    public int getTotalValidatedTests(){
+        return this.testStore.getValidatedTests().size();
     }
 }

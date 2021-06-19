@@ -12,20 +12,20 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+/**
+ * @author Gil <1180838@isep.ipp.pt>
+ * @author Márcio Ramos <1201682@isep.ipp.pt>
+ */
 public class TestingStatsGUI1 implements Initializable, GuiMethods {
-    @FXML
-    public DatePicker initDate;
-    @FXML
-    public DatePicker finalDate;
 
     @FXML
     public Label lblTotalClient;
     @FXML
     public Label lblTotalValidatedTests;
     @FXML
-    public Button btnTestsWaiting;
+    public Button btnTestsWaitingForResult;
     @FXML
-    public Button btnNumberOfClients;
+    public Button btnTestsWaitingForDiagnosis;
     @FXML
     public Button btnTestsValidated;
 
@@ -41,34 +41,26 @@ public class TestingStatsGUI1 implements Initializable, GuiMethods {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        this.lblTotalClient.setText("");//controller.getTotalClientsNumber()
-        this.lblTotalValidatedTests.setText("");//controller.getTotalValidatedTests()
-    }
-    @FXML
-    void selectDate1(ActionEvent event) {
-        controller.setInitDateGraph(java.sql.Date.valueOf(initDate.getValue()));
-    }
-
-    @FXML
-    void selectDate2(ActionEvent event) {
-        controller.setInitDateGraph(java.sql.Date.valueOf(finalDate.getValue()));
+        this.lblTotalClient.setText(String.valueOf(controller.getTotalClients()));
+        this.lblTotalValidatedTests.setText(String.valueOf(controller.getTotalValidatedTests()));//
     }
 
 
     @FXML
-    private void nrClientsGraphs(ActionEvent event) {
+    private void testsWaitingForResult(ActionEvent event) {
         try{
             TestingStatsGUI2 testingStatsGUI2 = (TestingStatsGUI2) main.replaceSceneContent("/fxml/TestingStatsGUI2.fxml");
             testingStatsGUI2.setInstance(main);
             controller.setChartOption(1);
             testingStatsGUI2.setController(controller);
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
 
     @FXML
-    private void waitingTestsGraphs(ActionEvent event) {
+    private void testsWaitingForDiagnosis(ActionEvent event) {
         try{
 
             TestingStatsGUI2 testingStatsGUI2 = (TestingStatsGUI2) main.replaceSceneContent("/fxml/TestingStatsGUI2.fxml");
@@ -102,10 +94,11 @@ public class TestingStatsGUI1 implements Initializable, GuiMethods {
             if (result.get() == ButtonType.OK) {
                 //trocar para janela anterior
                 try {
-                    app.ui.console.MenuItem item= new MenuItem("default", "/fxml/TestingStatsGUI1.fxml");
+                    app.ui.console.MenuItem item= new MenuItem("default", "/fxml/LabCoordinator.fxml");
                     item.runGui(item.getGui(),main);
                 } catch (Exception e) {
                     e.printStackTrace();
+                    System.out.println(e.getMessage());
                 }
             }
         }
