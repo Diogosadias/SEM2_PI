@@ -21,6 +21,7 @@ public class SampleTest {
     public void SampleTest()  {
 
 
+
         boolean b;
 
         if(s == null){

@@ -22,6 +22,7 @@ public class TestTest {
     app.domain.model.Test test = new app.domain.model.Test(testType,"description",c1);
 
 
+
     @Test
     public void checkValidation() {
         try {

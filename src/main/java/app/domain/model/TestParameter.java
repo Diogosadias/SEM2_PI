@@ -51,7 +51,7 @@ public class TestParameter implements Serializable {
      * @return boolean
      */
 
-    public boolean addResult(String result, double metric, EMRefValue refValue){
+        public boolean addResult(String result, double metric, EMRefValue refValue){
         return (this.testResult = new TestParameterResult(result,metric,refValue)) != null;
     }
 
