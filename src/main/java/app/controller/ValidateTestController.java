@@ -31,7 +31,7 @@ public class ValidateTestController {
 
     public List getDiagnosedTestList() {
         TestMapper mapper = new TestMapper();
-        return mapper.listTestDiagnosed_toDto(this.tStore.getTests(Constants.DIAGNOSIS_MADE));
+        return mapper.listTestDiagnosed_ToDto(this.tStore.getTests(Constants.DIAGNOSIS_MADE));
     }
 
     public boolean newValidTest(TestDto dto) {

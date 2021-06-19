@@ -1,10 +1,5 @@
 package app.domain.dto;
 
-import auth.domain.model.Email;
-
-import java.util.Comparator;
-import java.util.Date;
-
 /**
  *
  * @author Tiago Ferreira <1200601@isep.ipp.pt>
@@ -15,12 +10,12 @@ public class ClientDTO {
     /**
      * The name of client.
      */
-    private String name;
+    private final String name;
 
     /**
      * The tin of client.
      */
-    private long tin;
+    private final long tin;
 
     public ClientDTO(String name, long tin ){
         this.name = name;

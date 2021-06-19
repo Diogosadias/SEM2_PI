@@ -164,8 +164,8 @@ public class Administrator extends User {
     @Override
     public String toString() {
         return "Administrator{" +
-                "adress='" + adress + '\'' +
-                ", standardOcuppationalCode='" + standardOcuppationalCode + '\'' +
+                "address='" + adress + '\'' +
+                ", standardOccupationalCode='" + standardOcuppationalCode + '\'' +
                 ", employeeId='" + employeeId + '\'' +
                 '}';
     }

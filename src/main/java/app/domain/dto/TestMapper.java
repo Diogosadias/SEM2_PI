@@ -2,8 +2,6 @@ package app.domain.dto;
 
 import app.controller.App;
 import app.domain.model.*;
-import app.domain.shared.Constants;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
@@ -16,10 +14,9 @@ import java.util.Date;
 
 public class TestMapper {
 
-    private final Company company ;
     List<TestDto> testDto;
     public TestMapper () {
-        this.company = App.getInstance().getCompany();
+        Company company = App.getInstance().getCompany();
         testDto = new ArrayList<>();
     }
 
@@ -39,7 +36,7 @@ public class TestMapper {
         return null;
     }
 
-    public List<TestDto> registered_toDto(List<Test> list){
+    public List<TestDto> registered_ToDto(List<Test> list){
         if(list!=null) {
             for(Test test: list){
                 String code = test.getCode();
@@ -73,7 +70,7 @@ public class TestMapper {
         return null;
     }
 */
-    public List<TestDto> testSamples_toDto(List<Test> list){
+    public List<TestDto> testSamples_ToDto(List<Test> list){
             if(list!=null) {
         for(Test test: list){
             String code = test.getCode();
@@ -87,7 +84,7 @@ public class TestMapper {
         return null;
     }
 
-    public List<TestDto> listTestParameter_toDto(List<Test> list){
+    public List<TestDto> listTestParameter_ToDto(List<Test> list){
         if(list!=null) {
             for(Test test: list){
                 String code = test.getCode();
@@ -109,7 +106,7 @@ public class TestMapper {
         return null;
     }
 
-    public List listTestDiagnosed_toDto (List<Test> list){
+    public List listTestDiagnosed_ToDto (List<Test> list){
         if(list!=null) {
             for(Test test: list){
                 String code = test.getCode();

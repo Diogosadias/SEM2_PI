@@ -56,13 +56,13 @@ public class RecordSampleController {
     public List<TestDto> getTests() {
         List<Test> tests = this.testStore.getRegisteredTests();
         TestMapper mapper = new TestMapper();
-        return mapper.registered_toDto(tests);
+        return mapper.registered_ToDto(tests);
     }
 
     public List<TestDto> listTestSamples() {
         List<Test> tests = this.testStore.getSampleCollectedTests();
         TestMapper mapper = new TestMapper();
-        return mapper.testSamples_toDto(tests);
+        return mapper.testSamples_ToDto(tests);
     }
 
     public String getTestClientNameByCC(long cc){
