@@ -45,6 +45,11 @@ public class OrgRoleStoreTest {
         }catch(Exception ex){
             assertEquals(ex.getMessage(),"There is no Organization Role with that Id.");
         }
+        orStore.addOrgRole(or1);
+
+        assertEquals(orStore.getRoleById("123"),or1);
+
+
     }
 
     @Test
