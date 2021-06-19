@@ -195,7 +195,7 @@ public class TestDto {
     }
 
     //US12
-    public String ParametersToString() {
+    public String parametersToString() {
         String s = "\n\nList of Parameter(s) for each Category to be analysed: ";
         for (ParameterCategory category : this.categories) {
             s = s + "\n\n - " + category.getDescription();
@@ -210,7 +210,7 @@ public class TestDto {
     }
 
     //US5
-    public String SamplesToString() {
+    public String samplesToString() {
         String s = "\nTest n: " + this.code +
                 "\nList of Sample(s): \n";
         for (Sample sample : this.sampleList) {
