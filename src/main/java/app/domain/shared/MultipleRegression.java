@@ -19,22 +19,22 @@ import java.text.NumberFormat;
 
 public class MultipleRegression {
     // Attributes
-    private double[][] y;
-    private double[][] betas;
-    private double[][] x;
-    private double[][] inv;
-    private double n ;
-    private final double k = 2;
-    private double sqt;
-    private double sqe;
-    private double sqr;
-    private double mqe;
-    private double mqr;
-    private double f;
-    private double r2;
-    private double raj;
-    private double r;
-    private double f0;
+    private final double[][] y;
+    private final double[][] betas;
+    private final double[][] x;
+    private final double[][] inv;
+    private final double n ;
+    private static final double k = 2;
+    private final double sqt;
+    private final double sqe;
+    private final double sqr;
+    private final double mqe;
+    private final double mqr;
+    private final double f;
+    private final double r2;
+    private final double raj;
+    private final double r;
+    private final double f0;
     private double alpha;
 
 
@@ -326,7 +326,8 @@ public class MultipleRegression {
 
     private double determinante(double[][] x) {
         double d =0;
-        double a=0,b=0;
+        double a=0;
+        double b=0;
 
         int tamanho = x.length;
 

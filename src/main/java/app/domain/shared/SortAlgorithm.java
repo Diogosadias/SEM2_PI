@@ -2,14 +2,9 @@ package app.domain.shared;
 
 import app.domain.dto.ClientDTO;
 import app.domain.dto.TestDto;
-
 import java.util.Comparator;
-import java.util.Date;
 
 public class SortAlgorithm {
-
-    public SortAlgorithm(){}
-
 
     public static class ClientCompareByName implements Comparator<ClientDTO> {
 
@@ -25,8 +20,7 @@ public class SortAlgorithm {
         @Override
         public int compare(ClientDTO o1, ClientDTO o2){
             Long l = o1.getTin() - o2.getTin();
-            int i = l.intValue();
-            return i;
+            return l.intValue();
         }
     }
 
@@ -35,8 +29,7 @@ public class SortAlgorithm {
         @Override
         public int compare(TestDto o1, TestDto o2){
             Long d = (o1.getDateValidation().getTime()-o2.getDateValidation().getTime());
-            int i = d.intValue();
-            return i;
+            return d.intValue();
         }
     }
 }
