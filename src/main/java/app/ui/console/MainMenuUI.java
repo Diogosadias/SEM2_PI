@@ -9,7 +9,7 @@ import java.util.List;
  * @author Paulo Maio <pam@isep.ipp.pt>
  * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
-/*
+
 public class MainMenuUI {
 
     public void run()
@@ -30,4 +30,3 @@ public class MainMenuUI {
         while (option != -1 );
     }
 }
-*/

@@ -11,7 +11,7 @@ import java.util.List;
  * @author Tiago Ferreira <1200601@isep.ipp.pt>
  * @author Tomás Pinto <1181835@isep.ipp.pt>
  */
-/*
+
 public class ClientUI implements Runnable{
 
 
@@ -38,4 +38,4 @@ public class ClientUI implements Runnable{
 
     }
 
-}*/
+}
