@@ -14,16 +14,15 @@ import java.util.Scanner;
 public class CSVFileConverter {
 
 
-    private ClientStore clientStore;
-    private TestStore testStore;
-    private TestTypeStore testTypeStore;
-    private ParameterStore parameterStore;
-    private ParameterCategoryStore categoryStore;
-    private ReportStore reportStore;
-    private Company company;
+    private final ClientStore clientStore;
+    private final TestStore testStore;
+    private final TestTypeStore testTypeStore;
+    private final ParameterStore parameterStore;
+    private final ParameterCategoryStore categoryStore;
+    private final ReportStore reportStore;
 
     public CSVFileConverter(){
-        this.company = App.getInstance().getCompany();
+        Company company = App.getInstance().getCompany();
         this.clientStore = company.getClientStore();
         this.testStore = company.getTestStore();
         this.testTypeStore = company.getTestTypeStore();
@@ -80,19 +79,16 @@ public class CSVFileConverter {
                     int count = 0;
                     String [] temp = new String[header.length];
                     if(header[i].equals("Category") && !line[i].equals("NA") && !line[i+1].equals("NA")){
-                        i++;
                         while(!line[i].equals("NA") && checkParameter(header[i])){
                             temp[count] = header[i];
                             count++;
                             temp[count] = line[i];
                             count++;
-                            i++;
                         }
-                        i--;
                         parameters.add(temp);
                     }
                 }
-                if(parameters.size() == 0) {
+                if(parameters.isEmpty()) {
                     throw new IllegalArgumentException("No valid Parameters.");
                 }
                 Date date = this.checkDate(line[getColumnIndex(header,"Test_Reg_DateHour")]);
@@ -110,7 +106,7 @@ public class CSVFileConverter {
                                 test.addParameter(this.parameterStore.getParameterByCode(parameterCode));
                             } else {
                                 str = str.replace(",",".");
-                                double metric = Double.valueOf(str);
+                                double metric = Double.parseDouble(str);
                                 //Missing Result
                                 test.addTestResult(parameterCode,"Not Defined",metric);
                                 test.addResultToList();

@@ -3,11 +3,8 @@ package app.domain.model;
 import app.domain.dto.*;
 import app.domain.shared.Constants;
 import app.domain.shared.GenerateTestCode;
-
-import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * TestStore - Class responsible for managing tests.
@@ -122,7 +119,6 @@ public class TestStore extends Store{
             if(testCode.equals(testList.get(i).getCode())) {
                 newNum++;
                 testCode = new GenerateTestCode(newNum).getCode();
-                i = -1;
             }
         }
         this.test.setCode(testCode);
@@ -389,10 +385,9 @@ public class TestStore extends Store{
 
     public String getTestResultToString() {
         TestParameter testParam = this.test.getCurrentTestParameter();
-        String s = "\nType of Test: " + this.test.getTestType().getDescription() +
+        return  "\nType of Test: " + this.test.getTestType().getDescription() +
                 "\nCollection Method: " + this.test.getDescription()+
                 "\n" + testParam;
-        return s;
     }
 
     @Override

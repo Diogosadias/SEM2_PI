@@ -1,10 +1,8 @@
 package app.domain.model;
 
-import app.controller.App;
 import app.controller.DailyNhsReportController;
 import auth.AuthFacade;
 import org.apache.commons.lang3.StringUtils;
-
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,17 +21,17 @@ import java.util.List;
 
 public class Company {
 
-    private List<Store> stores;
+    private final List<Store> stores;
 
     /**
      * The designation of company.
      */
-    private String designation;
+    private final String designation;
 
     /**
      * The AuthFacade of company.
      */
-    private AuthFacade authFacade;
+    private final AuthFacade authFacade;
 
     /**
      * The store of Clinical Analysis Laboratory.
@@ -43,7 +41,7 @@ public class Company {
     /**
      * The store of report.
      */
-    private ReportStore reportStore;
+    private final ReportStore reportStore;
 
     /**
      * The store of create a client.
@@ -58,7 +56,7 @@ public class Company {
     /**
      * The store of OrgRole.
      */
-    private OrgRoleStore orgRoleStore;
+    private final OrgRoleStore orgRoleStore;
 
     /**
      * The store of employee.
@@ -73,7 +71,7 @@ public class Company {
     /**
      * The store of registered Tests to clients.
      */
-    private TestStore testStore;
+    private final TestStore testStore;
 
     /**
      * The store of client's LabOrder.
@@ -309,7 +307,7 @@ public class Company {
     }
 
     public List getListStores () {
-        if(stores.size() == 0) throw new IllegalArgumentException("Store list is empty");
+        if(stores.isEmpty()) throw new IllegalArgumentException("Store list is empty");
         return this.stores;
     }
 }

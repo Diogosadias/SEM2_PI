@@ -20,7 +20,7 @@ public class TestParameterResult  implements Serializable {
     /**
      * The refValue of TestParameterResult.
      */
-    transient private EMRefValue refValue;
+    private transient EMRefValue refValue;
 
     /**
      * Constructor TestParameterResult with the result, metric, refValue.
