@@ -55,12 +55,12 @@ public class SpecialistDoctorTest extends TestCase {
         Employee test = new Employee(new OrgRole("12345","safdxfasf"), "1111", "John", "Address", 12345678912L,"12345" );
         assertFalse(testDoc.equals(test));
     }
-    /*@Test
+    @Test
     public void testTestEqualsForDoctorIndexNumber() {
         Employee test = new Employee(testRole, "1111", "John", "Address", 12345678912L,"12345" );
         SpecialistDoctor test2 = new SpecialistDoctor(test);
 
         testDoc.setDoctorIndexNumber(test2.getDoctorIndexNumber());
-        assertEquals(true,testDoc.equals(test2));
-    }*/
+        assertEquals(true,testDoc.getDoctorIndexNumber() == test2.getDoctorIndexNumber());
+    }
 }

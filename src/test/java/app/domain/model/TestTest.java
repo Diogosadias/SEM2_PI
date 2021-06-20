@@ -63,6 +63,7 @@ public class TestTest {
     public void checkNhsCodeAtributeTest(){
         String nhs = "aaaaa";
         String nhs2 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+        String nhs3 = "aaaaa  aaaaa";
         try{
             test.setNhsCode(nhs);
             assertNull(test.getNhsCode());
@@ -71,6 +72,12 @@ public class TestTest {
         }
         try{
             test.setNhsCode(nhs2);
+            assertNull(test.getNhsCode());
+        }catch (IllegalArgumentException ex){
+            assertEquals("Adding NhsCode to Test Error: NhsCode needs 12 alphanumeric characters.",ex.getMessage());
+        }
+        try{
+            test.setNhsCode(nhs3);
             assertNull(test.getNhsCode());
         }catch (IllegalArgumentException ex){
             assertEquals("Adding NhsCode to Test Error: NhsCode needs 12 alphanumeric characters.",ex.getMessage());
