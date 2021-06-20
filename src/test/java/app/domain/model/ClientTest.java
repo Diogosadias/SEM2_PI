@@ -275,4 +275,9 @@ public class ClientTest {
         assertEquals(false,c1.toString().equals(" "));
 
     }
+
+    @Test
+    public void testTestHashCode() {
+        assertEquals(286491702,c1.hashCode());
+    }
 }

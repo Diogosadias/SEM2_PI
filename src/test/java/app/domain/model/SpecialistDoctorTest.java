@@ -4,6 +4,7 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import static app.domain.shared.Constants.RECEPTIONIST;
+import static org.junit.Assert.assertEquals;
 
 /**
  *
@@ -62,5 +63,10 @@ public class SpecialistDoctorTest extends TestCase {
 
         testDoc.setDoctorIndexNumber(test2.getDoctorIndexNumber());
         assertEquals(true,testDoc.getDoctorIndexNumber() == test2.getDoctorIndexNumber());
+    }
+
+    @Test
+    public void testTestHashCode() {
+        assertEquals(-1275290167,testDoc.hashCode());
     }
 }
