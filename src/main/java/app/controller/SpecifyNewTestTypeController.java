@@ -12,6 +12,7 @@ import app.domain.model.TestType;
  * @author Tomás Pinto <1181835@isep.ipp.pt>
  * @author Márcio Ramos <1181835@isep.ipp.pt>
  */
+
 public class SpecifyNewTestTypeController {
 
     private Company company;
@@ -21,6 +22,7 @@ public class SpecifyNewTestTypeController {
     /**
      * Constructor for a given Company instance.
      */
+
     public SpecifyNewTestTypeController(){
         this.company = App.getInstance().getCompany();
         this.ts = this.company.getTestTypeStore();
@@ -65,6 +67,10 @@ public class SpecifyNewTestTypeController {
             System.out.println(t);
     }
 
+    /**
+     * Write a Test Type.
+     */
+
     public void writeTestType(){
             System.out.println(tt); }
 
@@ -73,6 +79,7 @@ public class SpecifyNewTestTypeController {
      *
      * @return boolean
      */
+
     public boolean deleteTestType(String code){
         if(ts.deleteTestType(code)){
             return true;
@@ -86,6 +93,7 @@ public class SpecifyNewTestTypeController {
      *
      * @return boolean
      */
+
     public boolean searchTestType (String code) {
         if(ts.searchTestType(code)) {
             return true;
@@ -99,6 +107,7 @@ public class SpecifyNewTestTypeController {
      *
      * @return boolean
      */
+
     public boolean saveTestType(){
         return this.ts.saveTestType(tt);
     }
@@ -106,6 +115,7 @@ public class SpecifyNewTestTypeController {
     /**
      * Add parameter category to the new Test Type instance.
      */
+
     public void addParameterToTest(ParameterCategory pc){
         this.tt.setCategory(pc);
     }

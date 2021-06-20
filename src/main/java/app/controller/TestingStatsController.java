@@ -3,18 +3,18 @@ package app.controller;
 import app.domain.model.*;
 import app.domain.shared.Constants;
 import javafx.scene.chart.*;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
- *  Controller for testing statistics
+ *  Controller for the US16 realization - Controller for testing statistics
  *
  /**
  * @author Gil <1180838@isep.ipp.pt>
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  */
+
 public class TestingStatsController {
 
     private final TestStore testStore;
@@ -27,9 +27,21 @@ public class TestingStatsController {
     private String[] datesString;
     private Date[] dates ;
 
+    /**
+     * Return the dates string.
+     *
+     * @return DatesString
+     */
+
     public String[] getDatesString() {
         return datesString;
     }
+
+    /**
+     * Return the dates.
+     *
+     * @return Dates
+     */
 
     public Date[] getDates() {
         return dates;
@@ -38,11 +50,28 @@ public class TestingStatsController {
     /**
      * Constructor
      */
+
     public TestingStatsController() {
         Company company = App.getInstance().getCompany();
         this.testStore = company.getTestStore();
         this.clientStore = company.getClientStore();
     }
+
+    /**
+     * Creates a Line Chart For Data.
+     *
+     * @param lineChart LineChart
+     * @param xAxis xAxis
+     * @param yAxis yAxis
+     * @param xAxisLabel xAxisLabel
+     * @param yAxisLabel yAxisLabel
+     * @param chartTitle chartTitle
+     * @param seriesName SeriesName
+     * @param xValues xValues
+     * @param yValues yValues
+     *
+     * @throws Exception
+     */
 
     public void createLineChartForData(LineChart<String, Number> lineChart, CategoryAxis xAxis, NumberAxis yAxis,
                                        String xAxisLabel, String yAxisLabel, String chartTitle, String seriesName,

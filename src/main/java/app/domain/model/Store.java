@@ -14,7 +14,7 @@ public abstract class Store {
     /**
      * Constructor Store.
      */
-    
+
     public Store () {
         this.list = new ArrayList<>();
     }
