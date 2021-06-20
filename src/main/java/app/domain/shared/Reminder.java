@@ -23,8 +23,8 @@ public class Reminder {
         cal.set(Calendar.SECOND,0);
         Date time = cal.getTime();
 
-        Timer timer = new Timer();
-        timer.schedule(new RemindTask(), time);
+        Timer count = new Timer();
+        count.schedule(new RemindTask(), time);
         System.out.println("Daily Nhs Report sent!");
     }
 
