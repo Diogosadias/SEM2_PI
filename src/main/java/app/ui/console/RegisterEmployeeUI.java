@@ -12,6 +12,7 @@ import app.ui.console.utils.Utils;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
+import static app.domain.shared.Constants.DIGITS_PHONE_NUM;
 import static app.domain.shared.Constants.SPECIALIST_DOCTOR;
 
 /**
@@ -66,7 +67,7 @@ public class RegisterEmployeeUI implements Runnable{
             // Request data: name, address, phoneNumber,socCode, doctorIndexNumber
             String name = Utils.readLineFromConsole("Name: ");
             String address = Utils.readLineFromConsole("Address: ");
-            long phoneNumber = Utils.readLongFromConsole("Phone number (11 Digits):");
+            long phoneNumber = Utils.readLongFromConsole("Phone number ("+DIGITS_PHONE_NUM+" Digits):");
             String socCode = Utils.readLineFromConsole("Soc Code: ");
             EmployeeDto eDto = new EmployeeDto(role.getId(), name, address, phoneNumber, socCode);
             if (this.mcontroller.registerEmployee(eDto)) {

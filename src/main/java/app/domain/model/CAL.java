@@ -2,6 +2,8 @@ package app.domain.model;
 
 import java.util.Objects;
 
+import static app.domain.shared.Constants.*;
+
 /**
  *  CAL - Domain class representing a Clinical Analysis Laboratory
  *
@@ -83,8 +85,8 @@ public class CAL {
     private void checkLabIDrules(String labId) {
         if (labId.length() == 0)
             throw new IllegalArgumentException("Laboratory Id cannot be blank.");
-        if (labId.length() != 5)
-            throw new IllegalArgumentException("Lab Id must have 5 chars.");
+        if (labId.length() != CHARS_LAB_ID)
+            throw new IllegalArgumentException("Lab Id must have "+CHARS_LAB_ID+" chars.");
 
     }
 
@@ -96,8 +98,8 @@ public class CAL {
     private void checkaddressrules(String address) {
         if (address.length() == 0)
             throw new IllegalArgumentException("Address cannot be blank.");
-        if ( address.trim().length() > 30)
-            throw new IllegalArgumentException("Address must have no more than 30 characters.");
+        if ( address.trim().length() > CHARS_LAB_ADDRESS)
+            throw new IllegalArgumentException("Address must have no more than "+CHARS_LAB_ADDRESS+" characters.");
     }
 
     /**
@@ -107,8 +109,8 @@ public class CAL {
      */
     private void checkphoneNumberrules(long phoneNumber) {
         String temp = String.valueOf(phoneNumber);
-        if ( temp.length() != 11)
-            throw new IllegalArgumentException("Phone Number must have 11 chars.");
+        if ( temp.length() != DIGITS_PHONE_NUM)
+            throw new IllegalArgumentException("Phone Number must have "+DIGITS_PHONE_NUM+" chars.");
     }
 
     /**
@@ -118,8 +120,8 @@ public class CAL {
      */
     private void checkTINrules(long tin) {
         String temp = String.valueOf(tin);
-        if ( temp.length() != 10)
-            throw new IllegalArgumentException("TIN must have 10 chars.");
+        if ( temp.length() != DIGITS_TIN)
+            throw new IllegalArgumentException("TIN must have "+DIGITS_TIN+" chars.");
     }
 
     /**
@@ -130,8 +132,8 @@ public class CAL {
     private void checkNamerules(String labName) {
         if (labName.length() == 0)
             throw new IllegalArgumentException("Laboratory Name cannot be blank.");
-        if ( labName.length() > 20)
-            throw new IllegalArgumentException("Laboratory Name must have no more than 20 characters.");
+        if ( labName.length() > CHARS_LAB_NAME)
+            throw new IllegalArgumentException("Laboratory Name must have no more than "+CHARS_LAB_NAME+" characters.");
     }
 
     /**

@@ -5,6 +5,8 @@ import app.ui.console.utils.Utils;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import static app.domain.shared.Constants.*;
+
 /**
  *  UI for the US8 realization - Register a new CAL
  *
@@ -36,21 +38,21 @@ public class RegisterNewCALUI implements Runnable{
 
             System.out.println("REGISTER NEW CLINICAL ANALYSIS LABORATORY");
 
-            System.out.println("ID (must have 5 characters):");
+            System.out.println("ID (must have "+CHARS_LAB_ID+" characters):");
 
             String labId = reader.nextLine();
 
-            System.out.println("Laboratory Name (no more than 20 chars):");
+            System.out.println("Laboratory Name (no more than "+CHARS_LAB_NAME+" chars):");
             String labName = reader.nextLine();
 
-            System.out.println("Phone Number (11 chars):");
+            System.out.println("Phone Number ("+DIGITS_PHONE_NUM+" chars):");
             long phoneNumber = reader.nextLong();
 
-            System.out.println("Address (no more than 30 chars):");
+            System.out.println("Address (no more than "+CHARS_LAB_ADDRESS+" chars):");
             reader.nextLine();
             String address = reader.nextLine();
 
-            System.out.println("Tax Identification Number (10 chars):");
+            System.out.println("Tax Identification Number ("+CHARS_LAB_TAX_ID+" chars):");
 
             long tin = reader.nextLong();
 

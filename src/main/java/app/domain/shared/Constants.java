@@ -47,6 +47,15 @@ public class Constants {
     public static final String DIAGNOSIS_MADE = "Diagnosis Made";
     public static final String VALIDATED = "Validated";
 
+    //Numbers
+    public static final int DIGITS_NHS = 10;
+    public static final int DIGITS_CC = 16;
+    public static final int DIGITS_TIN = 10;
+    public static final int DIGITS_PHONE_NUM = 11;
+    public static final int CHARS_LAB_ID = 5;
+    public static final int CHARS_LAB_NAME = 20;
+    public static final int CHARS_LAB_ADDRESS = 30;
+    public static final int CHARS_LAB_TAX_ID = 10;
 
     //JAVAFX - gui constants
     public static final double MINIMUM_WINDOW_WIDTH = 800.0;

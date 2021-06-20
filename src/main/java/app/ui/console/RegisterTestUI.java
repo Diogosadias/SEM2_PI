@@ -9,6 +9,8 @@ import app.ui.console.utils.Utils;
 
 import java.util.List;
 
+import static app.domain.shared.Constants.DIGITS_TIN;
+
 /**
  *
  * @author Tiago Rocha <1181445@isep.ipp.pt>
@@ -55,7 +57,7 @@ public class RegisterTestUI implements Runnable {
     }
 
     private boolean checkClient() {
-        long tin = Utils.readLongFromConsole("\nClient - TIN number: (10 digits)");
+        long tin = Utils.readLongFromConsole("\nClient - TIN number: ("+DIGITS_TIN+" digits)");
         if(!mcontroller.checkRegisteredClient(tin)) {
             System.out.println("\nClient with TIN: " + tin + " is not registered.\n");
             return false;

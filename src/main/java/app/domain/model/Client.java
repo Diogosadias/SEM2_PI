@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
+import static app.domain.shared.Constants.*;
 
 
 /**
@@ -274,7 +275,7 @@ public class Client implements Serializable {
      */
     public boolean checkNHS(long nhs) {
             String temp = String.valueOf(nhs);
-            if (temp.length() != 10)
+            if (temp.length() != DIGITS_NHS)
                 throw new IllegalArgumentException("NHS code must have 10 chars.");
             return true;
 
@@ -288,7 +289,7 @@ public class Client implements Serializable {
      */
     public void checkCitizenNumber(long citizenCard){
         String temp = String.valueOf(citizenCard);
-        if (temp.length() > 16) {
+        if (temp.length() > DIGITS_CC) {
             throw new IllegalArgumentException("Citizen Card code must have 16 chars.");
         }
     }
@@ -314,8 +315,8 @@ public class Client implements Serializable {
      */
     public void checkTIN(long tin){
         String temp = String.valueOf(tin);
-        if (temp.length() != 10)
-            throw new IllegalArgumentException("TIN code must have 10 chars.");
+        if (temp.length() != DIGITS_TIN)
+            throw new IllegalArgumentException("TIN code must have "+DIGITS_TIN+" chars.");
     }
 
     /**
@@ -325,8 +326,8 @@ public class Client implements Serializable {
      */
     public void checkPNumber(long phoneNumber){
         String temp = String.valueOf(phoneNumber);
-        if (temp.length() != 11)
-            throw new IllegalArgumentException("Phone Number must have 11 chars.");
+        if (temp.length() != DIGITS_PHONE_NUM)
+            throw new IllegalArgumentException("Phone Number must have "+DIGITS_PHONE_NUM+" chars.");
     }
 
 
