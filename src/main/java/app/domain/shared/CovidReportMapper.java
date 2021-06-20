@@ -222,7 +222,7 @@ public class CovidReportMapper {
     }
 
     public int setN(Date initialDate, Date finalDate) {
-        return (int) TimeUnit.DAYS.convert((finalDate.getTime() - initialDate.getTime()), TimeUnit.MILLISECONDS) - 1;
+        return (int) TimeUnit.DAYS.convert((finalDate.getTime() - initialDate.getTime()), TimeUnit.MILLISECONDS);
     }
 
     private String boardSimpleLRString (double[] x, double[] y, int historicDays, SimpleDateFormat dateFormat) {
