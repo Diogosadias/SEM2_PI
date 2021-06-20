@@ -44,4 +44,13 @@ public class ReportStoreTest {
         boolean b1 = reportStore.saveReport(report1);
         assertEquals(false,b1);
     }
+
+    @Test
+    public void testGetFileName() {
+        System.out.println("GetFileName");
+        ReportStore instance = reportStore;
+        String expResult = "ser/report.txt";
+        String result = instance.getFileName();
+        assertEquals(expResult, result);
+    }
 }

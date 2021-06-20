@@ -124,4 +124,13 @@ public class SpecifyNewTestStoreTest {
 
         assertEquals(storeTestList, storeTest.getTestTypeList());
     }
+
+    @Test
+    public void testGetFileName() {
+        System.out.println("GetFileName");
+        TestTypeStore instance = storeTest;
+        String expResult = "ser/testtype.txt";
+        String result = instance.getFileName();
+        assertEquals(expResult, result);
+    }
 }

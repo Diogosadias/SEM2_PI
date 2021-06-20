@@ -76,6 +76,21 @@ public class TestTypeTest {
         assertEquals(false,test.getCollectingMethod().equals("collectingMethod"));
     }
 
+    @Test
+    public void setCategory() {
+        //arrange
+        /*TestType test = new TestType("codex","description","collectingMethod");
+        ParameterCategory pc = new ParameterCategory("12345","abc","12345");
+        Parameter p = new Parameter("1111t", "test", "this is a test", "11111");
+        ParameterCategoryStore pcs = new ParameterCategoryStore();
+
+        //calculations
+        test.setCategory(pc);
+        //assert
+        assertEquals("12345", pcs.getParameterCategoryByCode(pc.getCode()));
+        assertEquals(false,pcs.getParameterCategoryByCode(pc.getCode()).equals("12345"));*/
+    }
+
 
     @Test
     public void testCheckCode(){

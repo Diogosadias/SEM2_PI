@@ -274,4 +274,13 @@ public class TestStoreTest {
     @Test
     public void getTestResultToString() {
     }
+
+    @Test
+    public void testGetFileName() {
+        System.out.println("GetFileName");
+        TestStore instance = ts;
+        String expResult = "ser/test.txt";
+        String result = instance.getFileName();
+        assertEquals(expResult, result);
+    }
 }

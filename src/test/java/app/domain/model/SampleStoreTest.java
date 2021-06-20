@@ -117,4 +117,13 @@ public class SampleStoreTest {
         List<Sample> result = instance.getSamples();
         assertEquals(expResult, result);
     }
+
+    @Test
+    public void testGetFileName() {
+        System.out.println("GetFileName");
+        SampleStore instance = store;
+        String expResult = "ser/sample.txt";
+        String result = instance.getFileName();
+        assertEquals(expResult, result);
+    }
 }
