@@ -279,7 +279,7 @@ public class TestStore extends Store{
         try {
             return this.getTests(Constants.VALIDATED);
         }catch(IllegalArgumentException i) {
-            System.out.println("Test list in Validated state is empty.\n");
+            System.out.println("\nTest list in Validated state is empty.");
         }
         return null;
     }

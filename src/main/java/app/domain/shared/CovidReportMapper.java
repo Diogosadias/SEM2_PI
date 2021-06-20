@@ -44,7 +44,6 @@ public class CovidReportMapper {
             this.alpha = alpha;
             return true;
         } catch (NullPointerException n) {
-            System.out.println("Problem sending daily Nhs Report.");
             return false;
         }
     }
