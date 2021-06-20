@@ -3,6 +3,7 @@ package app.utils.fx;
 import app.ui.Main;
 import app.ui.console.MenuItem;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import java.util.Optional;
 
@@ -35,6 +36,7 @@ public class FXUtils {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Exit Confirmation");
         alert.setHeaderText("Are you sure you want to exit the program?");
+        ((Button) alert.getDialogPane().lookupButton(ButtonType.OK)).setText("Yes");
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent()) {
             if (result.get() == ButtonType.OK) {
@@ -47,6 +49,7 @@ public class FXUtils {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Logout Confirmation");
         alert.setHeaderText("Are you sure you want to logout?");
+        ((Button) alert.getDialogPane().lookupButton(ButtonType.OK)).setText("Yes");
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent()) {
             if (result.get() == ButtonType.OK) {
@@ -65,6 +68,7 @@ public class FXUtils {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Back Confirmation");
         alert.setHeaderText("Are you sure you want to go back?");
+        ((Button) alert.getDialogPane().lookupButton(ButtonType.OK)).setText("Yes");
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent()) {
             if (result.get() == ButtonType.OK) {

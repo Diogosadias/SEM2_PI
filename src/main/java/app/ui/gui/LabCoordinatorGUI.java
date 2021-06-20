@@ -6,6 +6,7 @@ import app.utils.fx.FXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 import java.net.URL;
 import java.util.ArrayList;
@@ -47,7 +48,7 @@ public class LabCoordinatorGUI implements Initializable, GuiMethods {
                 try {
                     options.get(option).runGui(options.get(option).getGui(),mainInstance);
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    FXUtils.openAlert("WARNING", "Warning",e.getMessage(), Alert.AlertType.WARNING);
                 }
             }
         });
