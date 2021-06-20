@@ -5,6 +5,7 @@ import app.domain.shared.ExternalModule;
 import auth.domain.model.Email;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -21,20 +22,33 @@ import org.junit.Test;
 
 public class TestTest {
 
+    private TestType testType;
+    private Client c1;
+    private app.domain.model.Test test;
+    private ParameterCategory pc;
+    private TestParameter tp;
+    private Parameter p;
+    private Sample s;
 
-    TestType testType = new TestType("codex","description","collectingMethod");
-    Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 1111111111L, new Date("12/12/2021"), "M", 11111111111L);
-
-    app.domain.model.Test test = new app.domain.model.Test(testType,"description",c1);
-
-    ParameterStore ps = new ParameterStore();
-    Parameter p = new Parameter("1111t", "test", "this is a test", "11111");
-
-    TestParameter tp = new TestParameter(p);
-    ParameterCategory pc = new ParameterCategory("12345","abc","12345");
-    Sample s = new Sample("123");
 
     public TestTest() throws BarcodeException, OutputException, IOException {
+        try {
+            testType = new TestType("codex","description","collectingMethod");
+             c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111111L, 1111111111L, new Date("12/12/2021"), "M", 11111111111L);
+
+            test = new app.domain.model.Test(testType,"description",c1);
+
+            ParameterStore ps = new ParameterStore();
+            p = new Parameter("1111t", "test", "this is a test", "11111");
+
+            tp = new TestParameter(p);
+            pc = new ParameterCategory("12345","abc","12345");
+            s = new Sample("123");
+        }
+            catch (NullPointerException n)
+            {
+
+            }
     }
 
     @Test
