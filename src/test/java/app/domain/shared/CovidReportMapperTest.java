@@ -61,6 +61,9 @@ public class CovidReportMapperTest {
 
     @Test
     public void setN() {
+        int expected = mapper.setN(initialDate,finalDate);
+        int result = 10;
+        Assert.assertEquals(expected,result);
     }
 
     private String fileData() {
