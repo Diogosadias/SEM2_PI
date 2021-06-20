@@ -99,4 +99,13 @@ public class ParameterCategoryStoreTest {
         String check = "ParameterCategory{code='aaaaa', description='aaaaaaaa', nhsId='aaaaa'}\nParameterCategory{code='aaaa2', description='aaaaaaaa', nhsId='aaaaa'}\n";
         assertEquals(check, storeTest.toString());
     }
+
+    @Test
+    public void testGetFileName() {
+        System.out.println("GetFileName");
+        ParameterCategoryStore instance = storeTest;
+        String expResult = "ser/parametercategory.txt";
+        String result = instance.getFileName();
+        assertEquals(expResult, result);
+    }
 }

@@ -103,4 +103,13 @@ public class ClientStoreTest {
     @Test
     public void getClientByTIN() {
     }
+
+    @Test
+    public void testGetFileName() {
+        System.out.println("GetFileName");
+        ClientStore instance = store;
+        String expResult = "ser/client.txt";
+        String result = instance.getFileName();
+        assertEquals(expResult, result);
+    }
 }

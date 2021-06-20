@@ -127,4 +127,13 @@ public class ParameterStoreTest {
         String check = "Parameter{code='1111t', name='test', description='this is a test', category='11111'}\nParameter{code='1131t', name='tast', description='tdhis is a test', category='11111'}\n";
         assertEquals(check, storeTest.toString());
     }
+
+    @Test
+    public void testGetFileName() {
+        System.out.println("GetFileName");
+        ParameterStore instance = storeTest;
+        String expResult = "ser/parameter.txt";
+        String result = instance.getFileName();
+        assertEquals(expResult, result);
+    }
 }
