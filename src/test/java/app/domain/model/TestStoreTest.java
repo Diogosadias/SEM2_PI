@@ -26,6 +26,8 @@ public class TestStoreTest {
     TestType type1 = new TestType("123te","Blood Test","Blood sample");
     app.domain.model.Test t = new app.domain.model.Test(type1,"aaaa", c1);
     TestType testType = new TestType("test1","testType","TEST");
+    ParameterCategory pCat = new ParameterCategory("pCatTst1", "aaaaa", "123");
+    Parameter parameter = new Parameter("param1", "pCatTst1");
 
 
     @Test
@@ -39,7 +41,7 @@ public class TestStoreTest {
     @Test
     public void checkRegisteredClient() {
         company.getTestStore().setCompany(company);
-           company.getClientStore().saveClients(c1,"aaaa");
+        company.getClientStore().saveClients(c1,"aaaa");
         boolean test = company.getTestStore().checkRegisteredClient(1111111111L);
         assertTrue(test);
         boolean test2 = company.getTestStore().checkRegisteredClient(111111311111L);
@@ -71,7 +73,7 @@ public class TestStoreTest {
 
     @Test
     public void addCategoryToTest() {
-        ParameterCategory pCat = new ParameterCategory("pCatTst1", "aaaaa", "123");
+
         this.company.getTestStore().setCompany(this.company);
         this.company.getParameterCategoryStore().addParameterCategory(pCat);
 
@@ -79,39 +81,89 @@ public class TestStoreTest {
         this.company.getTestTypeStore().addTestType(this.testType);
         this.company.getClientStore().setClientList(this.c1);
         this.company.getTestStore().checkRegisteredClient(this.c1.getTin());
-        company.getTestStore().newTest("test1");
+        this.company.getTestStore().newTest("test1");
         this.ts.addCategoryToTest("pCatTst1");
-        company.getTestStore().saveTest();
+        this.company.getTestStore().saveTest();
         assertEquals(ts.getTest().getListCategories().get(0).toString(), pCat.toString());
     }
 
     @Test
     public void getListParameters() {
+        this.company.getTestStore().setCompany(this.company);
+        this.company.getParameterCategoryStore().addParameterCategory(pCat);
+        this.company.getTestTypeStore().addTestType(this.testType);
+        this.company.getClientStore().setClientList(this.c1);
+        this.company.getTestStore().checkRegisteredClient(this.c1.getTin());
+        this.company.getTestStore().newTest("test1");
+        this.ts.addCategoryToTest("pCatTst1");
+        this.company.getTestStore().saveTest();
+        this.company.getParameterStore().addParameter(this.parameter);
+        this.ts.getTest().addParameter(this.parameter);
+        assertEquals(ts.getTest().getListParameters().get(0).toString(), this.parameter.toString());
+        assertEquals(1, ts.getTest().getListParameters().size());
     }
 
     @Test
     public void addParameterToTest() {
+        this.company.getTestStore().setCompany(this.company);
+        this.company.getParameterCategoryStore().addParameterCategory(pCat);
+        this.company.getTestTypeStore().addTestType(this.testType);
+        this.company.getClientStore().setClientList(this.c1);
+        this.company.getTestStore().checkRegisteredClient(this.c1.getTin());
+        this.company.getTestStore().newTest("test1");
+        this.ts.addCategoryToTest("pCatTst1");
+        this.company.getTestStore().saveTest();
+        this.company.getParameterStore().addParameter(this.parameter);
+        this.ts.getTest().addParameter(this.parameter);
+        assertEquals(ts.getTest().getListParameters().get(0).toString(), this.parameter.toString());
+        assertEquals(1, ts.getTest().getListParameters().size());
     }
 
     @Test
     public void addNhsCodeToTest() {
+        this.company.getTestStore().setCompany(this.company);
+        this.company.getTestTypeStore().addTestType(this.testType);
+        this.company.getClientStore().setClientList(this.c1);
+        this.company.getTestStore().checkRegisteredClient(this.c1.getTin());
+        this.company.getTestStore().newTest("test1");
+        this.ts.addNhsCodeToTest("123456789012");
+        this.company.getTestStore().saveTest();
+
+        assertEquals("123456789012", this.ts.getTest().getNhsCode());
     }
 
     @Test
     public void validateTest() {
+        this.ts.setCompany(this.company);
+        this.company.getTestTypeStore().addTestType(this.testType);
+        this.company.getClientStore().setClientList(this.c1);
+        this.ts.checkRegisteredClient(this.c1.getTin());
+        this.ts.newTest("test1");
+        this.ts.addNhsCodeToTest("123456789012");
+        assertTrue(this.ts.validateTest());
+        this.ts.saveTest();
+        assertFalse(this.ts.validateTest());
     }
 
     @Test
     public void saveTest() {
+        this.ts.setCompany(this.company);
+        this.company.getTestTypeStore().addTestType(this.testType);
+        this.company.getClientStore().setClientList(this.c1);
+        this.ts.checkRegisteredClient(this.c1.getTin());
+        this.ts.newTest("test1");
+        this.ts.addNhsCodeToTest("123456789012");
+        this.ts.saveTest();
+        assertEquals(this.ts.getRegisteredTests().get(0).getCode(), this.ts.getTest().getCode());
+        assertEquals(this.ts.getRegisteredTests().get(0).getNhsCode(), this.ts.getTest().getNhsCode());
     }
 
     @Test
     public void addTest() {
         ts.addTest(t);
         app.domain.model.Test e = new app.domain.model.Test(type1,"aaaa",c1);
-        assertEquals(e.getClient().equals(ts.getTest().getClient()), true);
-        assertEquals(! t.equals(ts.getTest()), false);
-
+        assertEquals(e.getClient(), ts.getTest().getClient());
+        assertEquals(t, ts.getTest());
     }
 
     @Test
