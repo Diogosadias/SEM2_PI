@@ -58,11 +58,11 @@ public class CAL {
 
     public CAL(String labId, String labName, long  phoneNumber, String address, long tin, boolean answer){
 
-        checkLabIDRules(labId);
-        checkAddressRules(address);
-        checkPhoneNumberRules(phoneNumber);
-        checkTINRules(tin);
-        checkNameRules(labName);
+        checkLabIDrules(labId);
+        checkaddressrules(address);
+        checkphoneNumberrules(phoneNumber);
+        checkTINrules(tin);
+        checkNamerules(labName);
 
         this.laboratoryId=labId;
         this.labName = labName;
@@ -83,7 +83,7 @@ public class CAL {
      * @param labId laboratory's id
      */
 
-    private void checkLabIDRules(String labId) {
+    private void checkLabIDrules(String labId) {
         if (labId.length() == 0)
             throw new IllegalArgumentException("Laboratory Id cannot be blank.");
         if (labId.length() != CHARS_LAB_ID)
@@ -96,7 +96,7 @@ public class CAL {
      * @param address laboratory's address
      */
 
-    private void checkAddressRules(String address) {
+    private void checkaddressrules(String address) {
         if (address.length() == 0)
             throw new IllegalArgumentException("Address cannot be blank.");
         if ( address.trim().length() > CHARS_LAB_ADDRESS)
@@ -109,7 +109,7 @@ public class CAL {
      * @param phoneNumber laboratory's phone number
      */
 
-    private void checkPhoneNumberRules(long phoneNumber) {
+    private void checkphoneNumberrules(long phoneNumber) {
         String temp = String.valueOf(phoneNumber);
         if ( temp.length() != DIGITS_PHONE_NUM)
             throw new IllegalArgumentException("Phone Number must have "+DIGITS_PHONE_NUM+" chars.");
@@ -121,7 +121,7 @@ public class CAL {
      * @param tin laboratory's tin
      */
 
-    private void checkTINRules(long tin) {
+    private void checkTINrules(long tin) {
         String temp = String.valueOf(tin);
         if ( temp.length() != DIGITS_TIN)
             throw new IllegalArgumentException("TIN must have "+DIGITS_TIN+" chars.");
@@ -133,7 +133,7 @@ public class CAL {
      * @param labName laboratory's name
      */
 
-    private void checkNameRules(String labName) {
+    private void checkNamerules(String labName) {
         if (labName.length() == 0)
             throw new IllegalArgumentException("Laboratory Name cannot be blank.");
         if ( labName.length() > CHARS_LAB_NAME)
