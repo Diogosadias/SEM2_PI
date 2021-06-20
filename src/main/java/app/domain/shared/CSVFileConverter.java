@@ -34,7 +34,7 @@ public class CSVFileConverter {
 
 
 
-    public void convertToObject(String fileName) throws FileNotFoundException {
+    public boolean convertToObject(String fileName) throws FileNotFoundException {
 
         if(!fileName.contains(".csv")) {
             fileName += ".csv";
@@ -149,7 +149,7 @@ public class CSVFileConverter {
 
 
 
-
+        return true;
     }
 
     private int getColumnIndex(String [] header, String s){
