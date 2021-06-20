@@ -72,8 +72,9 @@ public class SampleStoreTest {
         System.out.println("createSample");
         String id = "98949851479";
         SampleStore instance = store;
-        Sample expResult = s1;
         Sample result = instance.createSample(id);
+        instance.saveSample(result);
+        Sample expResult = instance.getSamples().get(0);
         assertEquals(expResult, result);
     }
 
@@ -83,13 +84,11 @@ public class SampleStoreTest {
     @Test
     public void testSaveSample() {
         System.out.println("saveSample");
-        Sample sample = null;
-        SampleStore instance = new SampleStore();
-        boolean expResult = false;
+        Sample sample = s1;
+        SampleStore instance = store;
+        boolean expResult = true;
         boolean result = instance.saveSample(sample);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -98,13 +97,11 @@ public class SampleStoreTest {
     @Test
     public void testValidateSample() {
         System.out.println("validateSample");
-        Sample sample = null;
-        SampleStore instance = new SampleStore();
-        boolean expResult = false;
+        Sample sample = s1;
+        SampleStore instance = store;
+        boolean expResult = true;
         boolean result = instance.validateSample(sample);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -113,11 +110,11 @@ public class SampleStoreTest {
     @Test
     public void testGetSamples() {
         System.out.println("getSamples");
-        SampleStore instance = new SampleStore();
-        List<Sample> expResult = null;
+        SampleStore instance = store;
+        List<Sample> expResult = new ArrayList<>();
+        expResult.add(s1);
+        instance.saveSample(s1);
         List<Sample> result = instance.getSamples();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 }
