@@ -37,6 +37,8 @@ public class SampleStoreTest {
             assertNull(ex);
         }catch (IOException ex){
             assertNull(ex);
+        }catch(Exception ex){
+            assertNull(ex);
         }
 
 
