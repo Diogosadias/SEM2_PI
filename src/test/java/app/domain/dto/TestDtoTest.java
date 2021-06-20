@@ -8,6 +8,8 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import app.domain.shared.Constants;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Test;
@@ -25,7 +27,12 @@ public class TestDtoTest {
     List<Sample> sampleList = new ArrayList<>();
     TestDto testDto3 = new TestDto("34567","teste3", sampleList);
     List<TestParameter> listTP = new ArrayList<>();
-    TestDto testDto4 = new TestDto("45678",Long.valueOf("45678"),listTP);    
+    TestDto testDto4 = new TestDto("45678",Long.valueOf("45678"),listTP);
+    Date now = new Date();
+    TestDto testDto5 = new TestDto(now);
+    TestDto testDto6 = new TestDto("11111", now, now, now);
+    TestDto testDto7 = new TestDto("22222", now, now, now, now);
+    TestDto testDto8 = new TestDto();
 
 
     @BeforeClass
@@ -210,9 +217,9 @@ public class TestDtoTest {
      * Test of Parameters_toString method, of class TestDto.
      */
     @Test
-    public void testParameters_toString() {
-        System.out.println("Parameters_toString");
-        TestDto instance = testDto1;
+    public void testParametersToString() {
+        System.out.println("ParametersToString");
+        TestDto instance = testDto2;
         String expResult = "\n\nList of Parameter(s) for each Category to be analysed: ";
         for (ParameterCategory category : instance.categories) {
             expResult = expResult + "\n\n - " + category.getDescription();
@@ -231,8 +238,8 @@ public class TestDtoTest {
      * Test of Samples_toString method, of class TestDto.
      */
     @Test
-    public void testSamples_toString() {
-        System.out.println("Samples_toString");
+    public void testSamplesToString() {
+        System.out.println("SamplesToString");
         TestDto instance = testDto1;
         String expResult = "\nTest n: " + instance.getCode() +
                 "\nList of Sample(s): \n";
@@ -292,6 +299,75 @@ public class TestDtoTest {
         TestDto instance = testDto1;
         instance.setListTP(listTP);
         assertEquals(listTP, instance.listTP);
+    }
+
+    /**
+     * Test of setDateRegistered method, of class TestDto.
+     */
+    @Test
+    public void testSetDateRegistered() {
+        System.out.println("setDateRegistered");
+        Date expResult = this.now;
+        TestDto instance = testDto5;
+        instance.setDateRegistered(expResult);
+        Date result = instance.getDateRegistered();
+        assertEquals(expResult, result);
+
+    }
+
+    /**
+     * Test of setDateChemicalAnalysis method, of class TestDto.
+     */
+    @Test
+    public void testSetDateChemicalAnalysis() {
+        System.out.println("setDateChemicalAnalysis");
+        Date expResult = this.now;
+        TestDto instance = testDto5;
+        instance.setDateChemicalAnalysis(expResult);
+        Date result = instance.getDateChemicalAnalysis();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of setDateDiagnosis method, of class TestDto.
+     */
+    @Test
+    public void testSetDateDiagnosis() {
+        System.out.println("setDateDiagnosis");
+        Date expResult = this.now;
+        TestDto instance = testDto5;
+        instance.setDateDiagnosis(expResult);
+        Date result = instance.getDateDiagnosis();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of setDateValidation method, of class TestDto.
+     */
+    @Test
+    public void testSetDateValidation() {
+        System.out.println("setDateValidation");
+        Date expResult = this.now;
+        TestDto instance = testDto5;
+        instance.setDateValidation(expResult);
+        Date result = instance.getDateValidation();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of validatedDates_toString method, of class TestDto.
+     */
+    @Test
+    public void testValidatedDatesToString() {
+        System.out.println("validatedDatesToString");
+        TestDto instance = testDto7;
+        String expResult = "\n" +
+                "Test n: 22222\n" +
+                "Date Registration: " + Constants.FORMATTER.format(this.now) + "\n" +
+                "Date Chemical Analysis: " + Constants.FORMATTER.format(this.now) + "\n" +
+                "Date Diagnosis: " + Constants.FORMATTER.format(this.now) + "";
+        String result = instance.validatedDatesToString();
+        assertEquals(expResult, result);
     }
     
 }
