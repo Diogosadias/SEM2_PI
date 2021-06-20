@@ -52,6 +52,7 @@ public class ClientStore extends Store{
      *
      * @return Client
      */
+
     public Client createClient(String id, String name, long nhs, long citizenCard, long tin, String birthDate, String sex, long pNumber ){
 
         Email email = new Email(id);
@@ -68,6 +69,7 @@ public class ClientStore extends Store{
      *
      * @return boolean
      */
+
     public boolean validateClient(Client rc){
         if(rc!=null) {
         for (Client client: this.clientList) {
@@ -92,7 +94,6 @@ public class ClientStore extends Store{
                 return false;
             }
         }
-
             return ! this.clientList.contains(rc);
         }
         return false;
@@ -111,7 +112,6 @@ public class ClientStore extends Store{
             this.authFacade.addUserWithRole(rc.getName(), rc.getId().getEmail(), pwd , Constants.ROLE_CLIENT);
             this.client = rc;
             return this.clientList.add(this.client);
-
     }
 
     /**
@@ -163,6 +163,13 @@ public class ClientStore extends Store{
         }
         return null;
     }
+
+    /**
+     * Return the Client's list.
+     *
+     * @param id client's email
+     */
+
     public Client getClientByID(Email id) {
         String ids= id.toString();
         for ( Client c : clientList) {
@@ -172,6 +179,12 @@ public class ClientStore extends Store{
         }
         return null;
     }
+
+    /**
+     * Change list of objects in Store to a List Object.
+     *
+     * @return List Object
+     */
 
     @Override
     public List getListObjects() {
@@ -183,11 +196,23 @@ public class ClientStore extends Store{
         return list;
     }
 
+    /**
+     * Get the name of the file.
+     *
+     * @return File's name
+     */
+
     @Override
     public String getFileName() {
         // Path - "Folder: ser" / "File Name: this store's object class" "Suffix: .txt"
         return "ser/client.txt";
     }
+
+    /**
+     * Read Object from File and import as this store's object class.
+     *
+     * @param o Object
+     */
 
     @Override
     public void importObject(Object o) {

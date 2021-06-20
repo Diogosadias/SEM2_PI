@@ -10,6 +10,9 @@ import java.util.List;
 
 public class ReportStore extends Store{
 
+    /**
+     * The Report.
+     */
     private Report report;
 
     /**
@@ -33,6 +36,7 @@ public class ReportStore extends Store{
      *
      * @return Report
      */
+
     public Report createReport(String diagnosis, Test test){
         if(diagnosis==null || test ==null){
             return null;
@@ -97,9 +101,21 @@ public class ReportStore extends Store{
         throw new IllegalArgumentException("Report: There is no test with that code.");
     }
 
+    /**
+     * Change the report.
+     *
+     * @param report Report
+     */
+
     public void setReport (Report report) {
         this.report = report;
     }
+
+    /**
+     * Return the List's store.
+     *
+     * @return List
+     */
 
     @Override
     public List getListObjects() {
@@ -115,11 +131,23 @@ public class ReportStore extends Store{
         return list;
     }
 
+    /**
+     * Get the name of the file.
+     *
+     * @return File's name
+     */
+
     @Override
     public String getFileName() {
         // Path - "Folder: ser" / "File Name: this store's object class" "Suffix: .txt"
         return "ser/report.txt";
     }
+
+    /**
+     * Read Object from File and import as this store's object class.
+     *
+     * @param o Object
+     */
 
     @Override
     public void importObject(Object o) {
@@ -127,5 +155,4 @@ public class ReportStore extends Store{
         this.report = (Report) o;
         this.saveReport(report);
     }
-
 }

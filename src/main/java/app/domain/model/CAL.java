@@ -2,8 +2,6 @@ package app.domain.model;
 
 import java.util.Objects;
 
-import static app.domain.shared.Constants.*;
-
 /**
  *  CAL - Domain class representing a Clinical Analysis Laboratory
  *
@@ -82,12 +80,12 @@ public class CAL {
      *
      * @param labId laboratory's id
      */
+
     private void checkLabIDrules(String labId) {
         if (labId.length() == 0)
             throw new IllegalArgumentException("Laboratory Id cannot be blank.");
-        if (labId.length() != CHARS_LAB_ID)
-            throw new IllegalArgumentException("Lab Id must have "+CHARS_LAB_ID+" chars.");
-
+        if (labId.length() != 5)
+            throw new IllegalArgumentException("Lab Id must have 5 chars.");
     }
 
     /**
@@ -95,11 +93,12 @@ public class CAL {
      *
      * @param address laboratory's address
      */
+
     private void checkaddressrules(String address) {
         if (address.length() == 0)
             throw new IllegalArgumentException("Address cannot be blank.");
-        if ( address.trim().length() > CHARS_LAB_ADDRESS)
-            throw new IllegalArgumentException("Address must have no more than "+CHARS_LAB_ADDRESS+" characters.");
+        if ( address.trim().length() > 30)
+            throw new IllegalArgumentException("Address must have no more than 30 characters.");
     }
 
     /**
@@ -107,10 +106,11 @@ public class CAL {
      *
      * @param phoneNumber laboratory's phone number
      */
+
     private void checkphoneNumberrules(long phoneNumber) {
         String temp = String.valueOf(phoneNumber);
-        if ( temp.length() != DIGITS_PHONE_NUM)
-            throw new IllegalArgumentException("Phone Number must have "+DIGITS_PHONE_NUM+" chars.");
+        if ( temp.length() != 11)
+            throw new IllegalArgumentException("Phone Number must have 11 chars.");
     }
 
     /**
@@ -118,10 +118,11 @@ public class CAL {
      *
      * @param tin laboratory's tin
      */
+
     private void checkTINrules(long tin) {
         String temp = String.valueOf(tin);
-        if ( temp.length() != DIGITS_TIN)
-            throw new IllegalArgumentException("TIN must have "+DIGITS_TIN+" chars.");
+        if ( temp.length() != 10)
+            throw new IllegalArgumentException("TIN must have 10 chars.");
     }
 
     /**
@@ -129,11 +130,12 @@ public class CAL {
      *
      * @param labName laboratory's name
      */
+
     private void checkNamerules(String labName) {
         if (labName.length() == 0)
             throw new IllegalArgumentException("Laboratory Name cannot be blank.");
-        if ( labName.length() > CHARS_LAB_NAME)
-            throw new IllegalArgumentException("Laboratory Name must have no more than "+CHARS_LAB_NAME+" characters.");
+        if ( labName.length() > 20)
+            throw new IllegalArgumentException("Laboratory Name must have no more than 20 characters.");
     }
 
     /**
@@ -141,6 +143,7 @@ public class CAL {
      *
      * @return laboratory's name
      */
+
     public String getLabName(){
         return labName;
     }
@@ -150,6 +153,7 @@ public class CAL {
      *
      * @return laboratory's address
      */
+
     public String getAddress(){
         return address;
     }
@@ -159,6 +163,7 @@ public class CAL {
      *
      * @return laboratory's phone number
      */
+
     public long getPhoneNumber(){
         return phoneNumber;
     }
@@ -168,6 +173,7 @@ public class CAL {
      *
      * @return laboratory's tin
      */
+
     public long getTinNumber(){
         return tinNumber;
     }
@@ -177,6 +183,7 @@ public class CAL {
      *
      * @return laboratory's performs covid test
      */
+
     public boolean getPerformsCovidTest(){
         return performsCovidTest;
     }
@@ -186,6 +193,7 @@ public class CAL {
      *
      * @return laboratory's id
      */
+
     public String getLaboratoryId(){
         return laboratoryId;
     }
@@ -195,6 +203,7 @@ public class CAL {
      *
      * @param labName laboratory's name
      */
+
     public void setLabName(String labName){
         this.labName = labName;
     }
@@ -204,6 +213,7 @@ public class CAL {
      *
      * @param address laboratory's address
      */
+
     public void setAddress(String address){
         this.address=address;
     }
@@ -213,6 +223,7 @@ public class CAL {
      *
      * @param phoneNumber laboratory's phone number
      */
+
     public void setPhoneNumber(long phoneNumber){
         this.phoneNumber = phoneNumber;
     }
@@ -222,6 +233,7 @@ public class CAL {
      *
      * @param tinNumber laboratory's tin
      */
+
     public void setTinNumber(long tinNumber){
         this.tinNumber = tinNumber;
     }
@@ -231,6 +243,7 @@ public class CAL {
      *
      * @param performsCovidTest laboratory's performs covid test
      */
+
     public void setPerformsCovidTest(boolean performsCovidTest){
         this.performsCovidTest = performsCovidTest;
     }
@@ -240,6 +253,7 @@ public class CAL {
      *
      * @param laboratoryId laboratory's id
      */
+
     public void setLaboratoryId(String laboratoryId){
         this.laboratoryId = laboratoryId;
     }
@@ -252,6 +266,7 @@ public class CAL {
      *
      * @return true or false
      */
+
     @Override
     public boolean equals(Object o) {
         if(o!=null){

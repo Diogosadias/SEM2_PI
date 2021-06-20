@@ -1,7 +1,6 @@
 package app.domain.model;
 
 import org.apache.commons.lang3.StringUtils;
-
 import java.io.Serializable;
 
 /**
@@ -11,15 +10,20 @@ import java.io.Serializable;
  *  @author Tiago Ferreira <1200601@isep.ipp.pt>
  *  @author Tiago Rocha <1181445@isep.ipp.pt>
 */
+
 public class ParameterCategory implements Serializable {
+
     /**
      * code - Parameter Category Code
      */
     private String code;
+
     /**
      * description - Parameter Category Description
      */
+
     private String description;
+
     /**
      * nhsId - Parameter Category's NHS ID
      */
@@ -32,6 +36,7 @@ public class ParameterCategory implements Serializable {
      * @param description - Parameter Category Description
      * @param nhsId - Parameter Category NHS ID
      */
+
     public ParameterCategory(String code, String description, String nhsId){
         checkCodeRules(code);
         checkDescriptionRules(description);
@@ -45,6 +50,7 @@ public class ParameterCategory implements Serializable {
      *
      * @param code - Parameter Category Code
      */
+
     private void checkCodeRules(String code){
         if(StringUtils.isBlank(code))
             throw new IllegalArgumentException("Code cannot be blank");
@@ -57,6 +63,7 @@ public class ParameterCategory implements Serializable {
      *
      * @param description - Parameter Category Description
      */
+
     private void checkDescriptionRules(String description){
         if(StringUtils.isBlank(description))
             throw new IllegalArgumentException("Code cannot be blank");
@@ -69,7 +76,6 @@ public class ParameterCategory implements Serializable {
      *
      * @return parameter category's features
      */
-
 
     @Override
     public String toString() {
@@ -85,6 +91,7 @@ public class ParameterCategory implements Serializable {
      *
      * @return ParameterCategory's code
      */
+
     public String getCode() {
         return code;
     }
@@ -94,6 +101,7 @@ public class ParameterCategory implements Serializable {
      *
      * @return ParameterCategory's description
      */
+
     public String getDescription() {
         return description;
     }
@@ -103,6 +111,7 @@ public class ParameterCategory implements Serializable {
      *
      * @return ParameterCategory's nhsid
      */
+
     public String getNhsId() {
         return nhsId;
     }
@@ -112,6 +121,7 @@ public class ParameterCategory implements Serializable {
      *
      * @param code ParameterCategory's code
      */
+
     public void setCode(String code) {
         this.code = code;
     }
@@ -121,6 +131,7 @@ public class ParameterCategory implements Serializable {
      *
      * @param description ParameterCategory's description
      */
+
     public void setDescription(String description) {
         this.description = description;
     }
@@ -130,6 +141,7 @@ public class ParameterCategory implements Serializable {
      *
      * @param nhsId ParameterCategory's nhsid
      */
+
     public void setNhsId(String nhsId) {
         this.nhsId = nhsId;
     }

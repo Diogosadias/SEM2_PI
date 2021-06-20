@@ -1,13 +1,11 @@
 package app.domain.model;
 
 import auth.domain.model.Email;
-
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 import static app.domain.shared.Constants.*;
-
 
 /**
  * This domain class allows to build an instance of client.
@@ -58,7 +56,6 @@ public class Client implements Serializable {
      */
     private long pNumber;
 
-
     /**
      * Constructor Client with the email, name, nhs, citizen card, tin number, birth date, sex
      * and phone number.
@@ -92,6 +89,18 @@ public class Client implements Serializable {
         this.pNumber = pNumber;
     }
 
+    /**
+     * Constructor Client with the id, name, nhs, citizen card, tin, birth date and phone number
+     *
+     * @param id client's email
+     * @param name client's name
+     * @param nhs client's nhs
+     * @param citizenCard client's citizen card
+     * @param tin client's tin
+     * @param birthDate client's birth date
+     * @param pNumber client's phone number
+     */
+
     public Client(Email id, String name, long nhs, long citizenCard, long tin, Date birthDate, long pNumber){
 
         checkNHS(nhs);
@@ -123,12 +132,12 @@ public class Client implements Serializable {
         this.birthDate = birthDate;
     }
 
-
     /**
      * Return the client's nhs.
      *
      * @return client's nhs
      */
+
     public long getNhs() {
         return nhs;
     }
@@ -138,6 +147,7 @@ public class Client implements Serializable {
      *
      * @return client's citizen card
      */
+
     public long getCitizenCard() {
         return citizenCard;
     }
@@ -147,6 +157,7 @@ public class Client implements Serializable {
      *
      * @return client's tin
      */
+
     public long getTin() {
         return tin;
     }
@@ -156,6 +167,7 @@ public class Client implements Serializable {
      *
      * @return client's birth date
      */
+
     public Date getBirthDate() {
         return birthDate;
     }
@@ -165,6 +177,7 @@ public class Client implements Serializable {
      *
      * @return client's sex
      */
+
     public String getSex() {
         return sex;
     }
@@ -174,6 +187,7 @@ public class Client implements Serializable {
      *
      * @return client's phone number
      */
+
     public long getPNumber() {
         return pNumber;
     }
@@ -183,6 +197,7 @@ public class Client implements Serializable {
      *
      * @return client's name
      */
+
     public String getName() {
         return name;
     }
@@ -192,6 +207,7 @@ public class Client implements Serializable {
      *
      * @param name client's name
      */
+
     public void setName(String name) {
         this.name = name;
     }
@@ -201,6 +217,7 @@ public class Client implements Serializable {
      *
      * @return client's id
      */
+
     public Email getId() {
         return id;
     }
@@ -210,6 +227,7 @@ public class Client implements Serializable {
      *
      * @param id client's id
      */
+
     public void setId(Email id) {
         this.id = id;
     }
@@ -219,6 +237,7 @@ public class Client implements Serializable {
      *
      * @param nhs client's nhs
      */
+
     public void setNhs(long nhs) {
         this.nhs = nhs;
     }
@@ -228,6 +247,7 @@ public class Client implements Serializable {
      *
      * @param citizenCard client's citizen card
      */
+
     public void setCitizenCard(long citizenCard) {
         this.citizenCard = citizenCard;
     }
@@ -237,6 +257,7 @@ public class Client implements Serializable {
      *
      * @param birthDate client's birth date
      */
+
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
@@ -246,6 +267,7 @@ public class Client implements Serializable {
      *
      * @param tin client's tin
      */
+
     public void setTin(long tin) {
         this.tin = tin;
     }
@@ -255,6 +277,7 @@ public class Client implements Serializable {
      *
      * @param sex client's sex
      */
+
     public void setSex(String sex) {
         this.sex = sex;
     }
@@ -264,6 +287,7 @@ public class Client implements Serializable {
      *
      * @param pNumber client's phone number
      */
+
     public void setPNumber(long pNumber) {
         this.pNumber = pNumber;
     }
@@ -273,6 +297,7 @@ public class Client implements Serializable {
      *
      * @param nhs client's nhs
      */
+
     public boolean checkNHS(long nhs) {
             String temp = String.valueOf(nhs);
             if (temp.length() != DIGITS_NHS)
@@ -281,12 +306,12 @@ public class Client implements Serializable {
 
     }
 
-
     /**
      * Check if the citizen card it's within the rules.
      *
      * @param citizenCard
      */
+
     public void checkCitizenNumber(long citizenCard){
         String temp = String.valueOf(citizenCard);
         if (temp.length() > DIGITS_CC) {
@@ -299,6 +324,7 @@ public class Client implements Serializable {
      *
      * @param sex
      */
+
     public void checkSex(String sex){
         if(sex!=null) {
             if (!sex.equals("M") && !sex.equals("F"))
@@ -313,6 +339,7 @@ public class Client implements Serializable {
      *
      * @param tin
      */
+
     public void checkTIN(long tin){
         String temp = String.valueOf(tin);
         if (temp.length() != DIGITS_TIN)
@@ -324,18 +351,19 @@ public class Client implements Serializable {
      *
      * @param phoneNumber
      */
+
     public void checkPNumber(long phoneNumber){
         String temp = String.valueOf(phoneNumber);
         if (temp.length() != DIGITS_PHONE_NUM)
             throw new IllegalArgumentException("Phone Number must have "+DIGITS_PHONE_NUM+" chars.");
     }
 
-
     /**
      * Return the textual description of the client.
      *
      * @return client's features
      */
+
     @Override
     public String toString() {
         return "Client{" +
@@ -350,6 +378,15 @@ public class Client implements Serializable {
                 '}';
     }
 
+    /**
+     * This method compares the equality of the current object
+     * with the object of same type.
+     *
+     * @param o Object
+     *
+     * @return boolean
+     */
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -358,10 +395,22 @@ public class Client implements Serializable {
         return nhs == client.nhs && citizenCard == client.citizenCard && tin == client.tin && pNumber == client.pNumber && name.equals(client.name) && id.equals(client.id) && birthDate.equals(client.birthDate);
     }
 
+    /**
+     * Returns a hash code value for the object.
+     *
+     * @return Object.hash
+     */
+
     @Override
     public int hashCode() {
         return Objects.hash(name, id, nhs, citizenCard, tin, birthDate, sex, pNumber);
     }
+
+    /**
+     * Method that calculate the age.
+     *
+     * @return int value
+     */
 
     public int calculateAge() {
         Date today = new Date(System.currentTimeMillis());

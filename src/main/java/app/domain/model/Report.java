@@ -1,6 +1,5 @@
 package app.domain.model;
 
-
 import java.io.Serializable;
 import java.util.StringTokenizer;
 
@@ -32,7 +31,6 @@ public class Report implements Serializable {
         checkTest(test);
         this.diagnosis = diagnosis;
         this.test = test;
-
     }
 
     /**
@@ -103,6 +101,7 @@ public class Report implements Serializable {
      *
      * @return report's features
      */
+
     @Override
     public String toString() {
         return "\nDiagnosis:\n" + this.diagnosis + "\n" + this.test.toString();

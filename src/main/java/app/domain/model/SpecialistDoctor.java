@@ -7,6 +7,7 @@ import java.util.Objects;
  *
  * @author Tiago Rocha <1181445@isep.ipp.pt>
  */
+
 public class SpecialistDoctor extends Employee implements Serializable {
 
     /**
@@ -25,6 +26,7 @@ public class SpecialistDoctor extends Employee implements Serializable {
      * @param socCode - Employee SOC Code
      * @param doctorIndexNumber - Doctor Index Number
      */
+
     public SpecialistDoctor(OrgRole role, String employeeId, String name, String address, long phoneNumber, String socCode,int doctorIndexNumber) {
         super (role, employeeId, name, address, phoneNumber, socCode);
         this.setDoctorIndexNumber(doctorIndexNumber);
@@ -46,6 +48,7 @@ public class SpecialistDoctor extends Employee implements Serializable {
      *
      * @return doctorIndexNumber
      */
+
     public int getDoctorIndexNumber() {
         return this.doctorIndexNumber;
     }
@@ -55,6 +58,7 @@ public class SpecialistDoctor extends Employee implements Serializable {
      *
      * @param doctorIndexNumber - Doctor´s Index Number
      */
+
     public void setDoctorIndexNumber(int doctorIndexNumber) {
         this.doctorIndexNumber = doctorIndexNumber;
     }
@@ -65,6 +69,7 @@ public class SpecialistDoctor extends Employee implements Serializable {
      * @param o - Specialist Doctor
      * @return true/false
      */
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -79,9 +84,9 @@ public class SpecialistDoctor extends Employee implements Serializable {
      *
      * @return Object.hash
      */
+
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), doctorIndexNumber);
     }
-
 }

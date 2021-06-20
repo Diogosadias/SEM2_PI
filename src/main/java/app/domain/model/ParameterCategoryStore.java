@@ -13,6 +13,9 @@ import java.util.List;
 
 public class ParameterCategoryStore extends Store{
 
+    /**
+     * The Parameter Category.
+     */
     private ParameterCategory category;
 
     /**
@@ -22,11 +25,13 @@ public class ParameterCategoryStore extends Store{
 
     /**
      * Method for creating a Parameter Category.
+     *
      * @param code - Parameter Category Code
      * @param description - Parameter Category Description
      * @param nhsId - Parameter Category's NHS ID
      * @return Parameter Category/null
      */
+
     public ParameterCategory createParameterCategory(String code, String description, String nhsId){
         if (code == null && description == null && nhsId == null) return null;
         return new ParameterCategory(code, description, nhsId);
@@ -34,9 +39,11 @@ public class ParameterCategoryStore extends Store{
 
     /**
      * Method for getting a Parameter Category by it's code.
+     *
      * @param code - Parameter Category Code
      * @return Parameter Category/null
      */
+
     public ParameterCategory getParameterCategoryByCode(String code){
         for( ParameterCategory f : parameterCategoryList){
             if(code.equals(f.getCode()))
@@ -44,6 +51,14 @@ public class ParameterCategoryStore extends Store{
         }
         return null;
     }
+
+    /**
+     * Method for getting a Parameter Category by it's description.
+     *
+     * @param description - Parameter Category Description
+     *
+     * @return Parameter Category/null
+     */
 
     public ParameterCategory getParameterCategoryByDescription(String description){
         for( ParameterCategory f : parameterCategoryList){
@@ -58,6 +73,7 @@ public class ParameterCategoryStore extends Store{
      * @param pc - Parameter Category
      * @return true/false
      */
+
     public boolean validateParameterCategory(ParameterCategory pc){
         if(pc == null)
             return false;
@@ -69,6 +85,7 @@ public class ParameterCategoryStore extends Store{
      * @param pc - Parameter Category
      * @return true/false
      */
+
     public boolean saveParameterCategory(ParameterCategory pc){
         if(!validateParameterCategory(pc))
             return false;
@@ -79,6 +96,7 @@ public class ParameterCategoryStore extends Store{
      * Method for getting the Parameter Category List.
      * @return parameterCategoryList
      */
+
     public List<ParameterCategory> getParameterCategoryList() {
         return parameterCategoryList;
     }
@@ -104,6 +122,7 @@ public class ParameterCategoryStore extends Store{
      *
      * @return ParameterCategory's features
      */
+
     @Override
     public String toString() {
 
@@ -122,6 +141,12 @@ public class ParameterCategoryStore extends Store{
         return s.toString();
     }
 
+    /**
+     * Return the List's store.
+     *
+     * @return List
+     */
+
     @Override
     public List getListObjects() {
         //Change list of objects in Store to a List Object
@@ -132,11 +157,23 @@ public class ParameterCategoryStore extends Store{
         return list;
     }
 
+    /**
+     * Get the name of the file.
+     *
+     * @return File's name
+     */
+
     @Override
     public String getFileName() {
         // Path - "Folder: ser" / "File Name: this store's object class" "Suffix: .txt"
         return "ser/parametercategory.txt";
     }
+
+    /**
+     * Read Object from File and import as this store's object class.
+     *
+     * @param o Object
+     */
 
     @Override
     public void importObject(Object o) {

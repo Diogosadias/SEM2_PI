@@ -6,12 +6,10 @@ import app.domain.shared.EmailSender;
 import app.domain.shared.GenerateEmployeeId;
 import app.domain.shared.GeneratePassword;
 import auth.AuthFacade;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
-
 import static app.domain.shared.Constants.*;
 
 /**
@@ -225,6 +223,12 @@ public class EmployeeStore extends Store{
         return mapper.toDto(this.le);
     }
 
+    /**
+     * Return the List's store.
+     *
+     * @return List
+     */
+
     @Override
     public List getListObjects() {
         //Change list of objects in Store to a List Object
@@ -235,15 +239,33 @@ public class EmployeeStore extends Store{
         return list;
     }
 
+    /**
+     * Get the name of the file.
+     *
+     * @return File's name
+     */
+
     @Override
     public String getFileName() {
         // Path - "Folder: ser" / "File Name: this store's object class" "Suffix: .txt"
         return "ser/employee.txt";
     }
 
+    /**
+     * Return the employee.
+     *
+     * @return employee
+     */
+
     public Employee getEmployee(){
         return this.employee;
     }
+
+    /**
+     * Read Object from File and import as this store's object class.
+     *
+     * @param o Object
+     */
 
     @Override
     public void importObject(Object o) {

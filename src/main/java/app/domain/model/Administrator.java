@@ -7,9 +7,10 @@ import auth.domain.model.User;
 /**
  * This domain class allows to build an instance of administrator.
  *
- * @author Tomás Pinto
+ * @author Tomás Pinto <1181835@isep.ipp.pt>
  * @author Tiago Ferreira <1200601@isep.ipp.pt>
  */
+
 public class Administrator extends User {
 
     /**
@@ -58,6 +59,7 @@ public class Administrator extends User {
      *
      * @param adress administrator's address
      */
+
     private boolean checkAdressrules(String adress) {
         if(adress!=null) {
         if (adress.length() == 0)
@@ -74,6 +76,7 @@ public class Administrator extends User {
      *
      * @param standardOcupationalCode administrator's standard occupational code
      */
+
     private boolean checkStandardOcuppationalCoderules(String standardOcupationalCode) {
 
         if(standardOcupationalCode!=null) {
@@ -91,6 +94,7 @@ public class Administrator extends User {
      *
      * @param employeeid administrator's employee id
      */
+
     private boolean checkEmployeeId(String employeeid) {
         if(employeeid!=null) {
             if (employeeid.length() == 0)
@@ -107,6 +111,7 @@ public class Administrator extends User {
      *
      * @return administrator's address
      */
+
     public String getAdress() {
         return adress;
     }
@@ -116,6 +121,7 @@ public class Administrator extends User {
      *
      * @param adress administrator's address
      */
+
     public void setAdress(String adress) {
         this.adress = adress;
     }
@@ -125,6 +131,7 @@ public class Administrator extends User {
      *
      * @return administrator's standard occupational code
      */
+
     public String getStandardOcuppationalCode() {
         return this.standardOcuppationalCode;
     }
@@ -134,6 +141,7 @@ public class Administrator extends User {
      *
      * @param standardOcuppationalCode administrator's standard occupational code
      */
+
     public void setStandardOcuppationalCode(String standardOcuppationalCode) {
         this.standardOcuppationalCode = standardOcuppationalCode;
     }
@@ -143,6 +151,7 @@ public class Administrator extends User {
      *
      * @return administrator's employee id
      */
+
     public String getEmployeeId() {
         return this.employeeId;
     }
@@ -152,6 +161,7 @@ public class Administrator extends User {
      *
      * @param employeeId administrator's employee id
      */
+
     public void setEmployeeId(String employeeId) {
         this.employeeId = employeeId;
     }
@@ -162,6 +172,7 @@ public class Administrator extends User {
      * @return administrator's features
      */
     @Override
+
     public String toString() {
         return "Administrator{" +
                 "address='" + adress + '\'' +
