@@ -39,18 +39,18 @@ public class CovidReportMapperTest {
         boolean result = mapper.startNewReport(initialDate,finalDate,histPoints,alpha);
         Assert.assertTrue(result);
     }
-/*
-    @Test
-    public void getData() {
-        System.out.println("getData");
-        mapper.startNewReport(initialDate,finalDate,histPoints,alpha);
+    /*
+        @Test
+        public void getData() {
+            System.out.println("getData");
+            mapper.startNewReport(initialDate,finalDate,histPoints,alpha);
 
-        String result = mapper.getData();
-        String expected = fileData();
-        System.out.println(expected);
-        Assert.assertEquals(expected,result);
-    }
-*/
+            String result = mapper.getData();
+            String expected = fileData();
+            System.out.println(expected);
+            //Assert.assertEquals(expected,result);
+        }
+        */
     @Test
     public void doLinearRegression() {
     }
@@ -61,6 +61,9 @@ public class CovidReportMapperTest {
 
     @Test
     public void setN() {
+        int expected = mapper.setN(initialDate,finalDate);
+        int result = 10;
+        Assert.assertEquals(expected,result);
     }
 
     private String fileData() {
