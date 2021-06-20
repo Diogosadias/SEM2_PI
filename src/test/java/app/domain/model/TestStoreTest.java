@@ -1,5 +1,6 @@
 package app.domain.model;
 
+import app.domain.dto.TestTypeDto;
 import auth.AuthFacade;
 import auth.domain.model.Email;
 import net.sourceforge.barbecue.BarcodeException;
@@ -24,6 +25,7 @@ public class TestStoreTest {
     Client c1 = new Client(new Email("usedafr1@gmail.com"), "John", 1111111111L, 1111111111111111L, 1111111111L, new Date("2001/12/22"), "M", 11111111111L);
     TestType type1 = new TestType("123te","Blood Test","Blood sample");
     app.domain.model.Test t = new app.domain.model.Test(type1,"aaaa", c1);
+    TestType testType = new TestType("test1","testType","TEST");
 
 
     @Test
@@ -44,33 +46,43 @@ public class TestStoreTest {
         assertFalse(test2);
     }
 
+
     @Test
     public void getListTestType() {
-        /*company.getTestStore().setCompany(company);
-        TestType p2 = company.getTestTypeStore().createTestType("aaaaa","aaaaaaaa","aaaaa");
-        company.getTestTypeStore().saveTestType(p2);
-        List<Object> storeTestList = new ArrayList<>();
-        Object a = "aaaaaaaa";
-        storeTestList.add(a);
-
-        assertEquals(storeTestList, company.getTestStore().getListTestType());*/
+        ts.setCompany(company);
+        company.getTestTypeStore().addTestType(this.testType);
+        List<TestTypeDto> testTypes = ts.getListTestType();
+        String result = testTypes.get(0).getCode() + testTypes.get(0).getDescription();
+        String expected = testType.getCode() + testType.getDescription();
+        assertTrue(result.equalsIgnoreCase(expected));
     }
-/*
+
     @Test
     public void newTest() {
         company.getTestStore().setCompany(company);
-        TestType type1 = new TestType("123te","Blood Test","Blood sample");
-        this.company.getTestTypeStore().addTestType(type1);
-        app.domain.model.Test t = new app.domain.model.Test(type1,"aaaa", c1);
-        company.getTestStore().addTest(t);
-        app.domain.model.Test e = new app.domain.model.Test(type1,"aaaa",c1);
-
-        assertEquals(t,e);
-    }*/
+        this.company.getTestTypeStore().addTestType(this.testType);
+        this.company.getClientStore().setClientList(this.c1);
+        this.company.getTestStore().checkRegisteredClient(this.c1.getTin());
+        company.getTestStore().newTest("test1");
+        company.getTestStore().saveTest();
+        app.domain.model.Test e = company.getTestStore().getTest();
+        assertTrue(e.getTestType().getCode().equalsIgnoreCase(this.testType.getCode()));
+    }
 
     @Test
     public void addCategoryToTest() {
+        ParameterCategory pCat = new ParameterCategory("pCatTst1", "aaaaa", "123");
+        this.company.getTestStore().setCompany(this.company);
+        this.company.getParameterCategoryStore().addParameterCategory(pCat);
 
+
+        this.company.getTestTypeStore().addTestType(this.testType);
+        this.company.getClientStore().setClientList(this.c1);
+        this.company.getTestStore().checkRegisteredClient(this.c1.getTin());
+        company.getTestStore().newTest("test1");
+        this.ts.addCategoryToTest("pCatTst1");
+        company.getTestStore().saveTest();
+        assertEquals(ts.getTest().getListCategories().get(0).toString(), pCat.toString());
     }
 
     @Test

@@ -88,7 +88,7 @@ public class TestStore extends Store{
      * @return TestType's list
      */
 
-    public List getListTestType() {
+    public List<TestTypeDto> getListTestType() {
         TestTypeStore ttStore = this.company.getTestTypeStore();
         TestTypeMapper ttMapper = new TestTypeMapper();
         return ttMapper.toDto(ttStore.getTestTypeList());
