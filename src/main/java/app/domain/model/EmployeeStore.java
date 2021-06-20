@@ -172,6 +172,7 @@ public class EmployeeStore extends Store{
 
     public void removeEmployee () {
         le.remove(this.employee);
+        this.numEmployees--;
     }
 
     /**

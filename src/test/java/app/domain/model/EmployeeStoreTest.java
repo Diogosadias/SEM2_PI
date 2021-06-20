@@ -3,15 +3,25 @@ package app.domain.model;
 import app.domain.dto.EmployeeDto;
 
 
+import app.domain.dto.EmployeeMapper;
 import app.domain.shared.GenerateEmployeeId;
 import auth.AuthFacade;
+import junit.framework.Assert;
 import org.junit.Test;
 
 import java.lang.reflect.InvocationTargetException;
 
 import static app.domain.shared.Constants.*;
-import static junit.framework.TestCase.assertEquals;
-import static junit.framework.TestCase.assertFalse;
+import static junit.framework.TestCase.*;
+import static org.junit.Assert.assertEquals;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
 
 /**
  *
@@ -34,6 +44,7 @@ public class EmployeeStoreTest  {
         ors.addOrgRole(role);
         es.registerEmployee(dto);
     }
+
 
 /*    @Test
     public void testGetOrgRoles() {
@@ -58,15 +69,28 @@ public class EmployeeStoreTest  {
 
 
     }*/
-/*
+
     @Test
-    public void testRegisterEmployee() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+    public void testRegisterEmployee() {
         System.out.println("RegisterEmployee");
-        Employee expResult = new Employee(new OrgRole("teste","teste"),new EmployeeDto("teste", "teste", "teste", 12345678900L, "12335"));
-        boolean result = es.registerEmployee(dto);
+        boolean expResult = true;
+        boolean result = false;
+        try {
+            result = es.registerEmployee(dto);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
         assertEquals(expResult, result);
     }
-*/
+
     @Test
     public void testGenerateEmployeeId() {
         System.out.println("GenerateEmployeeId");
@@ -119,14 +143,72 @@ public class EmployeeStoreTest  {
         EmployeeDto edto = null;
         assertEquals(es.registerEmployee(dto), true);
     }
-//    @Test
-//    public void testGetEmployees() {        
-//        System.out.println("GetEmployees");              
-//        Employee temp = es.registerEmployee(new EmployeeDto("teste2", "teste2", "teste2", 12345678900L, "72612"));
-//        es.saveEmployee(temp);
-//        List<Employee> result = new ArrayList<>();
-//        result.add(temp);        
-//        List<Employee> expResult = es.getEmployees();
-//        assertEquals(expResult, result);
-//    }
+
+    /**
+     * Test of confirmRegistration method, of class EmployeeStore.
+     */
+    @Test
+    public void testConfirmRegistration() {
+        System.out.println("confirmRegistration");
+        EmployeeStore instance = es;
+        int expResult = es.getNumEmployees();
+        instance.confirmRegistration();
+        int result = es.getNumEmployees();
+        assertNotSame(expResult, result);
+    }
+
+    /**
+     * Test of addEmployee method, of class EmployeeStore.
+     */
+    @Test
+    public void testAddEmployee() {
+        System.out.println("addEmployee");
+        Employee employee = e1;
+        EmployeeStore instance = es;
+        boolean expResult = true;
+        boolean result = instance.addEmployee(employee);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of removeEmployee method, of class EmployeeStore.
+     */
+    @Test
+    public void testRemoveEmployee() {
+        System.out.println("removeEmployee");
+        EmployeeStore instance = es;
+        int expResult = instance.getNumEmployees();
+        instance.removeEmployee();
+        int result = instance.getNumEmployees();
+        assertNotSame(expResult, result);
+    }
+
+    /**
+     * Test of getEmployeeToString method, of class EmployeeStore.
+     */
+    @Test
+    public void testGetEmployeeToString() {
+        System.out.println("getEmployeeToString");
+        EmployeeStore instance = es;
+        String expResult = "[Name: NAME]\n" +
+                "[Adress: ADDRESS]\n" +
+                "[Email: N00001@lei.pt]\n" +
+                "[id: N00001]\n" +
+                "[Phone Number: 12312312312]\n" +
+                "[Soc code: soc]\n";
+        String result = instance.getEmployeeToString();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of getEmployeesToShow method, of class EmployeeStore.
+     */
+    @Test
+    public void testGetEmployeesToShow() {
+        System.out.println("getEmployeesToShow");
+        EmployeeStore instance = es;
+        List expResult = new ArrayList<>();
+        List result = instance.getEmployeesToShow();
+        assertEquals(expResult, result);
+    }
 }
