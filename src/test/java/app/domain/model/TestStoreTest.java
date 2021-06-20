@@ -18,7 +18,9 @@ public class TestStoreTest {
     TestStore ts = company.getTestStore();
     AuthFacade auth = new AuthFacade();
     ClientStore cs =company.getClientStore();
-
+    Client c1 = new Client(new Email("usedafr1@gmail.com"), "John", 1111111111L, 1111111111111111L, 1111111111L, new Date("2001/12/22"), "M", 11111111111L);
+    TestType type1 = new TestType("123te","Blood Test","Blood sample");
+    app.domain.model.Test t = new app.domain.model.Test(type1,"aaaa", c1);
 
 
     @Test
@@ -32,8 +34,7 @@ public class TestStoreTest {
     @Test
     public void checkRegisteredClient() {
         company.getTestStore().setCompany(company);
-        Client c1 = new Client(new Email("usedafr1@gmail.com"), "John", 1111111111L, 1111111111111111L, 1111111111L, new Date("2001/12/22"), "M", 11111111111L);
-        company.getClientStore().saveClients(c1,"aaaa");
+           company.getClientStore().saveClients(c1,"aaaa");
         boolean test = company.getTestStore().checkRegisteredClient(1111111111L);
         assertTrue(test);
         boolean test2 = company.getTestStore().checkRegisteredClient(111111311111L);
@@ -51,19 +52,22 @@ public class TestStoreTest {
 
         assertEquals(storeTestList, company.getTestStore().getListTestType());*/
     }
-
+/*
     @Test
     public void newTest() {
-        /*company.getTestStore().setCompany(company);
+        company.getTestStore().setCompany(company);
         TestType type1 = new TestType("123te","Blood Test","Blood sample");
         this.company.getTestTypeStore().addTestType(type1);
-        company.getTestStore().newTest("123te");
-        app.domain.model.Test e = company.getTestStore().getTestByCode("123te");
-        assertEquals(type1,e);*/
-    }
+        app.domain.model.Test t = new app.domain.model.Test(type1,"aaaa", c1);
+        company.getTestStore().addTest(t);
+        app.domain.model.Test e = new app.domain.model.Test(type1,"aaaa",c1);
+
+        assertEquals(t,e);
+    }*/
 
     @Test
     public void addCategoryToTest() {
+
     }
 
     @Test
@@ -88,6 +92,11 @@ public class TestStoreTest {
 
     @Test
     public void addTest() {
+        ts.addTest(t);
+        app.domain.model.Test e = new app.domain.model.Test(type1,"aaaa",c1);
+        assertEquals(e.getClient().equals(ts.getTest().getClient()), true);
+        assertEquals(! t.equals(ts.getTest()), false);
+        
     }
 
     @Test
