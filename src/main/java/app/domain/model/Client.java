@@ -283,11 +283,12 @@ public class Client implements Serializable {
      *
      * @param citizenCard
      */
-    public void checkCitizenNumber(long citizenCard){
+    public boolean checkCitizenNumber(long citizenCard){
         String temp = String.valueOf(citizenCard);
         if (temp.length() > 16) {
             throw new IllegalArgumentException("Citizen Card code must have 16 chars.");
         }
+        return true;
     }
 
     /**
