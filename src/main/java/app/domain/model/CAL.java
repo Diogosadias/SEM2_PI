@@ -7,6 +7,7 @@ import static app.domain.shared.Constants.*;
 /**
  *  CAL - Domain class representing a Clinical Analysis Laboratory
  *
+ *
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  * @author Gil <1180838@isep.ipp.pt>
  * @author Tiago Ferreira <1200601@isep.ipp.pt>
