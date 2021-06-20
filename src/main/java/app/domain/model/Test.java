@@ -650,9 +650,9 @@ public class Test implements Serializable {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         DateFormat weekDay = new SimpleDateFormat("EEEE");
-        if(weekDay.format(date).equalsIgnoreCase("Sunday")){
+       /* if(weekDay.format(date).equalsIgnoreCase("Sunday")){
             throw new IllegalArgumentException("Many Labs dont work at Sunday!");
-        }
+        }*/
     }
 
 }
