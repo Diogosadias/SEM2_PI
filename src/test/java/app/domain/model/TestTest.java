@@ -14,10 +14,6 @@ import static org.junit.Assert.*;
 
 import net.sourceforge.barbecue.BarcodeException;
 import net.sourceforge.barbecue.output.OutputException;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class TestTest {
@@ -135,6 +131,18 @@ public class TestTest {
             assertEquals("Test: No Parameter with that Code.",ex.getMessage());
         }
     }
+
+    @Test
+    public void checkGetTestParameterByCode(){
+        TestParameter parameter = new TestParameter(p);
+        test.addParameter(p);
+        try{
+            TestParameter result2 = test.getTestParameterByCode(parameter.getParameter().getCode());
+        }catch (IllegalArgumentException ex){
+            assertEquals("Test: No Parameter with that Code.",ex.getMessage());
+        }
+    }
+
 
     @Test
     public void checkAddTestResult(){
@@ -353,6 +361,10 @@ public class TestTest {
         System.out.println("addResultToList");
         app.domain.model.Test instance = test;
         boolean expResult = true;
+        try{
+            assertTrue(instance.getListParameters().isEmpty());
+        }catch (Exception ex){
+        }
         boolean result = instance.addResultToList();
         assertEquals(expResult, result);
     }
@@ -743,6 +755,7 @@ public class TestTest {
         Date result = instance.getDateDiagnosis();
         assertEquals(expResult, result);
     }
+
 
 }
 
