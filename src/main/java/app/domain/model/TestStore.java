@@ -316,9 +316,23 @@ public class TestStore extends Store{
         this.test = test;
     }
 
+    /**
+     * Method for getting the Test List.
+     *
+     * @return Test
+     */
+
     public Test getTest () {
         return this.test;
     }
+
+    /**
+     * Method for getting the Test by the code.
+     *
+     * @param code Test's code
+     *
+     * @return Test
+     */
 
     public Test getTestByCode( String code){
 
@@ -390,6 +404,12 @@ public class TestStore extends Store{
                 "\n" + testParam;
     }
 
+    /**
+     * Return the List's store.
+     *
+     * @return List
+     */
+
     @Override
     public List getListObjects() {
         //Change list of objects in Store to a List Object
@@ -400,11 +420,23 @@ public class TestStore extends Store{
         return list;
     }
 
+    /**
+     * Get the name of the file.
+     *
+     * @return File's name
+     */
+
     @Override
     public String getFileName() {
         // Path - "Folder: ser" / "File Name: this store's object class" "Suffix: .txt"
         return "ser/test.txt";
     }
+
+    /**
+     * Read Object from File and import as this store's object class.
+     *
+     * @param o Object
+     */
 
     @Override
     public void importObject(Object o) {
@@ -412,6 +444,12 @@ public class TestStore extends Store{
         this.test = (Test) o;
         this.saveTest();
     }
+
+    /**
+     * Method for getting the Test List of all tests.
+     *
+     * @return Test List
+     */
 
     public Iterable<Test> getAllTests() {
         return this.testList;

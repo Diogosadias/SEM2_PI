@@ -13,6 +13,9 @@ import java.util.List;
 
 public class TestTypeStore extends Store{
 
+    /**
+     * The Test Type.
+     */
     private TestType type;
 
     /**
@@ -24,6 +27,7 @@ public class TestTypeStore extends Store{
      * Constructor for the test type store.
      * Initializes the list.
      */
+
     public TestTypeStore(){
         store = new ArrayList<>();
     }
@@ -37,6 +41,7 @@ public class TestTypeStore extends Store{
      *
      * @return TestType
      */
+
     public TestType createTestType(String code, String description, String collectingMethod) {
         if (code == null || description == null || collectingMethod == null) return null;
         this.type = new TestType(code, description, collectingMethod);
@@ -50,6 +55,7 @@ public class TestTypeStore extends Store{
      *
      * @return true/false
      */
+
     public boolean validateTestType(TestType tt){
         if(tt == null)
             return false;
@@ -63,6 +69,7 @@ public class TestTypeStore extends Store{
      *
      * @return true/false
      */
+
     public boolean saveTestType(TestType tt){
         if (validateTestType(tt)) {
             return this.store.add(tt);
@@ -92,6 +99,7 @@ public class TestTypeStore extends Store{
      *
      * @return true/false
      */
+
     public boolean deleteTestType(String code){
         TestType testType = getTestTypeByCode(code);
         if(getTestTypeList().contains(testType)) {
@@ -110,6 +118,7 @@ public class TestTypeStore extends Store{
      *
      * @return true/false
      */
+
     public boolean searchTestType(String code) {
         TestType testType = getTestTypeByCode(code);
         return getTestTypeList().contains(testType);
@@ -122,6 +131,7 @@ public class TestTypeStore extends Store{
      *
      * @return TestType/null
      */
+
     public TestType getTestTypeByCode(String code){
         for( TestType f : getTestTypeList()){
             if(code.equals(f.getCode()))
@@ -135,9 +145,16 @@ public class TestTypeStore extends Store{
      *
      * @return List<TestType>
      */
+
     public List<TestType> getTestTypeList(){
         return this.store;
     }
+
+    /**
+     * Return the List's store.
+     *
+     * @return List
+     */
 
     @Override
     public List getListObjects() {
@@ -149,11 +166,23 @@ public class TestTypeStore extends Store{
         return list;
     }
 
+    /**
+     * Get the name of the file.
+     *
+     * @return File's name
+     */
+
     @Override
     public String getFileName() {
         // Path - "Folder: ser" / "File Name: this store's object class" "Suffix: .txt"
         return "ser/testtype.txt";
     }
+
+    /**
+     * Read Object from File and import as this store's object class.
+     *
+     * @param o Object
+     */
 
     @Override
     public void importObject(Object o) {

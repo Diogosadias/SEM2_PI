@@ -1,7 +1,6 @@
 package app.domain.model;
 
 import com.example2.EMRefValue;
-
 import java.io.Serializable;
 
 /**
@@ -37,6 +36,7 @@ public class TestParameter implements Serializable {
      *
      * @return TestParameter's parameter
      */
+
     public Parameter getParameter() {
         return this.param;
     }
@@ -51,7 +51,7 @@ public class TestParameter implements Serializable {
      * @return boolean
      */
 
-        public boolean addResult(String result, double metric, EMRefValue refValue){
+    public boolean addResult(String result, double metric, EMRefValue refValue){
         return (this.testResult = new TestParameterResult(result,metric,refValue)) != null;
     }
 
@@ -60,6 +60,7 @@ public class TestParameter implements Serializable {
      *
      * @return TestParameter's result
      */
+
     public TestParameterResult getResult() {
         return this.testResult;
     }
@@ -69,6 +70,7 @@ public class TestParameter implements Serializable {
      *
      * @return TestParameter's features
      */
+
     @Override
     public String toString () {
         String s = "Test Result: \n" +

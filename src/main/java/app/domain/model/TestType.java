@@ -1,7 +1,6 @@
 package app.domain.model;
 
 import app.domain.shared.ExternalModule;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +13,7 @@ import java.util.List;
 */
 
 public class TestType extends TestTypeStore implements Serializable {
+
     /**
      * code - 5 alphanumeric numbers and can´t be empty
      */
@@ -38,6 +38,7 @@ public class TestType extends TestTypeStore implements Serializable {
      * @param description - Test Type Description
      * @param collectingMethod - Test Type Collection Method
      */
+
     public TestType(String code, String description, String collectingMethod) {
         checkCode(code);
         checkDescription(description);
@@ -48,7 +49,6 @@ public class TestType extends TestTypeStore implements Serializable {
     }
 
     public TestType() {
-
     }
 
     /**
@@ -81,6 +81,7 @@ public class TestType extends TestTypeStore implements Serializable {
      *
      * @return TestType's code
      */
+
     public String getCode() { return code; }
 
     /**
@@ -88,6 +89,7 @@ public class TestType extends TestTypeStore implements Serializable {
      *
      * @param code TestType's code
      */
+
     public void setCode(String code) { this.code = code; }
 
     /**
@@ -95,6 +97,7 @@ public class TestType extends TestTypeStore implements Serializable {
      *
      * @return TestType's description
      */
+
     public String getDescription() { return description; }
 
     /**
@@ -102,6 +105,7 @@ public class TestType extends TestTypeStore implements Serializable {
      *
      * @param description TestType's description
      */
+
     public void setDescription(String description) { this.description = description; }
 
     /**
@@ -109,6 +113,7 @@ public class TestType extends TestTypeStore implements Serializable {
      *
      * @return TestType's collection method
      */
+
     public String getCollectingMethod() { return collectingMethod; }
 
     /**
@@ -116,6 +121,7 @@ public class TestType extends TestTypeStore implements Serializable {
      *
      * @param collectingMethod TestType's collection method
      */
+
     public void setCollectingMethod(String collectingMethod) { this.collectingMethod = collectingMethod; }
 
     /**
@@ -125,6 +131,7 @@ public class TestType extends TestTypeStore implements Serializable {
      *
      * @throws IllegalArgumentException - Empty or not 5 characters.
      */
+
     private void checkCode(String code) {
         if(code.length() != 5 )
             throw new IllegalArgumentException("Code doesn't exist or doesn't have 5 alphanumeric numbers");
@@ -137,6 +144,7 @@ public class TestType extends TestTypeStore implements Serializable {
      *
      * @throws IllegalArgumentException - Empty or 15+ characters.
      */
+
     private void checkDescription(String description) {
         if(description.length() > 15 || description.length() == 0)
             throw new IllegalArgumentException("Description doesn't exist or surpasses the 15 characters rule!");
@@ -149,6 +157,7 @@ public class TestType extends TestTypeStore implements Serializable {
      *
      * @throws IllegalArgumentException - Empty or 20+ characters.
      */
+
     private void checkCollectingMethod(String collectingMethod) {
         if(collectingMethod.length() > 20 || collectingMethod.length() == 0)
             throw new IllegalArgumentException("Collecting Method doesn't exist or surpasses the 20 characters rule!");
@@ -158,6 +167,7 @@ public class TestType extends TestTypeStore implements Serializable {
      *
      * @param parameter - Test Type Parameter Category
      */
+
     public void setCategory(ParameterCategory parameter){
         parameterList.add(parameter);
     }
@@ -177,6 +187,7 @@ public class TestType extends TestTypeStore implements Serializable {
      *
      * @return String
      */
+
     @Override
     public String toString() {
         return "TestType{" +

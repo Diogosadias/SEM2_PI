@@ -3,12 +3,10 @@ package app.domain.model;
 import app.domain.shared.Constants;
 import app.domain.shared.ExternalModule;
 import com.example2.EMRefValue;
-
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -23,6 +21,9 @@ import java.util.List;
 
 public class Test implements Serializable {
 
+    /**
+     * The id of laboratory.
+     */
     private String labId;
 
     /**
@@ -80,6 +81,9 @@ public class Test implements Serializable {
      */
     private final List<Sample> sampleList = new ArrayList<>();
 
+    /**
+     * DateSampleList - Contains the date of samples
+     */
     private final List<Date> dateSampleList = new ArrayList<>();
 
     /**
@@ -123,6 +127,12 @@ public class Test implements Serializable {
         this.listCategories = new ArrayList<>();
         this.listTestParameter = new ArrayList<>();
     }
+
+    /**
+     * Check if the test code attribute it's within the rules.
+     *
+     * @param code Test's code
+     */
 
     private void checkTestCodeAttribute (String code) {
         if (code == null || code.equals("")) {
@@ -278,6 +288,12 @@ public class Test implements Serializable {
         throw new IllegalArgumentException("Test: No Parameter with that Code.");
     }
 
+    /**
+     * Change the laboratory's id.
+     *
+     * @param labId Laboratory's id
+     */
+
     public void setLabId (String labId) {
         this.labId = labId;
     }
@@ -374,6 +390,12 @@ public class Test implements Serializable {
         }
         return listCategories.add(category);
     }
+
+    /**
+     * Method for getting the laboratory id.
+     *
+     * @return Laboratory's id
+     */
 
     public String getLabId() {
         return this.labId;
@@ -480,6 +502,12 @@ public class Test implements Serializable {
         return true;
     }
 
+    /**
+     * Method for getting the list of the date when the samples was collected.
+     *
+     * @return DateSampleCollected List
+     */
+
     public List getListDateSampleCollected () {
         return this.dateSampleList;
     }
@@ -533,7 +561,11 @@ public class Test implements Serializable {
         return testParam;
     }
 
-
+    /**
+     * Return the textual description of the parameters.
+     *
+     * @return parameter's features.
+     */
 
     public String parametersToString() {
         StringBuilder bld = new StringBuilder();
@@ -604,11 +636,23 @@ public class Test implements Serializable {
         return bld.toString();
     }
 
+    /**
+     * Change the date registered.
+     *
+     * @param dateRegistered Register's Date
+     */
+
     public void setDateRegistered(Date dateRegistered) {
         checkDateValidation(dateRegistered);
         this.state = Constants.REGISTERED;
         this.dateRegistered = dateRegistered;
     }
+
+    /**
+     * Change the date chemical.
+     *
+     * @param dateChemical Chemical's Date
+     */
 
     public void setDateChemical(Date dateChemical) {
         checkDateValidation(dateRegistered);
@@ -618,6 +662,12 @@ public class Test implements Serializable {
         this.state = Constants.SAMPLE_ANALYSED;
         this.dateChemical = dateChemical;
     }
+
+    /**
+     * Change the date diagnosis.
+     *
+     * @param dateDiagnosis Diagnosis's Date
+     */
 
     public void setDateDiagnosis(Date dateDiagnosis) {
         if(this.dateRegistered == null){
@@ -630,6 +680,12 @@ public class Test implements Serializable {
         this.state = Constants.DIAGNOSIS_MADE;
         this.dateDiagnosis = dateDiagnosis;
     }
+
+    /**
+     * Change the date validation.
+     *
+     * @param dateValidation Validation's Date
+     */
 
     public void setDateValidation(Date dateValidation) {
         if(this.dateRegistered == null){
@@ -645,6 +701,12 @@ public class Test implements Serializable {
         this.state = Constants.VALIDATED;
         this.dateValidation = dateValidation;
     }
+
+    /**
+     * Check if the date validation attribute it's within the rules.
+     *
+     * @param date Validation Date
+     */
 
     private void checkDateValidation(Date date) {
         Calendar calendar = Calendar.getInstance();

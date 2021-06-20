@@ -1,9 +1,7 @@
 package app.domain.model;
 
 import com.example2.EMRefValue;
-
 import java.io.Serializable;
-
 
 public class TestParameterResult  implements Serializable {
 
@@ -29,6 +27,7 @@ public class TestParameterResult  implements Serializable {
      * @param metric TestParameterResult's metric
      * @param refValue TestParameterResult's refValue
      */
+
     public TestParameterResult (String result, double metric, EMRefValue refValue) {
         this.result = result;
         this.metric = metric;
@@ -40,6 +39,7 @@ public class TestParameterResult  implements Serializable {
      *
      * @return TestParameterResult's result
      */
+
     public String getResult() {
         return result;
     }
@@ -49,6 +49,7 @@ public class TestParameterResult  implements Serializable {
      *
      * @param result - TestParameterResult's result
      */
+
     public void setResult(String result) {
         if(result!=null) {
             this.result = result;
@@ -60,6 +61,7 @@ public class TestParameterResult  implements Serializable {
      *
      * @return TestParameterResult's metric
      */
+
     public double getMetric() {
         return metric;
     }
@@ -69,6 +71,7 @@ public class TestParameterResult  implements Serializable {
      *
      * @param metric - TestParameterResult's metric
      */
+
     public void setMetric(double metric) {
         this.metric = metric;
     }
@@ -78,6 +81,7 @@ public class TestParameterResult  implements Serializable {
      *
      * @return TestParameterResult's refValue
      */
+
     public EMRefValue getRefValue() {
         return refValue;
     }
@@ -87,6 +91,7 @@ public class TestParameterResult  implements Serializable {
      *
      * @param refValue - TestParameterResult's refValue
      */
+
     public void setRefValue(EMRefValue refValue) {
         if(refValue!=null) {
             this.refValue = refValue;
@@ -98,6 +103,7 @@ public class TestParameterResult  implements Serializable {
      *
      * @return TestParameterResult's features
      */
+
     @Override
     public String toString() {
         String s = "Result: " + result +
@@ -107,6 +113,5 @@ public class TestParameterResult  implements Serializable {
             s += refValue + "\n";
         }
                 return s;
-
     }
 }
