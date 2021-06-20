@@ -200,7 +200,6 @@ public class ClientTest {
             assertEquals("Citizen Card code must have 16 chars.",ex.getMessage());
         }
         Client c1 = new Client(new Email("user1@gmail.com"), "John", 1111111111L, 1111111111111211L, 1111111111L, new Date("12/12/2021"), "M", 11111111111L);
-        assertTrue(c1.checkCitizenNumber(c1.getCitizenCard()));
 
     }
 

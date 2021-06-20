@@ -25,16 +25,10 @@ public class AdministratorTest {
             assertEquals("Address must have no more than 30 characters.",ex.getMessage());
         }
 
-        try {
-            Administrator admin3 = new Administrator(new Email("aaa@aaa.aaa"), new Password("12345"), "Name", "adressssssssssssssssssssssssss", "11111", "aaaaa", "11111");
-        }catch (IllegalArgumentException ex){
-            assertEquals("Address must have no more than 30 characters.",ex.getMessage());
-        }
-
         assertEquals(admin.getAdress(),"adress");
 
         try {
-            Administrator admin4 = new Administrator(new Email("aaa@aaa.aaa"), new Password("12345"), "Name", null, "11111", "aaaaa", "11111");
+            Administrator admin2 = new Administrator(new Email("aaa@aaa.aaa"), new Password("12345"), "Name", null, "11111", "aaaaa", "11111");
         }catch (IllegalArgumentException ex){
             assertEquals("Address cannot be null.",ex.getMessage());
         }
