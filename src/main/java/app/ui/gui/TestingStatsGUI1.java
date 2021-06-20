@@ -45,7 +45,7 @@ public class TestingStatsGUI1 implements Initializable, GuiMethods {
             openStatsGUI2(1);
 
         } catch (Exception e) {
-            errMessage(e);
+            FXUtils.openAlert("WARNING", "Warning",e.getMessage(), Alert.AlertType.WARNING);
         }
     }
 
@@ -54,7 +54,7 @@ public class TestingStatsGUI1 implements Initializable, GuiMethods {
         try{
             openStatsGUI2(2);
         } catch (Exception e) {
-            errMessage(e);
+            FXUtils.openAlert("WARNING", "Warning",e.getMessage(), Alert.AlertType.WARNING);
         }
     }
 
@@ -64,7 +64,7 @@ public class TestingStatsGUI1 implements Initializable, GuiMethods {
         try{
             openStatsGUI2(3);
         } catch (Exception e) {
-            errMessage(e);
+            FXUtils.openAlert("WARNING", "Warning",e.getMessage(), Alert.AlertType.WARNING);
         }
     }
 
