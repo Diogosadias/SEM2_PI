@@ -47,6 +47,7 @@ public class CovidReportMapperTest {
 
         String result = mapper.getData();
         String expected = fileData();
+        System.out.println(expected);
         Assert.assertEquals(expected,result);
     }
 
@@ -77,18 +78,18 @@ public class CovidReportMapperTest {
                 "//\n" +
                 "Hypothesis tests for regression coefficients\n" +
                 "HO:b=0 (a=0) H1: b<>0 (a<>0)\n" +
-                "t_obs = 2,3646\n" +
+                "t_obs = 2,3060\n" +
                 "Decision: Error\n" +
                 "//\n" +
                 "Significance model with Anova\n" +
                 "H0: b=0  H1:b<>0\n" +
                 "\t\t\tdf\t\tSS\t\tMS\t\tF\t\t\n" +
                 "Regression\t1.0\tNaN\tNaN\tNaN\t\n" +
-                "Residual\t7.0\tNaN\t\tNaN\t\t\n" +
-                "Total\t\t8.0\tNaN\t\t\n" +
+                "Residual\t8.0\tNaN\t\tNaN\t\t\n" +
+                "Total\t\t9.0\tNaN\t\t\n" +
                 "\n" +
                 "Decision: f \n" +
-                "0 > f0.05,(1.7)=0,0042\n" +
+                "0 > f0.05,(1.8)=0,0042\n" +
                 "\n" +
                 "Prediction values\n" +
                 "\n" +
@@ -113,18 +114,18 @@ public class CovidReportMapperTest {
                 "//\n" +
                 "Hypothesis tests for regression coefficients\n" +
                 "HO:b=0 (a=0) H1: b<>0 (a<>0)\n" +
-                "t_obs = 2,3646\n" +
+                "t_obs = 2,3060\n" +
                 "Decision: Error\n" +
                 "//\n" +
                 "Significance model with Anova\n" +
                 "H0: b=0  H1:b<>0\n" +
                 "\t\t\tdf\t\tSS\t\tMS\t\tF\t\t\n" +
                 "Regression\t1.0\tNaN\tNaN\tNaN\t\n" +
-                "Residual\t7.0\tNaN\t\tNaN\t\t\n" +
-                "Total\t\t8.0\tNaN\t\t\n" +
+                "Residual\t8.0\tNaN\t\tNaN\t\t\n" +
+                "Total\t\t9.0\tNaN\t\t\n" +
                 "\n" +
                 "Decision: f \n" +
-                "0 > f0.05,(1.7)=0,0042\n" +
+                "0 > f0.05,(1.8)=0,0042\n" +
                 "\n" +
                 "Prediction values\n" +
                 "\n" +
@@ -147,7 +148,7 @@ public class CovidReportMapperTest {
                 "//\n" +
                 "Hypothesis tests for regression coefficients\n" +
                 "HO:b1=b2=0, k=2 H1: bj<>0 , j=1,2 \n" +
-                "f_obs = 5,1433\n" +
+                "f_obs = 4,7374\n" +
                 "Decision: \n" +
                 "Error\n" +
                 "//\n" +
@@ -155,11 +156,11 @@ public class CovidReportMapperTest {
                 "HO:b1=b2=0, k=2 H1: bj<>0 , j=1,2 \n" +
                 "\t\t\tdf\t\tSS\t\tMS\t\tF\t\t\n" +
                 "Regression\t2.0\tNaN\tNaN\tNaN\t\n" +
-                "Residual\t6.0\tNaN\t\tNaN\t\t\n" +
-                "Total\t8.0\t0,0000\t\t\n" +
+                "Residual\t7.0\tNaN\t\tNaN\t\t\n" +
+                "Total\t9.0\t0,0000\t\t\n" +
                 "\n" +
                 "Decision: f \n" +
-                "0 > f0.05,(2.6)=5,1433\n" +
+                "0 > f0.05,(2.7)=4,7374\n" +
                 "Error\n" +
                 "\n" +
                 "Prediction values\n" +
@@ -181,18 +182,18 @@ public class CovidReportMapperTest {
                 "//\n" +
                 "Hypothesis tests for regression coefficients\n" +
                 "HO:b=0 (a=0) H1: b<>0 (a<>0)\n" +
-                "t_obs = 2,3646\n" +
+                "t_obs = 2,3060\n" +
                 "Decision: Error\n" +
                 "//\n" +
                 "Significance model with Anova\n" +
                 "H0: b=0  H1:b<>0\n" +
                 "\t\t\tdf\t\tSS\t\tMS\t\tF\t\t\n" +
                 "Regression\t1.0\tNaN\tNaN\tNaN\t\n" +
-                "Residual\t7.0\tNaN\t\tNaN\t\t\n" +
-                "Total\t\t8.0\tNaN\t\t\n" +
+                "Residual\t8.0\tNaN\t\tNaN\t\t\n" +
+                "Total\t\t9.0\tNaN\t\t\n" +
                 "\n" +
                 "Decision: f \n" +
-                "0 > f0.05,(1.7)=0,0042\n" +
+                "0 > f0.05,(1.8)=0,0042\n" +
                 "\n" +
                 "Prediction values\n" +
                 "\n" +
@@ -217,18 +218,18 @@ public class CovidReportMapperTest {
                 "//\n" +
                 "Hypothesis tests for regression coefficients\n" +
                 "HO:b=0 (a=0) H1: b<>0 (a<>0)\n" +
-                "t_obs = 2,3646\n" +
+                "t_obs = 2,3060\n" +
                 "Decision: Error\n" +
                 "//\n" +
                 "Significance model with Anova\n" +
                 "H0: b=0  H1:b<>0\n" +
                 "\t\t\tdf\t\tSS\t\tMS\t\tF\t\t\n" +
                 "Regression\t1.0\tNaN\tNaN\tNaN\t\n" +
-                "Residual\t7.0\tNaN\t\tNaN\t\t\n" +
-                "Total\t\t8.0\tNaN\t\t\n" +
+                "Residual\t8.0\tNaN\t\tNaN\t\t\n" +
+                "Total\t\t9.0\tNaN\t\t\n" +
                 "\n" +
                 "Decision: f \n" +
-                "0 > f0.05,(1.7)=0,0042\n" +
+                "0 > f0.05,(1.8)=0,0042\n" +
                 "\n" +
                 "Prediction values\n" +
                 "\n" +
@@ -251,7 +252,7 @@ public class CovidReportMapperTest {
                 "//\n" +
                 "Hypothesis tests for regression coefficients\n" +
                 "HO:b1=b2=0, k=2 H1: bj<>0 , j=1,2 \n" +
-                "f_obs = 5,1433\n" +
+                "f_obs = 4,7374\n" +
                 "Decision: \n" +
                 "Error\n" +
                 "//\n" +
@@ -259,11 +260,11 @@ public class CovidReportMapperTest {
                 "HO:b1=b2=0, k=2 H1: bj<>0 , j=1,2 \n" +
                 "\t\t\tdf\t\tSS\t\tMS\t\tF\t\t\n" +
                 "Regression\t2.0\tNaN\tNaN\tNaN\t\n" +
-                "Residual\t6.0\tNaN\t\tNaN\t\t\n" +
-                "Total\t8.0\t0,0000\t\t\n" +
+                "Residual\t7.0\tNaN\t\tNaN\t\t\n" +
+                "Total\t9.0\t0,0000\t\t\n" +
                 "\n" +
                 "Decision: f \n" +
-                "0 > f0.05,(2.6)=5,1433\n" +
+                "0 > f0.05,(2.7)=4,7374\n" +
                 "Error\n" +
                 "\n" +
                 "Prediction values\n" +
