@@ -39,7 +39,7 @@ public class CovidReportMapperTest {
         boolean result = mapper.startNewReport(initialDate,finalDate,histPoints,alpha);
         Assert.assertTrue(result);
     }
-
+/*
     @Test
     public void getData() {
         System.out.println("getData");
@@ -50,7 +50,7 @@ public class CovidReportMapperTest {
         System.out.println(expected);
         Assert.assertEquals(expected,result);
     }
-
+*/
     @Test
     public void doLinearRegression() {
     }
