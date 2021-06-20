@@ -117,6 +117,11 @@ public class Client implements Serializable {
         this.citizenCard = citizenCard;
     }
 
+    public Client(long citizenCard, Date birthDate){
+        this.citizenCard = citizenCard;
+        this.birthDate = birthDate;
+    }
+
 
     /**
      * Return the client's nhs.
