@@ -11,6 +11,9 @@ import java.util.List;
 
 public class ParameterStore extends Store{
 
+    /**
+     * The Parameter.
+     */
     private Parameter parameter;
     /**
      * parameterList - List containing the Parameters
@@ -32,6 +35,7 @@ public class ParameterStore extends Store{
      * @param category - Parameter Category
      * @return Parameter
      */
+
     public Parameter createParameter(String code, String name, String description, String category){
         if (code == null && name == null && description == null && category == null) return null;
         this.parameter = new Parameter(code, name, description,category);
@@ -43,6 +47,7 @@ public class ParameterStore extends Store{
      * @param code - Code of the parameter to be deleted
      * @return true/false
      */
+
     public boolean deleteParameter(String code){
         Parameter param = getParameterByCode(code);
         if(parameterList.contains(param)) {
@@ -59,6 +64,7 @@ public class ParameterStore extends Store{
      * @param code - Parameter Code
      * @return Parameter Category/null
      */
+
     public Parameter getParameterByCode(String code){
         for( Parameter f : parameterList){
             if(code.equals(f.getCode()))
@@ -72,6 +78,7 @@ public class ParameterStore extends Store{
      * @param p - Parameter
      * @return true/false
      */
+
     public boolean validateParameter(Parameter p){
         if(p!=null) {
             for (Parameter param: this.parameterList) {
@@ -100,6 +107,7 @@ public class ParameterStore extends Store{
      * @param p - Parameter
      * @return true/false
      */
+
     public boolean saveParameter(Parameter p){
         if(!validateParameter(p))
             return false;
@@ -126,17 +134,17 @@ public class ParameterStore extends Store{
      * Method for getting the parameter list.
      * @return parameterList
      */
+
     public List<Parameter> getParameterList() {
         return parameterList;
     }
-
-
 
     /**
      * Return the textual description of the parameter.
      *
      * @return Parameter's features
      */
+
     @Override
     public String toString() {
         List<Parameter> copy = new ArrayList<>(parameterList);
@@ -152,6 +160,12 @@ public class ParameterStore extends Store{
         return s.toString();
     }
 
+    /**
+     * Return the List's store.
+     *
+     * @return List
+     */
+
     @Override
     public List getListObjects() {
         //Change list of objects in Store to a List Object
@@ -162,11 +176,23 @@ public class ParameterStore extends Store{
         return list;
     }
 
+    /**
+     * Get the name of the file.
+     *
+     * @return File's name
+     */
+
     @Override
     public String getFileName() {
         // Path - "Folder: ser" / "File Name: this store's object class" "Suffix: .txt"
         return "ser/parameter.txt";
     }
+
+    /**
+     * Read Object from File and import as this store's object class.
+     *
+     * @param o Object
+     */
 
     @Override
     public void importObject(Object o) {

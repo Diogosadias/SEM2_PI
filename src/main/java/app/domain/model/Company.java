@@ -116,8 +116,6 @@ public class Company {
         stores.add(testTypeStore);
         this.sampleStore = new SampleStore();
         stores.add(sampleStore);
-
-
     }
 
     public static void generateDailyTasks() {
@@ -133,6 +131,7 @@ public class Company {
      *
      * @return company's designation
      */
+
     public String getDesignation() {
         return designation;
     }
@@ -142,6 +141,7 @@ public class Company {
      *
      * @return company's AuthFacade
      */
+
     public AuthFacade getAuthFacade() {
         return authFacade;
     }
@@ -151,6 +151,7 @@ public class Company {
      *
      * @return ClinicalAnalysisLaboratory's store
      */
+
     public CALStore getCalStore() {
         return this.calStore;
     }
@@ -160,6 +161,7 @@ public class Company {
      *
      * @param calStore ClinicalAnalysisLaboratory's store
      */
+
     public void setCalStore(CALStore calStore) {
         this.calStore = calStore;
     }
@@ -169,6 +171,7 @@ public class Company {
      *
      * @return Createclient's store
      */
+
     public ClientStore getClientStore() {
         return clientStore;
     }
@@ -178,6 +181,7 @@ public class Company {
      *
      * @param clientStore CreateClient's store
      */
+
     public void setClientStore(ClientStore clientStore) {
         this.clientStore = clientStore;
     }
@@ -187,6 +191,7 @@ public class Company {
      *
      * @return ParameterCategory's store
      */
+
     public ParameterCategoryStore getParameterCategoryStore() {
         return parameterCategoryStore;
     }
@@ -196,6 +201,7 @@ public class Company {
      *
      * @param parameterCategoryStore ParameterCategory's store
      */
+
     public void setParameterCategoryStore(ParameterCategoryStore parameterCategoryStore) {
         this.parameterCategoryStore = parameterCategoryStore;
     }
@@ -205,6 +211,7 @@ public class Company {
      *
      * @return SpecifyNewTest's store
      */
+
     public TestTypeStore getTestTypeStore() {
         return this.testTypeStore;
     }
@@ -224,6 +231,7 @@ public class Company {
      *
      * @return Employee's store
      */
+
     public EmployeeStore getEmployeeStore() {
         return employeeStore;
     }
@@ -233,6 +241,7 @@ public class Company {
      *
      * @param employeeStore Employee's store
      */
+
     public void setEmployeeStore(EmployeeStore employeeStore) {
         this.employeeStore = employeeStore;
     }
@@ -242,6 +251,7 @@ public class Company {
      *
      * @return Parameter's store
      */
+
     public ParameterStore getParameterStore() {
         return parameterStore;
     }
@@ -305,6 +315,12 @@ public class Company {
     public void setSampleStore(SampleStore sampleStore) {
         this.sampleStore = sampleStore;
     }
+
+    /**
+     * Return the List's store.
+     *
+     * @return List
+     */
 
     public List getListStores () {
         if(stores.isEmpty()) throw new IllegalArgumentException("Store list is empty");

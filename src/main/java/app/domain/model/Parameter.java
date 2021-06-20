@@ -7,6 +7,7 @@ import java.io.Serializable;
  *
  * @author Márcio Ramos <1201682@isep.ipp.pt>
  */
+
 public class Parameter implements Serializable {
 
     /**
@@ -37,12 +38,20 @@ public class Parameter implements Serializable {
      * @param description parameter's description
      * @param category parameter's category
      */
+
     public Parameter(String code, String name, String description, String category){
         this.code= code;
         this.name= name;
         this.description= description;
         this.category= category;
     }
+
+    /**
+     * Constructor Parameter with the code  and the category.
+     *
+     * @param code Parameter's code
+     * @param category Parameter's category
+     */
 
     public Parameter(String code, String category){
         this.code= code;
@@ -54,6 +63,7 @@ public class Parameter implements Serializable {
      *
      * @return parameter's code
      */
+
     public String getCode(){return code;}
 
     /**
@@ -61,6 +71,7 @@ public class Parameter implements Serializable {
      *
      * @return parameter's name
      */
+
     public String getName(){return name;}
 
     /**
@@ -68,6 +79,7 @@ public class Parameter implements Serializable {
      *
      * @return parameter's description
      */
+
     public String getDescription(){return description;}
 
     /**
@@ -75,6 +87,7 @@ public class Parameter implements Serializable {
      *
      * @return parameter's category
      */
+
     public String getCategory(){return category;}
 
     /**
@@ -82,6 +95,7 @@ public class Parameter implements Serializable {
      *
      * @param code parameter's code
      */
+
     public void setCode(String code){this.code=code;}
 
     /**
@@ -89,6 +103,7 @@ public class Parameter implements Serializable {
      *
      * @param name paraemter's name
      */
+
     public void setName(String name){this.name=name;}
 
     /**
@@ -96,6 +111,7 @@ public class Parameter implements Serializable {
      *
      * @param description parameter's description
      */
+
     public void setDescription(String description){this.description=description;}
 
     /**
@@ -103,6 +119,7 @@ public class Parameter implements Serializable {
      *
      * @param category parameter's category
      */
+
     public void setCategory(String category){this.category=category;}
 
     /**
@@ -110,6 +127,7 @@ public class Parameter implements Serializable {
      *
      * @return parameter's features
      */
+
     @Override
     public String toString() {
         return "Parameter{" +
@@ -119,5 +137,4 @@ public class Parameter implements Serializable {
                 ", category='"+ category + '\''+
                 '}';
     }
-
 }

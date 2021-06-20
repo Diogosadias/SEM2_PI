@@ -1,7 +1,6 @@
 package app.domain.model;
 
 import app.domain.dto.EmployeeDto;
-
 import java.io.Serializable;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -33,6 +32,7 @@ public class OrgRole implements Serializable {
      * @param id role's id
      * @param designation role's designation
      */
+
     public OrgRole(String id,String designation) {
         if(id == null || designation == null) {
             throw new IllegalArgumentException("Error: at least one of the attributes of OrgRole is null.");
@@ -46,6 +46,7 @@ public class OrgRole implements Serializable {
      *
      * @return role's designation
      */
+
     public String getDesignation() {
         return designation;
     }
@@ -55,6 +56,7 @@ public class OrgRole implements Serializable {
      *
      * @return role's id
      */
+
     public String getId() {
         return id;
     }
@@ -64,6 +66,7 @@ public class OrgRole implements Serializable {
      *
      * @param designation role's designation
      */
+
     public void setDesignation(String designation) {
         this.designation = designation;
     }
@@ -73,6 +76,7 @@ public class OrgRole implements Serializable {
      *
      * @param id role's id
      */
+
     public void setId(String id) {
         this.id = id;
     }
@@ -84,6 +88,7 @@ public class OrgRole implements Serializable {
      *
      * @return Employee
      */
+
     public Employee createEmployee (EmployeeDto dto) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
         return initiateEmployeeClass(dto);
     }
@@ -117,6 +122,7 @@ public class OrgRole implements Serializable {
      *
      * @return true or false
      */
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -130,6 +136,7 @@ public class OrgRole implements Serializable {
      *
      * @return Object.hash
      */
+
     @Override
     public int hashCode() {
         return Objects.hash(designation, id);
@@ -140,6 +147,7 @@ public class OrgRole implements Serializable {
      *
      * @return role's features
      */
+
     @Override
     public String toString() {
         return "OrgRole{" +
@@ -147,6 +155,4 @@ public class OrgRole implements Serializable {
                 ", designation='" + designation + '\'' +
                 '}';
     }
-
-
 }

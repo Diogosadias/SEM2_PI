@@ -7,6 +7,7 @@ import java.io.Serializable;
  *
  * @author Tiago Rocha <1181445@isep.ipp.pt>
  */
+
 public class LaboratoryCoordinator extends Employee implements Serializable {
 
     /**
@@ -33,5 +34,4 @@ public class LaboratoryCoordinator extends Employee implements Serializable {
     public LaboratoryCoordinator(Employee employee) {
         super (employee.getRole(), employee.getEmployeeId(), employee.getName(), employee.getAddress(), employee.getPhoneNumber(), employee.getSocCode());
     }
-
 }

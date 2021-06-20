@@ -38,6 +38,7 @@ public class CALStore {
         }
         return new CAL(labId, labName, phoneNumber, address, tin, answer);
     }
+
     /**
      * Validates CAL attributes for business model rules.
      *
@@ -45,6 +46,7 @@ public class CALStore {
      *
      * @return boolean
      */
+
     public boolean validateCAL(CAL cal){
         if(cal!=null) {
             if (!this.calList.isEmpty()) {
@@ -59,6 +61,7 @@ public class CALStore {
         }
         return false;
     }
+
     /**
      * Saves the new CAL.
      *
@@ -66,6 +69,7 @@ public class CALStore {
      *
      * @return boolean
      */
+
     public boolean saveCAL(CAL cal){
         if(!validateCAL(cal))
             return false;

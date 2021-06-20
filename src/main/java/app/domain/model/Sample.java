@@ -5,7 +5,6 @@ import net.sourceforge.barbecue.BarcodeException;
 import net.sourceforge.barbecue.BarcodeFactory;
 import net.sourceforge.barbecue.BarcodeImageHandler;
 import net.sourceforge.barbecue.output.OutputException;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
@@ -60,7 +59,6 @@ public class Sample  implements Serializable {
             this.jpegPath="Sample_" + id;
         }
         BarcodeImageHandler.saveJPEG(sampleBarcode, barcodeJPEG);
-
     }
 
     /**
@@ -72,5 +70,4 @@ public class Sample  implements Serializable {
     public Barcode getSampleBarcode(){
         return this.sampleBarcode;
     }
-
 }

@@ -14,6 +14,9 @@ import java.util.List;
 
 public class SampleStore extends Store{
 
+    /**
+     * The Sample.
+     */
     private Sample sample;
 
     /**
@@ -85,6 +88,12 @@ public class SampleStore extends Store{
         return this.sampleList;
     }
 
+    /**
+     * Return the List's store.
+     *
+     * @return List
+     */
+
     @Override
     public List getListObjects() {
         //Change list of objects in Store to a List Object
@@ -95,11 +104,23 @@ public class SampleStore extends Store{
         return list;
     }
 
+    /**
+     * Get the name of the file.
+     *
+     * @return File's name
+     */
+
     @Override
     public String getFileName() {
         // Path - "Folder: ser" / "File Name: this store's object class" "Suffix: .txt"
         return "ser/sample.txt";
     }
+
+    /**
+     * Read Object from File and import as this store's object class.
+     *
+     * @param o Object
+     */
 
     @Override
     public void importObject(Object o) {

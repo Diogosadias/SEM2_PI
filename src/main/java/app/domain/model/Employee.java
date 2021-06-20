@@ -1,12 +1,9 @@
 package app.domain.model;
 
 import app.domain.dto.EmployeeDto;
-
 import java.io.Serializable;
 import java.util.Objects;
-
 import static app.domain.shared.Constants.EMAIL_SUFIX;
-
 
 /**
  * This domain class allows to build an instance of employee.
@@ -14,6 +11,7 @@ import static app.domain.shared.Constants.EMAIL_SUFIX;
  * @author Bruno Pereira <1191454@isep.ipp.pt>
  * @author Tiago Rocha <1181445@isep.ipp.pt>
  */
+
 public class Employee implements Serializable {
 
     /**
@@ -109,6 +107,7 @@ public class Employee implements Serializable {
      *
      * @param num employee's phone number
      */
+
     private void checkNumDigits (long num) {
         String temp = String.valueOf(num);
         if ( temp.length() < 11 || temp.length() > 11)
@@ -119,6 +118,7 @@ public class Employee implements Serializable {
      * Check if the id it's within the rules.
      * @param employeeId employee's id
      */
+
     private void checkEmployedID(String employeeId){
         if (employeeId.length() == 0)
             throw new IllegalArgumentException("Employee Id cannot be blank.");
@@ -130,6 +130,7 @@ public class Employee implements Serializable {
      *
      * @param name employee's name
      */
+
     private void checkName(String name){
         if (name.length() == 0)
             throw new IllegalArgumentException("Name cannot be blank.");
@@ -141,6 +142,7 @@ public class Employee implements Serializable {
      *
      * @param address employee's address
      */
+
     private void checkAddress(String address){
         if (address.length() == 0)
             throw new IllegalArgumentException("Address cannot be blank.");
@@ -152,6 +154,7 @@ public class Employee implements Serializable {
      *
      * @param socCode employee's standard occupational code
      */
+
     private void checkSOCode(String socCode){
         if (socCode.length() == 0)
             throw new IllegalArgumentException("SOC cannot be blank.");
@@ -165,6 +168,7 @@ public class Employee implements Serializable {
      *
      * @return email or null
      */
+
     public String generateEmail(String id) {
         if(id!=null) {
             return id + "" + EMAIL_SUFIX;
@@ -177,6 +181,7 @@ public class Employee implements Serializable {
      *
      * @return employee's id
      */
+
     public String getEmployeeId() {
         return employeeId;
     }
@@ -186,6 +191,7 @@ public class Employee implements Serializable {
      *
      * @return employee's role
      */
+
     public OrgRole getRole() {
         return role;
     }
@@ -195,6 +201,7 @@ public class Employee implements Serializable {
      *
      * @return employee's name
      */
+
     public String getName() {
         return name;
     }
@@ -204,6 +211,7 @@ public class Employee implements Serializable {
      *
      * @return employee's address
      */
+
     public String getAddress() {
         return address;
     }
@@ -213,6 +221,7 @@ public class Employee implements Serializable {
      *
      * @return employee's phone number
      */
+
     public long getPhoneNumber() {
         return phoneNumber;
     }
@@ -222,6 +231,7 @@ public class Employee implements Serializable {
      *
      * @return employee's socCode
      */
+
     public String getSocCode() {
         return socCode;
     }
@@ -231,6 +241,7 @@ public class Employee implements Serializable {
      *
      * @return employee's email
      */
+
     public String getEmail() {
         return email;
     }
@@ -240,6 +251,7 @@ public class Employee implements Serializable {
      *
      * @param employeeId employee's id
      */
+
     public void setEmployeeId(String employeeId) {
         this.employeeId = employeeId;
     }
@@ -249,6 +261,7 @@ public class Employee implements Serializable {
      *
      * @param role employee's role
      */
+
     public void setRole(OrgRole role) {
         this.role = role;
     }
@@ -258,6 +271,7 @@ public class Employee implements Serializable {
      *
      * @param name employee's name
      */
+
     public void setName(String name) {
         this.name = name;
     }
@@ -267,6 +281,7 @@ public class Employee implements Serializable {
      *
      * @param address employee's address
      */
+
     public void setAddress(String address) {
         this.address = address;
     }
@@ -276,6 +291,7 @@ public class Employee implements Serializable {
      *
      * @param phoneNumber employee's phone number
      */
+
     public void setPhoneNumber(long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
@@ -285,6 +301,7 @@ public class Employee implements Serializable {
      *
      * @param socCode employee's standard occupational code
      */
+
     public void setSocCode(String socCode) {
         this.socCode = socCode;
     }
@@ -294,6 +311,7 @@ public class Employee implements Serializable {
      *
      * @param email employee's email
      */
+
     public void setEmail(String email) {
         this.email = email;
     }
@@ -306,6 +324,7 @@ public class Employee implements Serializable {
      *
      * @return true or false
      */
+
     @Override
     public boolean equals(Object o) {
         if(o!=null){
@@ -321,6 +340,7 @@ public class Employee implements Serializable {
      *
      * @return Object.hash
      */
+
     @Override
     public int hashCode() {
         return Objects.hash(role, name, address, phoneNumber, socCode);
@@ -331,6 +351,7 @@ public class Employee implements Serializable {
      *
      * @return employee's features
      */
+
     @Override
     public String toString() {
         return
