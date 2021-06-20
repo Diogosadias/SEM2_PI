@@ -1,6 +1,7 @@
 package app.domain.model;
 
 import app.domain.dto.TestTypeDto;
+import app.domain.shared.Constants;
 import auth.AuthFacade;
 import auth.domain.model.Email;
 import net.sourceforge.barbecue.BarcodeException;
@@ -171,9 +172,7 @@ public class TestStoreTest {
         Sample s = new Sample("1111");
         ts.addTest(t);
         ts.addSampleToTest(s);
-
-
-
+        assertFalse(ts.getTest().getListSamples().isEmpty());
     }
 
     @Test
@@ -245,18 +244,35 @@ public class TestStoreTest {
 
     @Test
     public void getTests() {
+        ts.addTest(this.t);
+        ts.getTest().setNhsCode("123456789012");
+        assertFalse(ts.getTests(Constants.REGISTERED).isEmpty());
+        assertEquals(1, ts.getTests(Constants.REGISTERED).size());
     }
 
     @Test
     public void setTest() {
+        ts.setTest(this.t);
+        assertEquals(ts.getTest().getCode(), t.getCode());
     }
 
     @Test
     public void getTest() {
+        ts.setTest(this.t);
+        assertEquals(ts.getTest(), t);
     }
 
     @Test
     public void getTestByCode() {
+        ts.setCompany(company);
+        company.getTestTypeStore().addTestType(this.testType);
+        company.getClientStore().setClientList(this.c1);
+        ts.checkRegisteredClient(this.c1.getTin());
+        ts.newTest(testType.getCode());
+        ts.getTest().setNhsCode("123456789012");
+        ts.saveTest();
+
+        assertEquals(ts.getTestByCode(ts.getTest().getCode()), ts.getTest());
     }
 
     @Test
