@@ -3,6 +3,8 @@ package app.domain.model;
 import app.domain.dto.EmployeeDto;
 import java.io.Serializable;
 import java.util.Objects;
+
+import static app.domain.shared.Constants.DIGITS_PHONE_NUM;
 import static app.domain.shared.Constants.EMAIL_SUFIX;
 
 /**
@@ -110,8 +112,8 @@ public class Employee implements Serializable {
 
     private void checkNumDigits (long num) {
         String temp = String.valueOf(num);
-        if ( temp.length() < 11 || temp.length() > 11)
-            throw new IllegalArgumentException("Phone Number must have 11 chars.");
+        if ( temp.length() < DIGITS_PHONE_NUM || temp.length() > DIGITS_PHONE_NUM)
+            throw new IllegalArgumentException("Phone Number must have "+DIGITS_PHONE_NUM+" chars.");
     }
 
     /**
