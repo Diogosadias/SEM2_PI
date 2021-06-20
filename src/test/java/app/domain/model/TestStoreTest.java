@@ -2,8 +2,11 @@ package app.domain.model;
 
 import auth.AuthFacade;
 import auth.domain.model.Email;
+import net.sourceforge.barbecue.BarcodeException;
+import net.sourceforge.barbecue.output.OutputException;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -100,27 +103,80 @@ public class TestStoreTest {
     }
 
     @Test
-    public void addSampleToTest() {
+    public void addSampleToTest() throws OutputException, BarcodeException, IOException {
+        Sample s = new Sample("1111");
+        ts.addTest(t);
+        ts.addSampleToTest(s);
+
+
+
     }
 
     @Test
     public void getRegisteredTests() {
+        t.setNhsCode("123456789000");
+        ts.addTest(t);
+
+        assertEquals(ts.getTest().hasCondition("Registered"),true);
+        assertEquals(ts.getTest().hasCondition("Sample Collected"), false);
+        assertEquals(ts.getTest().hasCondition("Sample Analysed"), false);
+        assertEquals(ts.getTest().hasCondition("Diagnosis Made"), false);
+        assertEquals(ts.getTest().hasCondition("Validated"), false);
     }
 
     @Test
-    public void getSampleCollectedTests() {
+    public void getSampleCollectedTests() throws OutputException, BarcodeException, IOException {
+
+        Sample s = new Sample("1111");
+        t.addSample(s);
+
+        assertEquals(t.hasCondition("Sample Collected"), true);
+        assertEquals(t.hasCondition("Registered"), false);
+        assertEquals(t.hasCondition("Sample Analysed"), false);
+        assertEquals(t.hasCondition("Diagnosis Made"), false);
+        assertEquals(t.hasCondition("Validated"), false);
+
     }
 
     @Test
     public void getSampleAnalysisTests() {
+        t.addResultToList();
+
+        assertEquals(t.hasCondition("Sample Collected"), false);
+        assertEquals(t.hasCondition("Registered"), false);
+        assertEquals(t.hasCondition("Sample Analysed"), true);
+        assertEquals(t.hasCondition("Diagnosis Made"), false);
+        assertEquals(t.hasCondition("Validated"), false);
+
+
     }
 
     @Test
     public void getDiagnosedTests() {
+
+        t.testDiagnosisCompleted();
+
+
+        assertEquals(t.hasCondition("Sample Collected"), false);
+        assertEquals(t.hasCondition("Registered"), false);
+        assertEquals(t.hasCondition("Sample Analysed"), false);
+        assertEquals(t.hasCondition("Diagnosis Made"), true);
+        assertEquals(t.hasCondition("Validated"), false);
+
+
     }
 
     @Test
     public void getValidatedTests() {
+
+        t.isValidated();
+
+        assertEquals(t.hasCondition("Sample Collected"), false);
+        assertEquals(t.hasCondition("Registered"), false);
+        assertEquals(t.hasCondition("Sample Analysed"), false);
+        assertEquals(t.hasCondition("Diagnosis Made"), false);
+        assertEquals(t.hasCondition("Validated"), true);
+
     }
 
     @Test
