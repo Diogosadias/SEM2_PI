@@ -96,15 +96,15 @@ public class EmployeeStoreTest  {
         System.out.println("GenerateEmployeeId");
         String expResult = new GenerateEmployeeId(e1.getName(),es.getNumEmployees()).getId();
         String result = "N00001";
-        assertEquals(expResult, result);    
+        assertEquals(expResult, result);
     }
 
     @Test
-    public void testGetNumEmployees() {     
-        System.out.println("GetNumEmployees");   
+    public void testGetNumEmployees() {
+        System.out.println("GetNumEmployees");
         int expResult = 0;
         int result = es.getNumEmployees();
-        assertEquals(expResult, result);    
+        assertEquals(expResult, result);
     }
 
  /*  @Test
@@ -117,7 +117,7 @@ public class EmployeeStoreTest  {
     }
 */
     @Test
-    public void testValidateEmployee() {                
+    public void testValidateEmployee() {
         System.out.println("ValidateEmployee");
         boolean b = es.validateEmployee(e1);
         assertEquals(true,b);
@@ -129,8 +129,8 @@ public class EmployeeStoreTest  {
     }
 
     @Test
-    public void testSaveEmployee() {       
-        System.out.println("SaveEmployee");    
+    public void testSaveEmployee() {
+        System.out.println("SaveEmployee");
         boolean b = es.saveEmployee();
         assertEquals(false,b);
         //Correct Later
@@ -183,6 +183,15 @@ public class EmployeeStoreTest  {
         assertNotSame(expResult, result);
     }
 
+    @Test
+    public void testGetEmployee() {
+        System.out.println("getEmployee");
+        EmployeeStore instance = es;
+        Employee expResult = e1;
+        Employee result = instance.getEmployee();
+        assertEquals(expResult, result);
+    }
+
     /**
      * Test of getEmployeeToString method, of class EmployeeStore.
      */
@@ -196,6 +205,10 @@ public class EmployeeStoreTest  {
                 "[id: N00001]\n" +
                 "[Phone Number: 12312312312]\n" +
                 "[Soc code: soc]\n";
+        if(instance.getEmployee().getRole().getId().equals(SPECIALIST_DOCTOR)) {
+            SpecialistDoctor temp = (SpecialistDoctor)instance.getEmployee();
+            expResult = expResult + "[Doctor Index Number: " + temp.getDoctorIndexNumber() + "]\n" + "";
+        }
         String result = instance.getEmployeeToString();
         assertEquals(expResult, result);
     }
@@ -209,6 +222,27 @@ public class EmployeeStoreTest  {
         EmployeeStore instance = es;
         List expResult = new ArrayList<>();
         List result = instance.getEmployeesToShow();
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testGetFileName() {
+        System.out.println("GetFileName");
+        EmployeeStore instance = es;
+        String expResult = "ser/employee.txt";
+        String result = instance.getFileName();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of getRoleStore method, of class EmployeeStore.
+     */
+    @Test
+    public void testGetListObjects() {
+        System.out.println("GetListObjects");
+        EmployeeStore instance = es;
+        OrgRoleStore expResult = ors;
+        OrgRoleStore result = instance.getRoleStore();
         assertEquals(expResult, result);
     }
 }

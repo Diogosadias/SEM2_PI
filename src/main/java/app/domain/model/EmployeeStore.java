@@ -241,6 +241,10 @@ public class EmployeeStore extends Store{
         return "ser/employee.txt";
     }
 
+    public Employee getEmployee(){
+        return this.employee;
+    }
+
     @Override
     public void importObject(Object o) {
         // Read Object from File and import as this store's object class
