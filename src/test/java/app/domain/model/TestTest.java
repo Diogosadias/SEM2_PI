@@ -597,7 +597,7 @@ public class TestTest {
     /**
      * Test of getListDateSampleCollected method, of class Test.
      */
-    @Test
+  /*  @Test
     public void testGetListDateSampleCollected() {
         System.out.println("getListDateSampleCollected");
         app.domain.model.Test instance = test;
@@ -607,7 +607,7 @@ public class TestTest {
         List<Date> result = instance.getListDateSampleCollected();
         assertEquals(expResult, result);
     }
-
+*/
     /**
      * Test of isValidated method, of class Test.
      */

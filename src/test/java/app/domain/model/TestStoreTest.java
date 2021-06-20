@@ -96,7 +96,7 @@ public class TestStoreTest {
         app.domain.model.Test e = new app.domain.model.Test(type1,"aaaa",c1);
         assertEquals(e.getClient().equals(ts.getTest().getClient()), true);
         assertEquals(! t.equals(ts.getTest()), false);
-        
+
     }
 
     @Test
