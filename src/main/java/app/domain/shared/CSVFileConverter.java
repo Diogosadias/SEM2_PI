@@ -79,11 +79,13 @@ public class CSVFileConverter {
                     int count = 0;
                     String [] temp = new String[header.length];
                     if(header[i].equals("Category") && !line[i].equals("NA") && !line[i+1].equals("NA")){
+                        i++;
                         while(!line[i].equals("NA") && checkParameter(header[i])){
                             temp[count] = header[i];
                             count++;
                             temp[count] = line[i];
                             count++;
+                            i++;
                         }
                         parameters.add(temp);
                     }
@@ -142,7 +144,7 @@ public class CSVFileConverter {
                 }
 
             }catch (IllegalArgumentException | NullPointerException e) {
-                throw new IllegalArgumentException("line " + (file.indexOf(line) + 2) + " - " + line[0] + " has invalid data.\n");
+                System.out.println("line " + (file.indexOf(line) + 2) + " - " + line[0] + " has invalid data.");
             }
 
         }

@@ -122,7 +122,7 @@ public class Company {
         try {
             new DailyNhsReportController().runDailyNhsReportTask();
         } catch (FileNotFoundException | NullPointerException e) {
-            e.printStackTrace();
+
         }
     }
 

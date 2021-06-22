@@ -11,25 +11,18 @@
   <component name="ChangeListManager">
     <list default="true" id="1be02503-aab3-4684-a64b-ad76e3f11afd" name="Default Changelist" comment="Renamed the file &quot;CovidReportToNHS.fxml&quot; to &quot;CovidReportToNHSGUI.fxml&quot; and the file &quot;CovidReportToNHSUI.java&quot; to &quot;CovidReportToNHSGUI.java&quot;.&#10;Changes to the files &quot;Styles.css&quot;, &quot;CovidReportToNHSGUI.fxml&quot;, &quot;CovidReportToNHSGUI.java&quot;, LoginGUI.fxml, AdminGUI.java, ClientGUI.java, ClinicalChemicalTechnologistGUI.java, LabCoordinatorGUI.java, LoginGUI.java, MainMenuGUI.java, MedLabTechnicianGUI.java, ReceptionistGUI.java, SpecialistDoctorGUI.java.&#10;[Sprint D][Implementation]">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DailyNHSReport.txt" beforeDir="false" afterPath="$PROJECT_DIR$/DailyNHSReport.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sem2App.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Sem2App.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/covidreport.txt" beforeDir="false" afterPath="$PROJECT_DIR$/covidreport.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/covidreportconfigs.csv" beforeDir="false" afterPath="$PROJECT_DIR$/covidreportconfigs.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/SprintD/US18/US18-MD.vpp" beforeDir="false" afterPath="$PROJECT_DIR$/docs/SprintD/US18/US18-MD.vpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ser/client.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ser/client.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ser/employee.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ser/employee.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ser/report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ser/report.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ser/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ser/test.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ser/user.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ser/user.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/controller/RegisterTestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controller/RegisterTestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/ui/console/RecordSampleUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/ui/console/RecordSampleUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/ui/gui/AdminGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/ui/gui/AdminGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/ui/gui/ClientGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/ui/gui/ClientGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/ui/gui/ClientResultViewGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/ui/gui/ClientResultViewGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/ui/gui/ClinicalChemicalTechnologistGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/ui/gui/ClinicalChemicalTechnologistGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/ui/gui/CovidReportToNHSGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/ui/gui/CovidReportToNHSGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/ui/gui/LabCoordinatorGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/ui/gui/LabCoordinatorGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/ui/gui/LoginGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/ui/gui/LoginGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/ui/gui/MainMenuGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/ui/gui/MainMenuGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/ui/gui/MedLabTechnicianGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/ui/gui/MedLabTechnicianGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/ui/gui/ReceptionistGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/ui/gui/ReceptionistGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/ui/gui/SpecialistDoctorGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/ui/gui/SpecialistDoctorGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/utils/fx/FXUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/utils/fx/FXUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/controller/CovidNhsReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controller/CovidNhsReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/controller/DailyNhsReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controller/DailyNhsReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/domain/model/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/domain/model/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/domain/shared/CSVFileConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/domain/shared/CSVFileConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/domain/shared/Reminder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/domain/shared/Reminder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,8 +32,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit4 Test Class" />
         <option value="Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -67,6 +60,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/fxml" />
@@ -87,6 +82,7 @@
       <recent name="C:\Users\Márcio\OneDrive - Instituto Superior de Engenharia do Porto\LEI\Projeto Integrador\out\artifacts\Sem2App_jar" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="app.domain.shared" />
       <recent name="app.domain.model" />
     </key>
   </component>
@@ -94,7 +90,7 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.ui.Main" />
       <module name="Sem2App" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Márcio\OneDrive - Instituto Superior de Engenharia do Porto\LEI\javafx-sdk-11.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path C:\Users\rocha\IdeaProjects\javafx-sdk-11.0.2\lib --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="app.ui.*" />
@@ -105,17 +101,49 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ChemistryTechnologistTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CSVFileConverterTest.convertToObject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sem2App" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="app.domain.model.*" />
+          <option name="PATTERN" value="app.domain.shared.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="app.domain.model" />
-      <option name="MAIN_CLASS_NAME" value="app.domain.model.ChemistryTechnologistTest" />
+      <option name="PACKAGE_NAME" value="app.domain.shared" />
+      <option name="MAIN_CLASS_NAME" value="app.domain.shared.CSVFileConverterTest" />
+      <option name="METHOD_NAME" value="convertToObject" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CovidReportMapperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sem2App" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.domain.shared.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="app.domain.shared" />
+      <option name="MAIN_CLASS_NAME" value="app.domain.shared.CovidReportMapperTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CovidReportMapperTest.setN" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sem2App" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.domain.shared.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="app.domain.shared" />
+      <option name="MAIN_CLASS_NAME" value="app.domain.shared.CovidReportMapperTest" />
+      <option name="METHOD_NAME" value="setN" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -135,52 +163,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestTest.checkParametersToString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Sem2App" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="app.domain.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="app.domain.model" />
-      <option name="MAIN_CLASS_NAME" value="app.domain.model.TestTest" />
-      <option name="METHOD_NAME" value="checkParametersToString" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestTest.checkToString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Sem2App" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="app.domain.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="app.domain.model" />
-      <option name="MAIN_CLASS_NAME" value="app.domain.model.TestTest" />
-      <option name="METHOD_NAME" value="checkToString" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.ChemistryTechnologistTest" />
+      <item itemvalue="JUnit.CovidReportMapperTest" />
+      <item itemvalue="JUnit.CovidReportMapperTest.setN" />
+      <item itemvalue="JUnit.CSVFileConverterTest.convertToObject" />
       <item itemvalue="JUnit.TestTest" />
-      <item itemvalue="JUnit.TestTest.checkParametersToString" />
-      <item itemvalue="JUnit.TestTest.checkToString" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.TestTest.checkToString" />
+        <item itemvalue="JUnit.CSVFileConverterTest.convertToObject" />
         <item itemvalue="JUnit.TestTest" />
-        <item itemvalue="JUnit.TestTest.checkParametersToString" />
-        <item itemvalue="JUnit.ChemistryTechnologistTest" />
+        <item itemvalue="JUnit.CovidReportMapperTest" />
+        <item itemvalue="JUnit.CovidReportMapperTest.setN" />
       </list>
     </recent_temporary>
   </component>
@@ -197,6 +193,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1622129053071</updated>
+      <workItem from="1624025975063" duration="7627000" />
+      <workItem from="1624038210305" duration="285000" />
+      <workItem from="1624044323938" duration="975000" />
+      <workItem from="1624059498967" duration="634000" />
+      <workItem from="1624115418721" duration="351000" />
+      <workItem from="1624116251954" duration="5483000" />
+      <workItem from="1624129833010" duration="3549000" />
+      <workItem from="1624196772813" duration="12776000" />
+      <workItem from="1624349660057" duration="2874000" />
+      <workItem from="1624352571324" duration="19000" />
+      <workItem from="1624353462754" duration="4557000" />
     </task>
     <task id="LOCAL-00001" summary="Changes to &quot;SpecifyNewTestTypeController&quot;, &quot;DeleteTypeTestUI&quot;, &quot;ListTypeTestUI&quot;, &quot;SpecifyNewTestTypeUI&quot;, &quot;SpecifyNewTestTypeControllerTest&quot;&#10;[UC-09][Code Implementation]">
       <created>1622148202327</created>
@@ -411,7 +418,19 @@
     <option name="localTasksCounter" value="31" />
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
@@ -447,7 +466,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/app/controller/CreateClientController.java</url>
-          <line>70</line>
+          <line>73</line>
           <properties class="app.controller.CreateClientController" method="saveClient">
             <option name="EMULATED" value="true" />
           </properties>
@@ -458,6 +477,21 @@
           <line>6</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/app/ui/gui/CovidReportToNHSGUI.java</url>
+          <line>115</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/app/ui/console/ListValidateTestsUI.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/app/domain/shared/CSVFileConverter.java</url>
+          <line>182</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -465,12 +499,12 @@
     <SUITE FILE_PATH="coverage/US_5_md$ChemistryTechnologistTest.ic" NAME="ChemistryTechnologistTest Coverage Results" MODIFIED="1622328262857" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>app.domain.model.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/US_5_md$SpecialistDoctorTest.ic" NAME="SpecialistDoctorTest Coverage Results" MODIFIED="1622326870002" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>app.domain.model.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/US_5_md$All_in_Sem2App.ic" NAME="All in Sem2App Coverage Results" MODIFIED="1621784942747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/US_5_md$Main.ic" NAME="Main Coverage Results" MODIFIED="1621704288703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>app.ui.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/US_5_md$SpecialistDoctorTest.ic" NAME="SpecialistDoctorTest Coverage Results" MODIFIED="1622326870002" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>app.domain.model.*</FILTER>
     </SUITE>
   </component>
 </project>

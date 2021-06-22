@@ -1,6 +1,8 @@
 package app.domain.shared;
 
 import com.nhs.report.Report2NHS;
+
+import java.io.FileNotFoundException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Timer;
@@ -22,16 +24,16 @@ public class Reminder {
         cal.set(Calendar.MINUTE,0);
         cal.set(Calendar.SECOND,0);
         Date time = cal.getTime();
-
         Timer count = new Timer();
         count.schedule(new RemindTask(), time);
         System.out.println("Daily Nhs Report sent!");
+
     }
 
     class RemindTask extends TimerTask {
         public void run() {
 
-             Report2NHS reportnhs = new Report2NHS();
+            Report2NHS reportnhs = new Report2NHS();
             reportnhs.writeUsingFileWriter(data);
             timer.cancel(); //Terminate the timer thread
         }

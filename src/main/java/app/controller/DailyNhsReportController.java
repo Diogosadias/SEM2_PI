@@ -37,8 +37,8 @@ public class DailyNhsReportController {
                 double alpha = round(1 - (Double.valueOf(sign)/(double)100),2);
                 if(mapper.startNewReport(initialDate,finalDate,histPoints,alpha)){
                     data = mapper.getData();
-                    //dailytask(data);
-                    new Reminder(data);
+                    dailytask(data);
+                    //new Reminder(data);
                 }
                 else {
                     System.out.println("Problem sending daily Nhs Report.");
